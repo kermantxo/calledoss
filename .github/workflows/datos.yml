@@ -56,4 +56,5 @@ jobs:
           python -m pipeline.run "$MODE"
 
       - name: Guardar cambios en la rama datos
-        run: bash .github/scripts/push-datos.sh "datos: ${{ github.event.inputs.mode || 'automático' }}"
+        run: |
+          bash .github/scripts/push-datos.sh "datos - ${{ github.event.inputs.mode || 'automático' }}"
