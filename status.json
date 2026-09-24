@@ -79,9 +79,24 @@
    "last_ok": "2026-09-24T18:10:17+02:00",
    "fails_in_a_row": 0,
    "last_count": 6
+  },
+  "backfill": {
+   "label": "Carga histórica de resultados 2026",
+   "last_run": "2026-09-24T18:13:51+02:00",
+   "ok": false,
+   "last_error": "TypeError: 'Health' object is not iterable",
+   "last_error_at": "2026-09-24T18:13:51+02:00",
+   "fails_in_a_row": 1
   }
  },
  "log": [
+  {
+   "at": "2026-09-24T18:13:51+02:00",
+   "level": "error",
+   "source": "backfill",
+   "msg": "TypeError: 'Health' object is not iterable",
+   "detail": "Traceback (most recent call last):\n  File \"/home/runner/work/calledoss/calledoss/pipeline/common.py\", line 212, in run\n    result = fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/backfill.py\", line 496, in run\n    todo = [it for it in items if START <= (it.get(\"end_date\") or it[\"date\"]) <= yesterday]\n                         ^^^^^\nTypeError: 'Health' object is not iterable\n"
+  },
   {
    "at": "2026-09-24T17:15:03+02:00",
    "level": "warning",
@@ -95,5 +110,5 @@
    "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xxx-quijote-maraton-maraton-popular-adad: HTTP 429 en https://atletismorfea.es/calendario/campeonato/xxx-quijote-maraton-maraton-popular-adad"
   }
  ],
- "updated": "2026-09-24T18:10:17+02:00"
+ "updated": "2026-09-24T18:13:51+02:00"
 }
