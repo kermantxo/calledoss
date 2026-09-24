@@ -33,7 +33,7 @@ from .common import load_json, norm, save_json, today, iso_now, clean, parse_dmy
 from .highlights import FIELD, _mark_value
 from .parsers import pdf_columns, pdf_results
 from .results import store, _index
-from .sources import rfea, rfealive, worldathletics, timers
+from .sources import rfea, rfealive, worldathletics, timers, sportmaniacs
 
 STATE = "state/backfill.json"
 MISSING = "results/sin_resultados.json"
@@ -442,6 +442,35 @@ class Finder:
                     pods.append({"name": name, "rounds": [{"round": "General", "final": True, "rows": r["rows"][:3]}]})
             if pods:
                 return pods, "Cronomancha", it["links"].get("resultados"), tried
+
+        # 6b. Sportmaniacs (carreras populares): enlace directo o búsqueda por nombre y fecha
+        if it.get("type") in ("Ruta", "Cross", "Trail", "Marcha", "Otras", "Internacional") or not it.get("type"):
+            slug = None
+            for v in links.values():
+                m = re.search(r"sportmaniacs\.com/\w+/races/([a-z0-9-]+)", v or "")
+                if m:
+                    slug = m.group(1)
+                    break
+            if not slug:
+                from .calendar_build import _tokens
+                words = sorted(_tokens(it["name"]), key=len, reverse=True)[:3]
+                if words:
+                    try:
+                        for r in sportmaniacs.search(self.http, " ".join(words)):
+                            if r.get("date") == it["date"] and similar(r.get("name", ""), it["name"]):
+                                slug = r["slug"]
+                                break
+                    except Exception:
+                        pass
+            if slug:
+                tried.append("Sportmaniacs %s" % slug)
+                try:
+                    pods = sportmaniacs.results(self.http, slug)
+                    if pods:
+                        return pods, "Sportmaniacs", "https://sportmaniacs.com/es/races/" + slug, tried
+                    tried[-1] += " (sin clasificaciones)"
+                except Exception as e:
+                    tried[-1] += " (error: %s)" % str(e)[:60]
 
         # 7. Web oficial / página de resultados → PDFs de clasificaciones
         pages = [links.get("resultados"), links.get("web")]
