@@ -36,6 +36,8 @@ from .results import store, _index
 from .sources import rfea, rfealive, worldathletics, timers, sportmaniacs, faalive
 
 STATE = "state/backfill.json"
+# Súbelo cuando se añadan fuentes o lectores nuevos: todo lo "sin resultados" se vuelve a intentar.
+VERSION = 3
 MISSING = "results/sin_resultados.json"
 START = "2026-01-01"
 COMBINED = re.compile(r"decatlon|heptatlon|pentatlon|hexatlon|octatlon|triatlon|tetratlon")
@@ -295,6 +297,13 @@ class Finder:
         self.state = load_json(STATE, {"done": {}, "pdf_cache": {}, "details": {}}) or {}
         for k in ("done", "pdf_cache", "details"):
             self.state.setdefault(k, {})
+        if self.state.get("version") != VERSION:
+            # lectores nuevos: se reintenta todo lo que no se encontró y se releen los PDFs
+            for d in self.state["done"].values():
+                if d.get("status") == "missing":
+                    d["tries"] = 0
+            self.state["pdf_cache"] = {k: v for k, v in self.state["pdf_cache"].items() if v.get("events")}
+            self.state["version"] = VERSION
         self._rl_index = None
         self._rfea_pdfs = None
         self._cm = None
