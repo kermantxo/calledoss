@@ -75,6 +75,8 @@ async function loadState(){
     renderManual(st.manual.items || []);
     renderPlan(st.plan || {});
     renderSources(st.status || {});
+    MISSING = (st.missing && st.missing.items) || [];
+    renderMissing();
   } catch(err){
     $('alerts').innerHTML = `<div class="panel-alert bad">No se pudo cargar el estado: ${esc(err.message)}</div>`;
   }
@@ -127,6 +129,23 @@ function renderSources(status){
     ? log.map(l => `<div class="panel-log ${l.level}"><span class="mono">${cuando(l.at)}</span> · <b>${esc(l.source)}</b> · ${esc(l.msg)}</div>`).join('')
     : '<p class="panel-help">Sin avisos.</p>';
 }
+
+let MISSING = [];
+function renderMissing(){
+  const q = ($('missingSearch').value || '').toLowerCase();
+  const list = MISSING.filter(x => !q || (x.name + ' ' + (x.place||'')).toLowerCase().includes(q));
+  if(!MISSING.length){ $('missingList').innerHTML = '<p class="panel-help">✅ Ninguna: todas las competiciones pasadas tienen resultados.</p>'; return; }
+  $('missingList').innerHTML = `<p class="panel-help"><b>${MISSING.length}</b> competiciones${q ? ` · ${list.length} coinciden con la búsqueda` : ''}.</p>` +
+    list.map(x=>`
+      <details class="panel-row" style="display:block;">
+        <summary style="cursor:pointer;"><b>${esc(x.name)}</b> <small>· ${esc(x.date)}${x.place ? ' · ' + esc(x.place) : ''} · ${esc(x.type || '')} · ${esc(x.source || '')}</small></summary>
+        <div style="margin-top:8px;">
+          ${Object.entries(x.links || {}).map(([k,v]) => `<a class="comp-pill" style="display:inline-block;margin:0 6px 6px 0;text-decoration:none;" href="${esc(v)}" target="_blank" rel="noopener">${esc(k)}</a>`).join('')}
+          ${(x.tried || []).length ? `<ul style="margin:6px 0 0 18px;color:var(--gray);font-size:14px;">${x.tried.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>` : '<p class="panel-help">No había ningún enlace de resultados que probar.</p>'}
+        </div>
+      </details>`).join('');
+}
+$('missingSearch').addEventListener('input', renderMissing);
 
 function alertBox(kind, msg){
   $('addMsg').className = 'panel-msg ' + kind;

@@ -34,12 +34,14 @@ export default {
         return json({ ok: true }, 200, cors);
       }
       if (url.pathname === "/api/state" && request.method === "GET") {
-        const [manual, status, plan] = await Promise.all([
+        const [manual, status, plan, missing] = await Promise.all([
           readFile(env, "manual.json"),
           readFile(env, "status.json"),
           readFile(env, "live_plan.json"),
+          readFile(env, "results/sin_resultados.json").catch(() => ({ data: null })),
         ]);
-        return json({ ok: true, manual: manual.data || { items: [] }, status: status.data || {}, plan: plan.data || {} }, 200, cors);
+        return json({ ok: true, manual: manual.data || { items: [] }, status: status.data || {}, plan: plan.data || {},
+                      missing: missing.data || { items: [] } }, 200, cors);
       }
       if (url.pathname === "/api/manual" && request.method === "POST") {
         const body = await request.json().catch(() => ({}));

@@ -200,8 +200,8 @@ def parse_international(pages, keep_nat="ESP"):
     return out
 
 
-def parse(content):
-    pages = extract_pages(content)
+def parse(content, pages=None):
+    pages = pages if pages is not None else extract_pages(content)
     res = parse_conersys(pages)
     if res["events"]:
         res["format"] = "conersys"

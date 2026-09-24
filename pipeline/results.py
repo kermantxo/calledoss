@@ -41,7 +41,7 @@ def summarize(res, is_intl):
                     espanoles.append({"event": ev["name"], "round": name, **r})
                 elif _match(r.get("name", ""), wl, international=is_intl):
                     destacados.append({"event": ev["name"], "round": name, **r})
-    return podios[:60], espanoles[:80], destacados[:40]
+    return podios, espanoles[:80], destacados[:40]
 
 
 def store(item, res, source, url=None):
@@ -57,7 +57,9 @@ def store(item, res, source, url=None):
     idx["items"].append({
         "id": rid, "cal_id": item["id"] if item else None, "name": res["name"], "date": res["date"],
         "place": res["place"], "source": source, "url": url, "events": len(res.get("events", [])),
-        "podios": podios, "espanoles": esp, "destacados": dest, "fetched": res["fetched"],
+        # el índice lleva solo un resumen (la ficha completa está en results/<id>.json)
+        "podios": podios[:6], "n_podios": len(podios), "espanoles": esp[:20], "destacados": dest[:12],
+        "fetched": res["fetched"],
         "link_only": bool(res.get("link_only")),
     })
     idx["items"].sort(key=lambda x: x["date"] or "", reverse=True)
@@ -170,10 +172,7 @@ def by_item(http, it, health, final=False):
             health.note("results", "warning", "Resultados de '%s' (%s): %s" % (it["name"], kind, e))
     if rid:
         return rid
-    # AvaiBook y otros: solo enlace
-    if it.get("source", "").startswith("AvaiBook") and it.get("links", {}).get("resultados"):
-        return store(it, {"events": [], "link_only": True}, it["source"], it["links"]["resultados"])
-    return None
+    return None  # el chequeo diario prueba después la búsqueda completa (backfill.Finder)
 
 
 def sweep(http, items, health):
@@ -192,6 +191,15 @@ def sweep(http, items, health):
         if not it.get("live") and not it.get("source", "").startswith("AvaiBook"):
             continue
         rid = by_item(http, it, health, final=(t - end).days >= 2)
+        if not rid and (t - end).days >= 1:
+            # misma búsqueda que la carga histórica: garantiza el podio de cada prueba
+            from .backfill import Finder
+            try:
+                pods, source, url, _ = Finder(http, health).resolve(it)
+                if pods:
+                    rid = store(it, {"events": pods}, source, url)
+            except Exception as e:
+                health.note("results", "warning", "Búsqueda de podios de '%s': %s" % (it["name"], e))
         if rid:
             got += 1
             pending.pop(it["id"], None)

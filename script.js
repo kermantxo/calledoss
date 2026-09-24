@@ -8,6 +8,7 @@
 // Datos automáticos (se rellenan al cargar la página, ver «DATOS AUTOMÁTICOS» al final)
 var RESULTS_INDEX = [];
 var LIVE_DATA = null;
+var MISSING_IDS = new Set();
 
 const CALENDAR = [
   {id:"mundo-campo-a-traves", date:"2026-01-10", name:"Campeonato del Mundo de Campo a Través", place:"Tallahassee (USA)", type:"Cross", cat:"Absoluto"},
@@ -4178,15 +4179,17 @@ function renderResultsSeason(){
     const auto = resultFor(ev.id);
     const hasDetail = !!(comp && comp.events && comp.events.length) || !!auto;
     const isOpen = openResultRow === ev.id;
+    const missing = !hasDetail && MISSING_IDS.has(ev.id);
     const badge = hasDetail
       ? `<div class="tag intl">Resultados</div>`
+      : missing ? `<div class="tag nac" title="No se han encontrado resultados en ninguna fuente">Sin resultados localizados</div>`
       : `<div class="tag nac">Disputada</div>`;
     const body = !isOpen ? '' : `
       <div class="comp-accordion-body">
         <div class="data-note">📍 <b>${esc(comp ? comp.place : (ev.place || '—'))}</b> — ${comp ? comp.dates : fechaLarga(ev.date, ev.end_date)}${comp && comp.note ? '<br>'+comp.note : ''}</div>
         ${comp && comp.events && comp.events.length ? `<div class="roster-grid">${renderEventBlocks(ev.id, comp.events)}</div>` : ''}
         ${auto ? renderResultSummary(auto) : ''}
-        ${!hasDetail ? `<div class="empty-state"><h3>Resultados aún no publicados</h3>Esta competición ya se ha celebrado, pero la organización todavía no ha publicado los resultados. Se añadirán solos en cuanto aparezcan.${linkButtons(ev.links||{}) ? '<br><br>'+linkButtons(ev.links||{}) : ''}</div>` : ''}
+        ${!hasDetail ? `<div class="empty-state"><h3>${missing ? 'Sin resultados localizados' : 'Resultados aún no publicados'}</h3>${missing ? 'No se han encontrado los resultados de esta competición en ninguna fuente. Se sigue buscando automáticamente.' : 'Esta competición ya se ha celebrado, pero la organización todavía no ha publicado los resultados. Se añadirán solos en cuanto aparezcan.'}${linkButtons(ev.links||{}) ? '<br><br>'+linkButtons(ev.links||{}) : ''}</div>` : ''}
       </div>`;
     return `
     <div class="comp-accordion-item">
@@ -4509,8 +4512,9 @@ async function refreshLive(){
 
 (async function bootAutoData(){
   renderAll(); // primero con lo que ya hay en la página
-  const [cal, res, live] = await Promise.all([loadData('calendar.json'), loadData('results/index.json'), loadData('live.json')]);
+  const [cal, res, live, miss] = await Promise.all([loadData('calendar.json'), loadData('results/index.json'), loadData('live.json'), loadData('results/sin_resultados.json')]);
   if(res && res.items) RESULTS_INDEX = res.items;
+  if(miss && miss.items) MISSING_IDS = new Set(miss.items.map(x => x.id));
   if(cal && cal.items && cal.items.length) applyAutoCalendar(cal);
   fillCuratedResults();
   if(live) LIVE_DATA = live;

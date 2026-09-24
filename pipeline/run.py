@@ -4,11 +4,13 @@
     python -m pipeline.run results   # solo chequeo de resultados (varias veces al día)
     python -m pipeline.run plan      # recalcula el plan de hoy (tras añadir algo en el panel)
     python -m pipeline.run live      # una comprobación de directo (cada 2-5 min; sale en 1 s si no toca)
+    python -m pipeline.run backfill  # carga histórica de podios de 2026 (reanudable)
 """
+import os
 import sys
 import time
 
-from . import calendar_build, highlights, live, results
+from . import backfill, calendar_build, highlights, live, results
 from .common import Health, Http, load_json, save_json, iso_now
 
 
@@ -43,6 +45,15 @@ def plan_only():
     health.save()
 
 
+def backfill_run():
+    h, health = Http(), Health()
+    stats = health.run("backfill", "Carga histórica de resultados 2026", backfill.run, h, _items(), health, expect_min=0)
+    health.save()
+    print("carga histórica:", stats)
+    with open(os.path.join(os.environ.get("DATA_DIR", "data"), "..", "backfill_remaining.txt"), "w") as f:
+        f.write(str((stats or {}).get("remaining", 0)))
+
+
 def live_tick():
     h, health = Http(min_delay=0.3), Health()
     n = live.tick(h, health)
@@ -54,5 +65,5 @@ def live_tick():
 if __name__ == "__main__":
     mode = sys.argv[1] if len(sys.argv) > 1 else "daily"
     t = time.time()
-    {"daily": daily, "results": results_only, "plan": plan_only, "live": live_tick}[mode]()
+    {"daily": daily, "results": results_only, "plan": plan_only, "live": live_tick, "backfill": backfill_run}[mode]()
     print("%s terminado en %.0f s" % (mode, time.time() - t))

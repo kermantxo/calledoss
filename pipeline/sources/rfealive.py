@@ -15,8 +15,8 @@ from ..common import clean, parse_dmy
 BASE = "https://rfealive.info"
 
 
-def index(http):
-    soup = BeautifulSoup(http.get(BASE + "/").text, "lxml")
+def index(http, base=BASE):
+    soup = BeautifulSoup(http.get(base + "/", timeout=90).text, "lxml")
     out, seen = [], set()
     for a in soup.find_all("a", href=True):
         q = parse_qs(urlparse(a["href"]).query)
@@ -33,8 +33,8 @@ def index(http):
             cells = [clean(td.get_text(" ")) for td in row.find_all("td")]
             cells = [c for c in cells if c and c != clean(a.get_text(" "))]
             city = cells[-1] if cells else ""
-        out.append({"chid": chid, "name": clean(a.get_text(" ")), "city": city,
-                    "url": BASE + "/Results/Schedule?chid=" + chid})
+        out.append({"chid": chid, "name": clean(a.get_text(" ")), "city": city, "base": base,
+                    "url": base + "/Results/Schedule?chid=" + chid})
     return out
 
 
@@ -42,9 +42,9 @@ def _key(href):
     return (parse_qs(urlparse(href).query).get("key") or [None])[0]
 
 
-def schedule(http, chid):
+def schedule(http, chid, base=BASE):
     """Horario completo del campeonato: lista de pruebas con fecha, hora, ronda y estado."""
-    url = BASE + "/Results/Schedule?chid=" + chid
+    url = base + "/Results/Schedule?chid=" + chid
     soup = BeautifulSoup(http.get(url).text, "lxml")
     title = soup.find("h4", class_="section-title")
     wrap = soup.select_one(".rfep-hidden-desktop table#myTable") or soup.find("table", id="myTable")
@@ -64,7 +64,7 @@ def schedule(http, chid):
                     side = tr.select_one(".side-btn span")
                     if side:
                         ev["status"] = clean(side.get_text())
-                    links = {clean(a.get_text()).upper(): urljoin(BASE, a["href"]) for a in tr.find_all("a", href=True) if a["href"] != "#"}
+                    links = {clean(a.get_text()).upper(): urljoin(base, a["href"]) for a in tr.find_all("a", href=True) if a["href"] != "#"}
                     if "L. SALIDA" in links:
                         ev["startlist_url"] = links["L. SALIDA"]
                 continue
@@ -82,7 +82,7 @@ def schedule(http, chid):
                 "event": clean(link.get_text()),
                 "round": clean(rnd.get_text()) if rnd else "",
                 "status": "",
-                "results_url": urljoin(BASE, link["href"].split("&")[0]),
+                "results_url": urljoin(base, link["href"].split("&")[0]),
             }
     evs = sorted(events.values(), key=lambda e: ((e["date"] or ""), e["time"]))
     return {"chid": chid, "name": clean(title.get_text()) if title else "", "url": url, "events": evs}
@@ -159,3 +159,50 @@ def startlist(http, url):
                          "pb": col("MMP"), "sb": col("MMT")})
         break
     return {"rows": rows, "records": _records(soup)}
+
+
+def schedule_podiums(http, chid, base=BASE):
+    """Podio (top 3) de cada prueba/ronda leído directamente de la página de horario.
+
+    Una sola petición por campeonato: cada prueba terminada muestra sus tres primeros.
+    """
+    url = base + "/Results/Schedule?chid=" + chid
+    soup = BeautifulSoup(http.get(url).text, "lxml")
+    title = soup.find("h4", class_="section-title")
+    wrap = soup.select_one(".rfep-hidden-desktop table#myTable") or soup.find("table", id="myTable")
+    events, order = {}, []
+    if wrap:
+        for tr in wrap.find_all("tr"):
+            tds = tr.find_all("td")
+            if not tds:
+                continue
+            tid = tds[0].get("id") or ""
+            if tid and not tid.startswith("X"):
+                link = tr.find("a", href=re.compile("ResultsEvent"))
+                date_el = tds[0].select_one("#eventDate")
+                rnd = tr.select_one(".rfep-champ-city")
+                if link:
+                    d = parse_dmy(date_el.get_text() if date_el else "")
+                    events[tid] = {"event": clean(link.get_text()), "round": clean(rnd.get_text()) if rnd else "",
+                                   "date": d.isoformat() if d else None, "rows": [], "status": ""}
+                    order.append(tid)
+            elif tid.startswith("X2"):
+                ev = events.get(tid[2:])
+                if ev is None:
+                    continue
+                for team in tr.select(".rgb-team-1"):
+                    pos_el = team.select_one(".pull-left h6 a")
+                    name_el = team.select_one(".text-overflow h6 a")
+                    spans = team.select(".text-overflow h6 span")
+                    if not (pos_el and name_el):
+                        continue
+                    mark = clean(spans[0].get_text()) if spans else ""
+                    note = clean(spans[1].get_text()) if len(spans) > 1 else ""
+                    side = team.select_one(".side-btn span")
+                    if side:
+                        ev["status"] = clean(side.get_text())
+                    pos = clean(pos_el.get_text())
+                    if pos and clean(name_el.get_text()):
+                        ev["rows"].append({"pos": pos, "name": clean(name_el.get_text()).title(), "mark": mark, "note": note})
+    return {"chid": chid, "name": clean(title.get_text()) if title else "", "url": url,
+            "events": [events[k] for k in order]}
