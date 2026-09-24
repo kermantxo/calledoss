@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>CALLEDOSS · Panel privado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <a href="/" class="panel-brand"><img src="images/logo.png" alt="Calledoss" height="40"><span class="mono">PANEL PRIVADO</span></a>
+    <button id="logoutBtn" class="comp-pill" style="display:none;">Salir</button>
+  </div>
+</header>
+
+<main class="panel-main">
+
+  <!-- Acceso -->
+  <section id="loginView" class="panel-card panel-login">
+    <h1>Panel privado</h1>
+    <p>Solo para completar lo que el calendario automático no haya encontrado.</p>
+    <form id="loginForm">
+      <label class="filter-label" for="pwd">Clave</label>
+      <input id="pwd" type="password" autocomplete="current-password" required class="panel-input">
+      <button type="submit" class="comp-pill active">Entrar</button>
+      <div id="loginMsg" class="panel-msg"></div>
+    </form>
+  </section>
+
+  <div id="appView" style="display:none;">
+
+    <!-- Avisos -->
+    <section class="panel-card" id="alertsCard">
+      <h2>Avisos</h2>
+      <div id="alerts"></div>
+    </section>
+
+    <!-- Añadir competición -->
+    <section class="panel-card">
+      <h2>Añadir una competición al calendario</h2>
+      <p class="panel-help">Añádela siempre <b>antes del día de la competición</b>. El día de la prueba, el modo En Directo se activa solo desde el calendario (automático o manual), desde 1 hora antes de la hora de inicio hasta 2 horas después de la hora de fin.</p>
+      <form id="addForm" class="panel-grid">
+        <div class="panel-field panel-wide">
+          <label class="filter-label" for="fName">Nombre *</label>
+          <input id="fName" required maxlength="160" class="panel-input" placeholder="Ej.: Campeonato de Euskadi de Cross">
+        </div>
+        <div class="panel-field">
+          <label class="filter-label" for="fDate">Fecha *</label>
+          <input id="fDate" type="date" required class="panel-input">
+        </div>
+        <div class="panel-field">
+          <label class="filter-label" for="fPlace">Lugar *</label>
+          <input id="fPlace" required maxlength="100" class="panel-input" placeholder="Ej.: Amorebieta">
+        </div>
+        <div class="panel-field">
+          <label class="filter-label" for="fTime">Hora de inicio</label>
+          <input id="fTime" type="time" class="panel-input">
+        </div>
+        <div class="panel-field">
+          <label class="filter-label" for="fTimeEnd">Hora de fin (aprox.)</label>
+          <input id="fTimeEnd" type="time" class="panel-input">
+        </div>
+        <div class="panel-field">
+          <label class="filter-label" for="fType">Tipo</label>
+          <select id="fType" class="panel-input">
+            <option>Ruta</option><option>Cross</option><option>Pista Aire libre</option><option>Short Track</option>
+            <option>Marcha</option><option>Trail</option><option>Internacional</option><option>Otras</option>
+          </select>
+        </div>
+        <div class="panel-field panel-wide">
+          <label class="filter-label" for="fUrl">Enlace a inscritos o resultados (opcional)</label>
+          <input id="fUrl" type="url" maxlength="500" class="panel-input" placeholder="https://… (RFEA Live, PDF de resultados, web del cronometrador)">
+        </div>
+        <div class="panel-wide">
+          <button type="submit" class="comp-pill active">Añadir al calendario</button>
+          <span id="addMsg" class="panel-msg"></span>
+        </div>
+      </form>
+    </section>
+
+    <!-- Añadidas a mano -->
+    <section class="panel-card">
+      <h2>Añadidas a mano</h2>
+      <div id="manualList"></div>
+    </section>
+
+    <!-- Directo hoy -->
+    <section class="panel-card">
+      <h2>Directo de hoy</h2>
+      <div id="planList"></div>
+    </section>
+
+    <!-- Estado de las fuentes -->
+    <section class="panel-card">
+      <h2>Estado de las fuentes</h2>
+      <p class="panel-help">Si una fuente falla o cambia de estructura, se apunta aquí y las demás siguen funcionando. Sus datos anteriores se conservan hasta que vuelva a funcionar.</p>
+      <div id="sourcesList"></div>
+      <h3 class="panel-sub">Últimos avisos</h3>
+      <div id="logList"></div>
+    </section>
+  </div>
+</main>
+
+<script src="panel.js"></script>
+</body>
+</html>

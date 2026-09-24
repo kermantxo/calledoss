@@ -1,0 +1,39 @@
+{
+ "date": "2026-09-24",
+ "generated": "2026-09-24T17:17:35+02:00",
+ "active_day": true,
+ "windows": [
+  {
+   "id": "wa-7246486",
+   "name": "South American Games",
+   "place": "CARD Pedro Candioti, Santa Fé (ARG)",
+   "source": "World Athletics",
+   "start": "2026-09-24T07:00:00+02:00",
+   "end": "2026-09-24T23:00:00+02:00",
+   "first": null,
+   "last": null,
+   "schedule_known": false,
+   "poll": true,
+   "intl": true,
+   "links": {
+    "info": "https://worldathletics.org/competition/calendar-results/results/7246486"
+   }
+  },
+  {
+   "id": "wa-7176091",
+   "name": "20th Asian Games",
+   "place": "Municipal Mizuho Stadium, Nagoya (JPN)",
+   "source": "World Athletics",
+   "start": "2026-09-24T07:00:00+02:00",
+   "end": "2026-09-24T23:00:00+02:00",
+   "first": null,
+   "last": null,
+   "schedule_known": false,
+   "poll": true,
+   "intl": true,
+   "links": {
+    "info": "https://worldathletics.org/competition/calendar-results/results/7176091"
+   }
+  }
+ ]
+}

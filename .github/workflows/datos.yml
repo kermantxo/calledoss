@@ -1,0 +1,59 @@
+# Actualización automática de datos (calendario, resultados, destacados, plan de directo).
+# Todo es código normal (scrapers en Python), sin llamadas a IA.
+# Los datos se guardan en la rama "datos" (así la web no se vuelve a publicar con cada cambio).
+name: Datos
+
+on:
+  schedule:
+    - cron: "15 4 * * *"          # diario completo (06:15 en verano / 05:15 en invierno, hora de Madrid)
+    - cron: "0 10,13,16,19,22 * * *"  # chequeos de resultados durante el día
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "daily | results | plan"
+        default: "daily"
+        required: true
+
+concurrency:
+  group: datos-writer   # nunca dos tareas escribiendo a la vez
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Traer la rama de datos
+        run: |
+          if git ls-remote --exit-code --heads origin datos >/dev/null 2>&1; then
+            git clone --depth 1 --branch datos "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" datos
+          else
+            mkdir datos && cd datos && git init -b datos && cp ../data/*.json . 2>/dev/null || true
+            git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          fi
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pipeline/requirements.txt
+
+      - run: pip install -r pipeline/requirements.txt
+
+      - name: Ejecutar
+        env:
+          DATA_DIR: datos
+        run: |
+          MODE="${{ github.event.inputs.mode }}"
+          if [ -z "$MODE" ]; then
+            if [ "${{ github.event.schedule }}" = "15 4 * * *" ]; then MODE=daily; else MODE=results; fi
+          fi
+          python -m pipeline.run "$MODE"
+
+      - name: Guardar cambios en la rama datos
+        run: bash .github/scripts/push-datos.sh "datos: ${{ github.event.inputs.mode || 'automático' }}"

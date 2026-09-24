@@ -1,0 +1,939 @@
+{
+ "note": "Lista de seguimiento. Se amplía sola con los españoles que aparecen en resultados internacionales.",
+ "athletes": [
+  {
+   "name": "Jaël Sakura Bestué Ferrera",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Blanca Hervás Rodríguez",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Marta Mitjans Muñoz",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Agueda Marqués Muñoz",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "María Forero Pérez",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Idaira Prieto Suárez",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Marta García Alonso",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Carla Gallardo Puertas",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Fátima Azzaharaa Ouhaddou Nafie",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "María Lázaro García",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Gemma Arenas Alcázar",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Paula Blanquer Iglesias",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Lerato Pages Maboka",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Sara Gallego Sotelo",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Marta Serrano Azpiazu",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Una Stancev Stevanovic",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Mónica Clemente Martí",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Tessy Ebosele Ebosele",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Naida Calonge Marí",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Belén Toimil Fernández",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Inés López Arias",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Laura Redondo Mora",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Yulenmis Aguilar Martínez",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Sofía Cosculluela Ördögh",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "María Pérez García",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Laura Monje Martínez",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Abel Alejandro Jordán Jul",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Andoni Calbano Osinaga",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Ángel González Muñoz",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "David Barroso Bravo",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Mohamed Attaoui Tijani",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Santiago Catrofe Cacharrón",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Eduardo Menacho Miralles",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Asier Martínez Echarte",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Jesús David Delgado Pérez",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Daniel Arce Ibáñez",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Pablo Martínez Torre",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Artur Coll Sicluna",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Lester Alcides Lescay Gay",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Ramón Adalia Agustí",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Miguel Gómez Díaz",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Diego Casas Garrido",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Kevin Arreaga Almeida",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Manu Quijera Poza",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Ilias Fifa Temsamani",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Guillermo Sainz de Baranda Fernández",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Marco Álvarez Hernández",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Enrique Llopis Domenech",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Pol Ferrer Moncusí",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Paul McGrath Benito",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Iván López Pérez",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Óscar Martínez Rodríguez",
+   "why": "Líder del ranking español 2026"
+  },
+  {
+   "name": "Mauro Seguín",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Tristán Luño",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Kiko de las Heras",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Iker Piñeira",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Álex Sola",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Alba Benito",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Álex Sangil",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Nicolás Ceballos",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Gift Okunrobo",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Naiara Pérez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "David Barroso",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Beatriz Álvarez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Isidro Leyva",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Alex Gracia",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Una Stancev",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Carlos Beltrán",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Lidia Sánchez-Puebla",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Lucía Redondo",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Pablo Martínez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Javier Lorente",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Belén Toimil",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Manu Quijera",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Ángel Díaz",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Daniel Cisneros",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Mariano García",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Mohamed Attaoui",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Quique Llopis",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Blanca Hervás",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Paula Sevilla",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Jesús David Delgado",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Berta Segura",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Daniel Arce",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Marta García",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Lorea Ibarzabal",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Martín Segurola",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Marta Galimany",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Said Mechaal",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Andoni Calbano",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Jorge García",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Pablo Alba",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Miguel Baidal",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Hugo Chapado",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Gonzalo Sabin Lamborena",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Artur Coll",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Diego Casas",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Alba Borrero",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Ana Prieto",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Paula Blanquer",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Lerato Pagès",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Mónica Clemente",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Carmen Rosales",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Laura Redondo",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Andrea Sales",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Yulenmis Aguilar",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Celia Cortés",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "María Portela",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Claudia Gutiérrez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Fátima Hernández",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Fiona Cavilli",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Aitana Alonso",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Naida Calonge",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Ana Estrella de León",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Andrea Njimi Tankeu",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Gina Torres",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Irene Vega",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Carla Aguirre",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Marina Delgado",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "María Carla Retana",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Ana Alba Ruiz",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Rocío Navarro",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Alaine Aguerralde",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Carla Rodríguez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Lilian Cazorla",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Alejandro Ríos",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Alejandro Muñoz",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Pol Molins",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Karim Fartaz",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Alejandro Ibáñez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Gregorio Luis Crespo",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Diego Espeso",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Bakr El Asri",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Martí Torregrosa",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Nicolás Clemente",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Marco Rodríguez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Enzo Martínez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Anthony Yunier Pérez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Aritz Goñi",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Yoel Pérez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Magno Llopis",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "César Hidalgo",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Pablo Zárate",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Pablo Rojo",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Aarón Gastón",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Alejandro Núñez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Óscar Crespo",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Lucas Vázquez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Hugo Pérez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Javier Viota",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Maribel Pérez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Jaël-Sakura Bestué",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Esperança Cladera",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Rocío Arroyo",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Marta Mitjans",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Idaira Prieto",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "María Forero",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Carla Gallardo",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Fátima Azzaharaa Ouhaddou",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Laura Luengo",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Ester Navarrete",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Carolina Robles",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Meritxell Soler",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Sara Gallego",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Marta Serrano",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Fátima Diame",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Tessy Ebosele",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Inés López",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "María Vicente",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Sofía Cosculluela",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "María Isabel Pérez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Lucía Carrillo",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Elena Guiu",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Ericka Badeau Maseras",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Ester Navero",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Aitana Rodrigo",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Eva Santidrián",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Herminia Parra",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Carmen Avilés",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "María Pérez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Antía Chamosa",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Aldara Meilán",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Raquel González",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Laura Monje",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Abel Alejandro Jordán",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Guillem Crespí",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Jorge Hernández",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Oriol Sánchez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Ángel González",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Pablo Sánchez-Valladares",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Adrián Ben",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Carlos Sáez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Jesús Ramos",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Abdessamad Oukhelfen",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Jorge Blanco",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Fernando Carro",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Ibrahim Chakir",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Ilias Fifa",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Jorge González",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Carlos Mayo",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Asier Martínez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Dani Arce",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Alejandro Quijada",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Jaime Guerra",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Lester Lescay",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Eusebio Cáceres",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Marc Escandell",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Alberto Calero",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Daniel Rodríguez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Bernat Erta",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Asabu Pines",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "David García",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Manuel Bea",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Juan José de la Rosa",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Paul McGrath",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Diego García",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Álvaro López",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Miguel Ángel López",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Manuel Bermúdez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Daniel Chamosa",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "José Manuel Pérez",
+   "why": "Selección española 2026"
+  },
+  {
+   "name": "Chapado Cruz Hugo",
+   "why": "Internacional con España",
+   "added": "2026-09-24"
+  },
+  {
+   "name": "Lamborena Lasala Gonzalo",
+   "why": "Internacional con España",
+   "added": "2026-09-24"
+  },
+  {
+   "name": "Beltran Alvarez Carlos",
+   "why": "Internacional con España",
+   "added": "2026-09-24"
+  },
+  {
+   "name": "Borrero Gerard Alba",
+   "why": "Internacional con España",
+   "added": "2026-09-24"
+  },
+  {
+   "name": "Prieto Benitez Ana",
+   "why": "Internacional con España",
+   "added": "2026-09-24"
+  },
+  {
+   "name": "Ibarzabal Padorno Lorea",
+   "why": "Internacional con España",
+   "added": "2026-09-24"
+  },
+  {
+   "name": "Pages Maboka Lerato Mont",
+   "why": "Internacional con España",
+   "added": "2026-09-24"
+  },
+  {
+   "name": "Rosales Ruiz Carmen",
+   "why": "Internacional con España",
+   "added": "2026-09-24"
+  },
+  {
+   "name": "Sales Valles Andrea",
+   "why": "Internacional con España",
+   "added": "2026-09-24"
+  },
+  {
+   "name": "Aguilar Martinez Yulenmi",
+   "why": "Internacional con España",
+   "added": "2026-09-24"
+  }
+ ]
+}

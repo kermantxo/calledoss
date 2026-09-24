@@ -1,0 +1,8 @@
+{
+  "git": { "deploymentEnabled": { "datos": false } },
+  "cleanUrls": true,
+  "headers": [
+    { "source": "/panel", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] },
+    { "source": "/data/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=60" }] }
+  ]
+}

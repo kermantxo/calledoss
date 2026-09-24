@@ -1,0 +1,15 @@
+# Worker de Cloudflare para Calledoss (plan gratuito).
+# Publicar:  cd worker && npx wrangler deploy
+# Secretos:  npx wrangler secret put PANEL_PASSWORD   y   npx wrangler secret put GITHUB_TOKEN
+name = "calledoss-panel"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+
+[vars]
+REPO = "kermantxo/calledoss"
+DATA_BRANCH = "datos"
+# Webs desde las que se puede usar el panel (añade aquí el dominio definitivo)
+ALLOWED_ORIGINS = "*"
+
+[triggers]
+crons = ["*/3 * * * *"]

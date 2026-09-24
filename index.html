@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CALLEDOSS · Atletismo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="ticker-bar">
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
+
+<header>
+  <div class="nav-wrap">
+    <button class="logo" onclick="goHome()" aria-label="Ir a la página principal de Calledoss"><img src="images/logo.png" alt="Calledoss"><small>ATLETISMO</small></button>
+    <nav class="tabs" id="tabs">
+      <button data-view="home" class="active">Inicio</button>
+      <button data-view="calendario">Calendario</button>
+      <button data-view="resultados">Resultados</button>
+      <button data-view="directo">En directo</button>
+      <button data-view="proximas">Próximas</button>
+      <button data-view="ranking">Ranking</button>
+    </nav>
+  </div>
+</header>
+
+<div class="lane-divider"><div class="ticks"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+
+<main>
+
+  <!-- ===================== PÁGINA PRINCIPAL ===================== -->
+  <section class="view active" id="view-home">
+    <div class="hero" style="border-bottom:none;padding-top:64px;">
+      <h1 style="font-size:clamp(48px,9vw,100px);">¿Qué encontrará en Calledoss?</h1>
+      <p style="font-size:20px;max-width:640px;">Todo lo que necesitas saber para estar al día en este deporte. Pruebas locales e internacionales con los nombres de todos los protagonistas e información necesaria como horario, fecha/lugar y lugar de emisión.</p>
+    </div>
+    <div class="home-grid">
+      <button class="home-card" data-view="calendario">
+        <h3>Calendario</h3>
+        <p>Conoce todas las pruebas del año.</p>
+      </button>
+      <button class="home-card" data-view="resultados">
+        <h3>Resultados</h3>
+        <p>Resultados de todas las competiciones.</p>
+      </button>
+      <button class="home-card" data-view="directo">
+        <h3>En directo</h3>
+        <p>Síguelo ahora.</p>
+      </button>
+      <button class="home-card" data-view="proximas">
+        <h3>Próximas</h3>
+        <p>Siguientes competiciones.</p>
+      </button>
+      <button class="home-card" data-view="ranking">
+        <h3>Ranking</h3>
+        <p>Líderes españoles actuales prueba por prueba.</p>
+      </button>
+    </div>
+  </section>
+
+  <!-- ===================== INSCRITOS (todos los países) ===================== -->
+  <section class="view" id="view-inscritos">
+    <div class="hero">
+      <div class="eyebrow">Todos los países</div>
+      <h1>Inscritos</h1>
+      <p>Lista de salida oficial completa de una competición: todos los atletas de todos los países, prueba por prueba. Por defecto se muestran todos; puedes filtrar solo España si quieres.</p>
+    </div>
+    <div id="inscritosContent"></div>
+  </section>
+
+  <!-- ===================== CALENDARIO ===================== -->
+  <section class="view" id="view-calendario">
+    <div class="hero">
+      <div class="eyebrow">Temporada 2026</div>
+      <h1>Calendario nacional</h1>
+      <p>Todas las citas del atletismo español: campeonatos RFEA, ligas de clubes, meetings y pruebas internacionales con presencia española.</p>
+    </div>
+
+    <div class="filters">
+      <div class="filter-group">
+        <label class="filter-label" for="calMonth">Mes</label>
+        <select id="calMonth"></select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="calType">Tipo</label>
+        <select id="calType"></select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="calCat">Localidad</label>
+        <select id="calCat"></select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="calFuente">Calendario</label>
+        <select id="calFuente"></select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label">Competiciones pasadas</label>
+        <label class="toggle-switch">
+          <input type="checkbox" id="calShowPast">
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="toggle-text" id="calToggleText">Ocultas</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="cal-list" id="calList"></div>
+  </section>
+
+  <!-- ===================== EN DIRECTO ===================== -->
+  <section class="view" id="view-directo">
+    <div class="hero">
+      <div class="eyebrow" style="color:var(--red-bright)">● Última hora</div>
+      <h1>Competiciones en curso</h1>
+      <p>Las competiciones de hoy. Mientras hay pruebas en marcha, los resultados se actualizan solos cada pocos minutos.</p>
+    </div>
+    <div id="liveUpdated" class="data-note" style="display:none;"></div>
+    <div class="live-grid" id="liveGrid"></div>
+  </section>
+
+  <!-- ===================== PRÓXIMAS ===================== -->
+  <section class="view" id="view-proximas">
+    <div class="hero">
+      <div class="eyebrow">Próximos 7 días</div>
+      <h1>Próximas competiciones</h1>
+      <p>Todas las citas desde hoy hasta dentro de seis días, con horario, enlaces a inscritos y los atletas españoles a seguir.</p>
+    </div>
+    <div id="proxRange" class="data-note"></div>
+    <div class="comp-select-bar" id="compSelectBar"></div>
+  </section>
+
+  <!-- ===================== RESULTADOS ===================== -->
+  <section class="view" id="view-resultados">
+    <div class="hero">
+      <div class="eyebrow">Temporada 2026</div>
+      <h1>Resultados</h1>
+      <p>Todas las competiciones ya disputadas esta temporada, desde el 1 de enero hasta hoy. Los resultados se añaden solos en cuanto se publican. Filtra por mes, modalidad y categoría.</p>
+    </div>
+
+    <div class="filters">
+      <div class="filter-group">
+        <label class="filter-label" for="resMonth">Mes</label>
+        <select id="resMonth"></select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="resType">Modalidad</label>
+        <select id="resType"></select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="resCat">Localidad</label>
+        <select id="resCat"></select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="resFuente">Calendario</label>
+        <select id="resFuente"></select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="resSearch">Buscar</label>
+        <input id="resSearch" type="search" placeholder="Competición o sede" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.18);color:inherit;font:inherit;padding:9px 12px;border-radius:8px;min-width:200px;">
+      </div>
+    </div>
+
+    <div class="data-note">📡 Resultados automáticos de RFEA (PDF oficiales y RFEA Live), World Athletics, Cronomancha y AvaiBook, revisados varias veces al día.</div>
+
+    <div id="resCount" class="data-note" style="display:none;"></div>
+    <div class="cal-list" id="resList"></div>
+
+    <div class="hero" style="border-bottom:none;padding-top:40px;padding-bottom:8px;">
+      <div class="eyebrow">Con desglose completo</div>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,4vw,40px);line-height:1;">Internacionales de la selección</h2>
+    </div>
+    <div class="comp-select-bar" id="resultsSelectBar"></div>
+  </section>
+
+
+  <!-- ===================== RANKING ===================== -->
+  <section class="view" id="view-ranking">
+    <div class="hero">
+      <div class="eyebrow">Mejores marcas 2026</div>
+      <h1>Ranking español</h1>
+      <p>Líder nacional 2026 por prueba (mejor marca de la temporada), filtrable por sexo. Fuente: ranking oficial RFEA.</p>
+    </div>
+    <div class="filters">
+      <div class="filter-group">
+        <label class="filter-label" for="rankSex">Sexo</label>
+        <select id="rankSex"></select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="rankEvent">Prueba</label>
+        <select id="rankEvent"></select>
+      </div>
+    </div>
+    <div class="rank-table-wrap">
+      <table class="rank">
+        <thead>
+          <tr><th>Prueba</th><th>Marca</th><th>Atleta</th><th>Club</th><th>Fecha / Lugar</th></tr>
+        </thead>
+        <tbody id="rankBody"></tbody>
+      </table>
+    </div>
+    <div class="data-note" style="margin-top:16px">📡 <b>Sobre el top 10:</b> la vista "Mejores marcas 2026" de atletismorfea.es/ranking (fuente de estos datos) solo publica el líder de cada prueba, no un top 10 navegable. Para ver el top 10 completo prueba por prueba hay que aplicar el filtro individual de cada evento en atletismorfea.es/ranking, que no es una tabla estática consultable de una vez. Aquí se muestra el dato real y verificado que sí es accesible: el líder nacional 2026 de cada prueba, pista y fuera de pista (marcha, ruta, maratón, combinadas).</div>
+  </section>
+
+  <!-- ===================== FICHA DE COMPETICIÓN ===================== -->
+  <section class="view" id="view-detail">
+    <button class="back-btn" onclick="backToCalendar()">← Volver al calendario</button>
+    <div id="detailContent"></div>
+  </section>
+
+</main>
+
+<footer>
+  <span>CALLEDOSS © 2026 — Atletismo español</span>
+  <span>Fuentes: RFEA · World Athletics · Ranking Nacional</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

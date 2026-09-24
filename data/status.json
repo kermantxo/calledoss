@@ -1,0 +1,99 @@
+{
+ "sources": {
+  "rfea_calendar": {
+   "label": "RFEA · calendario",
+   "last_run": "2026-09-24T17:14:01+02:00",
+   "ok": true,
+   "last_ok": "2026-09-24T17:14:10+02:00",
+   "fails_in_a_row": 0,
+   "last_count": 453
+  },
+  "wa_calendar": {
+   "label": "World Athletics · calendario",
+   "last_run": "2026-09-24T17:14:10+02:00",
+   "ok": true,
+   "last_ok": "2026-09-24T17:14:19+02:00",
+   "fails_in_a_row": 0,
+   "last_count": 65
+  },
+  "cronomancha_upcoming": {
+   "label": "Cronomancha · próximas",
+   "last_run": "2026-09-24T17:14:19+02:00",
+   "ok": true,
+   "last_ok": "2026-09-24T17:14:20+02:00",
+   "fails_in_a_row": 0,
+   "last_count": 7
+  },
+  "cronomancha_events": {
+   "label": "Cronomancha · resultados",
+   "last_run": "2026-09-24T17:14:20+02:00",
+   "ok": true,
+   "last_ok": "2026-09-24T17:14:21+02:00",
+   "fails_in_a_row": 0,
+   "last_count": 36
+  },
+  "avaibook": {
+   "label": "AvaiBook (Runvasport)",
+   "last_run": "2026-09-24T17:14:21+02:00",
+   "ok": true,
+   "last_ok": "2026-09-24T17:14:22+02:00",
+   "fails_in_a_row": 0,
+   "last_count": 48
+  },
+  "rfea_detail": {
+   "label": "RFEA · fichas de competición",
+   "last_run": "2026-09-24T17:14:22+02:00",
+   "ok": true,
+   "last_ok": "2026-09-24T17:15:21+02:00",
+   "fails_in_a_row": 0,
+   "last_count": 1
+  },
+  "rfealive": {
+   "label": "RFEA Live · horarios",
+   "last_run": "2026-09-24T17:15:21+02:00",
+   "ok": true,
+   "last_ok": "2026-09-24T17:15:21+02:00",
+   "fails_in_a_row": 0,
+   "last_count": 0
+  },
+  "destacados": {
+   "label": "Atletas destacados (listas de salida)",
+   "last_run": "2026-09-24T17:15:21+02:00",
+   "ok": true,
+   "last_ok": "2026-09-24T17:15:21+02:00",
+   "fails_in_a_row": 0,
+   "last_count": 0
+  },
+  "results": {
+   "label": "Resultados (todas las fuentes)",
+   "last_run": "2026-09-24T17:15:21+02:00",
+   "ok": true,
+   "last_ok": "2026-09-24T17:17:35+02:00",
+   "fails_in_a_row": 0,
+   "last_count": 1
+  },
+  "rfea_results": {
+   "label": "RFEA · índice de resultados (PDF)",
+   "last_run": "2026-09-24T17:15:21+02:00",
+   "ok": true,
+   "last_ok": "2026-09-24T17:17:31+02:00",
+   "fails_in_a_row": 0,
+   "last_count": 1
+  }
+ },
+ "log": [
+  {
+   "at": "2026-09-24T17:15:03+02:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/40-cross-de-la-constitucion-de-aranda-de-duero: HTTP 429 en https://atletismorfea.es/calendario/campeonato/40-cross-de-la-constitucion-de-aranda-de-duero"
+  },
+  {
+   "at": "2026-09-24T17:14:53+02:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xxx-quijote-maraton-maraton-popular-adad: HTTP 429 en https://atletismorfea.es/calendario/campeonato/xxx-quijote-maraton-maraton-popular-adad"
+  }
+ ],
+ "updated": "2026-09-24T17:17:35+02:00"
+}
