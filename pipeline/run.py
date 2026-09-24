@@ -47,7 +47,7 @@ def plan_only():
 
 def backfill_run():
     h, health = Http(), Health()
-    stats = health.run("backfill", "Carga histórica de resultados 2026", backfill.run, h, _items(), health, expect_min=0)
+    stats = health.run("backfill", "Carga histórica de resultados 2026", backfill.run, h, health, _items(), expect_min=0)
     health.save()
     print("carga histórica:", stats)
     with open(os.path.join(os.environ.get("DATA_DIR", "data"), "..", "backfill_remaining.txt"), "w") as f:
