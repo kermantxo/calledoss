@@ -27,7 +27,7 @@ EVENT_RE = re.compile(
     r"Milla.*|Relevo.*|4x\d+.*|Cross.*|Marcha.*)\s+(Hombres|Mujeres|Mixto|Masculino|Femenino)\b.*$",
     re.I)
 ROUND_RE = re.compile(r"^(Final|Ronda \d|Semifinal|Eliminatoria|Serie|Series|Clasificaci[oó]n|Combinadas|Final [A-Z]|Carrera)\b.*", re.I)
-NAME_DOB = re.compile(r"^([A-ZÁÉÍÓÚÜÑÇ'`´\-\. …]+?)\s+(\d{1,2}/\d{1,2}/\d{4})\s*$")
+NAME_DOB = re.compile(r"^([A-Za-zÀ-ÿ'`´\-\. …]+?)\s+(\d{1,2}/\d{1,2}/\d{4})\s*$")
 # línea de resultado: puesto dorsal CLUBCODE ... marca [viento] [Q/q/...]
 RESULT_LINE = re.compile(r"^(\d{1,3}|DNF|DNS|DQ|-)\s+(\d{1,5})\s+([A-Z0-9]{2,8})\s+(.*)$")
 
@@ -81,6 +81,9 @@ def parse_conersys(pages):
         for l in lines[4:12]:
             if not ev_name and EVENT_RE.match(l):
                 ev_name = clean(l)
+            elif not ev_name and re.match(r"^(Men's|Women's|Mixed) \S", l) and len(l) < 60:
+                from ..sources.worldathletics import _event_es
+                ev_name = _event_es(clean(l))
             elif ev_name and not rnd and ROUND_RE.match(l):
                 rnd = clean(l)
             m = re.fullmatch(r"(\d{2}/\d{2}/\d{4})", l)
@@ -112,6 +115,40 @@ def parse_conersys(pages):
                     cur["rows"][-1]["club"] = c
     events = [e for e in events if e["rows"]]
     return {"meta": meta, "events": _merge_same(events)}
+
+
+ACTA_EVENT = re.compile(r"^(.{2,50}?)\s+(Abs|Absoluto|Sub\s?\d+|Master|M\d{2}|Todas)?\.?\s*(Masc|Fem|Masculino|Femenino|Hombres|Mujeres|Mixto)\b\.?$", re.I)
+ACTA_ROW = re.compile(r"^(\d{1,3})\s+(\d{1,5})\s+(.+?)\s+(\d{1,2}/\d{1,2}/\d{4})\s+(\S+)\s+(.*)$")
+
+
+def parse_acta(pages):
+    """Actas de campeonato con la fila completa en una línea:
+    'Heptatlón Abs Masc' / '1 193 Adrian Sanchez Moreno 14/01/2006 PM 2 2:50.70 758'."""
+    events, cur = [], None
+    for text in pages:
+        for raw in text.splitlines():
+            l = raw.strip()
+            m = ACTA_EVENT.match(l)
+            if m and not re.search(r"\d{1,2}/\d{1,2}/\d{4}", l) and (EVENT_RE.match(l) or re.match(r"^(\d|[A-ZÁÉÍÓÚ][a-záéíóúñ]+)", l)):
+                name = clean(l)
+                name = re.sub(r"\bMasc\b\.?", "Hombres", name)
+                name = re.sub(r"\bFem\b\.?", "Mujeres", name)
+                if not cur or cur["name"] != name:
+                    cur = {"name": name, "round": "Final", "date": "", "rows": []}
+                    events.append(cur)
+                continue
+            r = ACTA_ROW.match(l)
+            if r and cur is not None:
+                toks = r.group(6).split()
+                mark = next((t for t in toks if re.fullmatch(MARK, t) and not re.fullmatch(r"\d{1,2}", t)), "")
+                cur["rows"].append({"pos": r.group(1), "bib": r.group(2), "name": _nice(clean(r.group(3))) if r.group(3).isupper() else clean(r.group(3)),
+                                    "mark": mark, "club": "", "note": ""})
+    # la tabla de combinadas repite la prueba con los puntos totales: nos quedamos con la última aparición
+    out = {}
+    for e in events:
+        if e["rows"]:
+            out[e["name"]] = e
+    return list(out.values())
 
 
 def _merge_same(events):
@@ -209,6 +246,9 @@ def parse(content, pages=None):
     intl = parse_international(pages)
     if intl:
         return {"meta": {}, "format": "internacional", "events": intl}
+    acta = parse_acta(pages)
+    if acta:
+        return {"meta": {}, "format": "acta", "events": acta}
     rows = parse_generic(pages)
     return {"meta": {}, "format": "generic", "events": [{"name": "Clasificación", "round": "", "date": "", "rows": rows}] if rows else []}
 

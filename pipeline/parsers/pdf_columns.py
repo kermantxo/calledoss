@@ -136,6 +136,10 @@ def _sex(row, section):
 
 def _nice(name):
     name = re.sub(r"\s+", " ", name).strip(" -")
+    if name.count(",") == 1:  # "LATORRE DESCANE, BENJAMIN" -> "BENJAMIN LATORRE DESCANE"
+        last, first = [x.strip() for x in name.split(",")]
+        if first and last:
+            name = first + " " + last
     if name.isupper() or name.islower():
         name = " ".join(w.capitalize() for w in name.split())
     return name
@@ -150,9 +154,19 @@ def parse(content=None, pdf=None, max_pages=80):
         section, cols, last_title = "", None, None
         prev_text = []
         for page in doc.pages[:max_pages]:
+            prev_ws = None
             for ws in _lines(page):
                 text = clean(" ".join(w["text"] for w in ws))
                 hcols, leftover = _header(ws)
+                if not hcols and prev_ws is not None:
+                    # cabecera partida en dos líneas ("Orden ... Tiempo" / "Pos. Dorsal Nombre Club")
+                    nf_prev = sum(1 for w in prev_ws if _field(w["text"]))
+                    nf_cur = sum(1 for w in ws if _field(w["text"]))
+                    if nf_prev >= 2 and nf_cur >= 2:
+                        hcols, leftover = _header(sorted(prev_ws + ws, key=lambda w: w["x0"]))
+                        if hcols and prev_text:
+                            prev_text = prev_text[:-1]  # esa línea era media cabecera, no un título
+                prev_ws = ws
                 if hcols:
                     cols = hcols
                     cand = [t for t in prev_text[-4:] if t and not BOILER.match(t) and len(t) < 90
@@ -209,7 +223,10 @@ def parse(content=None, pdf=None, max_pages=80):
         if pdf is None:
             doc.close()
     out = []
+    sexed = {k[0] for k in order if k[1]}
     for key in order:
+        if not key[1] and key[0] in sexed:
+            continue  # restos sin sexo de una sección que ya tiene podio masculino y femenino
         seen, rows = set(), []
         for r in groups[key]:
             k = norm(r["name"])
@@ -222,6 +239,15 @@ def parse(content=None, pdf=None, max_pages=80):
         top = [{"pos": str(i + 1), "name": r["name"], "club": r["club"], "mark": r["mark"], "cat": r["cat"]} for i, r in enumerate(rows[:3])]
         section, sex = key
         label = clean(re.sub(r"(?i)clasificaci[oó]n( general)?( categor[ií]a)?|classificaci[oó]( general)?", "", section)) or "Clasificación"
+        label = re.split(r",\s*total|\s+total\.{2,}", label, flags=re.I)[0]
+        seen_w, words = set(), []
+        for w in label.split():  # "Absoluta Femenina Absoluta Femenina" -> "Absoluta Femenina"
+            k = norm(w)
+            if k and k in seen_w:
+                continue
+            seen_w.add(k)
+            words.append(w)
+        label = " ".join(words).strip(" -,") or "Clasificación"
         if sex and not (FEM.search(label) or MASC.search(label)):
             label += " " + ("Mujeres" if sex == "F" else "Hombres")
         out.append({"name": label[:80], "rounds": [{"round": "General", "final": True, "rows": top}], "_n": len(rows)})

@@ -134,14 +134,19 @@ def _pdf_fingerprint(pages, meta):
 
 
 def _share_word(item, title):
-    """Al menos una palabra significativa en común entre la competición (nombre o lugar) y el PDF."""
+    """Al menos una palabra significativa en común entre la competición (nombre o lugar) y el PDF.
+    También vale si aparece pegada ('santapola', 'CtoMadrid')."""
     from .calendar_build import _tokens
     a = _tokens(item["name"]) | _tokens(item.get("place") or "")
     a = {t for t in a if len(t) > 3}
-    return bool(a & _tokens(title))
+    if a & _tokens(title):
+        return True
+    glued = norm(title).replace(" ", "")
+    place = norm(item.get("place") or "").replace(" ", "")
+    return any(t in glued for t in a) or (len(place) > 4 and place in glued)
 
 
-def pdf_matches(item, dates, title, url=""):
+def pdf_matches(item, dates, title, url="", trust="index"):
     """¿Este PDF es de esta competición?
 
     * Su nombre (título del PDF o nombre del fichero) tiene que parecerse al de la competición, y
@@ -154,14 +159,23 @@ def pdf_matches(item, dates, title, url=""):
     fname = re.sub(r"[_.\-]+", " ", urlparse(url).path.rsplit("/", 1)[-1].rsplit(".", 1)[0]) if url else ""
     fname = re.sub(r"([a-z])([A-Z])", r"\1 \2", fname)
     named = similar(item["name"], title) or _share_word(item, title) or _share_word(item, fname)
-    if not named:
+    dated = any(d1 <= d <= d2 for d in ds)
+    if trust == "ficha":   # PDF enlazado desde la propia ficha RFEA de la competición: basta el nombre
+        return named or dated
+    if trust == "web":     # PDF de la web oficial de la competición: basta la fecha (o el nombre si no hay fechas)
+        return dated or (named and not ds)
+    if not named:          # PDF encontrado en un índice general: nombre Y fecha
         return False
-    if not ds:
-        return True
-    return any(d1 <= d <= d2 for d in ds)
+    return dated or not ds
 
 
 # ------------------------------------------------------------------ fuentes
+
+def _overlap(a, b):
+    from .calendar_build import _tokens
+    ta, tb = _tokens(a), _tokens(b)
+    return len(ta & tb) / (len(ta | tb) or 1)
+
 
 def _cap(name):
     """'Santiago ESTEVE JUAN' -> 'Santiago Esteve Juan'."""
@@ -196,7 +210,7 @@ def from_rfealive(http, chid, base):
     return pods, sc["url"], dates
 
 
-def from_pdf(http, item, url, cache):
+def from_pdf(http, item, url, cache, trust="index"):
     """Podios de un PDF. El contenido se guarda por URL; la comprobación de fecha/nombre, por competición."""
     c = cache.get(url)
     if c is None:
@@ -221,7 +235,7 @@ def from_pdf(http, item, url, cache):
             cache[url] = c = {"pdf": True, "dates": dates, "title": title, "format": res.get("format"), "events": good}
     if not c.get("pdf"):
         return None, url, "no es un PDF"
-    if not pdf_matches(item, c["dates"], c["title"], url):
+    if not pdf_matches(item, c["dates"], c["title"], url, trust):
         return None, url, "el PDF es de otra competición (fecha/nombre no coinciden)"
     if not c["events"]:
         return None, url, "PDF sin tablas de resultados reconocibles"
@@ -352,10 +366,11 @@ class Finder:
         # 2. RFEA Live
         chids = _chids(links) + [(x["chid"], rfealive.BASE) for x in it.get("live") or [] if x.get("kind") == "rfealive"]
         if not chids:
-            chids = [(c["chid"], rfealive.BASE) for c in self.rfealive_index() if similar(c["name"], it["name"])][:3]
             yr = it["date"][:4]
-            chids += [(c["chid"], c["base"]) for c in self.rfealive_me_index()
-                      if similar(c["name"], it["name"]) and yr in c["chid"][:6]][:4]
+            cands = [c for c in self.rfealive_index() + self.rfealive_me_index()
+                     if (c["base"] == rfealive.BASE or yr in c["chid"][:6]) and similar(c["name"], it["name"])]
+            cands.sort(key=lambda c: -_overlap(c["name"], it["name"]))
+            chids = [(c["chid"], c["base"]) for c in cands[:8]]
         d1 = (dt.date.fromisoformat(it["date"]) - dt.timedelta(days=1)).isoformat()
         d2 = (dt.date.fromisoformat(it.get("end_date") or it["date"]) + dt.timedelta(days=1)).isoformat()
         for chid, base in dict.fromkeys(chids):
@@ -369,14 +384,13 @@ class Finder:
             except Exception as e:
                 tried[-1] += " (error: %s)" % str(e)[:60]
 
-        # 3. PDF de la ficha RFEA
-        pdfs = [links[k] for k in ("resultados",) if links.get(k, "").lower().split("?")[0].endswith(".pdf")]
-        # 4. PDFs del índice RFEA con nombre parecido
-        pdfs += [p["url"] for p in self.rfea_pdfs() if similar(p["title"], it["name"])]
-        for u in dict.fromkeys(pdfs):
+        # 3. PDF de la ficha RFEA (de confianza) · 4. PDFs del índice RFEA con nombre parecido
+        pdfs = [(links[k], "ficha") for k in ("resultados",) if links.get(k, "").lower().split("?")[0].endswith(".pdf")]
+        pdfs += [(p["url"], "index") for p in self.rfea_pdfs() if similar(p["title"], it["name"])]
+        for u, trust in dict.fromkeys(pdfs):
             tried.append(u)
             try:
-                pods, url, why = from_pdf(self.http, it, u, self.state["pdf_cache"])
+                pods, url, why = from_pdf(self.http, it, u, self.state["pdf_cache"], trust)
                 if pods:
                     return pods, "PDF oficial", url, tried
                 tried[-1] += " (%s)" % why
@@ -438,7 +452,7 @@ class Finder:
             for u in pdf_links_in_page(self.http, page):
                 tried.append(u)
                 try:
-                    pods, url, why = from_pdf(self.http, it, u, self.state["pdf_cache"])
+                    pods, url, why = from_pdf(self.http, it, u, self.state["pdf_cache"], "web")
                     if pods:
                         return pods, "Web de la competición (PDF)", url, tried
                     tried[-1] += " (%s)" % why
