@@ -45,6 +45,9 @@ jobs:
 
       - run: pip install -r pipeline/requirements.txt
 
+      - name: Navegador sin ventana (solo para faalive, la web de la Federación Andaluza)
+        run: python -m playwright install --with-deps chromium
+
       - name: Ejecutar
         env:
           DATA_DIR: datos

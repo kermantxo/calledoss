@@ -33,7 +33,7 @@ from .common import load_json, norm, save_json, today, iso_now, clean, parse_dmy
 from .highlights import FIELD, _mark_value
 from .parsers import pdf_columns, pdf_results
 from .results import store, _index
-from .sources import rfea, rfealive, worldathletics, timers, sportmaniacs
+from .sources import rfea, rfealive, worldathletics, timers, sportmaniacs, faalive
 
 STATE = "state/backfill.json"
 MISSING = "results/sin_resultados.json"
@@ -475,8 +475,38 @@ class Finder:
         # 7. Web oficial / página de resultados → PDFs de clasificaciones
         pages = [links.get("resultados"), links.get("web")]
         for page in [p for p in pages if p and not p.lower().split("?")[0].endswith(".pdf")]:
-            if "rfealive" in page or "faalive" in page:
-                tried.append(page + " (aplicación web sin datos legibles)" if "faalive" in page else page)
+            if "faalive" in page:
+                # Federación Andaluza: página que solo se ve en navegador → Playwright
+                tried.append(page)
+                try:
+                    fchids, fpdfs = faalive.result_sources(page)
+                except Exception as e:
+                    tried[-1] += " (error: %s)" % str(e)[:60]
+                    continue
+                if fchids is None:
+                    tried[-1] += " (Playwright no instalado)"
+                    continue
+                for chid, base in fchids:
+                    try:
+                        pods, url, _ = from_rfealive(self.http, chid, base)
+                        if pods:
+                            return pods, "RFEA Live (vía FAA)", url, tried
+                    except Exception:
+                        pass
+                all_pods = []
+                for u in fpdfs:
+                    try:
+                        pods, url, why = from_pdf(self.http, it, u, self.state["pdf_cache"], "ficha")
+                        if pods:
+                            all_pods += pods
+                    except Exception:
+                        pass
+                if all_pods:
+                    return all_pods, "Federación Andaluza (PDF)", page, tried
+                tried[-1] += " (sin resultados en la página)"
+                continue
+            if "rfealive" in page:
+                tried.append(page)
                 continue
             for u in pdf_links_in_page(self.http, page):
                 tried.append(u)
