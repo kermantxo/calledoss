@@ -5,7 +5,7 @@
    ============================================================ */
 
 // Dirección del Worker (se rellena al publicarlo con `npx wrangler deploy`)
-const PANEL_API = 'https://calledoss-panel.REEMPLAZAR.workers.dev';
+const PANEL_API = 'https://calledoss-panel.kermantxo.workers.dev';
 
 const $ = id => document.getElementById(id);
 let KEY = null;
