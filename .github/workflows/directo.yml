@@ -9,8 +9,10 @@ on:
     - cron: "*/5 * * * *"
   workflow_dispatch:
 
+# Grupo propio: el directo no espera a la carga histórica ni al chequeo diario.
+# Si coinciden, el guardado se reintenta integrando los cambios del otro (ver push-datos.sh).
 concurrency:
-  group: datos-writer
+  group: directo
   cancel-in-progress: false
 
 permissions:
