@@ -30,6 +30,7 @@ TIME = re.compile(r"^(?:\d{1,2}:)?\d{1,2}:\d{2}(?:[.,]\d{1,3})?$")
 FEM = re.compile(r"\b(fem|femenin[oa]s?|mujer(es)?|women|dones|female|absolutaf|f)\b", re.I)
 MASC = re.compile(r"\b(masc|masculin[oa]s?|hombres?|men|homes|male|absolutam|m)\b", re.I)
 HEADER_JUNK = re.compile(r"^(diferencia|dif\.?|licencia|licència|lic\.?|f\.?nac\.?|fecha|nac\.?|pais|país|t\.?r\.?|ritmo|media|km/h|min/km|vel\.?|"
+                         r"vel\.?med\.?|km\.?\d+|possexo|poscat|pos\.?sexo|--|t\.|prom\.?|"
                          r"vuelta|paso|parcial|k\d+|\d+k|pos\.?|gap|diff|retraso|localidad|poblaci[oó]n|provincia)$", re.I)
 TITLE_WORDS = re.compile(r"\b(\d+\s?(km|kms|k|m|mts|metros|millas?)|km|kms|sub\s?\d+|u\d{2}|absolut[oa]?|femenin[oa]|masculin[oa]|mujer(es)?|hombres?|"
                          r"master|m[aá]ster|veteran[oa]s?|senior|j[uú]nior|juvenil|cadete|infantil|alev[ií]n|benjam[ií]n|prebenjam[ií]n|promesa|"
@@ -38,7 +39,7 @@ TITLE_WORDS = re.compile(r"\b(\d+\s?(km|kms|k|m|mts|metros|millas?)|km|kms|sub\s
 # en mitad de una tabla solo cuenta como título una línea con distancia, categoría o sexo
 STRONG_TITLE = re.compile(r"(\b\d+([.,]\d+)?\s?(km|kms|k|m|mts|metros|millas?)\b|\bsub\s?\d+\b|\bu\d{2}\b|\b(absolut[oa]|femenin[oa]|masculin[oa]|"
                           r"mujeres|hombres|m[aá]ster|veteran[oa]s?|senior|s[eé]nior|j[uú]nior|juvenil|cadete|infantil|alev[ií]n|benjam[ií]n|"
-                          r"prebenjam[ií]n|promesa|categor[ií]a)\b)", re.I)
+                          r"prebenjam[ií]n|promesa|categor[ií]a|marat[oó]n|milla|marcha|cross|fem|masc)\b)", re.I)
 BOILER = re.compile(r"^(clasificaci[oó]n( general)?|classificaci[oó] general|resultados?|results?|p[aá]gina \d+|page \d+|\d+ de \d+)$", re.I)
 
 
@@ -98,7 +99,13 @@ def _assign(ws, cols):
             for k, s in enumerate(starts):
                 if w["x0"] + 3 >= s:
                     i = k
-        out.setdefault(cols[i][0], []).append(w["text"])
+        f = cols[i][0]
+        # una palabra con letras bajo "Dorsal" o "Pos." es en realidad el principio del nombre
+        name_col = next((c for c in cols if c[0] == "name"), None)
+        if f in ("bib", "pos") and name_col and re.search(r"[A-Za-zÀ-ÿ]{2,}", w["text"]) \
+                and not re.fullmatch(r"(DNF|DNS|DSQ|DQ|NP|RET|ABD)", w["text"]):
+            f = "name"
+        out.setdefault(f, []).append(w["text"])
     return {k: " ".join(v) for k, v in out.items()}
 
 
@@ -123,9 +130,10 @@ def _sex(row, section):
             return "F"
         if key == "sex" and v.upper() in ("M", "H", "V", "HOMBRE", "MASCULINO"):
             return "M"
-        if FEM.search(v) or re.search(r"(^|[^a-z])F($|[^a-z])|F-\d|\dF\b|SenF|VetF|Vt\dF", v):
+        # letra suelta "F"/"M" (ni la F de "FOODS" ni la M de "MARATON") o códigos tipo "F-SENIOR", "SenF", "M35"
+        if FEM.search(v) or re.search(r"(?<![A-Za-z])F(?![A-Za-z])|\bFEM\b|\dF\b|SenF|VetF|Vt\dF", v):
             return "F"
-        if MASC.search(v) or re.search(r"(^|[^a-z])M($|[^a-z])|M-\d|\dM\b|SenM|VetM|Vt\dM", v):
+        if MASC.search(v) or re.search(r"(?<![A-Za-z])M(?![A-Za-z])|\bMAS\b|\bMASC\b|\dM\b|SenM|VetM|Vt\dM", v):
             return "M"
     if FEM.search(section or ""):
         return "F"
@@ -145,6 +153,20 @@ def _nice(name):
     return name
 
 
+DISTINCT = re.compile(r"^(\d+([.,]\d+)?(km|kms|k|m|mts)?|km|kms|sub\d*|u\d{2}|absolut[oa]?|femenin[oa]s?|masculin[oa]s?|mujeres|hombres|"
+                      r"fem|masc|master|veteran[oa]s?|senior|junior|juvenil|cadete|infantil|alevin|benjamin|prebenjamin|"
+                      r"promesa|medio|media|maraton|mitja|milla|marcha|cross|relevos|[a-e])$")
+
+
+def _new_info(new, current):
+    """¿Trae el título nuevo una distancia, categoría o sexo que la sección actual no tenía?
+    (Un título que solo repite el de la página anterior no abre sección.)"""
+    if not current:
+        return True
+    extra = set(norm(new).split()) - set(norm(current).split())
+    return any(DISTINCT.match(t) for t in extra)
+
+
 def _is_wrapped_cell(ws, cols):
     """¿Es esta línea el trozo de una celda partida (p. ej. 'VETERANO C' / 'Masculino' en la columna
     Categoría), y no un título? Lo es si no empieza en el margen izquierdo y todas sus palabras caen
@@ -162,7 +184,9 @@ def parse(content=None, pdf=None, max_pages=80):
     rows_all = []      # filas con tiempo: dict(section, row, top, page)
     doc = pdf or pdfplumber.open(io.BytesIO(content))
     try:
-        section, cols, last_title = "", None, None
+        section, cols, last_title, pending, last_secs = "", None, None, None, None
+        pending_strong = False
+        prev_ws_by_text = {}
         prev_text = []
         has_sex_col = False
         for pno, page in enumerate(doc.pages[:max_pages]):
@@ -188,27 +212,39 @@ def parse(content=None, pdf=None, max_pages=80):
                     wrapped = [w for w in wrapped if w[0] <= last_top + 14]
                     cols = hcols
                     has_sex_col = any(c[0] in ("sex", "cat") for c in cols)
+                    def _fragment(t):
+                        ws_t = prev_ws_by_text.get(t)
+                        if not ws_t:
+                            return False
+                        f = set(_assign(ws_t, hcols).keys())
+                        return len(f & {"club", "cat", "sex", "nat"}) >= 2 and "name" not in f
                     cand = [t for t in prev_text[-4:] if t and not BOILER.match(t) and len(t) < 90
                             and not re.search(r"\d{1,2}[/.-]\d{1,2}[/.-]\d{2,4}", t)
-                            and sum(1 for x in t.split() if _field(x)) < 2]  # trozo de cabecera, no título
+                            and sum(1 for x in t.split() if _field(x)) < 2  # trozo de cabecera, no título
+                            and not _fragment(t)]                          # trozo de una fila partida
                     titled = [t for t in cand if TITLE_WORDS.search(t)]
                     new = None
-                    if leftover and len(leftover) > 3 and TITLE_WORDS.search(leftover):
+                    if leftover and len(leftover) > 3 and STRONG_TITLE.search(leftover):
                         new = leftover
+                    elif last_title:
+                        # título en dos líneas justo antes de la tabla ("Sub8" + "Clasificación Masculina")
+                        new = last_title + (" " + titled[-1] if titled and titled[-1] not in last_title else "")
                     elif titled:
                         new = " ".join(titled[-2:]) if len(cand) >= 2 and cand[-2:] == titled[-2:] else titled[-1]
                     elif last_title:
                         new = last_title
                     elif cand and not section:
                         new = cand[-1]
-                    # la cabecera de cada página repite el título general: no es una sección nueva
-                    if new and not (section and set(norm(new).split()) <= set(norm(section).split())):
-                        section = new
+                    # no se cambia aún: se confirma con la primera fila (ver "pending" más abajo)
+                    if new:
+                        pending = new
+                        pending_strong = _new_info(new, section)
                     prev_text = []
                     last_title = None
                     continue
                 if not cols:
                     prev_text.append(text)
+                    prev_ws_by_text[text] = ws
                     continue
                 row = _assign(ws, cols)
                 tval = None
@@ -218,21 +254,40 @@ def parse(content=None, pdf=None, max_pages=80):
                         tval = toks[0]
                         break
                 if not tval:
-                    if _is_wrapped_cell(ws, cols):
+                    near_row = bool(page_rows) and top - page_rows[-1]["top"] <= 14
+                    if near_row or _is_wrapped_cell(ws, cols):
+                        # trozo de celda del corredor de encima ("Masculino", un apellido, el club...)
                         wrapped.append((top, row))
-                        prev_text.append(text)  # por si luego resulta ser el título de la siguiente tabla
-                        prev_text = prev_text[-6:]
+                        if not near_row:
+                            prev_text.append(text)  # lejos de una fila: puede ser el título de la tabla siguiente
+                            prev_ws_by_text[text] = ws
+                            prev_text = prev_text[-6:]
                         continue
-                    is_title = bool(STRONG_TITLE.search(text)) and len(text) < 60 \
+                    # un título tiene que decir distancia o categoría; solo "Masculino"/"Femenino" no basta
+                    no_sex = re.sub(r"(?i)\b(masculin[oa]s?|femenin[oa]s?|hombres|mujeres|masc|fem|clasificaci[oó]n)\b", " ", text)
+                    is_title = bool(STRONG_TITLE.search(no_sex)) and len(text) < 60 \
                         and not re.match(r"^(DNS|DNF|DSQ|DQ|NP|\d)", text)
                     if not is_title:
                         prev_text.append(text)
+                        prev_ws_by_text[text] = ws
                         prev_text = prev_text[-6:]
                         continue
                     last_title = (last_title + " " + text) if last_title else text
-                    section = last_title
                     continue
+                cand_title = last_title or pending
+                if cand_title and cand_title != section:
+                    # Solo empieza una clasificación nueva si la primera fila tiene el puesto 1 o un tiempo
+                    # menor que el último de la sección actual. Si la tabla simplemente continúa en otra
+                    # página (título repetido, nombre de club partido...), se sigue en la misma sección.
+                    pos = re.match(r"\d+", (row.get("pos") or "").strip())
+                    secs = _secs(tval) or 0
+                    strong = pending_strong and cand_title == pending and not last_title
+                    if not section or strong or (pos and pos.group(0) == "1") or (last_secs is not None and secs < last_secs):
+                        section = cand_title
                 last_title = None
+                pending = None
+                pending_strong = False
+                last_secs = _secs(tval)
                 name = _nice(row.get("name") or "")
                 if len(name) < 3 or re.match(r"^[\d\W]+$", name):
                     continue
@@ -292,6 +347,10 @@ def parse(content=None, pdf=None, max_pages=80):
             else:
                 label += " " + ("Mujeres" if sex == "F" else "Hombres")
         else:
+            if labelled_sex and has_sex_col:
+                # el PDF trae el sexo de cada corredor: un podio "femenino/masculino" solo puede salir
+                # de ese dato, nunca del título de la sección (evita mezclar hombres y mujeres)
+                continue
             if section in sexed and not labelled_sex:
                 label += " · General"
             elif section in sexed and labelled_sex:
