@@ -70,6 +70,18 @@ def store(item, res, source, url=None):
     return rid
 
 
+def unstore(rid):
+    """Quita una competición de los resultados (p. ej. si se leyó mal y no se ha podido rehacer)."""
+    import os
+    from .common import path
+    idx = _index()
+    idx["items"] = [x for x in idx["items"] if x["id"] != rid]
+    save_json("results/index.json", idx, compact=True)
+    p = path("results/%s.json" % rid)
+    if os.path.exists(p):
+        os.remove(p)
+
+
 def _find_item(items, title, date=None):
     for it in items:
         if date and not (it["date"] <= date <= (it.get("end_date") or it["date"])):

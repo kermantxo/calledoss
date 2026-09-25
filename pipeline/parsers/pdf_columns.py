@@ -145,18 +145,33 @@ def _nice(name):
     return name
 
 
+def _is_wrapped_cell(ws, cols):
+    """¿Es esta línea el trozo de una celda partida (p. ej. 'VETERANO C' / 'Masculino' en la columna
+    Categoría), y no un título? Lo es si no empieza en el margen izquierdo y todas sus palabras caen
+    en columnas que no son nombre, posición ni dorsal."""
+    if len(cols) < 2:
+        return False
+    # Solo una línea que empieza en la primera columna puede ser un título de sección;
+    # cualquier otra es un trozo de celda (apellido, club o categoría que no cabían).
+    return min(w["x0"] for w in ws) + 3 >= cols[1][1]
+
+
 def parse(content=None, pdf=None, max_pages=80):
-    """Devuelve [{name, rounds:[{round, final, rows}]}] con el podio por sección y sexo."""
-    groups = {}
-    order = []
+    """Devuelve [{name, rounds:[{round, final, rows}]}]: podio general y, si se sabe el sexo,
+    podio masculino y femenino de cada sección (distancia/categoría)."""
+    rows_all = []      # filas con tiempo: dict(section, row, top, page)
     doc = pdf or pdfplumber.open(io.BytesIO(content))
     try:
         section, cols, last_title = "", None, None
         prev_text = []
-        for page in doc.pages[:max_pages]:
+        has_sex_col = False
+        for pno, page in enumerate(doc.pages[:max_pages]):
             prev_ws = None
+            wrapped = []   # (top, texto) de celdas partidas en esta página
+            page_rows = []
             for ws in _lines(page):
                 text = clean(" ".join(w["text"] for w in ws))
+                top = ws[0]["top"]
                 hcols, leftover = _header(ws)
                 if not hcols and prev_ws is not None:
                     # cabecera partida en dos líneas ("Orden ... Tiempo" / "Pos. Dorsal Nombre Club")
@@ -168,19 +183,27 @@ def parse(content=None, pdf=None, max_pages=80):
                             prev_text = prev_text[:-1]  # esa línea era media cabecera, no un título
                 prev_ws = ws
                 if hcols:
+                    # las líneas sueltas justo antes de una cabecera eran títulos, no trozos de celda
+                    last_top = page_rows[-1]["top"] if page_rows else -1e9
+                    wrapped = [w for w in wrapped if w[0] <= last_top + 14]
                     cols = hcols
+                    has_sex_col = any(c[0] in ("sex", "cat") for c in cols)
                     cand = [t for t in prev_text[-4:] if t and not BOILER.match(t) and len(t) < 90
-                            and not re.search(r"\d{1,2}[/.-]\d{1,2}[/.-]\d{2,4}", t)]
+                            and not re.search(r"\d{1,2}[/.-]\d{1,2}[/.-]\d{2,4}", t)
+                            and sum(1 for x in t.split() if _field(x)) < 2]  # trozo de cabecera, no título
                     titled = [t for t in cand if TITLE_WORDS.search(t)]
+                    new = None
                     if leftover and len(leftover) > 3 and TITLE_WORDS.search(leftover):
-                        section = leftover
+                        new = leftover
                     elif titled:
-                        # títulos en dos líneas ("Sub8" + "Clasificación Masculina")
-                        section = " ".join(titled[-2:]) if len(cand) >= 2 and cand[-2:] == titled[-2:] else titled[-1]
+                        new = " ".join(titled[-2:]) if len(cand) >= 2 and cand[-2:] == titled[-2:] else titled[-1]
                     elif last_title:
-                        section = last_title
+                        new = last_title
                     elif cand and not section:
-                        section = cand[-1]
+                        new = cand[-1]
+                    # la cabecera de cada página repite el título general: no es una sección nueva
+                    if new and not (section and set(norm(new).split()) <= set(norm(section).split())):
+                        section = new
                     prev_text = []
                     last_title = None
                     continue
@@ -195,38 +218,50 @@ def parse(content=None, pdf=None, max_pages=80):
                         tval = toks[0]
                         break
                 if not tval:
-                    # ¿línea de título de una nueva sección o continuación del nombre?
-                    is_title = bool(STRONG_TITLE.search(text)) and len(text) < 60
-                    if not is_title and row.get("name") and len(ws) <= 3 and groups and order:
-                        continue
-                    prev_text.append(text)
-                    if len(prev_text) > 6:
+                    if _is_wrapped_cell(ws, cols):
+                        wrapped.append((top, row))
+                        prev_text.append(text)  # por si luego resulta ser el título de la siguiente tabla
                         prev_text = prev_text[-6:]
-                    # un título nuevo cambia de sección (la cabecera puede no repetirse)
-                    if text and not BOILER.match(text) and len(text) < 60 and STRONG_TITLE.search(text) \
-                            and not re.search(r"\d{5,}", text):
-                        last_title = (last_title + " " + text) if last_title else text
-                        section = last_title
+                        continue
+                    is_title = bool(STRONG_TITLE.search(text)) and len(text) < 60 \
+                        and not re.match(r"^(DNS|DNF|DSQ|DQ|NP|\d)", text)
+                    if not is_title:
+                        prev_text.append(text)
+                        prev_text = prev_text[-6:]
+                        continue
+                    last_title = (last_title + " " + text) if last_title else text
+                    section = last_title
                     continue
                 last_title = None
                 name = _nice(row.get("name") or "")
                 if len(name) < 3 or re.match(r"^[\d\W]+$", name):
                     continue
-                sex = _sex(row, section)
-                key = (section, sex)
-                if key not in groups:
-                    groups[key] = []
-                    order.append(key)
-                groups[key].append({"name": name, "club": clean(row.get("club") or ""), "mark": tval,
-                                    "cat": clean(row.get("cat") or ""), "_s": _secs(tval)})
+                page_rows.append({"section": section, "row": row, "top": top, "name": name, "mark": tval})
+            # las celdas partidas se unen a la fila más cercana en vertical
+            for wtop, wrow in wrapped[:]:
+                if not page_rows:
+                    break
+                near = min(page_rows, key=lambda r: abs(r["top"] - wtop))
+                if abs(near["top"] - wtop) < 25:
+                    for k, v in wrow.items():
+                        near["row"][k] = (near["row"].get(k, "") + " " + v).strip()
+            rows_all += page_rows
     finally:
         if pdf is None:
             doc.close()
+
+    groups, order = {}, []
+    for r in rows_all:
+        sex = _sex(r["row"], "" if has_sex_col else r["section"])
+        for key in ((r["section"], ""), (r["section"], sex)) if sex else ((r["section"], ""),):
+            if key not in groups:
+                groups[key] = []
+                order.append(key)
+            groups[key].append({"name": r["name"], "club": clean(r["row"].get("club") or ""), "mark": r["mark"],
+                                "cat": clean(r["row"].get("cat") or ""), "_s": _secs(r["mark"])})
     out = []
     sexed = {k[0] for k in order if k[1]}
     for key in order:
-        if not key[1] and key[0] in sexed:
-            continue  # restos sin sexo de una sección que ya tiene podio masculino y femenino
         seen, rows = set(), []
         for r in groups[key]:
             k = norm(r["name"])
@@ -238,7 +273,7 @@ def parse(content=None, pdf=None, max_pages=80):
         rows.sort(key=lambda r: r["_s"])
         top = [{"pos": str(i + 1), "name": r["name"], "club": r["club"], "mark": r["mark"], "cat": r["cat"]} for i, r in enumerate(rows[:3])]
         section, sex = key
-        label = clean(re.sub(r"(?i)clasificaci[oó]n( general)?( categor[ií]a)?|classificaci[oó]( general)?", "", section)) or "Clasificación"
+        label = clean(re.sub(r"(?i)clasificaci[oó]n( general)?( categor[ií]a)?( por categor[ií]as)?|classificaci[oó]( general)?", "", section)) or "Clasificación"
         label = re.split(r",\s*total|\s+total\.{2,}", label, flags=re.I)[0]
         seen_w, words = set(), []
         for w in label.split():  # "Absoluta Femenina Absoluta Femenina" -> "Absoluta Femenina"
@@ -248,7 +283,18 @@ def parse(content=None, pdf=None, max_pages=80):
             seen_w.add(k)
             words.append(w)
         label = " ".join(words).strip(" -,") or "Clasificación"
-        if sex and not (FEM.search(label) or MASC.search(label)):
-            label += " " + ("Mujeres" if sex == "F" else "Hombres")
+        labelled_sex = FEM.search(label) or MASC.search(label)
+        if sex:
+            if labelled_sex:
+                # la sección ya dice el sexo: solo vale si coincide con el de los corredores
+                if (sex == "F") != bool(FEM.search(label)):
+                    continue
+            else:
+                label += " " + ("Mujeres" if sex == "F" else "Hombres")
+        else:
+            if section in sexed and not labelled_sex:
+                label += " · General"
+            elif section in sexed and labelled_sex:
+                continue  # ya está el podio de ese sexo
         out.append({"name": label[:80], "rounds": [{"round": "General", "final": True, "rows": top}], "_n": len(rows)})
     return out

@@ -32,12 +32,12 @@ from .calendar_build import similar
 from .common import load_json, norm, save_json, today, iso_now, clean, parse_dmy
 from .highlights import FIELD, _mark_value
 from .parsers import pdf_columns, pdf_results
-from .results import store, _index
+from .results import store, unstore, _index
 from .sources import rfea, rfealive, worldathletics, timers, sportmaniacs, faalive
 
 STATE = "state/backfill.json"
 # Súbelo cuando se añadan fuentes o lectores nuevos: todo lo "sin resultados" se vuelve a intentar.
-VERSION = 3
+VERSION = 4
 MISSING = "results/sin_resultados.json"
 START = "2026-01-01"
 COMBINED = re.compile(r"decatlon|heptatlon|pentatlon|hexatlon|octatlon|triatlon|tetratlon")
@@ -298,11 +298,18 @@ class Finder:
         for k in ("done", "pdf_cache", "details"):
             self.state.setdefault(k, {})
         if self.state.get("version") != VERSION:
-            # lectores nuevos: se reintenta todo lo que no se encontró y se releen los PDFs
-            for d in self.state["done"].values():
+            # lectores nuevos: se reintenta lo que no se encontró y se rehace lo leído por columnas
+            col_urls = {k for k, v in self.state["pdf_cache"].items() if v.get("format") == "columnas"}
+            by_url = {x.get("url"): x for x in _index()["items"]}
+            redo_sources = {"Runvasport (PDF)", "Web de la competición (PDF)", "Federación Andaluza (PDF)"}
+            for cid, d in self.state["done"].items():
                 if d.get("status") == "missing":
                     d["tries"] = 0
-            self.state["pdf_cache"] = {k: v for k, v in self.state["pdf_cache"].items() if v.get("events")}
+                elif d.get("status") == "ok" and (d.get("source") in redo_sources or
+                                                  any(x.get("cal_id") == cid and x.get("url") in col_urls for x in by_url.values())):
+                    d["status"] = "redo"
+            self.state["pdf_cache"] = {k: v for k, v in self.state["pdf_cache"].items()
+                                       if v.get("events") and v.get("format") != "columnas"}
             self.state["version"] = VERSION
         self._rl_index = None
         self._rfea_pdfs = None
@@ -588,7 +595,9 @@ def run(http, health, items, max_minutes=None, only_ids=None):
             break
         prev = f.state["done"].get(it["id"])
         ex = existing.get(it["id"])
-        if ex and ex.get("podios") and not ex.get("link_only"):
+        if prev and prev.get("status") == "redo":
+            pass  # se rehace aunque ya tenga resultados (lector mejorado)
+        elif ex and ex.get("podios") and not ex.get("link_only"):
             f.state["done"][it["id"]] = {"status": "ok", "source": ex["source"], "at": iso_now()}
             stats["skipped"] += 1
             continue
@@ -607,6 +616,8 @@ def run(http, health, items, max_minutes=None, only_ids=None):
             f.state["done"][it["id"]] = {"status": "ok", "source": source, "events": len(pods), "at": iso_now()}
             stats["found"] += 1
         else:
+            if prev and prev.get("status") == "redo":
+                unstore(it["id"])  # su resultado anterior era de un lector con errores: mejor nada que datos mal
             f.state["done"][it["id"]] = {"status": "missing", "tried": tried[-8:], "at": iso_now(),
                                          "tries": (prev or {}).get("tries", 0) + 1}
             stats["missing"] += 1
