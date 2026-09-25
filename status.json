@@ -84,16 +84,28 @@
   },
   "backfill": {
    "label": "Carga histórica de resultados 2026",
-   "last_run": "2026-09-25T13:44:35+02:00",
+   "last_run": "2026-09-25T18:59:08+02:00",
    "ok": true,
    "last_error": "TypeError: 'Health' object is not iterable",
    "last_error_at": "2026-09-24T18:13:51+02:00",
    "fails_in_a_row": 0,
-   "last_ok": "2026-09-25T14:12:41+02:00",
+   "last_ok": "2026-09-25T19:44:09+02:00",
    "last_count": 6
   }
  },
  "log": [
+  {
+   "at": "2026-09-25T19:44:09+02:00",
+   "level": "info",
+   "source": "backfill",
+   "msg": "Carga histórica: 61 con podios nuevos, 172 ya estaban, 42 sin resultados localizados (45.0 min)."
+  },
+  {
+   "at": "2026-09-25T19:44:09+02:00",
+   "level": "info",
+   "source": "backfill",
+   "msg": "Tanda terminada por tiempo; quedan 146 competiciones para la siguiente."
+  },
   {
    "at": "2026-09-25T18:08:58+02:00",
    "level": "error",
@@ -207,5 +219,5 @@
    "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xxx-quijote-maraton-maraton-popular-adad: HTTP 429 en https://atletismorfea.es/calendario/campeonato/xxx-quijote-maraton-maraton-popular-adad"
   }
  ],
- "updated": "2026-09-25T19:42:43+02:00"
+ "updated": "2026-09-25T19:44:09+02:00"
 }
