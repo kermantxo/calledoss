@@ -1,6 +1,6 @@
 {
- "date": "2026-09-24",
- "generated": "2026-09-24T17:25:06+02:00",
+ "date": "2026-09-25",
+ "generated": "2026-09-25T06:31:59+02:00",
  "active_day": true,
  "windows": [
   {
@@ -8,8 +8,8 @@
    "name": "South American Games",
    "place": "CARD Pedro Candioti, Santa Fé (ARG)",
    "source": "World Athletics",
-   "start": "2026-09-24T07:00:00+02:00",
-   "end": "2026-09-24T23:00:00+02:00",
+   "start": "2026-09-25T07:00:00+02:00",
+   "end": "2026-09-25T23:00:00+02:00",
    "first": null,
    "last": null,
    "schedule_known": false,
@@ -24,8 +24,8 @@
    "name": "20th Asian Games",
    "place": "Municipal Mizuho Stadium, Nagoya (JPN)",
    "source": "World Athletics",
-   "start": "2026-09-24T07:00:00+02:00",
-   "end": "2026-09-24T23:00:00+02:00",
+   "start": "2026-09-25T07:00:00+02:00",
+   "end": "2026-09-25T23:00:00+02:00",
    "first": null,
    "last": null,
    "schedule_known": false,
