@@ -3956,7 +3956,7 @@ function liveRows(rows){
   return rows.map(r=>`
     <div class="mark-row">
       <span class="rk">${esc(r.pos||'')}</span>
-      <span>${esc(r.name||'')}${r.nat?` <span style="color:var(--gray)">(${esc(r.nat)})</span>`:''}${r.club?`<br><small style="color:var(--gray)">${esc(r.club)}</small>`:''}</span>
+      <span>${esc(r.name||'')}${(r.nat||r.club)?`<br><small style="color:var(--gray)">${esc([r.nat, r.club].filter(Boolean).join(' · '))}</small>`:''}</span>
       <span class="mono">${esc(r.mark||'')}${r.note?` <small>${esc(r.note)}</small>`:''}</span>
     </div>`).join('');
 }
@@ -4372,8 +4372,8 @@ function resultFor(calId){
 function resultTable(rows, showNat){
   return `<div class="athlete-list">${rows.map(r=>`
     <div class="athlete-row">
-      <div class="athlete-row-name">${esc(r.pos ? r.pos + '. ' : '')}${esc(r.name)}${showNat && r.nat ? ` <span style="color:var(--gray)">(${esc(r.nat)})</span>` : ''}</div>
-      <div class="athlete-row-ref">${esc(r.club || r.cat || '')}</div>
+      <div class="athlete-row-name">${esc(r.pos ? r.pos + '. ' : '')}${esc(r.name)}</div>
+      <div class="athlete-row-ref">${esc([showNat && r.nat ? r.nat : '', r.club || r.cat || ''].filter(Boolean).join(' · '))}</div>
       <div class="athlete-row-meta"><span><b>Marca:</b> ${esc(r.mark || '—')}${r.wind ? ' ('+esc(r.wind)+')' : ''}${r.note ? ' · '+esc(r.note) : ''}</span></div>
     </div>`).join('')}</div>`;
 }

@@ -40,8 +40,9 @@ export default {
           readFile(env, "live_plan.json"),
           readFile(env, "results/sin_resultados.json").catch(() => ({ data: null })),
         ]);
+        const revision = await readFile(env, "results/revision.json").catch(() => ({ data: null }));
         return json({ ok: true, manual: manual.data || { items: [] }, status: status.data || {}, plan: plan.data || {},
-                      missing: missing.data || { items: [] } }, 200, cors);
+                      missing: missing.data || { items: [] }, revision: revision.data || { items: {} } }, 200, cors);
       }
       if (url.pathname === "/api/manual" && request.method === "POST") {
         const body = await request.json().catch(() => ({}));

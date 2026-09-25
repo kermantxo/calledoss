@@ -48,6 +48,12 @@ def store(item, res, source, url=None):
     """Guarda el detalle y actualiza el índice."""
     rid = item["id"] if item else "res-%s" % short_hash(url or source)
     res = dict(res)
+    # revisión automática: nombres "Nombre Apellidos" y nada de hombres en podios de mujeres (ni al revés)
+    from .quality import review, record
+    res, issues = review(res, item["name"] if item else res.get("name", ""))
+    record(rid, issues)
+    if not res.get("events") and not res.get("link_only"):
+        return None
     res.update({"id": rid, "name": item["name"] if item else res.get("name", ""), "date": item["date"] if item else res.get("date", ""),
                 "place": item.get("place", "") if item else "", "source": source, "url": url, "fetched": iso_now()})
     save_json("results/%s.json" % rid, res, compact=True)

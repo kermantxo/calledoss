@@ -5,6 +5,7 @@
     python -m pipeline.run plan      # recalcula el plan de hoy (tras añadir algo en el panel)
     python -m pipeline.run live      # una comprobación de directo (cada 2-5 min; sale en 1 s si no toca)
     python -m pipeline.run backfill  # carga histórica de podios de 2026 (reanudable)
+    python -m pipeline.run revisar   # revisa nombres y sexo de todos los podios guardados
 """
 import os
 import sys
@@ -54,6 +55,34 @@ def backfill_run():
         f.write(str((stats or {}).get("remaining", 0)))
 
 
+def revisar():
+    """Pasa la revisión automática (nombres + sexo de cada podio) por TODOS los resultados guardados."""
+    import glob, os
+    from .common import DATA_DIR
+    from . import results as R
+    cal = {x["id"]: x for x in _items()}
+    idx = {x["id"]: x for x in R._index()["items"]}
+    n = dropped = 0
+    for f in sorted(glob.glob(os.path.join(DATA_DIR, "results", "*.json"))):
+        base = os.path.basename(f)[:-5]
+        if base in ("index", "sin_resultados", "revision"):
+            continue
+        res = load_json("results/%s.json" % base, {}) or {}
+        meta = idx.get(base, {})
+        item = cal.get(meta.get("cal_id") or base) or {"id": base, "name": res.get("name", ""), "date": res.get("date", ""),
+                                                          "place": res.get("place", ""), "intl": False}
+        if item["id"] != base:
+            item = dict(item, id=base)
+        before = sum(len(e.get("rounds") or [e]) for e in res.get("events", []))
+        rid = R.store(item, res, res.get("source") or meta.get("source", ""), res.get("url") or meta.get("url"))
+        if rid is None:
+            R.unstore(base)
+        after = sum(len(e.get("rounds") or [e]) for e in (load_json("results/%s.json" % base, {}) or {}).get("events", []))
+        dropped += max(0, before - after)
+        n += 1
+    print("revisadas %d competiciones; %d podios retirados por no cuadrar" % (n, dropped))
+
+
 def live_tick():
     h, health = Http(min_delay=0.3), Health()
     n = live.tick(h, health)
@@ -65,5 +94,6 @@ def live_tick():
 if __name__ == "__main__":
     mode = sys.argv[1] if len(sys.argv) > 1 else "daily"
     t = time.time()
-    {"daily": daily, "results": results_only, "plan": plan_only, "live": live_tick, "backfill": backfill_run}[mode]()
+    {"daily": daily, "results": results_only, "plan": plan_only, "live": live_tick, "backfill": backfill_run,
+     "revisar": revisar}[mode]()
     print("%s terminado en %.0f s" % (mode, time.time() - t))

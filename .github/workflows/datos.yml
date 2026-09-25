@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "daily | results | plan"
+        description: "daily | results | plan | revisar"
         default: "daily"
         required: true
 

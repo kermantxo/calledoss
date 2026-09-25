@@ -37,7 +37,7 @@ from .sources import rfea, rfealive, worldathletics, timers, sportmaniacs, faali
 
 STATE = "state/backfill.json"
 # Súbelo cuando se añadan fuentes o lectores nuevos: todo lo "sin resultados" se vuelve a intentar.
-VERSION = 5
+VERSION = 6
 MISSING = "results/sin_resultados.json"
 START = "2026-01-01"
 COMBINED = re.compile(r"decatlon|heptatlon|pentatlon|hexatlon|octatlon|triatlon|tetratlon")
@@ -198,8 +198,14 @@ def from_rfealive(http, chid, base):
     if sched:
         for e in sched["events"]:
             full.setdefault(e["event"], []).append(e)
+        from .names import is_abbreviated
         for p in pods:
-            cand = [e for e in full.get(p["name"], []) if _is_final(e["round"]) or len(full.get(p["name"], [])) == 1]
+            if not any(is_abbreviated(r.get("name")) for r in p["rounds"][0]["rows"]):
+                continue
+            same = full.get(p["name"], [])
+            want = p["rounds"][0].get("round", "")
+            # la misma ronda del podio; si no, la final; si solo hay una, esa
+            cand = [e for e in same if e["round"] == want] or [e for e in same if _is_final(e["round"])] or (same if len(same) == 1 else [])
             if not cand:
                 continue
             try:
@@ -302,7 +308,17 @@ class Finder:
             col_urls = {k for k, v in self.state["pdf_cache"].items() if v.get("format") == "columnas"}
             by_url = {x.get("url"): x for x in _index()["items"]}
             redo_sources = {"Runvasport (PDF)", "Web de la competición (PDF)", "Federación Andaluza (PDF)"}
+            # nombres abreviados de RFEA Live ('H Santos Llorente'): se vuelven a pedir completos
+            from .names import is_abbreviated
+            abbrev = set()
+            for x in _index()["items"]:
+                if x.get("source", "").startswith("RFEA Live") and any(
+                        is_abbreviated(r.get("name")) for pd in x.get("podios", []) for r in pd.get("rows", [])):
+                    abbrev.add(x.get("cal_id") or x["id"])
             for cid, d in self.state["done"].items():
+                if cid in abbrev and d.get("status") == "ok":
+                    d["status"] = "redo"
+                    continue
                 if d.get("status") == "missing":
                     d["tries"] = 0
                 elif d.get("status") == "ok" and (d.get("source") in redo_sources or

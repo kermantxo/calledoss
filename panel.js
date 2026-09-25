@@ -77,6 +77,7 @@ async function loadState(){
     renderSources(st.status || {});
     MISSING = (st.missing && st.missing.items) || [];
     renderMissing();
+    renderRevision((st.revision && st.revision.items) || {});
   } catch(err){
     $('alerts').innerHTML = `<div class="panel-alert bad">No se pudo cargar el estado: ${esc(err.message)}</div>`;
   }
@@ -128,6 +129,17 @@ function renderSources(status){
   $('logList').innerHTML = log.length
     ? log.map(l => `<div class="panel-log ${l.level}"><span class="mono">${cuando(l.at)}</span> · <b>${esc(l.source)}</b> · ${esc(l.msg)}</div>`).join('')
     : '<p class="panel-help">Sin avisos.</p>';
+}
+
+function renderRevision(items){
+  const all = Object.values(items).flatMap(v => v.issues || []);
+  const sexo = all.filter(i => i.kind === 'sexo'), nombre = all.filter(i => i.kind === 'nombre');
+  if(!all.length){ $('revisionList').innerHTML = '<p class="panel-help">✅ Todo cuadra.</p>'; return; }
+  const row = i => `<div class="panel-log warning"><b>${esc(i.competition)}</b> · ${esc(i.event)}<br>${esc(i.detail)}</div>`;
+  $('revisionList').innerHTML =
+    `<h3 class="panel-sub">Podios retirados por mezclar hombres y mujeres (${sexo.length})</h3>` +
+    (sexo.map(row).join('') || '<p class="panel-help">Ninguno.</p>') +
+    `<details style="margin-top:14px;"><summary style="cursor:pointer;"><b>Nombres incompletos (${nombre.length})</b></summary>${nombre.slice(0,200).map(row).join('')}</details>`;
 }
 
 let MISSING = [];

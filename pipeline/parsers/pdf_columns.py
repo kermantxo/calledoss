@@ -121,7 +121,17 @@ def _secs(t):
         return None
 
 
+FEM_WORD = re.compile(r"\b(femenin[oa]s?|mujer(es)?|women|dones|female|fem)\b", re.I)
+MASC_WORD = re.compile(r"\b(masculin[oa]s?|hombres?|men|homes|male|masc)\b", re.I)
+
+
 def _sex(row, section):
+    # 1) palabras completas en la fila (mandan sobre las letras: "MÁSTER F Masculino" es un hombre)
+    for key in ("sex", "cat", "club"):
+        v = (row.get(key) or "")
+        f, m = bool(FEM_WORD.search(v)), bool(MASC_WORD.search(v))
+        if f != m:
+            return "F" if f else "M"
     for key in ("sex", "cat"):
         v = (row.get(key) or "").strip()
         if not v:
