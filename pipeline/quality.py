@@ -43,6 +43,25 @@ def row_sex(r):
     return s, "nombre" if s else ""
 
 
+def _junk_label(name):
+    """Título de prueba que en realidad es una fila mal leída: lleva un tiempo, un dorsal/puesto
+    o empieza por el nombre de pila de una persona ("Maria Calvo Arganda Femenino...")."""
+    if re.search(r"\d{1,2}:\d{2}:\d{2}|\d{1,2}:\d{2}[.,]\d", name):
+        return True  # lleva un tiempo con segundos: es una fila, no un título ("19:55" sola es la hora de salida)
+    from .parsers.pdf_columns import _field
+    if sum(1 for t in name.split() if _field(t)) >= 2 or re.search(r"intermediate|parciales|tempo ?ritmo", name, re.I):
+        return True  # lleva palabras de cabecera (Pos, Dorsal, Nome, Tiempo...)
+    # empieza por un número que no es una distancia ("45 171 F MIF...", "752 977 M CAC")
+    if re.match(r"^\d+\s", name) and not re.match(r"^\d+([.,]\d+)?\s?(m|km|k|kms|mts|metros|millas?|x|mi)\b", name, re.I):
+        return True
+    from .names import sex_from_first_name
+    first = name.split()[:1]
+    if first and sex_from_first_name(first[0]) and len(name.split()) >= 3 and not re.search(
+            r"\d|km|milla|marat|carrera|cross|trail|media|mitja|memorial|trofeo|gran premio|subida|vuelta|san |santa ", name, re.I):
+        return True
+    return False
+
+
 def review(res, comp_name=""):
     """Limpia nombres y quita los podios con sexos mezclados. Devuelve (res, avisos)."""
     issues = []
@@ -58,6 +77,10 @@ def review(res, comp_name=""):
                     r["name"], nat = clean_name(r.get("name", ""), r.get("nat", ""))
                     if nat and not r.get("nat"):
                         r["nat"] = nat
+            if not is_team and _junk_label(ev.get("name", "")):
+                issues.append({"kind": "ilegible", "competition": comp_name, "event": label.strip()[:80],
+                               "detail": "El título de la prueba no es legible (el PDF se leyó mal); no se publica."})
+                continue
             want = "" if MIXED.search(ev.get("name", "")) and not label_sex(ev.get("name", "")) else label_sex(label)
             wrong = []
             if want and not is_team:

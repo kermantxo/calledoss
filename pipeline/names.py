@@ -46,6 +46,8 @@ def clean_name(raw, nat=""):
     s = re.sub(r"\b\d{1,2}[/.-]\d{1,2}[/.-]\d{2,4}\b", " ", s)          # fechas de nacimiento
     s = re.sub(r"(?<=[A-Za-zÀ-ÿ])\d+\b", "", s)                          # "Ouhaddou1" -> "Ouhaddou"
     s = re.sub(r"\s\d+\b", " ", s)                                       # números sueltos
+    s = re.sub(r"^\d+\s+", "", s)                                        # "431 Oier Erro" -> "Oier Erro"
+    s = re.sub(r"\s+(No|Si|Sí|Yes)$", "", s)                              # columnas "Federado: No/Sí" pegadas
     s = COUNTRY_NAMES.sub("", s).strip()
     toks = s.split()
     codes = []
