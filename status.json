@@ -95,6 +95,18 @@
  },
  "log": [
   {
+   "at": "2026-09-26T11:44:17+02:00",
+   "level": "warning",
+   "source": "live",
+   "msg": "Directo de 'TCS Lidingoloppet': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7244488"
+  },
+  {
+   "at": "2026-09-26T11:44:07+02:00",
+   "level": "warning",
+   "source": "live",
+   "msg": "Directo de 'Pollença Running Fest': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7240150"
+  },
+  {
    "at": "2026-09-26T11:42:44+02:00",
    "level": "warning",
    "source": "live",
@@ -561,19 +573,7 @@
    "level": "warning",
    "source": "live",
    "msg": "Directo de 'TCS Lidingoloppet': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7244488"
-  },
-  {
-   "at": "2026-09-26T10:27:32+02:00",
-   "level": "warning",
-   "source": "live",
-   "msg": "Directo de 'Pollença Running Fest': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7240150"
-  },
-  {
-   "at": "2026-09-26T10:24:44+02:00",
-   "level": "warning",
-   "source": "live",
-   "msg": "Directo de 'TCS Lidingoloppet': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7244488"
   }
  ],
- "updated": "2026-09-26T11:42:45+02:00"
+ "updated": "2026-09-26T11:44:18+02:00"
 }
