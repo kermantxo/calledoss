@@ -1,10 +1,27 @@
 {
  "rfea-2026-09-26-pollenca-running-fest": {
   "since": "2026-09-26",
-  "tries": 0
+  "tries": 1,
+  "last": "2026-09-26"
  },
  "wa-7244488": {
   "since": "2026-09-26",
-  "tries": 0
+  "tries": 1,
+  "last": "2026-09-26"
+ },
+ "rfea-2026-09-19-ultra-de-gredos-1": {
+  "since": "2026-09-26",
+  "tries": 1,
+  "last": "2026-09-26"
+ },
+ "rfea-2026-09-26-15k-nocturna-valencia-gana-energia": {
+  "since": "2026-09-26",
+  "tries": 1,
+  "last": "2026-09-26"
+ },
+ "rfea-2026-09-26-iv-milla-de-la-ceramica": {
+  "since": "2026-09-26",
+  "tries": 1,
+  "last": "2026-09-26"
  }
 }
