@@ -44,6 +44,7 @@ def clean_name(raw, nat=""):
     if not s:
         return s, nat
     s = re.sub(r"\b\d{1,2}[/.-]\d{1,2}[/.-]\d{2,4}\b", " ", s)          # fechas de nacimiento
+    s = re.sub(r"(?<=[A-Za-zÀ-ÿ])\d+\b", "", s)                          # "Ouhaddou1" -> "Ouhaddou"
     # el nombre acaba en la primera palabra con cifras (licencia "Cat-3881669-a-n-c", "M-2", ":22"...)
     toks0 = s.split()
     for i, t in enumerate(toks0):
