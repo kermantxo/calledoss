@@ -49,7 +49,7 @@ def _junk_label(name):
     if re.search(r"\d{1,2}:\d{2}:\d{2}|\d{1,2}:\d{2}[.,]\d", name):
         return True  # lleva un tiempo con segundos: es una fila, no un título ("19:55" sola es la hora de salida)
     from .parsers.pdf_columns import _field
-    if sum(1 for t in name.split() if _field(t)) >= 2 or re.search(r"intermediate|parciales|tempo ?ritmo", name, re.I):
+    if sum(1 for t in name.split() if _field(t)) >= 2 or re.search(r"intermediate|parciales|tempo ?ritmo|\baño\b|\bciudad\s+km\b|/\s*ciudad", name, re.I):
         return True  # lleva palabras de cabecera (Pos, Dorsal, Nome, Tiempo...)
     # empieza por un número que no es una distancia ("45 171 F MIF...", "752 977 M CAC")
     if re.match(r"^\d+\s", name) and not re.match(r"^\d+([.,]\d+)?\s?(m|km|k|kms|mts|metros|millas?|x|mi)\b", name, re.I):
