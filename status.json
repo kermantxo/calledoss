@@ -95,6 +95,18 @@
  },
  "log": [
   {
+   "at": "2026-09-26T08:27:54+02:00",
+   "level": "warning",
+   "source": "live",
+   "msg": "Directo de 'TCS Lidingoloppet': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7244488"
+  },
+  {
+   "at": "2026-09-26T08:27:44+02:00",
+   "level": "warning",
+   "source": "live",
+   "msg": "Directo de 'Pollença Running Fest': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7240150"
+  },
+  {
    "at": "2026-09-26T08:24:45+02:00",
    "level": "warning",
    "source": "live",
@@ -565,20 +577,7 @@
    "source": "rfea_results",
    "msg": "HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf",
    "detail": "Traceback (most recent call last):\n  File \"/home/runner/work/calledoss/calledoss/pipeline/common.py\", line 212, in run\n    result = fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/results.py\", line 103, in rfea_pdf_index\n    content = http.get(u, timeout=180).content\n              ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/common.py\", line 147, in get\n    return self.request(\"GET\", url, **kw)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nrequests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf\n"
-  },
-  {
-   "at": "2026-09-25T15:10:03+02:00",
-   "level": "error",
-   "source": "rfea_results",
-   "msg": "HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf",
-   "detail": "Traceback (most recent call last):\n  File \"/home/runner/work/calledoss/calledoss/pipeline/common.py\", line 212, in run\n    result = fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/results.py\", line 103, in rfea_pdf_index\n    content = http.get(u, timeout=180).content\n              ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/common.py\", line 147, in get\n    return self.request(\"GET\", url, **kw)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nrequests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf\n"
-  },
-  {
-   "at": "2026-09-25T14:12:41+02:00",
-   "level": "info",
-   "source": "backfill",
-   "msg": "Carga histórica: 47 con podios nuevos, 315 ya estaban, 59 sin resultados localizados (28.1 min)."
   }
  ],
- "updated": "2026-09-26T08:24:47+02:00"
+ "updated": "2026-09-26T08:27:56+02:00"
 }
