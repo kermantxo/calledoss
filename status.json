@@ -95,6 +95,18 @@
  },
  "log": [
   {
+   "at": "2026-09-26T12:27:43+02:00",
+   "level": "warning",
+   "source": "live",
+   "msg": "Directo de 'TCS Lidingoloppet': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7244488"
+  },
+  {
+   "at": "2026-09-26T12:27:34+02:00",
+   "level": "warning",
+   "source": "live",
+   "msg": "Directo de 'Pollença Running Fest': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7240150"
+  },
+  {
    "at": "2026-09-26T12:25:58+02:00",
    "level": "warning",
    "source": "live",
@@ -562,19 +574,7 @@
    "level": "warning",
    "source": "live",
    "msg": "Directo de '20th Asian Games': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7176091?day=4"
-  },
-  {
-   "at": "2026-09-26T10:57:44+02:00",
-   "level": "warning",
-   "source": "live",
-   "msg": "Directo de 'TCS Lidingoloppet': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7244488"
-  },
-  {
-   "at": "2026-09-26T10:57:35+02:00",
-   "level": "warning",
-   "source": "live",
-   "msg": "Directo de 'Pollença Running Fest': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7240150"
   }
  ],
- "updated": "2026-09-26T12:25:59+02:00"
+ "updated": "2026-09-26T12:27:44+02:00"
 }
