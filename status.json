@@ -95,6 +95,18 @@
  },
  "log": [
   {
+   "at": "2026-09-26T08:09:43+02:00",
+   "level": "warning",
+   "source": "live",
+   "msg": "Directo de 'TCS Lidingoloppet': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7244488"
+  },
+  {
+   "at": "2026-09-26T08:09:33+02:00",
+   "level": "warning",
+   "source": "live",
+   "msg": "Directo de 'Pollença Running Fest': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7240150"
+  },
+  {
    "at": "2026-09-26T08:06:48+02:00",
    "level": "warning",
    "source": "live",
@@ -567,20 +579,7 @@
    "level": "info",
    "source": "backfill",
    "msg": "Tanda terminada por tiempo; quedan 354 competiciones para la siguiente."
-  },
-  {
-   "at": "2026-09-24T18:13:51+02:00",
-   "level": "error",
-   "source": "backfill",
-   "msg": "TypeError: 'Health' object is not iterable",
-   "detail": "Traceback (most recent call last):\n  File \"/home/runner/work/calledoss/calledoss/pipeline/common.py\", line 212, in run\n    result = fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/backfill.py\", line 496, in run\n    todo = [it for it in items if START <= (it.get(\"end_date\") or it[\"date\"]) <= yesterday]\n                         ^^^^^\nTypeError: 'Health' object is not iterable\n"
-  },
-  {
-   "at": "2026-09-24T17:15:03+02:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/40-cross-de-la-constitucion-de-aranda-de-duero: HTTP 429 en https://atletismorfea.es/calendario/campeonato/40-cross-de-la-constitucion-de-aranda-de-duero"
   }
  ],
- "updated": "2026-09-26T08:06:49+02:00"
+ "updated": "2026-09-26T08:09:44+02:00"
 }
