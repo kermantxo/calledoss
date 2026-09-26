@@ -95,6 +95,18 @@
  },
  "log": [
   {
+   "at": "2026-09-26T07:27:24+02:00",
+   "level": "warning",
+   "source": "live",
+   "msg": "Directo de 'TCS Lidingoloppet': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7244488"
+  },
+  {
+   "at": "2026-09-26T07:27:15+02:00",
+   "level": "warning",
+   "source": "live",
+   "msg": "Directo de 'Pollença Running Fest': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7240150"
+  },
+  {
    "at": "2026-09-26T07:24:44+02:00",
    "level": "warning",
    "source": "live",
@@ -384,5 +396,5 @@
    "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xxx-quijote-maraton-maraton-popular-adad: HTTP 429 en https://atletismorfea.es/calendario/campeonato/xxx-quijote-maraton-maraton-popular-adad"
   }
  ],
- "updated": "2026-09-26T07:24:45+02:00"
+ "updated": "2026-09-26T07:27:25+02:00"
 }
