@@ -37,7 +37,7 @@ from .sources import rfea, rfealive, worldathletics, timers, sportmaniacs, faali
 
 STATE = "state/backfill.json"
 # Súbelo cuando se añadan fuentes o lectores nuevos: todo lo "sin resultados" se vuelve a intentar.
-VERSION = 7
+VERSION = 8
 MISSING = "results/sin_resultados.json"
 START = "2026-01-01"
 COMBINED = re.compile(r"decatlon|heptatlon|pentatlon|hexatlon|octatlon|triatlon|tetratlon")
