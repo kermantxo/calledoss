@@ -101,13 +101,26 @@ def _find_item(items, title, date=None):
 
 def rfea_pdf_index(http, items, health):
     done = _done()
+    retry = done.pop("_retry", {})
     n = 0
     for link in rfea.results_index(http):
+        if retry.get(link["url"], 0) >= 5:
+            continue
         u = link["url"]
         if u in done or n >= MAX_PDFS_PER_RUN:
             continue
-        content = http.get(u, timeout=180).content
-        res = pdf_results.parse(content)
+        try:
+            content = http.get(u, timeout=180).content
+            res = pdf_results.parse(content)
+        except Exception as e:
+            # un enlace roto en el índice de RFEA no puede bloquear el resto: se apunta y se sigue
+            health.note("rfea_results", "warning", "PDF de RFEA no disponible (%s): %s" % (str(e)[:80], u))
+            fails = done.get(u, {}).get("fails", 0) + 1
+            done[u] = {"at": iso_now(), "error": str(e)[:120], "fails": fails}
+            if fails < 5:
+                done.pop(u)  # se reintenta en los próximos chequeos (puede que lo suban más tarde)
+                done.setdefault("_retry", {})[u] = fails
+            continue
         n += 1
         meta = res.get("meta") or {}
         date = None
@@ -122,6 +135,8 @@ def rfea_pdf_index(http, items, health):
             store(item, res, "RFEA (PDF)", u)
         else:
             health.note("rfea_results", "warning", "PDF sin tablas reconocibles: %s" % u)
+    if retry:
+        done["_retry"] = {**retry, **done.get("_retry", {})}
     save_json("state/results_done.json", done, compact=True)
     return n
 
