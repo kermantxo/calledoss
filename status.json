@@ -95,6 +95,18 @@
  },
  "log": [
   {
+   "at": "2026-09-26T08:33:41+02:00",
+   "level": "warning",
+   "source": "live",
+   "msg": "Directo de 'TCS Lidingoloppet': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7244488"
+  },
+  {
+   "at": "2026-09-26T08:33:32+02:00",
+   "level": "warning",
+   "source": "live",
+   "msg": "Directo de 'Pollença Running Fest': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7240150"
+  },
+  {
    "at": "2026-09-26T08:31:35+02:00",
    "level": "warning",
    "source": "live",
@@ -563,20 +575,7 @@
    "level": "info",
    "source": "backfill",
    "msg": "Carga histórica: 65 con podios nuevos, 155 ya estaban, 42 sin resultados localizados (45.2 min)."
-  },
-  {
-   "at": "2026-09-25T23:36:31+02:00",
-   "level": "info",
-   "source": "backfill",
-   "msg": "Tanda terminada por tiempo; quedan 159 competiciones para la siguiente."
-  },
-  {
-   "at": "2026-09-25T21:07:38+02:00",
-   "level": "error",
-   "source": "rfea_results",
-   "msg": "HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf",
-   "detail": "Traceback (most recent call last):\n  File \"/home/runner/work/calledoss/calledoss/pipeline/common.py\", line 212, in run\n    result = fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/results.py\", line 103, in rfea_pdf_index\n    content = http.get(u, timeout=180).content\n              ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/common.py\", line 147, in get\n    return self.request(\"GET\", url, **kw)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nrequests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf\n"
   }
  ],
- "updated": "2026-09-26T08:31:36+02:00"
+ "updated": "2026-09-26T08:33:42+02:00"
 }
