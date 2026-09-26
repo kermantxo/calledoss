@@ -1,31 +1,15 @@
 {
- "date": "2026-09-25",
- "generated": "2026-09-25T06:31:59+02:00",
+ "date": "2026-09-26",
+ "generated": "2026-09-26T06:31:14+02:00",
  "active_day": true,
  "windows": [
-  {
-   "id": "wa-7246486",
-   "name": "South American Games",
-   "place": "CARD Pedro Candioti, Santa Fé (ARG)",
-   "source": "World Athletics",
-   "start": "2026-09-25T07:00:00+02:00",
-   "end": "2026-09-25T23:00:00+02:00",
-   "first": null,
-   "last": null,
-   "schedule_known": false,
-   "poll": true,
-   "intl": true,
-   "links": {
-    "info": "https://worldathletics.org/competition/calendar-results/results/7246486"
-   }
-  },
   {
    "id": "wa-7176091",
    "name": "20th Asian Games",
    "place": "Municipal Mizuho Stadium, Nagoya (JPN)",
    "source": "World Athletics",
-   "start": "2026-09-25T07:00:00+02:00",
-   "end": "2026-09-25T23:00:00+02:00",
+   "start": "2026-09-26T07:00:00+02:00",
+   "end": "2026-09-26T23:00:00+02:00",
    "first": null,
    "last": null,
    "schedule_known": false,
@@ -33,6 +17,108 @@
    "intl": true,
    "links": {
     "info": "https://worldathletics.org/competition/calendar-results/results/7176091"
+   }
+  },
+  {
+   "id": "rfea-2026-09-26-pollenca-running-fest",
+   "name": "Pollença Running Fest",
+   "place": "Pollença",
+   "source": "RFEA",
+   "start": "2026-09-26T07:00:00+02:00",
+   "end": "2026-09-26T23:00:00+02:00",
+   "first": null,
+   "last": null,
+   "schedule_known": false,
+   "poll": true,
+   "intl": true,
+   "links": {
+    "info": "https://atletismorfea.es/calendario/campeonato/pollenca-running-fest",
+    "web": "https://mitjamaratopollensa.net"
+   }
+  },
+  {
+   "id": "wa-7244488",
+   "name": "TCS Lidingoloppet",
+   "place": "Lidingö (SWE)",
+   "source": "World Athletics",
+   "start": "2026-09-26T07:00:00+02:00",
+   "end": "2026-09-26T23:00:00+02:00",
+   "first": null,
+   "last": null,
+   "schedule_known": false,
+   "poll": true,
+   "intl": true,
+   "links": {
+    "info": "https://worldathletics.org/competition/calendar-results/results/7244488"
+   }
+  },
+  {
+   "id": "cronomancha-ev769",
+   "name": "XIII CP Pinos de Abdón",
+   "place": "",
+   "source": "Cronomancha",
+   "start": "2026-09-26T07:00:00+02:00",
+   "end": "2026-09-26T23:00:00+02:00",
+   "first": null,
+   "last": null,
+   "schedule_known": false,
+   "poll": true,
+   "intl": false,
+   "links": {
+    "info": "https://timingsys.com/event/769",
+    "inscritos": "https://timingsys.com/event/769/participants",
+    "resultados": "https://timingsys.com/resultdata/769"
+   }
+  },
+  {
+   "id": "rfea-2026-09-26-15k-nocturna-valencia-gana-energia",
+   "name": "15K Nocturna Valencia Gana Energia",
+   "place": "",
+   "source": "RFEA",
+   "start": "2026-09-26T07:00:00+02:00",
+   "end": "2026-09-26T23:00:00+02:00",
+   "first": null,
+   "last": null,
+   "schedule_known": false,
+   "poll": false,
+   "intl": false,
+   "links": {
+    "info": "https://atletismorfea.es/calendario/campeonato/15k-nocturna-valencia-gana-energia",
+    "web": "https://15Knocturnavalencia.com"
+   }
+  },
+  {
+   "id": "rfea-2026-09-26-iv-milla-de-la-ceramica",
+   "name": "IV Milla de la Ceramica",
+   "place": "Villareal",
+   "source": "RFEA",
+   "start": "2026-09-26T07:00:00+02:00",
+   "end": "2026-09-26T23:00:00+02:00",
+   "first": null,
+   "last": null,
+   "schedule_known": false,
+   "poll": false,
+   "intl": false,
+   "links": {
+    "info": "https://atletismorfea.es/calendario/campeonato/iv-milla-de-la-ceramica",
+    "streaming": "https://www.youtube.com/live/_JHT8ejaYXs",
+    "web": "https://atletismevila-real.com/ca/news/iv-milla-de-la-ceràmica"
+   }
+  },
+  {
+   "id": "rfea-2026-09-26-millaza-toro-0",
+   "name": "Millaza Toro",
+   "place": "Toro",
+   "source": "RFEA",
+   "start": "2026-09-26T07:00:00+02:00",
+   "end": "2026-09-26T23:00:00+02:00",
+   "first": null,
+   "last": null,
+   "schedule_known": false,
+   "poll": false,
+   "intl": false,
+   "links": {
+    "info": "https://atletismorfea.es/calendario/campeonato/millaza-toro-0"
    }
   }
  ]
