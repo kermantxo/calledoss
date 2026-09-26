@@ -367,3 +367,77 @@ def parse(content=None, pdf=None, max_pages=80):
                 continue  # ya está el podio de ese sexo
         out.append({"name": label[:80], "rounds": [{"round": "General", "final": True, "rows": top}], "_n": len(rows)})
     return out
+
+
+# ------------------------------------------------------------------ listas de inscritos (sin tiempos)
+
+ENTRY_MARK = re.compile(r"^(mmp|mmt|pb|sb|marca|mejor\s*marca|best|ranking|acreditada)$", re.I)
+
+
+def parse_entries(content=None, pdf=None, max_pages=120):
+    """Lista de inscritos de un PDF: [{name, sex, club, cat, mark, section, text}].
+
+    Igual que el lector de clasificaciones (por columnas), pero sin exigir un tiempo en cada fila.
+    """
+    out = []
+    doc = pdf or pdfplumber.open(io.BytesIO(content))
+    try:
+        cols, section, prev_text, surname_first = None, "", [], False
+        for page in doc.pages[:max_pages]:
+            for ws in _lines(page):
+                text = clean(" ".join(w["text"] for w in ws))
+                fields = [(_field(w["text"]) or ("mark" if ENTRY_MARK.match(w["text"]) else None), w) for w in ws]
+                kinds = {f for f, _ in fields if f}
+                if "name" in kinds and len(kinds) >= 2 and len([f for f, _ in fields if f]) >= len(ws) * 0.5:
+                    heads = [norm(w["text"]) for w in ws]
+                    surname_first = False
+                    # "APELLIDOS" y "NOMBRE" como columnas distintas: se leen por separado
+                    fields = [("surname" if norm(w["text"]) in ("apellidos", "apellido", "cognoms", "surname", "last") else
+                               "given" if norm(w["text"]) in ("nombre", "nom", "name", "first") and
+                               any(norm(x["text"]) in ("apellidos", "apellido", "cognoms", "surname") for x in ws) else f, w)
+                              for f, w in fields]
+                    cols = []
+                    for f, w in fields:
+                        f = f or ("name" if cols and cols[-1][0] in ("bib", "pos") else None)
+                        if f is None:
+                            continue
+                        if cols and cols[-1][0] == f:
+                            cols[-1][2] = w["x1"]
+                        else:
+                            cols.append([f, w["x0"], w["x1"]])
+                    titled = [t for t in prev_text[-3:] if STRONG_TITLE.search(t) and len(t) < 80]
+                    if titled:
+                        section = titled[-1]
+                    prev_text = []
+                    continue
+                if not cols:
+                    prev_text.append(text)
+                    continue
+                row = _assign(ws, cols)
+                if row.get("given") or row.get("surname"):
+                    row["name"] = clean("%s %s" % (row.get("given", ""), row.get("surname", "")))
+                name = _nice(row.get("name") or "")
+                if len(name.split()) < 2 or re.search(r"\d{3,}", name):
+                    prev_text.append(text)
+                    if STRONG_TITLE.search(text) and len(text) < 60 and not row.get("name"):
+                        section = text
+                    continue
+                mark = ""
+                for t in (row.get("mark") or row.get("time") or "").split():
+                    if re.match(r"^\d{1,2}([:.,]\d{2}){1,2}$", t):
+                        mark = t
+                        break
+                if surname_first:
+                    from ..names import MALE, FEMALE, _strip
+                    toks = name.split()
+                    i = next((k for k in range(1, len(toks)) if _strip(toks[k]) in MALE or _strip(toks[k]) in FEMALE), None)
+                    if i is None and len(toks) >= 3:
+                        i = 2  # dos apellidos y luego el nombre
+                    if i:
+                        name = " ".join(toks[i:] + toks[:i])
+                out.append({"name": name, "sex": _sex(row, section), "club": clean(row.get("club") or ""),
+                            "cat": clean(row.get("cat") or ""), "mark": mark, "section": section, "text": text})
+    finally:
+        if pdf is None:
+            doc.close()
+    return out

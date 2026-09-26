@@ -203,3 +203,44 @@ def cronomancha_upcoming(http):
             "live": [{"kind": "timingsys", "event": eid}],
         })
     return out
+
+
+def avaibook_upcoming(http, pages=3):
+    """Próximas carreras de las entidades de AvaiBook (Runvasport), con su página de inscripción,
+    donde se publica el 'Listado de inscritos'."""
+    out, seen = [], set()
+    for entity in AVAI_ENTITIES:
+        for p in range(1, pages + 1):
+            url = "%s/sport-entity/%s/events%s" % (AVAI, entity, "" if p == 1 else "/%d" % p)
+            soup = BeautifulSoup(http.get(url).text, "lxml")
+            for a in soup.find_all("a", href=re.compile(r"/inscripcion/[^/]+/?$")):
+                href = urljoin(AVAI, a["href"])
+                slug = href.rstrip("/").split("/")[-1]
+                if slug in seen:
+                    continue
+                card = a
+                for _ in range(6):
+                    card = card.parent
+                    if card is None or re.search(r"\d{1,2} de \w+ de \d{4}", card.get_text(" ")):
+                        break
+                if card is None:
+                    continue
+                txt = clean(card.get_text(" | "))
+                m = re.search(r"(\d{1,2}) de (\w+) de (\d{4}),?\s*(\d{1,2}:\d{2})?", txt)
+                if not m or m.group(2).lower() not in MONTHS:
+                    continue
+                parts = [x.strip() for x in txt.split("|") if x.strip()]
+                name = next((x for x in parts[1:] if not re.search(r"\d{4}|Inscripci|Más información", x)), "")
+                if not name or NON_ATHLETICS.search(name):
+                    continue
+                seen.add(slug)
+                out.append({
+                    "id": "avaibook-%s" % slug,
+                    "name": name.title() if name.isupper() else name,
+                    "date": dt.date(int(m.group(3)), MONTHS[m.group(2).lower()], int(m.group(1))).isoformat(),
+                    "end_date": None, "time": m.group(4), "place": "",
+                    "type": "Trail" if re.search(r"trail|monta", name, re.I) else "Ruta",
+                    "cat": "Runvasport", "intl": False, "source": "AvaiBook (Runvasport)",
+                    "links": {"inscritos": href, "resultados": urljoin(AVAI, "/inscripcion/%s/clasificaciones/" % slug)},
+                })
+    return out

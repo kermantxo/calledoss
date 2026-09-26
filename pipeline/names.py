@@ -33,7 +33,7 @@ def _strip(s):
 def _cap(w):
     if _strip(w) in PARTICLES:
         return w.lower()
-    if w.isupper() or w.islower():
+    if w.isupper() or w.islower() or sum(1 for c in w if c.isupper()) >= 2:  # "MEGíA" -> "Megía"
         return "-".join(p[:1].upper() + p[1:].lower() for p in w.split("-"))
     return w
 
@@ -115,7 +115,7 @@ mauricio mauro max maximo miguel mikel mohamed mohammed nacho nahuel nestor nico
 omar oriol oscar osvaldo pablo pascual patricio pau pedro pelayo pere pol quim rafael raimundo ramiro ramon raul
 reinaldo ricard ricardo roberto rodrigo roger rogelio roman ruben said salvador samuel santiago saul sebastian
 sergi sergio silvestre simon teodoro tomas txema ulises unai urko valentin vicente victor xabier xavi xavier xoan
-yago yeray yassine youssef zakaria
+yago yeray yassine youssef zakaria andoni ander asier aimar beñat ekaitz gaizka haritz iñigo jokin koldo markel mikel oihan peio unax xabat
 """.split())
 FEMALE = set("""
 adela adriana agata agueda aida ainara ainhoa aitana alba alejandra alexandra alicia alma almudena amaia amalia amanda
@@ -129,7 +129,7 @@ maider maite manuela mar mara marcela margarita maria mariana marina marisa mari
 miriam monica montserrat nadia naia nahia natalia nerea nieves noa noelia nora nuria olga paloma paola patricia paula
 pilar raquel rebeca regina rocio rosa rosalia rosario ruth sabrina salma samanta sandra sara sheila silvia sofia soledad
 sonia susana tamara tania teresa uxue valeria vanesa vega veronica victoria virginia viviana yaiza yasmina yolanda zoe
-zuriñe
+zuriñe ainhize amets ane eider garazi haizea irati itxaso izaro june lorea maddi malen nagore olatz uxue
 """.split())
 
 

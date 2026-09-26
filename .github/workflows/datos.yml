@@ -6,11 +6,12 @@ name: Datos
 on:
   schedule:
     - cron: "15 4 * * *"          # diario completo (06:15 en verano / 05:15 en invierno, hora de Madrid)
-    - cron: "0 10,13,16,19,22 * * *"  # chequeos de resultados durante el día
+    - cron: "5 9-23 * * *"        # resultados: cada hora de 11:00 a 01:00 (hora de Madrid en verano)
+    - cron: "40 10,15,19 * * *"   # previas: listas de inscritos, 3 veces más al día
   workflow_dispatch:
     inputs:
       mode:
-        description: "daily | results | plan | revisar"
+        description: "daily | results | plan | revisar | previas"
         default: "daily"
         required: true
 
@@ -54,7 +55,11 @@ jobs:
         run: |
           MODE="${{ github.event.inputs.mode }}"
           if [ -z "$MODE" ]; then
-            if [ "${{ github.event.schedule }}" = "15 4 * * *" ]; then MODE=daily; else MODE=results; fi
+            case "${{ github.event.schedule }}" in
+              "15 4 * * *") MODE=daily ;;
+              "40 10,15,19 * * *") MODE=previas ;;
+              *) MODE=results ;;
+            esac
           fi
           python -m pipeline.run "$MODE"
 

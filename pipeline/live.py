@@ -88,6 +88,15 @@ def tick(http, health, force=False):
             it = cal.get(w["id"])
             if it:
                 rid = by_item(http, it, health, final=True)
+                if not rid:
+                    from .backfill import Finder
+                    from .results import store
+                    try:
+                        pods, source, url, _ = Finder(http, health).resolve(it)
+                        if pods:
+                            rid = store(it, {"events": pods}, source, url)
+                    except Exception as e:
+                        health.note("live", "warning", "Cierre de '%s': %s" % (w["name"], e))
                 st["results_id"] = rid
                 if not rid:
                     pend = load_json("state/pending.json", {}) or {}

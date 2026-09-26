@@ -225,7 +225,8 @@ def parse_international(pages, keep_nat="ESP"):
             timed = [t for t in tail if re.fullmatch(MARK, t) and (":" in t or "." in t or t.isalpha())]
             mark = timed[0] if timed else next((t for t in reversed(tail) if re.fullmatch(MARK, t)), "")
             notes = " ".join(t for t in tail if t in ("WL", "SB", "PB", "NR", "AR", "CR", "WR", "Q", "q", "NU20R", "WU20R"))
-            row = {"pos": m.group(1), "bib": m.group(2), "name": _nice(clean(m.group(3))), "nat": m.group(4),
+            from ..names import clean_name
+            row = {"pos": m.group(1), "bib": m.group(2), "name": clean_name(clean(m.group(3)))[0], "nat": m.group(4),
                    "mark": mark, "note": notes, "club": ""}
             if (final and ev["_n"] <= 3) or m.group(4) == keep_nat:
                 ev["rows"].append(row)

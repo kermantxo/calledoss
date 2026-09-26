@@ -9,6 +9,7 @@
 var RESULTS_INDEX = [];
 var LIVE_DATA = null;
 var MISSING_IDS = new Set();
+var PREVIAS = [];
 
 const CALENDAR = [
   {id:"mundo-campo-a-traves", date:"2026-01-10", name:"Campeonato del Mundo de Campo a Través", place:"Tallahassee (USA)", type:"Cross", cat:"Absoluto"},
@@ -4361,6 +4362,10 @@ function renderAutoInfo(ev){
   const links = linkButtons(ev.links || {});
   if(links) parts.push(`<div class="data-note">${links}</div>`);
   if(ev.destacados && ev.destacados.length) parts.push(`<div class="roster-grid">${renderDestacados(ev.destacados)}</div>`);
+  const pv = PREVIAS.find(p => p.id === ev.id);
+  if(pv) parts.push(`<div class="data-note">${pv.status === 'publicados'
+    ? `⭐ <b>Previa disponible</b> (${pv.n_inscritos} inscritos). <button class="comp-pill" onclick="event.stopPropagation();openPrevia='${ev.id}';handleNavClick('previas');renderPrevias();">Ver previa →</button>`
+    : '📋 Inscritos no publicados aún.'}</div>`);
   if(ev.sources && ev.sources.length) parts.push(`<div class="data-note" style="font-size:13px;color:var(--gray)">Datos: ${ev.sources.map(esc).join(', ')}</div>`);
   return parts.join('');
 }
@@ -4496,12 +4501,81 @@ function refreshFilters(){
   keepValue('resFuente', ()=>populateSelect('resFuente', ordenarFuentes([...new Set(past.map(e=>getFuenteCalendario(e.id)))]), 'Todos los calendarios'));
 }
 
+/* ============================================================
+   PREVIAS — destacados de cada lista de inscritos
+   ============================================================ */
+let openPrevia = null;
+
+function previaCol(title, list){
+  if(!list || !list.length) return `<div class="previa-col"><h4>${title}</h4><span style="color:var(--gray)">Sin destacados según los criterios.</span></div>`;
+  return `<div class="previa-col"><h4>${title}</h4>${list.map(a=>`
+    <div class="previa-ath"><b>${esc(a.name)}</b>${a.nat && a.nat!=='ESP' ? ` <small style="color:var(--gray)">${esc(a.nat)}</small>` : ''}
+      ${a.pb || a.sb ? `<span class="marks"> · ${a.sb ? 'MMT ' + esc(a.sb) : ''}${a.sb && a.pb ? ' · ' : ''}${a.pb ? 'MMP ' + esc(a.pb) : ''}</span>` : ''}
+      <span class="why">${a.reasons.map(esc).join(' · ')}</span>
+      ${a.club ? `<span class="why">${esc(a.club)}</span>` : ''}
+    </div>`).join('')}</div>`;
+}
+
+function renderPrevias(){
+  const wrap = document.getElementById('previasList');
+  if(!wrap) return;
+  const q = (document.getElementById('prevSearch').value || '').toLowerCase();
+  const only = document.getElementById('prevOnly').value;
+  let list = PREVIAS.filter(p => (only === 'todas' || p.status === 'publicados'));
+  if(q) list = list.filter(p => (p.name + ' ' + (p.place||'') + ' ' + JSON.stringify(p.events||[])).toLowerCase().includes(q));
+  if(!list.length){
+    wrap.innerHTML = `<div class="empty-state"><h3>${only==='todas' ? 'Sin competiciones' : 'Todavía no hay listas de inscritos publicadas'}</h3>Se revisan cada día las competiciones de los próximos 45 días.</div>`;
+    return;
+  }
+  wrap.innerHTML = list.map(p=>{
+    const isOpen = openPrevia === p.id;
+    const nDest = (p.events||[]).reduce((n,e)=> n + e.M.length + e.F.length + (e.otros||[]).length, 0);
+    const status = p.status === 'publicados'
+      ? `<span class="previa-status ok">${p.n_inscritos} inscritos · ⭐ ${nDest}</span>`
+      : `<span class="previa-status wait">Inscritos no publicados aún</span>`;
+    let body = '';
+    if(isOpen){
+      const ch = p.changes || {};
+      body = `<div class="comp-accordion-body">
+        ${p.race_day ? `<div class="data-note">🔴 <b>Es hoy.</b> <button class="comp-pill active" onclick="handleNavClick('directo')">Ver en directo →</button></div>` : ''}
+        ${p.status !== 'publicados' ? `<div class="empty-state"><h3>Inscritos no publicados aún</h3>Se revisa cada día. En cuanto la organización publique la lista, aquí aparecerán los atletas a seguir.</div>` : `
+          <div class="data-note">📋 ${p.n_inscritos} inscritos · actualizado ${p.updated ? fechaCorta(p.updated.slice(0,10)) + ' ' + horaDe(p.updated) : ''}
+            ${ch.altas || ch.bajas ? `<br>Cambios desde la última revisión: <b>+${ch.altas||0}</b> altas, <b>−${ch.bajas||0}</b> bajas` : ''}
+            ${(ch.altas_destacadas||[]).length ? `<br>⭐ Nuevos destacados: ${ch.altas_destacadas.map(esc).join(', ')}` : ''}
+            ${(ch.bajas_destacadas||[]).length ? `<br>✖ Bajas destacadas: ${ch.bajas_destacadas.map(esc).join(', ')}` : ''}
+            ${(p.sources||[]).length ? `<br><a href="${esc(p.sources[0])}" target="_blank" rel="noopener">Ver la lista de inscritos original</a>` : ''}</div>
+          ${(p.events||[]).filter(e => e.M.length || e.F.length || (e.otros||[]).length).map(e=>`
+            <div class="previa-event"><h3>${esc(e.name)} <small style="color:var(--gray);font-size:14px;">· ${e.n} inscritos</small></h3>
+              <div class="previa-grid">${previaCol('Masculino', e.M)}${previaCol('Femenino', e.F)}</div>
+              ${(e.otros||[]).length ? previaCol('Sin sexo indicado en la lista', e.otros) : ''}
+            </div>`).join('') || '<div class="empty-state">La lista está publicada, pero ningún inscrito cumple todavía los criterios de destacado.</div>'}`}
+        ${linkButtons(p.links||{})}
+      </div>`;
+    }
+    return `<div class="comp-accordion-item">
+      <div class="cal-row" style="cursor:pointer;" data-prev-id="${p.id}">
+        <div class="cal-date"><span class="day">${p.date.slice(8,10)}</span>${MESES[parseInt(p.date.slice(5,7),10)-1].slice(0,3).toUpperCase()} ${p.date.slice(0,4)}</div>
+        <div><div class="cal-name">${esc(p.name)}</div><div class="cal-place">${esc(p.place||'')}</div></div>
+        <div class="cal-place">${esc(p.type||'')}</div>
+        ${status}
+        <div class="cal-arrow">${isOpen?'↑':'→'}</div>
+      </div>${body}</div>`;
+  }).join('');
+  wrap.querySelectorAll('[data-prev-id]').forEach(row=> row.addEventListener('click', ()=>{
+    openPrevia = openPrevia === row.dataset.prevId ? null : row.dataset.prevId;
+    renderPrevias();
+  }));
+}
+document.getElementById('prevSearch').addEventListener('input', renderPrevias);
+document.getElementById('prevOnly').addEventListener('change', renderPrevias);
+
 function renderAll(){
   refreshFilters();
   renderCalendar();
   renderResultsSeason();
   renderCompAccordion();
   renderLive();
+  renderPrevias();
   refreshTicker();
 }
 
@@ -4512,7 +4586,8 @@ async function refreshLive(){
 
 (async function bootAutoData(){
   renderAll(); // primero con lo que ya hay en la página
-  const [cal, res, live, miss] = await Promise.all([loadData('calendar.json'), loadData('results/index.json'), loadData('live.json'), loadData('results/sin_resultados.json')]);
+  const [cal, res, live, miss, prev] = await Promise.all([loadData('calendar.json'), loadData('results/index.json'), loadData('live.json'), loadData('results/sin_resultados.json'), loadData('previas.json')]);
+  if(prev && prev.items) PREVIAS = prev.items;
   if(res && res.items) RESULTS_INDEX = res.items;
   if(miss && miss.items) MISSING_IDS = new Set(miss.items.map(x => x.id));
   if(cal && cal.items && cal.items.length) applyAutoCalendar(cal);

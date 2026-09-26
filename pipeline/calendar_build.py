@@ -193,6 +193,7 @@ def build(http, health):
                  _previous("Cronomancha"))
     lists.append(health.run("avaibook", "AvaiBook (Runvasport)", timers.avaibook_events, http, expect_min=1) or
                  _previous("AvaiBook (Runvasport)"))
+    lists.append(health.run("avaibook_upcoming", "Runvasport · próximas", timers.avaibook_upcoming, http, expect_min=0) or [])
     items = merge(lists)
     health.run("rfea_detail", "RFEA · fichas de competición", enrich_rfea, http, items, health, expect_min=0)
     health.run("rfealive", "RFEA Live · horarios", add_times, http, items, health, expect_min=0)

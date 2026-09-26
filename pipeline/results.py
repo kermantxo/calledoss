@@ -193,8 +193,9 @@ def by_item(http, it, health, final=False):
     return None  # el chequeo diario prueba después la búsqueda completa (backfill.Finder)
 
 
-def sweep(http, items, health):
-    """Chequeo de resultados: índices + competiciones recientes + pendientes."""
+def sweep(http, items, health, deep=False):
+    """Chequeo de resultados: índices + competiciones recientes (incluidas las de HOY) + pendientes.
+    deep=True (chequeo diario): también reintenta lo pendiente de días anteriores con la búsqueda completa."""
     t = today()
     idx_ids = {x["id"] for x in _index()["items"]}
     pending = load_json("state/pending.json", {}) or {}
@@ -202,14 +203,16 @@ def sweep(http, items, health):
     got = 0
     for it in items:
         end = dt.date.fromisoformat(it.get("end_date") or it["date"])
-        if not (t - dt.timedelta(days=LOOKBACK_DAYS) <= end < t) and it["id"] not in pending:
+        start = dt.date.fromisoformat(it["date"])
+        if not (t - dt.timedelta(days=LOOKBACK_DAYS) <= end and start <= t) and it["id"] not in pending:
             continue
+        recent = (t - end).days <= 1
+        if not recent and not deep and it["id"] in pending and pending[it["id"]].get("last") == t.isoformat():
+            continue  # lo de días anteriores se reintenta una vez al día; lo de hoy y ayer, en cada chequeo
         if it["id"] in idx_ids and it["id"] not in pending:
             continue
-        if not it.get("live") and not it.get("source", "").startswith("AvaiBook"):
-            continue
-        rid = by_item(http, it, health, final=(t - end).days >= 2)
-        if not rid and (t - end).days >= 1:
+        rid = by_item(http, it, health, final=(t - end).days >= 2) if it.get("live") else None
+        if not rid:
             # misma búsqueda que la carga histórica: garantiza el podio de cada prueba
             from .backfill import Finder
             try:
@@ -224,6 +227,7 @@ def sweep(http, items, health):
         else:
             p = pending.setdefault(it["id"], {"since": t.isoformat(), "tries": 0})
             p["tries"] += 1
+            p["last"] = t.isoformat()
             if (t - end).days > LOOKBACK_DAYS:
                 pending.pop(it["id"], None)
     save_json("state/pending.json", pending)

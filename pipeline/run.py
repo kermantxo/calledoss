@@ -11,7 +11,7 @@ import os
 import sys
 import time
 
-from . import backfill, calendar_build, highlights, live, results
+from . import backfill, calendar_build, highlights, live, previas, results
 from .common import Health, Http, load_json, save_json, iso_now
 
 
@@ -24,7 +24,8 @@ def daily():
     items = calendar_build.build(h, health)
     health.run("destacados", "Atletas destacados (listas de salida)", highlights.compute, h, items, health, expect_min=0)
     calendar_build.save(items)
-    health.run("results", "Resultados (todas las fuentes)", results.sweep, h, items, health, expect_min=0)
+    health.run("results", "Resultados (todas las fuentes)", results.sweep, h, items, health, deep=True, expect_min=0)
+    health.run("previas", "Previas (listas de inscritos)", previas.run, h, health, items, expect_min=0)
     live.plan(items)
     health.save()
 
@@ -33,6 +34,12 @@ def results_only():
     h, health = Http(), Health()
     items = _items()
     health.run("results", "Resultados (todas las fuentes)", results.sweep, h, items, health, expect_min=0)
+    health.save()
+
+
+def previas_only():
+    h, health = Http(), Health()
+    health.run("previas", "Previas (listas de inscritos)", previas.run, h, health, _items(), expect_min=0)
     health.save()
 
 
@@ -95,5 +102,5 @@ if __name__ == "__main__":
     mode = sys.argv[1] if len(sys.argv) > 1 else "daily"
     t = time.time()
     {"daily": daily, "results": results_only, "plan": plan_only, "live": live_tick, "backfill": backfill_run,
-     "revisar": revisar}[mode]()
+     "revisar": revisar, "previas": previas_only}[mode]()
     print("%s terminado en %.0f s" % (mode, time.time() - t))

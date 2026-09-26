@@ -24,6 +24,7 @@
       <button data-view="resultados">Resultados</button>
       <button data-view="directo">En directo</button>
       <button data-view="proximas">Próximas</button>
+      <button data-view="previas">Previas</button>
       <button data-view="ranking">Ranking</button>
     </nav>
   </div>
@@ -55,6 +56,10 @@
       <button class="home-card" data-view="proximas">
         <h3>Próximas</h3>
         <p>Siguientes competiciones.</p>
+      </button>
+      <button class="home-card" data-view="previas">
+        <h3>Previas</h3>
+        <p>Los nombres a seguir en cada carrera, en cuanto salen los inscritos.</p>
       </button>
       <button class="home-card" data-view="ranking">
         <h3>Ranking</h3>
@@ -131,6 +136,27 @@
     </div>
     <div id="proxRange" class="data-note"></div>
     <div class="comp-select-bar" id="compSelectBar"></div>
+  </section>
+
+  <!-- ===================== PREVIAS ===================== -->
+  <section class="view" id="view-previas">
+    <div class="hero">
+      <div class="eyebrow">Antes de la carrera</div>
+      <h1>Previas</h1>
+      <p>En cuanto se publica la lista de inscritos de una competición, aquí aparecen los atletas a seguir de cada prueba, en hombres y mujeres, con especial atención a los españoles. Se actualiza sola con las altas y bajas hasta el día de la carrera.</p>
+    </div>
+    <div class="data-note">⭐ Los destacados se eligen con criterios objetivos: plusmarquistas, campeones de España, líderes del año, internacionales, medallistas y las mejores marcas (del año y personales) de la propia lista.</div>
+    <div class="filters">
+      <div class="filter-group">
+        <label class="filter-label" for="prevSearch">Buscar</label>
+        <input id="prevSearch" type="search" placeholder="Competición, lugar o atleta" class="search-input">
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="prevOnly">Mostrar</label>
+        <select id="prevOnly"><option value="con">Con inscritos publicados</option><option value="todas">Todas las próximas</option></select>
+      </div>
+    </div>
+    <div id="previasList"></div>
   </section>
 
   <!-- ===================== RESULTADOS ===================== -->

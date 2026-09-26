@@ -37,7 +37,7 @@ from .sources import rfea, rfealive, worldathletics, timers, sportmaniacs, faali
 
 STATE = "state/backfill.json"
 # Súbelo cuando se añadan fuentes o lectores nuevos: todo lo "sin resultados" se vuelve a intentar.
-VERSION = 8
+VERSION = 9
 MISSING = "results/sin_resultados.json"
 START = "2026-01-01"
 COMBINED = re.compile(r"decatlon|heptatlon|pentatlon|hexatlon|octatlon|triatlon|tetratlon")
@@ -305,7 +305,7 @@ class Finder:
             self.state.setdefault(k, {})
         if self.state.get("version") != VERSION:
             # lectores nuevos: se reintenta lo que no se encontró y se rehace lo leído por columnas
-            col_urls = {k for k, v in self.state["pdf_cache"].items() if v.get("format") in ("columnas", "generic")}
+            col_urls = {k for k, v in self.state["pdf_cache"].items() if v.get("format") in ("columnas", "generic", "internacional")}
             by_url = {x.get("url"): x for x in _index()["items"]}
             redo_sources = {"Runvasport (PDF)", "Web de la competición (PDF)", "Federación Andaluza (PDF)"}
             # nombres abreviados de RFEA Live ('H Santos Llorente'): se vuelven a pedir completos
@@ -325,7 +325,7 @@ class Finder:
                                                   any(x.get("cal_id") == cid and x.get("url") in col_urls for x in by_url.values())):
                     d["status"] = "redo"
             self.state["pdf_cache"] = {k: v for k, v in self.state["pdf_cache"].items()
-                                       if v.get("events") and v.get("format") not in ("columnas", "generic")}
+                                       if v.get("events") and v.get("format") not in ("columnas", "generic", "internacional")}
             self.state["version"] = VERSION
         self._rl_index = None
         self._rfea_pdfs = None
@@ -380,12 +380,19 @@ class Finder:
         url = (it.get("links") or {}).get("info", "")
         if "atletismorfea.es/calendario/campeonato/" not in url:
             return {}
-        if url not in self.state["details"]:
+        c = self.state["details"].get(url)
+        # competiciones de los últimos 3 días: la ficha se relee cada 2 horas (el PDF de resultados llega tarde)
+        recent = it.get("end_date") or it["date"]
+        fresh = c and (recent < (today() - dt.timedelta(days=3)).isoformat() or
+                       (c.get("_at") or "") >= (dt.datetime.now() - dt.timedelta(hours=2)).isoformat())
+        if not fresh:
             try:
-                self.state["details"][url] = rfea.detail(self.http, url)
+                c = rfea.detail(self.http, url)
+                c["_at"] = dt.datetime.now().isoformat()
+                self.state["details"][url] = c
             except Exception as e:
-                return {"error": str(e)}
-        return self.state["details"][url]
+                return c or {"error": str(e)}
+        return c
 
     def resolve(self, it):
         """Intenta todas las fuentes. Devuelve (eventos_con_podio, fuente, url, probados)."""
@@ -552,8 +559,10 @@ class Finder:
             if not tried or tried[-1] != page:
                 tried.append(page + " (sin PDFs de clasificación)")
 
-        if it.get("source", "").startswith("AvaiBook") and links.get("resultados"):
-            pods = self.runvasport(it, links["resultados"], tried)
+        rv = next((v for v in links.values() if v and ("avaibooksports.com/inscripcion" in v or "runvasport.es/inscripcion" in v)), None)
+        if rv:
+            slug = re.search(r"/inscripcion/([^/]+)", rv).group(1)
+            pods = self.runvasport(it, "https://www.avaibooksports.com/inscripcion/%s/clasificaciones/" % slug, tried)
             if pods:
                 return pods, "Runvasport (PDF)", links["resultados"], tried
         return None, None, None, tried
