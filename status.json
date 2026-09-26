@@ -95,6 +95,18 @@
  },
  "log": [
   {
+   "at": "2026-09-26T08:24:45+02:00",
+   "level": "warning",
+   "source": "live",
+   "msg": "Directo de 'TCS Lidingoloppet': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7244488"
+  },
+  {
+   "at": "2026-09-26T08:24:36+02:00",
+   "level": "warning",
+   "source": "live",
+   "msg": "Directo de 'Pollença Running Fest': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7240150"
+  },
+  {
    "at": "2026-09-26T08:21:46+02:00",
    "level": "warning",
    "source": "live",
@@ -566,19 +578,7 @@
    "level": "info",
    "source": "backfill",
    "msg": "Carga histórica: 47 con podios nuevos, 315 ya estaban, 59 sin resultados localizados (28.1 min)."
-  },
-  {
-   "at": "2026-09-25T13:43:55+02:00",
-   "level": "info",
-   "source": "backfill",
-   "msg": "Carga histórica: 58 con podios nuevos, 153 ya estaban, 40 sin resultados localizados (45.1 min)."
-  },
-  {
-   "at": "2026-09-25T13:43:55+02:00",
-   "level": "info",
-   "source": "backfill",
-   "msg": "Tanda terminada por tiempo; quedan 170 competiciones para la siguiente."
   }
  ],
- "updated": "2026-09-26T08:21:48+02:00"
+ "updated": "2026-09-26T08:24:47+02:00"
 }
