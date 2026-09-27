@@ -111,6 +111,12 @@
  },
  "log": [
   {
+   "at": "2026-09-27T22:55:08+02:00",
+   "level": "warning",
+   "source": "live",
+   "msg": "Directo de 'Taiyuan Marathon': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235590"
+  },
+  {
    "at": "2026-09-27T22:54:40+02:00",
    "level": "warning",
    "source": "live",
@@ -583,13 +589,7 @@
    "level": "warning",
    "source": "live",
    "msg": "Directo de 'Taiyuan Marathon': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235590"
-  },
-  {
-   "at": "2026-09-27T18:21:35+02:00",
-   "level": "warning",
-   "source": "live",
-   "msg": "Directo de 'Taiyuan Marathon': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235590"
   }
  ],
- "updated": "2026-09-27T22:54:40+02:00"
+ "updated": "2026-09-27T22:55:08+02:00"
 }
