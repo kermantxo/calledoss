@@ -121,13 +121,14 @@ def _secs(t):
         return None
 
 
-FEM_WORD = re.compile(r"\b(femenin[oa]s?|mujer(es)?|women|dones|female|fem)\b", re.I)
-MASC_WORD = re.compile(r"\b(masculin[oa]s?|hombres?|men|homes|male|masc)\b", re.I)
+FEM_WORD = re.compile(r"\b(femenin[oa]s?|mujer(es)?|women|dones|female|fem|mulleres|emakumeak)\b", re.I)
+MASC_WORD = re.compile(r"\b(masculin[oa]s?|hombres?|men|homes|male|masc|gizonak)\b", re.I)
 
 
 def _sex(row, section):
-    # 1) palabras completas en la fila (mandan sobre las letras: "MÁSTER F Masculino" es un hombre)
-    for key in ("sex", "cat", "club"):
+    # 1) palabras completas en la fila (mandan sobre las letras: "MÁSTER F Masculino" es un hombre).
+    #    El club NO cuenta: hay clubes que se llaman "FEM el que podem!"
+    for key in ("sex", "cat"):
         v = (row.get(key) or "")
         f, m = bool(FEM_WORD.search(v)), bool(MASC_WORD.search(v))
         if f != m:
@@ -141,8 +142,8 @@ def _sex(row, section):
         if key == "sex" and v.upper() in ("M", "H", "V", "HOMBRE", "MASCULINO"):
             return "M"
         # letra suelta "F"/"M" (ni la F de "FOODS" ni la M de "MARATON") o códigos tipo "F-SENIOR", "SenF", "M35"
-        if FEM.search(v) or re.search(r"(?<![A-Za-z])F(?![A-Za-z])|\bFEM\b|\dF\b|SenF|VetF|Vt\dF", v):
-            return "F"
+        if FEM.search(v) or re.search(r"(?<![A-Za-z])[FW](?![A-Za-z])|\bFEM\b|\b[FW]\d{2}\b|\dF\b|SenF|VetF|Vt\dF", v):
+            return "F"  # W35, SENIOR W: "women"
         if MASC.search(v) or re.search(r"(?<![A-Za-z])M(?![A-Za-z])|\bMAS\b|\bMASC\b|\dM\b|SenM|VetM|Vt\dM", v):
             return "M"
     if FEM.search(section or ""):
@@ -188,7 +189,7 @@ def _is_wrapped_cell(ws, cols):
     return min(w["x0"] for w in ws) + 3 >= cols[1][1]
 
 
-def parse(content=None, pdf=None, max_pages=80):
+def parse(content=None, pdf=None, max_pages=3000):
     """Devuelve [{name, rounds:[{round, final, rows}]}]: podio general y, si se sabe el sexo,
     podio masculino y femenino de cada sección (distancia/categoría)."""
     rows_all = []      # filas con tiempo: dict(section, row, top, page)
@@ -374,7 +375,7 @@ def parse(content=None, pdf=None, max_pages=80):
 ENTRY_MARK = re.compile(r"^(mmp|mmt|pb|sb|marca|mejor\s*marca|best|ranking|acreditada)$", re.I)
 
 
-def parse_entries(content=None, pdf=None, max_pages=120):
+def parse_entries(content=None, pdf=None, max_pages=3000):
     """Lista de inscritos de un PDF: [{name, sex, club, cat, mark, section, text}].
 
     Igual que el lector de clasificaciones (por columnas), pero sin exigir un tiempo en cada fila.

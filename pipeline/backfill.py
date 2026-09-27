@@ -37,7 +37,7 @@ from .sources import rfea, rfealive, worldathletics, timers, sportmaniacs, faali
 
 STATE = "state/backfill.json"
 # Súbelo cuando se añadan fuentes o lectores nuevos: todo lo "sin resultados" se vuelve a intentar.
-VERSION = 9
+VERSION = 10
 MISSING = "results/sin_resultados.json"
 START = "2026-01-01"
 COMBINED = re.compile(r"decatlon|heptatlon|pentatlon|hexatlon|octatlon|triatlon|tetratlon")
@@ -315,6 +315,18 @@ class Finder:
                 if x.get("source", "").startswith("RFEA Live") and any(
                         is_abbreviated(r.get("name")) for pd in x.get("podios", []) for r in pd.get("rows", [])):
                     abbrev.add(x.get("cal_id") or x["id"])
+            # competiciones con un solo sexo (PDF cortado en la página 80, "W35", club "FEM..."): se rehacen
+            import glob as _g, os as _o
+            from .common import DATA_DIR as _D
+            one_sex = set()
+            for f in _g.glob(_o.path.join(_D, "results", "*.json")):
+                rd = load_json("results/" + _o.path.basename(f), {}) or {}
+                names = " ".join(e.get("name", "") for e in rd.get("events", []))
+                fz = bool(re.search(r"mujer|femen|women|mulleres|dones", names, re.I))
+                mz = bool(re.search(r"hombre|mascul|\bmen\b|homes", names, re.I))
+                if fz != mz and not re.search(r"mujeres|hombres|femen|mascul", rd.get("name", ""), re.I):
+                    one_sex.add(rd.get("id"))
+            abbrev |= one_sex
             for cid, d in self.state["done"].items():
                 if cid in abbrev and d.get("status") == "ok":
                     d["status"] = "redo"
@@ -422,6 +434,21 @@ class Finder:
                     tried[-1] += " (otra edición: fechas no coinciden)"
             except Exception as e:
                 tried[-1] += " (error: %s)" % str(e)[:60]
+
+        # Competición internacional: World Athletics primero (completo y con nacionalidades)
+        if it.get("intl") or re.search(r"mundial|mundo|europa|europeo|world|european", it["name"], re.I):
+            for w in self.wa_year():
+                if w["date"] <= (it.get("end_date") or it["date"]) and it["date"] <= (w.get("end_date") or w["date"]) \
+                        and (similar(w["name"], it["name"]) or similar(_to_en(it["name"]), w["name"])):
+                    try:
+                        res = worldathletics.results(self.http, w["live"][0]["id"])
+                        if res and res["events"]:
+                            pods = podiums([{"name": e["name"], "rounds": [r for r in e["rounds"] if r["final"]]} for e in res["events"]])
+                            if pods:
+                                return pods, "World Athletics", w["links"].get("info"), tried + ["World Athletics %s" % w["id"]]
+                    except Exception:
+                        pass
+                    break
 
         # 3. PDF de la ficha RFEA (de confianza) · 4. PDFs del índice RFEA con nombre parecido
         pdfs = [(links[k], "ficha") for k in ("resultados",) if links.get(k, "").lower().split("?")[0].endswith(".pdf")]
