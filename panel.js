@@ -133,11 +133,14 @@ function renderSources(status){
 
 function renderRevision(items){
   const all = Object.values(items).flatMap(v => v.issues || []);
-  const sexo = all.filter(i => i.kind === 'sexo'), nombre = all.filter(i => i.kind === 'nombre');
+  const sexo = all.filter(i => i.kind === 'sexo' || i.kind === 'ilegible'), nombre = all.filter(i => i.kind === 'nombre');
+  const inc = all.filter(i => i.kind === 'incompleta');
   if(!all.length){ $('revisionList').innerHTML = '<p class="panel-help">✅ Todo cuadra.</p>'; return; }
   const row = i => `<div class="panel-log warning"><b>${esc(i.competition)}</b> · ${esc(i.event)}<br>${esc(i.detail)}</div>`;
   $('revisionList').innerHTML =
-    `<h3 class="panel-sub">Podios retirados por mezclar hombres y mujeres (${sexo.length})</h3>` +
+    `<h3 class="panel-sub">Clasificaciones incompletas (${inc.length})</h3>` +
+    (inc.map(row).join('') || '<p class="panel-help">Ninguna.</p>') +
+    `<h3 class="panel-sub">Podios retirados por mezclar hombres y mujeres o ilegibles (${sexo.length})</h3>` +
     (sexo.map(row).join('') || '<p class="panel-help">Ninguno.</p>') +
     `<details style="margin-top:14px;"><summary style="cursor:pointer;"><b>Nombres incompletos (${nombre.length})</b></summary>${nombre.slice(0,200).map(row).join('')}</details>`;
 }

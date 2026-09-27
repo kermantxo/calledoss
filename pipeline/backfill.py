@@ -37,7 +37,7 @@ from .sources import rfea, rfealive, worldathletics, timers, sportmaniacs, faali
 
 STATE = "state/backfill.json"
 # Súbelo cuando se añadan fuentes o lectores nuevos: todo lo "sin resultados" se vuelve a intentar.
-VERSION = 10
+VERSION = 12
 MISSING = "results/sin_resultados.json"
 START = "2026-01-01"
 COMBINED = re.compile(r"decatlon|heptatlon|pentatlon|hexatlon|octatlon|triatlon|tetratlon")
@@ -162,6 +162,12 @@ def pdf_matches(item, dates, title, url="", trust="index"):
     fname = re.sub(r"([a-z])([A-Z])", r"\1 \2", fname)
     named = similar(item["name"], title) or _share_word(item, title) or _share_word(item, fname)
     dated = any(d1 <= d <= d2 for d in ds)
+    if trust == "index":
+        # PDF de un índice general: compartir solo la ciudad no basta ("Barcelona" en dos competiciones distintas)
+        from .calendar_build import _tokens
+        place = _tokens(item.get("place") or "")
+        common = (_tokens(item["name"]) - place) & (_tokens(title) | _tokens(fname))
+        named = similar(item["name"], title) or len({t for t in common if len(t) > 3}) >= 2
     if trust == "ficha":   # PDF enlazado desde la propia ficha RFEA de la competición: basta el nombre
         return named or dated
     if trust == "web":     # PDF de la web oficial de la competición: basta la fecha (o el nombre si no hay fechas)
@@ -322,11 +328,14 @@ class Finder:
             for f in _g.glob(_o.path.join(_D, "results", "*.json")):
                 rd = load_json("results/" + _o.path.basename(f), {}) or {}
                 names = " ".join(e.get("name", "") for e in rd.get("events", []))
-                fz = bool(re.search(r"mujer|femen|women|mulleres|dones", names, re.I))
-                mz = bool(re.search(r"hombre|mascul|\bmen\b|homes", names, re.I))
+                fz = bool(re.search(r"mujer|femen|women|mulleres|dones|feminin", names, re.I))
+                mz = bool(re.search(r"hombre|mascul|\bmen\b|homes|masculí", names, re.I))
                 if fz != mz and not re.search(r"mujeres|hombres|femen|mascul", rd.get("name", ""), re.I):
                     one_sex.add(rd.get("id"))
             abbrev |= one_sex
+            # podios retirados por ilegibles / tiempos imposibles, o clasificaciones incompletas: se releen
+            rev = (load_json("results/revision.json", {}) or {}).get("items", {})
+            abbrev |= {rid for rid, v in rev.items() if any(i.get("kind") in ("ilegible", "incompleta") for i in v.get("issues", []))}
             for cid, d in self.state["done"].items():
                 if cid in abbrev and d.get("status") == "ok":
                     d["status"] = "redo"

@@ -18,9 +18,9 @@ FIELDS = [
     ("possex", r"^(p\.?sex|psex|pos\.?sex|p\.?gen\.?sex)$"),
     ("poscat", r"^(p\.?cat|pcat|pos\.?cat)$"),
     ("bib", r"^(dorsal|dors|dor|bib|n[ºo°]?\.?)$"),
-    ("name", r"^(nombre|apellidos|nom|cognoms|atleta|corredor|corredora|participante|name|surname|nombre/apellidos)$"),
-    ("club", r"^(club|equipo|entidad|team|equip)$"),
-    ("time", r"^(tiempo|t\.?oficial|oficial|marca|time|temps|resultado|neto|t\.?neto|tiempo\.?oficial|tiempos|t\.?chip|chip|final)$"),
+    ("name", r"^(nombre|apellidos|nom|cognoms|atleta|corredor|corredora|participante|name|surname|nombre/apellidos|nome|apelidos|izena|abizenak)$"),
+    ("club", r"^(club|equipo|entidad|team|equip|clube|taldea)$"),
+    ("time", r"^(tiempo|t\.?oficial|oficial|marca|time|temps|resultado|neto|t\.?neto|tiempo\.?oficial|tiempos|t\.?chip|chip|final|tempo|denbora)$"),
     ("real", r"^(t\.?real|real|bruto|t\.?bruto)$"),
     ("sex", r"^(sexo|genero|género|sex|gen|gender|g)$"),
     ("cat", r"^(categoria|categoría|cat|cat\.|categ|category)$"),
@@ -264,6 +264,11 @@ def parse(content=None, pdf=None, max_pages=3000):
                     if toks:
                         tval = toks[0]
                         break
+                if tval:
+                    # el tiempo final es el MAYOR de la fila (parciales, diferencias y ritmo son menores)
+                    alltimes = [t for t in text.split() if TIME.match(t) and ":" in t]
+                    if alltimes:
+                        tval = max(alltimes, key=lambda t: _secs(t) or 0)
                 if not tval:
                     near_row = bool(page_rows) and top - page_rows[-1]["top"] <= 14
                     if near_row or _is_wrapped_cell(ws, cols):
@@ -277,7 +282,8 @@ def parse(content=None, pdf=None, max_pages=3000):
                     # un título tiene que decir distancia o categoría; solo "Masculino"/"Femenino" no basta
                     no_sex = re.sub(r"(?i)\b(masculin[oa]s?|femenin[oa]s?|hombres|mujeres|masc|fem|clasificaci[oó]n)\b", " ", text)
                     is_title = bool(STRONG_TITLE.search(no_sex)) and len(text) < 60 \
-                        and not re.match(r"^(DNS|DNF|DSQ|DQ|NP|\d)", text)
+                        and not re.match(r"^(DNS|DNF|DSQ|DQ|NP|\d)", text) \
+                        and sum(1 for t in text.split() if _field(t)) < 2  # "Orden Categoría P.Cat ..." es cabecera
                     if not is_title:
                         prev_text.append(text)
                         prev_ws_by_text[text] = ws
@@ -341,6 +347,8 @@ def parse(content=None, pdf=None, max_pages=3000):
         section, sex = key
         label = clean(re.sub(r"(?i)clasificaci[oó]n( general)?( categor[ií]a)?( por categor[ií]as)?|classificaci[oó]( general)?", "", section)) or "Clasificación"
         label = re.split(r",\s*total|\s+total\.{2,}", label, flags=re.I)[0]
+        label = " ".join(t for t in label.split() if not _field(t) and not HEADER_JUNK.match(t)
+                         and not re.fullmatch(r"\d+[.,:]\d+[.,:]?\d*|t\.|dif\.|prom\.|km\d+[,.]?\d*", t, re.I)) or label
         seen_w, words = set(), []
         for w in label.split():  # "Absoluta Femenina Absoluta Femenina" -> "Absoluta Femenina"
             k = norm(w)

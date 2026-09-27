@@ -66,7 +66,7 @@ def store(item, res, source, url=None):
         # el índice lleva solo un resumen (la ficha completa está en results/<id>.json)
         "podios": podios[:6], "n_podios": len(podios), "espanoles": esp[:20], "destacados": dest[:12],
         "fetched": res["fetched"],
-        "link_only": bool(res.get("link_only")),
+        "link_only": bool(res.get("link_only")), "incomplete": res.get("incomplete"),
     })
     idx["items"].sort(key=lambda x: x["date"] or "", reverse=True)
     idx["generated"] = iso_now()

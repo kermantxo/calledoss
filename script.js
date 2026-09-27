@@ -4404,6 +4404,7 @@ function renderResultSummary(r){
     blocks.push(`<div class="event-block"><div class="event-block-head"><h3>${esc(p.event)}</h3><span>${esc(p.round || 'Podio')}</span></div>${resultTable(p.rows, true)}</div>`);
   });
   return `<div class="data-note">🏁 Resultados · fuente: <b>${esc(r.source)}</b>${r.url ? ` · <a href="${esc(r.url)}" target="_blank" rel="noopener">original</a>` : ''}</div>
+    ${r.incomplete ? `<div class="data-note" style="border-color:var(--gold);">⚠️ <b>Clasificación incompleta.</b> ${esc(r.incomplete)}${r.url ? ` <a href="${esc(r.url)}" target="_blank" rel="noopener">Ver la clasificación completa en el documento oficial →</a>` : ''}</div>` : ''}
     <div class="roster-grid">${blocks.join('') || '<div class="empty-state">Resultados disponibles en el enlace original.</div>'}</div>
     <button class="comp-pill" style="margin-top:10px;" onclick="event.stopPropagation();loadResultsInto('${r.id}', 'full-${r.id}', true)">Ver todas las pruebas →</button>
     <div id="full-${r.id}"></div>`;

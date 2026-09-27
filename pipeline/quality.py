@@ -11,8 +11,8 @@ import re
 from .common import load_json, save_json, iso_now
 from .names import clean_name, is_abbreviated, is_incomplete, sex_from_first_name
 
-LABEL_F = re.compile(r"\b(mujeres|femenin[oa]s?|fem|women|dones|female|fémina|mulleres|emakumeak)\b|women's", re.I)
-LABEL_M = re.compile(r"\b(hombres|masculin[oa]s?|masc|men|homes|male|gizonak)\b|men's", re.I)
+LABEL_F = re.compile(r"\b(mujeres|femenin[oa]s?|fem|women|dones|female|fémina|mulleres|emakumeak|feminina|femení)\b|women's", re.I)
+LABEL_M = re.compile(r"\b(hombres|masculin[oa]s?|masc|men|homes|male|gizonak|masculí)\b|men's", re.I)
 MIXED = re.compile(r"\b(mixt[oa]|mixed|general|todos|absoluta?)\b", re.I)
 ROW_F = re.compile(r"\b(femenin[oa]|mujer|fem|women)\b|(?<![A-Za-z])[FW](?![A-Za-z])|\b[FW]\d{2}\b|^F-|-F\b|SenF|VetF", re.I)
 ROW_M = re.compile(r"\b(masculin[oa]|hombre|masc|men)\b|(?<![A-Za-z])M(?![A-Za-z])|^M-|-M\b|SenM|VetM")
@@ -62,6 +62,49 @@ def _junk_label(name):
     return False
 
 
+def _distance_km(text):
+    """Distancia de la prueba en km si se deduce del nombre (media maratón, 10K, 5 km, milla...)."""
+    t = (text or "").lower()
+    if re.search(r"media|medio|mitja|half|21 ?k|21[.,]0?97", t):
+        return 21.0975
+    if re.search(r"marat[oó]n|marathon", t) and not re.search(r"media|medio|mitja|half", t):
+        return 42.195
+    if re.search(r"\bmilla\b|\bmile\b", t):
+        return 1.609
+    m = re.search(r"(\d+(?:[.,]\d+)?)\s?(km|kms|k)\b", t)
+    if m:
+        return float(m.group(1).replace(",", "."))
+    m = re.search(r"\b(\d{3,5})\s?m\b", t)
+    if m and not re.search(r"vallas|obst|relev|marcha", t):
+        return int(m.group(1)) / 1000.0
+    return None
+
+
+def _secs(mark):
+    m = str(mark or "").split("(")[0].strip()
+    if not re.match(r"^\d{1,2}(:\d{2}){1,2}([.,]\d+)?$", m):
+        return None
+    v = 0.0
+    for p in m.replace(",", ".").split(":"):
+        v = v * 60 + float(p)
+    return v
+
+
+def _plausible(label, comp_name, rows):
+    """Ritmo del ganador creíble para la distancia (entre 2:20 y 9:00 min/km en ruta/cross/pista de fondo)."""
+    km = _distance_km(label) or _distance_km(comp_name)
+    if not km or km < 0.8 or not rows or re.search(r"trail|monta|subida|vertical|cross|marcha|relev|uphill|sky|ultra|canfranc|roller|patin", label + " " + comp_name, re.I):
+        return True
+    s = _secs(rows[0].get("mark"))
+    if not s:
+        return True
+    pace = s / km  # segundos por km
+    # límite rápido: algo por debajo del ritmo del récord del mundo de cada distancia
+    fastest = 118 if km <= 1 else 130 if km <= 2 else 143 if km <= 6 else 148 if km <= 12 else 155 if km <= 25 else 162
+    slowest = 540 if km <= 45 else 900
+    return fastest <= pace <= slowest
+
+
 def review(res, comp_name=""):
     """Limpia nombres y quita los podios con sexos mezclados. Devuelve (res, avisos)."""
     issues = []
@@ -80,6 +123,10 @@ def review(res, comp_name=""):
             if not is_team and _junk_label(ev.get("name", "")):
                 issues.append({"kind": "ilegible", "competition": comp_name, "event": label.strip()[:80],
                                "detail": "El título de la prueba no es legible (el PDF se leyó mal); no se publica."})
+                continue
+            if not is_team and not _plausible(label, comp_name, rnd.get("rows", [])):
+                issues.append({"kind": "ilegible", "competition": comp_name, "event": label.strip()[:80],
+                               "detail": "Tiempos imposibles para la distancia (se leyó un parcial en vez del tiempo final); no se publica."})
                 continue
             want = "" if MIXED.search(ev.get("name", "")) and not label_sex(ev.get("name", "")) else label_sex(label)
             wrong = []
@@ -102,6 +149,16 @@ def review(res, comp_name=""):
         elif not keep:
             ev["rows"] = []
     res["events"] = [e for e in res.get("events", []) if (e.get("rounds") if e.get("rounds") is not None else e.get("rows"))]
+    # ¿carrera mixta con podio de un solo sexo? -> se marca como incompleta (y se enlaza el PDF original)
+    labels = " ".join("%s %s" % (e.get("name", ""), r.get("round", "")) for e in res["events"] for r in (e.get("rounds") or [e]))
+    has_f, has_m = bool(LABEL_F.search(labels)), bool(LABEL_M.search(labels))
+    single_sex_comp = bool(re.search(r"mujer|femen|hombre|mascul|clubes|liga|division|división", comp_name, re.I))
+    if (has_f != has_m) and not single_sex_comp and res.get("events"):
+        res["incomplete"] = "Solo se ha podido leer la clasificación %s." % ("femenina" if has_f else "masculina")
+        issues.append({"kind": "incompleta", "competition": comp_name, "event": "",
+                       "detail": res["incomplete"] + " Revisa el documento original."})
+    else:
+        res.pop("incomplete", None)
     return res, issues
 
 
