@@ -111,7 +111,13 @@
  },
  "log": [
   {
-   "at": "2026-09-27T19:31:53+02:00",
+   "at": "2026-09-27T19:33:35+02:00",
+   "level": "warning",
+   "source": "live",
+   "msg": "Directo de 'Taiyuan Marathon': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235590"
+  },
+  {
+   "at": "2026-09-27T19:30:54+02:00",
    "level": "warning",
    "source": "results",
    "msg": "Resultados de 'Taiyuan Marathon' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235590"
@@ -591,5 +597,5 @@
    "msg": "Directo de 'BMW Berlin Marathon': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235580"
   }
  ],
- "updated": "2026-09-27T19:33:28+02:00"
+ "updated": "2026-09-27T19:33:35+02:00"
 }
