@@ -111,6 +111,18 @@
  },
  "log": [
   {
+   "at": "2026-09-27T17:48:47+02:00",
+   "level": "warning",
+   "source": "live",
+   "msg": "Directo de 'Taiyuan Marathon': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235590"
+  },
+  {
+   "at": "2026-09-27T17:48:38+02:00",
+   "level": "warning",
+   "source": "live",
+   "msg": "Directo de 'BMW Berlin Marathon': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235580"
+  },
+  {
    "at": "2026-09-27T17:45:49+02:00",
    "level": "warning",
    "source": "live",
@@ -577,19 +589,7 @@
    "level": "warning",
    "source": "results",
    "msg": "Resultados de 'BMW Berlin Marathon' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235580"
-  },
-  {
-   "at": "2026-09-27T16:13:16+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Resultados de 'TCS Lidingoloppet' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7244488"
-  },
-  {
-   "at": "2026-09-27T16:12:25+02:00",
-   "level": "warning",
-   "source": "rfea_results",
-   "msg": "PDF de RFEA no disponible (404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/): https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf"
   }
  ],
- "updated": "2026-09-27T17:45:49+02:00"
+ "updated": "2026-09-27T17:48:47+02:00"
 }
