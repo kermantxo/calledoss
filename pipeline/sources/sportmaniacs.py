@@ -26,8 +26,8 @@ def events(http, slug):
     r = http.get(WEB + slug, timeout=30)
     soup = BeautifulSoup(r.text, "lxml")
     out = []
-    for a in soup.find_all("a", href=re.compile(r"/races/%s/[0-9a-f-]{36}/results" % re.escape(slug))):
-        eid = re.search(r"/([0-9a-f-]{36})/results", a["href"]).group(1)
+    for a in soup.find_all("a", href=re.compile(r"/races/%s/[0-9a-f-]{36}/(results|rankings)" % re.escape(slug))):
+        eid = re.search(r"/([0-9a-f-]{36})/(results|rankings)", a["href"]).group(1)
         box = a.find_parent(["li", "div", "article"])
         label = clean(box.get_text(" ")) if box else ""
         label = re.sub(r"\s*\d{2}/\d{2}/\d{4}.*", "", label).replace("Ver clasificaciones", "").strip()
