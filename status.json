@@ -111,6 +111,12 @@
  },
  "log": [
   {
+   "at": "2026-09-27T22:45:38+02:00",
+   "level": "warning",
+   "source": "live",
+   "msg": "Directo de 'Taiyuan Marathon': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235590"
+  },
+  {
    "at": "2026-09-27T22:43:20+02:00",
    "level": "warning",
    "source": "live",
@@ -583,13 +589,7 @@
    "level": "warning",
    "source": "results",
    "msg": "Resultados de 'Taiyuan Marathon' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235590"
-  },
-  {
-   "at": "2026-09-27T18:14:12+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Resultados de 'TCS Lidingoloppet' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7244488"
   }
  ],
- "updated": "2026-09-27T22:43:20+02:00"
+ "updated": "2026-09-27T22:45:38+02:00"
 }
