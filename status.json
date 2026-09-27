@@ -102,9 +102,9 @@
   },
   "previas": {
    "label": "Previas (listas de inscritos)",
-   "last_run": "2026-09-27T06:39:10+02:00",
+   "last_run": "2026-09-27T12:46:55+02:00",
    "ok": true,
-   "last_ok": "2026-09-27T06:51:05+02:00",
+   "last_ok": "2026-09-27T12:55:50+02:00",
    "fails_in_a_row": 0,
    "last_count": 9
   }
@@ -591,5 +591,5 @@
    "msg": "Directo de 'BMW Berlin Marathon': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235580"
   }
  ],
- "updated": "2026-09-27T12:55:28+02:00"
+ "updated": "2026-09-27T12:55:50+02:00"
 }
