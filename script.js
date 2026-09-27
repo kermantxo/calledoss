@@ -3989,12 +3989,15 @@ function renderLive(){
   } else upd.style.display = 'none';
 
   grid.innerHTML = items.map(l=>{
-    const b = LIVE_BADGE[l.status] || LIVE_BADGE['pendiente'];
+    const res = resultFor(l.id);
+    const b = res ? {txt:'RESULTADOS', live:false} : (LIVE_BADGE[l.status] || LIVE_BADGE['pendiente']);
     const d = l.data || {};
-    const isOpen = b.live || openLiveComp === l.id;
+    const isOpen = b.live || !!res || openLiveComp === l.id;
     const links = linkButtons(l.links||{});
     let body = '';
-    if(isOpen){
+    if(isOpen && res){
+      body += `<div style="padding:10px 14px;">${renderResultSummary(res)}</div>`;
+    } else if(isOpen){
       if(d.events && d.events.length){
         body += d.events.map(e=>`
           <div class="mark-row" style="grid-template-columns:1fr"><span><b>${esc(e.name)}</b>${e.round?` · ${esc(e.round)}`:''}${e.time?` · ${esc(e.time)}`:''}</span></div>
@@ -4065,6 +4068,7 @@ function renderCompAccordion(){
     let body = '';
     if(isOpen){
       body = `<div class="comp-accordion-body">
+        ${resultFor(ev.id) ? renderResultSummary(resultFor(ev.id)) : ''}
         ${renderAutoInfo(ev) || `<div class="data-note">📍 <b>${esc(ev.place||'Lugar por confirmar')}</b> — ${fechaLarga(ev.date, ev.end_date)}</div>`}
         ${comp && comp.events.length ? `<div class="roster-grid">${renderEventBlocks(comp.id, comp.events)}</div>` : ''}
         <button class="comp-pill" style="margin-top:10px;" onclick="showCompetitionDetail('${ev.id}')">Ver ficha completa →</button>
@@ -4073,7 +4077,7 @@ function renderCompAccordion(){
     return `${head}
       <div class="comp-accordion-item">
         <button class="comp-pill ${isOpen?'active':''}" data-id="${ev.id}">${esc(ev.name)}
-          <span style="color:var(--gray);font-size:12px;">${[ev.place, ev.time, nDest ? '⭐ '+nDest+' destacados' : ''].filter(Boolean).map(x=>'· '+esc(x)).join(' ')}</span></button>
+          <span style="color:var(--gray);font-size:12px;">${[ev.place, ev.time, nDest ? '⭐ '+nDest+' destacados' : '', resultFor(ev.id) ? '🏁 resultados' : ''].filter(Boolean).map(x=>'· '+esc(x)).join(' ')}</span></button>
         ${body}
       </div>`;
   }).join('');

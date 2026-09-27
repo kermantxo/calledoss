@@ -224,8 +224,9 @@ def sweep(http, items, health, deep=False):
         recent = (t - end).days <= 1
         if not recent and not deep and it["id"] in pending and pending[it["id"]].get("last") == t.isoformat():
             continue  # lo de días anteriores se reintenta una vez al día; lo de hoy y ayer, en cada chequeo
-        if it["id"] in idx_ids and it["id"] not in pending:
-            continue
+        recent_done = it["id"] in idx_ids and (t - end).days <= 1
+        if it["id"] in idx_ids and it["id"] not in pending and not recent_done:
+            continue  # las de hoy y ayer se vuelven a mirar aunque ya tengan resultados (llegan categorías tarde)
         rid = by_item(http, it, health, final=(t - end).days >= 2) if it.get("live") else None
         if not rid:
             # misma búsqueda que la carga histórica: garantiza el podio de cada prueba
