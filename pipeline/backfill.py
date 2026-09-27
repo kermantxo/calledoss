@@ -493,14 +493,19 @@ class Finder:
             if not slug:
                 from .calendar_build import _tokens
                 words = sorted(_tokens(it["name"]), key=len, reverse=True)[:3]
-                if words:
+                ordered = [w for w in norm(it["name"]).split() if w in words]
+                # varias búsquedas cortas (Sportmaniacs no encuentra si una palabra lleva tilde distinta)
+                queries = list(dict.fromkeys([" ".join(ordered[:2]), " ".join(words[:2]), " ".join(words[1:3]), words[0] if words else ""]))
+                for q in [q for q in queries if q]:
                     try:
-                        for r in sportmaniacs.search(self.http, " ".join(words)):
+                        for r in sportmaniacs.search(self.http, q):
                             if r.get("date") == it["date"] and similar(r.get("name", ""), it["name"]):
                                 slug = r["slug"]
                                 break
                     except Exception:
                         pass
+                    if slug:
+                        break
             if slug:
                 tried.append("Sportmaniacs %s" % slug)
                 try:
