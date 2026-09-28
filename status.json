@@ -107,6 +107,14 @@
    "last_ok": "2026-09-28T17:59:43+02:00",
    "fails_in_a_row": 0,
    "last_count": 7
+  },
+  "ranking": {
+   "label": "Ranking RFEA (aire libre y pista cubierta)",
+   "last_run": "2026-09-28T18:13:04+02:00",
+   "ok": true,
+   "last_ok": "2026-09-28T18:16:36+02:00",
+   "fails_in_a_row": 0,
+   "last_count": 89
   }
  },
  "log": [
@@ -591,5 +599,5 @@
    "msg": "Directo de 'Taiyuan Marathon': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235590"
   }
  ],
- "updated": "2026-09-28T18:15:51+02:00"
+ "updated": "2026-09-28T18:16:36+02:00"
 }
