@@ -168,7 +168,8 @@ def review(res, comp_name=""):
     issues = []
     team = re.compile(r"relevo|4x|equipo|clubes|puntuaci", re.I)
     for ev in res.get("events", []):
-        rounds = ev.get("rounds") or [ev]
+        # ojo: una prueba con "rounds": [] no es su propia ronda (si no, acabaría dentro de sí misma)
+        rounds = ev["rounds"] if ev.get("rounds") is not None else [ev]
         keep = []
         for rnd in rounds:
             label = "%s %s" % (ev.get("name", ""), rnd.get("round", ""))
