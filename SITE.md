@@ -47,6 +47,8 @@
 - 2026-09-24: Carga histórica de resultados 2026 (podio de cada prueba de cada competición) y lista "Sin resultados localizados" en el panel.
 - 2026-09-24: Datos automáticos: calendario, resultados, en directo y destacados se actualizan solos (scrapers + tareas programadas, sin IA). Nuevo panel privado con clave. Próximas pasa a mostrar un rango fijo de 7 días.
 
+- 2026-09-28: Próximas actualizado (28 sep – 4 oct). Los nombres de las carreras de Runvasport ya salen bien escritos (p. ej. "III Legua de la Guardia Civil de Valladolid" en vez de todo en mayúsculas). Nueva sección Previas y revisión automática de resultados (sexo, nombres, marcas imposibles).
+
 ## How to Customize
 - To change colors: edit the variables at the top of `styles.css` (e.g. `--red`)
 - To add a competition the automatic calendar missed: use the private panel (`/panel`)
