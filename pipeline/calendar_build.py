@@ -246,7 +246,7 @@ def refresh_times(http, health):
     if not items:
         return 0
     # lo añadido en el panel (enlace a la web oficial, hora...) se junta ya, sin esperar al chequeo diario
-    items = merge([manual_items(), [x for x in items if not x.get("manual")]])
+    items = merge([[x for x in items if x.get("sources") != ["Manual"]], manual_items()])  # mismo orden que el diario
     add_times(http, items, health)
     save(items)
     return sum(1 for x in items if x.get("time"))
