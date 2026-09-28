@@ -611,3 +611,6 @@
   .hide-sm{display:none;}
   .show-sm{display:block;font-size:12px;}
 }
+
+/* Título de la portada en una sola línea (se encoge con la pantalla) */
+.hero h1.home-title, h1.home-title{font-size:clamp(20px,7.2vw,92px);white-space:nowrap;}
