@@ -2,81 +2,81 @@
  "sources": {
   "rfea_calendar": {
    "label": "RFEA · calendario",
-   "last_run": "2026-09-28T11:09:00+02:00",
+   "last_run": "2026-09-28T11:26:47+02:00",
    "ok": true,
-   "last_ok": "2026-09-28T11:09:21+02:00",
+   "last_ok": "2026-09-28T11:27:08+02:00",
    "fails_in_a_row": 0,
    "last_count": 453
   },
   "wa_calendar": {
    "label": "World Athletics · calendario",
-   "last_run": "2026-09-28T11:09:21+02:00",
+   "last_run": "2026-09-28T11:27:08+02:00",
    "ok": true,
-   "last_ok": "2026-09-28T11:09:47+02:00",
+   "last_ok": "2026-09-28T11:27:19+02:00",
    "fails_in_a_row": 0,
    "last_count": 65
   },
   "cronomancha_upcoming": {
    "label": "Cronomancha · próximas",
-   "last_run": "2026-09-28T11:09:47+02:00",
+   "last_run": "2026-09-28T11:27:19+02:00",
    "ok": true,
-   "last_ok": "2026-09-28T11:09:49+02:00",
+   "last_ok": "2026-09-28T11:27:20+02:00",
    "fails_in_a_row": 0,
    "last_count": 6
   },
   "cronomancha_events": {
    "label": "Cronomancha · resultados",
-   "last_run": "2026-09-28T11:09:49+02:00",
+   "last_run": "2026-09-28T11:27:20+02:00",
    "ok": true,
-   "last_ok": "2026-09-28T11:09:49+02:00",
+   "last_ok": "2026-09-28T11:27:21+02:00",
    "fails_in_a_row": 0,
    "last_count": 37
   },
   "avaibook": {
    "label": "AvaiBook (Runvasport)",
-   "last_run": "2026-09-28T11:09:49+02:00",
+   "last_run": "2026-09-28T11:27:21+02:00",
    "ok": true,
-   "last_ok": "2026-09-28T11:09:51+02:00",
+   "last_ok": "2026-09-28T11:27:23+02:00",
    "fails_in_a_row": 0,
    "last_count": 46
   },
   "rfea_detail": {
    "label": "RFEA · fichas de competición",
-   "last_run": "2026-09-28T11:09:53+02:00",
+   "last_run": "2026-09-28T11:27:25+02:00",
    "ok": true,
-   "last_ok": "2026-09-28T11:09:53+02:00",
+   "last_ok": "2026-09-28T11:27:25+02:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
   "rfealive": {
    "label": "RFEA Live · horarios",
-   "last_run": "2026-09-28T11:09:53+02:00",
+   "last_run": "2026-09-28T11:27:25+02:00",
    "ok": true,
-   "last_ok": "2026-09-28T11:09:53+02:00",
+   "last_ok": "2026-09-28T11:27:25+02:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
   "destacados": {
    "label": "Atletas destacados (listas de salida)",
-   "last_run": "2026-09-28T11:09:53+02:00",
+   "last_run": "2026-09-28T11:27:25+02:00",
    "ok": true,
-   "last_ok": "2026-09-28T11:09:53+02:00",
+   "last_ok": "2026-09-28T11:27:25+02:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
   "results": {
    "label": "Resultados (todas las fuentes)",
-   "last_run": "2026-09-28T11:24:35+02:00",
+   "last_run": "2026-09-28T11:27:25+02:00",
    "ok": true,
-   "last_ok": "2026-09-28T11:26:04+02:00",
+   "last_ok": "2026-09-28T11:30:01+02:00",
    "fails_in_a_row": 0,
    "last_count": 5
   },
   "rfea_results": {
    "label": "RFEA · índice de resultados (PDF)",
-   "last_run": "2026-09-28T11:24:35+02:00",
+   "last_run": "2026-09-28T11:27:25+02:00",
    "ok": true,
-   "last_ok": "2026-09-28T11:24:46+02:00",
+   "last_ok": "2026-09-28T11:27:36+02:00",
    "fails_in_a_row": 0,
    "last_count": 0,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf",
@@ -94,22 +94,28 @@
   },
   "avaibook_upcoming": {
    "label": "Runvasport · próximas",
-   "last_run": "2026-09-28T11:09:51+02:00",
+   "last_run": "2026-09-28T11:27:23+02:00",
    "ok": true,
-   "last_ok": "2026-09-28T11:09:52+02:00",
+   "last_ok": "2026-09-28T11:27:24+02:00",
    "fails_in_a_row": 0,
    "last_count": 18
   },
   "previas": {
    "label": "Previas (listas de inscritos)",
-   "last_run": "2026-09-28T11:12:40+02:00",
+   "last_run": "2026-09-28T11:30:01+02:00",
    "ok": true,
-   "last_ok": "2026-09-28T11:23:56+02:00",
+   "last_ok": "2026-09-28T11:38:22+02:00",
    "fails_in_a_row": 0,
    "last_count": 7
   }
  },
  "log": [
+  {
+   "at": "2026-09-28T11:27:36+02:00",
+   "level": "warning",
+   "source": "rfea_results",
+   "msg": "PDF de RFEA no disponible (404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/): https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf"
+  },
   {
    "at": "2026-09-28T11:24:46+02:00",
    "level": "warning",
@@ -583,13 +589,7 @@
    "level": "warning",
    "source": "live",
    "msg": "Directo de 'Taiyuan Marathon': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235590"
-  },
-  {
-   "at": "2026-09-27T18:54:38+02:00",
-   "level": "warning",
-   "source": "live",
-   "msg": "Directo de 'Taiyuan Marathon': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235590"
   }
  ],
- "updated": "2026-09-28T11:36:58+02:00"
+ "updated": "2026-09-28T11:38:22+02:00"
 }
