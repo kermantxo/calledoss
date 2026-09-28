@@ -21,6 +21,23 @@ CM_API = "https://resultados-api.cronomancha.com/api/v1/public"
 CM_APP = "https://resultados-app.cronomancha.com/results/"
 
 
+def nice_title(name):
+    """'XXXVII MEDIA MARATÓN CIUDAD DE VALLADOLID' -> 'XXXVII Media Maratón Ciudad de Valladolid'."""
+    if not (name.isupper() or name.istitle()):
+        return name
+    out = []
+    for i, w in enumerate(name.split()):
+        if re.fullmatch(r"[IVXLCM]+|[ivxlcm]+", w) and len(w) <= 7:
+            out.append(w.upper())                       # números romanos
+        elif re.fullmatch(r"\d+[ºª]?", w):
+            out.append(w)
+        elif i and w.lower() in ("de", "del", "la", "las", "los", "el", "y", "en", "a", "al", "por"):
+            out.append(w.lower())
+        else:
+            out.append(w[:1].upper() + w[1:].lower())
+    return " ".join(out)
+
+
 def _cm_type(modality):
     m = (modality or "").upper()
     if "CROSS" in m:
@@ -128,7 +145,7 @@ def avaibook_events(http, pages=2):
                 slug = a["href"].rstrip("/").split("/")[-2]
                 out.append({
                     "id": "avaibook-%s" % slug,
-                    "name": name.title() if name.isupper() else name,
+                    "name": nice_title(name),
                     "date": date.isoformat(),
                     "end_date": None,
                     "time": m.group(4),
@@ -236,7 +253,7 @@ def avaibook_upcoming(http, pages=3):
                 seen.add(slug)
                 out.append({
                     "id": "avaibook-%s" % slug,
-                    "name": name.title() if name.isupper() else name,
+                    "name": nice_title(name),
                     "date": dt.date(int(m.group(3)), MONTHS[m.group(2).lower()], int(m.group(1))).isoformat(),
                     "end_date": None, "time": m.group(4), "place": "",
                     "type": "Trail" if re.search(r"trail|monta", name, re.I) else "Ruta",
