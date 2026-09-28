@@ -4342,8 +4342,8 @@ function resultTable(rows, showNat){
 }
 
 // Sexo de una prueba (el pipeline lo guarda en ev.sex; si no, se deduce del nombre)
-const SEX_F_RE = /(?<!\p{L})(mujer(es)?|femenin[oa]s?|fem|women|dones|female|mulleres|emakumeak|feminina|femení|damas|chicas|niñas|femmes|ladies|girls)(?!\p{L})|women's/iu;
-const SEX_M_RE = /(?<!\p{L})(hombres|masculin[oa]s?|masc|men|homes|male|gizonak|masculí|varones|chicos|niños|hommes|boys)(?!\p{L})|men's/iu;
+const SEX_F_RE = /(?<!\p{L})(mujer(es)?|femenin[oa]s?|fem|women|dones|female|mulleres|emakumeak|feminina|femení|damas|chicas|niñas|femmes|ladies|girls)(?!\p{L})|women's|(?<![\p{L}\d])[FW]\d{2}(?!\d)/iu;
+const SEX_M_RE = /(?<!\p{L})(hombres|masculin[oa]s?|masc|men|homes|male|gizonak|masculí|varones|chicos|niños|hommes|boys)(?!\p{L})|men's|(?<![\p{L}\d])M\d{2}(?!\d)/iu;
 const ONLY_F_RE = /(?<!\p{L})(mujer(es)?|femenin[oa]s?|iberdrola|women|feminina|dones)(?!\p{L})/iu;
 const ONLY_M_RE = /(?<!\p{L})(hombres|masculin[oa]s?|joma|men)(?!\p{L})/iu;
 function eventSex(ev){

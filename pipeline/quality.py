@@ -12,9 +12,9 @@ from .common import load_json, save_json, iso_now
 from .names import clean_name, is_abbreviated, is_incomplete, sex_from_first_name
 
 LABEL_F = re.compile(r"\b(mujer(es)?|femenin[oa]s?|fem|women|dones|female|fémina|mulleres|emakumeak|feminina|femení|damas|chicas|"
-                     r"niñas|femmes|femminile|damen|ladies|girls|absoluta femenina)\b|women's", re.I)
+                     r"niñas|femmes|femminile|damen|ladies|girls|absoluta femenina)\b|women's|\b[FW]\d{2}\b|\b[FW]-?(sub|u)\d{2}\b", re.I)
 LABEL_M = re.compile(r"\b(hombres|masculin[oa]s?|masc|men|homes|male|gizonak|masculí|varones|chicos|niños|hommes|maschile|"
-                     r"herren|boys)\b|men's", re.I)
+                     r"herren|boys)\b|men's|\bM\d{2}\b|\bM-?(sub|u)\d{2}\b", re.I)
 MIXED = re.compile(r"\b(mixt[oa]|mixed|general|todos|absoluta?)\b", re.I)
 ROW_F = re.compile(r"\b(femenin[oa]|mujer|fem|women)\b|(?<![A-Za-z])[FW](?![A-Za-z])|\b[FW]\d{2}\b|^F-|-F\b|SenF|VetF", re.I)
 ROW_M = re.compile(r"\b(masculin[oa]|hombre|masc|men)\b|(?<![A-Za-z])M(?![A-Za-z])|^M-|-M\b|SenM|VetM")
