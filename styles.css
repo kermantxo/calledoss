@@ -643,3 +643,19 @@
   }
   nav.tabs button.active{border-bottom-color:var(--line);border-left-color:var(--red);padding-left:12px;}
 }
+
+/* Portada: accesos equilibrados (misma altura, número arriba y flecha abajo) */
+.home-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+.home-card{max-width:none;min-height:210px;}
+.home-card p{flex:1;}
+.home-card-go{font-family:'Roboto Mono',monospace;font-size:18px;color:var(--red-bright);margin-top:10px;transition:transform .15s;}
+.home-card:hover .home-card-go{transform:translateX(4px);}
+@media (max-width:1024px){
+  .home-grid{grid-template-columns:repeat(2,1fr);}
+  .home-card{min-height:0;}
+  .home-card:last-child{grid-column:1 / -1;}
+}
+@media (max-width:560px){
+  .home-grid{grid-template-columns:1fr;}
+  .home-card{min-height:0;}
+}
