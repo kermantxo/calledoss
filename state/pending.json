@@ -1,22 +1,17 @@
 {
- "wa-7244488": {
-  "since": "2026-09-26",
-  "tries": 22,
-  "last": "2026-09-28"
- },
  "rfea-2026-09-19-ultra-de-gredos-1": {
   "since": "2026-09-26",
-  "tries": 4,
+  "tries": 5,
   "last": "2026-09-28"
  },
  "rfea-2026-09-26-iv-milla-de-la-ceramica": {
   "since": "2026-09-26",
-  "tries": 22,
+  "tries": 23,
   "last": "2026-09-28"
  },
  "wa-7235590": {
   "since": "2026-09-27",
-  "tries": 22,
+  "tries": 23,
   "last": "2026-09-28"
  }
 }
