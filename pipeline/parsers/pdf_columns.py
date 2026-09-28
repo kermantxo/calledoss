@@ -16,13 +16,13 @@ from ..common import clean, norm
 FIELDS = [
     ("pos", r"^(pos|puesto|clas|clasif|clasificacion|p\.?gen|pgen|meta|rk|rank|lloc|posicion|plaza|pto|puest)\.?$"),
     ("possex", r"^(p\.?sex|psex|pos\.?sex|p\.?gen\.?sex)$"),
-    ("poscat", r"^(p\.?cat|pcat|pos\.?cat)$"),
-    ("bib", r"^(dorsal|dors|dor|bib|n[ºo°]?\.?)$"),
+    ("poscat", r"^(p\.?cat|pcat|pos[.-]?cat)$"),
+    ("bib", r"^(dorsal|dors|dor|bib|n[º°]\.?|n\.|no\.|núm\.?|num\.?)$"),
     ("name", r"^(nombre|apellidos|nom|cognoms|atleta|corredor|corredora|participante|name|surname|nombre/apellidos|nome|apelidos|izena|abizenak)$"),
-    ("club", r"^(club|equipo|entidad|team|equip|clube|taldea)$"),
-    ("time", r"^(tiempo|t\.?oficial|oficial|marca|time|temps|resultado|neto|t\.?neto|tiempo\.?oficial|tiempos|t\.?chip|chip|final|tempo|denbora)$"),
-    ("real", r"^(t\.?real|real|bruto|t\.?bruto)$"),
-    ("sex", r"^(sexo|genero|género|sex|gen|gender|g)$"),
+    ("club", r"^(club|equipo|entidad|team|equip|clube|taldea|club/ciutat|club/ciudad|club/localidad)$"),
+    ("time", r"^(tiempo|t[._]?oficial|oficial|marca|time|temps|resultado|neto|t[._]?neto|tiempo\.?oficial|tiempos|t[._]?chip|chip|final|t[._]?final|tempo|denbora)$"),
+    ("real", r"^(t[._]?real|real|bruto|t[._]?bruto)$"),
+    ("sex", r"^(sexo|genero|género|sex|gen|gender|g|sx)$"),
     ("cat", r"^(categoria|categoría|cat|cat\.|categ|category)$"),
     ("nat", r"^(pais|país|nac\.?|nat|nacionalidad|country)$"),
 ]
@@ -31,7 +31,7 @@ FEM = re.compile(r"\b(fem|femenin[oa]s?|mujer(es)?|women|dones|female|absolutaf|
 MASC = re.compile(r"\b(masc|masculin[oa]s?|hombres?|men|homes|male|absolutam|m)\b", re.I)
 HEADER_JUNK = re.compile(r"^(diferencia|dif\.?|licencia|licència|lic\.?|f\.?nac\.?|fecha|nac\.?|pais|país|t\.?r\.?|ritmo|media|km/h|min/km|vel\.?|"
                          r"vel\.?med\.?|km\.?\d+|possexo|poscat|pos\.?sexo|--|t\.|prom\.?|"
-                         r"vuelta|paso|parcial|k\d+|\d+k|pos\.?|gap|diff|retraso|localidad|poblaci[oó]n|provincia)$", re.I)
+                         r"vuelta|paso|parcial|k\d+|\d+k|pos\.?|gap|diff|retraso|localidad|poblaci[oó]n|provincia|any|nax|control|controlparcial|ultimo|1er|2º|3er|m/km)$", re.I)
 TITLE_WORDS = re.compile(r"\b(\d+\s?(km|kms|k|m|mts|metros|millas?)|km|kms|sub\s?\d+|u\d{2}|absolut[oa]?|femenin[oa]|masculin[oa]|mujer(es)?|hombres?|"
                          r"master|m[aá]ster|veteran[oa]s?|senior|j[uú]nior|juvenil|cadete|infantil|alev[ií]n|benjam[ií]n|prebenjam[ií]n|promesa|"
                          r"general|carrera|marcha|cross|milla|relevos?|maraton|marat[oó]n|mitja|media|trail|popular|chupetines|escolar|"
@@ -40,7 +40,8 @@ TITLE_WORDS = re.compile(r"\b(\d+\s?(km|kms|k|m|mts|metros|millas?)|km|kms|sub\s
 STRONG_TITLE = re.compile(r"(\b\d+([.,]\d+)?\s?(km|kms|k|m|mts|metros|millas?)\b|\bsub\s?\d+\b|\bu\d{2}\b|\b(absolut[oa]|femenin[oa]|masculin[oa]|"
                           r"mujeres|hombres|m[aá]ster|veteran[oa]s?|senior|s[eé]nior|j[uú]nior|juvenil|cadete|infantil|alev[ií]n|benjam[ií]n|"
                           r"prebenjam[ií]n|promesa|categor[ií]a|marat[oó]n|milla|marcha|cross|fem|masc)\b)", re.I)
-BOILER = re.compile(r"^(clasificaci[oó]n( general)?|classificaci[oó] general|resultados?|results?|p[aá]gina \d+|page \d+|\d+ de \d+)$", re.I)
+SEX_TITLE = re.compile(r"\b(hombres|mujeres|masculin[oa]s?|femenin[oa]s?|men|women)\b", re.I)
+BOILER = re.compile(r"^(clasificaci[oó]n( general)?|classificaci[oó] general|resultados?|results?|p[aá]gina \d+( de \d+)?|page \d+( of \d+)?|\d+ de \d+)$", re.I)
 
 
 def _field(word):
@@ -97,7 +98,9 @@ def _assign(ws, cols):
         else:
             i = 0
             for k, s in enumerate(starts):
-                if w["x0"] + 3 >= s:
+                # alineado a la izquierda (con 3 pt de margen) o centrado bajo la cabecera ("JUVGR" bajo "Club")
+                if w["x0"] + 3 >= s or (cx >= s + 2 and w["x1"] - w["x0"] < 45 and k == len(starts) - 1 or
+                                        cx >= s + 2 and w["x1"] - w["x0"] < 45 and k + 1 < len(starts) and w["x1"] <= starts[k + 1]):
                     i = k
         f = cols[i][0]
         # una palabra con letras bajo "Dorsal" o "Pos." es en realidad el principio del nombre
@@ -128,6 +131,8 @@ MASC_WORD = re.compile(r"\b(masculin[oa]s?|hombres?|men|homes|male|masc|gizonak)
 def _sex(row, section):
     # 1) palabras completas en la fila (mandan sobre las letras: "MÁSTER F Masculino" es un hombre).
     #    El club NO cuenta: hay clubes que se llaman "FEM el que podem!"
+    if not row.get("cat") and row.get("poscat"):
+        row = dict(row, cat=re.sub(r"^\d+\s*-?\s*", "", row["poscat"]))  # "1-SrM" -> "SrM"
     for key in ("sex", "cat"):
         v = (row.get(key) or "")
         f, m = bool(FEM_WORD.search(v)), bool(MASC_WORD.search(v))
@@ -142,9 +147,9 @@ def _sex(row, section):
         if key == "sex" and v.upper() in ("M", "H", "V", "HOMBRE", "MASCULINO"):
             return "M"
         # letra suelta "F"/"M" (ni la F de "FOODS" ni la M de "MARATON") o códigos tipo "F-SENIOR", "SenF", "M35"
-        if FEM.search(v) or re.search(r"(?<![A-Za-z])[FW](?![A-Za-z])|\bFEM\b|\b[FW]\d{2}\b|\dF\b|SenF|VetF|Vt\dF", v):
+        if FEM.search(v) or re.search(r"(?<![A-Za-z])[FW](?![A-Za-z])|\bFEM\b|\b[FW]\d{2}\b|\dF\b|SenF|VetF|Vt\dF|(?<=[a-z])F\b", v):
             return "F"  # W35, SENIOR W: "women"
-        if MASC.search(v) or re.search(r"(?<![A-Za-z])M(?![A-Za-z])|\bMAS\b|\bMASC\b|\dM\b|SenM|VetM|Vt\dM", v):
+        if MASC.search(v) or re.search(r"(?<![A-Za-z])M(?![A-Za-z])|\bMAS\b|\bMASC\b|\dM\b|SenM|VetM|Vt\dM|(?<=[a-z])M\b", v):
             return "M"
     if FEM.search(section or ""):
         return "F"
@@ -197,6 +202,7 @@ def parse(content=None, pdf=None, max_pages=3000):
     try:
         section, cols, last_title, pending, last_secs = "", None, None, None, None
         pending_strong = False
+        sex_title = None
         prev_ws_by_text = {}
         prev_text = []
         has_sex_col = False
@@ -207,8 +213,14 @@ def parse(content=None, pdf=None, max_pages=3000):
             for ws in _lines(page):
                 text = clean(" ".join(w["text"] for w in ws))
                 top = ws[0]["top"]
+                # título de prueba con sexo ("10 km Marcha Absoluto Hombres"): aunque quede lejos de la
+                # cabecera de la tabla (horas, ronda, "Análisis de carrera"...), es el título de esa tabla
+                if len(text) < 70 and SEX_TITLE.search(text) and STRONG_TITLE.search(text) \
+                        and not any(TIME.match(t) for t in text.split()) \
+                        and not re.match(r"^\d+\s+\d+\s", text) and sum(1 for t in text.split() if _field(t)) < 2:
+                    sex_title = text
                 hcols, leftover = _header(ws)
-                if not hcols and prev_ws is not None:
+                if not hcols and prev_ws is not None and not any(TIME.match(w["text"]) for w in prev_ws + ws):
                     # cabecera partida en dos líneas ("Orden ... Tiempo" / "Pos. Dorsal Nombre Club")
                     nf_prev = sum(1 for w in prev_ws if _field(w["text"]))
                     nf_cur = sum(1 for w in ws if _field(w["text"]))
@@ -222,7 +234,7 @@ def parse(content=None, pdf=None, max_pages=3000):
                     last_top = page_rows[-1]["top"] if page_rows else -1e9
                     wrapped = [w for w in wrapped if w[0] <= last_top + 14]
                     cols = hcols
-                    has_sex_col = any(c[0] in ("sex", "cat") for c in cols)
+                    has_sex_col = any(c[0] in ("sex", "cat", "poscat") for c in cols)
                     def _fragment(t):
                         ws_t = prev_ws_by_text.get(t)
                         if not ws_t:
@@ -230,6 +242,8 @@ def parse(content=None, pdf=None, max_pages=3000):
                         f = set(_assign(ws_t, hcols).keys())
                         return len(f & {"club", "cat", "sex", "nat"}) >= 2 and "name" not in f
                     cand = [t for t in prev_text[-4:] if t and not BOILER.match(t) and len(t) < 90
+                            # una fila sin tiempo (retirado, descalificado...) no es un título: "4881 6429 Sergio ..."
+                            and not re.match(r"^\d+\s+(\d{1,2}:\d{2}(:\d{2})?\s+)?\d+\s+\S", t)
                             and not re.search(r"\d{1,2}[/.-]\d{1,2}[/.-]\d{2,4}", t)
                             and sum(1 for x in t.split() if _field(x)) < 2  # trozo de cabecera, no título
                             and not _fragment(t)]                          # trozo de una fila partida
@@ -246,6 +260,9 @@ def parse(content=None, pdf=None, max_pages=3000):
                         new = last_title
                     elif cand and not section:
                         new = cand[-1]
+                    if sex_title and not (new and SEX_TITLE.search(new)) \
+                            and not (leftover and len(leftover) > 3 and STRONG_TITLE.search(leftover) and SEX_TITLE.search(leftover)):
+                        new = sex_title
                     # no se cambia aún: se confirma con la primera fila (ver "pending" más abajo)
                     if new:
                         pending = new
@@ -292,6 +309,8 @@ def parse(content=None, pdf=None, max_pages=3000):
                     last_title = (last_title + " " + text) if last_title else text
                     continue
                 cand_title = last_title or pending
+                if pending and last_title and SEX_TITLE.search(pending) and not SEX_TITLE.search(last_title):
+                    cand_title = pending  # "META (10.000 m)" bajo la cabecera no sustituye a "10 km Marcha Absoluto Hombres"
                 if cand_title and cand_title != section:
                     # Solo empieza una clasificación nueva si la primera fila tiene el puesto 1 o un tiempo
                     # menor que el último de la sección actual. Si la tabla simplemente continúa en otra
@@ -309,6 +328,7 @@ def parse(content=None, pdf=None, max_pages=3000):
                 if len(name) < 3 or re.match(r"^[\d\W]+$", name):
                     continue
                 page_rows.append({"section": section, "row": row, "top": top, "name": name, "mark": tval})
+                sex_title = None  # ya empezó la tabla: el próximo título con sexo será de otra prueba
             # las celdas partidas se unen a la fila más cercana en vertical
             for wtop, wrow in wrapped[:]:
                 if not page_rows:
@@ -324,12 +344,15 @@ def parse(content=None, pdf=None, max_pages=3000):
 
     groups, order = {}, []
     for r in rows_all:
+        if re.search(r"hand\s?bike|silla|wheelchair|adaptad", r["row"].get("cat") or "", re.I):
+            continue  # handbike / silla de ruedas: clasificación aparte, no cuenta para el podio de la carrera
         sex = _sex(r["row"], "" if has_sex_col else r["section"])
         for key in ((r["section"], ""), (r["section"], sex)) if sex else ((r["section"], ""),):
             if key not in groups:
                 groups[key] = []
                 order.append(key)
-            groups[key].append({"name": r["name"], "club": clean(r["row"].get("club") or ""), "mark": r["mark"],
+            club = clean(re.sub(r"\b\d{1,2}:\d{2}\S*|^\d{4}$|\b(19|20)\d{2}\b", " ", r["row"].get("club") or ""))  # sin parciales ni año
+            groups[key].append({"name": r["name"], "club": club, "mark": r["mark"],
                                 "cat": clean(r["row"].get("cat") or ""), "_s": _secs(r["mark"])})
     # Clasificación general sin columna de sexo: podio femenino y masculino por el nombre de pila.
     # Solo si NINGÚN corredor de sexo desconocido (nombre extranjero, ambiguo) queda por delante del
@@ -357,8 +380,23 @@ def parse(content=None, pdf=None, max_pages=3000):
             if len(got) == 3:
                 groups[(section, want)] = got
                 order.append((section, want))
+    # PDF solo por categorías de edad (Sub20 Femeninas, Senior Masculinos, Master 35...): la clasificación
+    # general de cada sexo es la unión de todas sus categorías ordenada por tiempo
+    sections = {k[0] for k in order}
+    if sections and all(AGE_CAT.search(sec or "") for sec in sections):
+        for want in ("F", "M"):
+            allrows = [r for k in order if k[1] == want for r in groups[k]]
+            best = [min((r["_s"] for r in groups[k] if r["_s"]), default=None) for k in order if k[1] == want]
+            best = [b for b in best if b]
+            # categorías en carreras distintas (cross: sub-8 corre 500 m): no se juntan
+            if best and min(best) < 0.6 * max(best):
+                continue
+            if len(allrows) >= 3 and ("", want) not in groups:
+                groups[("Clasificación general", want)] = allrows
+                order.insert(0, ("Clasificación general", want))
     out = []
     sexed = {k[0] for k in order if k[1]}
+    both_sexes = {k[0] for k in order if k[1] == "F"} & {k[0] for k in order if k[1] == "M"}
     for key in order:
         seen, rows = set(), []
         for r in groups[key]:
@@ -373,6 +411,10 @@ def parse(content=None, pdf=None, max_pages=3000):
         section, sex = key
         label = clean(re.sub(r"(?i)clasificaci[oó]n( general)?( categor[ií]a)?( por categor[ií]as)?|classificaci[oó]( general)?", "", section)) or "Clasificación"
         label = re.split(r",\s*total|\s+total\.{2,}", label, flags=re.I)[0]
+        label = re.sub(r"(?i)\borganiza(do|da)?(\s+por)?\s*:.*$", "", label).strip() or label
+        # cabeceras de parciales y palabras de columna pegadas al título ("completo PSx Estado 5KM 10KM 15KM")
+        label = re.sub(r"(\b\d+([.,]\d+)?\s?km\b[\s,]*){2,}", " ", label, flags=re.I)
+        label = clean(re.sub(r"(?i)\b(completo|psx|estado|distancia:?|pos\.?)(?=\s|$)", " ", label))
         label = " ".join(t for t in label.split() if not _field(t) and not HEADER_JUNK.match(t)
                          and not re.fullmatch(r"\d+[.,:]\d+[.,:]?\d*|t\.|dif\.|prom\.|km\d+[,.]?\d*", t, re.I)) or label
         seen_w, words = set(), []
@@ -396,12 +438,37 @@ def parse(content=None, pdf=None, max_pages=3000):
                 # el PDF trae el sexo de cada corredor: un podio "femenino/masculino" solo puede salir
                 # de ese dato, nunca del título de la sección (evita mezclar hombres y mujeres)
                 continue
+            if section in both_sexes:
+                continue  # ya están el podio femenino y el masculino: la general mixta repite el masculino
             if section in sexed and not labelled_sex:
                 label += " · General"
             elif section in sexed and labelled_sex:
                 continue  # ya está el podio de ese sexo
-        out.append({"name": label[:80], "rounds": [{"round": "General", "final": True, "rows": top}], "_n": len(rows)})
+        out.append({"name": label[:80], "rounds": [{"round": "General", "final": True, "rows": top}], "_n": len(rows),
+                    "_names": [norm(r["name"]) for r in rows]})
+    # carreras con clasificación general femenina y masculina: los podios por categoría de edad
+    # (veteranos, sub-18...) se quitan; son subclasificaciones y a menudo salen repetidas o cortadas
+    general = [o for o in out if re.search(r"(Hombres|Mujeres)$", o["name"]) and not AGE_CAT.search(o["name"])]
+    if {o["name"].rsplit(" ", 1)[-1] for o in general} == {"Hombres", "Mujeres"}:
+        # subclasificación de la misma carrera: sus corredores están todos en la general de su sexo
+        gen_names = {}
+        for o in general:
+            gen_names.setdefault(o["name"].rsplit(" ", 1)[-1], set()).update(o.get("_names", []))
+        def _subset(o):
+            if not AGE_CAT.search(o["name"]) or o in general:
+                return False
+            names = set(o.get("_names", []))
+            pool = gen_names.get("Mujeres", set()) | gen_names.get("Hombres", set())
+            return bool(names) and len(names & pool) >= 0.8 * len(names)
+        out = [o for o in out if not _subset(o)]
+    for o in out:
+        o.pop("_names", None)
+        o.pop("_key", None)
     return out
+
+
+AGE_CAT = re.compile(r"veteran|s[eé]nior|m[aá]ster|\bsub[\s-]?\d|j[uú]nior|juvenil|cadete|infantil|alev[ií]n|benjam|promesa|"
+                     r"\b[MFHWV]\d{2}\b|categor|\bvet\b|\bVET\s?[A-F]\b", re.I)
 
 
 # ------------------------------------------------------------------ listas de inscritos (sin tiempos)

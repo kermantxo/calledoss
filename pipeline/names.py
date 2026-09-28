@@ -69,6 +69,8 @@ def clean_name(raw, nat=""):
             break
         s = s2
     s = s.strip(" ,;-")
+    if len(s.split()) >= 3:
+        s = re.sub(r"\s+[A-Za-z]$", "", s)                              # "Paula Villaverde Parra F" (sexo pegado)
     if s.count(",") == 1:                                                # "GARCÍA LÓPEZ, Juan"
         last, first = [x.strip() for x in s.split(",")]
         s = (first + " " + last).strip() if first and last else (first or last)

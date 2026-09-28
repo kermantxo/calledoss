@@ -4356,7 +4356,7 @@ function expectedSexes(name){
   return f && !m ? ['F'] : m && !f ? ['M'] : ['F','M'];
 }
 function eventTitle(name){
-  return (name||'').replace(/\s*[·-]?\s*(mujeres|hombres|femenino|masculino|damas|varones)\s*$/i, '') || name;
+  return (name||'').replace(/\s*[·-]?\s*(mujeres|hombres|femenin[oa]s?|masculin[oa]s?|damas|varones)\s*$/i, '').trim() || 'Clasificación general';
 }
 
 // Ficha de resultados de una competición: TODAS las pruebas, separadas en femenino y masculino

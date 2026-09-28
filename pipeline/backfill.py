@@ -37,7 +37,7 @@ from .sources import rfea, rfealive, worldathletics, timers, sportmaniacs, faali
 
 STATE = "state/backfill.json"
 # Súbelo cuando se añadan fuentes o lectores nuevos: todo lo "sin resultados" se vuelve a intentar.
-VERSION = 13
+VERSION = 14
 MISSING = "results/sin_resultados.json"
 START = "2026-01-01"
 COMBINED = re.compile(r"decatlon|heptatlon|pentatlon|hexatlon|octatlon|triatlon|tetratlon")
@@ -236,13 +236,16 @@ def from_pdf(http, item, url, cache, trust="index"):
             res = pdf_results.parse(resp.content, pages=pages)
             dates, title = _pdf_fingerprint(pages, res.get("meta") or {})
             good = podiums(res["events"]) if res.get("format") != "generic" else []
-            if not good:
-                # formatos de cronometradores: lector por columnas
-                try:
-                    good = [{k: v for k, v in p.items() if k != "_n"} for p in pdf_columns.parse(resp.content)]
-                    res["format"] = "columnas" if good else res.get("format")
-                except Exception:
-                    good = []
+            # formatos de cronometradores: lector por columnas. Se queda el lector que saque más
+            # (primero: que tenga los dos sexos; después: más pruebas)
+            from .quality import sexes_in
+            try:
+                cols = [{k: v for k, v in p.items() if k != "_n"} for p in pdf_columns.parse(resp.content)]
+            except Exception:
+                cols = []
+            if cols and (len(sexes_in(cols)), len(cols)) > (len(sexes_in(good)), len(good)):
+                good = cols
+                res["format"] = "columnas"
             if not good and res.get("format") == "generic":  # último recurso: podios completos y ordenados
                 good = [p for p in podiums(res["events"]) if [r["pos"] for r in p["rounds"][0]["rows"]] == ["1", "2", "3"]]
             title = title if len(title) > 8 else " ".join(pages[0].splitlines()[:4])[:200] if pages else title
@@ -430,14 +433,22 @@ class Finder:
         Si la primera fuente trae un solo sexo (p. ej. RFEA Live solo tiene la clasificación masculina),
         se siguen mirando las demás y se añaden las pruebas del sexo que falta.
         have=(podios, fuente, url): resultados ya conseguidos por otra vía, que solo hay que completar."""
-        from .quality import missing_sexes, event_sex
+        from .quality import missing_sexes, event_sex, sexes_in
         tried = []
         best = list(have) if have else None
         need = missing_sexes(best[0], it["name"]) if best else None
-        if best and not need:
+        # en pista, un campeonato con 1-2 pruebas está incompleto: se sigue buscando una fuente mejor
+        # (en ruta, cross o trail lo normal es una carrera, femenina y masculina)
+        track = not re.search(r"ruta|cross|trail|monta|marcha|popular|carrera|milla|marat|legua|san silvestre|km\b",
+                              (it.get("type") or "") + " " + it["name"], re.I)
+        few = lambda pods: track and len(pods) < 3
+        if best and not need and not few(best[0]):
             return best[0], best[1], best[2], tried
         for pods, source, url, _ in self._candidates(it, tried):
             if best is None:
+                best, need = [list(pods), source, url], missing_sexes(pods, it["name"])
+            elif len(sexes_in(pods)) >= len(sexes_in(best[0])) and len(pods) >= max(3, 2 * len(best[0])):
+                # una fuente mucho más completa (RFEA Live a veces solo tiene 1 prueba de todo el campeonato)
                 best, need = [list(pods), source, url], missing_sexes(pods, it["name"])
             else:
                 extra = [e for e in pods if event_sex(e) in need or (event_sex(e) == "X" and need)]
@@ -449,7 +460,7 @@ class Finder:
                 if source not in best[1]:
                     best[1] += " + " + source
                 need = missing_sexes(best[0], it["name"])
-            if not need:
+            if not need and not few(best[0]):
                 break
         if best:
             return best[0], best[1], best[2], tried
@@ -721,13 +732,19 @@ def run(http, health, items, max_minutes=None, only_ids=None):
             pods, source, url, tried = f.resolve(it)
         except Exception as e:
             pods, source, url, tried = None, None, None, ["error inesperado: %s" % e]
-        if pods:
-            store(it, {"events": pods, "backfill": True}, source, url)
+        rid = store(it, {"events": pods, "backfill": True}, source, url) if pods else None
+        if rid:
             f.state["done"][it["id"]] = {"status": "ok", "source": source, "events": len(pods), "at": iso_now()}
             stats["found"] += 1
         else:
+            if pods:
+                tried = tried + ["%s: la revisión automática retiró todos los podios (%s)" % (source, url)]
             if prev and prev.get("status") == "redo":
-                unstore(it["id"])  # su resultado anterior era de un lector con errores: mejor nada que datos mal
+                # su resultado anterior era de un lector con errores: mejor nada que datos mal.
+                # Si solo le faltaba un sexo (lo que tenía está bien), se conserva.
+                old = load_json("results/%s.json" % it["id"], {}) or {}
+                if not old.get("events") or old.get("format") == "generic" or old.get("source") == "RFEA (PDF)":
+                    unstore(it["id"])
             f.state["done"][it["id"]] = {"status": "missing", "tried": tried[-8:], "at": iso_now(),
                                          "tries": (prev or {}).get("tries", 0) + 1}
             stats["missing"] += 1

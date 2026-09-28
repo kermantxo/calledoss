@@ -139,18 +139,28 @@ def _secs(mark):
 
 
 def _plausible(label, comp_name, rows):
-    """Ritmo del ganador creíble para la distancia (entre 2:20 y 9:00 min/km en ruta/cross/pista de fondo)."""
-    km = _distance_km(label) or _distance_km(comp_name)
-    if not km or km < 0.8 or not rows or re.search(r"trail|monta|subida|vertical|cross|marcha|relev|uphill|sky|ultra|canfranc|roller|patin", label + " " + comp_name, re.I):
+    """Ritmo del ganador creíble para la distancia (entre 2:20 y 9:00 min/km en ruta/cross/pista de fondo).
+
+    La distancia se deduce del nombre de la prueba y del de la competición; basta con que el tiempo sea
+    creíble para una de las dos (los títulos de los PDF a veces llevan los parciales: "5KM 10KM 15KM")."""
+    if not rows or re.search(r"trail|monta|subida|vertical|cross|marcha|relev|uphill|sky|ultra|canfranc|roller|patin", label + " " + comp_name, re.I):
         return True
     s = _secs(rows[0].get("mark"))
     if not s:
         return True
-    pace = s / km  # segundos por km
-    # límite rápido: algo por debajo del ritmo del récord del mundo de cada distancia
-    fastest = 118 if km <= 1 else 130 if km <= 2 else 143 if km <= 6 else 148 if km <= 12 else 155 if km <= 25 else 162
-    slowest = 540 if km <= 45 else 900
-    return fastest <= pace <= slowest
+    # un título con varias distancias son cabeceras de parciales: no dice la distancia de la prueba
+    lab = label if len(re.findall(r"\d+(?:[.,]\d+)?\s?(?:km|kms|k)\b", label or "", re.I)) < 2 else ""
+    kms = [k for k in (_distance_km(lab), _distance_km(comp_name)) if k and k >= 0.8]
+    if not kms:
+        return True
+    for km in kms:
+        pace = s / km  # segundos por km
+        # límite rápido: algo por debajo del ritmo del récord del mundo de cada distancia
+        fastest = 118 if km <= 1 else 130 if km <= 2 else 143 if km <= 6 else 148 if km <= 12 else 155 if km <= 25 else 162
+        slowest = 540 if km <= 45 else 900
+        if fastest <= pace <= slowest:
+            return True
+    return False
 
 
 def review(res, comp_name=""):
