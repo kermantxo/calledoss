@@ -29,7 +29,7 @@ def nice_title(name):
         return name
     out = []
     for i, w in enumerate(name.split()):
-        if re.fullmatch(r"[IVXLCM]+", w, re.I) and len(w) <= 7 and (i == 0 or w.isupper()):
+        if re.fullmatch(r"M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})", w.upper()) and w and (i == 0 or w.isupper()):
             out.append(w.upper())                       # números romanos
         elif re.fullmatch(r"\d+[ºª]?", w):
             out.append(w)
