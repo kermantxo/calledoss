@@ -111,6 +111,12 @@
  },
  "log": [
   {
+   "at": "2026-09-28T15:36:33+02:00",
+   "level": "warning",
+   "source": "live",
+   "msg": "Directo de '20th Asian Games': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7176091?day=6"
+  },
+  {
    "at": "2026-09-28T15:30:45+02:00",
    "level": "warning",
    "source": "live",
@@ -583,13 +589,7 @@
    "level": "warning",
    "source": "results",
    "msg": "Resultados de 'TCS Lidingoloppet' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7244488"
-  },
-  {
-   "at": "2026-09-27T19:12:03+02:00",
-   "level": "warning",
-   "source": "rfea_results",
-   "msg": "PDF de RFEA no disponible (404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/): https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf"
   }
  ],
- "updated": "2026-09-28T15:33:26+02:00"
+ "updated": "2026-09-28T15:36:33+02:00"
 }
