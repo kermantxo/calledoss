@@ -23,15 +23,17 @@ CM_APP = "https://resultados-app.cronomancha.com/results/"
 
 def nice_title(name):
     """'XXXVII MEDIA MARATÓN CIUDAD DE VALLADOLID' -> 'XXXVII Media Maratón Ciudad de Valladolid'."""
-    if not (name.isupper() or name.istitle()):
+    letters = [c for c in name if c.isalpha() and c not in "ªº"]
+    mostly_upper = letters and sum(1 for c in letters if c.isupper()) >= 0.8 * len(letters)
+    if not (mostly_upper or name.istitle()):
         return name
     out = []
     for i, w in enumerate(name.split()):
-        if re.fullmatch(r"[IVXLCM]+|[ivxlcm]+", w) and len(w) <= 7:
+        if re.fullmatch(r"[IVXLCM]+", w, re.I) and len(w) <= 7 and (i == 0 or w.isupper()):
             out.append(w.upper())                       # números romanos
         elif re.fullmatch(r"\d+[ºª]?", w):
             out.append(w)
-        elif i and w.lower() in ("de", "del", "la", "las", "los", "el", "y", "en", "a", "al", "por"):
+        elif i and w.lower() in ("de", "del", "la", "las", "los", "y", "en", "a", "al", "por"):
             out.append(w.lower())
         else:
             out.append(w[:1].upper() + w[1:].lower())
