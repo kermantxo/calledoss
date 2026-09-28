@@ -309,3 +309,66 @@ def inscripcion_participants(http, url, max_pages=40):
         if not soup.find("a", href=re.compile(r"pagina=%d\b" % (page + 1))):
             break
     return out
+
+
+# ------------------------------------------------------------------ Rockthesport (y webs de inscripción con su programa)
+# "Listado de participantes": nombre, primer apellido y dorsal. Se ordena por dorsal para leer los
+# primeros (los dorsales bajos son los de la élite). Solo se usan nombre y dorsal.
+
+RTS = re.compile(r"https?://[^\s\"'<>]+/(?:es|eu|en|fr)/evento/([a-z0-9-]+)(?:/listado-participantes)?", re.I)
+
+
+def rockthesport_url(text):
+    for m in RTS.finditer(text or ""):
+        u = m.group(0)
+        if "/inscripcion" in u or "/my-registration" in u:
+            continue
+        base = u.split("/listado-participantes")[0].rstrip("/")
+        return base + "/listado-participantes"
+    return None
+
+
+def rockthesport_participants(http, url, pages=3):
+    """Participantes con los dorsales más bajos (élite primero): [{name, bib}]."""
+    import requests
+    s = requests.Session()
+    s.headers["User-Agent"] = http.s.headers.get("User-Agent", "Mozilla/5.0") if hasattr(http, "s") else "Mozilla/5.0"
+
+    def rows(soup):
+        t = soup.find("table", class_="table-listados")
+        out = []
+        for tr in (t.find_all("tr") if t else []):
+            tds = [clean(td.get_text(" ")) for td in tr.find_all("td")]
+            if len(tds) >= 3 and re.match(r"^\d+$", tds[2]):
+                out.append({"name": clean(tds[0] + " " + tds[1]), "bib": int(tds[2])})
+        return out
+
+    def form_of(soup):
+        return {i["name"]: i.get("value", "") for i in soup.select("form#form1 input[name]")
+                if i.get("type") not in ("submit", "checkbox", "button", "image")}
+
+    soup = BeautifulSoup(s.get(url, timeout=40).text, "lxml")
+    sort_link = next((a for a in soup.select("table.table-listados th a[href]") if "DORSAL" in a.get_text().upper()), None)
+    if sort_link:
+        m = re.search(r"__doPostBack\('([^']+)'", sort_link["href"].replace("&#39;", "'"))
+        if m:
+            f = form_of(soup)
+            f.update({"__EVENTTARGET": m.group(1), "__EVENTARGUMENT": ""})
+            soup = BeautifulSoup(s.post(url, data=f, timeout=40).text, "lxml")
+    out = rows(soup)
+    btn = soup.find(id="cphCuerpo_btFinScroll")
+    for page in range(2, pages + 1):
+        if not btn:
+            break
+        f = form_of(soup)
+        for k in list(f):
+            if k.endswith("inputPage") or k.endswith("inputPageSelXL") or k.endswith("inputPageSelXS"):
+                f[k] = str(page)
+        f[btn.get("name")] = btn.get("value", "")
+        soup = BeautifulSoup(s.post(url, data=f, timeout=40).text, "lxml")
+        more = [r for r in rows(soup) if r not in out]
+        if not more:
+            break
+        out += more
+        btn = soup.find(id="cphCuerpo_btFinScroll")
+    return sorted(out, key=lambda r: r["bib"])

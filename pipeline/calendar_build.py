@@ -2,7 +2,9 @@
 import datetime as dt
 import re
 
-from .common import load_json, norm, save_json, today, iso_now, slugify, short_hash
+from bs4 import BeautifulSoup
+
+from .common import clean, load_json, norm, save_json, today, iso_now, slugify, short_hash
 from .sources import rfea, rfealive, worldathletics, timers
 
 STOP = set("de del la las los el y i en a al por the of and campeonato cto trofeo meeting memorial edicion "
@@ -89,7 +91,8 @@ def manual_items():
         links = {}
         if m.get("url"):
             u = m["url"]
-            links["directo" if "rfealive" in u else "resultados"] = u
+            # enlace del panel: RFEA Live = directo; PDF = resultados; cualquier otra página = web oficial
+            links["directo" if "rfealive" in u else "resultados" if u.lower().split("?")[0].endswith(".pdf") else "web"] = u
         live = []
         if m.get("url") and "rfealive.info" in m["url"] and "chid=" in m["url"]:
             live.append({"kind": "rfealive", "chid": m["url"].split("chid=")[1].split("&")[0]})
@@ -212,12 +215,19 @@ def add_times(http, items, health, days_fwd=8):
             continue
         links = it.get("links") or {}
         insc = next((timers.inscripcion_url(v) for v in links.values() if timers.inscripcion_url(v)), None)
+        web_html = ""
         if not insc and links.get("web") and not links["web"].lower().endswith(".pdf"):
             try:
-                insc = timers.inscripcion_url(http.get(links["web"], timeout=30).text)
+                web_html = http.get(links["web"], timeout=30).text
+                insc = timers.inscripcion_url(web_html)
             except Exception:
                 insc = None
         if not insc:
+            # la web oficial dice la hora de salida ("La salida se dará el domingo 4 de octubre a las 9:30 horas")
+            txt = clean(BeautifulSoup(web_html, "lxml").get_text(" ")) if web_html else ""
+            m = re.search(r"\bsalida\b[^.]{0,90}?\ba las (\d{1,2})[:.](\d{2})", txt, re.I)
+            if m:
+                it["time"] = "%02d:%s" % (int(m.group(1)), m.group(2))
             continue
         try:
             hhmm = timers.inscripcion_start(http, insc)
@@ -235,6 +245,8 @@ def refresh_times(http, health):
     items = (load_json("calendar.json", {}) or {}).get("items", [])
     if not items:
         return 0
+    # lo añadido en el panel (enlace a la web oficial, hora...) se junta ya, sin esperar al chequeo diario
+    items = merge([manual_items(), [x for x in items if not x.get("manual")]])
     add_times(http, items, health)
     save(items)
     return sum(1 for x in items if x.get("time"))

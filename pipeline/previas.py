@@ -152,6 +152,26 @@ def find_entries(http, it):
                     insc = None
                 if insc:
                     break
+    # Rockthesport: nombre + primer apellido + dorsal; los dorsales bajos son la élite
+    rts, page_html = None, {}
+    for k, v in links.items():
+        rts = rts or timers.rockthesport_url(v)
+    if not rts and not insc:
+        for p in (links.get("web"),):
+            if p and not p.lower().endswith(".pdf"):
+                try:
+                    page_html[p] = http.get(p, timeout=30).text
+                    rts = timers.rockthesport_url(page_html[p])
+                except Exception:
+                    pass
+    if rts:
+        try:
+            rows = timers.rockthesport_participants(http, rts)
+            if rows:
+                return [{"event": "Carrera", "name": r["name"], "sex": "", "club": "", "cat": "", "bib": r["bib"],
+                         "elite": r["bib"] <= 50, "popular": False, "text": r["name"]} for r in rows], [rts]
+        except Exception:
+            pass
     if insc and "runvasport" not in insc:  # Runvasport ya tiene su propio lector de listas
         try:
             rows = timers.inscripcion_participants(http, insc)
@@ -267,7 +287,10 @@ def select(rows, ath, comp_type=""):
         r = dict(r)
         r["name"], nat = clean_name(r.get("name", ""), r.get("nat", ""))
         r["nat"] = nat
-        a = match_full(ath, r.get("text") or r["name"]) if r.get("popular") else A.lookup(ath, r["name"])
+        if r.get("bib"):
+            a = A.lookup_unique(ath, r["name"])  # solo nombre y un apellido: tiene que ser inequívoco
+        else:
+            a = match_full(ath, r.get("text") or r["name"]) if r.get("popular") else A.lookup(ath, r["name"])
         if a and r.get("popular"):
             r["name"] = a["name"]  # nombre completo y bien ordenado (todas sus palabras están en la fila)
         sex = _sex_of(r, a)
@@ -307,6 +330,10 @@ def select(rows, ath, comp_type=""):
                 reasons.append("%sª mejor marca personal de la lista (%s)" % (pb_rank[i] + 1, r.get("pb")))
             if r.get("elite") and score:
                 score += 15; reasons.append("Sale con la élite")  # solo suma si ya tiene otros méritos
+            if r.get("bib") and r.get("elite"):
+                # dorsal de élite asignado por la organización (Rockthesport): favorito aunque no lo conozcamos
+                reasons.append("Dorsal de élite nº %s" % r["bib"])
+                score = max(score, MIN_SCORE)
             if intl_list and (r.get("nat") == "ESP" or (a and a.get("nat") == "ESP")):
                 score += 10; reasons.append("Español")
             if score >= MIN_SCORE:
@@ -318,7 +345,8 @@ def select(rows, ath, comp_type=""):
         scored.sort(key=lambda x: -x["score"])
         e = events.setdefault(ev, {"name": ev, "n": 0, "M": [], "F": [], "otros": []})
         e["n"] += len(seen)
-        e[sex if sex in ("M", "F") else "otros"] = scored[:PER_SEX]
+        n_elite = sum(1 for x in scored if any(t.startswith("Dorsal de élite") for t in x["reasons"]))
+        e[sex if sex in ("M", "F") else "otros"] = scored[:max(PER_SEX, min(n_elite, 20))]
     out = [e for e in events.values()]
     out.sort(key=lambda e: -(len(e["M"]) + len(e["F"])))
     return out

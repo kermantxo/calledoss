@@ -152,6 +152,26 @@ def build(extra_watch=None):
     return ath
 
 
+def lookup_unique(ath, name):
+    """Como lookup, pero solo si UN único atleta encaja (listas con nombre y un solo apellido:
+    'María Lázaro' puede ser varias personas; entonces no se le atribuye ningún mérito)."""
+    from .names import MALE, FEMALE
+    tk = tokens(name)
+    k = frozenset(tk)
+    if len(k) < 2:
+        return None
+    found = {}
+    for wk, a in ath.items():
+        short, long_ = (k, wk) if len(k) <= len(wk) else (wk, k)
+        if len(short) < 2 or not short <= long_:
+            continue
+        first = tokens(a["name"])[:1]
+        if not first or first[0] not in k:
+            continue
+        found[a["name"]] = a
+    return next(iter(found.values())) if len(found) == 1 else None
+
+
 def lookup(ath, name):
     """El mismo atleta: coincide el NOMBRE DE PILA y al menos el primer apellido (sin 'de/la/del'),
     en cualquier orden. Nunca por un nombre y un apellido cualquiera."""

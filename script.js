@@ -4523,7 +4523,9 @@ function previaBody(p){
   const ch = p.changes || {};
   const evs = (p.events||[]).map(e => ({...e, M: espDest(e.M), F: espDest(e.F), otros: espDest(e.otros)}))
     .filter(e => e.M.length || e.F.length || e.otros.length);
-  return `<div class="data-note">🇪🇸 <b>Inscritos españoles destacados</b> · ${p.n_inscritos} inscritos en total · actualizado ${p.updated ? fechaCorta(p.updated.slice(0,10)) + ' ' + horaDe(p.updated) : ''}
+  const conElite = evs.some(e => [...e.M, ...e.F, ...e.otros].some(a => (a.reasons||[]).some(t => t.startsWith('Dorsal de élite'))));
+  return `<div class="data-note">🇪🇸 <b>Inscritos españoles destacados</b> · ${p.n_inscritos} inscritos en total
+      ${conElite ? '<br>🏅 Incluye a los favoritos con <b>dorsal de élite</b> asignado por la organización (la lista no indica la nacionalidad).' : ''} · actualizado ${p.updated ? fechaCorta(p.updated.slice(0,10)) + ' ' + horaDe(p.updated) : ''}
       ${ch.altas || ch.bajas ? `<br>Cambios desde la última revisión: <b>+${ch.altas||0}</b> altas, <b>−${ch.bajas||0}</b> bajas` : ''}
       ${(ch.altas_destacadas||[]).length ? `<br>⭐ Nuevos destacados: ${ch.altas_destacadas.map(esc).join(', ')}` : ''}
       ${(ch.bajas_destacadas||[]).length ? `<br>✖ Bajas destacadas: ${ch.bajas_destacadas.map(esc).join(', ')}` : ''}
