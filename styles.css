@@ -614,3 +614,32 @@
 
 /* Título de la portada en una sola línea (se encoge con la pantalla) */
 .hero h1.home-title, h1.home-title{font-size:clamp(20px,7.2vw,92px);white-space:nowrap;}
+
+/* Menú en el móvil: botón ☰ que despliega las secciones en lista */
+.menu-toggle{display:none;}
+@media (max-width:760px){
+  .nav-wrap{height:72px;position:relative;}
+  .logo img{height:52px;}
+  .menu-toggle{
+    display:flex;flex-direction:column;justify-content:center;gap:5px;
+    width:44px;height:44px;padding:10px;
+    background:none;border:1px solid var(--line-bright);border-radius:2px;cursor:pointer;
+  }
+  .menu-toggle span{display:block;height:2px;background:var(--ivory);transition:transform .2s, opacity .2s;}
+  header.menu-open .menu-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  header.menu-open .menu-toggle span:nth-child(2){opacity:0;}
+  header.menu-open .menu-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  nav.tabs{
+    display:none;
+    position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;gap:0;
+    background:var(--bg);border-bottom:1px solid var(--line);
+    padding:6px 16px 12px;
+  }
+  header.menu-open nav.tabs{display:flex;}
+  nav.tabs button{
+    font-size:22px;padding:14px 4px;text-align:left;
+    border-bottom:1px solid var(--line);border-left:3px solid transparent;
+  }
+  nav.tabs button.active{border-bottom-color:var(--line);border-left-color:var(--red);padding-left:12px;}
+}

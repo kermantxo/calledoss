@@ -4568,3 +4568,20 @@ async function refreshLive(){
   renderAll();
   setInterval(()=>{ if(!document.hidden) refreshLive(); }, LIVE_REFRESH_MS);
 })();
+
+/* ============================================================
+   MENÚ EN EL MÓVIL (botón ☰)
+   ============================================================ */
+(function(){
+  const header = document.querySelector('header');
+  const btn = document.getElementById('menuToggle');
+  if(!header || !btn) return;
+  const setOpen = (open) => {
+    header.classList.toggle('menu-open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Cerrar el menú' : 'Abrir el menú');
+  };
+  btn.addEventListener('click', () => setOpen(!header.classList.contains('menu-open')));
+  // al elegir una sección, el menú se cierra
+  document.querySelectorAll('#tabs button').forEach(b => b.addEventListener('click', () => setOpen(false)));
+})();

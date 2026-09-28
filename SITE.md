@@ -61,6 +61,8 @@
 
 - 2026-09-28: Nuevo título de la portada: "El atletismo español al día".
 
+- 2026-09-28: Menú en el móvil: botón ☰ arriba a la derecha que despliega las secciones en una lista grande y legible (en ordenador el menú no cambia).
+
 ## How to Customize
 - To change colors: edit the variables at the top of `styles.css` (e.g. `--red`)
 - To add a competition the automatic calendar missed: use the private panel (`/panel`)
