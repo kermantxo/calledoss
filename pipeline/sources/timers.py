@@ -263,3 +263,49 @@ def avaibook_upcoming(http, pages=3):
                     "links": {"inscritos": href, "resultados": urljoin(AVAI, "/inscripcion/%s/clasificaciones/" % slug)},
                 })
     return out
+
+
+# ------------------------------------------------------------------ plataformas de inscripción tipo AvaiBook
+# (Kirolprobak, AvaiBook Sports, Runvasport...): misma web con /inscripcion/<evento>/ y /participantes/
+
+INSCRIPCION = re.compile(r"https?://[^/\s\"']*(kirolprobak\.com|avaibooksports\.com|runvasport\.es)/inscripcion/([a-z0-9-]+)", re.I)
+
+
+def inscripcion_url(text):
+    """Primer enlace a una página de inscripción tipo AvaiBook dentro de un texto/HTML."""
+    m = INSCRIPCION.search(text or "")
+    return m.group(0).rstrip("/") + "/" if m else None
+
+
+def inscripcion_start(http, url):
+    """Hora de inicio del evento ("INICIO DEL EVENTO: sábado, 3 de octubre de 2026, 16:00")."""
+    t = clean(BeautifulSoup(http.get(url).text, "lxml").get_text(" "))
+    m = re.search(r"inicio del evento:?\s*[^0-9]{0,20}\d{1,2}\s+de\s+\w+\s+de\s+\d{4},?\s*(\d{1,2}:\d{2})", t, re.I) \
+        or re.search(r"fecha del evento\s*\d{1,2}\s+\w+\.?\s+\d{4}\s+a las\s+(\d{1,2}:\d{2})", t, re.I)
+    if not m or m.group(1) in ("00:00", "0:00"):
+        return None
+    h, mi = m.group(1).split(":")
+    return "%02d:%s" % (int(h), mi)
+
+
+def inscripcion_participants(http, url, max_pages=40):
+    """Listado público de participantes: SOLO nombre y cuota/categoría (lo que la web muestra)."""
+    base = url.rstrip("/") + "/participantes/"
+    out = []
+    for page in range(1, max_pages + 1):
+        soup = BeautifulSoup(http.get(base + ("?pagina=%d" % page if page > 1 else "")).text, "lxml")
+        rows = soup.select("table#table_participantes tr.inscrito")
+        if not rows:
+            break
+        for tr in rows:
+            name = clean((tr.find("td", class_="participante") or tr).get_text(" "))
+            cat = clean((tr.find("td", class_="cuota") or tr).get_text(" "))
+            if "," in name:  # "ABAD LOPEZ, MAIALEN" -> "MAIALEN ABAD LOPEZ"
+                last, first = [x.strip() for x in name.split(",", 1)]
+                name = clean(first + " " + last)
+            sex = "F" if re.search(r"femen|mujer|fem\b|chicas|damas", cat, re.I) else \
+                  "M" if re.search(r"mascul|hombre|masc\b|chicos|varones", cat, re.I) else ""
+            out.append({"name": name, "cat": cat, "sex": sex})
+        if not soup.find("a", href=re.compile(r"pagina=%d\b" % (page + 1))):
+            break
+    return out

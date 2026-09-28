@@ -27,7 +27,7 @@ from .common import load_json, norm, save_json, today, iso_now, clean
 from .highlights import FIELD, _mark_value
 from .names import clean_name, sex_from_first_name
 from .parsers import pdf_columns, pdf_results
-from .sources import rfealive
+from .sources import rfealive, timers
 
 DAYS_AHEAD = 45
 PER_SEX = 6
@@ -115,6 +115,13 @@ def list_links(http, page, depth=1):
     return list(dict.fromkeys(pdfs))[:6]
 
 
+def _race_of(cuota):
+    """'Sub14 Femenino (2012 - 2013)' -> 'Sub14'; 'Popular - Senior Federadas Masc' -> 'Popular - Senior Federadas'."""
+    c = re.sub(r"\(.*?\)", "", cuota or "")
+    c = re.sub(r"(?i)\b(femenin[oa]s?|masculin[oa]s?|masc|fem|mujeres|hombres|chicas|chicos)\b\.?", "", c)
+    return clean(c).strip(" -") or "Carrera"
+
+
 def find_entries(http, it):
     """Devuelve (filas, fuentes) de la lista de inscritos de una cita, o ([], []) si no hay."""
     links = it.get("links") or {}
@@ -134,6 +141,25 @@ def find_entries(http, it):
                     return rows, ["https://timingsys.com/event/%s/participants" % lv["event"]]
             except Exception:
                 pass
+    # plataforma de inscripción tipo AvaiBook (Kirolprobak...): enlazada en la ficha o en la web oficial
+    insc = next((timers.inscripcion_url(v) for v in links.values() if timers.inscripcion_url(v)), None)
+    if not insc:
+        for p in (links.get("web"), links.get("info")):
+            if p and not p.lower().endswith(".pdf"):
+                try:
+                    insc = timers.inscripcion_url(http.get(p, timeout=30).text)
+                except Exception:
+                    insc = None
+                if insc:
+                    break
+    if insc and "runvasport" not in insc:  # Runvasport ya tiene su propio lector de listas
+        try:
+            rows = timers.inscripcion_participants(http, insc)
+            if rows:
+                return [{"event": _race_of(r["cat"]), "name": r["name"], "sex": r["sex"], "club": "", "cat": r["cat"],
+                         "popular": True, "text": r["name"]} for r in rows], [insc + "participantes/"]
+        except Exception:
+            pass
     ins = links.get("inscritos", "")
     if ins.lower().split("?")[0].endswith(".pdf"):
         try:

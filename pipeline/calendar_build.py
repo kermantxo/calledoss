@@ -204,6 +204,30 @@ def add_times(http, items, health, days_fwd=8):
                     it.setdefault("links", {}).setdefault("directo", base + "/Results/Schedule?chid=" + chid)
                 break
     save_json("state/rfealive_sched.json", cache, compact=True)
+    # sin horario de RFEA Live: la hora de inicio que publica su plataforma de inscripción
+    # (Kirolprobak, AvaiBook...), enlazada en la ficha o en la web oficial de la competición
+    for it in items:
+        d = dt.date.fromisoformat(it["date"])
+        if it.get("time") or not (t <= d <= t + dt.timedelta(days=21)) or it.get("intl"):
+            continue
+        links = it.get("links") or {}
+        insc = next((timers.inscripcion_url(v) for v in links.values() if timers.inscripcion_url(v)), None)
+        if not insc and links.get("web") and not links["web"].lower().endswith(".pdf"):
+            try:
+                insc = timers.inscripcion_url(http.get(links["web"], timeout=30).text)
+            except Exception:
+                insc = None
+        if not insc:
+            continue
+        try:
+            hhmm = timers.inscripcion_start(http, insc)
+        except Exception as e:
+            health.note("rfealive", "warning", "Hora de inicio de %s no disponible: %s" % (it["name"], str(e)[:60]))
+            continue
+        if hhmm:
+            it["time"] = hhmm
+            links.setdefault("inscritos", insc + "participantes/")
+            it["links"] = links
 
 
 def refresh_times(http, health):
