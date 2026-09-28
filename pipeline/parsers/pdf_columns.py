@@ -331,6 +331,32 @@ def parse(content=None, pdf=None, max_pages=3000):
                 order.append(key)
             groups[key].append({"name": r["name"], "club": clean(r["row"].get("club") or ""), "mark": r["mark"],
                                 "cat": clean(r["row"].get("cat") or ""), "_s": _secs(r["mark"])})
+    # Clasificación general sin columna de sexo: podio femenino y masculino por el nombre de pila.
+    # Solo si NINGÚN corredor de sexo desconocido (nombre extranjero, ambiguo) queda por delante del
+    # tercer clasificado de ese sexo; si no, no se puede saber el podio y no se inventa.
+    from ..names import sex_from_first_name
+    for key in list(order):
+        section, sx0 = key
+        if sx0 or any(k[0] == section and k[1] for k in order) or FEM.search(section or "") or MASC.search(section or ""):
+            continue
+        seen, rows = set(), []
+        for r in sorted((r for r in groups[key] if r["_s"]), key=lambda r: r["_s"]):
+            if norm(r["name"]) not in seen:
+                seen.add(norm(r["name"]))
+                rows.append(r)
+        for want in ("F", "M"):
+            got = []
+            for r in rows:
+                s = sex_from_first_name(r["name"])
+                if not s:
+                    break
+                if s == want:
+                    got.append(r)
+                    if len(got) == 3:
+                        break
+            if len(got) == 3:
+                groups[(section, want)] = got
+                order.append((section, want))
     out = []
     sexed = {k[0] for k in order if k[1]}
     for key in order:

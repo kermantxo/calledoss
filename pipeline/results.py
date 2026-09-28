@@ -16,6 +16,9 @@ MAX_PDFS_PER_RUN = 6
 LOOKBACK_DAYS = 10
 
 
+from .quality import missing_sexes
+
+
 def _index():
     return load_json("results/index.json", {"items": []}) or {"items": []}
 
@@ -54,6 +57,9 @@ def store(item, res, source, url=None):
     record(rid, issues)
     if not res.get("events") and not res.get("link_only"):
         return None
+    from .quality import event_sex
+    for ev in res.get("events", []):
+        ev["sex"] = event_sex(ev)  # la web separa femenino / masculino con este dato
     res.update({"id": rid, "name": item["name"] if item else res.get("name", ""), "date": item["date"] if item else res.get("date", ""),
                 "place": item.get("place", "") if item else "", "source": source, "url": url, "fetched": iso_now()})
     save_json("results/%s.json" % rid, res, compact=True)
@@ -64,7 +70,8 @@ def store(item, res, source, url=None):
         "id": rid, "cal_id": item["id"] if item else None, "name": res["name"], "date": res["date"],
         "place": res["place"], "source": source, "url": url, "events": len(res.get("events", [])),
         # el índice lleva solo un resumen (la ficha completa está en results/<id>.json)
-        "podios": podios[:6], "n_podios": len(podios), "espanoles": esp[:20], "destacados": dest[:12],
+        "podios": podios[:6], "n_podios": len(podios),
+        "n_sexo": {x: sum(1 for e in res.get("events", []) if e.get("sex") == x) for x in ("F", "M", "X")}, "espanoles": esp[:20], "destacados": dest[:12],
         "fetched": res["fetched"],
         "link_only": bool(res.get("link_only")), "incomplete": res.get("incomplete"),
     })
@@ -100,43 +107,47 @@ def _find_item(items, title, date=None):
 # ------------------------------------------------------------------ por fuente
 
 def rfea_pdf_index(http, items, health):
+    """PDFs nuevos del índice de resultados de RFEA. Cada PDF solo se asigna a una competición del
+    calendario si su nombre y su fecha coinciden (misma comprobación que la carga histórica), y solo
+    sustituye a lo que ya hubiera si trae más pruebas o más sexos. Un PDF que no es de ninguna
+    competición del calendario no se publica."""
+    from .backfill import from_pdf
+    from .quality import sexes_in
     done = _done()
     retry = done.pop("_retry", {})
+    f = _finder(http, health)
+    t = today().isoformat()
     n = 0
     for link in rfea.results_index(http):
-        if retry.get(link["url"], 0) >= 5:
-            continue
         u = link["url"]
-        if u in done or n >= MAX_PDFS_PER_RUN:
+        if retry.get(u, 0) >= 5 or u in done or n >= MAX_PDFS_PER_RUN:
             continue
-        try:
-            content = http.get(u, timeout=180).content
-            res = pdf_results.parse(content)
-        except Exception as e:
-            # un enlace roto en el índice de RFEA no puede bloquear el resto: se apunta y se sigue
-            health.note("rfea_results", "warning", "PDF de RFEA no disponible (%s): %s" % (str(e)[:80], u))
-            fails = done.get(u, {}).get("fails", 0) + 1
-            done[u] = {"at": iso_now(), "error": str(e)[:120], "fails": fails}
-            if fails < 5:
-                done.pop(u)  # se reintenta en los próximos chequeos (puede que lo suban más tarde)
-                done.setdefault("_retry", {})[u] = fails
-            continue
+        cands = [it for it in items if it["date"] <= t and similar(it["name"], link["title"])]
         n += 1
-        meta = res.get("meta") or {}
-        date = None
-        if meta.get("dates"):
-            d, m, y = meta["dates"][0].split("/")
-            date = "%s-%s-%s" % (y, m, d)
-        item = _find_item(items, meta.get("championship") or link["title"], date) or _find_item(items, link["title"])
-        res["name"] = link["title"] or meta.get("championship", "")
-        res["date"] = date or ""
-        done[u] = {"at": iso_now(), "events": len(res["events"]), "format": res.get("format")}
-        if res["events"]:
-            store(item, res, "RFEA (PDF)", u)
-        else:
-            health.note("rfea_results", "warning", "PDF sin tablas reconocibles: %s" % u)
+        matched, failed = [], None
+        for it in cands:
+            try:
+                pods, _, why = from_pdf(http, it, u, f.state["pdf_cache"], "index")
+            except Exception as e:
+                failed = e
+                break
+            if not pods:
+                continue
+            cur = (load_json("results/%s.json" % it["id"], {}) or {}).get("events") or []
+            if len(sexes_in(pods)) > len(sexes_in(cur)) or (len(sexes_in(pods)) == len(sexes_in(cur)) and len(pods) > len(cur)):
+                if store(it, {"events": pods}, "PDF oficial", u):
+                    matched.append(it["id"])
+            else:
+                matched.append(it["id"] + " (ya tenía resultados igual de completos)")
+        if failed is not None:
+            # un enlace roto en el índice de RFEA no puede bloquear el resto: se apunta y se sigue
+            health.note("rfea_results", "warning", "PDF de RFEA no disponible (%s): %s" % (str(failed)[:80], u))
+            retry[u] = retry.get(u, 0) + 1
+            continue
+        done[u] = {"at": iso_now(), "matched": matched}
+    f.save()
     if retry:
-        done["_retry"] = {**retry, **done.get("_retry", {})}
+        done["_retry"] = retry
     save_json("state/results_done.json", done, compact=True)
     return n
 
@@ -208,6 +219,17 @@ def by_item(http, it, health, final=False):
     return None  # el chequeo diario prueba después la búsqueda completa (backfill.Finder)
 
 
+_FINDER = {}
+
+
+def _finder(http, health):
+    """Un único buscador por ejecución (reutiliza los índices ya descargados)."""
+    if "f" not in _FINDER:
+        from .backfill import Finder
+        _FINDER["f"] = Finder(http, health)
+    return _FINDER["f"]
+
+
 def sweep(http, items, health, deep=False):
     """Chequeo de resultados: índices + competiciones recientes (incluidas las de HOY) + pendientes.
     deep=True (chequeo diario): también reintenta lo pendiente de días anteriores con la búsqueda completa."""
@@ -230,13 +252,21 @@ def sweep(http, items, health, deep=False):
         rid = by_item(http, it, health, final=(t - end).days >= 2) if it.get("live") else None
         if not rid:
             # misma búsqueda que la carga histórica: garantiza el podio de cada prueba
-            from .backfill import Finder
             try:
-                pods, source, url, _ = Finder(http, health).resolve(it)
+                pods, source, url, _ = _finder(http, health).resolve(it)
                 if pods:
                     rid = store(it, {"events": pods}, source, url)
             except Exception as e:
                 health.note("results", "warning", "Búsqueda de podios de '%s': %s" % (it["name"], e))
+        elif missing_sexes((load_json("results/%s.json" % rid, {}) or {}).get("events"), it["name"]):
+            # la fuente en directo solo trae un sexo: se busca el otro en las demás fuentes
+            cur = load_json("results/%s.json" % rid, {}) or {}
+            try:
+                pods, source, url, _ = _finder(http, health).resolve(it, have=(cur["events"], cur.get("source"), cur.get("url")))
+                if pods and len(pods) > len(cur["events"]):
+                    store(it, {"events": pods}, source, url)
+            except Exception as e:
+                health.note("results", "warning", "Completar resultados de '%s': %s" % (it["name"], e))
         if rid:
             got += 1
             pending.pop(it["id"], None)

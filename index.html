@@ -54,11 +54,11 @@
       </button>
       <button class="home-card" data-view="proximas">
         <h3>Próximas</h3>
-        <p>Las citas de los próximos 7 días: la previa antes de competir y los resultados después.</p>
+        <p>Las citas de los próximos 7 días y sus inscritos españoles destacados.</p>
       </button>
       <button class="home-card" data-view="ranking">
         <h3>Ranking</h3>
-        <p>Líderes españoles actuales prueba por prueba.</p>
+        <p>Top 10 español del año, aire libre y pista cubierta (RFEA).</p>
       </button>
     </div>
   </section>
@@ -127,10 +127,10 @@
     <div class="hero">
       <div class="eyebrow">Próximos 7 días</div>
       <h1>Próximas competiciones</h1>
-      <p>Todas las citas desde hoy hasta dentro de seis días. Antes de la carrera verás la previa (los atletas a seguir de cada prueba, en cuanto se publican los inscritos); en cuanto termina, sus resultados.</p>
+      <p>Todas las citas desde hoy hasta dentro de seis días, con los inscritos españoles destacados de cada prueba en cuanto se publica la lista. Los resultados están en su propia pestaña.</p>
     </div>
     <div id="proxRange" class="data-note"></div>
-    <div class="data-note">⭐ Los destacados de la previa se eligen con criterios objetivos: plusmarquistas, campeones de España, líderes del año, internacionales, medallistas y las mejores marcas (del año y personales) de la propia lista.</div>
+    <div class="data-note">🇪🇸 Los inscritos españoles destacados se eligen con criterios objetivos: plusmarquistas, campeones de España, líderes del año, internacionales, medallistas y las mejores marcas (del año y personales) de la propia lista.</div>
     <div class="comp-select-bar" id="compSelectBar"></div>
   </section>
 
@@ -181,29 +181,26 @@
   <!-- ===================== RANKING ===================== -->
   <section class="view" id="view-ranking">
     <div class="hero">
-      <div class="eyebrow">Mejores marcas 2026</div>
+      <div class="eyebrow">Mejores marcas del año</div>
       <h1>Ranking español</h1>
-      <p>Líder nacional 2026 por prueba (mejor marca de la temporada), filtrable por sexo. Fuente: ranking oficial RFEA.</p>
+      <p>El top 10 español de cada prueba con los datos oficiales de la Real Federación Española de Atletismo, separado en temporada de aire libre y de pista cubierta. Se actualiza solo cada día.</p>
     </div>
     <div class="filters">
       <div class="filter-group">
+        <label class="filter-label" for="rankSeason">Temporada</label>
+        <select id="rankSeason"><option value="AL">Aire libre</option><option value="PC">Pista cubierta</option></select>
+      </div>
+      <div class="filter-group">
         <label class="filter-label" for="rankSex">Sexo</label>
-        <select id="rankSex"></select>
+        <select id="rankSex"><option value="F">Mujeres</option><option value="M">Hombres</option></select>
       </div>
       <div class="filter-group">
         <label class="filter-label" for="rankEvent">Prueba</label>
-        <select id="rankEvent"></select>
+        <select id="rankEvent"><option value="">Todas las pruebas</option></select>
       </div>
     </div>
-    <div class="rank-table-wrap">
-      <table class="rank">
-        <thead>
-          <tr><th>Prueba</th><th>Marca</th><th>Atleta</th><th>Club</th><th>Fecha / Lugar</th></tr>
-        </thead>
-        <tbody id="rankBody"></tbody>
-      </table>
-    </div>
-    <div class="data-note" style="margin-top:16px">📡 <b>Sobre el top 10:</b> la vista "Mejores marcas 2026" de atletismorfea.es/ranking (fuente de estos datos) solo publica el líder de cada prueba, no un top 10 navegable. Para ver el top 10 completo prueba por prueba hay que aplicar el filtro individual de cada evento en atletismorfea.es/ranking, que no es una tabla estática consultable de una vez. Aquí se muestra el dato real y verificado que sí es accesible: el líder nacional 2026 de cada prueba, pista y fuera de pista (marcha, ruta, maratón, combinadas).</div>
+    <div id="rankInfo" class="data-note"></div>
+    <div id="rankList" class="rank-grid"></div>
   </section>
 
   <!-- ===================== FICHA DE COMPETICIÓN ===================== -->

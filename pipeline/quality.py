@@ -11,8 +11,10 @@ import re
 from .common import load_json, save_json, iso_now
 from .names import clean_name, is_abbreviated, is_incomplete, sex_from_first_name
 
-LABEL_F = re.compile(r"\b(mujeres|femenin[oa]s?|fem|women|dones|female|fémina|mulleres|emakumeak|feminina|femení)\b|women's", re.I)
-LABEL_M = re.compile(r"\b(hombres|masculin[oa]s?|masc|men|homes|male|gizonak|masculí)\b|men's", re.I)
+LABEL_F = re.compile(r"\b(mujer(es)?|femenin[oa]s?|fem|women|dones|female|fémina|mulleres|emakumeak|feminina|femení|damas|chicas|"
+                     r"niñas|femmes|femminile|damen|ladies|girls|absoluta femenina)\b|women's", re.I)
+LABEL_M = re.compile(r"\b(hombres|masculin[oa]s?|masc|men|homes|male|gizonak|masculí|varones|chicos|niños|hommes|maschile|"
+                     r"herren|boys)\b|men's", re.I)
 MIXED = re.compile(r"\b(mixt[oa]|mixed|general|todos|absoluta?)\b", re.I)
 ROW_F = re.compile(r"\b(femenin[oa]|mujer|fem|women)\b|(?<![A-Za-z])[FW](?![A-Za-z])|\b[FW]\d{2}\b|^F-|-F\b|SenF|VetF", re.I)
 ROW_M = re.compile(r"\b(masculin[oa]|hombre|masc|men)\b|(?<![A-Za-z])M(?![A-Za-z])|^M-|-M\b|SenM|VetM")
@@ -23,6 +25,52 @@ def label_sex(label):
     if f == m:
         return ""
     return "F" if f else "M"
+
+
+def event_sex(ev):
+    """Sexo de una prueba: por su nombre ('100 m Mujeres', 'VARONES') o, si no lo dice, por sus filas.
+    Devuelve 'F', 'M', 'X' (mixta) o '' (no se sabe)."""
+    s = label_sex(ev.get("name") or ev.get("event") or "")
+    if s:
+        return s
+    rows = [r for rd in (ev.get("rounds") or [ev]) for r in rd.get("rows", [])]
+    n = {"M": 0, "F": 0}
+    for r in rows:
+        x = row_sex(r)[0]
+        if x in n:
+            n[x] += 1
+    if n["M"] and n["F"]:
+        # un nombre mal adivinado no convierte una prueba en mixta: hace falta al menos un tercio de cada sexo
+        return "X" if min(n.values()) * 3 >= len(rows) else max(n, key=n.get)
+    return "M" if n["M"] else "F" if n["F"] else ""
+
+
+# Competiciones de un solo sexo (ligas de clubes, carreras de la mujer...)
+ONLY_F = re.compile(r"\b(mujer(es)?|femenin[oa]s?|iberdrola|women|feminina|dones)\b", re.I)
+ONLY_M = re.compile(r"\b(hombres|masculin[oa]s?|joma|men)\b", re.I)
+
+
+def expected_sexes(comp_name):
+    """Sexos que debe tener una competición: {'F'}, {'M'} o {'F','M'} (lo normal)."""
+    f, m = bool(ONLY_F.search(comp_name or "")), bool(ONLY_M.search(comp_name or ""))
+    if f and not m:
+        return {"F"}
+    if m and not f:
+        return {"M"}
+    return {"F", "M"}
+
+
+def sexes_in(events):
+    got = set()
+    for e in events or []:
+        s = event_sex(e)
+        got |= {"F", "M"} if s == "X" else {s} if s else set()
+    return got
+
+
+def missing_sexes(events, comp_name):
+    """Qué sexo falta en los resultados de una competición (vacío si están todos)."""
+    return expected_sexes(comp_name) - sexes_in(events)
 
 
 def row_sex(r):
@@ -49,7 +97,7 @@ def _junk_label(name):
     if re.search(r"\d{1,2}:\d{2}:\d{2}|\d{1,2}:\d{2}[.,]\d", name):
         return True  # lleva un tiempo con segundos: es una fila, no un título ("19:55" sola es la hora de salida)
     from .parsers.pdf_columns import _field
-    if sum(1 for t in name.split() if _field(t)) >= 2 or re.search(r"intermediate|parciales|tempo ?ritmo|\baño\b|\bciudad\s+km\b|/\s*ciudad", name, re.I):
+    if sum(1 for t in name.split() if _field(t)) >= 2 or re.search(r"intermediate|parciales|an[aá]lisis de carrera|tempo ?ritmo|\baño\b|\bciudad\s+km\b|/\s*ciudad", name, re.I):
         return True  # lleva palabras de cabecera (Pos, Dorsal, Nome, Tiempo...)
     # empieza por un número que no es una distancia ("45 171 F MIF...", "752 977 M CAC")
     if re.match(r"^\d+\s", name) and not re.match(r"^\d+([.,]\d+)?\s?(m|km|k|kms|mts|metros|millas?|x|mi)\b", name, re.I):

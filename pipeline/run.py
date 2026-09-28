@@ -6,12 +6,13 @@
     python -m pipeline.run live      # una comprobación de directo (cada 2-5 min; sale en 1 s si no toca)
     python -m pipeline.run backfill  # carga histórica de podios de 2026 (reanudable)
     python -m pipeline.run revisar   # revisa nombres y sexo de todos los podios guardados
+    python -m pipeline.run ranking   # ranking español del año (RFEA), aire libre y pista cubierta
 """
 import os
 import sys
 import time
 
-from . import backfill, calendar_build, highlights, live, previas, results
+from . import backfill, calendar_build, highlights, live, previas, ranking, results
 from .common import Health, Http, load_json, save_json, iso_now
 
 
@@ -26,7 +27,14 @@ def daily():
     calendar_build.save(items)
     health.run("results", "Resultados (todas las fuentes)", results.sweep, h, items, health, deep=True, expect_min=0)
     health.run("previas", "Previas (listas de inscritos)", previas.run, h, health, items, expect_min=0)
+    health.run("ranking", "Ranking RFEA (aire libre y pista cubierta)", ranking.run, h, health, expect_min=20)
     live.plan(items)
+    health.save()
+
+
+def ranking_only():
+    h, health = Http(), Health()
+    health.run("ranking", "Ranking RFEA (aire libre y pista cubierta)", ranking.run, h, health, expect_min=20)
     health.save()
 
 
@@ -102,5 +110,5 @@ if __name__ == "__main__":
     mode = sys.argv[1] if len(sys.argv) > 1 else "daily"
     t = time.time()
     {"daily": daily, "results": results_only, "plan": plan_only, "live": live_tick, "backfill": backfill_run,
-     "revisar": revisar, "previas": previas_only}[mode]()
+     "revisar": revisar, "previas": previas_only, "ranking": ranking_only}[mode]()
     print("%s terminado en %.0f s" % (mode, time.time() - t))

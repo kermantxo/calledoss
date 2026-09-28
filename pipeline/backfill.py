@@ -37,7 +37,7 @@ from .sources import rfea, rfealive, worldathletics, timers, sportmaniacs, faali
 
 STATE = "state/backfill.json"
 # Súbelo cuando se añadan fuentes o lectores nuevos: todo lo "sin resultados" se vuelve a intentar.
-VERSION = 12
+VERSION = 13
 MISSING = "results/sin_resultados.json"
 START = "2026-01-01"
 COMBINED = re.compile(r"decatlon|heptatlon|pentatlon|hexatlon|octatlon|triatlon|tetratlon")
@@ -313,7 +313,7 @@ class Finder:
             # lectores nuevos: se reintenta lo que no se encontró y se rehace lo leído por columnas
             col_urls = {k for k, v in self.state["pdf_cache"].items() if v.get("format") in ("columnas", "generic", "internacional")}
             by_url = {x.get("url"): x for x in _index()["items"]}
-            redo_sources = {"Runvasport (PDF)", "Web de la competición (PDF)", "Federación Andaluza (PDF)"}
+            redo_sources = {"Runvasport (PDF)", "Web de la competición (PDF)", "Federación Andaluza (PDF)", "RFEA (PDF)"}
             # nombres abreviados de RFEA Live ('H Santos Llorente'): se vuelven a pedir completos
             from .names import is_abbreviated
             abbrev = set()
@@ -324,13 +324,15 @@ class Finder:
             # competiciones con un solo sexo (PDF cortado en la página 80, "W35", club "FEM..."): se rehacen
             import glob as _g, os as _o
             from .common import DATA_DIR as _D
+            from .quality import missing_sexes
             one_sex = set()
             for f in _g.glob(_o.path.join(_D, "results", "*.json")):
                 rd = load_json("results/" + _o.path.basename(f), {}) or {}
-                names = " ".join(e.get("name", "") for e in rd.get("events", []))
-                fz = bool(re.search(r"mujer|femen|women|mulleres|dones|feminin", names, re.I))
-                mz = bool(re.search(r"hombre|mascul|\bmen\b|homes|masculí", names, re.I))
-                if fz != mz and not re.search(r"mujeres|hombres|femen|mascul", rd.get("name", ""), re.I):
+                evs = rd.get("events", [])
+                # un solo sexo (o el sexo contrario al del nombre: 'Liga Iberdrola' con pruebas de hombres),
+                # o lecturas del lector antiguo ('generic': una sola tabla 'Clasificación' sin pruebas)
+                if missing_sexes(evs, rd.get("name", "")) or rd.get("format") == "generic" \
+                        or rd.get("source") == "RFEA (PDF)":
                     one_sex.add(rd.get("id"))
             abbrev |= one_sex
             # podios retirados por ilegibles / tiempos imposibles, o clasificaciones incompletas: se releen
@@ -345,6 +347,13 @@ class Finder:
                 elif d.get("status") == "ok" and (d.get("source") in redo_sources or
                                                   any(x.get("cal_id") == cid and x.get("url") in col_urls for x in by_url.values())):
                     d["status"] = "redo"
+            for cid in one_sex:
+                if cid and cid not in self.state["done"]:
+                    self.state["done"][cid] = {"status": "redo"}
+            # resultados sueltos que no son de ninguna competición del calendario (lector antiguo): fuera
+            for x in _index()["items"]:
+                if not x.get("cal_id"):
+                    unstore(x["id"])
             self.state["pdf_cache"] = {k: v for k, v in self.state["pdf_cache"].items()
                                        if v.get("events") and v.get("format") not in ("columnas", "generic", "internacional")}
             self.state["version"] = VERSION
@@ -415,9 +424,39 @@ class Finder:
                 return c or {"error": str(e)}
         return c
 
-    def resolve(self, it):
-        """Intenta todas las fuentes. Devuelve (eventos_con_podio, fuente, url, probados)."""
+    def resolve(self, it, have=None):
+        """Intenta todas las fuentes. Devuelve (eventos_con_podio, fuente, url, probados).
+
+        Si la primera fuente trae un solo sexo (p. ej. RFEA Live solo tiene la clasificación masculina),
+        se siguen mirando las demás y se añaden las pruebas del sexo que falta.
+        have=(podios, fuente, url): resultados ya conseguidos por otra vía, que solo hay que completar."""
+        from .quality import missing_sexes, event_sex
         tried = []
+        best = list(have) if have else None
+        need = missing_sexes(best[0], it["name"]) if best else None
+        if best and not need:
+            return best[0], best[1], best[2], tried
+        for pods, source, url, _ in self._candidates(it, tried):
+            if best is None:
+                best, need = [list(pods), source, url], missing_sexes(pods, it["name"])
+            else:
+                extra = [e for e in pods if event_sex(e) in need or (event_sex(e) == "X" and need)]
+                have_names = {norm(e["name"]) for e in best[0]}
+                extra = [e for e in extra if norm(e["name"]) not in have_names]
+                if not extra:
+                    continue
+                best[0] += extra
+                if source not in best[1]:
+                    best[1] += " + " + source
+                need = missing_sexes(best[0], it["name"])
+            if not need:
+                break
+        if best:
+            return best[0], best[1], best[2], tried
+        return
+
+    def _candidates(self, it, tried):
+        """Todas las fuentes posibles, en orden de fiabilidad (generador: cada una se prueba solo si hace falta)."""
         links = dict(it.get("links") or {})
         det = self.detail(it)
         for k, v in (det.get("links") or {}).items():
@@ -438,7 +477,8 @@ class Finder:
             try:
                 pods, url, dates = from_rfealive(self.http, chid, base)
                 if pods and (not dates or any(d1 <= d <= d2 for d in dates)):
-                    return pods, "RFEA Live", url, tried
+                    yield pods, "RFEA Live", url, tried
+                    continue
                 if pods:
                     tried[-1] += " (otra edición: fechas no coinciden)"
             except Exception as e:
@@ -454,7 +494,7 @@ class Finder:
                         if res and res["events"]:
                             pods = podiums([{"name": e["name"], "rounds": [r for r in e["rounds"] if r["final"]]} for e in res["events"]])
                             if pods:
-                                return pods, "World Athletics", w["links"].get("info"), tried + ["World Athletics %s" % w["id"]]
+                                yield pods, "World Athletics", w["links"].get("info"), tried + ["World Athletics %s" % w["id"]]
                     except Exception:
                         pass
                     break
@@ -467,7 +507,8 @@ class Finder:
             try:
                 pods, url, why = from_pdf(self.http, it, u, self.state["pdf_cache"], trust)
                 if pods:
-                    return pods, "PDF oficial", url, tried
+                    yield pods, "PDF oficial", url, tried
+                    continue
                 tried[-1] += " (%s)" % why
             except Exception as e:
                 tried[-1] += " (error: %s)" % str(e)[:60]
@@ -488,7 +529,7 @@ class Finder:
                     if res and res["events"]:
                         pods = podiums([{"name": e["name"], "rounds": [r for r in e["rounds"] if r["final"]]} for e in res["events"]])
                         if pods:
-                            return pods, "World Athletics", it["links"].get("info"), tried
+                            yield pods, "World Athletics", it["links"].get("info"), tried
                 except Exception as e:
                     tried[-1] += " (error: %s)" % str(e)[:60]
 
@@ -516,7 +557,7 @@ class Finder:
                 if not r["top_M"] and not r["top_F"] and r["rows"]:
                     pods.append({"name": name, "rounds": [{"round": "General", "final": True, "rows": r["rows"][:3]}]})
             if pods:
-                return pods, "Cronomancha", it["links"].get("resultados"), tried
+                yield pods, "Cronomancha", it["links"].get("resultados"), tried
 
         # 6b. Sportmaniacs (carreras populares): enlace directo o búsqueda por nombre y fecha
         if it.get("type") in ("Ruta", "Cross", "Trail", "Marcha", "Otras", "Internacional") or not it.get("type"):
@@ -547,8 +588,9 @@ class Finder:
                 try:
                     pods = sportmaniacs.results(self.http, slug)
                     if pods:
-                        return pods, "Sportmaniacs", "https://sportmaniacs.com/es/races/" + slug, tried
-                    tried[-1] += " (sin clasificaciones)"
+                        yield pods, "Sportmaniacs", "https://sportmaniacs.com/es/races/" + slug, tried
+                    else:
+                        tried[-1] += " (sin clasificaciones)"
                 except Exception as e:
                     tried[-1] += " (error: %s)" % str(e)[:60]
 
@@ -570,7 +612,7 @@ class Finder:
                     try:
                         pods, url, _ = from_rfealive(self.http, chid, base)
                         if pods:
-                            return pods, "RFEA Live (vía FAA)", url, tried
+                            yield pods, "RFEA Live (vía FAA)", url, tried
                     except Exception:
                         pass
                 all_pods = []
@@ -582,7 +624,8 @@ class Finder:
                     except Exception:
                         pass
                 if all_pods:
-                    return all_pods, "Federación Andaluza (PDF)", page, tried
+                    yield all_pods, "Federación Andaluza (PDF)", page, tried
+                    continue
                 tried[-1] += " (sin resultados en la página)"
                 continue
             if "rfealive" in page:
@@ -593,7 +636,8 @@ class Finder:
                 try:
                     pods, url, why = from_pdf(self.http, it, u, self.state["pdf_cache"], "web")
                     if pods:
-                        return pods, "Web de la competición (PDF)", url, tried
+                        yield pods, "Web de la competición (PDF)", url, tried
+                        continue
                     tried[-1] += " (%s)" % why
                 except Exception as e:
                     tried[-1] += " (error: %s)" % str(e)[:60]
@@ -605,8 +649,8 @@ class Finder:
             slug = re.search(r"/inscripcion/([^/]+)", rv).group(1)
             pods = self.runvasport(it, "https://www.avaibooksports.com/inscripcion/%s/clasificaciones/" % slug, tried)
             if pods:
-                return pods, "Runvasport (PDF)", links["resultados"], tried
-        return None, None, None, tried
+                yield pods, "Runvasport (PDF)", links["resultados"], tried
+        return
 
     def runvasport(self, it, page, tried):
         """Clasificaciones de AvaiBook/Runvasport: los PDF 'general' de cada distancia se sirven desde

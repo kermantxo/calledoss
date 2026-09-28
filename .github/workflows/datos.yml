@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "daily | results | plan | revisar | previas"
+        description: "daily | results | plan | revisar | previas | ranking"
         default: "daily"
         required: true
 

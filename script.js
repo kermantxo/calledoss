@@ -3283,73 +3283,6 @@ const COMPETITIONS = [
   },
 ];
 
-// Ranking: líder nacional 2026 por prueba (mejor marca de la temporada),
-// tal y como lo publica atletismorfea.es/ranking (sección "Mejores marcas 2026").
-const RANKING = {
-  "Mujeres": {
-    "100m": {name:"Jaël Sakura Bestué Ferrera", club:"C.A. Adidas", mark:"11.15 (-0.9)", when:"Meeting Madrid 2026 · Madrid · 16/07/2026"},
-    "200m": {name:"Jaël Sakura Bestué Ferrera", club:"C.A. Adidas", mark:"22.57 (0.4)", when:"Campeonato de España · Málaga · 26/07/2026"},
-    "400m": {name:"Blanca Hervás Rodríguez", club:"New Balance Team", mark:"50.46", when:"Meeting Madrid 2026 · Madrid · 16/07/2026"},
-    "800m": {name:"Marta Mitjans Muñoz", club:"Nike Running Club", mark:"1:59.28", when:"X Ordizia Meeting · Ordizia · 04/07/2026"},
-    "1.500m": {name:"Agueda Marqués Muñoz", club:"C.A. Adidas", mark:"4:03.62", when:"Golden Gala Pietro Mennea · Roma (ITA) · 04/06/2026"},
-    "5.000m": {name:"María Forero Pérez", club:"Independiente", mark:"15:07.50", when:"IFAM Outdoor · Bruselas (BEL) · 23/05/2026"},
-    "10.000m": {name:"Idaira Prieto Suárez", club:"Bilbao Atletismo", mark:"32:06.00", when:"Campeonato de España 10.000 m · Mahón · 09/05/2026"},
-    "5km Ruta": {name:"María Forero Pérez", club:"Independiente", mark:"15:27", when:"10 Km en Ruta Villa de Laredo · Laredo · 18/04/2026"},
-    "10km Ruta": {name:"Marta García Alonso", club:"Independiente", mark:"31:17", when:"10K Valencia Ibercaja by Kiprun · Valencia · 11/01/2026"},
-    "Medio Maratón": {name:"Carla Gallardo Puertas", club:"Independiente", mark:"1:08:30", when:"Generali Berliner Halbmarathon · Berlín (GER) · 29/03/2026"},
-    "Maratón": {name:"Fátima Azzaharaa Ouhaddou Nafie", club:"Asics Running", mark:"2:24:16", when:"Zurich Maratón de Sevilla · Sevilla · 15/02/2026"},
-    "50km Ruta": {name:"María Lázaro García", club:"C.A. Carnicas Serrano", mark:"3:15:12", when:"Campeonato de España 50 km y 100 km · Málaga · 21/03/2026"},
-    "100km Ruta": {name:"Gemma Arenas Alcázar", club:"Independiente", mark:"7:20:57", when:"Campeonato de España 50 km y 100 km · Málaga · 21/03/2026"},
-    "60m Vallas": {name:"Paula Blanquer Iglesias", club:"Diputación Valencia C.A.", mark:"8.10", when:"Camp. de España Short Track por Clubes · Valencia · 14/02/2026"},
-    "100m Vallas": {name:"Lerato Pages Maboka", club:"Facsa - Playas de Castellón", mark:"13.06 (1.3)", when:"Meeting Internacional Ciudad de Málaga · Málaga · 18/06/2026"},
-    "400m Vallas": {name:"Sara Gallego Sotelo", club:"Nike Running Club", mark:"54.36", when:"Meeting Madrid 2026 · Madrid · 16/07/2026"},
-    "3.000m Obst.": {name:"Marta Serrano Azpiazu", club:"New Balance Team", mark:"9:29.44", when:"Copenhagen Athletics Games · Copenhague (DEN) · 22/06/2026"},
-    "Altura": {name:"Una Stancev Stevanovic", club:"Trops-Cueva de Nerja", mark:"1.90 m", when:"Campeonato Iberoamericano · Lima (PER) · 31/05/2026"},
-    "Pértiga": {name:"Mónica Clemente Martí", club:"Diputación Valencia C.A.", mark:"4.46 m", when:"Camp. de España Short Track por Clubes · Valencia · 14/02/2026"},
-    "Longitud": {name:"Tessy Ebosele Ebosele", club:"C.A. Adidas", mark:"6.86 m (1.0)", when:"GP Diputación Castellón · Castellón · 01/07/2026"},
-    "Triple Salto": {name:"Naida Calonge Marí", club:"Facsa - Playas de Castellón", mark:"13.53 m (-1.1)", when:"Campeonato de España Sub-20 · Albacete · 19/07/2026"},
-    "Peso": {name:"Belén Toimil Fernández", club:"Facsa - Playas de Castellón", mark:"17.80 m", when:"Hvězdy v Nehvizdech · Nehvizdy (CZE) · 25/02/2026"},
-    "Disco": {name:"Inés López Arias", club:"Independiente", mark:"60.57 m", when:"NCAA Division I West First Rounds · Fayetteville (USA) · 30/05/2026"},
-    "Martillo": {name:"Laura Redondo Mora", club:"Diputación Valencia C.A.", mark:"70.89 m", when:"Meeting Madrid 2026 · Madrid · 16/07/2026"},
-    "Jabalina": {name:"Yulenmis Aguilar Martínez", club:"Diputación Valencia C.A.", mark:"61.83 m", when:"Camp. de España por Clubes · Pamplona · 13/06/2026"},
-    "Heptatlón": {name:"Sofía Cosculluela Ördögh", club:"Diputación Valencia C.A.", mark:"6182 pts", when:"NCAA Division I Outdoor Championships · Eugene (USA) · 13/06/2026"},
-    "10.000m Marcha (pista)": {name:"María Pérez García", club:"Independiente", mark:"42:12.93", when:"Campeonato de España · Málaga · 25/07/2026"},
-    "Medio Maratón Marcha": {name:"María Pérez García", club:"Independiente", mark:"1:32:51", when:"XXXIX Gran Premio Cantones de A Coruña · A Coruña · 23/05/2026"},
-    "Maratón Marcha": {name:"Laura Monje Martínez", club:"CA Granollers", mark:"3:39:11", when:"45th Dudinska 50 · Dudince (SVK) · 07/03/2026"},
-  },
-  "Hombres": {
-    "100m": {name:"Abel Alejandro Jordán Jul", club:"C.A. Adidas", mark:"10.10 (0.8)", when:"NCAA Division I West First Rounds · Fayetteville (USA) · 29/05/2026"},
-    "200m": {name:"Andoni Calbano Osinaga", club:"Real Sociedad", mark:"20.63 (1.1)", when:"PLP 1 Julio Donosti · San Sebastián · 01/07/2026"},
-    "400m": {name:"Ángel González Muñoz", club:"Unicaja Jaén Paraíso Interior", mark:"45.53", when:"Meeting Madrid 2026 · Madrid · 16/07/2026"},
-    "800m": {name:"David Barroso Bravo", club:"CAPEX", mark:"1:43.60", when:"Gyulai István Memorial · Budapest (HUN) · 14/07/2026"},
-    "1.500m": {name:"Mohamed Attaoui Tijani", club:"Independiente", mark:"3:31.82", when:"Paavo Nurmi Games · Turku (FIN) · 03/06/2026"},
-    "5.000m": {name:"Santiago Catrofe Cacharrón", club:"ADA Calvià - Vistasol", mark:"13:02.57", when:"Meeting de París · París (FRA) · 28/06/2026"},
-    "10.000m": {name:"Eduardo Menacho Miralles", club:"Asics Running", mark:"28:07.36", when:"Campeonato de España 10.000 m · Mahón · 09/05/2026"},
-    "110m Vallas": {name:"Asier Martínez Echarte", club:"Nike Running Club", mark:"13.27 (1.4)", when:"Doha Meeting · Doha (QAT) · 19/06/2026"},
-    "400m Vallas": {name:"Jesús David Delgado Pérez", club:"TenerifeCajaCanarias", mark:"48.11", when:"Zlatá tretra Ostrava · Ostrava (CZE) · 16/06/2026"},
-    "3.000m Obst.": {name:"Daniel Arce Ibáñez", club:"New Balance Team", mark:"8:11.42", when:"Meeting Int. Mohammed VI · Rabat (MAR) · 31/05/2026"},
-    "Altura": {name:"Pablo Martínez Torre", club:"TenerifeCajaCanarias", mark:"2.22 m", when:"Campeonato de España Short Track Sub-23 · Sabadell · 07/02/2026"},
-    "Pértiga": {name:"Artur Coll Sicluna", club:"CA Fent Camí Mislata", mark:"5.63 m", when:"Perche en Or · Roubaix (FRA) · 07/02/2026"},
-    "Longitud": {name:"Lester Alcides Lescay Gay", club:"Facsa - Playas de Castellón", mark:"8.22 m (0.4)", when:"GP Diputación Castellón · Castellón · 01/07/2026"},
-    "Triple Salto": {name:"Ramón Adalia Agustí", club:"Cornellà Atlètic", mark:"16.33 m", when:"50è Campionat de Catalunya · Sabadell · 15/02/2026"},
-    "Peso": {name:"Miguel Gómez Díaz", club:"Facsa - Playas de Castellón", mark:"19.07 m", when:"Campeonato de España Short Track · Valencia · 01/03/2026"},
-    "Disco": {name:"Diego Casas Garrido", club:"Facsa - Playas de Castellón", mark:"65.95 m", when:"GP Diputación Castellón · Castellón · 01/07/2026"},
-    "Martillo": {name:"Kevin Arreaga Almeida", club:"Facsa - Playas de Castellón", mark:"71.22 m", when:"Campeonato de España Lanzamientos Largos · Castellón · 20/02/2026"},
-    "Jabalina": {name:"Manu Quijera Poza", club:"Grupompleo Pamplona At.", mark:"81.27 m", when:"Final Liga Joma · Pamplona · 14/06/2026"},
-    "Maratón": {name:"Ilias Fifa Temsamani", club:"PCteam", mark:"2:08:36", when:"Zurich Maratón de Sevilla · Sevilla · 15/02/2026"},
-    "Medio Maratón": {name:"Santiago Catrofe Cacharrón", club:"ADA Calvià - Vistasol", mark:"1:00:21", when:"Kagawa Marugame Half Marathon · Marugame (JPN) · 01/02/2026"},
-    "50km Ruta": {name:"Guillermo Sainz de Baranda Fernández", club:"Club Gladioveja", mark:"6:44.24", when:"Festival de Ultrafondo GP Ciudad de Burjassot · Burjassot · 27/03/2026"},
-    "100km Ruta": {name:"Marco Álvarez Hernández", club:"Atlética Turolense", mark:"6:41:40", when:"Campeonato de España 50 km y 100 km · Málaga · 21/03/2026"},
-    "60m Vallas": {name:"Enrique Llopis Domenech", club:"C.A. Adidas", mark:"7.42", when:"Campeonato del Mundo Short Track · Toruń (POL) · 21/03/2026"},
-    "110m Vallas": {name:"Asier Martínez Echarte", club:"Nike Running Club", mark:"13.27 (1.4)", when:"Doha Meeting · Doha (QAT) · 19/06/2026"},
-    "400m Vallas": {name:"Jesús David Delgado Pérez", club:"TenerifeCajaCanarias", mark:"48.11", when:"Zlatá tretra Ostrava · Ostrava (CZE) · 16/06/2026"},
-    "Heptatlón": {name:"Pol Ferrer Moncusí", club:"Cornellà Atlètic", mark:"6067 pts", when:"Campeonato de España Short Track · Valencia · 27/02/2026"},
-    "Decatlón": {name:"Pol Ferrer Moncusí", club:"Cornellà Atlètic", mark:"7774 pts", when:"Campeonato de España · Málaga · 25/07/2026"},
-    "10.000m Marcha (pista)": {name:"Paul McGrath Benito", club:"Independiente", mark:"38:23.52", when:"Campeonato de España · Málaga · 24/07/2026"},
-    "Medio Maratón Marcha": {name:"Iván López Pérez", club:"CAPEX", mark:"1:25:05", when:"Encuentro Internacional de Marcha · Poděbrady (CZE) · 08/05/2026"},
-    "Maratón Marcha": {name:"Óscar Martínez Rodríguez", club:"L'Hospitalet At.", mark:"3:09:08", when:"45th Dudinska 50 · Dudince (SVK) · 07/03/2026"},
-  },
-};
 
 /* ============================================================
    NAVEGACIÓN
@@ -4066,20 +3999,19 @@ function renderCompAccordion(){
     const comp = COMPETITIONS.find(c=>c.id===ev.id);
     const pvL = PREVIAS.find(p => p.id === ev.id);
     const nDest = pvL && pvL.status === 'publicados'
-      ? (pvL.events||[]).reduce((n,e)=> n + e.M.length + e.F.length + (e.otros||[]).length, 0) : 0;
-    const etiqueta = resultFor(ev.id) ? '🏁 resultados'
-      : (pvL && pvL.status === 'publicados' ? (nDest ? `⭐ previa · ${nDest} destacados` : `📋 previa · ${pvL.n_inscritos} inscritos`) : '📋 inscritos no publicados aún');
+      ? (pvL.events||[]).reduce((n,e)=> n + espDest(e.M).length + espDest(e.F).length + espDest(e.otros).length, 0) : 0;
+    const etiqueta = pvL && pvL.status === 'publicados'
+      ? (nDest ? `🇪🇸 ${nDest} españoles destacados` : `📋 ${pvL.n_inscritos} inscritos`)
+      : '📋 inscritos no publicados aún';
     let body = '';
     if(isOpen){
-      const res = resultFor(ev.id);
       const pv = PREVIAS.find(p => p.id === ev.id);
       const hoy = hoyISO();
       body = `<div class="comp-accordion-body">
-        ${renderAutoInfo(ev, {noDest: !!(res || pv), noPrevia: true}) || `<div class="data-note">📍 <b>${esc(ev.place||'Lugar por confirmar')}</b> — ${fechaLarga(ev.date, ev.end_date)}</div>`}
-        ${res ? renderResultSummary(res) : `
-          ${ev.date <= hoy && hoy <= (ev.end_date || ev.date) ? `<div class="data-note">🔴 <b>Es hoy.</b> <button class="comp-pill active" onclick="event.stopPropagation();handleNavClick('directo')">Ver en directo →</button></div>` : ''}
-          ${previaBody(pv)}
-          ${comp && comp.events.length ? `<div class="roster-grid">${renderEventBlocks(comp.id, comp.events)}</div>` : ''}`}
+        ${renderAutoInfo(ev, {noDest: !!pv, noPrevia: true}) || `<div class="data-note">📍 <b>${esc(ev.place||'Lugar por confirmar')}</b> — ${fechaLarga(ev.date, ev.end_date)}</div>`}
+        ${ev.date <= hoy && hoy <= (ev.end_date || ev.date) ? `<div class="data-note">🔴 <b>Es hoy.</b> <button class="comp-pill active" onclick="event.stopPropagation();handleNavClick('directo')">Ver en directo →</button></div>` : ''}
+        ${previaBody(pv)}
+        ${comp && comp.events.length ? `<div class="roster-grid">${renderEventBlocks(comp.id, comp.events)}</div>` : ''}
         <button class="comp-pill" style="margin-top:10px;" onclick="showCompetitionDetail('${ev.id}')">Ver ficha completa →</button>
       </div>`;
     }
@@ -4245,41 +4177,53 @@ function renderResultsSeason(){
 /* ============================================================
    RANKING
    ============================================================ */
-populateSelect('rankSex', ["Mujeres","Hombres"], '');
-document.getElementById('rankSex').removeChild(document.getElementById('rankSex').firstChild);
-document.getElementById('rankSex').value = "Mujeres";
+// Ranking español del año: datos oficiales de la RFEA (ranking.json, se actualiza cada día)
+let RANKING_DATA = null;
+const RANK_SEASON_LABEL = {AL: 'Aire libre', PC: 'Pista cubierta'};
 
+function rankList(){
+  const st = document.getElementById('rankSeason').value || 'AL';
+  const sx = document.getElementById('rankSex').value || 'F';
+  return (RANKING_DATA && RANKING_DATA.seasons && RANKING_DATA.seasons[st] && RANKING_DATA.seasons[st][sx]) || [];
+}
 function refreshRankEventOptions(){
-  const sex = document.getElementById('rankSex').value || "Mujeres";
-  populateSelect('rankEvent', Object.keys(RANKING[sex]), 'Todas las pruebas');
+  const sel = document.getElementById('rankEvent');
+  const prev = sel.value;
+  const names = rankList().map(e => e.event);
+  sel.innerHTML = `<option value="">Todas las pruebas</option>` + names.map(n => `<option value="${esc(n)}">${esc(n)}</option>`).join('');
+  if(names.includes(prev)) sel.value = prev;
 }
-
 function renderRanking(){
-  const sex = document.getElementById('rankSex').value || "Mujeres";
-  const event = document.getElementById('rankEvent').value;
-  const body = document.getElementById('rankBody');
-  const data = RANKING[sex];
-
-  const events = event ? [event] : Object.keys(data);
-
-  body.innerHTML = events.map(ev=>{
-    const r = data[ev];
-    if(!r) return '';
-    return `
-    <tr>
-      <td class="rk" style="font-size:15px;color:var(--ivory);font-family:'Barlow Condensed',sans-serif;font-weight:700;">${ev}</td>
-      <td class="mark">${r.mark}</td>
-      <td>${r.name}</td>
-      <td class="club">${r.club}</td>
-      <td class="club">${r.when}</td>
-    </tr>`;
-  }).join('');
+  const wrap = document.getElementById('rankList');
+  const note = document.getElementById('rankInfo');
+  if(!RANKING_DATA){
+    wrap.innerHTML = `<div class="empty-state"><h3>Cargando ranking…</h3>Datos oficiales de la RFEA.</div>`;
+    return;
+  }
+  const st = document.getElementById('rankSeason').value || 'AL';
+  const ev = document.getElementById('rankEvent').value;
+  const list = rankList().filter(e => !ev || e.event === ev);
+  note.innerHTML = `📊 <b>Ranking ${esc(RANK_SEASON_LABEL[st])} ${esc(RANKING_DATA.season)}</b> · categoría absoluta · mejor marca de cada atleta (solo marcas válidas).
+    Fuente: <a href="${esc(RANKING_DATA.source)}" target="_blank" rel="noopener">ranking oficial RFEA</a> · actualizado ${fechaCorta(RANKING_DATA.generated.slice(0,10))} ${horaDe(RANKING_DATA.generated)}`;
+  if(!list.length){
+    wrap.innerHTML = `<div class="empty-state"><h3>Sin marcas</h3>La RFEA todavía no tiene marcas en esta prueba y temporada.</div>`;
+    return;
+  }
+  wrap.innerHTML = list.map(e => `
+    <div class="event-block rank-block">
+      <div class="event-block-head"><h3>${esc(e.event)}</h3><span>Top ${e.rows.length}</span></div>
+      <table class="rank"><thead><tr><th>#</th><th>Marca</th><th>Atleta</th><th class="hide-sm">Club</th><th class="hide-sm">Lugar · fecha</th></tr></thead>
+      <tbody>${e.rows.map(r => `<tr>
+        <td class="rk">${esc(r.rank)}</td>
+        <td class="mark">${esc(r.mark)}${r.wind ? ` <small>(${esc(r.wind)})</small>` : ''}</td>
+        <td>${esc(r.name)}${r.born ? ` <small class="club">${esc(r.born)}</small>` : ''}<div class="club show-sm">${esc(r.club)}</div></td>
+        <td class="club hide-sm">${esc(r.club)}${r.fed ? ` · ${esc(r.fed)}` : ''}</td>
+        <td class="club hide-sm">${esc(r.city)} · ${esc(r.date)}</td>
+      </tr>`).join('')}</tbody></table>
+    </div>`).join('');
 }
-
-document.getElementById('rankSex').addEventListener('change', ()=>{ refreshRankEventOptions(); renderRanking(); });
+['rankSeason','rankSex'].forEach(id => document.getElementById(id).addEventListener('change', ()=>{ refreshRankEventOptions(); renderRanking(); }));
 document.getElementById('rankEvent').addEventListener('change', renderRanking);
-refreshRankEventOptions();
-renderRanking();
 
 /* ============================================================
    DATOS AUTOMÁTICOS
@@ -4348,7 +4292,7 @@ function calMeta(ev){
 function renderDestacados(list){
   if(!list || !list.length) return '';
   return `<div class="event-block">
-    <div class="event-block-head"><h3>⭐ Españoles a seguir</h3><span>${list.length}</span></div>
+    <div class="event-block-head"><h3>🇪🇸 Inscritos españoles destacados</h3><span>${list.length}</span></div>
     <div class="athlete-list">${list.map(a=>`
       <div class="athlete-row">
         <div class="athlete-row-name">${esc(a.name)}</div>
@@ -4397,6 +4341,58 @@ function resultTable(rows, showNat){
     </div>`).join('')}</div>`;
 }
 
+// Sexo de una prueba (el pipeline lo guarda en ev.sex; si no, se deduce del nombre)
+const SEX_F_RE = /(?<!\p{L})(mujer(es)?|femenin[oa]s?|fem|women|dones|female|mulleres|emakumeak|feminina|femení|damas|chicas|niñas|femmes|ladies|girls)(?!\p{L})|women's/iu;
+const SEX_M_RE = /(?<!\p{L})(hombres|masculin[oa]s?|masc|men|homes|male|gizonak|masculí|varones|chicos|niños|hommes|boys)(?!\p{L})|men's/iu;
+const ONLY_F_RE = /(?<!\p{L})(mujer(es)?|femenin[oa]s?|iberdrola|women|feminina|dones)(?!\p{L})/iu;
+const ONLY_M_RE = /(?<!\p{L})(hombres|masculin[oa]s?|joma|men)(?!\p{L})/iu;
+function eventSex(ev){
+  if(ev.sex) return ev.sex;
+  const f = SEX_F_RE.test(ev.name||''), m = SEX_M_RE.test(ev.name||'');
+  return f === m ? '' : (f ? 'F' : 'M');
+}
+function expectedSexes(name){
+  const f = ONLY_F_RE.test(name||''), m = ONLY_M_RE.test(name||'');
+  return f && !m ? ['F'] : m && !f ? ['M'] : ['F','M'];
+}
+function eventTitle(name){
+  return (name||'').replace(/\s*[·-]?\s*(mujeres|hombres|femenino|masculino|damas|varones)\s*$/i, '') || name;
+}
+
+// Ficha de resultados de una competición: TODAS las pruebas, separadas en femenino y masculino
+const RESULT_FILES = {};
+function eventResultBlock(ev){
+  const rounds = ev.rounds || [ev];
+  const finals = rounds.filter(r => r.final);
+  return (finals.length ? finals : rounds).map(rd=>{
+    const rows = (rd.rows || []);
+    const top = rows.slice(0, 3), rest = rows.slice(3);
+    return `<div class="event-block"><div class="event-block-head"><h3>${esc(eventTitle(ev.name))}</h3><span>${esc(rd.round || '')}</span></div>
+      ${resultTable(top, true)}
+      ${rest.length ? `<details class="res-more"><summary>Ver clasificación completa (${rows.length})</summary>${resultTable(rest, true)}</details>` : ''}</div>`;
+  }).join('');
+}
+function renderResultEvents(r, data){
+  const evs = (data && data.events) || (r.podios || []).map(p => ({name: p.event, rounds: [{round: p.round, final: true, rows: p.rows}]}));
+  const want = expectedSexes(r.name);
+  const by = {F: [], M: [], O: []};
+  evs.forEach(ev => { const s = eventSex(ev); (s === 'F' ? by.F : s === 'M' ? by.M : by.O).push(ev); });
+  const col = (sx) => {
+    const title = sx === 'F' ? 'Femenino' : 'Masculino';
+    const list = by[sx];
+    return `<div class="res-sex-col"><h3 class="res-sex-title">${title} <span>${list.length} ${list.length === 1 ? 'prueba' : 'pruebas'}</span></h3>
+      ${list.length ? list.map(eventResultBlock).join('') : `<div class="empty-state">Sin resultados ${sx === 'F' ? 'femeninos' : 'masculinos'} localizados todavía. Se siguen buscando en todas las fuentes.</div>`}</div>`;
+  };
+  return `<div class="res-sex-grid${want.length === 1 ? ' single' : ''}">${want.map(col).join('')}</div>
+    ${by.O.length ? `<div class="res-sex-col" style="margin-top:18px;"><h3 class="res-sex-title">Mixtas / sin sexo indicado <span>${by.O.length}</span></h3>${by.O.map(eventResultBlock).join('')}</div>` : ''}`;
+}
+async function fillResultEvents(id){
+  if(!RESULT_FILES[id]) RESULT_FILES[id] = loadData(`results/${id}.json`);
+  const data = await RESULT_FILES[id];
+  const r = RESULTS_INDEX.find(x => x.id === id);
+  document.querySelectorAll(`[data-res-full="${id}"]`).forEach(el => { el.innerHTML = renderResultEvents(r, data); });
+}
+
 function renderResultSummary(r){
   if(r.link_only){
     return `<div class="data-note">🏁 Clasificaciones publicadas por el cronometrador.<br><a class="comp-pill" style="display:inline-block;margin-top:6px;text-decoration:none;" href="${esc(r.url)}" target="_blank" rel="noopener">Ver clasificaciones →</a></div>`;
@@ -4410,29 +4406,19 @@ function renderResultSummary(r){
     blocks.push(`<div class="event-block"><div class="event-block-head"><h3>⭐ Destacados</h3><span>${r.destacados.length}</span></div>
       ${resultTable(r.destacados.map(x=>({...x, club: x.event + (x.round ? ' · ' + x.round : '')})), false)}</div>`);
   }
-  (r.podios || []).forEach(p=>{
-    blocks.push(`<div class="event-block"><div class="event-block-head"><h3>${esc(p.event)}</h3><span>${esc(p.round || 'Podio')}</span></div>${resultTable(p.rows, true)}</div>`);
-  });
-  return `<div class="data-note">🏁 Resultados · fuente: <b>${esc(r.source)}</b>${r.url ? ` · <a href="${esc(r.url)}" target="_blank" rel="noopener">original</a>` : ''}</div>
+  setTimeout(() => fillResultEvents(r.id), 0);
+  return `<div class="data-note">🏁 Resultados · ${r.n_podios || r.events || ''} pruebas · fuente: <b>${esc(r.source)}</b>${r.url ? ` · <a href="${esc(r.url)}" target="_blank" rel="noopener">original</a>` : ''}</div>
     ${r.incomplete ? `<div class="data-note" style="border-color:var(--gold);">⚠️ <b>Clasificación incompleta.</b> ${esc(r.incomplete)}${r.url ? ` <a href="${esc(r.url)}" target="_blank" rel="noopener">Ver la clasificación completa en el documento oficial →</a>` : ''}</div>` : ''}
-    <div class="roster-grid">${blocks.join('') || '<div class="empty-state">Resultados disponibles en el enlace original.</div>'}</div>
-    <button class="comp-pill" style="margin-top:10px;" onclick="event.stopPropagation();loadResultsInto('${r.id}', 'full-${r.id}', true)">Ver todas las pruebas →</button>
-    <div id="full-${r.id}"></div>`;
+    ${blocks.length ? `<div class="roster-grid">${blocks.join('')}</div>` : ''}
+    <div data-res-full="${r.id}">${RESULT_FILES[r.id] ? '' : '<div class="data-note">Cargando todas las pruebas…</div>'}</div>`;
 }
 
-// Ficha completa de resultados (se descarga solo al pedirla)
-async function loadResultsInto(calId, targetId, full){
+// Ficha completa de resultados (vista de detalle)
+async function loadResultsInto(calId, targetId){
   const r = resultFor(calId);
   const el = document.getElementById(targetId);
   if(!r || !el) return;
-  if(!full){ el.innerHTML = renderResultSummary(r); return; }
-  el.innerHTML = '<div class="data-note">Cargando resultados…</div>';
-  const data = await loadData(`results/${r.id}.json`);
-  if(!data || !data.events){ el.innerHTML = '<div class="data-note">No se han podido cargar los resultados.</div>'; return; }
-  el.innerHTML = `<div class="roster-grid">${data.events.map(ev=>{
-    const rounds = ev.rounds || [ev];
-    return rounds.map(rd=>`<div class="event-block"><div class="event-block-head"><h3>${esc(ev.name)}</h3><span>${esc(rd.round || '')}</span></div>${resultTable(rd.rows || [], true)}</div>`).join('');
-  }).join('')}</div>`;
+  el.innerHTML = renderResultSummary(r);
 }
 
 async function loadData(name){
@@ -4529,20 +4515,27 @@ function previaCol(title, list){
     </div>`).join('')}</div>`;
 }
 
+// Inscritos españoles destacados (en listas nacionales no se indica la nacionalidad: son de la RFEA)
+function espDest(list){
+  return (list || []).filter(a => !a.nat || a.nat === 'ESP');
+}
+
 // Contenido de la previa de una cita (se muestra dentro de Próximas)
 function previaBody(p){
-  if(!p || p.status !== 'publicados') return `<div class="empty-state"><h3>Inscritos no publicados aún</h3>Se revisa cada día. En cuanto la organización publique la lista, aquí aparecerán los atletas a seguir.</div>`;
+  if(!p || p.status !== 'publicados') return `<div class="empty-state"><h3>Inscritos no publicados aún</h3>Se revisa cada día. En cuanto la organización publique la lista, aquí aparecerán los inscritos españoles destacados.</div>`;
   const ch = p.changes || {};
-  return `<div class="data-note">⭐ <b>Previa</b> · ${p.n_inscritos} inscritos · actualizado ${p.updated ? fechaCorta(p.updated.slice(0,10)) + ' ' + horaDe(p.updated) : ''}
+  const evs = (p.events||[]).map(e => ({...e, M: espDest(e.M), F: espDest(e.F), otros: espDest(e.otros)}))
+    .filter(e => e.M.length || e.F.length || e.otros.length);
+  return `<div class="data-note">🇪🇸 <b>Inscritos españoles destacados</b> · ${p.n_inscritos} inscritos en total · actualizado ${p.updated ? fechaCorta(p.updated.slice(0,10)) + ' ' + horaDe(p.updated) : ''}
       ${ch.altas || ch.bajas ? `<br>Cambios desde la última revisión: <b>+${ch.altas||0}</b> altas, <b>−${ch.bajas||0}</b> bajas` : ''}
       ${(ch.altas_destacadas||[]).length ? `<br>⭐ Nuevos destacados: ${ch.altas_destacadas.map(esc).join(', ')}` : ''}
       ${(ch.bajas_destacadas||[]).length ? `<br>✖ Bajas destacadas: ${ch.bajas_destacadas.map(esc).join(', ')}` : ''}
       ${(p.sources||[]).length ? `<br><a href="${esc(p.sources[0])}" target="_blank" rel="noopener">Ver la lista de inscritos original</a>` : ''}</div>
-    ${(p.events||[]).filter(e => e.M.length || e.F.length || (e.otros||[]).length).map(e=>`
+    ${evs.map(e=>`
       <div class="previa-event"><h3>${esc(e.name)} <small style="color:var(--gray);font-size:14px;">· ${e.n} inscritos</small></h3>
-        <div class="previa-grid">${previaCol('Masculino', e.M)}${previaCol('Femenino', e.F)}</div>
-        ${(e.otros||[]).length ? previaCol('Sin sexo indicado en la lista', e.otros) : ''}
-      </div>`).join('') || '<div class="empty-state">La lista está publicada, pero ningún inscrito cumple todavía los criterios de destacado.</div>'}`;
+        <div class="previa-grid">${previaCol('Femenino', e.F)}${previaCol('Masculino', e.M)}</div>
+        ${e.otros.length ? previaCol('Sin sexo indicado en la lista', e.otros) : ''}
+      </div>`).join('') || '<div class="empty-state">La lista está publicada, pero ningún inscrito español cumple todavía los criterios de destacado.</div>'}`;
 }
 
 function renderAll(){
@@ -4554,6 +4547,12 @@ function renderAll(){
   refreshTicker();
 }
 
+async function loadRanking(){
+  const r = await loadData('ranking.json');
+  if(r && r.seasons){ RANKING_DATA = r; refreshRankEventOptions(); }
+  renderRanking();
+}
+
 async function refreshLive(){
   const live = await loadData('live.json');
   if(live){ LIVE_DATA = live; renderLive(); refreshTicker(); }
@@ -4561,6 +4560,7 @@ async function refreshLive(){
 
 (async function bootAutoData(){
   renderAll(); // primero con lo que ya hay en la página
+  loadRanking();
   const [cal, res, live, miss, prev] = await Promise.all([loadData('calendar.json'), loadData('results/index.json'), loadData('live.json'), loadData('results/sin_resultados.json'), loadData('previas.json')]);
   if(prev && prev.items) PREVIAS = prev.items;
   if(res && res.items) RESULTS_INDEX = res.items;

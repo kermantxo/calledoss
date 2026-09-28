@@ -15,7 +15,19 @@ def _tokens(name):
     return set(toks)
 
 
+_SEX_F = re.compile(r"\b(mujeres|femenin[oa]s?|iberdrola|women)\b", re.I)
+_SEX_M = re.compile(r"\b(hombres|masculin[oa]s?|joma|men)\b", re.I)
+
+
+def _sex_conflict(a, b):
+    """'Liga Iberdrola' (mujeres) no es la misma competición que 'Liga Joma' (hombres)."""
+    fa, ma, fb, mb = (bool(x.search(y or "")) for x, y in ((_SEX_F, a), (_SEX_M, a), (_SEX_F, b), (_SEX_M, b)))
+    return (fa and not ma and mb and not fb) or (ma and not fa and fb and not mb)
+
+
 def similar(a, b):
+    if _sex_conflict(a, b):
+        return False
     ta, tb = _tokens(a), _tokens(b)
     if not ta or not tb:
         return False
