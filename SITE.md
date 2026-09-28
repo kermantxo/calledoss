@@ -55,6 +55,8 @@
 
 - 2026-09-28: Horarios en el calendario: se buscan 3 veces al día en RFEA Live (también las competiciones cuya ficha RFEA no lo enlaza) y aparecen solos en cuanto se publican. Runvasport da la hora siempre; World Athletics y Cronomancha no la publican para estas pruebas.
 
+- 2026-09-28: Inscritos y hora de inicio también desde las plataformas de inscripción tipo AvaiBook (Kirolprobak, AvaiBook Sports) enlazadas en la web oficial. Ej.: Milla de Berango (16:00, lista de participantes).
+
 ## How to Customize
 - To change colors: edit the variables at the top of `styles.css` (e.g. `--red`)
 - To add a competition the automatic calendar missed: use the private panel (`/panel`)
