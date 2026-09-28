@@ -57,6 +57,8 @@
 
 - 2026-09-28: Inscritos y hora de inicio también desde las plataformas de inscripción tipo AvaiBook (Kirolprobak, AvaiBook Sports) enlazadas en la web oficial. Ej.: Milla de Berango (16:00, lista de participantes).
 
+- 2026-09-28: Calendario sin resultados (ni la etiqueta, ni el botón, ni en la ficha de la competición): los resultados están solo en su pestaña.
+
 ## How to Customize
 - To change colors: edit the variables at the top of `styles.css` (e.g. `--red`)
 - To add a competition the automatic calendar missed: use the private panel (`/panel`)

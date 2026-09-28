@@ -3735,10 +3735,8 @@ function showCompetitionDetail(calId){
     <div class="data-note">📺 <b>Dónde ver: ${watch.channel}</b>${watch.note ? "<br>" + watch.note : ""}</div>
     ${euroBrowser}
     ${autoInfo}
-    <div id="detailResults"></div>
     ${body}
   `;
-  loadResultsInto(calId, 'detailResults');
 
   tabs.forEach(b=>b.classList.remove('active'));
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
@@ -4284,7 +4282,6 @@ function calMeta(ev){
   if(ev.end_date && ev.end_date !== ev.date) bits.push(`hasta el ${fechaCorta(ev.end_date)}`);
   if(ev.time) bits.push(`🕒 ${ev.time}`);
   if(ev.links && ev.links.inscritos) bits.push('📋 inscritos');
-  if(resultFor(ev.id)) bits.push('🏁 resultados');
   if(ev.destacados && ev.destacados.length) bits.push(`⭐ ${ev.destacados.length} destacados`);
   return bits.length ? `${ev.place ? ' · ' : ''}<span style="color:var(--gray)">${bits.join(' · ')}</span>` : '';
 }
@@ -4317,7 +4314,7 @@ function renderAutoInfo(ev, opts){
   } else if(ev.time){
     parts.push(`<div class="data-note">🕒 <b>Hora de inicio:</b> ${ev.time}${ev.time_end && ev.time_end!==ev.time ? ' · fin previsto ' + ev.time_end : ''}</div>`);
   }
-  const links = linkButtons(ev.links || {});
+  const links = linkButtons(Object.fromEntries(Object.entries(ev.links || {}).filter(([k]) => k !== 'resultados')));
   if(links) parts.push(`<div class="data-note">${links}</div>`);
   const pv = PREVIAS.find(p => p.id === ev.id);
   if(!opts.noDest && ev.destacados && ev.destacados.length) parts.push(`<div class="roster-grid">${renderDestacados(ev.destacados)}</div>`);
