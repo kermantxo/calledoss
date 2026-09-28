@@ -1,1 +1,15 @@
-{"items":[]}
+{
+ "items": [
+  {
+   "id": "manual-2026-10-04-medio-maraton-san-sebastian-rural-kutxa",
+   "name": "Medio Maratón San Sebastián Rural Kutxa",
+   "date": "2026-10-04",
+   "place": "San Sebastián",
+   "time": "09:30",
+   "time_end": null,
+   "url": "https://www.mediomaratonsansebastianruralkutxa.com",
+   "type": "Ruta",
+   "added": "2026-09-28T20:30:00Z"
+  }
+ ]
+}
