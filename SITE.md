@@ -10,7 +10,7 @@
 
 ## Pages
 - **Página principal** (`index.html`) - Una sola página con pestañas en el menú superior:
-  - **Inicio** - "¿Qué encontrará en Calledoss?" con accesos a cada sección
+  - **Inicio** - "El atletismo español al día" con accesos a cada sección
   - **Calendario** - Todas las competiciones del año, **actualizado solo cada día**: RFEA, World Athletics (las internacionales relevantes), Cronomancha y AvaiBook/Runvasport, más las que se añadan a mano. Muestra fecha, prueba, lugar, horario (cuando se conoce) y enlaces a inscritos/resultados/directo.
   - **Resultados** - Competiciones ya disputadas este año. Cada una muestra **todas sus pruebas**, separadas en **Femenino** y **Masculino** (podio y, si se quiere, la clasificación completa). Si una fuente solo trae un sexo, se busca el otro en las demás fuentes; mientras no aparece se indica "Sin resultados femeninos/masculinos localizados todavía". Las competiciones de un solo sexo (Liga Iberdrola, Liga Joma, carreras de la mujer) muestran solo ese.
   - **En directo** - Las competiciones de hoy. Mientras hay pruebas en marcha se actualiza sola cada pocos minutos. Si una fuente no publica parciales, se muestra "Sin datos en directo" con el horario previsto.
@@ -58,6 +58,8 @@
 - 2026-09-28: Inscritos y hora de inicio también desde las plataformas de inscripción tipo AvaiBook (Kirolprobak, AvaiBook Sports) enlazadas en la web oficial. Ej.: Milla de Berango (16:00, lista de participantes).
 
 - 2026-09-28: Calendario sin resultados (ni la etiqueta, ni el botón, ni en la ficha de la competición): los resultados están solo en su pestaña.
+
+- 2026-09-28: Nuevo título de la portada: "El atletismo español al día".
 
 ## How to Customize
 - To change colors: edit the variables at the top of `styles.css` (e.g. `--red`)
