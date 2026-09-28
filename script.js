@@ -4064,20 +4064,29 @@ function renderCompAccordion(){
     lastDay = day;
     const isOpen = ev.id === openComp;
     const comp = COMPETITIONS.find(c=>c.id===ev.id);
-    const nDest = (ev.destacados||[]).length;
+    const pvL = PREVIAS.find(p => p.id === ev.id);
+    const nDest = pvL && pvL.status === 'publicados'
+      ? (pvL.events||[]).reduce((n,e)=> n + e.M.length + e.F.length + (e.otros||[]).length, 0) : 0;
+    const etiqueta = resultFor(ev.id) ? '🏁 resultados'
+      : (pvL && pvL.status === 'publicados' ? (nDest ? `⭐ previa · ${nDest} destacados` : `📋 previa · ${pvL.n_inscritos} inscritos`) : '📋 inscritos no publicados aún');
     let body = '';
     if(isOpen){
+      const res = resultFor(ev.id);
+      const pv = PREVIAS.find(p => p.id === ev.id);
+      const hoy = hoyISO();
       body = `<div class="comp-accordion-body">
-        ${resultFor(ev.id) ? renderResultSummary(resultFor(ev.id)) : ''}
-        ${renderAutoInfo(ev) || `<div class="data-note">📍 <b>${esc(ev.place||'Lugar por confirmar')}</b> — ${fechaLarga(ev.date, ev.end_date)}</div>`}
-        ${comp && comp.events.length ? `<div class="roster-grid">${renderEventBlocks(comp.id, comp.events)}</div>` : ''}
+        ${renderAutoInfo(ev, {noDest: !!(res || pv), noPrevia: true}) || `<div class="data-note">📍 <b>${esc(ev.place||'Lugar por confirmar')}</b> — ${fechaLarga(ev.date, ev.end_date)}</div>`}
+        ${res ? renderResultSummary(res) : `
+          ${ev.date <= hoy && hoy <= (ev.end_date || ev.date) ? `<div class="data-note">🔴 <b>Es hoy.</b> <button class="comp-pill active" onclick="event.stopPropagation();handleNavClick('directo')">Ver en directo →</button></div>` : ''}
+          ${previaBody(pv)}
+          ${comp && comp.events.length ? `<div class="roster-grid">${renderEventBlocks(comp.id, comp.events)}</div>` : ''}`}
         <button class="comp-pill" style="margin-top:10px;" onclick="showCompetitionDetail('${ev.id}')">Ver ficha completa →</button>
       </div>`;
     }
     return `${head}
       <div class="comp-accordion-item">
         <button class="comp-pill ${isOpen?'active':''}" data-id="${ev.id}">${esc(ev.name)}
-          <span style="color:var(--gray);font-size:12px;">${[ev.place, ev.time, nDest ? '⭐ '+nDest+' destacados' : '', resultFor(ev.id) ? '🏁 resultados' : ''].filter(Boolean).map(x=>'· '+esc(x)).join(' ')}</span></button>
+          <span style="color:var(--gray);font-size:12px;">${[ev.place, ev.time, etiqueta].filter(Boolean).map(x=>'· '+esc(x)).join(' ')}</span></button>
         ${body}
       </div>`;
   }).join('');
@@ -4355,7 +4364,8 @@ function renderDestacados(list){
 }
 
 // Bloque con la información automática de una cita (horario, enlaces, destacados)
-function renderAutoInfo(ev){
+function renderAutoInfo(ev, opts){
+  opts = opts || {};
   if(!ev || (!ev.links && !ev.time && !ev.destacados && !ev.sources)) return '';
   const parts = [];
   if(ev.times && Object.keys(ev.times).length){
@@ -4365,10 +4375,10 @@ function renderAutoInfo(ev){
   }
   const links = linkButtons(ev.links || {});
   if(links) parts.push(`<div class="data-note">${links}</div>`);
-  if(ev.destacados && ev.destacados.length) parts.push(`<div class="roster-grid">${renderDestacados(ev.destacados)}</div>`);
   const pv = PREVIAS.find(p => p.id === ev.id);
-  if(pv) parts.push(`<div class="data-note">${pv.status === 'publicados'
-    ? `⭐ <b>Previa disponible</b> (${pv.n_inscritos} inscritos). <button class="comp-pill" onclick="event.stopPropagation();openPrevia='${ev.id}';handleNavClick('previas');renderPrevias();">Ver previa →</button>`
+  if(!opts.noDest && ev.destacados && ev.destacados.length) parts.push(`<div class="roster-grid">${renderDestacados(ev.destacados)}</div>`);
+  if(pv && !opts.noPrevia) parts.push(`<div class="data-note">${pv.status === 'publicados'
+    ? `⭐ <b>Previa disponible</b> (${pv.n_inscritos} inscritos) en Próximas.`
     : '📋 Inscritos no publicados aún.'}</div>`);
   if(ev.sources && ev.sources.length) parts.push(`<div class="data-note" style="font-size:13px;color:var(--gray)">Datos: ${ev.sources.map(esc).join(', ')}</div>`);
   return parts.join('');
@@ -4509,8 +4519,6 @@ function refreshFilters(){
 /* ============================================================
    PREVIAS — destacados de cada lista de inscritos
    ============================================================ */
-let openPrevia = null;
-
 function previaCol(title, list){
   if(!list || !list.length) return `<div class="previa-col"><h4>${title}</h4><span style="color:var(--gray)">Sin destacados según los criterios.</span></div>`;
   return `<div class="previa-col"><h4>${title}</h4>${list.map(a=>`
@@ -4521,58 +4529,21 @@ function previaCol(title, list){
     </div>`).join('')}</div>`;
 }
 
-function renderPrevias(){
-  const wrap = document.getElementById('previasList');
-  if(!wrap) return;
-  const q = (document.getElementById('prevSearch').value || '').toLowerCase();
-  const only = document.getElementById('prevOnly').value;
-  let list = PREVIAS.filter(p => (only === 'todas' || p.status === 'publicados'));
-  if(q) list = list.filter(p => (p.name + ' ' + (p.place||'') + ' ' + JSON.stringify(p.events||[])).toLowerCase().includes(q));
-  if(!list.length){
-    wrap.innerHTML = `<div class="empty-state"><h3>${only==='todas' ? 'Sin competiciones' : 'Todavía no hay listas de inscritos publicadas'}</h3>Se revisan cada día las competiciones de los próximos 45 días.</div>`;
-    return;
-  }
-  wrap.innerHTML = list.map(p=>{
-    const isOpen = openPrevia === p.id;
-    const nDest = (p.events||[]).reduce((n,e)=> n + e.M.length + e.F.length + (e.otros||[]).length, 0);
-    const status = p.status === 'publicados'
-      ? `<span class="previa-status ok">${p.n_inscritos} inscritos · ⭐ ${nDest}</span>`
-      : `<span class="previa-status wait">Inscritos no publicados aún</span>`;
-    let body = '';
-    if(isOpen){
-      const ch = p.changes || {};
-      body = `<div class="comp-accordion-body">
-        ${p.race_day ? `<div class="data-note">🔴 <b>Es hoy.</b> <button class="comp-pill active" onclick="handleNavClick('directo')">Ver en directo →</button></div>` : ''}
-        ${p.status !== 'publicados' ? `<div class="empty-state"><h3>Inscritos no publicados aún</h3>Se revisa cada día. En cuanto la organización publique la lista, aquí aparecerán los atletas a seguir.</div>` : `
-          <div class="data-note">📋 ${p.n_inscritos} inscritos · actualizado ${p.updated ? fechaCorta(p.updated.slice(0,10)) + ' ' + horaDe(p.updated) : ''}
-            ${ch.altas || ch.bajas ? `<br>Cambios desde la última revisión: <b>+${ch.altas||0}</b> altas, <b>−${ch.bajas||0}</b> bajas` : ''}
-            ${(ch.altas_destacadas||[]).length ? `<br>⭐ Nuevos destacados: ${ch.altas_destacadas.map(esc).join(', ')}` : ''}
-            ${(ch.bajas_destacadas||[]).length ? `<br>✖ Bajas destacadas: ${ch.bajas_destacadas.map(esc).join(', ')}` : ''}
-            ${(p.sources||[]).length ? `<br><a href="${esc(p.sources[0])}" target="_blank" rel="noopener">Ver la lista de inscritos original</a>` : ''}</div>
-          ${(p.events||[]).filter(e => e.M.length || e.F.length || (e.otros||[]).length).map(e=>`
-            <div class="previa-event"><h3>${esc(e.name)} <small style="color:var(--gray);font-size:14px;">· ${e.n} inscritos</small></h3>
-              <div class="previa-grid">${previaCol('Masculino', e.M)}${previaCol('Femenino', e.F)}</div>
-              ${(e.otros||[]).length ? previaCol('Sin sexo indicado en la lista', e.otros) : ''}
-            </div>`).join('') || '<div class="empty-state">La lista está publicada, pero ningún inscrito cumple todavía los criterios de destacado.</div>'}`}
-        ${linkButtons(p.links||{})}
-      </div>`;
-    }
-    return `<div class="comp-accordion-item">
-      <div class="cal-row" style="cursor:pointer;" data-prev-id="${p.id}">
-        <div class="cal-date"><span class="day">${p.date.slice(8,10)}</span>${MESES[parseInt(p.date.slice(5,7),10)-1].slice(0,3).toUpperCase()} ${p.date.slice(0,4)}</div>
-        <div><div class="cal-name">${esc(p.name)}</div><div class="cal-place">${esc(p.place||'')}</div></div>
-        <div class="cal-place">${esc(p.type||'')}</div>
-        ${status}
-        <div class="cal-arrow">${isOpen?'↑':'→'}</div>
-      </div>${body}</div>`;
-  }).join('');
-  wrap.querySelectorAll('[data-prev-id]').forEach(row=> row.addEventListener('click', ()=>{
-    openPrevia = openPrevia === row.dataset.prevId ? null : row.dataset.prevId;
-    renderPrevias();
-  }));
+// Contenido de la previa de una cita (se muestra dentro de Próximas)
+function previaBody(p){
+  if(!p || p.status !== 'publicados') return `<div class="empty-state"><h3>Inscritos no publicados aún</h3>Se revisa cada día. En cuanto la organización publique la lista, aquí aparecerán los atletas a seguir.</div>`;
+  const ch = p.changes || {};
+  return `<div class="data-note">⭐ <b>Previa</b> · ${p.n_inscritos} inscritos · actualizado ${p.updated ? fechaCorta(p.updated.slice(0,10)) + ' ' + horaDe(p.updated) : ''}
+      ${ch.altas || ch.bajas ? `<br>Cambios desde la última revisión: <b>+${ch.altas||0}</b> altas, <b>−${ch.bajas||0}</b> bajas` : ''}
+      ${(ch.altas_destacadas||[]).length ? `<br>⭐ Nuevos destacados: ${ch.altas_destacadas.map(esc).join(', ')}` : ''}
+      ${(ch.bajas_destacadas||[]).length ? `<br>✖ Bajas destacadas: ${ch.bajas_destacadas.map(esc).join(', ')}` : ''}
+      ${(p.sources||[]).length ? `<br><a href="${esc(p.sources[0])}" target="_blank" rel="noopener">Ver la lista de inscritos original</a>` : ''}</div>
+    ${(p.events||[]).filter(e => e.M.length || e.F.length || (e.otros||[]).length).map(e=>`
+      <div class="previa-event"><h3>${esc(e.name)} <small style="color:var(--gray);font-size:14px;">· ${e.n} inscritos</small></h3>
+        <div class="previa-grid">${previaCol('Masculino', e.M)}${previaCol('Femenino', e.F)}</div>
+        ${(e.otros||[]).length ? previaCol('Sin sexo indicado en la lista', e.otros) : ''}
+      </div>`).join('') || '<div class="empty-state">La lista está publicada, pero ningún inscrito cumple todavía los criterios de destacado.</div>'}`;
 }
-document.getElementById('prevSearch').addEventListener('input', renderPrevias);
-document.getElementById('prevOnly').addEventListener('change', renderPrevias);
 
 function renderAll(){
   refreshFilters();
@@ -4580,7 +4551,6 @@ function renderAll(){
   renderResultsSeason();
   renderCompAccordion();
   renderLive();
-  renderPrevias();
   refreshTicker();
 }
 

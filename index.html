@@ -24,7 +24,6 @@
       <button data-view="resultados">Resultados</button>
       <button data-view="directo">En directo</button>
       <button data-view="proximas">Próximas</button>
-      <button data-view="previas">Previas</button>
       <button data-view="ranking">Ranking</button>
     </nav>
   </div>
@@ -55,11 +54,7 @@
       </button>
       <button class="home-card" data-view="proximas">
         <h3>Próximas</h3>
-        <p>Siguientes competiciones.</p>
-      </button>
-      <button class="home-card" data-view="previas">
-        <h3>Previas</h3>
-        <p>Los nombres a seguir en cada carrera, en cuanto salen los inscritos.</p>
+        <p>Las citas de los próximos 7 días: la previa antes de competir y los resultados después.</p>
       </button>
       <button class="home-card" data-view="ranking">
         <h3>Ranking</h3>
@@ -132,31 +127,11 @@
     <div class="hero">
       <div class="eyebrow">Próximos 7 días</div>
       <h1>Próximas competiciones</h1>
-      <p>Todas las citas desde hoy hasta dentro de seis días, con horario, enlaces a inscritos y los atletas españoles a seguir.</p>
+      <p>Todas las citas desde hoy hasta dentro de seis días. Antes de la carrera verás la previa (los atletas a seguir de cada prueba, en cuanto se publican los inscritos); en cuanto termina, sus resultados.</p>
     </div>
     <div id="proxRange" class="data-note"></div>
+    <div class="data-note">⭐ Los destacados de la previa se eligen con criterios objetivos: plusmarquistas, campeones de España, líderes del año, internacionales, medallistas y las mejores marcas (del año y personales) de la propia lista.</div>
     <div class="comp-select-bar" id="compSelectBar"></div>
-  </section>
-
-  <!-- ===================== PREVIAS ===================== -->
-  <section class="view" id="view-previas">
-    <div class="hero">
-      <div class="eyebrow">Antes de la carrera</div>
-      <h1>Previas</h1>
-      <p>En cuanto se publica la lista de inscritos de una competición, aquí aparecen los atletas a seguir de cada prueba, en hombres y mujeres, con especial atención a los españoles. Se actualiza sola con las altas y bajas hasta el día de la carrera.</p>
-    </div>
-    <div class="data-note">⭐ Los destacados se eligen con criterios objetivos: plusmarquistas, campeones de España, líderes del año, internacionales, medallistas y las mejores marcas (del año y personales) de la propia lista.</div>
-    <div class="filters">
-      <div class="filter-group">
-        <label class="filter-label" for="prevSearch">Buscar</label>
-        <input id="prevSearch" type="search" placeholder="Competición, lugar o atleta" class="search-input">
-      </div>
-      <div class="filter-group">
-        <label class="filter-label" for="prevOnly">Mostrar</label>
-        <select id="prevOnly"><option value="con">Con inscritos publicados</option><option value="todas">Todas las próximas</option></select>
-      </div>
-    </div>
-    <div id="previasList"></div>
   </section>
 
   <!-- ===================== RESULTADOS ===================== -->
