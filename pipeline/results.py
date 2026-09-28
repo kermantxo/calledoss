@@ -152,8 +152,8 @@ def rfea_pdf_index(http, items, health):
     return n
 
 
-def rfealive_champ(http, chid, only_official=True):
-    sc = rfealive.schedule(http, chid)
+def rfealive_champ(http, chid, only_official=True, base=None):
+    sc = rfealive.schedule(http, chid, base=base or rfealive.BASE)
     evs = sc["events"]
     if not evs:
         return None, False
@@ -180,9 +180,10 @@ def by_item(http, it, health, final=False):
         kind = lv.get("kind")
         try:
             if kind == "rfealive":
-                res, complete = rfealive_champ(http, lv["chid"])
+                base = lv.get("base") or rfealive.BASE
+                res, complete = rfealive_champ(http, lv["chid"], base=base)
                 if res and res["events"] and (complete or final):
-                    return store(it, res, "RFEA Live", "https://rfealive.info/Results/Schedule?chid=" + lv["chid"])
+                    return store(it, res, "RFEA Live", base + "/Results/Schedule?chid=" + lv["chid"])
             elif kind == "wa":
                 res = worldathletics.results(http, lv["id"])
                 if res and res["events"]:

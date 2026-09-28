@@ -133,7 +133,7 @@ def _poll(http, it, at):
     for lv in it.get("live") or []:
         kind = lv.get("kind")
         if kind == "rfealive":
-            sc = rfealive.schedule(http, lv["chid"])
+            sc = rfealive.schedule(http, lv["chid"], base=lv.get("base") or rfealive.BASE)
             today_evs = [e for e in sc["events"] if e.get("date") == at.date().isoformat()] or sc["events"]
             done = [e for e in today_evs if (e.get("status") or "").lower().startswith("oficial")]
             events = []

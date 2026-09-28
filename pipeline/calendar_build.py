@@ -157,29 +157,63 @@ def _apply_detail(it, det):
 
 
 def add_times(http, items, health, days_fwd=8):
-    """Horario (primera y última prueba de cada día) a partir de RFEA Live."""
+    """Horario (primera y última prueba de cada día) a partir de RFEA Live.
+
+    Si la ficha RFEA no enlaza su RFEA Live, se busca en los índices de rfealive.info y rfealive.me
+    por nombre parecido, y solo se usa si las fechas del horario coinciden con las de la competición."""
     cache = load_json("state/rfealive_sched.json", {}) or {}
     t = today()
+    indexes = None
     for it in items:
-        chids = [x["chid"] for x in it.get("live") or [] if x.get("kind") == "rfealive"]
-        if not chids:
-            continue
         d = dt.date.fromisoformat(it["date"])
         end = dt.date.fromisoformat(it.get("end_date") or it["date"])
-        chid = chids[0]
-        if t - dt.timedelta(days=1) <= end and d <= t + dt.timedelta(days=days_fwd):
-            try:
-                sc = rfealive.schedule(http, chid)
-                cache[chid] = {"at": iso_now(), "days": _day_ranges(sc["events"])}
-            except Exception as e:
-                health.note("rfealive", "warning", "Horario de %s no disponible: %s" % (chid, e))
-        c = cache.get(chid)
-        if c and c.get("days"):
-            it["times"] = c["days"]
-            first = sorted(c["days"])[0]
-            it["time"] = c["days"][first][0]
-            it["time_end"] = c["days"][first][1]
+        soon = t - dt.timedelta(days=1) <= end and d <= t + dt.timedelta(days=days_fwd)
+        chids = [(x["chid"], x.get("base") or rfealive.BASE) for x in it.get("live") or [] if x.get("kind") == "rfealive"]
+        guessed = False
+        if not chids and soon and it.get("source") in ("RFEA", "Manual") and not it.get("intl"):
+            if indexes is None:
+                indexes = []
+                for base in (rfealive.BASE, "https://rfealive.me"):
+                    try:
+                        indexes += rfealive.index(http, base)
+                    except Exception as e:
+                        health.note("rfealive", "warning", "Índice de %s no disponible: %s" % (base, e))
+            yr = it["date"][:4]
+            chids = [(c["chid"], c["base"]) for c in indexes if yr in c["chid"][:6] and similar(c["name"], it["name"])][:3]
+            guessed = True
+        for chid, base in chids:
+            if soon:
+                try:
+                    sc = rfealive.schedule(http, chid, base=base)
+                    days = _day_ranges(sc["events"])
+                    # un horario encontrado por nombre solo vale si es de estas fechas (no de la edición anterior)
+                    if guessed and not any(it["date"] <= x <= (it.get("end_date") or it["date"]) for x in days):
+                        continue
+                    cache[chid] = {"at": iso_now(), "days": days}
+                except Exception as e:
+                    health.note("rfealive", "warning", "Horario de %s no disponible: %s" % (chid, e))
+                    continue
+            c = cache.get(chid)
+            if c and c.get("days"):
+                it["times"] = c["days"]
+                first = sorted(c["days"])[0]
+                it["time"] = c["days"][first][0]
+                it["time_end"] = c["days"][first][1]
+                if guessed:
+                    it.setdefault("live", []).append({"kind": "rfealive", "chid": chid, "base": base})
+                    it.setdefault("links", {}).setdefault("directo", base + "/Results/Schedule?chid=" + chid)
+                break
     save_json("state/rfealive_sched.json", cache, compact=True)
+
+
+def refresh_times(http, health):
+    """Solo horarios (varias veces al día): los de RFEA Live se publican pocos días antes."""
+    items = (load_json("calendar.json", {}) or {}).get("items", [])
+    if not items:
+        return 0
+    add_times(http, items, health)
+    save(items)
+    return sum(1 for x in items if x.get("time"))
 
 
 def _day_ranges(events):
