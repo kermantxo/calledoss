@@ -12,10 +12,10 @@
 - **Página principal** (`index.html`) - Una sola página con pestañas en el menú superior:
   - **Inicio** - "¿Qué encontrará en Calledoss?" con accesos a cada sección
   - **Calendario** - Todas las competiciones del año, **actualizado solo cada día**: RFEA, World Athletics (las internacionales relevantes), Cronomancha y AvaiBook/Runvasport, más las que se añadan a mano. Muestra fecha, prueba, lugar, horario (cuando se conoce) y enlaces a inscritos/resultados/directo.
-  - **Resultados** - Competiciones ya disputadas este año. Los resultados se añaden solos en cuanto se publican (PDF oficiales de RFEA, RFEA Live, World Athletics, Cronomancha, AvaiBook). Cada una muestra podios, españoles y destacados, y un botón "Ver todas las pruebas".
+  - **Resultados** - Competiciones ya disputadas este año. Cada una muestra **todas sus pruebas**, separadas en **Femenino** y **Masculino** (podio y, si se quiere, la clasificación completa). Si una fuente solo trae un sexo, se busca el otro en las demás fuentes; mientras no aparece se indica "Sin resultados femeninos/masculinos localizados todavía". Las competiciones de un solo sexo (Liga Iberdrola, Liga Joma, carreras de la mujer) muestran solo ese.
   - **En directo** - Las competiciones de hoy. Mientras hay pruebas en marcha se actualiza sola cada pocos minutos. Si una fuente no publica parciales, se muestra "Sin datos en directo" con el horario previsto.
-  - **Próximas** - Rango de 7 días: desde hoy hasta dentro de seis días (si hoy es martes, hasta el lunes), agrupado por día. Cada cita muestra **o sus resultados (si ya se ha disputado) o su previa**: los atletas a seguir de cada prueba, hombres y mujeres, en cuanto se publica la lista de inscritos (si no, "Inscritos no publicados aún"). La previa se actualiza sola con altas y bajas.
-  - **Ranking** - Líder nacional 2026 por prueba, filtrable por sexo (sigue siendo manual)
+  - **Próximas** - Rango de 7 días: desde hoy hasta dentro de seis días (si hoy es martes, hasta el lunes), agrupado por día. Cada cita muestra sus **inscritos españoles destacados** de cada prueba (mujeres y hombres) en cuanto se publica la lista; si no, "Inscritos no publicados aún". Aquí no se muestran resultados (están en su pestaña).
+  - **Ranking** - Ranking español del año con los datos oficiales de la RFEA: top 10 de cada prueba, categoría absoluta, separado en **Aire libre** y **Pista cubierta**, mujeres y hombres. Se actualiza solo cada día.
   - **Inscritos** - Lista de salida completa de una competición
 - **Panel privado** (`panel.html`, no aparece en el menú) - Con clave. Sirve para añadir a mano una competición que el calendario automático no haya encontrado (nombre, fecha, lugar, horario y enlace opcional), siempre antes del día de la prueba. También muestra avisos si alguna fuente falla y el plan de directo de hoy.
 
@@ -51,8 +51,10 @@
 
 - 2026-09-28: Previas y Próximas unidas en un solo menú (Próximas). Ya no hay pestaña Previas aparte.
 
+- 2026-09-28: Resultados con todas las pruebas y siempre separados en femenino y masculino (se completa el sexo que falte desde otras fuentes y se revisan de nuevo todas las competiciones del año). Próximas muestra solo los inscritos españoles destacados. Nuevo Ranking automático con los datos oficiales de la RFEA (aire libre y pista cubierta).
+
 ## How to Customize
 - To change colors: edit the variables at the top of `styles.css` (e.g. `--red`)
 - To add a competition the automatic calendar missed: use the private panel (`/panel`)
 - To change texts on the page: edit `index.html`
-- The national-team profiles and the ranking are still written by hand in `script.js`
+- The national-team profiles are still written by hand in `script.js`; the ranking is automatic (RFEA)
