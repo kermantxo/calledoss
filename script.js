@@ -4532,7 +4532,7 @@ function previaBody(p){
       <div class="previa-event"><h3>${esc(e.name)} <small style="color:var(--gray);font-size:14px;">· ${e.n} inscritos</small></h3>
         <div class="previa-grid">${previaCol('Femenino', e.F)}${previaCol('Masculino', e.M)}</div>
         ${e.otros.length ? previaCol('Sin sexo indicado en la lista', e.otros) : ''}
-      </div>`).join('') || '<div class="empty-state">La lista está publicada, pero ningún inscrito español cumple todavía los criterios de destacado.</div>'}`;
+      </div>`).join('') || '<div class="empty-state">Falta por confirmar la lista de inscritos</div>'}`;
 }
 
 function renderAll(){
