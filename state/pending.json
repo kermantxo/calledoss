@@ -1,12 +1,12 @@
 {
  "rfea-2026-09-19-ultra-de-gredos-1": {
   "since": "2026-09-26",
-  "tries": 9,
+  "tries": 10,
   "last": "2026-09-29"
  },
  "rfea-2026-09-26-iv-milla-de-la-ceramica": {
   "since": "2026-09-26",
-  "tries": 27,
+  "tries": 28,
   "last": "2026-09-29"
  }
 }
