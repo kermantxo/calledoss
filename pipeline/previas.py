@@ -389,7 +389,7 @@ def run(http, health, items):
         extra = EXTRA_ENTRIES.get(it["id"])
         if extra:
             rows = list(rows) + [{"event": a.get("event") or "Élite", "name": a["name"], "sex": a.get("sex", ""),
-                                  "nat": a.get("nat", ""), "club": "", "cat": "", "elite": True, "popular": False,
+                                  "nat": a.get("nat", ""), "club": a.get("club", ""), "cat": "", "elite": True, "popular": False,
                                   "anunciado": a.get("note") or "En la élite (anunciado por la organización)", "text": a["name"]}
                                  for a in extra.get("atletas", [])]
             srcs = list(srcs) + [extra.get("fuente")] if extra.get("fuente") else srcs
