@@ -1,0 +1,108 @@
+{
+ "_nota": "Calendario del circuito ADOC, temporada 2026/2027. ADOC lo publica como imagen (https://www.adocasociacion.es/calendario), así que se copia aquí a mano. El chequeo diario avisa en el panel si la imagen cambia.",
+ "fuente": "https://www.adocasociacion.es/calendario",
+ "imagen": "https://www.adocasociacion.es/img/calendario.jpg",
+ "temporada": "2026/2027",
+ "items": [
+  {
+   "name": "XLI Cross Internacional del Aceite",
+   "place": "Torredonjimeno",
+   "date": "2026-10-18",
+   "cat": "R.F.E. Atletismo",
+   "type": "Cross"
+  },
+  {
+   "name": "LXXII Cross Internacional Zornotza",
+   "place": "Amorebieta-Etxano",
+   "date": "2026-10-18",
+   "cat": "World Athletics Gold",
+   "type": "Cross"
+  },
+  {
+   "name": "XLI Cross Nacional de la Constitución",
+   "place": "Aranda de Duero",
+   "date": "2026-10-24",
+   "cat": "R.F.E. Atletismo",
+   "type": "Cross"
+  },
+  {
+   "name": "XLIII Cross Castellano Manchego",
+   "place": "Quintanar de la Orden",
+   "date": "2026-10-25",
+   "cat": "R.F.E. Atletismo",
+   "type": "Cross"
+  },
+  {
+   "name": "XLIII Cross Internacional de Itálica",
+   "place": "Santiponce",
+   "date": "2026-11-07",
+   "end_date": "2026-11-08",
+   "cat": "World Athletics Gold",
+   "type": "Cross"
+  },
+  {
+   "name": "XXII Campo a Través Internacional de Soria",
+   "place": "Soria",
+   "date": "2026-11-15",
+   "cat": "World Athletics Gold",
+   "type": "Cross"
+  },
+  {
+   "name": "XLIV C.I.C. Alcobendas (Ciudad Europea del Deporte) - Comunidad de Madrid",
+   "place": "Alcobendas",
+   "date": "2026-11-29",
+   "cat": "World Athletics Gold",
+   "type": "Cross"
+  },
+  {
+   "name": "XXXIX Santurce a Bilbao",
+   "place": "Santurce - Bilbao",
+   "date": "2026-11-29",
+   "cat": "R.F.E. Atletismo",
+   "type": "Ruta"
+  },
+  {
+   "name": "LV Cross Nacional Ayuntamiento de Cantimpalos",
+   "place": "Cantimpalos",
+   "date": "2026-12-08",
+   "cat": "R.F.E. Atletismo",
+   "type": "Cross"
+  },
+  {
+   "name": "VIII Cross Aniversario Patrimonio Mundial Alcalá de Henares",
+   "place": "Alcalá de Henares",
+   "date": "2026-12-13",
+   "cat": "R.F.E. Atletismo",
+   "type": "Cross"
+  },
+  {
+   "name": "XLVI Cross Internacional de Venta de Baños",
+   "place": "Venta de Baños",
+   "date": "2026-12-20",
+   "cat": "World Athletics Gold",
+   "type": "Cross"
+  },
+  {
+   "name": "VIII Cross Internacional de Amurrio",
+   "place": "Amurrio",
+   "date": "2026-12-27",
+   "cat": "World Athletics Silver",
+   "type": "Cross"
+  },
+  {
+   "name": "XXXIX Cross Internacional Ciudad de Valladolid",
+   "place": "Valladolid",
+   "date": "2027-01-10",
+   "cat": "World Athletics Silver",
+   "type": "Cross"
+  },
+  {
+   "name": "XCVI 10 KM Gimnástica de Ulía",
+   "place": "Donostia",
+   "date": "2027-02-14",
+   "cat": "World Athletics Label Road",
+   "type": "Ruta"
+  }
+ ],
+ "imagen_sha256": "731b3c258334c5fd70a283cc971ea8e317a8a9ffc7a881cd92626c8c2dfc5ac8"
+}

@@ -1,5 +1,6 @@
 """Construye calendar.json juntando todas las fuentes, sin duplicados."""
 import datetime as dt
+import json
 import re
 
 from bs4 import BeautifulSoup
@@ -280,6 +281,7 @@ def build(http, health):
     health.run("rfea_detail", "RFEA · fichas de competición", enrich_rfea, http, items, health, expect_min=0)
     health.run("rfealive", "RFEA Live · horarios", add_times, http, items, health, expect_min=0)
     health.run("adoc", "ADOC · pruebas asociadas", tag_adoc, http, items, expect_min=5)
+    health.run("adoc_calendar", "ADOC · calendario del circuito", add_adoc_calendar, http, items, health, expect_min=1)
     for it in items:
         for k in [k for k in it if k.startswith("_")]:
             it.pop(k)
@@ -305,6 +307,46 @@ def tag_adoc(http, items):
             n += 1
         else:
             it.pop("adoc", None)
+    return n
+
+
+def add_adoc_calendar(http, items, health):
+    """Pruebas del calendario ADOC (pipeline/adoc_calendar.json, copiado de su imagen). Si la
+    competición ya está en el calendario (misma fecha y la misma prueba), se marca como ADOC; si
+    no, se añade. Además se comprueba si ADOC ha cambiado la imagen del calendario."""
+    import hashlib
+    import os
+    src = os.path.join(os.path.dirname(__file__), "adoc_calendar.json")
+    with open(src, encoding="utf-8") as f:
+        cal = json.load(f)
+    try:
+        img = http.get(cal["imagen"], timeout=40).content
+        if hashlib.sha256(img).hexdigest() != cal.get("imagen_sha256"):
+            health.note("adoc_calendar", "warning",
+                        "ADOC ha cambiado la imagen de su calendario (%s): hay que revisar pipeline/adoc_calendar.json." % cal["fuente"])
+    except Exception as e:
+        health.note("adoc_calendar", "warning", "No se pudo comprobar el calendario de ADOC: %s" % str(e)[:80])
+    n = 0
+    for a in cal["items"]:
+        a_end = a.get("end_date") or a["date"]
+        member = [{"name": a["name"], "city": a["place"]}]
+        twin = next((it for it in items if it["date"] <= a_end and a["date"] <= (it.get("end_date") or it["date"])
+                     and (adoc.match(it, member) or similar(it["name"], a["name"]))), None)
+        if twin:
+            twin["adoc"] = True
+            twin["adoc_cat"] = a["cat"]
+            if "ADOC" not in twin.setdefault("sources", []):
+                twin["sources"].append("ADOC")
+            twin.setdefault("links", {}).setdefault("adoc", cal["fuente"])
+        else:
+            items.append({
+                "id": "adoc-%s-%s" % (a["date"], slugify(a["name"], 40)), "name": a["name"], "date": a["date"],
+                "end_date": a.get("end_date"), "place": a["place"], "type": a["type"], "cat": "ADOC",
+                "adoc_cat": a["cat"], "intl": False, "source": "ADOC", "sources": ["ADOC"], "adoc": True,
+                "links": {"info": cal["fuente"]},
+            })
+        n += 1
+    items.sort(key=lambda x: (x["date"], x["name"]))
     return n
 
 

@@ -69,7 +69,10 @@
 
 - 2026-09-29: Inicio vuelve a la primera versión del diseño Calle Doss (Hoy / Esta semana / Últimos resultados y Todas las secciones).
 
+- 2026-09-29: Calendario ADOC 2026/2027 añadido (14 pruebas, copiado de la imagen de adocasociacion.es/calendario en `pipeline/adoc_calendar.json`). Las que ya estaban en el calendario se marcan como ADOC con su categoría; Valladolid (10/01/2027) y Ulía (14/02/2027) se añaden. Si ADOC cambia la imagen, sale un aviso en el panel para actualizar el archivo.
+
 ## How to Customize
+- Para actualizar el calendario ADOC (cuando el panel avise de que ha cambiado): editar `pipeline/adoc_calendar.json` con las pruebas y fechas de la imagen nueva
 - To change colors: edit the variables at the top of `styles.css` (e.g. `--red`)
 - To add a competition the automatic calendar missed: use the private panel (`/panel`)
 - To change texts on the page: edit `index.html`

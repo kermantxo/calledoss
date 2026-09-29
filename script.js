@@ -3678,7 +3678,7 @@ function calCard(ev, todayStr){
         ${tv ? `<span>📺 ${esc(tv)}</span>` : ''}
         ${ev.links && ev.links.inscritos ? `<span>📋 Inscritos</span>` : ''}
       </span>
-      ${ev.adoc ? `<span class="type-tag" style="--c:#C0392B"><span class="dot"></span>ADOC</span>` : ''}
+      ${ev.adoc ? `<span class="type-tag" style="--c:#C0392B"><span class="dot"></span>ADOC${ev.adoc_cat ? ' · ' + esc(ev.adoc_cat) : ''}</span>` : ''}
     </span>
   </button>`;
 }
