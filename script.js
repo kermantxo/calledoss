@@ -4650,43 +4650,33 @@ async function refreshLive(){
 
 
 /* ============================================================
-   PORTADA: "Lo que puedes ver hoy" y "Lo que hay esta semana"
+   PORTADA: hoy · esta semana · últimos resultados
    ============================================================ */
 function renderHome(){
   const el = id => document.getElementById(id);
-  if(!el('homeToday')) return;
+  if(!el('nowToday')) return;
   const hoy = hoyISO();
   const live = LIVE_DATA && LIVE_DATA.date === hoy ? (LIVE_DATA.items || {}) : {};
   const today = CALENDAR.filter(c => c.date <= hoy && hoy <= (c.end_date || c.date)).sort((a,b) => (a.time||'99').localeCompare(b.time||'99'));
   const [, fin] = proximasRango();
-  const week = CALENDAR.filter(c => c.date > hoy && c.date <= fin).sort((a,b) => a.date.localeCompare(b.date) || (a.time||'99').localeCompare(b.time||'99'));
+  const next = CALENDAR.filter(c => c.date > hoy && c.date <= fin).sort((a,b) => a.date.localeCompare(b.date) || (a.time||'99').localeCompare(b.time||'99'));
+  const last = RESULTS_INDEX.filter(r => r.date && r.date <= hoy).sort((a,b) => b.date.localeCompare(a.date));
+  const line = (b, t) => `<span class="it"><b>${esc(b)}</b><span>${esc(t)}</span></span>`;
 
-  el('homeTodayDate').textContent = fechaLarga(hoy);
-  el('homeToday').innerHTML = today.length ? today.map(c => {
-    const st = (live[c.id] || {}).status;
-    const res = resultFor(c.id);
-    const chip = st === 'en directo' ? `<span class="status-chip live"><span class="live-dot"></span>En directo</span>`
-      : res ? `<span class="status-chip done">Resultados</span>` : `<span class="status-chip">Hoy${c.time ? ' · ' + esc(c.time) : ''}</span>`;
-    const go = st === 'en directo' ? ['directo', 'Ver el marcador →'] : res ? ['resultados', 'Ver resultados →'] : ['directo', 'Seguir en directo →'];
-    return `<button class="today-card ${st === 'en directo' ? 'is-live' : ''}" onclick="handleNavClick('${go[0]}')">
-      ${chip}<h3>${esc(c.name)}</h3>
-      <span class="tc-meta">${c.place ? '📍 ' + esc(c.place) : ''}${c.time ? ' · 🕒 ' + esc(c.time) + (c.time_end && c.time_end !== c.time ? '–' + esc(c.time_end) : '') : ''}</span>
-      <span class="tc-go">${go[1]}</span>
-    </button>`;
-  }).join('') : `<div class="home-empty">Hoy no hay competiciones.${week[0] ? ` La próxima es <b>${esc(week[0].name)}</b>, el ${fechaCorta(week[0].date)}.` : ''}</div>`;
-
-  el('homeWeekRange').textContent = week.length ? `${fechaCorta(week[0].date)} – ${fechaCorta(fin)}` : '';
-  if(!week.length){ el('homeWeek').innerHTML = `<div class="home-empty">No hay competiciones en los próximos días.</div>`; return; }
-  let html = '', day = null;
-  week.forEach(c => {
-    if(c.date !== day){
-      if(day) html += '</div>';
-      day = c.date;
-      html += `<h3 class="week-day">${fechaDia(c.date)}</h3><div class="week-cards">`;
-    }
-    html += calCard(c, hoy);
-  });
-  el('homeWeek').innerHTML = html + '</div>';
+  el('nowTodayN').textContent = today.length;
+  el('nowToday').innerHTML = today.length
+    ? today.slice(0,4).map(c => (live[c.id] || {}).status === 'en directo'
+        ? `<span class="it"><span class="pill-live"><span class="live-dot"></span>VIVO</span><span>${esc(c.name)}</span></span>`
+        : line(c.time || 'Hoy', c.name)).join('') + (today.length > 4 ? `<span class="it"><b></b><span>y ${today.length - 4} más</span></span>` : '')
+    : `<span class="now-empty">Hoy no hay competiciones.${next[0] ? ` La próxima: ${esc(next[0].name)} (${fechaCorta(next[0].date)}).` : ''}</span>`;
+  el('nowNextN').textContent = next.length;
+  el('nowNext').innerHTML = next.length
+    ? next.slice(0,4).map(c => line(fechaCorta(c.date), c.name)).join('') + (next.length > 4 ? `<span class="it"><b></b><span>y ${next.length - 4} más</span></span>` : '')
+    : `<span class="now-empty">No hay citas en los próximos 7 días.</span>`;
+  el('nowResN').textContent = last.length;
+  el('nowRes').innerHTML = last.length
+    ? last.slice(0,4).map(r => line(fechaCorta(r.date), r.name)).join('')
+    : `<span class="now-empty">Todavía no hay resultados.</span>`;
 }
 
 /* ============================================================
@@ -4712,3 +4702,4 @@ syncChips();
 setInterval(syncChips, 1500);   // las opciones cambian al llegar los datos automáticos
 renderHome();
 (function(){ const v = (location.hash || '').slice(1); if(SECTION_VIEWS.includes(v) && v !== 'home') goToView(v); })();
+document.querySelectorAll('.now-tile').forEach(t => t.addEventListener('click', () => handleNavClick(t.dataset.view)));
