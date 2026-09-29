@@ -4021,6 +4021,34 @@ function proximasRango(){
   return [hoyISO(), isoDe(fin)];
 }
 
+// Horario de una competición: prueba a prueba (RFEA Live) y, si está en directo, lo que queda hoy
+function horarioBlock(ev){
+  const hoy = hoyISO();
+  const live = LIVE_DATA && LIVE_DATA.date === hoy ? (LIVE_DATA.items || {})[ev.id] : null;
+  const d = (live && live.data) || {};
+  const ahora = new Date().toTimeString().slice(0, 5);
+  let html = '';
+  if(live && d.schedule && d.schedule.length){
+    html += `<div class="hor-day">Hoy · próximas pruebas${live.status === 'en directo' ? ' <span class="status-chip live"><span class="live-dot"></span>En directo</span>' : ''}</div>` +
+      d.schedule.map(x => `<div class="hor-row"><span class="hor-t">${esc(x.time)}</span><span>${esc(x.event)}${x.round ? ' · ' + esc(x.round) : ''}</span></div>`).join('');
+    if(d.events && d.events.length) html += `<div class="hor-day">Ya disputadas hoy</div>` +
+      d.events.map(e => `<div class="hor-row is-done"><span class="hor-t">${esc(e.time || '✓')}</span><span>${esc(e.name)}${e.round ? ' · ' + esc(e.round) : ''}</span></div>`).join('');
+  } else if(ev.schedule && ev.schedule.length){
+    let day = null;
+    ev.schedule.forEach(x => {
+      if(x.d !== day){ day = x.d; html += `<div class="hor-day">${fechaDia(x.d)}</div>`; }
+      const done = x.d < hoy || (x.d === hoy && x.t < ahora);
+      html += `<div class="hor-row ${done ? 'is-done' : ''}"><span class="hor-t">${esc(x.t)}</span><span>${esc(x.e)}${x.r ? ' · ' + esc(x.r) : ''}</span></div>`;
+    });
+  } else if(ev.times && Object.keys(ev.times).length){
+    html = Object.keys(ev.times).sort().map(k => `<div class="hor-row"><span class="hor-t">${ev.times[k][0]}–${ev.times[k][1]}</span><span>${fechaDia(k)}</span></div>`).join('');
+  } else if(ev.time){
+    html = `<div class="hor-row"><span class="hor-t">${esc(ev.time)}</span><span>Hora de inicio${ev.time_end && ev.time_end !== ev.time ? ' · fin previsto ' + esc(ev.time_end) : ''}</span></div>`;
+  }
+  if(!html) return `<div class="data-note">🕒 Horario sin publicar todavía. Se añadirá solo en cuanto la organización lo publique.</div>`;
+  return `<div class="horario"><h4 class="hor-title">🕒 Horario</h4>${html}</div>`;
+}
+
 function renderCompAccordion(){
   const wrap = document.getElementById('compSelectBar');
   const [ini, fin] = proximasRango();
@@ -4051,16 +4079,18 @@ function renderCompAccordion(){
       const pv = PREVIAS.find(p => p.id === ev.id);
       const hoy = hoyISO();
       body = `<div class="comp-accordion-body">
-        ${renderAutoInfo(ev, {noDest: !!pv, noPrevia: true}) || `<div class="data-note">📍 <b>${esc(ev.place||'Lugar por confirmar')}</b> — ${fechaLarga(ev.date, ev.end_date)}</div>`}
+        ${renderAutoInfo(ev, {noDest: !!pv, noPrevia: true, noTimes: !!(ev.schedule && ev.schedule.length)}) || `<div class="data-note">📍 <b>${esc(ev.place||'Lugar por confirmar')}</b> — ${fechaLarga(ev.date, ev.end_date)}</div>`}
         ${ev.date <= hoy && hoy <= (ev.end_date || ev.date) ? `<div class="data-note">🔴 <b>Es hoy.</b> <button class="comp-pill active" onclick="event.stopPropagation();handleNavClick('directo')">Ver en directo →</button></div>` : ''}
+        ${horarioBlock(ev)}
         ${previaBody(pv)}
         ${comp && comp.events.length ? `<div class="roster-grid">${renderEventBlocks(comp.id, comp.events)}</div>` : ''}
         <button class="comp-pill" style="margin-top:10px;" onclick="showCompetitionDetail('${ev.id}')">Ver ficha completa →</button>
       </div>`;
     }
+    const enDirecto = LIVE_DATA && LIVE_DATA.date === hoyISO() && ((LIVE_DATA.items || {})[ev.id] || {}).status === 'en directo';
     return `${head}
       <div class="comp-accordion-item">
-        <button class="comp-pill ${isOpen?'active':''}" data-id="${ev.id}">${esc(ev.name)}
+        <button class="comp-pill ${isOpen?'active':''}" data-id="${ev.id}">${enDirecto ? '<span class="status-chip live"><span class="live-dot"></span>En directo</span> ' : ''}${esc(ev.name)}
           <span style="color:var(--gray);font-size:12px;">${[ev.place, ev.time, etiqueta].filter(Boolean).map(x=>'· '+esc(x)).join(' ')}</span></button>
         ${body}
       </div>`;
@@ -4354,7 +4384,9 @@ function renderAutoInfo(ev, opts){
   opts = opts || {};
   if(!ev || (!ev.links && !ev.time && !ev.destacados && !ev.sources)) return '';
   const parts = [];
-  if(ev.times && Object.keys(ev.times).length){
+  if(opts.noTimes){
+    // el horario completo va en su propio bloque
+  } else if(ev.times && Object.keys(ev.times).length){
     parts.push(`<div class="data-note">🕒 <b>Horario</b><br>${Object.keys(ev.times).sort().map(d=>`${fechaDia(d)}: ${ev.times[d][0]}–${ev.times[d][1]}`).join('<br>')}</div>`);
   } else if(ev.time){
     parts.push(`<div class="data-note">🕒 <b>Hora de inicio:</b> ${ev.time}${ev.time_end && ev.time_end!==ev.time ? ' · fin previsto ' + ev.time_end : ''}</div>`);

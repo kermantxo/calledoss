@@ -193,13 +193,15 @@ def add_times(http, items, health, days_fwd=8):
                     # un horario encontrado por nombre solo vale si es de estas fechas (no de la edición anterior)
                     if guessed and not any(it["date"] <= x <= (it.get("end_date") or it["date"]) for x in days):
                         continue
-                    cache[chid] = {"at": iso_now(), "days": days}
+                    cache[chid] = {"at": iso_now(), "days": days, "schedule": _schedule(sc["events"])}
                 except Exception as e:
                     health.note("rfealive", "warning", "Horario de %s no disponible: %s" % (chid, e))
                     continue
             c = cache.get(chid)
             if c and c.get("days"):
                 it["times"] = c["days"]
+                if c.get("schedule"):
+                    it["schedule"] = c["schedule"]   # horario prueba a prueba (Próximas y En directo)
                 first = sorted(c["days"])[0]
                 it["time"] = c["days"][first][0]
                 it["time_end"] = c["days"][first][1]
@@ -253,6 +255,17 @@ def refresh_times(http, health):
     add_times(http, items, health)
     save(items)
     return sum(1 for x in items if x.get("time"))
+
+
+def _schedule(events, limit=250):
+    """Horario completo: [{d: fecha, t: hora, e: prueba, r: ronda}] ordenado por fecha y hora."""
+    out = []
+    for e in events:
+        if not e.get("date") or not re.match(r"\d{1,2}:\d{2}", e.get("time") or ""):
+            continue
+        out.append({"d": e["date"], "t": e["time"].zfill(5), "e": e.get("event", ""), "r": e.get("round", "")})
+    out.sort(key=lambda x: (x["d"], x["t"], x["e"]))
+    return out[:limit]
 
 
 def _day_ranges(events):

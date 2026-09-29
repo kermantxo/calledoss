@@ -75,6 +75,8 @@
 
 - 2026-09-29: Resultados de la IV Milla de la Cerámica (clasificación en Google Drive enlazada a mano en `pipeline/extra_links.json`). El lector de PDF entiende ahora columnas de licencia y de apellidos/nombre por separado, y el sexo en el título de cada carrera ("CONTROL A FEMENINO").
 
+- 2026-09-29: Próximas muestra el horario de cada competición: prueba a prueba cuando RFEA Live lo publica y, si la competición está en directo, las próximas pruebas de hoy y las ya disputadas (antes solo se veía en En directo).
+
 ## How to Customize
 - Para añadir una clasificación que el sistema no encuentra (p. ej. un PDF en Google Drive): añadir el enlace en `pipeline/extra_links.json` con el id de la competición
 - Para actualizar el calendario ADOC (cuando el panel avise de que ha cambiado): editar `pipeline/adoc_calendar.json` con las pruebas y fechas de la imagen nueva
