@@ -138,6 +138,39 @@ def results(http, comp_id, only_day=None):
             "events": evs}
 
 
+_MON = {"JAN": 1, "FEB": 2, "MAR": 3, "APR": 4, "MAY": 5, "JUN": 6, "JUL": 7, "AUG": 8, "SEP": 9, "OCT": 10, "NOV": 11, "DEC": 12}
+
+
+def program(http, comp_id):
+    """Programa prueba a prueba de una competición, día a día: [{d, t, e, r, done}].
+
+    World Athletics no publica la hora de cada prueba en estas competiciones (t queda vacío),
+    pero sí qué pruebas y rondas hay cada día y cuáles tienen ya resultados."""
+    import datetime as dt
+    first = _next_data(http.get("%s/results/%s" % (CAL, comp_id)).text).get("calendarEventsResults") or {}
+    days = (first.get("options") or {}).get("days") or []
+    out = []
+    for dd in days:
+        m = re.match(r"(\d{1,2}) ([A-Z]{3}) (\d{4})", dd.get("date") or "")
+        if not m:
+            continue
+        date = dt.date(int(m.group(3)), _MON.get(m.group(2), 1), int(m.group(1))).isoformat()
+        data = first if dd.get("day") in (None, 1) else (
+            _next_data(http.get("%s/results/%s?day=%s" % (CAL, comp_id, dd["day"])).text).get("calendarEventsResults") or {})
+        seen = set()
+        for block in data.get("eventTitles") or []:
+            for ev in block.get("events") or []:
+                name = _event_es(ev.get("event") or "")
+                for race in ev.get("races") or []:
+                    rnd = _round_es(race.get("race") or "")
+                    key = (name, rnd)
+                    if key in seen:
+                        continue  # varias series de la misma ronda: una sola línea
+                    seen.add(key)
+                    out.append({"d": date, "t": "", "e": name, "r": rnd, "done": bool(race.get("results"))})
+    return out
+
+
 def _nice_name(n):
     # 'Gift LEOTLELA' -> 'Gift Leotlela'
     return " ".join(w if not w.isupper() or len(w) <= 2 else w.capitalize() for w in n.split())

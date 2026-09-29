@@ -210,6 +210,19 @@ def add_times(http, items, health, days_fwd=8):
                     it.setdefault("links", {}).setdefault("directo", base + "/Results/Schedule?chid=" + chid)
                 break
     save_json("state/rfealive_sched.json", cache, compact=True)
+    # competiciones de World Athletics en curso o de esta semana: programa prueba a prueba
+    for it in items:
+        d = dt.date.fromisoformat(it["date"])
+        end = dt.date.fromisoformat(it.get("end_date") or it["date"])
+        wa_ids = [x["id"] for x in it.get("live") or [] if x.get("kind") == "wa"]
+        if not wa_ids or it.get("schedule") or not (t - dt.timedelta(days=1) <= end and d <= t + dt.timedelta(days=days_fwd)):
+            continue
+        try:
+            prog = worldathletics.program(http, wa_ids[0])
+            if prog:
+                it["schedule"] = prog
+        except Exception as e:
+            health.note("wa_calendar", "warning", "Programa de %s no disponible: %s" % (it["name"], str(e)[:60]))
     # sin horario de RFEA Live: la hora de inicio que publica su plataforma de inscripción
     # (Kirolprobak, AvaiBook...), enlazada en la ficha o en la web oficial de la competición
     for it in items:

@@ -77,6 +77,8 @@
 
 - 2026-09-29: Próximas muestra el horario de cada competición: prueba a prueba cuando RFEA Live lo publica y, si la competición está en directo, las próximas pruebas de hoy y las ya disputadas (antes solo se veía en En directo).
 
+- 2026-09-29: En Próximas, las competiciones internacionales sin españoles destacados (p. ej. Juegos Asiáticos) muestran el programa prueba a prueba de World Athletics (día, prueba y ronda; disputadas marcadas) en lugar de los inscritos.
+
 ## How to Customize
 - Para añadir una clasificación que el sistema no encuentra (p. ej. un PDF en Google Drive): añadir el enlace en `pipeline/extra_links.json` con el id de la competición
 - Para actualizar el calendario ADOC (cuando el panel avise de que ha cambiado): editar `pipeline/adoc_calendar.json` con las pruebas y fechas de la imagen nueva

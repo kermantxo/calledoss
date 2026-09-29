@@ -4021,6 +4021,15 @@ function proximasRango(){
   return [hoyISO(), isoDe(fin)];
 }
 
+// Competición internacional sin españoles destacados en su lista (p. ej. Juegos Asiáticos):
+// en Próximas no se muestran los inscritos, solo el horario / programa
+function esIntlSinEspanoles(ev, pv){
+  if(ev.type !== 'Internacional' && getFuenteCalendario(ev.id) !== 'World Athletics') return false;
+  const nEsp = pv && pv.status === 'publicados'
+    ? (pv.events||[]).reduce((n,e)=> n + espDest(e.M).length + espDest(e.F).length + espDest(e.otros).length, 0) : 0;
+  return nEsp === 0;
+}
+
 // Horario de una competición: prueba a prueba (RFEA Live) y, si está en directo, lo que queda hoy
 function horarioBlock(ev){
   const hoy = hoyISO();
@@ -4037,8 +4046,8 @@ function horarioBlock(ev){
     let day = null;
     ev.schedule.forEach(x => {
       if(x.d !== day){ day = x.d; html += `<div class="hor-day">${fechaDia(x.d)}</div>`; }
-      const done = x.d < hoy || (x.d === hoy && x.t < ahora);
-      html += `<div class="hor-row ${done ? 'is-done' : ''}"><span class="hor-t">${esc(x.t)}</span><span>${esc(x.e)}${x.r ? ' · ' + esc(x.r) : ''}</span></div>`;
+      const done = x.done != null ? x.done : (x.d < hoy || (x.d === hoy && x.t < ahora));
+      html += `<div class="hor-row ${done ? 'is-done' : ''}"><span class="hor-t">${x.t ? esc(x.t) : (done ? '✓' : '·')}</span><span>${esc(x.e)}${x.r ? ' · ' + esc(x.r) : ''}${done && !x.t ? ' <small class="hor-note">disputada</small>' : ''}</span></div>`;
     });
   } else if(ev.times && Object.keys(ev.times).length){
     html = Object.keys(ev.times).sort().map(k => `<div class="hor-row"><span class="hor-t">${ev.times[k][0]}–${ev.times[k][1]}</span><span>${fechaDia(k)}</span></div>`).join('');
@@ -4046,7 +4055,9 @@ function horarioBlock(ev){
     html = `<div class="hor-row"><span class="hor-t">${esc(ev.time)}</span><span>Hora de inicio${ev.time_end && ev.time_end !== ev.time ? ' · fin previsto ' + esc(ev.time_end) : ''}</span></div>`;
   }
   if(!html) return `<div class="data-note">🕒 Horario sin publicar todavía. Se añadirá solo en cuanto la organización lo publique.</div>`;
-  return `<div class="horario"><h4 class="hor-title">🕒 Horario</h4>${html}</div>`;
+  const sinHoras = ev.schedule && ev.schedule.length && ev.schedule.every(x => !x.t);
+  return `<div class="horario"><h4 class="hor-title">🕒 ${sinHoras ? 'Programa prueba a prueba' : 'Horario'}</h4>${html}
+    ${sinHoras ? '<div class="hor-foot">La organización no publica la hora de cada prueba; se indica el día y la ronda.</div>' : ''}</div>`;
 }
 
 function renderCompAccordion(){
@@ -4071,7 +4082,9 @@ function renderCompAccordion(){
     const pvL = PREVIAS.find(p => p.id === ev.id);
     const nDest = pvL && pvL.status === 'publicados'
       ? (pvL.events||[]).reduce((n,e)=> n + espDest(e.M).length + espDest(e.F).length + espDest(e.otros).length, 0) : 0;
-    const etiqueta = pvL && pvL.status === 'publicados'
+    const etiqueta = esIntlSinEspanoles(ev, pvL)
+      ? (ev.schedule && ev.schedule.length ? '🕒 programa prueba a prueba' : '')
+      : pvL && pvL.status === 'publicados'
       ? (nDest ? `🇪🇸 ${nDest} españoles destacados` : `📋 ${pvL.n_inscritos} inscritos`)
       : '📋 inscritos no publicados aún';
     let body = '';
@@ -4082,7 +4095,7 @@ function renderCompAccordion(){
         ${renderAutoInfo(ev, {noDest: !!pv, noPrevia: true, noTimes: !!(ev.schedule && ev.schedule.length)}) || `<div class="data-note">📍 <b>${esc(ev.place||'Lugar por confirmar')}</b> — ${fechaLarga(ev.date, ev.end_date)}</div>`}
         ${ev.date <= hoy && hoy <= (ev.end_date || ev.date) ? `<div class="data-note">🔴 <b>Es hoy.</b> <button class="comp-pill active" onclick="event.stopPropagation();handleNavClick('directo')">Ver en directo →</button></div>` : ''}
         ${horarioBlock(ev)}
-        ${previaBody(pv)}
+        ${esIntlSinEspanoles(ev, pv) ? '' : previaBody(pv)}
         ${comp && comp.events.length ? `<div class="roster-grid">${renderEventBlocks(comp.id, comp.events)}</div>` : ''}
         <button class="comp-pill" style="margin-top:10px;" onclick="showCompetitionDetail('${ev.id}')">Ver ficha completa →</button>
       </div>`;

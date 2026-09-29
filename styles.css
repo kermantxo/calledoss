@@ -947,3 +947,5 @@ table.rank td.mark{color:var(--ink);font-size:16px;}
 .hor-t{font-family:'Roboto Mono',monospace;font-weight:700;color:var(--brand-dark);}
 .hor-row.is-done{opacity:0.5;}
 .comp-pill .status-chip{margin-right:6px;vertical-align:middle;}
+.hor-note{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--gray);margin-left:4px;}
+.hor-foot{font-size:13px;color:var(--gray);margin-top:8px;}
