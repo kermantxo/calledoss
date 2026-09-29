@@ -10,7 +10,7 @@
 
 ## Pages
 - **Página principal** (`index.html`) - Una sola página con pestañas en el menú superior:
-  - **Inicio** - Titular "Entérate de los resultados, competiciones y rankings de cada modalidad", las **opciones del menú visibles** (Calendario, Resultados, En directo, Próximas, Ranking) y dos bloques: **Lo que puedes ver hoy** y **Lo que hay esta semana**. Arriba, la barra EN DIRECTO solo cuando hay competición.
+  - **Inicio** - Titular "Entérate de los resultados, competiciones y rankings de cada modalidad" y dos bloques: **Lo que puedes ver hoy** y **Lo que hay esta semana**. Arriba, la barra EN DIRECTO solo cuando hay competición.
   - **Calendario** - Lista de tarjetas por mes (fecha, lugar, hora, emisión, inscritos) con filtros de mes, localidad (las que no tienen localidad van en "Otros"), calendario (RFEA, World Athletics, Diamond League o ADOC) y competiciones pasadas. Sin modalidades a la vista. Las pruebas del circuito ADOC llevan su etiqueta.
   - **Resultados** - Competiciones ya disputadas este año. Cada una muestra **todas sus pruebas**, separadas en **Femenino** y **Masculino** (podio y, si se quiere, la clasificación completa). Si una fuente solo trae un sexo, se busca el otro en las demás fuentes; mientras no aparece se indica "Sin resultados femeninos/masculinos localizados todavía". Las competiciones de un solo sexo (Liga Iberdrola, Liga Joma, carreras de la mujer) muestran solo ese.
   - **En directo** - Las competiciones de hoy. Mientras hay pruebas en marcha se actualiza sola cada pocos minutos. Si una fuente no publica parciales, se muestra "Sin datos en directo" con el horario previsto.
@@ -65,7 +65,7 @@
 
 - 2026-09-29: Nuevo diseño Calle Doss (colores del logo, fondo claro, tarjetas, marcador en directo con medallas). Portada con dos bloques (hoy y esta semana). Calendario por secciones de modalidad, con apartado ADOC. "Por determinar" pasa a "Otros". En la web ya no aparecen los cronometradores (Cronomancha, AvaiBook...) como fuente: se muestran como RFEA, World Athletics, Diamond League o ADOC.
 
-- 2026-09-29: Calendario vuelve a la lista de tarjetas, sin modalidades (ni botones ni secciones). En Inicio se ven las opciones del menú.
+- 2026-09-29: Calendario vuelve a la lista de tarjetas, sin modalidades (ni botones ni secciones). (En Inicio se probaron las opciones del menú a la vista y se quitaron.)
 
 ## How to Customize
 - To change colors: edit the variables at the top of `styles.css` (e.g. `--red`)
