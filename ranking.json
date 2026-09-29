@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-28T18:13:04+02:00",
+ "generated": "2026-09-29T06:55:23+02:00",
  "season": "2026",
  "source": "https://atletismorfea.es/ranking",
  "seasons": {
@@ -952,23 +952,23 @@
       },
       {
        "mark": "13.27",
-       "wind": "0.7",
-       "name": "Xènia Benach Sole",
-       "club": "INDEPENDIENTE",
-       "born": "2000",
-       "fed": "CAT",
-       "city": "Granada-JUV",
-       "date": "03/06/2026",
-       "rank": "3"
-      },
-      {
-       "mark": "13.27",
        "wind": "-3.2",
        "name": "Laura Banko San Juan",
        "club": "Barrutia A.E.",
        "born": "2001",
        "fed": "PVA",
        "city": "Valladolid-REN",
+       "date": "03/06/2026",
+       "rank": "3"
+      },
+      {
+       "mark": "13.27",
+       "wind": "0.7",
+       "name": "Xènia Benach Sole",
+       "club": "INDEPENDIENTE",
+       "born": "2000",
+       "fed": "CAT",
+       "city": "Granada-JUV",
        "date": "03/06/2026",
        "rank": "="
       },
@@ -5165,23 +5165,23 @@
       },
       {
        "mark": "7.78",
-       "wind": "2.0",
-       "name": "Anthony Yunier Perez Valdes",
-       "club": "Facsa - Playas de Castellón",
-       "born": "2008",
-       "fed": "CVA",
-       "city": "Sagunto",
-       "date": "20/06/2026",
-       "rank": "9"
-      },
-      {
-       "mark": "7.78",
        "wind": "1.7",
        "name": "Daniel Amez Villayandre",
        "club": "Univ Leon Sprint Atletismo",
        "born": "2000",
        "fed": "CYL",
        "city": "León-ULE",
+       "date": "20/06/2026",
+       "rank": "9"
+      },
+      {
+       "mark": "7.78",
+       "wind": "2.0",
+       "name": "Anthony Yunier Perez Valdes",
+       "club": "Facsa - Playas de Castellón",
+       "born": "2008",
+       "fed": "CVA",
+       "city": "Sagunto",
        "date": "20/06/2026",
        "rank": "="
       }
@@ -9492,22 +9492,22 @@
       {
        "mark": "14.90",
        "wind": "",
-       "name": "Raul Martin Galve",
-       "club": "At. Intec-Zoiti",
-       "born": "2004",
-       "fed": "ARA",
-       "city": "Zaragoza",
+       "name": "Unai Loureiro Arrojo",
+       "club": "Riazor Coruña",
+       "born": "2006",
+       "fed": "GAL",
+       "city": "Ourense",
        "date": "10/01/2026",
        "rank": "4"
       },
       {
        "mark": "14.90",
        "wind": "",
-       "name": "Unai Loureiro Arrojo",
-       "club": "Riazor Coruña",
-       "born": "2006",
-       "fed": "GAL",
-       "city": "Ourense",
+       "name": "Raul Martin Galve",
+       "club": "At. Intec-Zoiti",
+       "born": "2004",
+       "fed": "ARA",
+       "city": "Zaragoza",
        "date": "10/01/2026",
        "rank": "="
       },
