@@ -10,8 +10,8 @@
 
 ## Pages
 - **Página principal** (`index.html`) - Una sola página con pestañas en el menú superior:
-  - **Inicio** - Titular "Entérate de los resultados, competiciones y rankings de cada modalidad" y dos bloques: **Lo que puedes ver hoy** (tarjetas de las competiciones de hoy, con "En directo" si hay marcador) y **Lo que hay esta semana** (tarjetas por día). Arriba, la barra EN DIRECTO solo cuando hay competición.
-  - **Calendario** - Se entra por **secciones**: Pista, Pista cubierta, Ruta, Cross, Trail y montaña, Marcha, Internacional, **ADOC** (circuito de la Asociación de Organizadores de Carreras de campo a través y de ruta) y Otras, cada una con cuántas competiciones tiene. Dentro, cada prueba es una tarjeta con fecha, lugar, hora, emisión e inscritos, y filtros de mes, localidad (las que no tienen localidad van en "Otros") y calendario (RFEA, World Athletics, Diamond League o ADOC).
+  - **Inicio** - Titular "Entérate de los resultados, competiciones y rankings de cada modalidad", las **opciones del menú visibles** (Calendario, Resultados, En directo, Próximas, Ranking) y dos bloques: **Lo que puedes ver hoy** y **Lo que hay esta semana**. Arriba, la barra EN DIRECTO solo cuando hay competición.
+  - **Calendario** - Lista de tarjetas por mes (fecha, lugar, hora, emisión, inscritos) con filtros de mes, localidad (las que no tienen localidad van en "Otros"), calendario (RFEA, World Athletics, Diamond League o ADOC) y competiciones pasadas. Sin modalidades a la vista. Las pruebas del circuito ADOC llevan su etiqueta.
   - **Resultados** - Competiciones ya disputadas este año. Cada una muestra **todas sus pruebas**, separadas en **Femenino** y **Masculino** (podio y, si se quiere, la clasificación completa). Si una fuente solo trae un sexo, se busca el otro en las demás fuentes; mientras no aparece se indica "Sin resultados femeninos/masculinos localizados todavía". Las competiciones de un solo sexo (Liga Iberdrola, Liga Joma, carreras de la mujer) muestran solo ese.
   - **En directo** - Las competiciones de hoy. Mientras hay pruebas en marcha se actualiza sola cada pocos minutos. Si una fuente no publica parciales, se muestra "Sin datos en directo" con el horario previsto.
   - **Próximas** - Rango de 7 días: desde hoy hasta dentro de seis días (si hoy es martes, hasta el lunes), agrupado por día. Cada cita muestra sus **inscritos españoles destacados** de cada prueba (mujeres y hombres) en cuanto se publica la lista; si no, "Inscritos no publicados aún". Aquí no se muestran resultados (están en su pestaña).
@@ -64,6 +64,8 @@
 - 2026-09-28: Menú en el móvil: botón ☰ arriba a la derecha que despliega las secciones en una lista grande y legible (en ordenador el menú no cambia).
 
 - 2026-09-29: Nuevo diseño Calle Doss (colores del logo, fondo claro, tarjetas, marcador en directo con medallas). Portada con dos bloques (hoy y esta semana). Calendario por secciones de modalidad, con apartado ADOC. "Por determinar" pasa a "Otros". En la web ya no aparecen los cronometradores (Cronomancha, AvaiBook...) como fuente: se muestran como RFEA, World Athletics, Diamond League o ADOC.
+
+- 2026-09-29: Calendario vuelve a la lista de tarjetas, sin modalidades (ni botones ni secciones). En Inicio se ven las opciones del menú.
 
 ## How to Customize
 - To change colors: edit the variables at the top of `styles.css` (e.g. `--red`)

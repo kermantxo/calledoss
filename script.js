@@ -3639,16 +3639,12 @@ function renderCalendar(){
   const filtered = CALENDAR.filter(ev=>{
     const evMonth = MESES[parseInt(ev.date.split('-')[1],10)-1];
     if(month && evMonth !== month) return false;
-    const sec = CAL_SECTIONS.find(x => x.key === calSection);
-    if(sec && !sec.test(ev)) return false;
     if(localidad && getCCAA(ev.place) !== localidad) return false;
     if(fuente && getFuenteCalendario(ev.id) !== fuente) return false;
     if(!showPast && (ev.end_date || ev.date) < todayStr) return false;
     return true;
   }).sort((a,b)=> a.date.localeCompare(b.date));
 
-  renderCalSections(showPast, todayStr);
-  if(!calSection) return;
   const list = document.getElementById('calList');
   if(filtered.length === 0){
     list.innerHTML = `<div class="empty-state"><h3>Sin competiciones</h3>No hay eventos que coincidan con estos filtros.</div>`;
@@ -3671,7 +3667,6 @@ function calCard(ev, todayStr){
   const wd = new Date(ev.date + 'T12:00:00').toLocaleDateString('es-ES', {weekday:'short'}).replace('.', '');
   const w = getWatchInfo(ev.id);
   const tv = w && w.channel && !/No hay streaming/i.test(w.channel) ? w.channel.replace(/<[^>]+>/g, '') : '';
-  const sec = CAL_SECTIONS.find(x => x.key !== 'todas' && x.test(ev)) || CAL_SECTIONS[CAL_SECTIONS.length - 1];
   return `<button class="cal-card ${isPast ? 'is-past' : ''} ${isToday ? 'is-today' : ''}" onclick="showCompetitionDetail('${ev.id}')">
     <span class="cal-when"><span class="wd">${esc(wd)}</span><span class="dd">${d}</span><span class="mm">${MESES[parseInt(m,10)-1].slice(0,3)}</span></span>
     <span class="cal-info">
@@ -3683,7 +3678,7 @@ function calCard(ev, todayStr){
         ${tv ? `<span>📺 ${esc(tv)}</span>` : ''}
         ${ev.links && ev.links.inscritos ? `<span>📋 Inscritos</span>` : ''}
       </span>
-      <span class="type-tag" style="--c:${sec.color}"><span class="dot"></span>${esc(sec.label)}${ev.adoc && sec.key !== 'adoc' ? ' · ADOC' : ''}</span>
+      ${ev.adoc ? `<span class="type-tag" style="--c:#C0392B"><span class="dot"></span>ADOC</span>` : ''}
     </span>
   </button>`;
 }
@@ -3701,33 +3696,6 @@ const CAL_SECTIONS = [
   {key:'adoc', label:'ADOC', color:'#C0392B', test: ev => !!ev.adoc, note:'Circuito de la Asociación de Organizadores de Carreras de campo a través y de ruta'},
   {key:'otras', label:'Otras', color:'#9A938A', test: ev => !['Pista Aire libre','Short Track','Ruta','Cross','Trail','Marcha','Internacional'].includes(ev.type)},
 ];
-let calSection = null;
-function renderCalSections(showPast, todayStr){
-  const wrap = document.getElementById('calSections');
-  const browse = document.getElementById('calBrowse');
-  const pool = CALENDAR.filter(ev => showPast || (ev.end_date || ev.date) >= todayStr);
-  wrap.hidden = !!calSection;
-  browse.hidden = !calSection;
-  if(calSection){
-    const sec = CAL_SECTIONS.find(x => x.key === calSection);
-    document.getElementById('calSectionTitle').innerHTML = `<span class="dot" style="--c:${sec.color}"></span>${esc(sec.label)}${sec.note ? `<small>${esc(sec.note)}</small>` : ''}`;
-    return;
-  }
-  wrap.innerHTML = CAL_SECTIONS.map(sec => {
-    const n = pool.filter(sec.test).length;
-    const next = pool.filter(sec.test).sort((a,b) => a.date.localeCompare(b.date)).find(ev => (ev.end_date || ev.date) >= todayStr);
-    return `<button class="cal-section ${n ? '' : 'is-empty'}" data-sec="${sec.key}" style="--c:${sec.color}">
-      <span class="cs-name">${esc(sec.label)}</span>
-      <span class="cs-count">${n}<small>${n === 1 ? 'competición' : 'competiciones'}</small></span>
-      <span class="cs-next">${next ? `Próxima: ${esc(next.name)} · ${fechaCorta(next.date)}` : 'Sin próximas citas'}</span>
-    </button>`;
-  }).join('');
-  wrap.querySelectorAll('[data-sec]').forEach(b => b.addEventListener('click', () => {
-    calSection = b.dataset.sec;
-    renderCalendar();
-    window.scrollTo({top: document.getElementById('view-calendario').offsetTop, behavior:'smooth'});
-  }));
-}
 
 populateSelect('calMonth', [...new Set(CALENDAR.map(e=>MESES[parseInt(e.date.split('-')[1],10)-1]))], 'Todos los meses');
 populateSelect('calType', [...new Set(CALENDAR.map(e=>e.type))], 'Todos los tipos');
@@ -3738,7 +3706,6 @@ document.getElementById('calShowPast').addEventListener('change', ()=>{
   document.getElementById('calToggleText').textContent = document.getElementById('calShowPast').checked ? 'Visibles' : 'Ocultas';
   renderCalendar();
 });
-document.getElementById('calBack').addEventListener('click', () => { calSection = null; renderCalendar(); });
 renderCalendar();
 
 /* ============================================================

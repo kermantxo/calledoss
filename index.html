@@ -41,6 +41,14 @@
       <h1 class="home-title">Entérate de los resultados, competiciones y rankings de cada modalidad</h1>
     </div>
 
+    <nav class="home-grid home-menu" aria-label="Secciones">
+      <button class="home-card" data-view="calendario"><span class="hc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span><span class="hc-txt"><h3>Calendario</h3><p>Todas las competiciones del año.</p></span></button>
+      <button class="home-card" data-view="resultados"><span class="hc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg></span><span class="hc-txt"><h3>Resultados</h3><p>Podios de cada prueba, femenino y masculino.</p></span></button>
+      <button class="home-card" data-view="directo"><span class="hc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M6.3 6.3a8 8 0 0 0 0 11.4M17.7 6.3a8 8 0 0 1 0 11.4M3.5 3.5a12 12 0 0 0 0 17M20.5 3.5a12 12 0 0 1 0 17"/></svg></span><span class="hc-txt"><h3>En directo</h3><p>Marcador en vivo de las competiciones de hoy.</p></span></button>
+      <button class="home-card" data-view="proximas"><span class="hc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h13M12 6l6 6-6 6"/><path d="M20 5v14"/></svg></span><span class="hc-txt"><h3>Próximas</h3><p>Los próximos 7 días y los españoles a seguir.</p></span></button>
+      <button class="home-card" data-view="ranking"><span class="hc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V13h4v7M10 20V8h4v12M16 20v-9h4v9"/></svg></span><span class="hc-txt"><h3>Ranking</h3><p>Top 10 español, aire libre y pista cubierta.</p></span></button>
+    </nav>
+
     <section class="home-block">
       <h2 class="block-title">Lo que puedes ver hoy <small id="homeTodayDate"></small></h2>
       <div class="home-cards" id="homeToday"></div>
@@ -70,9 +78,6 @@
       <p>Todas las citas del atletismo español: campeonatos RFEA, ligas de clubes, meetings y pruebas internacionales con presencia española.</p>
     </div>
 
-    <div class="cal-sections" id="calSections"></div>
-    <div id="calBrowse" hidden>
-    <div class="cal-browse-head"><button class="back-btn" id="calBack">← Todas las modalidades</button><h2 class="cal-section-title" id="calSectionTitle"></h2></div>
     <div class="filters">
       <div class="filter-group">
         <label class="filter-label" for="calMonth">Mes</label>
@@ -101,7 +106,6 @@
     </div>
 
     <div class="cal-list" id="calList"></div>
-    </div>
   </section>
 
   <!-- ===================== EN DIRECTO ===================== -->

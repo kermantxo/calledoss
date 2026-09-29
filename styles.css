@@ -937,3 +937,4 @@ table.rank td.mark{color:var(--ink);font-size:16px;}
 @media (max-width:560px){ .cal-sections{grid-template-columns:1fr 1fr;} .cal-section{min-height:118px;padding:14px;} .cs-name{font-size:22px;} .cs-count{font-size:34px;} .cs-next{display:none;} }
 .week-day{text-transform:none;}
 .week-day::first-letter{text-transform:uppercase;}
+.home-menu{padding-bottom:0;margin-bottom:34px;}
