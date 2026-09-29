@@ -4666,7 +4666,7 @@ function renderHome(){
   el('nowTodayN').textContent = today.length;
   el('nowToday').innerHTML = today.length
     ? today.slice(0,4).map(c => (live[c.id] || {}).status === 'en directo'
-        ? `<span class="it"><span class="pill-live"><span class="live-dot"></span>VIVO</span><span>${esc(c.name)}</span></span>`
+        ? `<span class="it"><span class="pill-live"><span class="live-dot"></span>DIRECTO</span><span>${esc(c.name)}</span></span>`
         : line(c.time || 'Hoy', c.name)).join('') + (today.length > 4 ? `<span class="it"><b></b><span>y ${today.length - 4} más</span></span>` : '')
     : `<span class="now-empty">Hoy no hay competiciones.${next[0] ? ` La próxima: ${esc(next[0].name)} (${fechaCorta(next[0].date)}).` : ''}</span>`;
   el('nowNextN').textContent = next.length;
