@@ -3700,7 +3700,7 @@ const CAL_SECTIONS = [
 populateSelect('calMonth', [...new Set(CALENDAR.map(e=>MESES[parseInt(e.date.split('-')[1],10)-1]))], 'Todos los meses');
 populateSelect('calType', [...new Set(CALENDAR.map(e=>e.type))], 'Todos los tipos');
 populateSelect('calCat', ordenarCCAA([...new Set(CALENDAR.map(e=>getCCAA(e.place)))]), 'Todas las localidades');
-populateSelect('calFuente', ordenarFuentes([...new Set(CALENDAR.map(e=>getFuenteCalendario(e.id)))]), 'Todos los calendarios');
+populateSelect('calFuente', ORDEN_FUENTES, 'Todos los calendarios');
 ['calMonth','calType','calCat','calFuente'].forEach(id=>document.getElementById(id).addEventListener('change', renderCalendar));
 document.getElementById('calShowPast').addEventListener('change', ()=>{
   document.getElementById('calToggleText').textContent = document.getElementById('calShowPast').checked ? 'Visibles' : 'Ocultas';
@@ -4211,7 +4211,7 @@ function renderResultsSeason(){
   populateSelect('resMonth', monthOrder, 'Todos los meses');
   populateSelect('resType', [...new Set(past.map(e=>e.type))].sort(), 'Todas las modalidades');
   populateSelect('resCat', ordenarCCAA([...new Set(past.map(e=>getCCAA(e.place)))]), 'Todas las localidades');
-  populateSelect('resFuente', ordenarFuentes([...new Set(past.map(e=>getFuenteCalendario(e.id)))]), 'Todos los calendarios');
+  populateSelect('resFuente', ORDEN_FUENTES, 'Todos los calendarios');
   ['resMonth','resType','resCat','resFuente'].forEach(id=>document.getElementById(id).addEventListener('change', renderResultsSeason));
   document.getElementById('resSearch').addEventListener('input', renderResultsSeason);
   renderResultsSeason();
@@ -4550,12 +4550,12 @@ function refreshFilters(){
   keepValue('calMonth', ()=>populateSelect('calMonth', MESES.filter(m => CALENDAR.some(e => MESES[parseInt(e.date.split('-')[1],10)-1] === m)), 'Todos los meses'));
   keepValue('calType', ()=>populateSelect('calType', [...new Set(CALENDAR.map(e=>e.type))].sort(), 'Todos los tipos'));
   keepValue('calCat', ()=>populateSelect('calCat', ordenarCCAA([...new Set(CALENDAR.map(e=>getCCAA(e.place)))]), 'Todas las localidades'));
-  keepValue('calFuente', ()=>populateSelect('calFuente', ordenarFuentes([...new Set(CALENDAR.map(e=>getFuenteCalendario(e.id)))]), 'Todos los calendarios'));
+  keepValue('calFuente', ()=>populateSelect('calFuente', ORDEN_FUENTES, 'Todos los calendarios'));
   const past = resPastEvents();
   keepValue('resMonth', ()=>populateSelect('resMonth', MESES.filter(m => past.some(e => MESES[parseInt(e.date.split('-')[1],10)-1] === m)), 'Todos los meses'));
   keepValue('resType', ()=>populateSelect('resType', [...new Set(past.map(e=>e.type))].sort(), 'Todas las modalidades'));
   keepValue('resCat', ()=>populateSelect('resCat', ordenarCCAA([...new Set(past.map(e=>getCCAA(e.place)))]), 'Todas las localidades'));
-  keepValue('resFuente', ()=>populateSelect('resFuente', ordenarFuentes([...new Set(past.map(e=>getFuenteCalendario(e.id)))]), 'Todos los calendarios'));
+  keepValue('resFuente', ()=>populateSelect('resFuente', ORDEN_FUENTES, 'Todos los calendarios'));
 }
 
 /* ============================================================
