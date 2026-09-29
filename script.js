@@ -4640,7 +4640,8 @@ function previaBody(p){
   if(!p || p.status !== 'publicados') return `<div class="empty-state"><h3>Inscritos no publicados aún</h3>Se revisa cada día. En cuanto la organización publique la lista, aquí aparecerán los inscritos españoles destacados.</div>`;
   const ch = p.changes || {};
   const evs = (p.events||[]).map(e => ({...e, M: espDest(e.M), F: espDest(e.F), otros: espDest(e.otros)}))
-    .filter(e => e.M.length || e.F.length || e.otros.length);
+    .filter(e => e.M.length || e.F.length || e.otros.length)
+    .sort((a, b) => (/(é|e)lite/i.test(b.name) ? 1 : 0) - (/(é|e)lite/i.test(a.name) ? 1 : 0));   // la élite, primero
   const conElite = evs.some(e => [...e.M, ...e.F, ...e.otros].some(a => (a.reasons||[]).some(t => t.startsWith('Dorsal de élite'))));
   return `<div class="data-note">🇪🇸 <b>Inscritos españoles destacados</b> · ${p.n_inscritos} inscritos en total
       ${conElite ? '<br>🏅 Incluye a los favoritos con <b>dorsal de élite</b> asignado por la organización (la lista no indica la nacionalidad).' : ''} · actualizado ${p.updated ? fechaCorta(p.updated.slice(0,10)) + ' ' + horaDe(p.updated) : ''}
