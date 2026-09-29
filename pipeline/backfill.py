@@ -37,7 +37,7 @@ from .sources import rfea, rfealive, worldathletics, timers, sportmaniacs, faali
 
 STATE = "state/backfill.json"
 # Súbelo cuando se añadan fuentes o lectores nuevos: todo lo "sin resultados" se vuelve a intentar.
-VERSION = 14
+VERSION = 15
 MISSING = "results/sin_resultados.json"
 START = "2026-01-01"
 COMBINED = re.compile(r"decatlon|heptatlon|pentatlon|hexatlon|octatlon|triatlon|tetratlon")
@@ -464,7 +464,7 @@ class Finder:
                 break
         if best:
             return best[0], best[1], best[2], tried
-        return
+        return None, None, None, tried
 
     def _candidates(self, it, tried):
         """Todas las fuentes posibles, en orden de fiabilidad (generador: cada una se prueba solo si hace falta)."""
