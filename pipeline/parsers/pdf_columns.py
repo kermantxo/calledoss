@@ -18,6 +18,9 @@ FIELDS = [
     ("possex", r"^(p\.?sex|psex|pos\.?sex|p\.?gen\.?sex)$"),
     ("poscat", r"^(p\.?cat|pcat|pos[.-]?cat)$"),
     ("bib", r"^(dorsal|dors|dor|bib|n[º°]\.?|n\.|no\.|núm\.?|num\.?)$"),
+    ("lic", r"^(licencia|licència|lic\.?|llicència)$"),
+    ("surname", r"^(apellidos|cognoms|apelidos|abizenak)$"),
+    ("given", r"^(nombre|nom|nome|izena)$"),
     ("name", r"^(nombre|apellidos|nom|cognoms|atleta|corredor|corredora|participante|name|surname|nombre/apellidos|nome|apelidos|izena|abizenak)$"),
     ("club", r"^(club|equipo|entidad|team|equip|clube|taldea|club/ciutat|club/ciudad|club/localidad)$"),
     ("time", r"^(tiempo|t[._]?oficial|oficial|marca|time|temps|resultado|neto|t[._]?neto|tiempo\.?oficial|tiempos|t[._]?chip|chip|final|t[._]?final|tempo|denbora)$"),
@@ -29,7 +32,7 @@ FIELDS = [
 TIME = re.compile(r"^(?:\d{1,2}:)?\d{1,2}:\d{2}(?:[.,]\d{1,3})?$")
 FEM = re.compile(r"\b(fem|femenin[oa]s?|mujer(es)?|women|dones|female|absolutaf|f)\b", re.I)
 MASC = re.compile(r"\b(masc|masculin[oa]s?|hombres?|men|homes|male|absolutam|m)\b", re.I)
-HEADER_JUNK = re.compile(r"^(diferencia|dif\.?|licencia|licència|lic\.?|f\.?nac\.?|fecha|nac\.?|pais|país|t\.?r\.?|ritmo|media|km/h|min/km|vel\.?|"
+HEADER_JUNK = re.compile(r"^(diferencia|dif\.?|f\.?nac\.?|fecha|nac\.?|pais|país|t\.?r\.?|ritmo|media|km/h|min/km|vel\.?|"
                          r"vel\.?med\.?|km\.?\d+|possexo|poscat|pos\.?sexo|--|t\.|prom\.?|"
                          r"vuelta|paso|parcial|k\d+|\d+k|pos\.?|gap|diff|retraso|localidad|poblaci[oó]n|provincia|any|nax|control|controlparcial|ultimo|1er|2º|3er|m/km)$", re.I)
 TITLE_WORDS = re.compile(r"\b(\d+\s?(km|kms|k|m|mts|metros|millas?)|km|kms|sub\s?\d+|u\d{2}|absolut[oa]?|femenin[oa]|masculin[oa]|mujer(es)?|hombres?|"
@@ -40,6 +43,8 @@ TITLE_WORDS = re.compile(r"\b(\d+\s?(km|kms|k|m|mts|metros|millas?)|km|kms|sub\s
 STRONG_TITLE = re.compile(r"(\b\d+([.,]\d+)?\s?(km|kms|k|m|mts|metros|millas?)\b|\bsub\s?\d+\b|\bu\d{2}\b|\b(absolut[oa]|femenin[oa]|masculin[oa]|"
                           r"mujeres|hombres|m[aá]ster|veteran[oa]s?|senior|s[eé]nior|j[uú]nior|juvenil|cadete|infantil|alev[ií]n|benjam[ií]n|"
                           r"prebenjam[ií]n|promesa|categor[ií]a|marat[oó]n|milla|marcha|cross|fem|masc)\b)", re.I)
+# fila de un corredor sin tiempo (retirado): empieza por su licencia ("CS9083 TORRENT...") o lleva "::"
+ROW_LIKE = re.compile(r"^[A-Z]{1,3}[-\s]?\d{3,}\b|::|\b\d+\s+\d+\s+(ABS|Sub\d+|M[aá]ste)", re.I)
 SEX_TITLE = re.compile(r"\b(hombres|mujeres|masculin[oa]s?|femenin[oa]s?|men|women)\b", re.I)
 BOILER = re.compile(r"^(clasificaci[oó]n( general)?|classificaci[oó] general|resultados?|results?|p[aá]gina \d+( de \d+)?|page \d+( of \d+)?|\d+ de \d+)$", re.I)
 
@@ -66,12 +71,15 @@ def _lines(page):
 
 def _header(ws):
     fields = [(_field(w["text"]), w) for w in ws]
+    kinds0 = {f for f, _ in fields}
+    if not ({"surname", "given"} <= kinds0):
+        fields = [("name" if f in ("surname", "given") else f, w) for f, w in fields]
     kinds = {f for f, _ in fields if f}
     if not ({"time", "real"} & kinds):
         # "Meta" es la posición si hay otra columna de tiempo; si no, es el tiempo de llegada
         fields = [("time" if (f == "pos" and norm(w["text"]) == "meta") else f, w) for f, w in fields]
         kinds = {f for f, _ in fields if f}
-    if len(kinds) >= 3 and ("time" in kinds or "real" in kinds) and ({"name", "bib", "pos"} & kinds):
+    if len(kinds) >= 3 and ("time" in kinds or "real" in kinds) and ({"name", "surname", "bib", "pos"} & kinds):
         cols = []
         for f, w in fields:
             f = f or ("name" if cols and cols[-1][0] in ("bib", "pos") else None)
@@ -147,9 +155,9 @@ def _sex(row, section):
         if key == "sex" and v.upper() in ("M", "H", "V", "HOMBRE", "MASCULINO"):
             return "M"
         # letra suelta "F"/"M" (ni la F de "FOODS" ni la M de "MARATON") o códigos tipo "F-SENIOR", "SenF", "M35"
-        if FEM.search(v) or re.search(r"(?<![A-Za-z])[FW](?![A-Za-z])|\bFEM\b|\b[FW]\d{2}\b|\dF\b|SenF|VetF|Vt\dF|(?<=[a-z])F\b", v):
+        if FEM.search(v) or re.search(r"(?<![A-Za-zÀ-ÿ])[FW](?![A-Za-zÀ-ÿ])|\bFEM\b|\b[FW]\d{2}\b|\dF\b|SenF|VetF|Vt\dF|(?<=[a-z])F\b", v):
             return "F"  # W35, SENIOR W: "women"
-        if MASC.search(v) or re.search(r"(?<![A-Za-z])M(?![A-Za-z])|\bMAS\b|\bMASC\b|\dM\b|SenM|VetM|Vt\dM|(?<=[a-z])M\b", v):
+        if MASC.search(v) or re.search(r"(?<![A-Za-zÀ-ÿ])M(?![A-Za-zÀ-ÿ])|\bMAS\b|\bMASC\b|\dM\b|SenM|VetM|Vt\dM|(?<=[a-z])M\b", v):
             return "M"
     if FEM.search(section or ""):
         return "F"
@@ -244,6 +252,7 @@ def parse(content=None, pdf=None, max_pages=3000):
                     cand = [t for t in prev_text[-4:] if t and not BOILER.match(t) and len(t) < 90
                             # una fila sin tiempo (retirado, descalificado...) no es un título: "4881 6429 Sergio ..."
                             and not re.match(r"^\d+\s+(\d{1,2}:\d{2}(:\d{2})?\s+)?\d+\s+\S", t)
+                            and not ROW_LIKE.search(t)
                             and not re.search(r"\d{1,2}[/.-]\d{1,2}[/.-]\d{2,4}", t)
                             and sum(1 for x in t.split() if _field(x)) < 2  # trozo de cabecera, no título
                             and not _fragment(t)]                          # trozo de una fila partida
@@ -300,6 +309,7 @@ def parse(content=None, pdf=None, max_pages=3000):
                     no_sex = re.sub(r"(?i)\b(masculin[oa]s?|femenin[oa]s?|hombres|mujeres|masc|fem|clasificaci[oó]n)\b", " ", text)
                     is_title = bool(STRONG_TITLE.search(no_sex)) and len(text) < 60 \
                         and not re.match(r"^(DNS|DNF|DSQ|DQ|NP|\d)", text) \
+                        and not ROW_LIKE.search(text) \
                         and sum(1 for t in text.split() if _field(t)) < 2  # "Orden Categoría P.Cat ..." es cabecera
                     if not is_title:
                         prev_text.append(text)
@@ -324,6 +334,8 @@ def parse(content=None, pdf=None, max_pages=3000):
                 pending = None
                 pending_strong = False
                 last_secs = _secs(tval)
+                if row.get("given") or row.get("surname"):
+                    row["name"] = clean("%s %s" % (row.get("given", ""), row.get("surname", "")))
                 name = _nice(row.get("name") or "")
                 if len(name) < 3 or re.match(r"^[\d\W]+$", name):
                     continue
@@ -343,10 +355,18 @@ def parse(content=None, pdf=None, max_pages=3000):
             doc.close()
 
     groups, order = {}, []
+    # secciones cuyo título dice el sexo ("CONTROL A FEMENINO") y cuyas filas casi nunca lo dicen
+    # (la columna de categoría es "Sub18", "ABS"...): manda el título
+    by_sec = {}
+    for r in rows_all:
+        by_sec.setdefault(r["section"], []).append(bool(_sex(r["row"], "")))
+    title_sex = {sec: ("F" if FEM.search(sec) else "M") for sec, flags in by_sec.items()
+                 if (FEM.search(sec or "") or MASC.search(sec or "")) and not (FEM.search(sec) and MASC.search(sec))
+                 and sum(flags) < 0.5 * len(flags)}
     for r in rows_all:
         if re.search(r"hand\s?bike|silla|wheelchair|adaptad", r["row"].get("cat") or "", re.I):
             continue  # handbike / silla de ruedas: clasificación aparte, no cuenta para el podio de la carrera
-        sex = _sex(r["row"], "" if has_sex_col else r["section"])
+        sex = title_sex.get(r["section"]) or _sex(r["row"], "" if has_sex_col else r["section"])
         for key in ((r["section"], ""), (r["section"], sex)) if sex else ((r["section"], ""),):
             if key not in groups:
                 groups[key] = []
@@ -417,7 +437,7 @@ def parse(content=None, pdf=None, max_pages=3000):
         # cabeceras de parciales y palabras de columna pegadas al título ("completo PSx Estado 5KM 10KM 15KM")
         label = re.sub(r"(\b\d+([.,]\d+)?\s?km\b[\s,]*){2,}", " ", label, flags=re.I)
         label = clean(re.sub(r"(?i)\b(completo|psx|estado|distancia:?|pos\.?)(?=\s|$)", " ", label))
-        label = " ".join(t for t in label.split() if not _field(t) and not HEADER_JUNK.match(t)
+        label = " ".join(t for t in label.split() if (norm(t) == "control" or (not _field(t) and not HEADER_JUNK.match(t)))
                          and not re.fullmatch(r"\d+[.,:]\d+[.,:]?\d*|t\.|dif\.|prom\.|km\d+[,.]?\d*", t, re.I)) or label
         seen_w, words = set(), []
         for w in label.split():  # "Absoluta Femenina Absoluta Femenina" -> "Absoluta Femenina"

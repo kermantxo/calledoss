@@ -37,7 +37,7 @@ from .sources import rfea, rfealive, worldathletics, timers, sportmaniacs, faali
 
 STATE = "state/backfill.json"
 # Súbelo cuando se añadan fuentes o lectores nuevos: todo lo "sin resultados" se vuelve a intentar.
-VERSION = 16
+VERSION = 17
 MISSING = "results/sin_resultados.json"
 START = "2026-01-01"
 COMBINED = re.compile(r"decatlon|heptatlon|pentatlon|hexatlon|octatlon|triatlon|tetratlon")
@@ -257,6 +257,12 @@ def from_pdf(http, item, url, cache, trust="index"):
     if not c["events"]:
         return None, url, "PDF sin tablas de resultados reconocibles"
     return c["events"], url, ""
+
+
+def drive_direct(url):
+    """Enlace de Google Drive ('.../file/d/<id>/view') -> descarga directa del archivo."""
+    m = re.search(r"drive\.google\.com/(?:file/d/|open\?id=|uc\?(?:export=download&)?id=)([\w-]{20,})", url or "")
+    return "https://drive.google.com/uc?export=download&id=%s" % m.group(1) if m else url
 
 
 def pdf_links_in_page(http, url):
@@ -511,7 +517,8 @@ class Finder:
                     break
 
         # 3. PDF de la ficha RFEA (de confianza) · 4. PDFs del índice RFEA con nombre parecido
-        pdfs = [(links[k], "ficha") for k in ("resultados",) if links.get(k, "").lower().split("?")[0].endswith(".pdf")]
+        pdfs = [(drive_direct(links[k]), "ficha") for k in ("resultados",)
+                if links.get(k, "").lower().split("?")[0].endswith(".pdf") or "drive.google.com" in links.get(k, "")]
         pdfs += [(p["url"], "index") for p in self.rfea_pdfs() if similar(p["title"], it["name"])]
         for u, trust in dict.fromkeys(pdfs):
             tried.append(u)

@@ -249,6 +249,7 @@ def refresh_times(http, health):
     # lo añadido en el panel (enlace a la web oficial, hora...) se junta ya, sin esperar al chequeo diario
     items = merge([[x for x in items if x.get("sources") != ["Manual"]], manual_items()])  # mismo orden que el diario
     add_adoc_calendar(http, items, health)
+    add_extra_links(items)
     add_times(http, items, health)
     save(items)
     return sum(1 for x in items if x.get("time"))
@@ -283,6 +284,7 @@ def build(http, health):
     health.run("rfealive", "RFEA Live · horarios", add_times, http, items, health, expect_min=0)
     health.run("adoc", "ADOC · pruebas asociadas", tag_adoc, http, items, expect_min=5)
     health.run("adoc_calendar", "ADOC · calendario del circuito", add_adoc_calendar, http, items, health, expect_min=1)
+    add_extra_links(items)
     for it in items:
         for k in [k for k in it if k.startswith("_")]:
             it.pop(k)
@@ -308,6 +310,20 @@ def tag_adoc(http, items):
             n += 1
         else:
             it.pop("adoc", None)
+    return n
+
+
+def add_extra_links(items):
+    """Enlaces añadidos a mano en pipeline/extra_links.json (clasificaciones en Drive, etc.)."""
+    import os
+    src = os.path.join(os.path.dirname(__file__), "extra_links.json")
+    with open(src, encoding="utf-8") as f:
+        extra = {k: v for k, v in json.load(f).items() if not k.startswith("_")}
+    n = 0
+    for it in items:
+        for k, v in (extra.get(it["id"]) or {}).items():
+            it.setdefault("links", {})[k] = v
+            n += 1
     return n
 
 

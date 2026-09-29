@@ -73,7 +73,10 @@
 
 - 2026-09-29: Quitados el buscador de Resultados y la opción "Competiciones pasadas" del Calendario (el calendario muestra solo lo que está por venir; lo pasado está en Resultados).
 
+- 2026-09-29: Resultados de la IV Milla de la Cerámica (clasificación en Google Drive enlazada a mano en `pipeline/extra_links.json`). El lector de PDF entiende ahora columnas de licencia y de apellidos/nombre por separado, y el sexo en el título de cada carrera ("CONTROL A FEMENINO").
+
 ## How to Customize
+- Para añadir una clasificación que el sistema no encuentra (p. ej. un PDF en Google Drive): añadir el enlace en `pipeline/extra_links.json` con el id de la competición
 - Para actualizar el calendario ADOC (cuando el panel avise de que ha cambiado): editar `pipeline/adoc_calendar.json` con las pruebas y fechas de la imagen nueva
 - To change colors: edit the variables at the top of `styles.css` (e.g. `--red`)
 - To add a competition the automatic calendar missed: use the private panel (`/panel`)
