@@ -248,6 +248,7 @@ def refresh_times(http, health):
         return 0
     # lo añadido en el panel (enlace a la web oficial, hora...) se junta ya, sin esperar al chequeo diario
     items = merge([[x for x in items if x.get("sources") != ["Manual"]], manual_items()])  # mismo orden que el diario
+    add_adoc_calendar(http, items, health)
     add_times(http, items, health)
     save(items)
     return sum(1 for x in items if x.get("time"))
