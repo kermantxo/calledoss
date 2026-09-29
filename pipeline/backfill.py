@@ -37,7 +37,7 @@ from .sources import rfea, rfealive, worldathletics, timers, sportmaniacs, faali
 
 STATE = "state/backfill.json"
 # Súbelo cuando se añadan fuentes o lectores nuevos: todo lo "sin resultados" se vuelve a intentar.
-VERSION = 15
+VERSION = 16
 MISSING = "results/sin_resultados.json"
 START = "2026-01-01"
 COMBINED = re.compile(r"decatlon|heptatlon|pentatlon|hexatlon|octatlon|triatlon|tetratlon")
@@ -679,7 +679,7 @@ class Finder:
         if not files:  # sin clasificación general: todas las que haya
             files = list(dict.fromkeys(a["href"] for a in soup.find_all("a", href=re.compile(r"/resultados/"))))
         pods = []
-        for h in files[:8]:
+        for h in files[:30]:  # una carrera popular puede tener un documento por categoría
             u = urljoin("https://inscripciones.runvasport.es", h)
             tried.append(u)
             try:

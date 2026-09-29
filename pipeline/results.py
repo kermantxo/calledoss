@@ -47,6 +47,27 @@ def summarize(res, is_intl):
     return podios, espanoles[:80], destacados[:40]
 
 
+def _dedupe(events):
+    """Quita las pruebas repetidas: mismo podio (mismos atletas y marcas) con otro nombre, p. ej.
+    "Clasificación Hombres" y "SUB14 MASCULINO" leídas de dos documentos de la misma carrera.
+    Se queda el nombre más descriptivo (el que no es un genérico "Clasificación ...")."""
+    def sig(ev):
+        rows = [r for rd in (ev.get("rounds") or [ev]) for r in rd.get("rows", [])[:3]]
+        return tuple((norm(r.get("name", "")), str(r.get("mark", ""))) for r in rows)
+    generic = re.compile(r"^(clasificaci[oó]n|general|carrera)\b", re.I)
+    keep = {}
+    for ev in events:
+        k = sig(ev)
+        if not k:
+            keep[id(ev)] = ev
+            continue
+        cur = keep.get(k)
+        if cur is None or (generic.search(cur.get("name", "")) and not generic.search(ev.get("name", ""))):
+            keep[k] = ev
+    out = [ev for ev in events if keep.get(sig(ev)) is ev or keep.get(id(ev)) is ev]
+    return out
+
+
 def store(item, res, source, url=None):
     """Guarda el detalle y actualiza el índice."""
     rid = item["id"] if item else "res-%s" % short_hash(url or source)
@@ -58,6 +79,7 @@ def store(item, res, source, url=None):
     if not res.get("events") and not res.get("link_only"):
         return None
     from .quality import event_sex
+    res["events"] = _dedupe(res.get("events", []))
     for ev in res.get("events", []):
         ev["sex"] = event_sex(ev)  # la web separa femenino / masculino con este dato
     res.update({"id": rid, "name": item["name"] if item else res.get("name", ""), "date": item["date"] if item else res.get("date", ""),

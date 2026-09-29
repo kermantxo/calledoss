@@ -385,6 +385,8 @@ def parse(content=None, pdf=None, max_pages=3000):
     sections = {k[0] for k in order}
     if sections and all(AGE_CAT.search(sec or "") for sec in sections):
         for want in ("F", "M"):
+            if sum(1 for k in order if k[1] == want) < 2:
+                continue  # una sola categoría de ese sexo: su clasificación ya es la general (no se duplica)
             allrows = [r for k in order if k[1] == want for r in groups[k]]
             best = [min((r["_s"] for r in groups[k] if r["_s"]), default=None) for k in order if k[1] == want]
             best = [b for b in best if b]
