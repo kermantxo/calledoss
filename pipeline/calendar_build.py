@@ -5,7 +5,7 @@ import re
 from bs4 import BeautifulSoup
 
 from .common import clean, load_json, norm, save_json, today, iso_now, slugify, short_hash
-from .sources import rfea, rfealive, worldathletics, timers
+from .sources import adoc, rfea, rfealive, worldathletics, timers
 
 STOP = set("de del la las los el y i en a al por the of and campeonato cto trofeo meeting memorial edicion "
            "carrera popular internacional ciudad 2025 2026 2027".split())
@@ -279,10 +279,33 @@ def build(http, health):
     items = merge(lists)
     health.run("rfea_detail", "RFEA · fichas de competición", enrich_rfea, http, items, health, expect_min=0)
     health.run("rfealive", "RFEA Live · horarios", add_times, http, items, health, expect_min=0)
+    health.run("adoc", "ADOC · pruebas asociadas", tag_adoc, http, items, expect_min=5)
     for it in items:
         for k in [k for k in it if k.startswith("_")]:
             it.pop(k)
     return items
+
+
+def tag_adoc(http, items):
+    """Marca las competiciones que son del circuito ADOC (cross y ruta). Si la web de ADOC no
+    responde, se usa la última lista buena (state/adoc.json)."""
+    try:
+        members = adoc.members(http)
+        if members:
+            save_json("state/adoc.json", {"at": iso_now(), "members": members}, compact=True)
+    except Exception:
+        members = []
+    members = members or (load_json("state/adoc.json", {}) or {}).get("members", [])
+    n = 0
+    for it in items:
+        m = adoc.match(it, members)
+        if m:
+            it["adoc"] = True
+            it.setdefault("links", {}).setdefault("adoc", m["url"])
+            n += 1
+        else:
+            it.pop("adoc", None)
+    return n
 
 
 def _previous(source):

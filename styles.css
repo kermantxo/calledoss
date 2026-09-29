@@ -643,3 +643,297 @@
   }
   nav.tabs button.active{border-bottom-color:var(--line);border-left-color:var(--red);padding-left:12px;}
 }
+
+/* =====================================================================
+   DISEÑO CALLE DOSS — claro y deportivo
+   Paleta del logo: terracota de pista (#D9603F) con blanco; complementario
+   turquesa solo para "lo que viene". Fondo claro para leer de un vistazo,
+   cabecera oscura para que el logo destaque.
+   ===================================================================== */
+:root{
+  --brand:#D9603F; --brand-dark:#B5482A; --brand-tint:#FBEAE4; --brand-soft:#F4C3B3;
+  --teal:#1E7A80; --teal-tint:#E3F1F1;
+  --ink:#1B1A19; --ink-2:#2A2826;
+  --bg:#F7F4F0; --bg-elevated:#EFEBE5; --card:#FFFFFF; --card-hover:#FFF8F5;
+  --ivory:#1B1A19;        /* color del texto (el nombre viene del diseño anterior) */
+  --gray:#6A645C; --gray-dim:#9A938A;
+  --line:#E8E2DA; --line-bright:#D9D1C6;
+  --red:#D9603F; --red-bright:#B5482A; --gold:#9A6400;
+  --medal-1:#E0A526; --medal-2:#B9BEC4; --medal-3:#C27A45;
+  --shadow:0 1px 2px rgba(27,26,25,0.06), 0 6px 18px rgba(27,26,25,0.06);
+  --radius:12px;
+  color-scheme:light;
+}
+body{background:var(--bg);color:var(--ink);}
+::selection{background:var(--brand);color:#fff;}
+.visually-hidden{position:absolute !important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+.lane-divider{display:none;}
+
+/* ---------- cabecera oscura con el logo ---------- */
+header{background:var(--ink);border-bottom:3px solid var(--brand);backdrop-filter:none;}
+nav.tabs button{color:#CFC8BF;}
+nav.tabs button:hover{color:#fff;}
+nav.tabs button.active{color:#fff;border-bottom-color:var(--brand);}
+.logo small{color:#A8A198;}
+.menu-toggle{border-color:#4a4643;}
+.menu-toggle span{background:#fff;}
+@media (max-width:760px){
+  nav.tabs{background:var(--ink);border-bottom-color:#000;}
+  nav.tabs button{color:#fff;border-bottom-color:#34312e;}
+  nav.tabs button.active{border-bottom-color:#34312e;border-left-color:var(--brand);}
+}
+
+/* ---------- barra de directo (solo si hay competición hoy) ---------- */
+.ticker-bar{height:38px;display:flex;align-items:stretch;background:var(--ink-2);border-bottom:none;}
+.ticker-bar[hidden]{display:none;}
+.ticker-bar.is-live{background:var(--brand);}
+.ticker-label{
+  flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:0 14px;background:#000;color:#fff;
+  font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:0.08em;text-transform:uppercase;
+}
+.ticker-bar:not(.is-live) .ticker-label .live-dot{background:#9A938A;animation:none;}
+.ticker-viewport{flex:1;overflow:hidden;display:flex;align-items:center;min-width:0;}
+.ticker-track span{color:#fff;font-size:13px;}
+.live-dot{background:var(--brand);}
+
+/* ---------- títulos ---------- */
+.hero{border-bottom:1px solid var(--line);}
+.hero p{color:var(--gray);}
+.eyebrow{color:var(--brand-dark);}
+.eyebrow::before{background:var(--brand);}
+.block-title{font-size:26px;letter-spacing:0.04em;margin:34px 0 14px;display:flex;align-items:center;gap:10px;}
+.block-title::before{content:"";width:6px;height:22px;background:var(--brand);border-radius:3px;}
+
+/* ---------- portada: lo que pasa hoy, lo que viene, resultados ---------- */
+.home-hero{padding:44px 0 26px;margin-bottom:22px;border-bottom:none;}
+.hero h1.home-title{color:var(--ink);line-height:0.95;}
+.home-lead{font-size:20px !important;color:var(--gray) !important;margin-top:10px !important;}
+.now-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:14px;}
+.now-tile{
+  text-align:left;border:none;border-radius:var(--radius);padding:20px 20px 16px;
+  display:flex;flex-direction:column;gap:8px;min-height:220px;box-shadow:var(--shadow);
+  color:var(--ink);background:var(--card);transition:transform .15s, box-shadow .15s;
+}
+.now-tile:hover{transform:translateY(-2px);box-shadow:0 2px 4px rgba(27,26,25,0.08), 0 12px 28px rgba(27,26,25,0.10);}
+.now-today{background:var(--brand);color:#fff;}
+.now-next{border-top:6px solid var(--teal);}
+.now-res{border-top:6px solid var(--medal-1);}
+.now-head{display:flex;align-items:center;gap:8px;font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.06em;text-transform:uppercase;}
+.now-head svg,.hc-ico svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.now-big{font-family:'Bebas Neue',sans-serif;font-size:64px;line-height:0.9;}
+.now-list{display:flex;flex-direction:column;gap:4px;font-size:16px;line-height:1.25;flex:1;}
+.now-list .it{display:flex;gap:8px;align-items:baseline;}
+.now-list .it b{font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;min-width:48px;opacity:0.85;}
+.now-today .now-list .it b{color:#fff;}
+.now-next .now-list .it b{color:var(--teal);}
+.now-res .now-list .it b{color:var(--gold);}
+.now-go{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.05em;margin-top:4px;}
+.now-next .now-go{color:var(--teal);} .now-res .now-go{color:var(--gold);}
+.now-empty{opacity:0.85;}
+.pill-live{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--brand-dark);border-radius:20px;
+  font-family:'Roboto Mono',monospace;font-size:11px;font-weight:700;padding:2px 8px;letter-spacing:0.06em;}
+
+.home-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:0;padding-bottom:40px;}
+.home-card{
+  max-width:none;border:none;border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow);
+  padding:18px;flex-direction:row;align-items:flex-start;gap:14px;color:var(--ink);border-top:none;
+}
+.home-card:hover{background:var(--card-hover);}
+.hc-ico{flex:0 0 auto;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--brand-tint);color:var(--brand-dark);}
+.hc-txt h3{font-size:24px;}
+.hc-txt p{color:var(--gray);font-size:15px;line-height:1.3;margin-top:2px;}
+@media (max-width:1024px){
+  .now-grid{grid-template-columns:1fr 1fr;}
+  .now-today{grid-column:1 / -1;}
+  .home-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:560px){
+  .now-grid{grid-template-columns:1fr;}
+  .now-tile{min-height:0;}
+  .now-big{font-size:52px;}
+  .home-grid{grid-template-columns:1fr;}
+  .home-hero{padding:28px 0 18px;}
+}
+
+/* ---------- chips deslizables ---------- */
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 0 12px;margin-bottom:8px;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.chips::-webkit-scrollbar{display:none;}
+.chip{
+  flex:0 0 auto;min-height:42px;padding:0 16px;border-radius:40px;background:var(--card);
+  border:1px solid var(--line-bright);color:var(--ink);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.chip small{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--gray);font-weight:500;}
+.chip .dot{width:9px;height:9px;border-radius:50%;}
+.chip.active{background:var(--brand);border-color:var(--brand);color:#fff;}
+.chip.active small{color:#fff;opacity:0.85;}
+.chips-pair{display:flex;flex-wrap:wrap;gap:6px 18px;}
+.chips-pair .chips{margin:0;}
+.filters select,.search-input{background:var(--card);border:1px solid var(--line-bright);color:var(--ink);border-radius:8px;min-height:42px;}
+.search-input{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:15px;padding:9px 14px;min-width:200px;}
+
+/* ---------- calendario en tarjetas ---------- */
+#calList.cal-list{border-top:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;}
+.cal-month{grid-column:1 / -1;font-size:24px;letter-spacing:0.04em;margin:16px 0 0;display:flex;align-items:baseline;gap:10px;}
+.cal-month small{font-family:'Roboto Mono',monospace;font-size:12px;color:var(--gray);}
+.cal-card{
+  display:grid;grid-template-columns:66px 1fr;gap:14px;text-align:left;border:none;border-radius:var(--radius);
+  background:var(--card);box-shadow:var(--shadow);padding:12px;color:var(--ink);transition:transform .12s;
+}
+.cal-card:hover{transform:translateY(-2px);}
+.cal-card.is-past{opacity:0.55;}
+.cal-card.is-today{outline:2px solid var(--brand);}
+.cal-when{border-radius:10px;background:var(--brand);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 2px;}
+.cal-card.is-past .cal-when{background:var(--gray-dim);}
+.cal-when .wd{font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;opacity:0.9;}
+.cal-when .dd{font-family:'Bebas Neue',sans-serif;font-size:36px;line-height:0.95;}
+.cal-when .mm{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;}
+.cal-info{display:flex;flex-direction:column;gap:6px;min-width:0;}
+.cal-info h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:19px;line-height:1.15;}
+.cal-facts{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:14px;color:var(--gray);}
+.cal-facts .t{color:var(--ink);font-weight:700;}
+.type-tag{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--gray);margin-top:auto;}
+.type-tag .dot,.chip .dot{background:var(--c,#9A938A);}
+@media (max-width:560px){ #calList.cal-list{grid-template-columns:1fr;} }
+
+/* ---------- listas y fichas generales ---------- */
+.cal-row{border-bottom-color:var(--line);}
+.cal-row:hover{background:var(--card);}
+.cal-date{color:var(--brand-dark);}
+.cal-date .day{color:var(--ink);}
+.tag{border-color:var(--line-bright);color:var(--gray);border-radius:20px;}
+.tag.intl{color:var(--brand-dark);border-color:var(--brand-soft);background:var(--brand-tint);}
+.tag.nac{color:var(--teal);border-color:#bfdcdc;background:var(--teal-tint);}
+.comp-pill{background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:10px;min-height:46px;font-size:16px;box-shadow:var(--shadow);}
+.comp-pill.active{border-color:var(--brand);background:var(--card-hover);color:var(--ink);}
+.comp-accordion-body{border-left-color:var(--brand);}
+.data-note{display:block;line-height:1.6;background:var(--card);border-color:var(--line);color:var(--gray);font-size:12px;border-radius:10px;}
+.data-note b{color:var(--brand-dark);}
+.empty-state{background:var(--card);border-color:var(--line-bright);border-radius:var(--radius);}
+.event-block{border:none;border-radius:var(--radius);box-shadow:var(--shadow);background:var(--card);overflow:hidden;}
+.event-block-head{border-bottom-color:var(--line);}
+.previa-event,.previa-col{color:var(--ink);}
+table.roster td,table.roster th{border-bottom-color:var(--line);}
+footer{color:var(--gray);}
+.res-sex-title{border-bottom-color:var(--brand);}
+
+/* ---------- resultados: medallas y fichas de atleta ---------- */
+.res-row{
+  display:grid;grid-template-columns:30px 38px 1fr auto;gap:10px;align-items:center;
+  padding:10px 16px;border-bottom:1px solid var(--line);animation:row-in .35s ease both;
+}
+.res-row:last-child{border-bottom:none;}
+.res-row:nth-child(2){animation-delay:.05s} .res-row:nth-child(3){animation-delay:.1s}
+.res-row.no-pos{grid-template-columns:38px 1fr auto;}
+.medal{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-family:'Bebas Neue',sans-serif;font-size:17px;
+  background:var(--bg-elevated);color:var(--gray);}
+.medal.m1{background:var(--medal-1);color:#3a2700;} .medal.m2{background:var(--medal-2);color:#23272b;} .medal.m3{background:var(--medal-3);color:#fff;}
+.avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;overflow:hidden;
+  font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:0.03em;background:var(--brand-tint);color:var(--brand-dark);}
+.avatar img{width:100%;height:100%;object-fit:cover;}
+.res-who{min-width:0;}
+.res-who b{display:block;font-size:17px;font-weight:700;line-height:1.15;}
+.res-who small{display:block;font-size:13px;color:var(--gray);}
+.res-mark{font-family:'Roboto Mono',monospace;font-weight:700;font-size:17px;text-align:right;animation:num-in .45s ease both;}
+.res-mark small{display:block;font-size:11px;color:var(--gray);font-weight:500;}
+
+/* ---------- ranking ---------- */
+table.rank thead th{background:var(--bg-elevated);color:var(--gray);border-bottom-color:var(--line);}
+table.rank tbody td{border-bottom-color:var(--line);}
+table.rank tbody tr:hover{background:var(--card-hover);}
+.rk-badge{width:28px;height:28px;border-radius:50%;display:inline-grid;place-items:center;font-family:'Bebas Neue',sans-serif;font-size:17px;background:var(--bg-elevated);color:var(--gray);}
+.rk-badge.m1{background:var(--medal-1);color:#3a2700;} .rk-badge.m2{background:var(--medal-2);color:#23272b;} .rk-badge.m3{background:var(--medal-3);color:#fff;}
+table.rank tr.top1 td{background:#FFF6E3;}
+table.rank td.mark{color:var(--ink);font-size:16px;}
+.rank-block{padding:0;}
+
+/* ---------- EN DIRECTO: marcador ---------- */
+.live-updated{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;font-family:'Roboto Mono',monospace;font-size:12px;color:var(--gray);
+  padding:8px 14px;border-radius:30px;background:var(--card);box-shadow:var(--shadow);}
+.live-updated[hidden]{display:none;}
+.live-updated b{color:var(--ink);}
+.live-grid{grid-template-columns:1fr;gap:16px;}
+.live-card{background:var(--ink);color:#fff;border:none;border-radius:var(--radius);padding:0;overflow:hidden;box-shadow:var(--shadow);border-top:5px solid #55504b;}
+.live-card.is-live{border-top-color:var(--brand);}
+.live-card-head{padding:16px 18px;margin:0;border-bottom:1px solid #34312e;}
+.live-card-head h3{font-size:26px;color:#fff;}
+.live-card-head .meet{color:#BDB6AD;}
+.live-card .mark-row{border-bottom-color:#34312e;color:#E8E2DA;padding:10px 18px;}
+.live-card .mark-row a{color:var(--brand-soft);}
+.live-card .comp-pill{background:#2A2826;color:#fff;border-color:#3a3633;box-shadow:none;}
+.live-card .data-note{background:#232120;border-color:#34312e;color:#BDB6AD;}
+.live-card .data-note b{color:var(--brand-soft);}
+.live-card .event-block{background:#232120;box-shadow:none;}
+.live-card .event-block-head{border-bottom-color:#34312e;}
+.live-card .event-block-head h3,.live-card .res-sex-title{color:#fff;}
+.live-card .res-row{border-bottom-color:#34312e;}
+.live-card .res-who b,.live-card .res-mark{color:#fff;}
+.live-card .res-who small,.live-card .res-mark small{color:#BDB6AD;}
+.live-card .empty-state{background:#232120;color:#BDB6AD;border-color:#34312e;}
+.badge-live{background:var(--brand);color:#fff;border-radius:20px;}
+.sb-event{display:flex;justify-content:space-between;gap:10px;align-items:baseline;padding:12px 18px 6px;border-top:1px solid #34312e;
+  font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.05em;}
+.sb-event small{font-family:'Roboto Mono',monospace;font-size:11px;color:#BDB6AD;}
+.sb-row{display:grid;grid-template-columns:36px 1fr auto;gap:12px;align-items:center;padding:9px 18px;border-bottom:1px solid #2c2a28;animation:row-in .35s ease both;}
+.sb-row:nth-child(2){animation-delay:.05s} .sb-row:nth-child(3){animation-delay:.1s} .sb-row:nth-child(4){animation-delay:.15s} .sb-row:nth-child(5){animation-delay:.2s}
+.sb-pos{width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font-family:'Bebas Neue',sans-serif;font-size:21px;background:#34312e;color:#fff;}
+.sb-pos.p1{background:var(--medal-1);color:#3a2700;} .sb-pos.p2{background:var(--medal-2);color:#23272b;} .sb-pos.p3{background:var(--medal-3);color:#fff;}
+.sb-name{font-size:18px;font-weight:700;text-transform:uppercase;line-height:1.1;min-width:0;}
+.sb-name small{display:block;font-size:12px;font-weight:500;color:#BDB6AD;text-transform:none;}
+.sb-mark{font-family:'Roboto Mono',monospace;font-weight:700;font-size:24px;color:#fff;animation:num-in .5s ease both;}
+.sb-mark small{font-size:11px;color:#BDB6AD;font-weight:500;}
+@keyframes row-in{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+@keyframes num-in{from{opacity:0;transform:perspective(300px) rotateX(-90deg);}to{opacity:1;transform:none;}}
+.type-tag .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+
+/* ---------- titular largo: en dos líneas si hace falta ---------- */
+.hero h1.home-title, h1.home-title{white-space:normal;font-size:clamp(34px,5.4vw,72px);line-height:1;max-width:1000px;text-wrap:balance;}
+.home-hero{padding:40px 0 22px;}
+
+/* ---------- portada: dos bloques ---------- */
+.home-block{margin-bottom:34px;}
+.block-title small{font-family:'Roboto Mono',monospace;font-size:12px;color:var(--gray);letter-spacing:0.06em;font-weight:400;margin-left:4px;}
+.home-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;}
+.today-card{
+  text-align:left;border:none;border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow);color:var(--ink);
+  padding:18px;display:flex;flex-direction:column;gap:8px;border-left:6px solid var(--line-bright);min-height:150px;
+  transition:transform .15s;
+}
+.today-card:hover{transform:translateY(-2px);}
+.today-card.is-live{border-left-color:var(--brand);background:linear-gradient(90deg, var(--brand-tint), var(--card) 60%);}
+.today-card h3{font-size:26px;line-height:1.05;}
+.today-card .tc-meta{color:var(--gray);font-size:15px;}
+.today-card .tc-go{margin-top:auto;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.05em;color:var(--brand-dark);}
+.status-chip{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font-family:'Roboto Mono',monospace;font-size:11px;font-weight:700;
+  letter-spacing:0.06em;text-transform:uppercase;padding:3px 10px;border-radius:20px;background:var(--bg-elevated);color:var(--gray);}
+.status-chip.live{background:var(--brand);color:#fff;}
+.status-chip.live .live-dot{background:#fff;}
+.status-chip.done{background:#FFF1D6;color:#8A5A00;}
+.home-empty{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;color:var(--gray);font-size:17px;}
+.home-empty b{color:var(--ink);}
+.week-day{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:17px;text-transform:capitalize;color:var(--teal);margin:16px 0 8px;letter-spacing:0.02em;}
+.week-day:first-child{margin-top:0;}
+.week-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;}
+@media (max-width:560px){ .home-cards,.week-cards{grid-template-columns:1fr;} }
+
+/* ---------- calendario: secciones por modalidad ---------- */
+.cal-sections{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin-bottom:24px;}
+.cal-sections[hidden],#calBrowse[hidden]{display:none;}
+.cal-section{
+  text-align:left;border:none;border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow);color:var(--ink);
+  padding:16px 18px;display:flex;flex-direction:column;gap:4px;border-top:6px solid var(--c);transition:transform .15s;min-height:132px;
+}
+.cal-section:hover{transform:translateY(-2px);}
+.cal-section.is-empty{opacity:0.55;}
+.cs-name{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.04em;}
+.cs-count{font-family:'Bebas Neue',sans-serif;font-size:40px;line-height:0.95;color:var(--c);}
+.cs-count small{font-family:'Barlow Condensed',sans-serif;font-size:15px;color:var(--gray);margin-left:6px;font-weight:600;}
+.cs-next{font-size:14px;color:var(--gray);line-height:1.25;margin-top:auto;}
+.cal-browse-head{display:flex;flex-direction:column;gap:2px;margin-bottom:12px;}
+.cal-browse-head .back-btn{margin-bottom:0;color:var(--brand-dark);min-height:44px;align-self:flex-start;}
+.cal-section-title{font-size:38px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.cal-section-title .dot{width:16px;height:16px;border-radius:50%;background:var(--c);}
+.cal-section-title small{flex-basis:100%;font-family:'Barlow Condensed',sans-serif;font-size:16px;color:var(--gray);text-transform:none;letter-spacing:0;}
+@media (max-width:560px){ .cal-sections{grid-template-columns:1fr 1fr;} .cal-section{min-height:118px;padding:14px;} .cs-name{font-size:22px;} .cs-count{font-size:34px;} .cs-next{display:none;} }
+.week-day{text-transform:none;}
+.week-day::first-letter{text-transform:uppercase;}

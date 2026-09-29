@@ -3294,7 +3294,12 @@ function goToView(viewName){
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   document.getElementById('view-'+viewName).classList.add('active');
   window.scrollTo({top:0, behavior:'smooth'});
+  if(SECTION_VIEWS.includes(viewName)){
+    const h = viewName === 'home' ? location.pathname + location.search : '#' + viewName;
+    if((location.hash || '') !== (viewName === 'home' ? '' : h)) history.replaceState(null, '', h);
+  }
 }
+const SECTION_VIEWS = ['home', 'calendario', 'resultados', 'directo', 'proximas', 'ranking'];
 
 function goHome(){
   goToView('home');
@@ -3330,14 +3335,16 @@ document.querySelectorAll('.home-card').forEach(card=>{
 function refreshTicker(){
   const hoy = hoyISO();
   const vivos = LIVE_DATA && LIVE_DATA.date === hoy ? Object.values(LIVE_DATA.items||{}).filter(l=>l.status==='en directo') : [];
-  let items = vivos.map(l => `EN DIRECTO — ${l.name}${l.place?' ('+l.place+')':''}`);
-  if(!items.length){
-    const [ini, fin] = proximasRango();
-    items = CALENDAR.filter(c => c.date >= ini && c.date <= fin).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,8)
-      .map(c => `${fechaCorta(c.date)} — ${c.name}${c.place?' · '+c.place:''}`);
-  }
+  const deHoy = CALENDAR.filter(c => c.date <= hoy && hoy <= (c.end_date || c.date));
+  const bar = document.getElementById('tickerBar');
+  // la barra solo aparece cuando hay competición hoy (roja si hay algo en directo)
+  if(!vivos.length && !deHoy.length){ bar.hidden = true; return; }
+  bar.hidden = false;
+  bar.classList.toggle('is-live', vivos.length > 0);
+  document.getElementById('tickerLabelText').textContent = vivos.length ? 'En directo' : 'Hoy';
+  const items = (vivos.length ? vivos : deHoy).map(l => `${l.name}${l.place ? ' · ' + l.place : ''}${!vivos.length && l.time ? ' · ' + l.time : ''}`);
   const html = items.map(t=>`<span>● ${esc(t)}</span>`).join('');
-  document.getElementById('tickerTrack').innerHTML = html + html;
+  document.getElementById('tickerTrack').innerHTML = html + html + html;
 }
 
 /* ============================================================
@@ -3583,24 +3590,34 @@ function getCCAA(place){
   const n = normalizarLocalidad(place);
   const sinCubierta = n.replace(/\s*\((I|PISTA CUBIERTA)\)$/, '').trim();
   const found = CCAA_POR_LOCALIDAD[n] || CCAA_POR_LOCALIDAD[sinCubierta] || CCAA_POR_LOCALIDAD[sinCubierta + ' (I)'];
-  if(found) return found;
+  if(found) return found === 'Por determinar' ? 'Otros' : found;   // sin localidad definida → "Otros"
   const pais = n.match(/\(([A-Z]{3})\)\s*$/);
   if(pais && pais[1] !== 'ESP') return 'Internacional';
   return 'Otros';
 }
-const ORDEN_CCAA = ['Andalucía','Aragón','Asturias','Islas Baleares','Canarias','Cantabria','Castilla y León','Castilla-La Mancha','Cataluña','Comunidad Valenciana','Extremadura','Galicia','Madrid','Murcia','Navarra','País Vasco','La Rioja','Internacional','Por determinar','Otros'];
+const ORDEN_CCAA = ['Andalucía','Aragón','Asturias','Islas Baleares','Canarias','Cantabria','Castilla y León','Castilla-La Mancha','Cataluña','Comunidad Valenciana','Extremadura','Galicia','Madrid','Murcia','Navarra','País Vasco','La Rioja','Internacional','Otros'];
 function ordenarCCAA(valores){
   return [...valores].sort((a,b)=> ORDEN_CCAA.indexOf(a) - ORDEN_CCAA.indexOf(b));
 }
 function getFuenteCalendario(id){
-  const auto = CALENDAR.find(c=>c.id===id);
-  if(auto && auto.source) return auto.source === 'Manual' ? 'Añadida a mano' : auto.source;
-  if(id.startsWith('dl-')) return 'Diamond League';
-  if(id.startsWith('cross-')) return 'ADOC';
-  if(id.startsWith('rfea-')) return 'RFEA';
+  const ev = CALENDAR.find(c=>c.id===id);
+  if(id.startsWith('dl-') || (ev && /diamond league/i.test(ev.name))) return 'Diamond League';
+  if(id.startsWith('cross-') || (ev && ev.adoc)) return 'ADOC';
+  if(ev && (ev.source === 'World Athletics' || (ev.intl && ev.source === 'Manual'))) return 'World Athletics';
+  if(ev || id.startsWith('rfea-')) return 'RFEA';   // RFEA, cronometradores y lo añadido a mano
   return 'World Athletics';
 }
-const ORDEN_FUENTES = ['RFEA','World Athletics','Cronomancha','AvaiBook (Runvasport)','ADOC','Diamond League','Añadida a mano'];
+// Nombre visible de una fuente de datos: los cronometradores y plataformas de inscripción
+// (Cronomancha, AvaiBook, Runvasport...) se muestran bajo la entidad que corresponde
+function sourceLabel(src, ev){
+  const s = String(src || '');
+  if(/world athletics/i.test(s)) return 'World Athletics';
+  if(/diamond/i.test(s)) return 'Diamond League';
+  if(ev && ev.adoc) return 'ADOC';
+  if(/rfea live/i.test(s)) return 'RFEA Live';
+  return 'RFEA';
+}
+const ORDEN_FUENTES = ['RFEA','World Athletics','Diamond League','ADOC'];
 function ordenarFuentes(valores){
   return [...valores].sort((a,b)=> ORDEN_FUENTES.indexOf(a) - ORDEN_FUENTES.indexOf(b));
 }
@@ -3622,35 +3639,94 @@ function renderCalendar(){
   const filtered = CALENDAR.filter(ev=>{
     const evMonth = MESES[parseInt(ev.date.split('-')[1],10)-1];
     if(month && evMonth !== month) return false;
-    if(type && ev.type !== type) return false;
+    const sec = CAL_SECTIONS.find(x => x.key === calSection);
+    if(sec && !sec.test(ev)) return false;
     if(localidad && getCCAA(ev.place) !== localidad) return false;
     if(fuente && getFuenteCalendario(ev.id) !== fuente) return false;
-    if(!showPast && ev.date < todayStr) return false;
+    if(!showPast && (ev.end_date || ev.date) < todayStr) return false;
     return true;
   }).sort((a,b)=> a.date.localeCompare(b.date));
 
+  renderCalSections(showPast, todayStr);
+  if(!calSection) return;
   const list = document.getElementById('calList');
   if(filtered.length === 0){
     list.innerHTML = `<div class="empty-state"><h3>Sin competiciones</h3>No hay eventos que coincidan con estos filtros.</div>`;
     return;
   }
-
+  let lastMonth = null;
   list.innerHTML = filtered.map(ev=>{
-    const [y,m,d] = ev.date.split('-');
-    const isIntl = ev.type === "Internacional";
-    const isPast = ev.date < todayStr;
-    return `
-    <div class="cal-row" style="cursor:pointer;${isPast?'opacity:0.55':''}" onclick="showCompetitionDetail('${ev.id}')">
-      <div class="cal-date"><span class="day">${d}</span>${MESES[parseInt(m,10)-1].slice(0,3).toUpperCase()} ${y}</div>
-      <div>
-        <div class="cal-name">${esc(ev.name)}</div>
-        <div class="cal-place">${esc(ev.place)}${calMeta(ev)}</div>
-      </div>
-      <div class="cal-place">${ev.place}</div>
-      <div class="tag ${isIntl?'intl':'nac'}">${ev.type}</div>
-      <div class="cal-arrow">→</div>
-    </div>`;
+    const [y,m] = ev.date.split('-');
+    const head = (y+m) !== lastMonth ? `<h2 class="cal-month">${MESES[parseInt(m,10)-1]} <small>${y}</small></h2>` : '';
+    lastMonth = y+m;
+    return head + calCard(ev, todayStr);
   }).join('');
+}
+
+// Tarjeta de una competición (calendario y portada)
+function calCard(ev, todayStr){
+  const [y,m,d] = ev.date.split('-');
+  const isPast = (ev.end_date || ev.date) < todayStr;
+  const isToday = ev.date <= todayStr && todayStr <= (ev.end_date || ev.date);
+  const wd = new Date(ev.date + 'T12:00:00').toLocaleDateString('es-ES', {weekday:'short'}).replace('.', '');
+  const w = getWatchInfo(ev.id);
+  const tv = w && w.channel && !/No hay streaming/i.test(w.channel) ? w.channel.replace(/<[^>]+>/g, '') : '';
+  const sec = CAL_SECTIONS.find(x => x.key !== 'todas' && x.test(ev)) || CAL_SECTIONS[CAL_SECTIONS.length - 1];
+  return `<button class="cal-card ${isPast ? 'is-past' : ''} ${isToday ? 'is-today' : ''}" onclick="showCompetitionDetail('${ev.id}')">
+    <span class="cal-when"><span class="wd">${esc(wd)}</span><span class="dd">${d}</span><span class="mm">${MESES[parseInt(m,10)-1].slice(0,3)}</span></span>
+    <span class="cal-info">
+      <h4>${esc(ev.name)}</h4>
+      <span class="cal-facts">
+        ${ev.place ? `<span>📍 ${esc(ev.place)}</span>` : ''}
+        ${ev.end_date && ev.end_date !== ev.date ? `<span>hasta el ${fechaCorta(ev.end_date)}</span>` : ''}
+        ${ev.time ? `<span class="t">🕒 ${esc(ev.time)}</span>` : ''}
+        ${tv ? `<span>📺 ${esc(tv)}</span>` : ''}
+        ${ev.links && ev.links.inscritos ? `<span>📋 Inscritos</span>` : ''}
+      </span>
+      <span class="type-tag" style="--c:${sec.color}"><span class="dot"></span>${esc(sec.label)}${ev.adoc && sec.key !== 'adoc' ? ' · ADOC' : ''}</span>
+    </span>
+  </button>`;
+}
+
+// Secciones del calendario: se entra en una para ver sus competiciones
+const CAL_SECTIONS = [
+  {key:'todas', label:'Todas', color:'#1B1A19', test: () => true},
+  {key:'pista', label:'Pista', color:'#D9603F', test: ev => ev.type === 'Pista Aire libre'},
+  {key:'cubierta', label:'Pista cubierta', color:'#B5482A', test: ev => ev.type === 'Short Track'},
+  {key:'ruta', label:'Ruta', color:'#1E7A80', test: ev => ev.type === 'Ruta'},
+  {key:'cross', label:'Cross', color:'#5E8C3A', test: ev => ev.type === 'Cross'},
+  {key:'trail', label:'Trail y montaña', color:'#8A6A45', test: ev => ev.type === 'Trail'},
+  {key:'marcha', label:'Marcha', color:'#3E6FA8', test: ev => ev.type === 'Marcha'},
+  {key:'intl', label:'Internacional', color:'#1B1A19', test: ev => ev.type === 'Internacional'},
+  {key:'adoc', label:'ADOC', color:'#C0392B', test: ev => !!ev.adoc, note:'Circuito de la Asociación de Organizadores de Carreras de campo a través y de ruta'},
+  {key:'otras', label:'Otras', color:'#9A938A', test: ev => !['Pista Aire libre','Short Track','Ruta','Cross','Trail','Marcha','Internacional'].includes(ev.type)},
+];
+let calSection = null;
+function renderCalSections(showPast, todayStr){
+  const wrap = document.getElementById('calSections');
+  const browse = document.getElementById('calBrowse');
+  const pool = CALENDAR.filter(ev => showPast || (ev.end_date || ev.date) >= todayStr);
+  wrap.hidden = !!calSection;
+  browse.hidden = !calSection;
+  if(calSection){
+    const sec = CAL_SECTIONS.find(x => x.key === calSection);
+    document.getElementById('calSectionTitle').innerHTML = `<span class="dot" style="--c:${sec.color}"></span>${esc(sec.label)}${sec.note ? `<small>${esc(sec.note)}</small>` : ''}`;
+    return;
+  }
+  wrap.innerHTML = CAL_SECTIONS.map(sec => {
+    const n = pool.filter(sec.test).length;
+    const next = pool.filter(sec.test).sort((a,b) => a.date.localeCompare(b.date)).find(ev => (ev.end_date || ev.date) >= todayStr);
+    return `<button class="cal-section ${n ? '' : 'is-empty'}" data-sec="${sec.key}" style="--c:${sec.color}">
+      <span class="cs-name">${esc(sec.label)}</span>
+      <span class="cs-count">${n}<small>${n === 1 ? 'competición' : 'competiciones'}</small></span>
+      <span class="cs-next">${next ? `Próxima: ${esc(next.name)} · ${fechaCorta(next.date)}` : 'Sin próximas citas'}</span>
+    </button>`;
+  }).join('');
+  wrap.querySelectorAll('[data-sec]').forEach(b => b.addEventListener('click', () => {
+    calSection = b.dataset.sec;
+    renderCalendar();
+    window.scrollTo({top: document.getElementById('view-calendario').offsetTop, behavior:'smooth'});
+  }));
 }
 
 populateSelect('calMonth', [...new Set(CALENDAR.map(e=>MESES[parseInt(e.date.split('-')[1],10)-1]))], 'Todos los meses');
@@ -3662,6 +3738,7 @@ document.getElementById('calShowPast').addEventListener('change', ()=>{
   document.getElementById('calToggleText').textContent = document.getElementById('calShowPast').checked ? 'Visibles' : 'Ocultas';
   renderCalendar();
 });
+document.getElementById('calBack').addEventListener('click', () => { calSection = null; renderCalendar(); });
 renderCalendar();
 
 /* ============================================================
@@ -3885,12 +3962,13 @@ const LIVE_BADGE = {
 
 function liveRows(rows){
   if(!rows || !rows.length) return '';
-  return rows.map(r=>`
-    <div class="mark-row">
-      <span class="rk">${esc(r.pos||'')}</span>
-      <span>${esc(r.name||'')}${(r.nat||r.club)?`<br><small style="color:var(--gray)">${esc([r.nat, r.club].filter(Boolean).join(' · '))}</small>`:''}</span>
-      <span class="mono">${esc(r.mark||'')}${r.note?` <small>${esc(r.note)}</small>`:''}</span>
-    </div>`).join('');
+  return `<div class="sb-rows">${rows.map(r=>{
+    const p = parseInt(r.pos, 10);
+    return `<div class="sb-row">
+      <span class="sb-pos ${p>=1 && p<=3 ? 'p'+p : ''}">${esc(r.pos||'·')}</span>
+      <span class="sb-name">${esc(r.name||'')}${(r.nat||r.club)?`<small>${esc([r.nat, r.club].filter(Boolean).join(' · '))}</small>`:''}</span>
+      <span class="sb-mark">${esc(r.mark||'')}${r.note?` <small>${esc(r.note)}</small>`:''}</span>
+    </div>`;}).join('')}</div>`;
 }
 
 function horarioPrevisto(l){
@@ -3908,16 +3986,16 @@ function renderLive(){
     if(!items.some(i=>i.id===c.id)) items.push({id:c.id, name:c.name, place:c.place, first:c.time, last:c.time_end, links:c.links||{}, status:'pendiente'});
   });
   if(items.length === 0){
-    upd.style.display = 'none';
-    grid.innerHTML = `<div class="empty-state"><h3>Sin competiciones en curso</h3></div>`;
+    upd.hidden = true;
+    grid.innerHTML = `<div class="empty-state"><h3>Sin competiciones en curso</h3>Cuando haya pruebas hoy, aquí verás el marcador en vivo.</div>`;
     return;
   }
   const order = {'en directo':0,'sin datos en directo':1,'pendiente':2,'finalizado':3};
   items.sort((a,b)=> (order[a.status]??9)-(order[b.status]??9) || (a.first||'99').localeCompare(b.first||'99'));
   if(LIVE_DATA && LIVE_DATA.generated){
-    upd.style.display = '';
-    upd.innerHTML = `🔄 Última comprobación: <b>${horaDe(LIVE_DATA.generated)}</b>. La página se actualiza sola.`;
-  } else upd.style.display = 'none';
+    upd.hidden = false;
+    upd.innerHTML = `<span class="live-dot"></span> Actualizado a las <b>${horaDe(LIVE_DATA.generated)}</b> · se actualiza solo, sin recargar`;
+  } else upd.hidden = true;
 
   grid.innerHTML = items.map(l=>{
     const res = resultFor(l.id);
@@ -3931,7 +4009,7 @@ function renderLive(){
     } else if(isOpen){
       if(d.events && d.events.length){
         body += d.events.map(e=>`
-          <div class="mark-row" style="grid-template-columns:1fr"><span><b>${esc(e.name)}</b>${e.round?` · ${esc(e.round)}`:''}${e.time?` · ${esc(e.time)}`:''}</span></div>
+          <div class="sb-event"><span>${esc(e.name)}</span><small>${esc([e.round, e.time].filter(Boolean).join(' · '))}</small></div>
           ${liveRows(e.rows)}`).join('');
         if(d.pdf) body += `<div class="mark-row" style="grid-template-columns:1fr"><span>📄 <a href="${d.pdf}" target="_blank" rel="noopener">Resultados en PDF</a></span></div>`;
       } else {
@@ -3944,7 +4022,7 @@ function renderLive(){
       if(links) body += `<div class="mark-row" style="grid-template-columns:1fr"><span>${links}</span></div>`;
     }
     return `
-    <div class="live-card">
+    <div class="live-card ${b.live ? 'is-live' : ''}">
       <div class="live-card-head" style="cursor:pointer" data-toggle="${l.id}">
         <div>
           <h3>${esc(l.name)}</h3>
@@ -4079,7 +4157,7 @@ function resPastEvents(){
   const past = CALENDAR.filter(ev => ev.date >= inicio && ev.date <= hoy);
   // resultados publicados que no están en el calendario (p. ej. PDFs de RFEA de citas internacionales)
   RESULTS_INDEX.filter(r => !r.cal_id && r.date && r.date >= inicio && !past.some(p=>p.id===r.id)).forEach(r=>{
-    past.push({id:r.id, date:r.date, name:r.name, place:r.place||'', type:'Internacional', cat:r.source, source:r.source, _resultOnly:true});
+    past.push({id:r.id, date:r.date, name:r.name, place:r.place||'', type:'Internacional', cat:sourceLabel(r.source), source:sourceLabel(r.source), _resultOnly:true});
   });
   return past.sort((a,b)=> b.date.localeCompare(a.date));
 }
@@ -4211,8 +4289,8 @@ function renderRanking(){
     <div class="event-block rank-block">
       <div class="event-block-head"><h3>${esc(e.event)}</h3><span>Top ${e.rows.length}</span></div>
       <table class="rank"><thead><tr><th>#</th><th>Marca</th><th>Atleta</th><th class="hide-sm">Club</th><th class="hide-sm">Lugar · fecha</th></tr></thead>
-      <tbody>${e.rows.map(r => `<tr>
-        <td class="rk">${esc(r.rank)}</td>
+      <tbody>${e.rows.map((r, i) => `<tr class="${i === 0 ? 'top1' : ''}">
+        <td class="rk"><span class="rk-badge ${i < 3 ? 'm' + (i + 1) : ''}">${esc(r.rank)}</span></td>
         <td class="mark">${esc(r.mark)}${r.wind ? ` <small>(${esc(r.wind)})</small>` : ''}</td>
         <td>${esc(r.name)}${r.born ? ` <small class="club">${esc(r.born)}</small>` : ''}<div class="club show-sm">${esc(r.club)}</div></td>
         <td class="club hide-sm">${esc(r.club)}${r.fed ? ` · ${esc(r.fed)}` : ''}</td>
@@ -4321,7 +4399,7 @@ function renderAutoInfo(ev, opts){
   if(pv && !opts.noPrevia) parts.push(`<div class="data-note">${pv.status === 'publicados'
     ? `⭐ <b>Previa disponible</b> (${pv.n_inscritos} inscritos) en Próximas.`
     : '📋 Inscritos no publicados aún.'}</div>`);
-  if(ev.sources && ev.sources.length) parts.push(`<div class="data-note" style="font-size:13px;color:var(--gray)">Datos: ${ev.sources.map(esc).join(', ')}</div>`);
+  if(ev.sources && ev.sources.length) parts.push(`<div class="data-note" style="font-size:13px;color:var(--gray)">Datos: ${[...new Set(ev.sources.map(x => sourceLabel(x, ev)))].map(esc).join(', ')}</div>`);
   return parts.join('');
 }
 
@@ -4329,13 +4407,23 @@ function resultFor(calId){
   return RESULTS_INDEX.find(r => r.cal_id === calId || r.id === calId) || null;
 }
 
+function initials(name){
+  const w = (name||'').replace(/[^\p{L}\s'-]/gu,' ').split(/\s+/).filter(x => x && x.length > 1 && !/^(de|del|la|las|los|y|da|van|von)$/i.test(x));
+  return (((w[0]||'')[0] || '') + ((w[1]||'')[0] || '')).toUpperCase();
+}
+function athleteBadge(r){
+  return `<span class="avatar" aria-hidden="true">${r.photo ? `<img src="${esc(r.photo)}" alt="" loading="lazy">` : esc(initials(r.name))}</span>`;
+}
 function resultTable(rows, showNat){
-  return `<div class="athlete-list">${rows.map(r=>`
-    <div class="athlete-row">
-      <div class="athlete-row-name">${esc(r.pos ? r.pos + '. ' : '')}${esc(r.name)}</div>
-      <div class="athlete-row-ref">${esc([showNat && r.nat ? r.nat : '', r.club || r.cat || ''].filter(Boolean).join(' · '))}</div>
-      <div class="athlete-row-meta"><span><b>Marca:</b> ${esc(r.mark || '—')}${r.wind ? ' ('+esc(r.wind)+')' : ''}${r.note ? ' · '+esc(r.note) : ''}</span></div>
-    </div>`).join('')}</div>`;
+  return `<div class="athlete-list">${rows.map(r=>{
+    const p = parseInt(r.pos, 10);
+    const ref = [showNat && r.nat ? r.nat : '', r.club || r.cat || ''].filter(Boolean).join(' · ');
+    return `<div class="res-row ${r.pos ? '' : 'no-pos'}">
+      ${r.pos ? `<span class="medal ${p>=1 && p<=3 ? 'm'+p : ''}">${esc(r.pos)}</span>` : ''}
+      ${athleteBadge(r)}
+      <span class="res-who"><b>${esc(r.name)}</b>${ref ? `<small>${esc(ref)}</small>` : ''}</span>
+      <span class="res-mark">${esc(r.mark || '—')}${r.wind || r.note ? `<small>${esc([r.wind ? '('+r.wind+')' : '', r.note||''].filter(Boolean).join(' '))}</small>` : ''}</span>
+    </div>`;}).join('')}</div>`;
 }
 
 // Sexo de una prueba (el pipeline lo guarda en ev.sex; si no, se deduce del nombre)
@@ -4404,7 +4492,7 @@ function renderResultSummary(r){
       ${resultTable(r.destacados.map(x=>({...x, club: x.event + (x.round ? ' · ' + x.round : '')})), false)}</div>`);
   }
   setTimeout(() => fillResultEvents(r.id), 0);
-  return `<div class="data-note">🏁 Resultados · ${r.n_podios || r.events || ''} pruebas · fuente: <b>${esc(r.source)}</b>${r.url ? ` · <a href="${esc(r.url)}" target="_blank" rel="noopener">original</a>` : ''}</div>
+  return `<div class="data-note">🏁 Resultados · ${r.n_podios || r.events || ''} pruebas · fuente: <b>${esc(sourceLabel(r.source, CALENDAR.find(c => c.id === r.cal_id)))}</b>${r.url ? ` · <a href="${esc(r.url)}" target="_blank" rel="noopener">original</a>` : ''}</div>
     ${r.incomplete ? `<div class="data-note" style="border-color:var(--gold);">⚠️ <b>Clasificación incompleta.</b> ${esc(r.incomplete)}${r.url ? ` <a href="${esc(r.url)}" target="_blank" rel="noopener">Ver la clasificación completa en el documento oficial →</a>` : ''}</div>` : ''}
     ${blocks.length ? `<div class="roster-grid">${blocks.join('')}</div>` : ''}
     <div data-res-full="${r.id}">${RESULT_FILES[r.id] ? '' : '<div class="data-note">Cargando todas las pruebas…</div>'}</div>`;
@@ -4457,7 +4545,11 @@ function applyAutoCalendar(auto){
     }
   });
   CALENDAR.length = 0;
-  out.forEach(x => CALENDAR.push(x));
+  out.forEach(x => {
+    // la categoría visible nunca es un cronometrador (Cronomancha, Runvasport...): va bajo su entidad
+    if(/runvasport|cronomancha|avaibook|timingsys|sportmaniacs/i.test(x.cat || '')) x.cat = x.adoc ? 'ADOC' : 'RFEA';
+    CALENDAR.push(x);
+  });
   // los resultados apuntan al id automático: se enlazan también a la ficha elaborada
   CALENDAR.forEach(c => (c.alias||[]).forEach(id => RESULTS_INDEX.forEach(r => { if(r.cal_id === id) r.cal_id = c.id; })));
 }
@@ -4539,6 +4631,7 @@ function previaBody(p){
 
 function renderAll(){
   refreshFilters();
+  renderHome();
   renderCalendar();
   renderResultsSeason();
   renderCompAccordion();
@@ -4587,3 +4680,68 @@ async function refreshLive(){
   // al elegir una sección, el menú se cierra
   document.querySelectorAll('#tabs button').forEach(b => b.addEventListener('click', () => setOpen(false)));
 })();
+
+
+/* ============================================================
+   PORTADA: "Lo que puedes ver hoy" y "Lo que hay esta semana"
+   ============================================================ */
+function renderHome(){
+  const el = id => document.getElementById(id);
+  if(!el('homeToday')) return;
+  const hoy = hoyISO();
+  const live = LIVE_DATA && LIVE_DATA.date === hoy ? (LIVE_DATA.items || {}) : {};
+  const today = CALENDAR.filter(c => c.date <= hoy && hoy <= (c.end_date || c.date)).sort((a,b) => (a.time||'99').localeCompare(b.time||'99'));
+  const [, fin] = proximasRango();
+  const week = CALENDAR.filter(c => c.date > hoy && c.date <= fin).sort((a,b) => a.date.localeCompare(b.date) || (a.time||'99').localeCompare(b.time||'99'));
+
+  el('homeTodayDate').textContent = fechaLarga(hoy);
+  el('homeToday').innerHTML = today.length ? today.map(c => {
+    const st = (live[c.id] || {}).status;
+    const res = resultFor(c.id);
+    const chip = st === 'en directo' ? `<span class="status-chip live"><span class="live-dot"></span>En directo</span>`
+      : res ? `<span class="status-chip done">Resultados</span>` : `<span class="status-chip">Hoy${c.time ? ' · ' + esc(c.time) : ''}</span>`;
+    const go = st === 'en directo' ? ['directo', 'Ver el marcador →'] : res ? ['resultados', 'Ver resultados →'] : ['directo', 'Seguir en directo →'];
+    return `<button class="today-card ${st === 'en directo' ? 'is-live' : ''}" onclick="handleNavClick('${go[0]}')">
+      ${chip}<h3>${esc(c.name)}</h3>
+      <span class="tc-meta">${c.place ? '📍 ' + esc(c.place) : ''}${c.time ? ' · 🕒 ' + esc(c.time) + (c.time_end && c.time_end !== c.time ? '–' + esc(c.time_end) : '') : ''}</span>
+      <span class="tc-go">${go[1]}</span>
+    </button>`;
+  }).join('') : `<div class="home-empty">Hoy no hay competiciones.${week[0] ? ` La próxima es <b>${esc(week[0].name)}</b>, el ${fechaCorta(week[0].date)}.` : ''}</div>`;
+
+  el('homeWeekRange').textContent = week.length ? `${fechaCorta(week[0].date)} – ${fechaCorta(fin)}` : '';
+  if(!week.length){ el('homeWeek').innerHTML = `<div class="home-empty">No hay competiciones en los próximos días.</div>`; return; }
+  let html = '', day = null;
+  week.forEach(c => {
+    if(c.date !== day){
+      if(day) html += '</div>';
+      day = c.date;
+      html += `<h3 class="week-day">${fechaDia(c.date)}</h3><div class="week-cards">`;
+    }
+    html += calCard(c, hoy);
+  });
+  el('homeWeek').innerHTML = html + '</div>';
+}
+
+/* ============================================================
+   CHIPS: botones deslizables que manejan un desplegable oculto
+   ============================================================ */
+function syncChips(){
+  document.querySelectorAll('[data-chips-for]').forEach(wrap => {
+    const sel = document.getElementById(wrap.dataset.chipsFor);
+    if(!sel) return;
+    const opts = [...sel.options];
+    const sig = opts.map(o => o.value + '|' + o.text).join('§') + '#' + sel.value;
+    if(wrap.dataset.sig === sig) return;
+    wrap.dataset.sig = sig;
+    wrap.innerHTML = opts.map(o => `<button type="button" class="chip ${o.value === sel.value ? 'active' : ''}" data-v="${esc(o.value)}">${esc(o.text.replace(/^Todas las modalidades$/, 'Todas'))}</button>`).join('');
+    wrap.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
+      sel.value = c.dataset.v;
+      sel.dispatchEvent(new Event('change'));
+      syncChips();
+    }));
+  });
+}
+syncChips();
+setInterval(syncChips, 1500);   // las opciones cambian al llegar los datos automáticos
+renderHome();
+(function(){ const v = (location.hash || '').slice(1); if(SECTION_VIEWS.includes(v) && v !== 'home') goToView(v); })();
