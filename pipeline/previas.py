@@ -115,6 +115,18 @@ def list_links(http, page, depth=1):
     return list(dict.fromkeys(pdfs))[:6]
 
 
+def _load_extra_entries():
+    import json, os
+    try:
+        with open(os.path.join(os.path.dirname(__file__), "extra_entries.json"), encoding="utf-8") as f:
+            return {k: v for k, v in json.load(f).items() if not k.startswith("_")}
+    except Exception:
+        return {}
+
+
+EXTRA_ENTRIES = _load_extra_entries()
+
+
 def _race_of(cuota):
     """'Sub14 Femenino (2012 - 2013)' -> 'Sub14'; 'Popular - Senior Federadas Masc' -> 'Popular - Senior Federadas'."""
     c = re.sub(r"\(.*?\)", "", cuota or "")
@@ -330,6 +342,9 @@ def select(rows, ath, comp_type=""):
                 reasons.append("%sª mejor marca personal de la lista (%s)" % (pb_rank[i] + 1, r.get("pb")))
             if r.get("elite") and score:
                 score += 15; reasons.append("Sale con la élite")  # solo suma si ya tiene otros méritos
+            if r.get("anunciado"):
+                reasons.insert(0, r["anunciado"])
+                score = max(score, MIN_SCORE)
             if r.get("bib") and r.get("elite"):
                 # dorsal de élite asignado por la organización (Rockthesport): favorito aunque no lo conozcamos
                 reasons.append("Dorsal de élite nº %s" % r["bib"])
@@ -370,6 +385,14 @@ def run(http, health, items):
         except Exception as e:
             health.note("previas", "warning", "Inscritos de '%s': %s" % (it["name"], e))
             rows, srcs = [], []
+        # élite anunciada por la organización / prensa (pipeline/extra_entries.json)
+        extra = EXTRA_ENTRIES.get(it["id"])
+        if extra:
+            rows = list(rows) + [{"event": a.get("event") or "Élite", "name": a["name"], "sex": a.get("sex", ""),
+                                  "nat": a.get("nat", ""), "club": "", "cat": "", "elite": True, "popular": False,
+                                  "anunciado": a.get("note") or "En la élite (anunciado por la organización)", "text": a["name"]}
+                                 for a in extra.get("atletas", [])]
+            srcs = list(srcs) + [extra.get("fuente")] if extra.get("fuente") else srcs
         entry = {"id": it["id"], "name": it["name"], "date": it["date"], "end_date": it.get("end_date"),
                  "place": it.get("place", ""), "type": it.get("type"), "links": it.get("links", {}),
                  "checked": iso_now(), "race_day": it["date"] <= t.isoformat() <= (it.get("end_date") or it["date"])}

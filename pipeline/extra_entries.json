@@ -1,0 +1,18 @@
+{
+ "_nota": "Atletas de élite anunciados por la organización o la prensa cuando no hay lista oficial legible. Clave: id de la competición. Se añaden a la previa con la fuente indicada.",
+ "rfea-2026-10-03-xxxviii-milla-internacional-de-berango": {
+  "fuente": "https://www.deia.eus/otros-deportes/2026/09/29/milla-berango-regresa-duelo-campeones-11597786.html",
+  "atletas": [
+   {"name": "Mariano García", "sex": "M", "nat": "ESP", "event": "Milla élite", "note": "Campeón del mundo de 1.500 m"},
+   {"name": "Isaac Nader", "sex": "M", "nat": "POR", "event": "Milla élite", "note": "Campeón del mundo de 1.500 m"},
+   {"name": "Markel Fernández", "sex": "M", "nat": "ESP", "event": "Relevo 4x400 mixto"},
+   {"name": "Ángel González", "sex": "M", "nat": "ESP", "event": "Relevo 4x400 mixto"},
+   {"name": "Juan José de la Rosa", "sex": "M", "nat": "ESP", "event": "Relevo 4x400 mixto"},
+   {"name": "Manuel Bea", "sex": "M", "nat": "ESP", "event": "Relevo 4x400 mixto"},
+   {"name": "Blanca Hervás", "sex": "F", "nat": "ESP", "event": "Relevo 4x400 mixto"},
+   {"name": "Eva Santidrián", "sex": "F", "nat": "ESP", "event": "Relevo 4x400 mixto"},
+   {"name": "Herminia Parra", "sex": "F", "nat": "ESP", "event": "Relevo 4x400 mixto"},
+   {"name": "Daniela Fra", "sex": "F", "nat": "ESP", "event": "Relevo 4x400 mixto"}
+  ]
+ }
+}

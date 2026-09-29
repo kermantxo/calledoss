@@ -86,7 +86,10 @@
 
 - 2026-09-29: Una competición terminada (el directo la da por finalizada o todas sus pruebas tienen resultado) deja de salir en Inicio, Próximas, En directo, la barra superior y el Calendario: solo queda en Resultados.
 
+- 2026-09-29: Previas con élite anunciada por la organización/prensa cuando no hay lista oficial legible (`pipeline/extra_entries.json`). Milla de Berango: Mariano García, Isaac Nader y el relevo 4x400 mixto.
+
 ## How to Customize
+- Para añadir la élite anunciada de una prueba: editar `pipeline/extra_entries.json` (id de la competición, fuente y atletas)
 - Si se añaden estadísticas o publicidad: cargarlas solo si `hasCookieConsent('estadisticas')` / `hasCookieConsent('publicidad')` (script.js) y actualizar `cookies.html`
 - Para añadir una clasificación que el sistema no encuentra (p. ej. un PDF en Google Drive): añadir el enlace en `pipeline/extra_links.json` con el id de la competición
 - Para actualizar el calendario ADOC (cuando el panel avise de que ha cambiado): editar `pipeline/adoc_calendar.json` con las pruebas y fechas de la imagen nueva
