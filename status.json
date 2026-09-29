@@ -50,11 +50,11 @@
   },
   "rfealive": {
    "label": "RFEA Live · horarios",
-   "last_run": "2026-09-29T11:34:06+02:00",
+   "last_run": "2026-09-29T12:02:50+02:00",
    "ok": true,
-   "last_ok": "2026-09-29T11:36:09+02:00",
+   "last_ok": "2026-09-29T12:04:57+02:00",
    "fails_in_a_row": 0,
-   "last_count": 0
+   "last_count": 64
   },
   "destacados": {
    "label": "Atletas destacados (listas de salida)",
@@ -102,9 +102,9 @@
   },
   "previas": {
    "label": "Previas (listas de inscritos)",
-   "last_run": "2026-09-29T11:37:15+02:00",
+   "last_run": "2026-09-29T12:04:57+02:00",
    "ok": true,
-   "last_ok": "2026-09-29T11:56:09+02:00",
+   "last_ok": "2026-09-29T12:24:36+02:00",
    "fails_in_a_row": 0,
    "last_count": 9
   },
@@ -608,5 +608,5 @@
    "msg": "Directo de 'Taiyuan Marathon': HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235590"
   }
  ],
- "updated": "2026-09-29T12:24:22+02:00"
+ "updated": "2026-09-29T12:24:36+02:00"
 }
