@@ -949,3 +949,50 @@ table.rank td.mark{color:var(--ink);font-size:16px;}
 .comp-pill .status-chip{margin-right:6px;vertical-align:middle;}
 .hor-note{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--gray);margin-left:4px;}
 .hor-foot{font-size:13px;color:var(--gray);margin-top:8px;}
+
+/* ---------- aviso de cookies ---------- */
+.cookie-banner{
+  position:fixed;left:16px;right:16px;bottom:16px;z-index:100;max-width:720px;margin:0 auto;
+  background:var(--card);color:var(--ink);border-radius:14px;border-top:5px solid var(--brand);
+  box-shadow:0 12px 40px rgba(27,26,25,0.25);padding:18px 20px;display:flex;flex-direction:column;gap:12px;
+}
+.cookie-banner[hidden]{display:none;}
+.cookie-banner h2{font-size:24px;letter-spacing:0.04em;}
+.cookie-banner p{font-size:15px;line-height:1.4;color:var(--gray);margin-top:4px;}
+.cookie-banner a{color:var(--brand-dark);text-decoration:underline;}
+.cb-settings{display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--line);padding-top:12px;}
+.cb-settings[hidden]{display:none;}
+.cb-opt{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--gray);line-height:1.35;cursor:pointer;}
+.cb-opt input{width:20px;height:20px;margin-top:2px;accent-color:var(--brand);flex:0 0 auto;}
+.cb-opt b{display:block;color:var(--ink);font-size:15px;}
+.cb-actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;}
+.cb-btn{
+  min-height:44px;padding:0 18px;border-radius:40px;border:2px solid var(--ink);background:var(--card);color:var(--ink);
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;flex:1 1 auto;
+}
+.cb-btn[hidden]{display:none;}
+.cb-primary{background:var(--brand);border-color:var(--brand);color:#fff;}
+.footer-links a,.link-btn{color:inherit;text-decoration:underline;}
+.link-btn{background:none;border:none;padding:0;font:inherit;cursor:pointer;}
+@media (max-width:560px){ .cookie-banner{left:10px;right:10px;bottom:10px;padding:16px;} .cb-btn{flex:1 1 30%;padding:0 10px;} }
+
+/* ---------- páginas legales ---------- */
+.logo{text-decoration:none;}
+nav.tabs-static a{
+  color:#CFC8BF;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.05em;
+  padding:10px 16px;border-bottom:3px solid transparent;text-decoration:none;
+}
+nav.tabs-static a:hover{color:#fff;}
+@media (max-width:760px){ nav.tabs-static{display:none;} }
+.legal{max-width:820px;}
+.legal section{margin-bottom:28px;}
+.legal h2{font-size:28px;letter-spacing:0.03em;margin-bottom:8px;}
+.legal p,.legal li{font-size:17px;line-height:1.55;color:var(--ink);}
+.legal p + p{margin-top:10px;}
+.legal ul{margin:10px 0 0 22px;}
+.legal a{color:var(--brand-dark);text-decoration:underline;}
+.legal code{font-family:'Roboto Mono',monospace;font-size:14px;background:var(--bg-elevated);padding:1px 6px;border-radius:4px;}
+.legal-table-wrap{overflow-x:auto;margin:12px 0;}
+.legal-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:10px;overflow:hidden;box-shadow:var(--shadow);font-size:15px;}
+.legal-table th{text-align:left;background:var(--bg-elevated);padding:10px 12px;font-family:'Roboto Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--gray);}
+.legal-table td{padding:10px 12px;border-top:1px solid var(--line);vertical-align:top;}

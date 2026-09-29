@@ -17,6 +17,7 @@
   - **Próximas** - Rango de 7 días: desde hoy hasta dentro de seis días (si hoy es martes, hasta el lunes), agrupado por día. Cada cita muestra sus **inscritos españoles destacados** de cada prueba (mujeres y hombres) en cuanto se publica la lista; si no, "Inscritos no publicados aún". Aquí no se muestran resultados (están en su pestaña).
   - **Ranking** - Ranking español del año con los datos oficiales de la RFEA: top 10 de cada prueba, categoría absoluta, separado en **Aire libre** y **Pista cubierta**, mujeres y hombres. Se actualiza solo cada día.
   - **Inscritos** - Lista de salida completa de una competición
+- **Política de cookies** (`cookies.html`) - Qué se guarda (solo lo necesario), terceros, cómo cambiar la elección. Faltan los datos del titular: [NOMBRE DEL TITULAR], [NIF], [DIRECCIÓN], [EMAIL DE CONTACTO].
 - **Panel privado** (`panel.html`, no aparece en el menú) - Con clave. Sirve para añadir a mano una competición que el calendario automático no haya encontrado (nombre, fecha, lugar, horario y enlace opcional), siempre antes del día de la prueba. También muestra avisos si alguna fuente falla y el plan de directo de hoy.
 
 ## Cómo se actualizan los datos (sin tocar nada)
@@ -35,6 +36,8 @@
 - `script.js` - funcionamiento de pestañas y filtros, fichas hechas a mano (selección, ranking) y la lectura de los datos automáticos (al final del archivo)
 - `panel.html` + `panel.js` - panel privado
 - `images/logo.png` - logo de Calledoss
+- `fonts/` - tipografías servidas desde la propia web (sin Google Fonts)
+- `cookies.html` - política de cookies
 - `data/` - copia de respaldo de los datos automáticos
 - `pipeline/` - los programas que recogen los datos (scrapers en Python)
 - `.github/workflows/` - las tareas programadas
@@ -79,7 +82,10 @@
 
 - 2026-09-29: En Próximas, las competiciones internacionales sin españoles destacados (p. ej. Juegos Asiáticos) muestran el programa prueba a prueba de World Athletics (día, prueba y ronda; disputadas marcadas) en lugar de los inscritos.
 
+- 2026-09-29: Aviso de cookies en la primera visita (Aceptar / Rechazar / Configurar, con Estadísticas y Publicidad desactivadas porque no se usan), enlace "Configurar cookies" y página de Política de cookies en el pie. Tipografías servidas desde la propia web.
+
 ## How to Customize
+- Si se añaden estadísticas o publicidad: cargarlas solo si `hasCookieConsent('estadisticas')` / `hasCookieConsent('publicidad')` (script.js) y actualizar `cookies.html`
 - Para añadir una clasificación que el sistema no encuentra (p. ej. un PDF en Google Drive): añadir el enlace en `pipeline/extra_links.json` con el id de la competición
 - Para actualizar el calendario ADOC (cuando el panel avise de que ha cambiado): editar `pipeline/adoc_calendar.json` con las pruebas y fechas de la imagen nueva
 - To change colors: edit the variables at the top of `styles.css` (e.g. `--red`)

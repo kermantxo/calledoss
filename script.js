@@ -4748,3 +4748,51 @@ setInterval(syncChips, 1500);   // las opciones cambian al llegar los datos auto
 renderHome();
 (function(){ const v = (location.hash || '').slice(1); if(SECTION_VIEWS.includes(v) && v !== 'home') goToView(v); })();
 document.querySelectorAll('.now-tile').forEach(t => t.addEventListener('click', () => handleNavClick(t.dataset.view)));
+
+/* ============================================================
+   COOKIES: aviso en la primera visita y configuración
+   La elección se guarda en este navegador (localStorage, clave
+   "calledoss-cookies") durante 12 meses. Si algún día se añaden
+   estadísticas o publicidad, solo deben cargarse si
+   hasCookieConsent('estadisticas') / hasCookieConsent('publicidad').
+   ============================================================ */
+const COOKIE_KEY = 'calledoss-cookies';
+function readCookieChoice(){
+  try {
+    const c = JSON.parse(localStorage.getItem(COOKIE_KEY) || 'null');
+    if(c && c.fecha && (Date.now() - new Date(c.fecha).getTime()) < 365 * 864e5) return c;
+  } catch(e) {}
+  return null;
+}
+function hasCookieConsent(cat){
+  const c = readCookieChoice();
+  return !!(c && c[cat]);
+}
+(function(){
+  const banner = document.getElementById('cookieBanner');
+  if(!banner) return;
+  const settings = document.getElementById('cbSettings');
+  const stats = document.getElementById('cbStats'), ads = document.getElementById('cbAds');
+  const btnSave = document.getElementById('cbSave'), btnConfig = document.getElementById('cbConfig');
+  const save = (estadisticas, publicidad) => {
+    try { localStorage.setItem(COOKIE_KEY, JSON.stringify({v:1, necesarias:true, estadisticas, publicidad, fecha:new Date().toISOString()})); } catch(e) {}
+    banner.hidden = true;
+  };
+  const open = (withSettings) => {
+    const c = readCookieChoice();
+    stats.checked = !!(c && c.estadisticas);
+    ads.checked = !!(c && c.publicidad);
+    settings.hidden = !withSettings;
+    btnSave.hidden = !withSettings;
+    btnConfig.hidden = !!withSettings;
+    banner.hidden = false;
+  };
+  document.getElementById('cbAccept').addEventListener('click', () => save(true, true));
+  document.getElementById('cbReject').addEventListener('click', () => save(false, false));
+  btnConfig.addEventListener('click', () => open(true));
+  btnSave.addEventListener('click', () => save(stats.checked, ads.checked));
+  const link = document.getElementById('openCookieSettings');
+  if(link) link.addEventListener('click', () => open(true));
+  if(location.hash === '#configurar-cookies') open(true);
+  else if(!readCookieChoice()) open(false);
+})();

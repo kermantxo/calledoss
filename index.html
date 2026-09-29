@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CALLEDOSS · Atletismo</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -226,8 +224,28 @@
 
 <footer>
   <span>CALLEDOSS © 2026 — Atletismo español</span>
+  <span class="footer-links"><a href="cookies.html">Política de cookies</a> · <button type="button" class="link-btn" id="openCookieSettings">Configurar cookies</button></span>
   <span>Fuentes: RFEA · World Athletics · Ranking Nacional</span>
 </footer>
+
+<!-- Aviso de cookies (primera visita). La elección se guarda en este navegador. -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieText" hidden>
+  <div class="cb-main">
+    <h2 id="cookieTitle">Tu privacidad</h2>
+    <p id="cookieText">Calledoss solo usa lo imprescindible para que la web funcione. Si algún día añadimos estadísticas de visitas o publicidad, solo se activarán si tú lo aceptas. Puedes cambiar tu elección cuando quieras. <a href="cookies.html">Política de cookies</a></p>
+  </div>
+  <div class="cb-settings" id="cbSettings" hidden>
+    <label class="cb-opt"><input type="checkbox" checked disabled><span><b>Necesarias</b> Imprescindibles para que la web funcione (por ejemplo, recordar esta elección). Siempre activas.</span></label>
+    <label class="cb-opt"><input type="checkbox" id="cbStats"><span><b>Estadísticas</b> Para saber cuántas personas visitan la web y qué secciones se usan. Ahora mismo no se usan.</span></label>
+    <label class="cb-opt"><input type="checkbox" id="cbAds"><span><b>Publicidad</b> Para mostrar anuncios. Ahora mismo no se usan.</span></label>
+  </div>
+  <div class="cb-actions">
+    <button type="button" class="cb-btn" id="cbReject">Rechazar</button>
+    <button type="button" class="cb-btn" id="cbConfig">Configurar</button>
+    <button type="button" class="cb-btn" id="cbSave" hidden>Guardar mi elección</button>
+    <button type="button" class="cb-btn cb-primary" id="cbAccept">Aceptar</button>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
