@@ -3335,7 +3335,7 @@ document.querySelectorAll('.home-card').forEach(card=>{
 function refreshTicker(){
   const hoy = hoyISO();
   const vivos = LIVE_DATA && LIVE_DATA.date === hoy ? Object.values(LIVE_DATA.items||{}).filter(l=>l.status==='en directo') : [];
-  const deHoy = CALENDAR.filter(c => c.date <= hoy && hoy <= (c.end_date || c.date));
+  const deHoy = CALENDAR.filter(c => c.date <= hoy && hoy <= (c.end_date || c.date) && !yaTerminada(c));
   const bar = document.getElementById('tickerBar');
   // la barra solo aparece cuando hay competición hoy (roja si hay algo en directo)
   if(!vivos.length && !deHoy.length){ bar.hidden = true; return; }
@@ -3641,7 +3641,7 @@ function renderCalendar(){
     if(month && evMonth !== month) return false;
     if(localidad && getCCAA(ev.place) !== localidad) return false;
     if(fuente && getFuenteCalendario(ev.id) !== fuente) return false;
-    if(!showPast && (ev.end_date || ev.date) < todayStr) return false;
+    if(!showPast && ((ev.end_date || ev.date) < todayStr || yaTerminada(ev))) return false;
     return true;
   }).sort((a,b)=> a.date.localeCompare(b.date));
 
@@ -3943,13 +3943,27 @@ function horarioPrevisto(l){
   return 'Horario previsto: sin publicar';
 }
 
+// ¿Competición ya terminada? (acaba hoy y el directo la da por finalizada, o todas sus
+// pruebas tienen resultado). Entonces solo aparece en Resultados.
+function yaTerminada(c){
+  const hoy = hoyISO();
+  const fin = c.end_date || c.date;
+  if(fin < hoy) return true;
+  if(fin > hoy) return false;
+  const l = LIVE_DATA && LIVE_DATA.date === hoy ? (LIVE_DATA.items || {})[c.id] : null;
+  if(l && l.status === 'finalizado') return true;
+  return !!(c.schedule && c.schedule.length && c.schedule.every(x => x.done) && resultFor(c.id));
+}
+
 function renderLive(){
   const grid = document.getElementById('liveGrid');
   const upd = document.getElementById('liveUpdated');
-  const items = LIVE_DATA && LIVE_DATA.date === hoyISO() ? Object.values(LIVE_DATA.items || {}) : [];
+  // lo que ya ha terminado solo sale en Resultados
+  const items = (LIVE_DATA && LIVE_DATA.date === hoyISO() ? Object.values(LIVE_DATA.items || {}) : [])
+    .filter(i => i.status !== 'finalizado');
   // Citas de hoy según el calendario aunque la tarea de directo aún no haya pasado
   const hoy = hoyISO();
-  CALENDAR.filter(c => c.date <= hoy && (c.end_date || c.date) >= hoy).forEach(c=>{
+  CALENDAR.filter(c => c.date <= hoy && (c.end_date || c.date) >= hoy && !yaTerminada(c)).forEach(c=>{
     if(!items.some(i=>i.id===c.id)) items.push({id:c.id, name:c.name, place:c.place, first:c.time, last:c.time_end, links:c.links||{}, status:'pendiente'});
   });
   if(items.length === 0){
@@ -4066,7 +4080,7 @@ function renderCompAccordion(){
   document.getElementById('proxRange').innerHTML =
     `📅 Del <b>${fechaCorta(ini)}</b> al <b>${fechaCorta(fin)}</b>.`;
   const lista = CALENDAR
-    .filter(c => (c.end_date || c.date) >= ini && c.date <= fin)
+    .filter(c => (c.end_date || c.date) >= ini && c.date <= fin && !yaTerminada(c))
     .sort((a,b)=> a.date.localeCompare(b.date) || (a.time||'99').localeCompare(b.time||'99') || a.name.localeCompare(b.name));
   if(lista.length === 0){
     wrap.innerHTML = `<div class="empty-state"><h3>Sin competiciones</h3>No hay citas en el calendario para los próximos 7 días.</div>`;
@@ -4659,7 +4673,7 @@ async function loadRanking(){
 
 async function refreshLive(){
   const live = await loadData('live.json');
-  if(live){ LIVE_DATA = live; renderLive(); refreshTicker(); }
+  if(live){ LIVE_DATA = live; renderLive(); refreshTicker(); renderHome(); renderCompAccordion(); renderCalendar(); }
 }
 
 (async function bootAutoData(){
@@ -4702,7 +4716,7 @@ function renderHome(){
   if(!el('nowToday')) return;
   const hoy = hoyISO();
   const live = LIVE_DATA && LIVE_DATA.date === hoy ? (LIVE_DATA.items || {}) : {};
-  const today = CALENDAR.filter(c => c.date <= hoy && hoy <= (c.end_date || c.date)).sort((a,b) => (a.time||'99').localeCompare(b.time||'99'));
+  const today = CALENDAR.filter(c => c.date <= hoy && hoy <= (c.end_date || c.date) && !yaTerminada(c)).sort((a,b) => (a.time||'99').localeCompare(b.time||'99'));
   const [, fin] = proximasRango();
   const next = CALENDAR.filter(c => c.date > hoy && c.date <= fin).sort((a,b) => a.date.localeCompare(b.date) || (a.time||'99').localeCompare(b.time||'99'));
   const last = RESULTS_INDEX.filter(r => r.date && r.date <= hoy).sort((a,b) => b.date.localeCompare(a.date));

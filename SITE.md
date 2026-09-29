@@ -84,6 +84,8 @@
 
 - 2026-09-29: Aviso de cookies en la primera visita (Aceptar / Rechazar / Configurar, con Estadísticas y Publicidad desactivadas porque no se usan), enlace "Configurar cookies" y página de Política de cookies en el pie. Tipografías servidas desde la propia web.
 
+- 2026-09-29: Una competición terminada (el directo la da por finalizada o todas sus pruebas tienen resultado) deja de salir en Inicio, Próximas, En directo, la barra superior y el Calendario: solo queda en Resultados.
+
 ## How to Customize
 - Si se añaden estadísticas o publicidad: cargarlas solo si `hasCookieConsent('estadisticas')` / `hasCookieConsent('publicidad')` (script.js) y actualizar `cookies.html`
 - Para añadir una clasificación que el sistema no encuentra (p. ej. un PDF en Google Drive): añadir el enlace en `pipeline/extra_links.json` con el id de la competición
