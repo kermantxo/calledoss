@@ -11,7 +11,7 @@
 ## Pages
 - **Página principal** (`index.html`) - Una sola página con pestañas en el menú superior:
   - **Inicio** - Titular "El atletismo español al día" y tres bloques grandes: **Lo que puedes ver hoy** (terracota, con "VIVO" si hay directo), **¿Qué hay esta semana?** y **Últimos resultados**; debajo, **Todas las secciones** con icono. Arriba, la barra EN DIRECTO solo cuando hay competición.
-  - **Calendario** - Lista de tarjetas por mes (fecha, lugar, hora, emisión, inscritos) con filtros de mes, localidad (las que no tienen localidad van en "Otros"), calendario (RFEA, World Athletics, Diamond League o ADOC) y competiciones pasadas. Sin modalidades a la vista. Las pruebas del circuito ADOC llevan su etiqueta.
+  - **Calendario** - Lista de tarjetas por mes (fecha, lugar, hora, emisión, inscritos) con filtros de mes, localidad (las que no tienen localidad van en "Otros"), y calendario (RFEA, World Athletics, Diamond League o ADOC). Sin modalidades a la vista. Las pruebas del circuito ADOC llevan su etiqueta.
   - **Resultados** - Competiciones ya disputadas este año. Cada una muestra **todas sus pruebas**, separadas en **Femenino** y **Masculino** (podio y, si se quiere, la clasificación completa). Si una fuente solo trae un sexo, se busca el otro en las demás fuentes; mientras no aparece se indica "Sin resultados femeninos/masculinos localizados todavía". Las competiciones de un solo sexo (Liga Iberdrola, Liga Joma, carreras de la mujer) muestran solo ese.
   - **En directo** - Las competiciones de hoy. Mientras hay pruebas en marcha se actualiza sola cada pocos minutos. Si una fuente no publica parciales, se muestra "Sin datos en directo" con el horario previsto.
   - **Próximas** - Rango de 7 días: desde hoy hasta dentro de seis días (si hoy es martes, hasta el lunes), agrupado por día. Cada cita muestra sus **inscritos españoles destacados** de cada prueba (mujeres y hombres) en cuanto se publica la lista; si no, "Inscritos no publicados aún". Aquí no se muestran resultados (están en su pestaña).
@@ -70,6 +70,8 @@
 - 2026-09-29: Inicio vuelve a la primera versión del diseño Calle Doss (Hoy / Esta semana / Últimos resultados y Todas las secciones).
 
 - 2026-09-29: Calendario ADOC 2026/2027 añadido (14 pruebas, copiado de la imagen de adocasociacion.es/calendario en `pipeline/adoc_calendar.json`). Las que ya estaban en el calendario se marcan como ADOC con su categoría; Valladolid (10/01/2027) y Ulía (14/02/2027) se añaden. Si ADOC cambia la imagen, sale un aviso en el panel para actualizar el archivo.
+
+- 2026-09-29: Quitados el buscador de Resultados y la opción "Competiciones pasadas" del Calendario (el calendario muestra solo lo que está por venir; lo pasado está en Resultados).
 
 ## How to Customize
 - Para actualizar el calendario ADOC (cuando el panel avise de que ha cambiado): editar `pipeline/adoc_calendar.json` con las pruebas y fechas de la imagen nueva
