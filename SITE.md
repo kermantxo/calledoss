@@ -98,6 +98,8 @@
 
 - 2026-09-30: Las altas y bajas de una previa solo cuentan la lista real de inscritos (quitar a alguien de la élite añadida a mano ya no sale como "baja").
 
+- 2026-09-30: Repaso de resultados desde el 1 de enero: nuevas fuentes (LiveTrail para trail, Cruzando la Meta), lector de PDFs de carreras de ruta (tiempo oficial, sexo por categoría) y lector de reuniones de pista (Vigo, Fuenlabrada, Milla Máster...). Las competiciones sin resultados salen como "Resultados pendientes" en la web y en el panel, y se siguen buscando solas.
+
 ## How to Customize
 - Para añadir la élite anunciada de una prueba: editar `pipeline/extra_entries.json` (id de la competición, fuente y atletas)
 - Si se añaden estadísticas o publicidad: cargarlas solo si `hasCookieConsent('estadisticas')` / `hasCookieConsent('publicidad')` (script.js) y actualizar `cookies.html`

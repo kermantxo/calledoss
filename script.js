@@ -4241,14 +4241,14 @@ function renderResultsSeason(){
     const missing = !hasDetail && MISSING_IDS.has(ev.id);
     const badge = hasDetail
       ? `<div class="tag intl">Resultados</div>`
-      : missing ? `<div class="tag nac" title="No se han encontrado resultados en ninguna fuente">Sin resultados localizados</div>`
+      : missing ? `<div class="tag nac" title="Todavía no se han encontrado resultados oficiales en ninguna fuente; se siguen buscando">Resultados pendientes</div>`
       : `<div class="tag nac">Disputada</div>`;
     const body = !isOpen ? '' : `
       <div class="comp-accordion-body">
         <div class="data-note">📍 <b>${esc(comp ? comp.place : (ev.place || '—'))}</b> — ${comp ? comp.dates : fechaLarga(ev.date, ev.end_date)}${comp && comp.note ? '<br>'+comp.note : ''}</div>
         ${comp && comp.events && comp.events.length ? `<div class="roster-grid">${renderEventBlocks(ev.id, comp.events)}</div>` : ''}
         ${auto ? renderResultSummary(auto) : ''}
-        ${!hasDetail ? `<div class="empty-state"><h3>${missing ? 'Sin resultados localizados' : 'Resultados aún no publicados'}</h3>${missing ? 'No se han encontrado los resultados de esta competición en ninguna fuente. Se sigue buscando automáticamente.' : 'Esta competición ya se ha celebrado, pero la organización todavía no ha publicado los resultados. Se añadirán solos en cuanto aparezcan.'}${linkButtons(ev.links||{}) ? '<br><br>'+linkButtons(ev.links||{}) : ''}</div>` : ''}
+        ${!hasDetail ? `<div class="empty-state"><h3>${missing ? 'Resultados pendientes' : 'Resultados aún no publicados'}</h3>${missing ? 'Todavía no se han encontrado los resultados oficiales de esta competición en ninguna fuente. Se siguen buscando automáticamente.' : 'Esta competición ya se ha celebrado, pero la organización todavía no ha publicado los resultados. Se añadirán solos en cuanto aparezcan.'}${linkButtons(ev.links||{}) ? '<br><br>'+linkButtons(ev.links||{}) : ''}</div>` : ''}
       </div>`;
     return head + `
     <div class="comp-accordion-item">
