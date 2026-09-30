@@ -96,6 +96,27 @@ def drop_bad():
     return out
 
 
+def _add_extra_rows(rid, res):
+    """Filas comprobadas a mano en la clasificación oficial (pipeline/extra_results.json)."""
+    import json, os
+    try:
+        with open(os.path.join(os.path.dirname(__file__), "extra_results.json"), encoding="utf-8") as f:
+            extra = json.load(f).get(rid) or {}
+    except Exception:
+        return
+    for row in extra.get("filas", []):
+        ev = next((e for e in res.get("events", []) if e.get("name") == row.get("event")), None)
+        if not ev:
+            continue
+        rounds = ev.get("rounds") if ev.get("rounds") is not None else [ev]
+        rnd = next((r for r in rounds if (r.get("round") or "") == row.get("round", "")), rounds[0] if rounds else None)
+        if rnd is None or any(sorted(norm(x.get("name", "")).split()) == sorted(norm(row["name"]).split()) for x in rnd.get("rows", [])):
+            continue
+        rnd.setdefault("rows", []).append({k: v for k, v in row.items() if k not in ("event", "round")})
+        # en su sitio según el puesto (el podio sigue siendo el mismo)
+        rnd["rows"].sort(key=lambda x: int(x["pos"]) if str(x.get("pos", "")).isdigit() else 10 ** 6)
+
+
 def store(item, res, source, url=None):
     """Guarda el detalle y actualiza el índice."""
     rid = item["id"] if item else "res-%s" % short_hash(url or source)
@@ -110,6 +131,7 @@ def store(item, res, source, url=None):
         return None
     from .quality import event_sex
     res["events"] = _dedupe(res.get("events", []))
+    _add_extra_rows(rid, res)
     for ev in res.get("events", []):
         ev["sex"] = event_sex(ev)  # la web separa femenino / masculino con este dato
     res.update({"id": rid, "name": item["name"] if item else res.get("name", ""), "date": item["date"] if item else res.get("date", ""),

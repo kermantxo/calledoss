@@ -1,0 +1,10 @@
+{
+ "_nota": "Filas que faltan en un resultado y se han comprobado a mano en la clasificación oficial (p. ej. españoles que World Athletics no publica porque solo lista a los primeros). Clave: id del resultado. Se añaden cada vez que se guarda el resultado.",
+ "wa-7235580": {
+  "fuente": "https://berlin.r.mikatiming.com/2026/ (resultados oficiales SCC EVENTS / mika:timing)",
+  "filas": [
+   {"event": "Maratón Hombres", "round": "Final", "pos": "4441", "name": "Iban Garcia Azpiazu", "nat": "ESP",
+    "mark": "3:04:32", "wind": "", "note": "Tiempo neto (pistola 3:10:21) · clasificación oficial del maratón"}
+  ]
+ }
+}

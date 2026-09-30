@@ -106,8 +106,11 @@
 
 - 2026-09-30: Carga histórica terminada: 391 de 431 competiciones con resultados; 41 pendientes (en el panel). Retirados por estar mal: Europeo Off-Road (tiempos mal leídos) y Campeonato de Galicia de combinadas (tenía el PDF de otro campeonato).
 
+- 2026-09-30: Maratón de Berlín: añadido Iban García Azpiazu (3:04:32, puesto 4441) entre los españoles, comprobado en la clasificación oficial (World Athletics solo publica a los primeros). Nuevo archivo `pipeline/extra_results.json` para completar resultados a mano.
+
 ## How to Customize
 - Para añadir la élite anunciada de una prueba: editar `pipeline/extra_entries.json` (id de la competición, fuente y atletas)
+- Si a un resultado le falta un atleta (comprobado en la clasificación oficial): añadirlo en `pipeline/extra_results.json` con el id del resultado
 - Si un resultado está mal (PDF mal leído o de otra competición): añadir el id y el enlace en `pipeline/bad_results.json`; se retira y vuelve a quedar pendiente
 - Para quitar de una previa a alguien que no corre: en `pipeline/extra_entries.json`, añadir su nombre en "excluir" dentro del id de la competición
 - Si se añaden estadísticas o publicidad: cargarlas solo si `hasCookieConsent('estadisticas')` / `hasCookieConsent('publicidad')` (script.js) y actualizar `cookies.html`
