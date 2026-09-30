@@ -1,5 +1,5 @@
 {
- "_nota": "Atletas de élite de las listas oficiales de la organización cuando no hay lista oficial legible. Clave: id de la competición. Se añaden a la previa con la fuente indicada.",
+ "_nota": "Atletas de élite de las listas oficiales de la organización cuando no hay lista oficial legible. Clave: id de la competición. Se añaden a la previa con la fuente indicada. 'excluir': atletas inscritos que no van a correr (se quitan de la previa).",
  "rfea-2026-10-03-xxxviii-milla-internacional-de-berango": {
   "fuente": "https://www.instagram.com/p/Dd4bkxsjenH/",
   "atletas": [
@@ -338,5 +338,11 @@
    }
   ],
   "_nota_lista": "Solo las hojas oficiales de la organización: élite masculina (19) y femenina (18) con dorsal (fotos, 30-09-2026)"
+ },
+ "manual-2026-10-04-medio-maraton-san-sebastian-rural-kutxa": {
+  "excluir": [
+   "Elena Silvestre"
+  ],
+  "_motivo": "No corre (confirmado por el usuario, 30-09-2026)"
  }
 }

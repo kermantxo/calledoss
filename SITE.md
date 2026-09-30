@@ -102,8 +102,11 @@
 
 - 2026-09-30: Resultados: quitada la fila de botones de modalidad (Cross, Diamond League, Internacional, Marcha, Pista, Ruta, Short Track, Trail). Se ven siempre todas.
 
+- 2026-09-30: Medio Maratón de San Sebastián: Elena Silvestre fuera de la previa (no corre). Nueva opción 'excluir' en `pipeline/extra_entries.json` para quitar a inscritos que no van a correr.
+
 ## How to Customize
 - Para añadir la élite anunciada de una prueba: editar `pipeline/extra_entries.json` (id de la competición, fuente y atletas)
+- Para quitar de una previa a alguien que no corre: en `pipeline/extra_entries.json`, añadir su nombre en "excluir" dentro del id de la competición
 - Si se añaden estadísticas o publicidad: cargarlas solo si `hasCookieConsent('estadisticas')` / `hasCookieConsent('publicidad')` (script.js) y actualizar `cookies.html`
 - Para añadir una clasificación que el sistema no encuentra (p. ej. un PDF en Google Drive): añadir el enlace en `pipeline/extra_links.json` con el id de la competición
 - Para actualizar el calendario ADOC (cuando el panel avise de que ha cambiado): editar `pipeline/adoc_calendar.json` con las pruebas y fechas de la imagen nueva
