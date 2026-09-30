@@ -108,6 +108,8 @@
 
 - 2026-09-30: Maratón de Berlín: añadido Iban García Azpiazu (3:04:32, puesto 4441) entre los españoles, comprobado en la clasificación oficial (World Athletics solo publica a los primeros). Nuevo archivo `pipeline/extra_results.json` para completar resultados a mano.
 
+- 2026-09-30: Junto al logo pone "CALLEDOSS" en lugar de "ATLETISMO" (página principal y cookies).
+
 ## How to Customize
 - Para añadir la élite anunciada de una prueba: editar `pipeline/extra_entries.json` (id de la competición, fuente y atletas)
 - Si a un resultado le falta un atleta (comprobado en la clasificación oficial): añadirlo en `pipeline/extra_results.json` con el id del resultado
