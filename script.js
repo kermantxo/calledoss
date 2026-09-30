@@ -4137,10 +4137,20 @@ function renderCompAccordion(){
 // como FINALIZADO aparece aquí, sin tener que mantener una lista aparte.
 let openResultComp = null;
 
+// '16–19 julio 2026 · FINALIZADO' -> '2026-07-16' (para ordenar por fecha)
+function fechaDeTexto(txt){
+  const t = String(txt||'').toLowerCase();
+  const mi = MESES.findIndex(m => t.includes(m));
+  const y = (t.match(/20\d\d/)||['2026'])[0];
+  const d = (t.match(/\d{1,2}/)||['1'])[0];
+  return `${y}-${String(mi+1).padStart(2,'0')}-${d.padStart(2,'0')}`;
+}
+
 function renderResultsAccordion(){
   const wrap = document.getElementById('resultsSelectBar');
   if(!wrap) return;
-  const finished = COMPETITIONS.filter(c=>c.dates.includes('FINALIZADO'));
+  const finished = COMPETITIONS.filter(c=>c.dates.includes('FINALIZADO'))
+    .sort((a,b)=> fechaDeTexto(a.dates).localeCompare(fechaDeTexto(b.dates)));  // de la más antigua a la más reciente
   wrap.innerHTML = finished.map(comp=>{
     const isOpen = comp.id === openResultComp;
     const watch = getWatchInfo(comp.id);
@@ -4183,7 +4193,7 @@ function resPastEvents(){
   RESULTS_INDEX.filter(r => !r.cal_id && r.date && r.date >= inicio && !past.some(p=>p.id===r.id)).forEach(r=>{
     past.push({id:r.id, date:r.date, name:r.name, place:r.place||'', type:'Internacional', cat:sourceLabel(r.source), source:sourceLabel(r.source), _resultOnly:true});
   });
-  return past.sort((a,b)=> b.date.localeCompare(a.date));
+  return past.sort((a,b)=> a.date.localeCompare(b.date) || a.name.localeCompare(b.name));  // del 1 de enero a hoy
 }
 
 let openResultRow = null;
@@ -4218,8 +4228,11 @@ function renderResultsSeason(){
   const conRes = filtered.filter(ev => resultFor(ev.id) || COMPETITIONS.some(c=>c.id===ev.id && c.events.length)).length;
   count.innerHTML = `🏁 <b>${filtered.length}</b> competiciones disputadas este año con los filtros activos · <b>${conRes}</b> con resultados.`;
 
+  let lastMonth = null;
   list.innerHTML = filtered.map(ev=>{
     const [y,m,d] = ev.date.split('-');
+    const head = (y+m) !== lastMonth ? `<h2 class="cal-month">${MESES[parseInt(m,10)-1]} <small>${y}</small></h2>` : '';
+    lastMonth = y+m;
     const isIntl = ev.type === "Internacional";
     const comp = COMPETITIONS.find(c=>c.id===ev.id);
     const auto = resultFor(ev.id);
@@ -4237,7 +4250,7 @@ function renderResultsSeason(){
         ${auto ? renderResultSummary(auto) : ''}
         ${!hasDetail ? `<div class="empty-state"><h3>${missing ? 'Sin resultados localizados' : 'Resultados aún no publicados'}</h3>${missing ? 'No se han encontrado los resultados de esta competición en ninguna fuente. Se sigue buscando automáticamente.' : 'Esta competición ya se ha celebrado, pero la organización todavía no ha publicado los resultados. Se añadirán solos en cuanto aparezcan.'}${linkButtons(ev.links||{}) ? '<br><br>'+linkButtons(ev.links||{}) : ''}</div>` : ''}
       </div>`;
-    return `
+    return head + `
     <div class="comp-accordion-item">
       <div class="cal-row" style="cursor:pointer;" data-res-id="${ev.id}">
         <div class="cal-date"><span class="day">${d}</span>${MESES[parseInt(m,10)-1].slice(0,3).toUpperCase()} ${y}</div>
@@ -4735,7 +4748,7 @@ function renderHome(){
     : `<span class="now-empty">No hay citas en los próximos 7 días.</span>`;
   el('nowResN').textContent = last.length;
   el('nowRes').innerHTML = last.length
-    ? last.slice(0,4).map(r => line(fechaCorta(r.date), r.name)).join('')
+    ? last.slice(0,4).sort((a,b)=> a.date.localeCompare(b.date) || a.name.localeCompare(b.name)).map(r => line(fechaCorta(r.date), r.name)).join('')   // los 4 más recientes, del más antiguo al más nuevo
     : `<span class="now-empty">Todavía no hay resultados.</span>`;
 }
 

@@ -75,7 +75,7 @@ async function loadState(){
     renderManual(st.manual.items || []);
     renderPlan(st.plan || {});
     renderSources(st.status || {});
-    MISSING = (st.missing && st.missing.items) || [];
+    MISSING = ((st.missing && st.missing.items) || []).slice().sort((a,b)=> (a.date||'').localeCompare(b.date||''));  // de la más antigua a la más reciente
     renderMissing();
     renderRevision((st.revision && st.revision.items) || {});
   } catch(err){
@@ -87,7 +87,7 @@ let pendingDelete = null;
 function renderManual(items){
   const upcoming = items.filter(x => x.date >= hoyISO());
   if(!items.length){ $('manualList').innerHTML = '<p class="panel-help">Todavía no has añadido ninguna.</p>'; return; }
-  $('manualList').innerHTML = items.map(x=>`
+  $('manualList').innerHTML = items.slice().sort((a,b)=> (a.date||'').localeCompare(b.date||'')).map(x=>`
     <div class="panel-row ${x.date < hoyISO() ? 'past' : ''}">
       <div><b>${esc(x.name)}</b><br><small>${esc(x.date)}${x.time ? ' · '+esc(x.time) : ''}${x.time_end ? '–'+esc(x.time_end) : ''} · ${esc(x.place)}${x.url ? ` · <a href="${esc(x.url)}" target="_blank" rel="noopener">enlace</a>` : ''}</small></div>
       <button class="comp-pill" data-del="${esc(x.id)}">${pendingDelete === x.id ? '¿Seguro? Pulsa otra vez' : 'Quitar'}</button>
