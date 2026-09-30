@@ -100,6 +100,8 @@
 
 - 2026-09-30: Repaso de resultados desde el 1 de enero: nuevas fuentes (LiveTrail para trail, Cruzando la Meta), lector de PDFs de carreras de ruta (tiempo oficial, sexo por categoría) y lector de reuniones de pista (Vigo, Fuenlabrada, Milla Máster...). Las competiciones sin resultados salen como "Resultados pendientes" en la web y en el panel, y se siguen buscando solas.
 
+- 2026-09-30: Resultados: quitada la fila de botones de modalidad (Cross, Diamond League, Internacional, Marcha, Pista, Ruta, Short Track, Trail). Se ven siempre todas.
+
 ## How to Customize
 - Para añadir la élite anunciada de una prueba: editar `pipeline/extra_entries.json` (id de la competición, fuente y atletas)
 - Si se añaden estadísticas o publicidad: cargarlas solo si `hasCookieConsent('estadisticas')` / `hasCookieConsent('publicidad')` (script.js) y actualizar `cookies.html`
