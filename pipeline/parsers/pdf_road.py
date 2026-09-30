@@ -179,6 +179,35 @@ def _row(ws, hdr):
     return {"pos": pos, "name": nm, "club": " ".join(club).title(), "times": times, "cat": " ".join(rest)}
 
 
+def _sex_from_split_ranks(rows):
+    """Muchos cronometradores ponen, junto a cada paso, el puesto del atleta DENTRO DE SU SEXO: '(2) (2) (1)'.
+    Si en esta clasificación eso se cumple para todos los de sexo conocido, sirve para saber el sexo de
+    los que no lo tienen (nombres que no conocemos). Si no se cumple siempre, no se usa."""
+    def last_rank(r):
+        m = re.findall(r"\((\d+)\)", r.get("cat", ""))
+        return int(m[-1]) if m else None
+    seen = {"M": 0, "F": 0}
+    checks, fits, guess = 0, 0, {}
+    for i, r in enumerate(rows):
+        sx = "" if r.get("unknown") else _sex(r)
+        rk = last_rank(r)
+        exp = {k: v + 1 for k, v in seen.items()}
+        if sx in ("M", "F"):
+            other = exp["F" if sx == "M" else "M"]
+            if rk is not None and abs(exp[sx] - other) > 8:  # si lo esperado para uno y otro sexo casi coincide, no se puede comprobar
+                checks += 1
+                fits += abs(rk - exp[sx]) < abs(rk - other)
+            seen[sx] += 1
+        elif rk is not None:
+            dm, df = abs(rk - exp["M"]), abs(rk - exp["F"])
+            if abs(dm - df) > 6 and max(dm, df) > 2 * min(dm, df) + 3:
+                guess[i] = "M" if dm < df else "F"
+                seen[guess[i]] += 1
+    if checks >= 10 and fits >= 0.98 * checks:
+        for i, sx in guess.items():
+            rows[i]["split_sex"] = sx
+
+
 def parse(content):
     """Pruebas con el podio femenino y masculino: [{"name", "rounds": [...]}]."""
     sections = []          # [título, [filas]]
@@ -221,11 +250,12 @@ def parse(content):
             if r["mark"]:
                 prev = _secs(r["mark"])
         rows = [r for r in rows if r["mark"]]
+        _sex_from_split_ranks(rows)
         n_before = len(events)
         for sex, label in (("M", "Hombres"), ("F", "Mujeres")):
             pod, sure = [], True
             for r in rows:
-                sx = "" if r.get("unknown") else _sex(r)
+                sx = "" if r.get("unknown") else (_sex(r) or r.get("split_sex", ""))
                 if not sx:
                     sure = False  # no se sabe si es hombre o mujer: el podio de este sexo no sería seguro
                     break

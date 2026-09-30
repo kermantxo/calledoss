@@ -119,6 +119,7 @@ reinaldo ricard ricardo roberto rodrigo roger rogelio roman ruben said salvador 
 sergi sergio silvestre simon teodoro tomas txema ulises unai urko valentin vicente victor xabier xavi xavier xoan
 yago yeray yassine youssef zakaria javi iraitz ekain youness pierre mark thomas kevin loic maxime christophe guillaume theo paul clement geoffrey fergal nicholas laurent nicolas senab urtzi edu maikel karim andoni ander asier aimar beñat ekaitz gaizka haritz iñigo jokin koldo markel mikel oihan peio unax xabat
 faouzi wassim bilal nassim hicham rachid abdelkader abdellah abdelilah mustapha mustafa mourad khalid karim hassan hassane hamid ilias ilyas anas amine yassin yousef soufiane sofian reda nabil tarik tariq driss jamal adil aziz abderrazak brahim ibrahim ismail othmane oussama ayman badr zouhair mehdi redouane samir nordin noureddine abdelhadi lahcen lahsen reuben denis dennis nickson vincent aron ander beñat eñaut oihan xabat unax ekaitz haritz jokin manex endika koldo ibon artur abdessamad aymane zakariae abdelaaziz yahya hafid
+inigo gontzal edgar pello aitzol iurgi imanol unax eñaut garikoitz
 """.split())
 FEMALE = set("""
 adela adriana agata agueda aida ainara ainhoa aitana alba alejandra alexandra alicia alma almudena amaia amalia amanda
