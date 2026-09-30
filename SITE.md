@@ -88,6 +88,8 @@
 
 - 2026-09-29: Previas con élite anunciada por la organización/prensa cuando no hay lista oficial legible (`pipeline/extra_entries.json`). Milla de Berango: Mariano García, Isaac Nader y el relevo 4x400 mixto.
 
+- 2026-09-30: Milla de Berango: la previa muestra solo las hojas oficiales de la organización (19 hombres y 18 mujeres de élite, con dorsal y club, en orden de dorsal). Quitados el relevo 4x400 y las notas que venían de la prensa.
+
 ## How to Customize
 - Para añadir la élite anunciada de una prueba: editar `pipeline/extra_entries.json` (id de la competición, fuente y atletas)
 - Si se añaden estadísticas o publicidad: cargarlas solo si `hasCookieConsent('estadisticas')` / `hasCookieConsent('publicidad')` (script.js) y actualizar `cookies.html`

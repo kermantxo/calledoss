@@ -356,12 +356,17 @@ def select(rows, ath, comp_type=""):
                                # en listas populares las columnas a veces vienen descolocadas: el club no es fiable
                                "club": "" if r.get("popular") else r.get("club", ""), "nat": r.get("nat", ""), "pb": r.get("pb", ""), "sb": r.get("sb", ""),
                                "score": score, "reasons": list(dict.fromkeys(reasons))[:4],
-                               "time": r.get("time"), "date": r.get("date")})
-        scored.sort(key=lambda x: -x["score"])
+                               "time": r.get("time"), "date": r.get("date"),
+                               "_elite": bool(r.get("anunciado") or (r.get("bib") and r.get("elite"))),
+                               "_orden": r["bib"] if r.get("anunciado") and r.get("bib") else None})
+        # lista oficial de la organización: en el orden de sus dorsales, y por delante del resto
+        scored.sort(key=lambda x: (0, x["_orden"]) if x["_orden"] is not None else (1, -x["score"]))
+        for x in scored:
+            x.pop("_orden")
         e = events.setdefault(ev, {"name": ev, "n": 0, "M": [], "F": [], "otros": []})
         e["n"] += len(seen)
-        n_elite = sum(1 for x in scored if any(t.startswith("Dorsal de élite") for t in x["reasons"]))
-        e[sex if sex in ("M", "F") else "otros"] = scored[:max(PER_SEX, min(n_elite, 20))]
+        n_elite = sum(1 for x in scored if x.pop("_elite"))
+        e[sex if sex in ("M", "F") else "otros"] = scored[:max(PER_SEX, min(n_elite, 25))]
     out = [e for e in events.values()]
     out.sort(key=lambda e: -(len(e["M"]) + len(e["F"])))
     return out
@@ -389,7 +394,7 @@ def run(http, health, items):
         extra = EXTRA_ENTRIES.get(it["id"])
         if extra:
             rows = list(rows) + [{"event": a.get("event") or "Élite", "name": a["name"], "sex": a.get("sex", ""),
-                                  "nat": a.get("nat", ""), "club": a.get("club", ""), "cat": "", "elite": True, "popular": False,
+                                  "nat": a.get("nat", ""), "club": a.get("club", ""), "cat": "", "bib": a.get("bib"), "elite": True, "popular": False,
                                   "anunciado": a.get("note") or "En la élite (anunciado por la organización)", "text": a["name"]}
                                  for a in extra.get("atletas", [])]
             srcs = list(srcs) + [extra.get("fuente")] if extra.get("fuente") else srcs

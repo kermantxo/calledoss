@@ -1,76 +1,186 @@
 {
- "_nota": "Atletas de élite anunciados por la organización o la prensa cuando no hay lista oficial legible. Clave: id de la competición. Se añaden a la previa con la fuente indicada.",
+ "_nota": "Atletas de élite de las listas oficiales de la organización cuando no hay lista oficial legible. Clave: id de la competición. Se añaden a la previa con la fuente indicada.",
  "rfea-2026-10-03-xxxviii-milla-internacional-de-berango": {
-  "fuente": "https://www.deia.eus/otros-deportes/2026/09/29/milla-berango-regresa-duelo-campeones-11597786.html",
+  "fuente": "https://www.instagram.com/p/Dd4bkxsjenH/",
   "atletas": [
-   {
-    "name": "Mariano García",
-    "sex": "M",
-    "nat": "ESP",
-    "event": "Milla élite",
-    "note": "Campeón del mundo de 1.500 m"
-   },
    {
     "name": "Isaac Nader",
     "sex": "M",
     "nat": "POR",
     "event": "Milla élite",
-    "note": "Campeón del mundo de 1.500 m"
+    "club": "ASICS Running",
+    "bib": 1,
+    "note": "En la élite (lista oficial de la organización)"
    },
    {
-    "name": "Markel Fernández",
+    "name": "Mariano García García",
     "sex": "M",
     "nat": "ESP",
-    "event": "Relevo 4x400 mixto"
+    "event": "Milla élite",
+    "club": "New Balance",
+    "bib": 2,
+    "note": "En la élite (lista oficial de la organización)"
    },
    {
-    "name": "Ángel González",
+    "name": "David Barroso Bravo",
     "sex": "M",
     "nat": "ESP",
-    "event": "Relevo 4x400 mixto"
+    "event": "Milla élite",
+    "club": "Capex",
+    "bib": 3,
+    "note": "En la élite (lista oficial de la organización)"
    },
    {
-    "name": "Juan José de la Rosa",
+    "name": "Martín Segurola Larrinaga",
     "sex": "M",
     "nat": "ESP",
-    "event": "Relevo 4x400 mixto"
+    "event": "Milla élite",
+    "club": "Real Sociedad",
+    "bib": 4,
+    "note": "En la élite (lista oficial de la organización)"
    },
    {
-    "name": "Manuel Bea",
+    "name": "Carlos Sáez Sadornil",
     "sex": "M",
     "nat": "ESP",
-    "event": "Relevo 4x400 mixto"
+    "event": "Milla élite",
+    "club": "Hoka",
+    "bib": 5,
+    "note": "En la élite (lista oficial de la organización)"
    },
    {
-    "name": "Blanca Hervás",
-    "sex": "F",
+    "name": "Ignacio Fontes García-Balibrea",
+    "sex": "M",
     "nat": "ESP",
-    "event": "Relevo 4x400 mixto"
+    "event": "Milla élite",
+    "club": "Nike Running",
+    "bib": 6,
+    "note": "En la élite (lista oficial de la organización)"
    },
    {
-    "name": "Eva Santidrián",
-    "sex": "F",
+    "name": "Pablo Sánchez-Valladares García",
+    "sex": "M",
     "nat": "ESP",
-    "event": "Relevo 4x400 mixto"
+    "event": "Milla élite",
+    "club": "F.C. Barcelona",
+    "bib": 7,
+    "note": "En la élite (lista oficial de la organización)"
    },
    {
-    "name": "Herminia Parra",
-    "sex": "F",
-    "nat": "ESP",
-    "event": "Relevo 4x400 mixto"
+    "name": "Pol Moya Betriu",
+    "sex": "M",
+    "nat": "AND",
+    "event": "Milla élite",
+    "club": "F.C. Barcelona",
+    "bib": 8,
+    "note": "En la élite (lista oficial de la organización)"
    },
    {
-    "name": "Daniela Fra",
-    "sex": "F",
+    "name": "Pedro Osorio López",
+    "sex": "M",
     "nat": "ESP",
-    "event": "Relevo 4x400 mixto"
+    "event": "Milla élite",
+    "club": "Ría Ferrol-C. Arenal",
+    "bib": 9,
+    "note": "En la élite (lista oficial de la organización)"
+   },
+   {
+    "name": "Álex Pintado Aznar",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Milla élite",
+    "club": "New Balance",
+    "bib": 10,
+    "note": "En la élite (lista oficial de la organización)"
+   },
+   {
+    "name": "Ander Aramendi Aginaga",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Milla élite",
+    "club": "Super Amara BAT",
+    "bib": 11,
+    "note": "En la élite (lista oficial de la organización)"
+   },
+   {
+    "name": "Carlos Alberto Vilches",
+    "sex": "M",
+    "nat": "PUR",
+    "event": "Milla élite",
+    "club": "Independiente",
+    "bib": 12,
+    "note": "En la élite (lista oficial de la organización)"
+   },
+   {
+    "name": "Eric Nzikwinkunda",
+    "sex": "M",
+    "nat": "BDI",
+    "event": "Milla élite",
+    "club": "Trops-Cueva de Nerja",
+    "bib": 13,
+    "note": "En la élite (lista oficial de la organización)"
+   },
+   {
+    "name": "Asier del Arco Paniagua",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Milla élite",
+    "club": "Durango KT",
+    "bib": 14,
+    "note": "En la élite (lista oficial de la organización)"
+   },
+   {
+    "name": "Iñigo Guinea Pro",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Milla élite",
+    "club": "Hiru-Herri",
+    "bib": 15,
+    "note": "En la élite (lista oficial de la organización)"
+   },
+   {
+    "name": "Mikel Aramendi Aginaga",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Milla élite",
+    "club": "Super Amara BAT",
+    "bib": 16,
+    "note": "En la élite (lista oficial de la organización)"
+   },
+   {
+    "name": "Iker Fidalgo Sebastián",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Milla élite",
+    "club": "Bidezabal AT",
+    "bib": 17,
+    "note": "En la élite (lista oficial de la organización)"
+   },
+   {
+    "name": "Mikel Calvo Romo",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Milla élite",
+    "club": "Hiru-Herri",
+    "bib": 18,
+    "note": "En la élite (lista oficial de la organización)"
+   },
+   {
+    "name": "Unax Blanco Marina",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Milla élite",
+    "club": "Berango AT",
+    "bib": 19,
+    "note": "En la élite (lista oficial de la organización)"
    },
    {
     "name": "Salomé Afonso",
     "sex": "F",
     "nat": "POR",
     "event": "Milla élite",
-    "club": "ASICS",
+    "club": "ASICS Running",
+    "bib": 1,
     "note": "En la élite (lista oficial de la organización)"
    },
    {
@@ -79,6 +189,7 @@
     "nat": "FRA",
     "event": "Milla élite",
     "club": "",
+    "bib": 2,
     "note": "En la élite (lista oficial de la organización)"
    },
    {
@@ -86,7 +197,8 @@
     "sex": "F",
     "nat": "ESP",
     "event": "Milla élite",
-    "club": "R.C. Celta",
+    "club": "R.C. Celta-Nike",
+    "bib": 3,
     "note": "En la élite (lista oficial de la organización)"
    },
    {
@@ -95,6 +207,7 @@
     "nat": "ESP",
     "event": "Milla élite",
     "club": "Nike Running",
+    "bib": 4,
     "note": "En la élite (lista oficial de la organización)"
    },
    {
@@ -103,6 +216,7 @@
     "nat": "ESP",
     "event": "Milla élite",
     "club": "New Balance",
+    "bib": 5,
     "note": "En la élite (lista oficial de la organización)"
    },
    {
@@ -111,6 +225,7 @@
     "nat": "ESP",
     "event": "Milla élite",
     "club": "Nike Running",
+    "bib": 6,
     "note": "En la élite (lista oficial de la organización)"
    },
    {
@@ -119,6 +234,7 @@
     "nat": "ESP",
     "event": "Milla élite",
     "club": "Bilbao Atletismo",
+    "bib": 7,
     "note": "En la élite (lista oficial de la organización)"
    },
    {
@@ -127,9 +243,100 @@
     "nat": "ESP",
     "event": "Milla élite",
     "club": "Independiente",
+    "bib": 8,
+    "note": "En la élite (lista oficial de la organización)"
+   },
+   {
+    "name": "Daniela García Tena",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Milla élite",
+    "club": "New Balance",
+    "bib": 9,
+    "note": "En la élite (lista oficial de la organización)"
+   },
+   {
+    "name": "Judith Otazua Gerrikaetxebarria",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Milla élite",
+    "club": "AT. San Sebastián",
+    "bib": 10,
+    "note": "En la élite (lista oficial de la organización)"
+   },
+   {
+    "name": "María Viciosa Villa",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Milla élite",
+    "club": "Nike Running",
+    "bib": 11,
+    "note": "En la élite (lista oficial de la organización)"
+   },
+   {
+    "name": "Andrea Rodríguez Castelló",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Milla élite",
+    "club": "Playas de Castellón",
+    "bib": 12,
+    "note": "En la élite (lista oficial de la organización)"
+   },
+   {
+    "name": "Uxue Mardaras Sustacha",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Milla élite",
+    "club": "Lea la Blanca",
+    "bib": 13,
+    "note": "En la élite (lista oficial de la organización)"
+   },
+   {
+    "name": "Irati Zurutuza Renom",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Milla élite",
+    "club": "Real Sociedad",
+    "bib": 14,
+    "note": "En la élite (lista oficial de la organización)"
+   },
+   {
+    "name": "Nora Zubillaga Unsain",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Milla élite",
+    "club": "Real Sociedad",
+    "bib": 15,
+    "note": "En la élite (lista oficial de la organización)"
+   },
+   {
+    "name": "Rebeca Miguelena Torrea",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Milla élite",
+    "club": "Hiru-Herri",
+    "bib": 16,
+    "note": "En la élite (lista oficial de la organización)"
+   },
+   {
+    "name": "Adriana de Prado Gausí",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Milla élite",
+    "club": "Piélagos",
+    "bib": 17,
+    "note": "En la élite (lista oficial de la organización)"
+   },
+   {
+    "name": "Leizuri Paul Nieto",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Milla élite",
+    "club": "Berango AT",
+    "bib": 18,
     "note": "En la élite (lista oficial de la organización)"
    }
   ],
-  "fuente_lista": "https://www.instagram.com/p/Dd4bkxsjenH/"
+  "_nota_lista": "Solo las hojas oficiales de la organización: élite masculina (19) y femenina (18) con dorsal (fotos, 30-09-2026)"
  }
 }
