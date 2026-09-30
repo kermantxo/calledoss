@@ -116,6 +116,8 @@
 
 - 2026-10-01: 10K de Ulia con categoría femenina (Isabel Barreiro, María Forero, Marta Serrano). El lector de carreras de ruta usa los puestos por sexo de los pasos intermedios cuando el PDF no dice el sexo. Domusa Teknik 40 MLK: podio absoluto con nombres completos.
 
+- 2026-10-01: Campeonato de Madrid Sub20 (3-4 julio, Vallehermoso): resultados oficiales de la Federación Madrileña (la ficha de la RFEA apuntaba a una página antigua que ya no existe).
+
 ## How to Customize
 - Para añadir la élite anunciada de una prueba: editar `pipeline/extra_entries.json` (id de la competición, fuente y atletas)
 - Si a un resultado le falta un atleta (comprobado en la clasificación oficial): añadirlo en `pipeline/extra_results.json` con el id del resultado
