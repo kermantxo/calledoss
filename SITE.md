@@ -110,6 +110,8 @@
 
 - 2026-09-30: Junto al logo pone "CALLEDOSS" en lugar de "ATLETISMO" (página principal y cookies).
 
+- 2026-09-30: Retirados 11 resultados de 2026 que usaban documentos de 2024 (Campeonatos de Madrid Sub18/Sub20/Sub23 con la final de clubes sub20 de 2024, España Máster, Europeo ST Máster, Trofeo Ibercaja, Euskadi ST Sub18-20, Cross Máster, Domusa Teknik 40 MLK). Nueva regla: un documento con otro año en el enlace no se usa nunca. Vuelven a estar pendientes.
+
 ## How to Customize
 - Para añadir la élite anunciada de una prueba: editar `pipeline/extra_entries.json` (id de la competición, fuente y atletas)
 - Si a un resultado le falta un atleta (comprobado en la clasificación oficial): añadirlo en `pipeline/extra_results.json` con el id del resultado

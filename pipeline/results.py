@@ -80,8 +80,20 @@ def _bad_results():
 BAD_RESULTS = _bad_results()
 
 
-def is_bad(cid, url):
-    """¿Este documento está descartado para esta competición? (pipeline/bad_results.json)"""
+def other_year(item, url):
+    """El enlace es de otro año: '/resultados/2024/...' o 'uploads/2024/05/...' para una competición de 2026
+    (el nombre del archivo puede llevar la fecha buena: '2026-06-27-ourense...' sí vale)."""
+    yr = (item or {}).get("date", "")[:4]
+    if not yr or not url:
+        return False
+    years = set(re.findall(r"(?<!\d)(20\d\d)(?!\d)", url))
+    return bool(years) and yr not in years
+
+
+def is_bad(cid, url, item=None):
+    """¿Este documento no vale para esta competición? (descartado en pipeline/bad_results.json o de otro año)"""
+    if item and other_year(item, url):
+        return True
     return any(u and u in (url or "") for u in (BAD_RESULTS.get(cid) or {}).get("urls", []))
 
 
@@ -90,7 +102,7 @@ def drop_bad():
     out = []
     for x in list(_index()["items"]):
         cid = x.get("cal_id") or x["id"]
-        if is_bad(cid, x.get("url")):
+        if is_bad(cid, x.get("url"), x if x.get("cal_id") else None):
             unstore(x["id"])
             out.append(cid)
     return out
@@ -120,8 +132,8 @@ def _add_extra_rows(rid, res):
 def store(item, res, source, url=None):
     """Guarda el detalle y actualiza el índice."""
     rid = item["id"] if item else "res-%s" % short_hash(url or source)
-    if item and is_bad(item["id"], url):
-        return None  # documento descartado a mano para esta competición
+    if item and is_bad(item["id"], url, item):
+        return None  # documento descartado a mano o de otro año
     res = dict(res)
     # revisión automática: nombres "Nombre Apellidos" y nada de hombres en podios de mujeres (ni al revés)
     from .quality import review, record

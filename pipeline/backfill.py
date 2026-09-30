@@ -153,8 +153,12 @@ def pdf_matches(item, dates, title, url="", trust="index"):
 
     * Su nombre (título del PDF o nombre del fichero) tiene que parecerse al de la competición, y
     * sus fechas tienen que coincidir (±1 día). Un PDF sin ninguna fecha se acepta solo por el nombre.
-    Un PDF con fechas que no coinciden se rechaza siempre.
+    Un PDF con fechas que no coinciden se rechaza siempre, y también uno cuyo enlace es de otro año
+    ('/resultados/2024/...' para una competición de 2026).
     """
+    from .results import other_year
+    if other_year(item, url):
+        return False
     d1 = dt.date.fromisoformat(item["date"]) - dt.timedelta(days=1)
     d2 = dt.date.fromisoformat(item.get("end_date") or item["date"]) + dt.timedelta(days=1)
     ds = [dt.date.fromisoformat(x) for x in dates if x[:4] in (str(d1.year), str(d1.year - 1))]
@@ -798,9 +802,9 @@ def run(http, health, items, max_minutes=None, only_ids=None):
             f.state["done"][it["id"]] = {"status": "ok", "source": ex["source"], "at": iso_now()}
             stats["skipped"] += 1
             continue
-        if prev and prev.get("status") == "ok":
+        if prev and prev.get("status") == "ok" and it["id"] in existing:
             stats["skipped"] += 1
-            continue
+            continue  # (si ya no está en los resultados —retirado por estar mal— se vuelve a buscar)
         if prev and prev.get("status") == "missing" and prev.get("tries", 0) >= 2:
             stats["missing"] += 1
             continue
