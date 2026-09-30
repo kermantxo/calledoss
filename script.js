@@ -4388,7 +4388,7 @@ function horaDe(isoDateTime){
 const LINK_LABELS = {inscritos:'📋 Inscritos', resultados:'🏁 Resultados', directo:'🔴 Directo', streaming:'📺 Streaming', horario:'🕒 Horario', web:'🌐 Web oficial', info:'ℹ️ Ficha oficial'};
 function linkButtons(links){
   return Object.keys(LINK_LABELS).filter(k => links && links[k]).map(k =>
-    `<a class="comp-pill" style="display:inline-block;margin:4px 6px 0 0;text-decoration:none;" href="${esc(links[k])}" target="_blank" rel="noopener">${LINK_LABELS[k]}</a>`
+    `<a class="ext-link" href="${esc(links[k])}" target="_blank" rel="noopener" title="Abrir ${esc(links[k])}">${LINK_LABELS[k]}<span class="ext-arrow" aria-hidden="true">↗</span></a>`
   ).join('');
 }
 

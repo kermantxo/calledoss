@@ -92,6 +92,12 @@
 
 - 2026-09-30: Corregidos los clubes de Alice Finot (R.C. Celta-Nike), Marta Mitjans (Nike Running) y Lorena Martín (New Balance). Los méritos de 1.500 m, 3.000 m, 5.000 m y 10.000 m vuelven a salir en las previas de fondo (antes se leía "1.500 m" como "500 m").
 
+- 2026-09-30: Orden cronológico (de la fecha más antigua a la más reciente) en Resultados (con un título por mes), internacionales de la selección, el recuadro de últimos resultados de la página principal y el panel.
+
+- 2026-09-30: En Próximas y en las fichas, "Web oficial", "Streaming", "Inscritos", etc. se ven como enlaces (subrayados, con ↗) y se abren en otra pestaña sin cerrar la web.
+
+- 2026-09-30: Las altas y bajas de una previa solo cuentan la lista real de inscritos (quitar a alguien de la élite añadida a mano ya no sale como "baja").
+
 ## How to Customize
 - Para añadir la élite anunciada de una prueba: editar `pipeline/extra_entries.json` (id de la competición, fuente y atletas)
 - Si se añaden estadísticas o publicidad: cargarlas solo si `hasCookieConsent('estadisticas')` / `hasCookieConsent('publicidad')` (script.js) y actualizar `cookies.html`

@@ -996,3 +996,8 @@ nav.tabs-static a:hover{color:#fff;}
 .legal-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:10px;overflow:hidden;box-shadow:var(--shadow);font-size:15px;}
 .legal-table th{text-align:left;background:var(--bg-elevated);padding:10px 12px;font-family:'Roboto Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--gray);}
 .legal-table td{padding:10px 12px;border-top:1px solid var(--line);vertical-align:top;}
+
+/* Enlaces externos de una competición (web oficial, streaming, inscritos...): se ven como enlaces */
+.ext-link{display:inline-flex;align-items:center;gap:4px;margin:4px 14px 0 0;color:var(--brand);font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:3px;}
+.ext-link:hover{text-decoration-thickness:2px;}
+.ext-link .ext-arrow{font-size:12px;}

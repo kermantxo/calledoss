@@ -411,8 +411,14 @@ def run(http, health, items):
             out.append(entry)
             continue
         events = select(rows, ath, it.get("type", ""))
-        now_names = sorted({clean_name(r["name"])[0] for r in rows})
+        # altas y bajas: solo de la lista real de inscritos (la élite de extra_entries.json no cuenta:
+        # quitar a alguien de ahí no es que se haya dado de baja)
+        now_names = sorted({clean_name(r["name"])[0] for r in rows if not r.get("anunciado")})
         before = set(names_prev.get(it["id"], []))
+        reset = bool(extra and not names_prev.get(it["id"] + "|sin_anunciados"))
+        if reset:
+            before = set()  # lista guardada con la élite mezclada: se empieza de cero
+        names_now[it["id"] + "|sin_anunciados"] = [1]
         dest_now = {x["name"] for e in events for s in ("M", "F", "otros") for x in e[s]}
         changes = {}
         if before:
@@ -423,7 +429,7 @@ def run(http, health, items):
                        "bajas_destacadas": [n for n in removed if A.lookup(ath, n)][:10]}
         old = prev_by.get(it["id"]) or {}
         entry.update({"status": "publicados", "sources": srcs, "n_inscritos": len(now_names), "events": events,
-                      "changes": changes or old.get("changes", {}),
+                      "changes": changes or ({} if reset else old.get("changes", {})),
                       "updated": iso_now() if set(now_names) != before else old.get("updated", iso_now())})
         names_now[it["id"]] = now_names
         out.append(entry)
@@ -431,5 +437,5 @@ def run(http, health, items):
     save_json("previas.json", {"generated": iso_now(), "days_ahead": DAYS_AHEAD, "items": out}, compact=True)
     names_prev.update(names_now)
     ids = {x["id"] for x in out}
-    save_json("state/previas_names.json", {k: v for k, v in names_prev.items() if k in ids}, compact=True)
+    save_json("state/previas_names.json", {k: v for k, v in names_prev.items() if k.split("|")[0] in ids}, compact=True)
     return sum(1 for x in out if x.get("status") == "publicados")
