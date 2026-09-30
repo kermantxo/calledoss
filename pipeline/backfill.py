@@ -280,6 +280,18 @@ def from_pdf(http, item, url, cache, trust="index"):
     return c["events"], url, ""
 
 
+def _manual_links():
+    import json
+    try:
+        with open(os.path.join(os.path.dirname(__file__), "extra_links.json"), encoding="utf-8") as fh:
+            return {k: v for k, v in json.load(fh).items() if not k.startswith("_")}
+    except Exception:
+        return {}
+
+
+# competiciones con un enlace puesto a mano: se reintentan siempre (aunque ya se hayan dado por perdidas)
+MANUAL_LINKS = _manual_links()
+
 ROAD_TYPES = ("Ruta", "Trail", "Marcha", "Cross")
 
 
@@ -514,6 +526,12 @@ class Finder:
     def _candidates(self, it, tried):
         """Todas las fuentes posibles, en orden de fiabilidad (generador: cada una se prueba solo si hace falta)."""
         links = dict(it.get("links") or {})
+        try:  # enlaces puestos a mano (pipeline/extra_links.json), aunque el calendario aún no los tenga
+            import json as _json
+            with open(os.path.join(os.path.dirname(__file__), "extra_links.json"), encoding="utf-8") as fh:
+                links.update(_json.load(fh).get(it["id"]) or {})
+        except Exception:
+            pass
         det = self.detail(it)
         for k, v in (det.get("links") or {}).items():
             links.setdefault(k, v)
@@ -572,6 +590,9 @@ class Finder:
 
         # 5. World Athletics (enlace directo o búsqueda por nombre y fechas)
         wa_ids = [lv for lv in it.get("live") or [] if lv.get("kind") == "wa"]
+        m = re.search(r"worldathletics\.org/competition/calendar-results/results/(\d+)", links.get("worldathletics", ""))
+        if m:  # enlace puesto a mano (pipeline/extra_links.json)
+            wa_ids = [{"kind": "wa", "id": int(m.group(1))}]
         if not wa_ids:
             for w in self.wa_year():
                 if w["date"] <= (it.get("end_date") or it["date"]) and it["date"] <= (w.get("end_date") or w["date"]) \
@@ -583,6 +604,15 @@ class Finder:
                 tried.append("World Athletics %s" % lv["id"])
                 try:
                     res = worldathletics.results(self.http, lv["id"])
+                    if res and res["events"] and links.get("solo_espanoles"):
+                        # solo los españoles, en todas las rondas (con su puesto real)
+                        esp = [{"name": e["name"], "rounds": [dict(r, rows=[x for x in r["rows"] if x.get("nat") == "ESP"])
+                                                              for r in e["rounds"] if any(x.get("nat") == "ESP" for x in r["rows"])]}
+                               for e in res["events"]]
+                        esp = [e for e in esp if e["rounds"]]
+                        if esp:
+                            yield esp, "World Athletics", links["worldathletics"], tried
+                        continue
                     if res and res["events"]:
                         pods = podiums([{"name": e["name"], "rounds": [r for r in e["rounds"] if r["final"]]} for e in res["events"]])
                         if pods:
@@ -805,7 +835,7 @@ def run(http, health, items, max_minutes=None, only_ids=None):
         if prev and prev.get("status") == "ok" and it["id"] in existing:
             stats["skipped"] += 1
             continue  # (si ya no está en los resultados —retirado por estar mal— se vuelve a buscar)
-        if prev and prev.get("status") == "missing" and prev.get("tries", 0) >= 2:
+        if prev and prev.get("status") == "missing" and prev.get("tries", 0) >= 2 and it["id"] not in MANUAL_LINKS:
             stats["missing"] += 1
             continue
         try:

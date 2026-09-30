@@ -14,7 +14,6 @@ var PREVIAS = [];
 const CALENDAR = [
   {id:"mundo-campo-a-traves", date:"2026-01-10", name:"Campeonato del Mundo de Campo a Través", place:"Tallahassee (USA)", type:"Cross", cat:"Absoluto"},
   {id:"mundial-indoor-torun", date:"2026-03-20", name:"Campeonato del Mundo en Pista Cubierta", place:"Toruń (POL)", type:"Pista Cubierta", cat:"Absoluto"},
-  {id:"mundo-short-track", date:"2026-01-20", name:"Campeonato del Mundo Short Track", place:"Toruń (POL)", type:"Short Track", cat:"Absoluto"},
   {id:"esp-por-short-track", date:"2026-01-28", name:"ESP-POR Short Track Pruebas Combinadas", place:"Zaragoza", type:"Short Track", cat:"Combinadas"},
   {id:"copa-europa-lanzamientos", date:"2026-03-14", name:"Copa de Europa de Lanzamientos", place:"Nicosia (CYP)", type:"Pista Aire libre", cat:"Absoluto"},
   {id:"mundo-universitario-cross", date:"2026-03-14", name:"Campeonato del Mundo Universitario de Campo a Través", place:"Cassino (ITA)", type:"Cross", cat:"Universitario"},
@@ -2800,27 +2799,59 @@ const COMPETITIONS = [
   },
   {
     id:"mundial-indoor-torun",
+    cal_ids:["rfea-2026-03-20-campeonato-del-mundo-short-track-0"],  // la misma competición en el calendario RFEA
     name:"Campeonato del Mundo en Pista Cubierta",
     place:"Toruń (POL) · Kujawsko-Pomorska Arena",
     dates:"20–22 marzo 2026 · FINALIZADO",
-    note:"España firmó su segunda mejor actuación histórica en un Mundial Indoor: 5 medallas (1 oro, 2 platas, 2 bronces) y 3 finalistas más, con 22 atletas convocados (12 hombres, 10 mujeres). Mariano García se convirtió en el primer atleta en ganar los títulos mundiales bajo techo de 800 m y 1.500 m. Se pudo seguir en España por Teledeporte.",
+    note:"Resultados oficiales de World Athletics, solo atletas españoles. España ganó 6 medallas: 1 oro, 2 platas y 3 bronces.",
     events:[
-      {name:"1.500m Hombres", athletes:[
-        {name:"Mariano García", club:"Campeón de Europa 800m 2022 — doblete histórico tras su oro en 800m", mark:"—", result:"🥇 ORO — primer atleta en la historia en ganar los mundiales indoor de 800m y 1.500m"},
+      {name:"60m Hombres", athletes:[
+        {name:"Guillem Crespi", club:"Ronda 1: 6.61 (4º de su serie) · Semifinal: 6.57 (5º de su serie)", mark:"6.57", result:"Eliminado en la semifinal (5º de su serie)"},
+      ]},
+      {name:"400m Hombres", athletes:[
+        {name:"David García", club:"Ronda 1: 46.91 (2º de su serie) · Semifinal: 46.65 (4º de su serie)", mark:"46.65", result:"Eliminado en la semifinal (4º de su serie)"},
+        {name:"Markel Fernandez", club:"Ronda 1: 46.68 (4º de su serie) · Semifinal: 46.72 (4º de su serie)", mark:"46.72", result:"Eliminado en la semifinal (4º de su serie)"},
       ]},
       {name:"800m Hombres", athletes:[
-        {name:"Mohamed Attaoui", club:"Plusmarquista español", mark:"1:42.04", result:"🥉 BRONCE"},
+        {name:"Mohamed Attaoui", club:"Ronda 1: 1:45.75 (2º de su serie) · Semifinal: 1:44.48 (2º de su serie)", mark:"1:44.66", result:"🥉 BRONCE"},
+        {name:"Elvin Josué Canales", club:"Ronda 1: 1:47.30 (5º de su serie)", mark:"1:47.30", result:"Eliminado en la ronda 1 (5º de su serie)"},
       ]},
-      {name:"110m Vallas Hombres", athletes:[
-        {name:"Quique Llopis", club:"—", mark:"13.09", result:"🥈 PLATA — récord de España"},
+      {name:"1500m Hombres", athletes:[
+        {name:"Carlos Saez", club:"Ronda 1: 3:43.75 (3º de su serie)", mark:"3:42.46", result:"8º en la final"},
+        {name:"Mariano García", club:"Ronda 1: 3:38.19 (1º de su serie)", mark:"3:39.63", result:"🥇 ORO"},
+      ]},
+      {name:"400m Mujeres", athletes:[
+        {name:"Blanca Hervás", club:"Ronda 1: 52.15 (1ª de su serie) · Semifinal: 51.58 (2ª de su serie)", mark:"51.43", result:"🥉 BRONCE"},
+        {name:"Paula Sevilla", club:"Ronda 1: 51.86 (2ª de su serie) · Semifinal: 52.19 (3ª de su serie)", mark:"52.19", result:"Eliminada en la semifinal (3ª de su serie)"},
+      ]},
+      {name:"800m Mujeres", athletes:[
+        {name:"Rocio Arroyo", club:"Ronda 1: 2:01.35 (3ª de su serie) · Semifinal: 2:01.14 (5ª de su serie)", mark:"2:01.14", result:"Eliminada en la semifinal (5ª de su serie)"},
+        {name:"Lorea Ibarzabal", club:"Ronda 1: 2:01.35 (4ª de su serie) · Semifinal: 2:00.74 (5ª de su serie)", mark:"2:00.74", result:"Eliminada en la semifinal (5ª de su serie)"},
+      ]},
+      {name:"Longitud Hombres", athletes:[
+        {name:"Eusebio Cáceres", club:"—", mark:"8.04", result:"8º en la final"},
+      ]},
+      {name:"3000m Hombres", athletes:[
+        {name:"Pol Oriach", club:"—", mark:"7:39.78", result:"10º en la final"},
+      ]},
+      {name:"60m vallas Hombres", athletes:[
+        {name:"Enrique Llopis", club:"Ronda 1: 7.55 (2º de su serie) · Semifinal: 7.46 (2º de su serie)", mark:"7.42", result:"🥈 PLATA"},
+        {name:"Asier Martínez", club:"Ronda 1: 7.65 (4º de su serie) · Semifinal: 7.62 (5º de su serie)", mark:"7.62", result:"Eliminado en la semifinal (5º de su serie)"},
+      ]},
+      {name:"60m Mujeres", athletes:[
+        {name:"Jaël Bestué", club:"Ronda 1: 7.18 (2ª de su serie) · Semifinal: 7.27 (8ª de su serie)", mark:"7.27", result:"Eliminada en la semifinal (8ª de su serie)"},
+      ]},
+      {name:"3000m Mujeres", athletes:[
+        {name:"Marta García", club:"—", mark:"DQ", result:"Descalificada en la final"},
       ]},
       {name:"4x400m Mixto", athletes:[
-        {name:"Blanca Hervás", club:"Clave también en el 4x400 femenino", mark:"50.46", result:"🥈 PLATA"},
-        {name:"Paula Sevilla", club:"—", mark:"50.68", result:"🥈 PLATA"},
+        {name:"España", club:"Relevo de España", mark:"3:16.96", result:"🥈 PLATA"},
+      ]},
+      {name:"Longitud Mujeres", athletes:[
+        {name:"Irati Mitxelena", club:"—", mark:"6.43", result:"12ª en la final"},
       ]},
       {name:"4x400m Mujeres", athletes:[
-        {name:"Blanca Hervás", club:"—", mark:"50.46", result:"🥉 BRONCE"},
-        {name:"Paula Sevilla", club:"6ª en 400m individual — gran temporada de progresión", mark:"50.68", result:"🥉 BRONCE"},
+        {name:"España", club:"Relevo de España · Ronda 1: 3:29.98 (3ª de su serie)", mark:"3:26.04", result:"🥉 BRONCE"},
       ]},
     ]
   },
@@ -4188,7 +4219,9 @@ function resToday(){ return new Date().toISOString().slice(0,10); }
 function resPastEvents(){
   const hoy = resToday();
   const inicio = hoy.slice(0,4) + '-01-01';
-  const past = CALENDAR.filter(ev => ev.date >= inicio && ev.date <= hoy);
+  // competiciones que ya tienen ficha propia con otro id (p. ej. el Mundial de Toruń): no se repiten
+  const alias = new Set(COMPETITIONS.flatMap(c => c.cal_ids || []));
+  const past = CALENDAR.filter(ev => ev.date >= inicio && ev.date <= hoy && !alias.has(ev.id));
   // resultados publicados que no están en el calendario (p. ej. PDFs de RFEA de citas internacionales)
   RESULTS_INDEX.filter(r => !r.cal_id && r.date && r.date >= inicio && !past.some(p=>p.id===r.id)).forEach(r=>{
     past.push({id:r.id, date:r.date, name:r.name, place:r.place||'', type:'Internacional', cat:sourceLabel(r.source), source:sourceLabel(r.source), _resultOnly:true});
@@ -4573,7 +4606,8 @@ function applyAutoCalendar(auto){
   const curated = CALENDAR_CURATED.filter(c => COMPETITIONS.some(k => k.id === c.id));
   const out = curated.map(c => ({...c}));
   auto.items.forEach(a=>{
-    const twin = out.find(c => !c.source && seSolapan(c, a) && nombreParecido(c.name, a.name));
+    const twin = out.find(c => !c.source && ((COMPETITIONS.find(k => k.id === c.id) || {}).cal_ids || []).includes(a.id))
+      || out.find(c => !c.source && seSolapan(c, a) && nombreParecido(c.name, a.name));
     if(twin){
       twin.links = {...(a.links||{}), ...(twin.links||{})};
       ['time','time_end','times','destacados','sources','end_date'].forEach(k => { if(a[k] && !twin[k]) twin[k] = a[k]; });
