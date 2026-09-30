@@ -35,10 +35,10 @@ def family(event):
         return ""
     if re.search(r"km|milla|marat|mitja|media|cross|campo a traves|ruta|marcha|trail|montana|obstac|10k|5k|legua|ultra|carrera", e):
         return "resistencia"
-    m = re.search(r"(\d[\d.]*)\s?m\b", e)
+    m = re.search(r"(\d{1,3}(?:[ .]\d{3})+|\d+)\s?m\b", e)  # '1 500 m' (norm cambia el punto de miles por espacio)
     if m:
         try:
-            return "resistencia" if float(m.group(1).replace(".", "")) >= 800 else "otras"
+            return "resistencia" if float(re.sub(r"[ .]", "", m.group(1))) >= 800 else "otras"
         except ValueError:
             pass
     return "otras"

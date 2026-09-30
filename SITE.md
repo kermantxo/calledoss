@@ -90,6 +90,8 @@
 
 - 2026-09-30: Milla de Berango: la previa muestra solo las hojas oficiales de la organización (19 hombres y 18 mujeres de élite, con dorsal y club, en orden de dorsal). Quitados el relevo 4x400 y las notas que venían de la prensa.
 
+- 2026-09-30: Corregidos los clubes de Alice Finot (R.C. Celta-Nike), Marta Mitjans (Nike Running) y Lorena Martín (New Balance). Los méritos de 1.500 m, 3.000 m, 5.000 m y 10.000 m vuelven a salir en las previas de fondo (antes se leía "1.500 m" como "500 m").
+
 ## How to Customize
 - Para añadir la élite anunciada de una prueba: editar `pipeline/extra_entries.json` (id de la competición, fuente y atletas)
 - Si se añaden estadísticas o publicidad: cargarlas solo si `hasCookieConsent('estadisticas')` / `hasCookieConsent('publicidad')` (script.js) y actualizar `cookies.html`
