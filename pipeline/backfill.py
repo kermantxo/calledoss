@@ -37,7 +37,7 @@ from .sources import rfea, rfealive, worldathletics, timers, sportmaniacs, faali
 
 STATE = "state/backfill.json"
 # Súbelo cuando se añadan fuentes o lectores nuevos: todo lo "sin resultados" se vuelve a intentar.
-VERSION = 19
+VERSION = 20
 MISSING = "results/sin_resultados.json"
 START = "2026-01-01"
 COMBINED = re.compile(r"decatlon|heptatlon|pentatlon|hexatlon|octatlon|triatlon|tetratlon")
@@ -270,7 +270,7 @@ def from_pdf(http, item, url, cache, trust="index"):
     if item.get("type") in ROAD_TYPES:
         if "road" not in c:  # PDF guardado antes de existir el lector de ruta
             c["road"] = _road_events(http.get(url, timeout=180).content)
-        if _useful(c["road"]) > _useful(c["events"]):
+        if c["road"] and _useful(c["road"]) >= _useful(c["events"]):  # a igualdad, el lector de ruta (nombres completos)
             return (c["road"] if pdf_matches(item, c["dates"], c["title"], url, trust) else None), url, \
                 "" if pdf_matches(item, c["dates"], c["title"], url, trust) else "el PDF es de otra competición (fecha/nombre no coinciden)"
     if not pdf_matches(item, c["dates"], c["title"], url, trust):

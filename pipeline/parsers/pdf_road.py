@@ -202,7 +202,8 @@ def parse(content):
                     continue
                 if DISTANCE.search(text) and len(text) < 90 and not TIME.match(ws[-1]["text"]) \
                         and not any(NAME_HDR.match(w["text"]) for w in ws) \
-                        and sum(1 for w in ws if TIME_HDR.match(w["text"])) < 2:
+                        and sum(1 for w in ws if TIME_HDR.match(w["text"])) < 2 \
+                        and not re.search(r"(?i)\b(dif\.?|ritmo|m/km|min/km)(\s|$)", text):
                     pending_title = _title(text)
                     if not title:
                         title = pending_title
@@ -220,6 +221,7 @@ def parse(content):
             if r["mark"]:
                 prev = _secs(r["mark"])
         rows = [r for r in rows if r["mark"]]
+        n_before = len(events)
         for sex, label in (("M", "Hombres"), ("F", "Mujeres")):
             pod, sure = [], True
             for r in rows:
@@ -237,4 +239,10 @@ def parse(content):
             events.append({"name": ("%s %s" % (title, label)).strip(), "rounds": [{
                 "round": "General", "final": True,
                 "rows": [{"pos": str(i + 1), "name": r["name"], "club": r["club"], "mark": r["mark"]} for i, r in enumerate(pod)]}]})
+        # clasificación absoluta en la que no se puede separar por sexo con seguridad: el podio absoluto, tal cual
+        top = [r for r in rows if not r.get("unknown")][:3]
+        if len(events) == n_before and len(top) == 3 and all(int(r["pos"]) == i + 1 for i, r in enumerate(top)):
+            events.append({"name": ("%s General" % title).strip(), "rounds": [{
+                "round": "General", "final": True,
+                "rows": [{"pos": str(i + 1), "name": r["name"], "club": r["club"], "mark": r["mark"]} for i, r in enumerate(top)]}]})
     return events
