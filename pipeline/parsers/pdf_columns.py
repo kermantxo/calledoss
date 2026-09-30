@@ -66,7 +66,18 @@ def _lines(page):
             rows[-1][1].append(w)
         else:
             rows.append([w["top"], [w]])
-    return [sorted(ws, key=lambda w: w["x0"]) for _, ws in rows]
+    return [_join_split_times(sorted(ws, key=lambda w: w["x0"])) for _, ws in rows]
+
+
+def _join_split_times(ws):
+    """'1 :03:17' (la hora separada del resto por un espacio) -> '1:03:17'; si no, se toma el paso intermedio."""
+    out = []
+    for w in ws:
+        if out and re.fullmatch(r"\d", out[-1]["text"]) and re.match(r"^:\d{2}:\d{2}", w["text"]) and w["x0"] - out[-1]["x1"] < 6:
+            out[-1] = dict(out[-1], text=out[-1]["text"] + w["text"], x1=w["x1"])
+        else:
+            out.append(w)
+    return out
 
 
 def _header(ws):

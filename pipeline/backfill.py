@@ -31,13 +31,13 @@ from bs4 import BeautifulSoup
 from .calendar_build import similar
 from .common import load_json, norm, save_json, today, iso_now, clean, parse_dmy
 from .highlights import FIELD, _mark_value
-from .parsers import pdf_columns, pdf_results
+from .parsers import pdf_columns, pdf_results, pdf_road
 from .results import store, unstore, _index
 from .sources import rfea, rfealive, worldathletics, timers, sportmaniacs, faalive
 
 STATE = "state/backfill.json"
 # Súbelo cuando se añadan fuentes o lectores nuevos: todo lo "sin resultados" se vuelve a intentar.
-VERSION = 17
+VERSION = 18
 MISSING = "results/sin_resultados.json"
 START = "2026-01-01"
 COMBINED = re.compile(r"decatlon|heptatlon|pentatlon|hexatlon|octatlon|triatlon|tetratlon")
@@ -250,13 +250,39 @@ def from_pdf(http, item, url, cache, trust="index"):
                 good = [p for p in podiums(res["events"]) if [r["pos"] for r in p["rounds"][0]["rows"]] == ["1", "2", "3"]]
             title = title if len(title) > 8 else " ".join(pages[0].splitlines()[:4])[:200] if pages else title
             cache[url] = c = {"pdf": True, "dates": dates, "title": title, "format": res.get("format"), "events": good}
+            if item.get("type") in ROAD_TYPES:
+                c["road"] = _road_events(resp.content)
     if not c.get("pdf"):
         return None, url, "no es un PDF"
+    if item.get("type") in ROAD_TYPES:
+        if "road" not in c:  # PDF guardado antes de existir el lector de ruta
+            c["road"] = _road_events(http.get(url, timeout=180).content)
+        if _useful(c["road"]) > _useful(c["events"]):
+            return (c["road"] if pdf_matches(item, c["dates"], c["title"], url, trust) else None), url, \
+                "" if pdf_matches(item, c["dates"], c["title"], url, trust) else "el PDF es de otra competición (fecha/nombre no coinciden)"
     if not pdf_matches(item, c["dates"], c["title"], url, trust):
         return None, url, "el PDF es de otra competición (fecha/nombre no coinciden)"
     if not c["events"]:
         return None, url, "PDF sin tablas de resultados reconocibles"
     return c["events"], url, ""
+
+
+ROAD_TYPES = ("Ruta", "Trail", "Marcha", "Cross")
+
+
+def _road_events(content):
+    try:
+        return pdf_road.parse(content)
+    except Exception:
+        return []
+
+
+def _useful(events):
+    """Cuánto sirve una lectura: pruebas que pasan la revisión automática (primero, que tenga los dos sexos)."""
+    from .quality import review, sexes_in
+    import copy
+    kept = (review({"events": copy.deepcopy(list(events or []))}, "")[0] or {}).get("events", [])  # review modifica lo que recibe
+    return (len(sexes_in(kept)), len(kept))
 
 
 def drive_direct(url):

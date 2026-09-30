@@ -118,6 +118,7 @@ omar oriol oscar osvaldo pablo pascual patricio pau pedro pelayo pere pol quim r
 reinaldo ricard ricardo roberto rodrigo roger rogelio roman ruben said salvador samuel santiago saul sebastian
 sergi sergio silvestre simon teodoro tomas txema ulises unai urko valentin vicente victor xabier xavi xavier xoan
 yago yeray yassine youssef zakaria javi iraitz ekain youness pierre mark thomas kevin loic maxime christophe guillaume theo paul clement geoffrey fergal nicholas laurent nicolas senab urtzi edu maikel karim andoni ander asier aimar beñat ekaitz gaizka haritz iñigo jokin koldo markel mikel oihan peio unax xabat
+faouzi wassim bilal nassim hicham rachid abdelkader abdellah abdelilah mustapha mustafa mourad khalid karim hassan hassane hamid ilias ilyas anas amine yassin yousef soufiane sofian reda nabil tarik tariq driss jamal adil aziz abderrazak brahim ibrahim ismail othmane oussama ayman badr zouhair mehdi redouane samir nordin noureddine abdelhadi lahcen lahsen reuben denis dennis nickson vincent aron ander beñat eñaut oihan xabat unax ekaitz haritz jokin manex endika koldo ibon artur abdessamad aymane zakariae abdelaaziz yahya hafid
 """.split())
 FEMALE = set("""
 adela adriana agata agueda aida ainara ainhoa aitana alba alejandra alexandra alicia alma almudena amaia amalia amanda
@@ -132,6 +133,7 @@ miriam monica montserrat nadia naia nahia natalia nerea nieves noa noelia nora n
 pilar raquel rebeca regina rocio rosa rosalia rosario ruth sabrina salma samanta sandra sara sheila silvia sofia soledad
 sonia susana tamara tania teresa uxue valeria vanesa vega veronica victoria virginia viviana yaiza yasmina yolanda zoe
 zuriñe maitane fernanda elisabeth emmanuelle sabina trine ainhize amets ane eider garazi haizea irati itxaso izaro june lorea maddi malen nagore olatz uxue
+fatiha khadija naima najat hanane hanan meryem maryam soukaina siham loubna samira kaoutar ikram sanae zineb hajar asmae nawal wafae chaimae houda vivian winnie faith mercy gladys joyce beatrice ainize alaia enara idoia leixuri leizuri nahikari oihane ziortza aitziber arrate izaskun josune lide nekane salome alice iren
 """.split())
 
 

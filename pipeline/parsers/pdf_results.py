@@ -34,7 +34,8 @@ RESULT_LINE = re.compile(r"^(\d{1,3}|DNF|DNS|DQ|-)\s+(\d{1,5})\s+([A-Z0-9]{2,8})
 
 def extract_pages(content):
     with pdfplumber.open(io.BytesIO(content)) as pdf:
-        return [(p.extract_text() or "") for p in pdf.pages]
+        # '1 :03:17' -> '1:03:17' (hay cronometradores que separan la hora del resto)
+        return [re.sub(r"(?<![\d:])(\d) :(\d{2}:\d{2})", r"\1:\2", p.extract_text() or "") for p in pdf.pages]
 
 
 def _header(lines):
