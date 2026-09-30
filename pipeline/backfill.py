@@ -32,7 +32,7 @@ from .calendar_build import similar
 from .common import load_json, norm, save_json, today, iso_now, clean, parse_dmy
 from .highlights import FIELD, _mark_value
 from .parsers import pdf_columns, pdf_meet, pdf_results, pdf_road
-from .results import store, unstore, _index
+from .results import store, unstore, _index, drop_bad
 from .sources import rfea, rfealive, worldathletics, timers, sportmaniacs, faalive, livetrail, cruzandolameta
 
 STATE = "state/backfill.json"
@@ -775,6 +775,8 @@ def run(http, health, items, max_minutes=None, only_ids=None):
     max_minutes = max_minutes or float(os.environ.get("BACKFILL_MAX_MINUTES", "330"))
     t0 = time.time()
     f = Finder(http, health)
+    for cid in drop_bad():  # resultados con un documento descartado a mano: se vuelven a buscar
+        f.state["done"].pop(cid, None)
     yesterday = (today() - dt.timedelta(days=1)).isoformat()
     existing = {x["cal_id"] or x["id"]: x for x in _index()["items"]}
     todo = [it for it in items if START <= (it.get("end_date") or it["date"]) <= yesterday]

@@ -104,8 +104,11 @@
 
 - 2026-09-30: Medio Maratón de San Sebastián: Elena Silvestre fuera de la previa (no corre). Nueva opción 'excluir' en `pipeline/extra_entries.json` para quitar a inscritos que no van a correr.
 
+- 2026-09-30: Carga histórica terminada: 391 de 431 competiciones con resultados; 41 pendientes (en el panel). Retirados por estar mal: Europeo Off-Road (tiempos mal leídos) y Campeonato de Galicia de combinadas (tenía el PDF de otro campeonato).
+
 ## How to Customize
 - Para añadir la élite anunciada de una prueba: editar `pipeline/extra_entries.json` (id de la competición, fuente y atletas)
+- Si un resultado está mal (PDF mal leído o de otra competición): añadir el id y el enlace en `pipeline/bad_results.json`; se retira y vuelve a quedar pendiente
 - Para quitar de una previa a alguien que no corre: en `pipeline/extra_entries.json`, añadir su nombre en "excluir" dentro del id de la competición
 - Si se añaden estadísticas o publicidad: cargarlas solo si `hasCookieConsent('estadisticas')` / `hasCookieConsent('publicidad')` (script.js) y actualizar `cookies.html`
 - Para añadir una clasificación que el sistema no encuentra (p. ej. un PDF en Google Drive): añadir el enlace en `pipeline/extra_links.json` con el id de la competición

@@ -68,9 +68,39 @@ def _dedupe(events):
     return out
 
 
+def _bad_results():
+    import json, os
+    try:
+        with open(os.path.join(os.path.dirname(__file__), "bad_results.json"), encoding="utf-8") as f:
+            return {k: v for k, v in json.load(f).items() if not k.startswith("_")}
+    except Exception:
+        return {}
+
+
+BAD_RESULTS = _bad_results()
+
+
+def is_bad(cid, url):
+    """¿Este documento está descartado para esta competición? (pipeline/bad_results.json)"""
+    return any(u and u in (url or "") for u in (BAD_RESULTS.get(cid) or {}).get("urls", []))
+
+
+def drop_bad():
+    """Quita de los resultados los que usan un documento descartado. Devuelve los ids quitados."""
+    out = []
+    for x in list(_index()["items"]):
+        cid = x.get("cal_id") or x["id"]
+        if is_bad(cid, x.get("url")):
+            unstore(x["id"])
+            out.append(cid)
+    return out
+
+
 def store(item, res, source, url=None):
     """Guarda el detalle y actualiza el índice."""
     rid = item["id"] if item else "res-%s" % short_hash(url or source)
+    if item and is_bad(item["id"], url):
+        return None  # documento descartado a mano para esta competición
     res = dict(res)
     # revisión automática: nombres "Nombre Apellidos" y nada de hombres en podios de mujeres (ni al revés)
     from .quality import review, record
@@ -257,6 +287,7 @@ def sweep(http, items, health, deep=False):
     """Chequeo de resultados: índices + competiciones recientes (incluidas las de HOY) + pendientes.
     deep=True (chequeo diario): también reintenta lo pendiente de días anteriores con la búsqueda completa."""
     t = today()
+    drop_bad()
     idx_ids = {x["id"] for x in _index()["items"]}
     pending = load_json("state/pending.json", {}) or {}
     health.run("rfea_results", "RFEA · índice de resultados (PDF)", rfea_pdf_index, http, items, health, expect_min=0)

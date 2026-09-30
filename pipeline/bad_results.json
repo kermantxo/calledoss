@@ -1,0 +1,11 @@
+{
+ "_nota": "Documentos que NO deben usarse para una competición (se leyeron mal o son de otra competición). Clave: id de la competición; valor: lista de URLs (o trozos de URL) descartados. La competición vuelve a quedar como pendiente.",
+ "rfea-2026-06-05-campeonato-de-europa-road-1": {
+  "urls": ["tr_CEuropa_OffRoad_LjubljanaKamnik.pdf"],
+  "motivo": "Tiempos imposibles (el PDF se leyó mal)"
+ },
+ "rfea-2026-06-27-campionato-de-galicia-sub20-y-sub23-de-probas-combinadas": {
+  "urls": ["ourense-cto-gal-20-23-resultados"],
+  "motivo": "Es el PDF del Campeonato Xunta de Galicia Sub20/Sub23 (pruebas individuales), no el de pruebas combinadas"
+ }
+}
