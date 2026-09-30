@@ -31,13 +31,13 @@ from bs4 import BeautifulSoup
 from .calendar_build import similar
 from .common import load_json, norm, save_json, today, iso_now, clean, parse_dmy
 from .highlights import FIELD, _mark_value
-from .parsers import pdf_columns, pdf_results, pdf_road
+from .parsers import pdf_columns, pdf_meet, pdf_results, pdf_road
 from .results import store, unstore, _index
-from .sources import rfea, rfealive, worldathletics, timers, sportmaniacs, faalive
+from .sources import rfea, rfealive, worldathletics, timers, sportmaniacs, faalive, livetrail, cruzandolameta
 
 STATE = "state/backfill.json"
 # Súbelo cuando se añadan fuentes o lectores nuevos: todo lo "sin resultados" se vuelve a intentar.
-VERSION = 18
+VERSION = 19
 MISSING = "results/sin_resultados.json"
 START = "2026-01-01"
 COMBINED = re.compile(r"decatlon|heptatlon|pentatlon|hexatlon|octatlon|triatlon|tetratlon")
@@ -227,6 +227,8 @@ def from_rfealive(http, chid, base):
 def from_pdf(http, item, url, cache, trust="index"):
     """Podios de un PDF. El contenido se guarda por URL; la comprobación de fecha/nombre, por competición."""
     c = cache.get(url)
+    if c is not None and c.get("pdf") and not c.get("events") and c.get("v", 0) < 2:
+        c = None  # PDF que no se pudo leer antes de existir los lectores nuevos: se vuelve a leer
     if c is None:
         resp = http.get(url, timeout=180)
         if b"%PDF" not in resp.content[:1024]:
@@ -246,10 +248,17 @@ def from_pdf(http, item, url, cache, trust="index"):
             if cols and (len(sexes_in(cols)), len(cols)) > (len(sexes_in(good)), len(good)):
                 good = cols
                 res["format"] = "columnas"
+            try:  # reuniones de pista con ficha de 2-3 líneas por atleta (Vigo, Fuenlabrada, Milla Máster...)
+                meet = podiums(pdf_meet.parse(pages))
+            except Exception:
+                meet = []
+            if meet and _useful(meet) > _useful(good):
+                good = meet
+                res["format"] = "reunión"
             if not good and res.get("format") == "generic":  # último recurso: podios completos y ordenados
                 good = [p for p in podiums(res["events"]) if [r["pos"] for r in p["rounds"][0]["rows"]] == ["1", "2", "3"]]
             title = title if len(title) > 8 else " ".join(pages[0].splitlines()[:4])[:200] if pages else title
-            cache[url] = c = {"pdf": True, "dates": dates, "title": title, "format": res.get("format"), "events": good}
+            cache[url] = c = {"pdf": True, "dates": dates, "title": title, "format": res.get("format"), "events": good, "v": 2}
             if item.get("type") in ROAD_TYPES:
                 c["road"] = _road_events(resp.content)
     if not c.get("pdf"):
@@ -638,9 +647,41 @@ class Finder:
                 except Exception as e:
                     tried[-1] += " (error: %s)" % str(e)[:60]
 
+        # 6c. LiveTrail (trail): enlace directo o enlazado desde la web oficial
+        lt = next((v for v in links.values() if livetrail.tenant(v)), None)
+        if not lt and links.get("web") and it.get("type") in ("Trail", "Ruta", "Otras", None, ""):
+            try:
+                html = self.http.get(links["web"], timeout=30).text
+                m = livetrail.URL.search(html)
+                lt = m.group(0) if m and m.group(2) == it["date"][:4] else None
+            except Exception:
+                pass
+        if lt:
+            tried.append("LiveTrail %s" % livetrail.tenant(lt))
+            try:
+                pods = livetrail.results(self.http, lt)
+                if pods:
+                    yield pods, "LiveTrail", lt, tried
+                else:
+                    tried[-1] += " (sin clasificaciones)"
+            except Exception as e:
+                tried[-1] += " (error: %s)" % str(e)[:60]
+
         # 7. Web oficial / página de resultados → PDFs de clasificaciones
         pages = [links.get("resultados"), links.get("web")]
         for page in [p for p in pages if p and not p.lower().split("?")[0].endswith(".pdf")]:
+            if cruzandolameta.RES.search(page.split("?")[0]):
+                # Cruzando la Meta: clasificaciones en tablas HTML, filtrables por sexo
+                tried.append(page)
+                try:
+                    pods = cruzandolameta.results(self.http, page)
+                    if pods:
+                        yield pods, "Cruzando la Meta", page, tried
+                        continue
+                    tried[-1] += " (sin clasificaciones)"
+                except Exception as e:
+                    tried[-1] += " (error: %s)" % str(e)[:60]
+                continue
             if "faalive" in page:
                 # Federación Andaluza: página que solo se ve en navegador → Playwright
                 tried.append(page)

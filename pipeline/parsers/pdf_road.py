@@ -27,6 +27,8 @@ DISTANCE = re.compile(r"\b(\d+([.,]\d+)?\s?(k|km|kms)\b|\d+\s?k\b|media\s+marat|
                       r"milla|\d{3,5}\s?m\b|ultra)", re.I)
 
 
+CAT_WORD = re.compile(r"^(s\.?[mf]\.?|popular|sub-?\d*|velocidad|senior|s[eé]nior|m[aá]ster|vet\w*|[mf]\d{2}|abs|absoluta?|"
+                      r"federad[oa]|promesa|junior|juvenil|cadete|infantil|alev[ií]n|benjam[ií]n)$", re.I)
 PARTIAL = re.compile(r"\b(parcial|paso|split|intermedi)", re.I)
 
 
@@ -47,6 +49,8 @@ def _lines(page):
             rows.append([w["top"], [w]])
     out = []
     for _, ws in rows:
+        # "4'36''" (minutos y segundos con comillas) -> "4:36"
+        ws = [dict(w, text=re.sub(r"^(\d{1,2})['’](\d{2})(?:''|\"|’’|”)?$", r"\1:\2", w["text"])) for w in ws]
         ws = sorted(ws, key=lambda w: w["x0"])
         joined = []
         for w in ws:  # '1 :03:17' -> '1:03:17'
@@ -155,6 +159,11 @@ def _row(ws, hdr):
             club.append(t)
         rest.append(t)
     toks = [x for x in " ".join(name).replace(",", " , ").split()]
+    # palabras de la columna de categoría pegadas al nombre ('S.M.', 'Popular', 'Sub', 'Velocidad')
+    while toks and CAT_WORD.match(toks[-1]):
+        toks.pop()
+    while toks and CAT_WORD.match(toks[0]):
+        toks.pop(0)
     if not surname_first or "," in toks:
         toks = [x for x in toks if x != "."]
     if not times or not re.search(r"[A-Za-zÀ-ÿ]{2,}", " ".join(toks)):
