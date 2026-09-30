@@ -6,11 +6,6 @@ name: Carga histórica
 
 on:
   workflow_dispatch:
-    inputs:
-      solo:
-        description: "Solo estas competiciones (ids separados por comas). Vacío = todas"
-        required: false
-        default: ""
 
 concurrency:
   group: datos-writer
@@ -45,7 +40,6 @@ jobs:
         env:
           DATA_DIR: datos
           BACKFILL_MAX_MINUTES: "45"
-          BACKFILL_ONLY: ${{ github.event.inputs.solo }}
         run: python -m pipeline.run backfill
 
       - name: Guardar

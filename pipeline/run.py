@@ -66,9 +66,7 @@ def plan_only():
 
 def backfill_run():
     h, health = Http(), Health()
-    only = {x.strip() for x in os.environ.get("BACKFILL_ONLY", "").split(",") if x.strip()} or None
-    stats = health.run("backfill", "Carga histórica de resultados 2026", backfill.run, h, health, _items(), expect_min=0,
-                       only_ids=only)
+    stats = health.run("backfill", "Carga histórica de resultados 2026", backfill.run, h, health, _items(), expect_min=0)
     health.save()
     print("carga histórica:", stats)
     with open(os.path.join(os.environ.get("DATA_DIR", "data"), "..", "backfill_remaining.txt"), "w") as f:
