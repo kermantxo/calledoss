@@ -118,7 +118,10 @@
 
 - 2026-10-01: Campeonato de Madrid Sub20 (3-4 julio, Vallehermoso): resultados oficiales de la Federación Madrileña (la ficha de la RFEA apuntaba a una página antigua que ya no existe).
 
+- 2026-10-01: SEO básico: título y descripción para Google, vista previa al compartir (images/compartir.png), iconos de pestaña, datos estructurados, robots.txt y sitemap.xml. Dirección pública: https://calledoss.com
+
 ## How to Customize
+- Si se añade una página nueva: añadirla a `sitemap.xml` y ponerle título, descripción y `canonical` en su `<head>`
 - Para añadir la élite anunciada de una prueba: editar `pipeline/extra_entries.json` (id de la competición, fuente y atletas)
 - Si a un resultado le falta un atleta (comprobado en la clasificación oficial): añadirlo en `pipeline/extra_results.json` con el id del resultado
 - Si un resultado está mal (PDF mal leído o de otra competición): añadir el id y el enlace en `pipeline/bad_results.json`; se retira y vuelve a quedar pendiente
