@@ -118,7 +118,7 @@ def render(item, res):
 <meta property="og:image" content="{base}/images/compartir.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/styles.css?v=20261001">
+<link rel="stylesheet" href="/styles.css?v=20261001b">
 <script type="application/ld+json">{ld}</script>
 </head>
 <body>

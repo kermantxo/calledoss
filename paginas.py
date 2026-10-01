@@ -24,7 +24,7 @@ PAGES = {
     "ranking": ("Ranking español de atletismo 2026 · Calledoss",
                 "El top 10 español de cada prueba en 2026, aire libre y pista cubierta, con datos oficiales de la RFEA."),
     "contacto": ("Contacto · Calledoss",
-                 "Escribe a Calledoss: avisos de competiciones o resultados, propuestas para el pódcast de Calle 2 y nuestras redes."),
+                 "Escribe a Calledoss: avisos de competiciones o resultados, propuestas para el pódcast de Calledoss y nuestras redes."),
 }
 
 
