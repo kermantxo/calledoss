@@ -4925,7 +4925,7 @@ const CONTACT_EMAIL = 'calledosspodcast@gmail.com';
   form.addEventListener('submit', async (ev) => {
     ev.preventDefault();
     const name = form.nombre.value.trim(), email = form.email.value.trim(), msg = form.mensaje.value.trim();
-    if(!name || !email || !msg){ say('Rellena tu nombre, tu email y el mensaje.', 'error'); return; }
+    if(!name || !email || !msg){ say('Rellena tu nombre y apellido, tu email y el mensaje.', 'error'); return; }
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ say('Revisa el email: parece que le falta algo.', 'error'); form.email.focus(); return; }
     if(form._honey.value) return;   // lo ha rellenado un robot
     send.disabled = true;
