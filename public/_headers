@@ -1,0 +1,5 @@
+# El navegador comprueba siempre si hay una versión nueva del diseño y del funcionamiento de la web
+/*.css
+  Cache-Control: public, max-age=0, must-revalidate
+/*.js
+  Cache-Control: public, max-age=0, must-revalidate
