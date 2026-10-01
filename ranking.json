@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-30T06:57:32+02:00",
+ "generated": "2026-10-01T06:58:37+02:00",
  "season": "2026",
  "source": "https://atletismorfea.es/ranking",
  "seasons": {
@@ -952,23 +952,23 @@
       },
       {
        "mark": "13.27",
-       "wind": "0.7",
-       "name": "Xènia Benach Sole",
-       "club": "INDEPENDIENTE",
-       "born": "2000",
-       "fed": "CAT",
-       "city": "Granada-JUV",
-       "date": "03/06/2026",
-       "rank": "3"
-      },
-      {
-       "mark": "13.27",
        "wind": "-3.2",
        "name": "Laura Banko San Juan",
        "club": "Barrutia A.E.",
        "born": "2001",
        "fed": "PVA",
        "city": "Valladolid-REN",
+       "date": "03/06/2026",
+       "rank": "3"
+      },
+      {
+       "mark": "13.27",
+       "wind": "0.7",
+       "name": "Xènia Benach Sole",
+       "club": "INDEPENDIENTE",
+       "born": "2000",
+       "fed": "CAT",
+       "city": "Granada-JUV",
        "date": "03/06/2026",
        "rank": "="
       },
@@ -9492,22 +9492,22 @@
       {
        "mark": "14.90",
        "wind": "",
-       "name": "Unai Loureiro Arrojo",
-       "club": "Riazor Coruña",
-       "born": "2006",
-       "fed": "GAL",
-       "city": "Ourense",
+       "name": "Raul Martin Galve",
+       "club": "At. Intec-Zoiti",
+       "born": "2004",
+       "fed": "ARA",
+       "city": "Zaragoza",
        "date": "10/01/2026",
        "rank": "4"
       },
       {
        "mark": "14.90",
        "wind": "",
-       "name": "Raul Martin Galve",
-       "club": "At. Intec-Zoiti",
-       "born": "2004",
-       "fed": "ARA",
-       "city": "Zaragoza",
+       "name": "Unai Loureiro Arrojo",
+       "club": "Riazor Coruña",
+       "born": "2006",
+       "fed": "GAL",
+       "city": "Ourense",
        "date": "10/01/2026",
        "rank": "="
       },
