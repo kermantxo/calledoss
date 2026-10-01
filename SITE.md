@@ -122,7 +122,10 @@
 
 - 2026-10-01: Cada sección es una página propia: Inicio (calledoss.com), /calendario, /resultados, /directo, /proximas y /ranking, cada una con su título y descripción para Google. El menú son enlaces; las direcciones antiguas (#resultados) llevan a la página nueva. Las 5 páginas se crean desde index.html con `python3 paginas.py`.
 
+- 2026-10-01: Una página propia por cada competición con resultados (calledoss.com/resultados/<nombre>-<fecha>), con podios femeninos y masculinos y los españoles escritos en la página para que Google los lea. Se regeneran solas cada día (proceso diario de GitHub) junto con sitemap.xml, y desde la lista de Resultados hay un enlace a cada una.
+
 ## How to Customize
+- Las páginas de cada competición (`public/resultados/`) y `sitemap.xml` las crea `pipeline/static_pages.py` cada día; no se editan a mano. Para rehacerlas en el momento: GitHub → Actions → Datos → Run workflow → `paginas`
 - IMPORTANTE: el contenido de las páginas de sección (calendario.html, resultados.html, directo.html, proximas.html, ranking.html) sale de index.html. Después de cambiar index.html (o robots.txt / sitemap.xml) hay que ejecutar `python3 paginas.py` para que las demás páginas lo tengan también (sus títulos y descripciones están en ese archivo). Ese comando deja además una copia en `public/`, que es la carpeta que publica Cloudflare
 - Si se añade una página nueva: añadirla a `sitemap.xml` y ponerle título, descripción y `canonical` en su `<head>`
 - Para añadir la élite anunciada de una prueba: editar `pipeline/extra_entries.json` (id de la competición, fuente y atletas)

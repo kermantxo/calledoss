@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "daily | results | plan | revisar | previas | ranking"
+        description: "daily | results | plan | revisar | previas | ranking | paginas"
         default: "daily"
         required: true
 
@@ -66,3 +66,23 @@ jobs:
       - name: Guardar cambios en la rama datos
         run: |
           bash .github/scripts/push-datos.sh "datos - ${{ github.event.inputs.mode || 'automático' }}"
+
+      # Una vez al día: páginas de resultados de cada competición (para Google) y sitemap.xml,
+      # guardadas en main (la rama que publica Cloudflare). Solo en el proceso diario, para no
+      # publicar la web cada hora.
+      - name: Páginas de resultados para Google
+        if: github.event.schedule == '15 4 * * *' || github.event.inputs.mode == 'daily' || github.event.inputs.mode == 'paginas'
+        env:
+          DATA_DIR: datos
+        run: |
+          [ "${{ github.event.inputs.mode }}" = "paginas" ] || python -m pipeline.run paginas
+          git config user.name "calledoss-bot"
+          git config user.email "calledoss-bot@users.noreply.github.com"
+          git add public/resultados public/sitemap.xml sitemap.xml
+          if git diff --cached --quiet; then echo "Sin cambios en las páginas"; exit 0; fi
+          git commit -q -m "Páginas de resultados (automático)"
+          for i in 1 2 3; do
+            git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0
+            sleep 5
+          done
+          echo "No se pudieron subir las páginas" >&2; exit 1

@@ -12,7 +12,7 @@ import os
 import sys
 import time
 
-from . import backfill, calendar_build, highlights, live, previas, ranking, results
+from . import backfill, calendar_build, highlights, live, previas, ranking, results, static_pages
 from .common import Health, Http, load_json, save_json, iso_now
 
 
@@ -101,6 +101,11 @@ def revisar():
     print("revisadas %d competiciones; %d podios retirados por no cuadrar" % (n, dropped))
 
 
+def paginas():
+    """Páginas de resultados para Google (una por competición) y sitemap.xml."""
+    print("páginas de resultados:", static_pages.run())
+
+
 def live_tick():
     h, health = Http(min_delay=0.3), Health()
     n = live.tick(h, health)
@@ -113,5 +118,5 @@ if __name__ == "__main__":
     mode = sys.argv[1] if len(sys.argv) > 1 else "daily"
     t = time.time()
     {"daily": daily, "results": results_only, "plan": plan_only, "live": live_tick, "backfill": backfill_run,
-     "revisar": revisar, "previas": previas_only, "ranking": ranking_only}[mode]()
+     "revisar": revisar, "previas": previas_only, "ranking": ranking_only, "paginas": paginas}[mode]()
     print("%s terminado en %.0f s" % (mode, time.time() - t))

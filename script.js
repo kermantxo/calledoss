@@ -4300,6 +4300,7 @@ function renderResultsSeason(){
         <div class="data-note">📍 <b>${esc(comp ? comp.place : (ev.place || '—'))}</b> — ${comp ? comp.dates : fechaLarga(ev.date, ev.end_date)}${comp && comp.note ? '<br>'+comp.note : ''}</div>
         ${comp && comp.events && comp.events.length ? `<div class="roster-grid">${renderEventBlocks(ev.id, comp.events)}</div>` : ''}
         ${auto ? renderResultSummary(auto) : ''}
+        ${resultPageHref(auto) ? `<div class="data-note">📄 <a href="${resultPageHref(auto)}">Página de resultados de esta competición</a> (para compartir o guardar)</div>` : ''}
         ${!hasDetail ? `<div class="empty-state"><h3>${missing ? 'Resultados pendientes' : 'Resultados aún no publicados'}</h3>${missing ? 'Todavía no se han encontrado los resultados oficiales de esta competición en ninguna fuente. Se siguen buscando automáticamente.' : 'Esta competición ya se ha celebrado, pero la organización todavía no ha publicado los resultados. Se añadirán solos en cuanto aparezcan.'}${linkButtons(ev.links||{}) ? '<br><br>'+linkButtons(ev.links||{}) : ''}</div>` : ''}
       </div>`;
     return head + `
@@ -4492,6 +4493,15 @@ function renderAutoInfo(ev, opts){
     : '📋 Inscritos no publicados aún.'}</div>`);
   if(ev.sources && ev.sources.length) parts.push(`<div class="data-note" style="font-size:13px;color:var(--gray)">Datos: ${[...new Set(ev.sources.map(x => sourceLabel(x, ev)))].map(esc).join(', ')}</div>`);
   return parts.join('');
+}
+
+// Página propia de los resultados de una competición (la genera pipeline/static_pages.py cada día):
+// calledoss.com/resultados/<nombre>-<fecha>. Mismo nombre que allí: minúsculas, sin tildes, guiones.
+function resultPageHref(r){
+  if(!r || !r.date || r.link_only || !r.n_podios) return '';
+  const slug = r.name.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ').trim().replace(/ /g, '-').slice(0, 60).replace(/^-+|-+$/g, '');
+  return `/resultados/${slug}-${r.date}`;
 }
 
 function resultFor(calId){

@@ -1004,3 +1004,23 @@ nav.tabs-static a:hover{color:#fff;}
 
 /* el menú son enlaces (cada sección es una página) */
 nav.tabs a{text-decoration:none;display:inline-flex;align-items:center;}
+
+/* ---------- páginas de resultados de cada competición (/resultados/...) ---------- */
+.static-results{padding-top:24px;padding-bottom:64px;}
+.static-results .hero{padding-top:32px;}
+.static-results .eyebrow a{color:inherit;text-decoration:none;}
+.static-results h2{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:0.03em;margin:36px 0 12px;}
+.static-results .roster-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;}
+.static-results .event-block{padding:16px 18px;}
+.static-results .event-block h3{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.03em;margin:0 0 4px;}
+.static-results .event-block h4{font-family:'Roboto Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray);margin:12px 0 4px;}
+.static-results table.rank{width:100%;}
+.static-results table.rank td{padding:7px 6px;vertical-align:top;}
+.static-results table.rank td small{display:block;font-size:12px;font-weight:400;color:var(--gray);margin-top:2px;}
+.static-results table.rank td.rk{width:46px;}
+.static-results table.rank td.mark{text-align:right;white-space:nowrap;}
+@media (max-width:560px){ .static-results .roster-grid{grid-template-columns:1fr;} }
+.static-results table.rank tr td.rk{color:var(--gray);}
+.static-results table.rank td.rk.m1{color:var(--gold);}
+.static-results table.rank td.rk.m2{color:#c7c7c2;}
+.static-results table.rank td.rk.m3{color:#a56a3a;}
