@@ -3321,7 +3321,7 @@ const COMPETITIONS = [
 const tabs = document.querySelectorAll('#tabs [data-view]');
 
 // Cada sección es una página propia (calledoss.com/resultados...). Esta es la de la página abierta.
-const SECTION_VIEWS = ['home', 'calendario', 'resultados', 'directo', 'proximas', 'ranking'];
+const SECTION_VIEWS = ['home', 'calendario', 'resultados', 'directo', 'proximas', 'ranking', 'contacto'];
 // la sección sale de la dirección (/resultados, /ranking.html...) o, si no, de la propia página
 const PAGE_FROM_URL = location.pathname.replace(/^\/+|\/+$|\.html$/g, '');
 const PAGE_VIEW = SECTION_VIEWS.includes(PAGE_FROM_URL) ? PAGE_FROM_URL : (document.body.dataset.view || 'home');
@@ -3331,6 +3331,7 @@ const PAGE_META = {
   directo: ['Atletismo en directo · Calledoss', 'Marcador en directo de las competiciones de atletismo de hoy, con horarios y dónde verlas.'],
   proximas: ['Próximas competiciones de atletismo · Calledoss', 'Las competiciones de los próximos 7 días con los inscritos españoles destacados de cada prueba.'],
   ranking: ['Ranking español de atletismo 2026 · Calledoss', 'El top 10 español de cada prueba en 2026, aire libre y pista cubierta, con datos oficiales de la RFEA.'],
+  contacto: ['Contacto · Calledoss', 'Escribe a Calledoss: avisos de competiciones o resultados, propuestas para el pódcast de Calle 2 y nuestras redes.'],
 };
 function pageHref(viewName){
   return viewName === 'home' ? '/' : '/' + viewName;
@@ -4906,4 +4907,46 @@ function hasCookieConsent(cat){
   if(link) link.addEventListener('click', () => open(true));
   if(location.hash === '#configurar-cookies') open(true);
   else if(!readCookieChoice()) open(false);
+})();
+
+/* ============================================================
+   CONTACTO
+   Los mensajes llegan a calledosspodcast@gmail.com a través de FormSubmit (gratis, sin cuenta).
+   La primera vez FormSubmit manda a ese email un enlace "Activate Form" que hay que pulsar una vez.
+   ============================================================ */
+const CONTACT_EMAIL = 'calledosspodcast@gmail.com';
+(function(){
+  const form = document.getElementById('contactForm');
+  if(!form) return;
+  const status = document.getElementById('cfStatus');
+  const send = document.getElementById('cfSend');
+  const say = (text, kind) => { status.textContent = text; status.className = 'cf-status' + (kind ? ' is-' + kind : ''); };
+  const fallback = 'No se ha podido enviar. Prueba otra vez en un rato o escríbenos a ' + CONTACT_EMAIL + '.';
+  form.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    const name = form.nombre.value.trim(), email = form.email.value.trim(), msg = form.mensaje.value.trim();
+    if(!name || !email || !msg){ say('Rellena tu nombre, tu email y el mensaje.', 'error'); return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ say('Revisa el email: parece que le falta algo.', 'error'); form.email.focus(); return; }
+    if(form._honey.value) return;   // lo ha rellenado un robot
+    send.disabled = true;
+    say('Enviando…');
+    try {
+      const r = await fetch('https://formsubmit.co/ajax/' + CONTACT_EMAIL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          nombre: name, email, mensaje: msg,
+          _subject: 'Calledoss · Mensaje de ' + name, _replyto: email, _template: 'table', _captcha: 'false',
+        }),
+      });
+      const j = await r.json().catch(() => ({}));
+      if(!r.ok || String(j.success) !== 'true') throw new Error(j.message || ('HTTP ' + r.status));
+      form.reset();
+      say('¡Mensaje enviado! Te contestaremos a tu email lo antes posible.', 'ok');
+    } catch(e) {
+      say(fallback, 'error');
+    } finally {
+      send.disabled = false;
+    }
+  });
 })();

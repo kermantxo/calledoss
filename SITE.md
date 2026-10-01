@@ -9,13 +9,14 @@
 - Language: español
 
 ## Pages
-- **Seis páginas con el mismo menú** (cada una con su dirección): Inicio `index.html` (calledoss.com), `calendario.html` (/calendario), `resultados.html` (/resultados), `directo.html` (/directo), `proximas.html` (/proximas) y `ranking.html` (/ranking). Las cinco últimas se generan desde index.html con `python3 paginas.py`:
+- **Siete páginas con el mismo menú** (cada una con su dirección): Inicio `index.html` (calledoss.com), `calendario.html` (/calendario), `resultados.html` (/resultados), `directo.html` (/directo), `proximas.html` (/proximas), `ranking.html` (/ranking) y `contacto.html` (/contacto). Las seis últimas se generan desde index.html con `python3 paginas.py`:
   - **Inicio** - Titular "El atletismo español al día" y tres bloques grandes: **Lo que puedes ver hoy** (terracota, con "VIVO" si hay directo), **¿Qué hay esta semana?** y **Últimos resultados**; debajo, **Todas las secciones** con icono. Arriba, la barra EN DIRECTO solo cuando hay competición.
   - **Calendario** - Lista de tarjetas por mes (fecha, lugar, hora, emisión, inscritos) con filtros de mes, localidad (las que no tienen localidad van en "Otros"), y calendario (RFEA, World Athletics, Diamond League o ADOC). Sin modalidades a la vista. Las pruebas del circuito ADOC llevan su etiqueta.
   - **Resultados** - Competiciones ya disputadas este año. Cada una muestra **todas sus pruebas**, separadas en **Femenino** y **Masculino** (podio y, si se quiere, la clasificación completa). Si una fuente solo trae un sexo, se busca el otro en las demás fuentes; mientras no aparece se indica "Sin resultados femeninos/masculinos localizados todavía". Las competiciones de un solo sexo (Liga Iberdrola, Liga Joma, carreras de la mujer) muestran solo ese.
   - **En directo** - Las competiciones de hoy. Mientras hay pruebas en marcha se actualiza sola cada pocos minutos. Si una fuente no publica parciales, se muestra "Sin datos en directo" con el horario previsto.
   - **Próximas** - Rango de 7 días: desde hoy hasta dentro de seis días (si hoy es martes, hasta el lunes), agrupado por día. Cada cita muestra sus **inscritos españoles destacados** de cada prueba (mujeres y hombres) en cuanto se publica la lista; si no, "Inscritos no publicados aún". Aquí no se muestran resultados (están en su pestaña).
   - **Ranking** - Ranking español del año con los datos oficiales de la RFEA: top 10 de cada prueba, categoría absoluta, separado en **Aire libre** y **Pista cubierta**, mujeres y hombres. Se actualiza solo cada día.
+  - **Contacto** - Formulario (nombre, email y mensaje) cuyos mensajes llegan a calledosspodcast@gmail.com a través de **FormSubmit** (gratis y sin cuenta). Se activa una sola vez con el enlace "Activate Form" que FormSubmit envía a ese email. Si un envío falla, el formulario pide escribir directamente a ese email. Al lado, botones a Instagram (@Caalledoss), X, TikTok y el pódcast en Spotify, que se abren en pestaña nueva. También hay un enlace a Contacto en el pie de página.
   - **Inscritos** - Lista de salida completa de una competición
 - **Política de cookies** (`cookies.html`) - Qué se guarda (solo lo necesario), terceros, cómo cambiar la elección. Faltan los datos del titular: [NOMBRE DEL TITULAR], [NIF], [DIRECCIÓN], [EMAIL DE CONTACTO].
 - **Panel privado** (`panel.html`, no aparece en el menú) - Con clave. Sirve para añadir a mano una competición que el calendario automático no haya encontrado (nombre, fecha, lugar, horario y enlace opcional), siempre antes del día de la prueba. También muestra avisos si alguna fuente falla y el plan de directo de hoy.
@@ -139,3 +140,5 @@
 - To add a competition the automatic calendar missed: use the private panel (`/panel`)
 - To change texts on the page: edit `index.html`
 - The national-team profiles are still written by hand in `script.js`; the ranking is automatic (RFEA)
+
+- 2026-10-01: Nueva sección **Contacto** en el menú (formulario que envía a calledosspodcast@gmail.com con FormSubmit, gratis, y botones a Instagram, X, TikTok y Spotify). Añadida al pie de página, a la política de cookies, a las páginas de resultados y al sitemap.

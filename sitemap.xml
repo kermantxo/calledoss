@@ -6,6 +6,7 @@
   <url><loc>https://calledoss.com/directo</loc><changefreq>hourly</changefreq><priority>0.7</priority></url>
   <url><loc>https://calledoss.com/proximas</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
   <url><loc>https://calledoss.com/ranking</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://calledoss.com/contacto</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
   <url><loc>https://calledoss.com/cookies</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
   <url><loc>https://calledoss.com/resultados/1r-gran-premi-short-track-2026-01-10</loc><lastmod>2026-09-30</lastmod><priority>0.6</priority></url>
   <url><loc>https://calledoss.com/resultados/campeonato-navarro-sub23-y-sub20-2026-01-10</loc><lastmod>2026-09-30</lastmod><priority>0.6</priority></url>

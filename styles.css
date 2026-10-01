@@ -1024,3 +1024,39 @@ nav.tabs a{text-decoration:none;display:inline-flex;align-items:center;}
 .static-results table.rank td.rk.m1{color:var(--gold);}
 .static-results table.rank td.rk.m2{color:#c7c7c2;}
 .static-results table.rank td.rk.m3{color:#a56a3a;}
+
+/* ---------- contacto ---------- */
+.contact-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:start;padding:8px 0 48px;}
+.contact-form{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;display:flex;flex-direction:column;gap:16px;}
+.cf-field{display:flex;flex-direction:column;gap:6px;}
+.cf-field label{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink);}
+.cf-field input,.cf-field textarea{
+  font-family:'Barlow Condensed',sans-serif;font-size:18px;color:var(--ink);background:var(--bg);
+  border:1px solid var(--line-bright);border-radius:8px;padding:10px 12px;min-height:44px;width:100%;
+}
+.cf-field textarea{resize:vertical;min-height:150px;line-height:1.35;}
+.cf-field input:focus,.cf-field textarea:focus{outline:2px solid var(--brand);outline-offset:1px;border-color:var(--brand);}
+.cf-trap{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
+.cf-send{flex:0 0 auto;align-self:flex-start;padding:0 28px;font-size:18px;}
+.cf-send:disabled{opacity:0.6;cursor:wait;}
+.cf-status{font-size:16px;line-height:1.35;min-height:1.35em;color:var(--gray);}
+.cf-status.is-ok{color:var(--teal);font-weight:700;}
+.cf-status.is-error{color:var(--brand-dark);font-weight:700;}
+.contact-social .block-title{margin-top:0;}
+.contact-social > p{color:var(--gray);font-size:17px;line-height:1.35;margin-bottom:14px;}
+.social-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.social-btn{
+  display:flex;align-items:center;gap:12px;padding:14px;border-radius:var(--radius);background:var(--card);
+  box-shadow:var(--shadow);color:var(--ink);transition:transform .12s, background .12s;
+}
+.social-btn:hover{transform:translateY(-2px);background:var(--card-hover);}
+.social-btn:focus-visible{outline:2px solid var(--brand);outline-offset:2px;}
+.social-btn svg{flex:0 0 auto;width:40px;height:40px;padding:9px;border-radius:50%;fill:#fff;background:var(--ink);}
+.social-instagram svg{background:#D62976;}
+.social-tiktok svg{background:#111;}
+.social-spotify svg{background:#1DB954;}
+.social-btn span{display:flex;flex-direction:column;min-width:0;}
+.social-btn b{font-size:18px;line-height:1.1;}
+.social-btn small{font-family:'Roboto Mono',monospace;font-size:12px;color:var(--gray);overflow:hidden;text-overflow:ellipsis;}
+@media (max-width:860px){ .contact-grid{grid-template-columns:1fr;} }
+@media (max-width:420px){ .social-list{grid-template-columns:1fr;} .cf-send{align-self:stretch;} }

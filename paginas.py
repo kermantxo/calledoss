@@ -1,5 +1,5 @@
 """Crea las páginas de cada sección (calendario.html, resultados.html, directo.html, proximas.html,
-ranking.html) a partir de index.html, que es la de Inicio.
+ranking.html, contacto.html) a partir de index.html, que es la de Inicio.
 
 Todas comparten el mismo contenido y el mismo script.js; cada una cambia solo su título, su
 descripción para Google, su dirección (canonical) y la sección que se ve al abrirla.
@@ -23,6 +23,8 @@ PAGES = {
                  "Las competiciones de los próximos 7 días con los inscritos españoles destacados de cada prueba."),
     "ranking": ("Ranking español de atletismo 2026 · Calledoss",
                 "El top 10 español de cada prueba en 2026, aire libre y pista cubierta, con datos oficiales de la RFEA."),
+    "contacto": ("Contacto · Calledoss",
+                 "Escribe a Calledoss: avisos de competiciones o resultados, propuestas para el pódcast de Calle 2 y nuestras redes."),
 }
 
 

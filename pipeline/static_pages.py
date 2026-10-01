@@ -23,7 +23,7 @@ MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto
          "octubre", "noviembre", "diciembre"]
 SECTIONS = [("", "1.0", "hourly"), ("calendario", "0.9", "daily"), ("resultados", "0.9", "hourly"),
             ("directo", "0.7", "hourly"), ("proximas", "0.8", "daily"), ("ranking", "0.8", "daily"),
-            ("cookies", "0.2", "yearly")]
+            ("contacto", "0.3", "monthly"), ("cookies", "0.2", "yearly")]
 
 
 def e(s):
@@ -126,7 +126,7 @@ def render(item, res):
   <div class="nav-wrap">
     <a class="logo" href="/" aria-label="Ir a la página principal de Calledoss"><img src="/images/logo.png" alt="Calledoss"><small>CALLEDOSS</small></a>
     <nav class="tabs tabs-static" aria-label="Secciones">
-      <a href="/">Inicio</a><a href="/calendario">Calendario</a><a href="/resultados">Resultados</a><a href="/directo">En directo</a><a href="/proximas">Próximas</a><a href="/ranking">Ranking</a>
+      <a href="/">Inicio</a><a href="/calendario">Calendario</a><a href="/resultados">Resultados</a><a href="/directo">En directo</a><a href="/proximas">Próximas</a><a href="/ranking">Ranking</a><a href="/contacto">Contacto</a>
     </nav>
   </div>
 </header>
