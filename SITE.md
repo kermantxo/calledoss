@@ -6,7 +6,7 @@
 - Personality: deportiva, directa, informativa, con estética de pista de atletismo (líneas de calle, marcas, cronómetro)
 - Colors: terracota de pista del logo `#D9603F` (acento principal, más oscuro `#B5482A`), turquesa complementario `#1E7A80` (lo que viene), dorado/plata/bronce para medallas, fondo claro `#F7F4F0`, tarjetas blancas y cabecera casi negra `#1B1A19` para que el logo destaque
 - Fonts: Bebas Neue (títulos), Barlow Condensed (texto), Roboto Mono (datos y cifras)
-- Language: español
+- Language: español (principal) e inglés (copia completa en calledoss.com/en/)
 
 ## Pages
 - **Siete páginas con el mismo menú** (cada una con su dirección): Inicio `index.html` (calledoss.com), `calendario.html` (/calendario), `resultados.html` (/resultados), `directo.html` (/directo), `proximas.html` (/proximas), `ranking.html` (/ranking) y `contacto.html` (/contacto). Las seis últimas se generan desde index.html con `python3 paginas.py`:
@@ -20,6 +20,14 @@
   - **Inscritos** - Lista de salida completa de una competición
 - **Política de cookies** (`cookies.html`) - Qué se guarda (solo lo necesario), terceros, cómo cambiar la elección. Faltan los datos del titular: [NOMBRE DEL TITULAR], [NIF], [DIRECCIÓN], [EMAIL DE CONTACTO].
 - **Panel privado** (`panel.html`, no aparece en el menú) - Con clave. Sirve para añadir a mano una competición que el calendario automático no haya encontrado (nombre, fecha, lugar, horario y enlace opcional), siempre antes del día de la prueba. También muestra avisos si alguna fuente falla y el plan de directo de hoy.
+
+## Versión en inglés (calledoss.com/en/)
+- **Copia completa de la web en inglés**; la española no cambia. Direcciones: `/en/` (Inicio), `/en/calendar`, `/en/results`, `/en/live`, `/en/upcoming`, `/en/rankings`, `/en/contact`, `/en/cookies` y una página por competición en `/en/results/<nombre>-<fecha>`.
+- **Botón ES / EN** en el menú de arriba de todas las páginas: lleva a la misma página en el otro idioma.
+- **Para Google**: cada página dice cuál es su versión en el otro idioma (etiquetas hreflang), tiene su título, descripción y vista previa al compartir en inglés, y todas las direcciones en inglés están en el sitemap.
+- **Todas las traducciones están en `en.js`**: los textos de la web (`ui`), textos fijos de los datos (`text`) y reglas para traducir los nombres de las pruebas, rondas y motivos de los destacados (`rules`, `reasons`). Los nombres de competiciones y atletas no se traducen.
+- **Los datos se actualizan solos en los dos idiomas** (mismos datos; solo cambian los textos de alrededor). Las páginas de resultados en inglés se rehacen cada día junto con las españolas.
+- **Al cambiar un texto de la portada (index.html)**: añadir su traducción en `en.js` y ejecutar `python3 paginas.py` (si falta alguna traducción, avisa y no escribe nada).
 
 ## Cómo se actualizan los datos (sin tocar nada)
 - Todo lo hacen tareas programadas con código normal (sin inteligencia artificial), en **GitHub Actions** (gratis):
@@ -142,6 +150,7 @@
 - The national-team profiles are still written by hand in `script.js`; the ranking is automatic (RFEA)
 
 - 2026-10-01: Nueva sección **Contacto** en el menú (formulario que envía a calledosspodcast@gmail.com con FormSubmit, gratis, y botones a Instagram, X, TikTok y Spotify). Añadida al pie de página, a la política de cookies, a las páginas de resultados y al sitemap.
-- 2026-10-01: Arreglado que algunos navegadores siguieran usando el diseño antiguo (iconos de Contacto enormes). Los archivos de diseño llevan ahora un número de versión (`styles.css?v=20261001c`) y el navegador comprueba siempre si hay uno nuevo. **Al cambiar styles.css o script.js, sube ese número** en index.html, cookies.html, panel.html y pipeline/static_pages.py y ejecuta `python3 paginas.py`.
+- 2026-10-01: Arreglado que algunos navegadores siguieran usando el diseño antiguo (iconos de Contacto enormes). Los archivos de diseño llevan ahora un número de versión (`styles.css?v=20261001d`) y el navegador comprueba siempre si hay uno nuevo. **Al cambiar styles.css o script.js, sube ese número** en index.html, cookies.html, en/cookies.html y panel.html y ejecuta `python3 paginas.py` (las páginas de resultados lo copian solas de index.html).
 - 2026-10-01: En Contacto, "el pódcast de Calle 2" pasa a "el pódcast de Calledoss".
 - 2026-10-01: En el formulario de Contacto, el campo "Nombre" pasa a "Nombre y apellido".
+- 2026-10-01: **Versión en inglés** completa en calledoss.com/en/ (todas las secciones, cookies y las 390 páginas de resultados), con botón ES/EN, etiquetas hreflang para Google y sitemap con las direcciones en inglés.

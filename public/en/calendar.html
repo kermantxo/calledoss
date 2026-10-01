@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 athletics calendar · Calledoss</title>
+<meta name="description" content="Every 2026 athletics competition in Spain, plus international meets with Spanish athletes: track, road, cross country, trail and race walking.">
+<link rel="canonical" href="https://calledoss.com/en/calendar">
+<link rel="alternate" hreflang="es" href="https://calledoss.com/calendario">
+<link rel="alternate" hreflang="en" href="https://calledoss.com/en/calendar">
+<link rel="alternate" hreflang="x-default" href="https://calledoss.com/calendario">
+<meta name="theme-color" content="#1B1A19">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Calledoss">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:url" content="https://calledoss.com/en/calendar">
+<meta property="og:title" content="2026 athletics calendar · Calledoss">
+<meta property="og:description" content="Every 2026 athletics competition in Spain, plus international meets with Spanish athletes: track, road, cross country, trail and race walking.">
+<meta property="og:image" content="https://calledoss.com/images/compartir.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="2026 athletics calendar · Calledoss">
+<meta name="twitter:description" content="Every 2026 athletics competition in Spain, plus international meets with Spanish athletes: track, road, cross country, trail and race walking.">
+<meta name="twitter:image" content="https://calledoss.com/images/compartir.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"WebSite","@id":"https://calledoss.com/#web","url":"https://calledoss.com/","name":"Calledoss","inLanguage":"en-GB",
+  "description":"Results, calendar, previews, live scores and rankings for Spanish athletics.","publisher":{"@id":"https://calledoss.com/#org"}},
+ {"@type":"Organization","@id":"https://calledoss.com/#org","name":"Calledoss","url":"https://calledoss.com/",
+  "logo":{"@type":"ImageObject","url":"https://calledoss.com/images/logo.png"}}
+]}
+</script>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/styles.css?v=20261001d">
+</head>
+<body data-view="calendario">
+
+<div class="ticker-bar" id="tickerBar" hidden>
+  <div class="ticker-label"><span class="live-dot"></span><span id="tickerLabelText">Today</span></div>
+  <div class="ticker-viewport"><div class="ticker-track" id="tickerTrack"></div></div>
+</div>
+
+<header>
+  <div class="nav-wrap">
+    <button class="logo" onclick="goHome()" aria-label="Go to the Calledoss home page"><img src="/images/logo.png" alt="Calledoss"><small>CALLEDOSS</small></button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="tabs"><span></span><span></span><span></span></button>
+    <nav class="tabs" id="tabs">
+      <a href="/en/" data-view="home">Home</a>
+      <a href="/en/calendar" data-view="calendario" class="active">Calendar</a>
+      <a href="/en/results" data-view="resultados">Results</a>
+      <a href="/en/live" data-view="directo">Live</a>
+      <a href="/en/upcoming" data-view="proximas">Upcoming</a>
+      <a href="/en/rankings" data-view="ranking">Rankings</a>
+      <a href="/en/contact" data-view="contacto">Contact</a>
+      <a class="lang-switch" href="/calendario" hreflang="es" lang="es" aria-label="Versión en español">ES</a>
+    </nav>
+  </div>
+</header>
+
+<div class="lane-divider"><div class="ticks"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+
+<main>
+
+  <!-- ===================== PÁGINA PRINCIPAL ===================== -->
+  <section class="view" id="view-home">
+    <div class="hero home-hero">
+      <h1 class="home-title">Spanish athletics, up to date</h1>
+      <p class="home-lead">Results, competitions and rankings for every discipline of Spanish athletics, all in one place.</p>
+    </div>
+
+    <div class="now-grid">
+      <button class="now-tile now-today" data-view="directo">
+        <span class="now-head"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M6.3 6.3a8 8 0 0 0 0 11.4M17.7 6.3a8 8 0 0 1 0 11.4M3.5 3.5a12 12 0 0 0 0 17M20.5 3.5a12 12 0 0 1 0 17"/></svg><span>What's on today</span></span>
+        <span class="now-big" id="nowTodayN">0</span>
+        <span class="now-list" id="nowToday">Loading…</span>
+        <span class="now-go">Watch live →</span>
+      </button>
+      <button class="now-tile now-next" data-view="proximas">
+        <span class="now-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h13M12 6l6 6-6 6"/><path d="M20 5v14"/></svg><span>What's on this week?</span></span>
+        <span class="now-big" id="nowNextN">0</span>
+        <span class="now-list" id="nowNext">Loading…</span>
+        <span class="now-go">See upcoming →</span>
+      </button>
+      <button class="now-tile now-res" data-view="resultados">
+        <span class="now-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg><span>Latest results</span></span>
+        <span class="now-big" id="nowResN">0</span>
+        <span class="now-list" id="nowRes">Loading…</span>
+        <span class="now-go">See results →</span>
+      </button>
+    </div>
+
+    <h2 class="block-title">All sections</h2>
+    <div class="home-grid">
+      <button class="home-card" data-view="directo"><span class="hc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M6.3 6.3a8 8 0 0 0 0 11.4M17.7 6.3a8 8 0 0 1 0 11.4M3.5 3.5a12 12 0 0 0 0 17M20.5 3.5a12 12 0 0 1 0 17"/></svg></span><span class="hc-txt"><h3>Live</h3><p>Live scoreboard for today's competitions.</p></span></button>
+      <button class="home-card" data-view="proximas"><span class="hc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h13M12 6l6 6-6 6"/><path d="M20 5v14"/></svg></span><span class="hc-txt"><h3>Upcoming</h3><p>The next 7 days and the Spaniards to watch.</p></span></button>
+      <button class="home-card" data-view="resultados"><span class="hc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg></span><span class="hc-txt"><h3>Results</h3><p>Podiums for every event, women and men.</p></span></button>
+      <button class="home-card" data-view="calendario"><span class="hc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span><span class="hc-txt"><h3>Calendar</h3><p>Every competition this year.</p></span></button>
+      <button class="home-card" data-view="ranking"><span class="hc-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V13h4v7M10 20V8h4v12M16 20v-9h4v9"/></svg></span><span class="hc-txt"><h3>Rankings</h3><p>Spanish top 10, outdoor and indoor.</p></span></button>
+    </div>
+  </section>
+  </section>
+
+  <!-- ===================== INSCRITOS (todos los países) ===================== -->
+  <section class="view" id="view-inscritos">
+    <div class="hero">
+      <div class="eyebrow">All countries</div>
+      <h1>Entries</h1>
+      <p>A competition's full official start list: every athlete from every country, event by event. Everyone is shown by default; you can filter to Spain only if you like.</p>
+    </div>
+    <div id="inscritosContent"></div>
+  </section>
+
+  <!-- ===================== CALENDARIO ===================== -->
+  <section class="view active" id="view-calendario">
+    <div class="hero">
+      <div class="eyebrow">2026 season</div>
+      <h1>Calendar</h1>
+      <p>Every date in Spanish athletics: RFEA championships, club leagues, meetings and international events with Spanish athletes.</p>
+    </div>
+
+    <div class="filters">
+      <div class="filter-group">
+        <label class="filter-label" for="calMonth">Month</label>
+        <select id="calMonth"></select>
+      </div>
+      <div class="filter-group visually-hidden">
+        <label class="filter-label" for="calType">Type</label>
+        <select id="calType"></select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="calCat">Region</label>
+        <select id="calCat"></select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="calFuente">Calendar</label>
+        <select id="calFuente"></select>
+      </div>
+      <div class="filter-group is-hidden">
+        <label class="filter-label">Past competitions</label>
+        <label class="toggle-switch">
+          <input type="checkbox" id="calShowPast">
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="toggle-text" id="calToggleText">Hidden</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="cal-list" id="calList"></div>
+  </section>
+
+  <!-- ===================== EN DIRECTO ===================== -->
+  <section class="view" id="view-directo">
+    <div class="hero">
+      <div class="eyebrow"><span class="live-dot"></span> Live scoreboard</div>
+      <h1>Competitions in progress</h1>
+      <p>Today's competitions. While events are under way, results update by themselves every few minutes.</p>
+    </div>
+    <div id="liveUpdated" class="live-updated" hidden></div>
+    <div class="live-grid" id="liveGrid"></div>
+  </section>
+
+  <!-- ===================== PRÓXIMAS ===================== -->
+  <section class="view" id="view-proximas">
+    <div class="hero">
+      <div class="eyebrow">Next 7 days</div>
+      <h1>Upcoming competitions</h1>
+      <p>Every competition from today to six days from now, with the Spanish entrants to watch in each event as soon as the entry list is out. Results have their own tab.</p>
+    </div>
+    <div id="proxRange" class="data-note"></div>
+    <div class="data-note">🇪🇸 The Spanish entrants to watch are picked using objective criteria: national record holders, Spanish champions, leaders of the year, internationals, medallists and the best marks (season's and personal bests) on the entry list itself.</div>
+    <div class="comp-select-bar" id="compSelectBar"></div>
+  </section>
+
+  <!-- ===================== RESULTADOS ===================== -->
+  <section class="view" id="view-resultados">
+    <div class="hero">
+      <div class="eyebrow">2026 season</div>
+      <h1>Results</h1>
+      <p>Every competition held this season, from 1 January to today. Results are added automatically as soon as they are published. Filter by month, discipline and category.</p>
+    </div>
+
+    <div class="filters">
+      <div class="filter-group">
+        <label class="filter-label" for="resMonth">Month</label>
+        <select id="resMonth"></select>
+      </div>
+      <div class="filter-group visually-hidden">
+        <label class="filter-label" for="resType">Discipline</label>
+        <select id="resType"></select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="resCat">Region</label>
+        <select id="resCat"></select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="resFuente">Calendar</label>
+        <select id="resFuente"></select>
+      </div>
+      <div class="filter-group is-hidden">
+        <label class="filter-label" for="resSearch">Search</label>
+        <input id="resSearch" type="search" placeholder="Competition or venue" class="search-input">
+      </div>
+    </div>
+
+    <div class="data-note">📡 Automatic results from the Royal Spanish Athletics Federation (RFEA), World Athletics, the Diamond League and ADOC, checked several times a day.</div>
+
+    <div id="resCount" class="data-note" style="display:none;"></div>
+    <div class="cal-list" id="resList"></div>
+
+    <div class="hero" style="border-bottom:none;padding-top:40px;padding-bottom:8px;">
+      <div class="eyebrow">With full breakdown</div>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,4vw,40px);line-height:1;">Spanish national team internationals</h2>
+    </div>
+    <div class="comp-select-bar" id="resultsSelectBar"></div>
+  </section>
+
+
+  <!-- ===================== RANKING ===================== -->
+  <section class="view" id="view-ranking">
+    <div class="hero">
+      <div class="eyebrow">Best marks of the year</div>
+      <h1>Spanish rankings</h1>
+      <p>The Spanish top 10 in every event, with official data from the Royal Spanish Athletics Federation (RFEA), split into the outdoor and indoor seasons. Updated automatically every day.</p>
+    </div>
+    <div class="chips-pair"><div class="chips" data-chips-for="rankSeason"></div><div class="chips" data-chips-for="rankSex"></div></div>
+    <div class="filters">
+      <div class="filter-group visually-hidden">
+        <label class="filter-label" for="rankSeason">Season</label>
+        <select id="rankSeason"><option value="AL">Outdoor</option><option value="PC">Indoor</option></select>
+      </div>
+      <div class="filter-group visually-hidden">
+        <label class="filter-label" for="rankSex">Sex</label>
+        <select id="rankSex"><option value="F">Women</option><option value="M">Men</option></select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="rankEvent">Event</label>
+        <select id="rankEvent"><option value="">All events</option></select>
+      </div>
+    </div>
+    <div id="rankInfo" class="data-note"></div>
+    <div id="rankList" class="rank-grid"></div>
+  </section>
+
+  <!-- ===================== CONTACTO ===================== -->
+  <section class="view" id="view-contacto">
+    <div class="hero">
+      <div class="eyebrow">Write to us</div>
+      <h1>Contact</h1>
+      <p>Is a competition missing, is a result wrong, or do you have an idea for the podcast? Tell us and we'll reply by email.</p>
+    </div>
+
+    <div class="contact-grid">
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="cf-field">
+          <label for="cfName">Full name</label>
+          <input id="cfName" name="nombre" type="text" autocomplete="name" maxlength="100" required>
+        </div>
+        <div class="cf-field">
+          <label for="cfEmail">Email</label>
+          <input id="cfEmail" name="email" type="email" autocomplete="email" maxlength="160" required>
+        </div>
+        <div class="cf-field">
+          <label for="cfMsg">Message</label>
+          <textarea id="cfMsg" name="mensaje" rows="6" maxlength="5000" required></textarea>
+        </div>
+        <!-- campo trampa para robots: las personas no lo ven -->
+        <input class="cf-trap" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="cb-btn cb-primary cf-send" id="cfSend">Send message</button>
+        <p class="cf-status" id="cfStatus" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="contact-social">
+        <h2 class="block-title">Follow us</h2>
+        <p>Results, previews and the Calledoss podcast, on social media too.</p>
+        <div class="social-list">
+        <a class="social-btn social-instagram" href="https://instagram.com/Caalledoss" target="_blank" rel="noopener noreferrer" aria-label="Calledoss on Instagram (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg><span><b>Instagram</b><small>@caalledoss</small></span></a>
+        <a class="social-btn social-x" href="https://x.com/calledoss" target="_blank" rel="noopener noreferrer" aria-label="Calledoss on X (Twitter) (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></svg><span><b>X (Twitter)</b><small>@calledoss</small></span></a>
+        <a class="social-btn social-tiktok" href="https://tiktok.com/@calledoss" target="_blank" rel="noopener noreferrer" aria-label="Calledoss on TikTok (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span><b>TikTok</b><small>@calledoss</small></span></a>
+        <a class="social-btn social-spotify" href="https://open.spotify.com/show/6N0J6OLKb3HlVwz7RRvz9L" target="_blank" rel="noopener noreferrer" aria-label="Calledoss on Spotify (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg><span><b>Spotify</b><small>The podcast</small></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FICHA DE COMPETICIÓN ===================== -->
+  <section class="view" id="view-detail">
+    <button class="back-btn" onclick="backToCalendar()">← Back to the calendar</button>
+    <div id="detailContent"></div>
+  </section>
+
+</main>
+
+<footer>
+  <span>CALLEDOSS © 2026 — Spanish athletics</span>
+  <span class="footer-links"><a href="/en/contact">Contact</a> · <a href="/en/cookies">Cookie policy</a> · <button type="button" class="link-btn" id="openCookieSettings">Cookie settings</button></span>
+  <span>Sources: RFEA · World Athletics · Spanish rankings</span>
+</footer>
+
+<!-- Aviso de cookies (primera visita). La elección se guarda en este navegador. -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieText" hidden>
+  <div class="cb-main">
+    <h2 id="cookieTitle">Your privacy</h2>
+    <p id="cookieText">Calledoss only uses what is strictly necessary for the website to work. If we ever add visitor analytics or advertising, they will only be switched on if you accept them. You can change your choice at any time. <a href="/en/cookies">Cookie policy</a></p>
+  </div>
+  <div class="cb-settings" id="cbSettings" hidden>
+    <label class="cb-opt"><input type="checkbox" checked disabled><span><b>Necessary</b> Essential for the website to work (for example, to remember this choice). Always on.</span></label>
+    <label class="cb-opt"><input type="checkbox" id="cbStats"><span><b>Analytics</b> To find out how many people visit the website and which sections they use. Not used at the moment.</span></label>
+    <label class="cb-opt"><input type="checkbox" id="cbAds"><span><b>Advertising</b> To show ads. Not used at the moment.</span></label>
+  </div>
+  <div class="cb-actions">
+    <button type="button" class="cb-btn" id="cbReject">Reject</button>
+    <button type="button" class="cb-btn" id="cbConfig">Settings</button>
+    <button type="button" class="cb-btn" id="cbSave" hidden>Save my choice</button>
+    <button type="button" class="cb-btn cb-primary" id="cbAccept">Accept</button>
+  </div>
+</div>
+
+<script src="/en.js?v=20261001d"></script>
+<script src="/script.js?v=20261001d"></script>
+</body>
+</html>

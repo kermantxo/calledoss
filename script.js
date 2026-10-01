@@ -11,6 +11,40 @@ var LIVE_DATA = null;
 var MISSING_IDS = new Set();
 var PREVIAS = [];
 
+// Idioma de la página: español (calledoss.com) o inglés (calledoss.com/en, con los textos de en.js)
+const LANG = document.documentElement.lang === 'en' ? 'en' : 'es';
+const I18N = LANG === 'en' && window.CALLEDOSS_EN ? window.CALLEDOSS_EN : null;
+const LOCALE = LANG === 'en' ? 'en-GB' : 'es-ES';
+// Textos de la web: t('Hay {n} pruebas', {n: 3}) → en inglés, la traducción de en.js (ui)
+function t(s, vars){
+  let out = I18N && I18N.ui[s] != null ? I18N.ui[s] : s;
+  if(vars) out = out.replace(/\{(\w+)\}/g, (m, k) => vars[k] != null ? vars[k] : m);
+  return out;
+}
+// Textos que vienen de los datos (pruebas, rondas, motivos...): frase exacta (text) o reglas (rules) de en.js.
+// En las reglas, « y » marcan el principio y el final de una palabra. Las reglas marcadas con 1 no se
+// aplican a nombres que llevan el título de la carrera (title_re), para no traducir a medias un nombre propio.
+const i18nRe = (p, flags) => new RegExp(p.replace(/«/g, '(?<!\\p{L})').replace(/»/g, '(?!\\p{L})'), flags);
+const I18N_RULES = I18N ? I18N.rules.map(([p, r, soloGenerico]) => [i18nRe(p, 'giu'), r, !!soloGenerico]) : [];
+const I18N_TITLE = I18N ? i18nRe(I18N.title_re, 'iu') : null;
+function td(s){
+  if(!I18N || s == null || s === '') return s;
+  const str = String(s);
+  if(I18N.text[str] != null) return I18N.text[str];
+  const titulo = I18N_TITLE.test(str);
+  return I18N_RULES.reduce((acc, [re, r, soloGenerico]) => soloGenerico && titulo ? acc : acc.replace(re, r), str);
+}
+// Motivos de un destacado («Ganadora de ...», «Campeón de España ...»): sus propias reglas (reasons);
+// los nombres de competición se quedan como están y lo marcado entre ⟦ ⟧ se traduce como una prueba
+const I18N_REASONS = I18N ? I18N.reasons.map(([p, r]) => [new RegExp(p, 'u'), r]) : [];
+function tdr(s){
+  if(!I18N || s == null || s === '') return s;
+  const str = String(s);
+  if(I18N.text[str] != null) return I18N.text[str];
+  const rule = I18N_REASONS.find(([re]) => re.test(str));
+  return rule ? str.replace(rule[0], rule[1]).replace(/⟦(.*?)⟧/g, (m, x) => td(x)) : str;
+}
+
 const CALENDAR = [
   {id:"mundo-campo-a-traves", date:"2026-01-10", name:"Campeonato del Mundo de Campo a Través", place:"Tallahassee (USA)", type:"Cross", cat:"Absoluto"},
   {id:"mundial-indoor-torun", date:"2026-03-20", name:"Campeonato del Mundo en Pista Cubierta", place:"Toruń (POL)", type:"Pista Cubierta", cat:"Absoluto"},
@@ -3323,7 +3357,12 @@ const tabs = document.querySelectorAll('#tabs [data-view]');
 // Cada sección es una página propia (calledoss.com/resultados...). Esta es la de la página abierta.
 const SECTION_VIEWS = ['home', 'calendario', 'resultados', 'directo', 'proximas', 'ranking', 'contacto'];
 // la sección sale de la dirección (/resultados, /ranking.html...) o, si no, de la propia página
-const PAGE_FROM_URL = location.pathname.replace(/^\/+|\/+$|\.html$/g, '');
+// En inglés las direcciones son otras: calledoss.com/en/calendar, /en/results...
+const SLUG_EN = {home:'', calendario:'calendar', resultados:'results', directo:'live', proximas:'upcoming', ranking:'rankings', contacto:'contact'};
+const PATH_NOW = location.pathname.replace(/^\/+|\/+$|\.html$/g, '').replace(/(^|\/)index$/, '');
+const PAGE_FROM_URL = LANG === 'en'
+  ? (Object.keys(SLUG_EN).find(k => 'en' + (SLUG_EN[k] ? '/' + SLUG_EN[k] : '') === PATH_NOW) || '')
+  : PATH_NOW;
 const PAGE_VIEW = SECTION_VIEWS.includes(PAGE_FROM_URL) ? PAGE_FROM_URL : (document.body.dataset.view || 'home');
 const PAGE_META = {
   calendario: ['Calendario de atletismo 2026 · Calledoss', 'Todas las competiciones de atletismo de 2026 en España y las internacionales con españoles: pista, ruta, cross, trail y marcha.'],
@@ -3334,6 +3373,7 @@ const PAGE_META = {
   contacto: ['Contacto · Calledoss', 'Escribe a Calledoss: avisos de competiciones o resultados, propuestas para el pódcast de Calledoss y nuestras redes.'],
 };
 function pageHref(viewName){
+  if(LANG === 'en') return '/en' + (SLUG_EN[viewName] ? '/' + SLUG_EN[viewName] : '');
   return viewName === 'home' ? '/' : '/' + viewName;
 }
 
@@ -3392,7 +3432,7 @@ function refreshTicker(){
   if(!vivos.length && !deHoy.length){ bar.hidden = true; return; }
   bar.hidden = false;
   bar.classList.toggle('is-live', vivos.length > 0);
-  document.getElementById('tickerLabelText').textContent = vivos.length ? 'En directo' : 'Hoy';
+  document.getElementById('tickerLabelText').textContent = vivos.length ? t('En directo') : t('Hoy');
   const items = (vivos.length ? vivos : deHoy).map(l => `${l.name}${l.place ? ' · ' + l.place : ''}${!vivos.length && l.time ? ' · ' + l.time : ''}`);
   const html = items.map(t=>`<span>● ${esc(t)}</span>`).join('');
   document.getElementById('tickerTrack').innerHTML = html + html + html;
@@ -3401,7 +3441,8 @@ function refreshTicker(){
 /* ============================================================
    CALENDARIO
    ============================================================ */
-const MESES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+const MESES_ES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+const MESES = LANG === 'en' ? ["January","February","March","April","May","June","July","August","September","October","November","December"] : MESES_ES;
 
 
 /* ---- Localidad → Comunidad Autónoma y Calendario (fuente) ---- */
@@ -3673,10 +3714,13 @@ function ordenarFuentes(valores){
   return [...valores].sort((a,b)=> ORDEN_FUENTES.indexOf(a) - ORDEN_FUENTES.indexOf(b));
 }
 
-function populateSelect(id, values, allLabel){
+function populateSelect(id, values, allLabel, labelFn){
   const sel = document.getElementById(id);
-  sel.innerHTML = `<option value="">${allLabel}</option>` + values.map(v=>`<option value="${v}">${v}</option>`).join('');
+  sel.innerHTML = `<option value="">${t(allLabel)}</option>` + values.map(v=>`<option value="${v}">${labelFn ? labelFn(v) : v}</option>`).join('');
 }
+// nombre visible de una comunidad autónoma y de un tipo de competición (en inglés, traducido)
+const ccaaLabel = v => t(v);
+const typeLabel = v => td(v);
 
 function renderCalendar(){
   const month = document.getElementById('calMonth').value;
@@ -3698,7 +3742,7 @@ function renderCalendar(){
 
   const list = document.getElementById('calList');
   if(filtered.length === 0){
-    list.innerHTML = `<div class="empty-state"><h3>Sin competiciones</h3>No hay eventos que coincidan con estos filtros.</div>`;
+    list.innerHTML = `<div class="empty-state"><h3>${t('Sin competiciones')}</h3>${t('No hay eventos que coincidan con estos filtros.')}</div>`;
     return;
   }
   let lastMonth = null;
@@ -3715,19 +3759,19 @@ function calCard(ev, todayStr){
   const [y,m,d] = ev.date.split('-');
   const isPast = (ev.end_date || ev.date) < todayStr;
   const isToday = ev.date <= todayStr && todayStr <= (ev.end_date || ev.date);
-  const wd = new Date(ev.date + 'T12:00:00').toLocaleDateString('es-ES', {weekday:'short'}).replace('.', '');
+  const wd = new Date(ev.date + 'T12:00:00').toLocaleDateString(LOCALE, {weekday:'short'}).replace('.', '');
   const w = getWatchInfo(ev.id);
-  const tv = w && w.channel && !/No hay streaming/i.test(w.channel) ? w.channel.replace(/<[^>]+>/g, '') : '';
+  const tv = w && w.channel && !/No hay streaming/i.test(w.channel) ? td(w.channel.replace(/<[^>]+>/g, '')) : '';
   return `<button class="cal-card ${isPast ? 'is-past' : ''} ${isToday ? 'is-today' : ''}" onclick="showCompetitionDetail('${ev.id}')">
     <span class="cal-when"><span class="wd">${esc(wd)}</span><span class="dd">${d}</span><span class="mm">${MESES[parseInt(m,10)-1].slice(0,3)}</span></span>
     <span class="cal-info">
       <h4>${esc(ev.name)}</h4>
       <span class="cal-facts">
         ${ev.place ? `<span>📍 ${esc(ev.place)}</span>` : ''}
-        ${ev.end_date && ev.end_date !== ev.date ? `<span>hasta el ${fechaCorta(ev.end_date)}</span>` : ''}
+        ${ev.end_date && ev.end_date !== ev.date ? `<span>${t('hasta el {fecha}', {fecha: fechaCorta(ev.end_date)})}</span>` : ''}
         ${ev.time ? `<span class="t">🕒 ${esc(ev.time)}</span>` : ''}
         ${tv ? `<span>📺 ${esc(tv)}</span>` : ''}
-        ${ev.links && ev.links.inscritos ? `<span>📋 Inscritos</span>` : ''}
+        ${ev.links && ev.links.inscritos ? `<span>📋 ${t('Inscritos')}</span>` : ''}
       </span>
       ${ev.adoc ? `<span class="type-tag" style="--c:#C0392B"><span class="dot"></span>ADOC${ev.adoc_cat ? ' · ' + esc(ev.adoc_cat) : ''}</span>` : ''}
     </span>
@@ -3749,12 +3793,12 @@ const CAL_SECTIONS = [
 ];
 
 populateSelect('calMonth', [...new Set(CALENDAR.map(e=>MESES[parseInt(e.date.split('-')[1],10)-1]))], 'Todos los meses');
-populateSelect('calType', [...new Set(CALENDAR.map(e=>e.type))], 'Todos los tipos');
-populateSelect('calCat', ordenarCCAA([...new Set(CALENDAR.map(e=>getCCAA(e.place)))]), 'Todas las localidades');
+populateSelect('calType', [...new Set(CALENDAR.map(e=>e.type))], 'Todos los tipos', typeLabel);
+populateSelect('calCat', ordenarCCAA([...new Set(CALENDAR.map(e=>getCCAA(e.place)))]), 'Todas las localidades', ccaaLabel);
 populateSelect('calFuente', ORDEN_FUENTES, 'Todos los calendarios');
 ['calMonth','calType','calCat','calFuente'].forEach(id=>document.getElementById(id).addEventListener('change', renderCalendar));
 document.getElementById('calShowPast').addEventListener('change', ()=>{
-  document.getElementById('calToggleText').textContent = document.getElementById('calShowPast').checked ? 'Visibles' : 'Ocultas';
+  document.getElementById('calToggleText').textContent = document.getElementById('calShowPast').checked ? t('Visibles') : t('Ocultas');
   renderCalendar();
 });
 renderCalendar();
@@ -3766,18 +3810,18 @@ function renderEventBlocks(compId, events){
   return events.map(ev=>`
     <div class="event-block">
       <div class="event-block-head">
-        <h3>${ev.name}</h3>
-        <span>${ev.athletes.length} confirmado${ev.athletes.length===1?'':'s'}</span>
+        <h3>${td(ev.name)}</h3>
+        <span>${ev.athletes.length === 1 ? t('1 confirmado') : t('{n} confirmados', {n: ev.athletes.length})}</span>
       </div>
       <div class="athlete-list">
         ${ev.athletes.map(a=>`
           <div class="athlete-row">
             <div class="athlete-row-name">${a.name}</div>
-            <div class="athlete-row-ref">${a.club && a.club!=='—' ? a.club : 'Sin referencia adicional'}</div>
+            <div class="athlete-row-ref">${a.club && a.club!=='—' ? td(a.club) : t('Sin referencia adicional')}</div>
             <div class="athlete-row-meta">
-              <span><b>Marca:</b> ${a.mark && a.mark!=='—' ? a.mark : 'Sin marca registrada'}</span>
-              <span><b>Cuándo compite:</b> ${getSchedule(compId, ev.name)}</span>
-              <span><b>Resultado:</b> ${a.result || 'Pendiente'}</span>
+              <span><b>${t('Marca:')}</b> ${a.mark && a.mark!=='—' ? td(a.mark) : t('Sin marca registrada')}</span>
+              <span><b>${t('Cuándo compite:')}</b> ${td(getSchedule(compId, ev.name))}</span>
+              <span><b>${t('Resultado:')}</b> ${a.result ? td(a.result) : t('Pendiente')}</span>
             </div>
           </div>
         `).join('')}
@@ -3798,15 +3842,14 @@ function showCompetitionDetail(calId){
   const autoInfo = renderAutoInfo(ev);
   if(comp && comp.events.length > 0){
     body = `
-      <div class="data-note">📍 <b>${comp.place}</b> — ${comp.dates}<br>${comp.note}</div>
+      <div class="data-note">📍 <b>${td(comp.place)}</b> — ${td(comp.dates)}<br>${td(comp.note)}</div>
       <div class="roster-grid">${renderEventBlocks(calId, comp.events)}</div>
     `;
   } else if(!autoInfo){
     body = `
       <div class="empty-state">
-        <h3>Lista de atletas</h3>
-        Todavía no se ha publicado la lista de inscritos ni los resultados de esta cita.
-        Esta ficha se completa sola en cuanto la organización los publica.
+        <h3>${t('Lista de atletas')}</h3>
+        ${t('Todavía no se ha publicado la lista de inscritos ni los resultados de esta cita. Esta ficha se completa sola en cuanto la organización los publica.')}
       </div>
     `;
   } else {
@@ -3814,20 +3857,20 @@ function showCompetitionDetail(calId){
   }
 
   const euroBrowser = (calId === 'europeo-birmingham')
-    ? `<div class="data-note">📋 <b>Lista de salida completa (todos los países)</b> — disponible dentro de esta misma web.<br><button class="comp-pill active" style="margin-top:8px;" onclick="handleNavClick('inscritos')">Ir a la página Inscritos →</button></div>`
+    ? `<div class="data-note">📋 <b>${t('Lista de salida completa (todos los países)')}</b> — ${t('disponible dentro de esta misma web.')}<br><button class="comp-pill active" style="margin-top:8px;" onclick="handleNavClick('inscritos')">${t('Ir a la página Inscritos →')}</button></div>`
     : '';
 
   document.getElementById('detailContent').innerHTML = `
-    <div class="eyebrow">${esc(ev.cat || '')}</div>
+    <div class="eyebrow">${esc(td(ev.cat || ''))}</div>
     <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,5.5vw,58px);line-height:0.98;max-width:900px;">${esc(ev.name)}</h1>
     <div class="detail-meta">
       <span class="meta-item">📅 <b>${fecha}</b></span>
       ${ev.place ? `<span class="meta-item">📍 <b>${esc(ev.place)}</b></span>` : ''}
       ${ev.time ? `<span class="meta-item">🕒 <b>${ev.time}${ev.time_end && ev.time_end!==ev.time ? '–'+ev.time_end : ''}</b></span>` : ''}
-      <span class="tag ${ev.type==='Internacional'?'intl':'nac'}">${ev.type}</span>
-      ${ev.cat ? `<span class="tag">${esc(ev.cat)}</span>` : ''}
+      <span class="tag ${ev.type==='Internacional'?'intl':'nac'}">${esc(typeLabel(ev.type))}</span>
+      ${ev.cat ? `<span class="tag">${esc(td(ev.cat))}</span>` : ''}
     </div>
-    <div class="data-note">📺 <b>Dónde ver: ${watch.channel}</b>${watch.note ? "<br>" + watch.note : ""}</div>
+    <div class="data-note">📺 <b>${t('Dónde ver:')} ${td(watch.channel)}</b>${watch.note ? "<br>" + td(watch.note) : ""}</div>
     ${euroBrowser}
     ${autoInfo}
     ${body}
@@ -3860,12 +3903,12 @@ function renderEuroBrowserShell(){
   return `
     <div class="euro-browser">
       <div class="euro-browser-head">
-        <h3>📋 Lista de salida completa del Europeo</h3>
-        <span class="data-note" style="margin:0;">1.645 atletas · 49 países · fuente: European Athletics (31/07/2026)</span>
+        <h3>📋 ${t('Lista de salida completa del Europeo')}</h3>
+        <span class="data-note" style="margin:0;">${t('1.645 atletas · 49 países · fuente: European Athletics (31/07/2026)')}</span>
       </div>
       <div class="euro-cat-bar" id="euroCatBar"></div>
       <div class="euro-event-grid" id="euroEventGrid"></div>
-      <button class="euro-event-btn" style="border-color:var(--gold);color:var(--gold);margin-bottom:14px;" onclick="showAllSpainEuro()">🇪🇸 Ver todos los españoles inscritos (todas las pruebas)</button>
+      <button class="euro-event-btn" style="border-color:var(--gold);color:var(--gold);margin-bottom:14px;" onclick="showAllSpainEuro()">🇪🇸 ${t('Ver todos los españoles inscritos (todas las pruebas)')}</button>
       <div id="euroTableWrap"></div>
     </div>
   `;
@@ -3877,19 +3920,19 @@ function showAllSpainEuro(){
   const wrap = document.getElementById('euroTableWrap');
   const allRows = [];
   Object.keys(EURO_STARTLISTS).forEach(k=>{
-    EURO_STARTLISTS[k].filter(r=>r[0]==='ESP').forEach(r=>allRows.push([EURO_EVENT_META[k].label, EURO_EVENT_META[k].group, r[1], r[2], r[3]]));
+    EURO_STARTLISTS[k].filter(r=>r[0]==='ESP').forEach(r=>allRows.push([td(EURO_EVENT_META[k].label), t(EURO_EVENT_META[k].group), r[1], r[2], r[3]]));
   });
   wrap.innerHTML = `
-    <div class="euro-table-toolbar"><h4>🇪🇸 España — todas las pruebas (${allRows.length} inscripciones)</h4></div>
+    <div class="euro-table-toolbar"><h4>🇪🇸 ${t('España — todas las pruebas ({n} inscripciones)', {n: allRows.length})}</h4></div>
     <div class="euro-table-scroll">
       <table class="euro-table">
-        <thead><tr><th>Prueba</th><th>Categoría</th><th>Atleta</th><th>PB</th><th>SB</th><th>Resultado</th></tr></thead>
+        <thead><tr><th>${t('Prueba')}</th><th>${t('Categoría')}</th><th>${t('Atleta')}</th><th>PB</th><th>SB</th><th>${t('Resultado')}</th></tr></thead>
         <tbody>
           ${allRows.map(r=>`
             <tr class="esp-row">
               <td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td>
               <td class="mono">${r[3]||'—'}</td><td class="mono">${r[4]||'—'}</td>
-              <td class="mono">Pendiente</td>
+              <td class="mono">${t('Pendiente')}</td>
             </tr>
           `).join('')}
         </tbody>
@@ -3902,19 +3945,19 @@ function selectEuroCategory(cat){
   euroCategory = cat;
   euroEvent = null;
   document.getElementById('euroCatBar').innerHTML = ['Hombres','Mujeres','Mixto'].map(c=>
-    `<button class="euro-cat-btn ${c===euroCategory?'active':''}" onclick="selectEuroCategory('${c}')">${c}</button>`
+    `<button class="euro-cat-btn ${c===euroCategory?'active':''}" onclick="selectEuroCategory('${c}')">${t(c)}</button>`
   ).join('');
   const eventsInCat = Object.keys(EURO_EVENT_META).filter(k=>EURO_EVENT_META[k].group===cat);
   document.getElementById('euroEventGrid').innerHTML = eventsInCat.map(k=>
-    `<button class="euro-event-btn ${k===euroEvent?'active':''}" onclick="selectEuroEvent('${k.replace(/'/g,"\\'")}')">${EURO_EVENT_META[k].label}</button>`
+    `<button class="euro-event-btn ${k===euroEvent?'active':''}" onclick="selectEuroEvent('${k.replace(/'/g,"\\'")}')">${td(EURO_EVENT_META[k].label)}</button>`
   ).join('');
-  document.getElementById('euroTableWrap').innerHTML = `<div class="empty-state">Elige una prueba de ${cat.toLowerCase()} para ver el listado completo de inscritos.</div>`;
+  document.getElementById('euroTableWrap').innerHTML = `<div class="empty-state">${t('Elige una prueba de {cat} para ver el listado completo de inscritos.', {cat: t(cat).toLowerCase()})}</div>`;
 }
 
 function selectEuroEvent(key){
   euroEvent = key;
   document.querySelectorAll('.euro-event-btn').forEach(b=>{
-    b.classList.toggle('active', b.textContent === EURO_EVENT_META[key].label);
+    b.classList.toggle('active', b.textContent === td(EURO_EVENT_META[key].label));
   });
   renderEuroTable();
 }
@@ -3933,17 +3976,17 @@ function renderEuroTable(){
 
   wrap.innerHTML = `
     <div class="euro-table-toolbar">
-      <h4>${EURO_EVENT_META[euroEvent].label} — ${euroCategory}</h4>
+      <h4>${td(EURO_EVENT_META[euroEvent].label)} — ${t(euroCategory)}</h4>
       <label class="toggle-switch" style="cursor:pointer;">
         <input type="checkbox" ${euroSpainOnly?'checked':''} onchange="toggleEuroSpainOnly()">
         <span class="toggle-track"><span class="toggle-thumb"></span></span>
-        <span class="toggle-text">Solo España</span>
+        <span class="toggle-text">${t('Solo España')}</span>
       </label>
     </div>
-    <div class="data-note" style="margin-bottom:10px;">${total} inscritos de ${new Set(EURO_STARTLISTS[euroEvent].map(r=>r[0])).size} países. Resultado: se actualizará cuando se dispute la prueba.</div>
+    <div class="data-note" style="margin-bottom:10px;">${t('{n} inscritos de {p} países. Resultado: se actualizará cuando se dispute la prueba.', {n: total, p: new Set(EURO_STARTLISTS[euroEvent].map(r=>r[0])).size})}</div>
     <div class="euro-table-scroll">
       <table class="euro-table">
-        <thead><tr><th>País</th><th>Atleta</th><th>PB</th><th>SB</th><th>Resultado</th></tr></thead>
+        <thead><tr><th>${t('País')}</th><th>${t('Atleta')}</th><th>PB</th><th>SB</th><th>${t('Resultado')}</th></tr></thead>
         <tbody>
           ${rows.map(r=>`
             <tr class="${r[0]==='ESP'?'esp-row':''}">
@@ -3951,7 +3994,7 @@ function renderEuroTable(){
               <td>${r[1]}</td>
               <td class="mono">${r[2]||'—'}</td>
               <td class="mono">${r[3]||'—'}</td>
-              <td class="mono">Pendiente</td>
+              <td class="mono">${t('Pendiente')}</td>
             </tr>
           `).join('')}
         </tbody>
@@ -3972,10 +4015,10 @@ function backToCalendar(){
 let openLiveComp = null;
 
 const LIVE_BADGE = {
-  'en directo':           {txt:'EN DIRECTO', live:true},
-  'sin datos en directo': {txt:'SIN DATOS EN DIRECTO', live:false},
-  'pendiente':            {txt:'HOY', live:false},
-  'finalizado':           {txt:'FINALIZADO', live:false},
+  'en directo':           {txt:t('EN DIRECTO'), live:true},
+  'sin datos en directo': {txt:t('SIN DATOS EN DIRECTO'), live:false},
+  'pendiente':            {txt:t('HOY'), live:false},
+  'finalizado':           {txt:t('FINALIZADO'), live:false},
 };
 
 function liveRows(rows){
@@ -3985,13 +4028,13 @@ function liveRows(rows){
     return `<div class="sb-row">
       <span class="sb-pos ${p>=1 && p<=3 ? 'p'+p : ''}">${esc(r.pos||'·')}</span>
       <span class="sb-name">${esc(r.name||'')}${(r.nat||r.club)?`<small>${esc([r.nat, r.club].filter(Boolean).join(' · '))}</small>`:''}</span>
-      <span class="sb-mark">${esc(r.mark||'')}${r.note?` <small>${esc(r.note)}</small>`:''}</span>
+      <span class="sb-mark">${esc(r.mark||'')}${r.note?` <small>${esc(td(r.note))}</small>`:''}</span>
     </div>`;}).join('')}</div>`;
 }
 
 function horarioPrevisto(l){
-  if(l.first) return `Horario previsto: ${l.first}${l.last && l.last!==l.first ? '–'+l.last : ''}`;
-  return 'Horario previsto: sin publicar';
+  if(l.first) return `${t('Horario previsto:')} ${l.first}${l.last && l.last!==l.first ? '–'+l.last : ''}`;
+  return t('Horario previsto: sin publicar');
 }
 
 // ¿Competición ya terminada? (acaba hoy y el directo la da por finalizada, o todas sus
@@ -4019,19 +4062,19 @@ function renderLive(){
   });
   if(items.length === 0){
     upd.hidden = true;
-    grid.innerHTML = `<div class="empty-state"><h3>Sin competiciones en curso</h3>Cuando haya pruebas hoy, aquí verás el marcador en vivo.</div>`;
+    grid.innerHTML = `<div class="empty-state"><h3>${t('Sin competiciones en curso')}</h3>${t('Cuando haya pruebas hoy, aquí verás el marcador en vivo.')}</div>`;
     return;
   }
   const order = {'en directo':0,'sin datos en directo':1,'pendiente':2,'finalizado':3};
   items.sort((a,b)=> (order[a.status]??9)-(order[b.status]??9) || (a.first||'99').localeCompare(b.first||'99'));
   if(LIVE_DATA && LIVE_DATA.generated){
     upd.hidden = false;
-    upd.innerHTML = `<span class="live-dot"></span> Actualizado a las <b>${horaDe(LIVE_DATA.generated)}</b> · se actualiza solo, sin recargar`;
+    upd.innerHTML = `<span class="live-dot"></span> ${t('Actualizado a las <b>{hora}</b> · se actualiza solo, sin recargar', {hora: horaDe(LIVE_DATA.generated)})}`;
   } else upd.hidden = true;
 
   grid.innerHTML = items.map(l=>{
     const res = resultFor(l.id);
-    const b = res ? {txt:'RESULTADOS', live:false} : (LIVE_BADGE[l.status] || LIVE_BADGE['pendiente']);
+    const b = res ? {txt:t('RESULTADOS'), live:false} : (LIVE_BADGE[l.status] || LIVE_BADGE['pendiente']);
     const d = l.data || {};
     const isOpen = b.live || !!res || openLiveComp === l.id;
     const links = linkButtons(l.links||{});
@@ -4041,15 +4084,15 @@ function renderLive(){
     } else if(isOpen){
       if(d.events && d.events.length){
         body += d.events.map(e=>`
-          <div class="sb-event"><span>${esc(e.name)}</span><small>${esc([e.round, e.time].filter(Boolean).join(' · '))}</small></div>
+          <div class="sb-event"><span>${esc(td(e.name))}</span><small>${esc([td(e.round), e.time].filter(Boolean).join(' · '))}</small></div>
           ${liveRows(e.rows)}`).join('');
-        if(d.pdf) body += `<div class="mark-row" style="grid-template-columns:1fr"><span>📄 <a href="${d.pdf}" target="_blank" rel="noopener">Resultados en PDF</a></span></div>`;
+        if(d.pdf) body += `<div class="mark-row" style="grid-template-columns:1fr"><span>📄 <a href="${d.pdf}" target="_blank" rel="noopener">${t('Resultados en PDF')}</a></span></div>`;
       } else {
-        body += `<div class="mark-row" style="grid-template-columns:1fr"><span>${l.status==='finalizado' ? 'Competición terminada. Los resultados aparecerán en la sección Resultados en cuanto se publiquen.' : 'Sin datos en directo. ' + horarioPrevisto(l) + '.'}</span></div>`;
+        body += `<div class="mark-row" style="grid-template-columns:1fr"><span>${l.status==='finalizado' ? t('Competición terminada. Los resultados aparecerán en la sección Resultados en cuanto se publiquen.') : t('Sin datos en directo.') + ' ' + horarioPrevisto(l) + '.'}</span></div>`;
       }
       if(d.schedule && d.schedule.length){
-        body += `<div class="mark-row" style="grid-template-columns:1fr"><span><b>Próximas pruebas</b></span></div>` +
-          d.schedule.map(x=>`<div class="mark-row" style="grid-template-columns:60px 1fr"><span class="mono">${esc(x.time)}</span><span>${esc(x.event)} · ${esc(x.round||'')}</span></div>`).join('');
+        body += `<div class="mark-row" style="grid-template-columns:1fr"><span><b>${t('Próximas pruebas')}</b></span></div>` +
+          d.schedule.map(x=>`<div class="mark-row" style="grid-template-columns:60px 1fr"><span class="mono">${esc(x.time)}</span><span>${esc(td(x.event))} · ${esc(td(x.round||''))}</span></div>`).join('');
       }
       if(links) body += `<div class="mark-row" style="grid-template-columns:1fr"><span>${links}</span></div>`;
     }
@@ -4058,7 +4101,7 @@ function renderLive(){
       <div class="live-card-head" style="cursor:pointer" data-toggle="${l.id}">
         <div>
           <h3>${esc(l.name)}</h3>
-          <div class="meet">${esc(l.place||'')}${l.place?' · ':''}${horarioPrevisto(l)}${d.done!=null?` · ${d.done}/${d.total} pruebas terminadas`:''}</div>
+          <div class="meet">${esc(l.place||'')}${l.place?' · ':''}${horarioPrevisto(l)}${d.done!=null?` · ${t('{done}/{total} pruebas terminadas', {done: d.done, total: d.total})}`:''}</div>
         </div>
         <div class="badge-live" style="${b.live?'':'background:var(--gray-dim)'}">${b.live?"<span class='live-dot'></span>":''}${b.txt}</div>
       </div>
@@ -4103,38 +4146,38 @@ function horarioBlock(ev){
   const ahora = new Date().toTimeString().slice(0, 5);
   let html = '';
   if(live && d.schedule && d.schedule.length){
-    html += `<div class="hor-day">Hoy · próximas pruebas${live.status === 'en directo' ? ' <span class="status-chip live"><span class="live-dot"></span>En directo</span>' : ''}</div>` +
-      d.schedule.map(x => `<div class="hor-row"><span class="hor-t">${esc(x.time)}</span><span>${esc(x.event)}${x.round ? ' · ' + esc(x.round) : ''}</span></div>`).join('');
-    if(d.events && d.events.length) html += `<div class="hor-day">Ya disputadas hoy</div>` +
-      d.events.map(e => `<div class="hor-row is-done"><span class="hor-t">${esc(e.time || '✓')}</span><span>${esc(e.name)}${e.round ? ' · ' + esc(e.round) : ''}</span></div>`).join('');
+    html += `<div class="hor-day">${t('Hoy · próximas pruebas')}${live.status === 'en directo' ? ` <span class="status-chip live"><span class="live-dot"></span>${t('En directo')}</span>` : ''}</div>` +
+      d.schedule.map(x => `<div class="hor-row"><span class="hor-t">${esc(x.time)}</span><span>${esc(td(x.event))}${x.round ? ' · ' + esc(td(x.round)) : ''}</span></div>`).join('');
+    if(d.events && d.events.length) html += `<div class="hor-day">${t('Ya disputadas hoy')}</div>` +
+      d.events.map(e => `<div class="hor-row is-done"><span class="hor-t">${esc(e.time || '✓')}</span><span>${esc(td(e.name))}${e.round ? ' · ' + esc(td(e.round)) : ''}</span></div>`).join('');
   } else if(ev.schedule && ev.schedule.length){
     let day = null;
     ev.schedule.forEach(x => {
       if(x.d !== day){ day = x.d; html += `<div class="hor-day">${fechaDia(x.d)}</div>`; }
       const done = x.done != null ? x.done : (x.d < hoy || (x.d === hoy && x.t < ahora));
-      html += `<div class="hor-row ${done ? 'is-done' : ''}"><span class="hor-t">${x.t ? esc(x.t) : (done ? '✓' : '·')}</span><span>${esc(x.e)}${x.r ? ' · ' + esc(x.r) : ''}${done && !x.t ? ' <small class="hor-note">disputada</small>' : ''}</span></div>`;
+      html += `<div class="hor-row ${done ? 'is-done' : ''}"><span class="hor-t">${x.t ? esc(x.t) : (done ? '✓' : '·')}</span><span>${esc(td(x.e))}${x.r ? ' · ' + esc(td(x.r)) : ''}${done && !x.t ? ` <small class="hor-note">${t('disputada')}</small>` : ''}</span></div>`;
     });
   } else if(ev.times && Object.keys(ev.times).length){
     html = Object.keys(ev.times).sort().map(k => `<div class="hor-row"><span class="hor-t">${ev.times[k][0]}–${ev.times[k][1]}</span><span>${fechaDia(k)}</span></div>`).join('');
   } else if(ev.time){
-    html = `<div class="hor-row"><span class="hor-t">${esc(ev.time)}</span><span>Hora de inicio${ev.time_end && ev.time_end !== ev.time ? ' · fin previsto ' + esc(ev.time_end) : ''}</span></div>`;
+    html = `<div class="hor-row"><span class="hor-t">${esc(ev.time)}</span><span>${t('Hora de inicio')}${ev.time_end && ev.time_end !== ev.time ? ' · ' + t('fin previsto') + ' ' + esc(ev.time_end) : ''}</span></div>`;
   }
-  if(!html) return `<div class="data-note">🕒 Horario sin publicar todavía. Se añadirá solo en cuanto la organización lo publique.</div>`;
+  if(!html) return `<div class="data-note">🕒 ${t('Horario sin publicar todavía. Se añadirá solo en cuanto la organización lo publique.')}</div>`;
   const sinHoras = ev.schedule && ev.schedule.length && ev.schedule.every(x => !x.t);
-  return `<div class="horario"><h4 class="hor-title">🕒 ${sinHoras ? 'Programa prueba a prueba' : 'Horario'}</h4>${html}
-    ${sinHoras ? '<div class="hor-foot">La organización no publica la hora de cada prueba; se indica el día y la ronda.</div>' : ''}</div>`;
+  return `<div class="horario"><h4 class="hor-title">🕒 ${sinHoras ? t('Programa prueba a prueba') : t('Horario')}</h4>${html}
+    ${sinHoras ? `<div class="hor-foot">${t('La organización no publica la hora de cada prueba; se indica el día y la ronda.')}</div>` : ''}</div>`;
 }
 
 function renderCompAccordion(){
   const wrap = document.getElementById('compSelectBar');
   const [ini, fin] = proximasRango();
   document.getElementById('proxRange').innerHTML =
-    `📅 Del <b>${fechaCorta(ini)}</b> al <b>${fechaCorta(fin)}</b>.`;
+    `📅 ${t('Del <b>{ini}</b> al <b>{fin}</b>.', {ini: fechaCorta(ini), fin: fechaCorta(fin)})}`;
   const lista = CALENDAR
     .filter(c => (c.end_date || c.date) >= ini && c.date <= fin && !yaTerminada(c))
     .sort((a,b)=> a.date.localeCompare(b.date) || (a.time||'99').localeCompare(b.time||'99') || a.name.localeCompare(b.name));
   if(lista.length === 0){
-    wrap.innerHTML = `<div class="empty-state"><h3>Sin competiciones</h3>No hay citas en el calendario para los próximos 7 días.</div>`;
+    wrap.innerHTML = `<div class="empty-state"><h3>${t('Sin competiciones')}</h3>${t('No hay citas en el calendario para los próximos 7 días.')}</div>`;
     return;
   }
   let lastDay = null;
@@ -4148,27 +4191,27 @@ function renderCompAccordion(){
     const nDest = pvL && pvL.status === 'publicados'
       ? (pvL.events||[]).reduce((n,e)=> n + espDest(e.M).length + espDest(e.F).length + espDest(e.otros).length, 0) : 0;
     const etiqueta = esIntlSinEspanoles(ev, pvL)
-      ? (ev.schedule && ev.schedule.length ? '🕒 programa prueba a prueba' : '')
+      ? (ev.schedule && ev.schedule.length ? '🕒 ' + t('programa prueba a prueba') : '')
       : pvL && pvL.status === 'publicados'
-      ? (nDest ? `🇪🇸 ${nDest} españoles destacados` : `📋 ${pvL.n_inscritos} inscritos`)
-      : '📋 inscritos no publicados aún';
+      ? (nDest ? `🇪🇸 ${t('{n} españoles destacados', {n: nDest})}` : `📋 ${t('{n} inscritos', {n: pvL.n_inscritos})}`)
+      : '📋 ' + t('inscritos no publicados aún');
     let body = '';
     if(isOpen){
       const pv = PREVIAS.find(p => p.id === ev.id);
       const hoy = hoyISO();
       body = `<div class="comp-accordion-body">
-        ${renderAutoInfo(ev, {noDest: !!pv, noPrevia: true, noTimes: !!(ev.schedule && ev.schedule.length)}) || `<div class="data-note">📍 <b>${esc(ev.place||'Lugar por confirmar')}</b> — ${fechaLarga(ev.date, ev.end_date)}</div>`}
-        ${ev.date <= hoy && hoy <= (ev.end_date || ev.date) ? `<div class="data-note">🔴 <b>Es hoy.</b> <button class="comp-pill active" onclick="event.stopPropagation();handleNavClick('directo')">Ver en directo →</button></div>` : ''}
+        ${renderAutoInfo(ev, {noDest: !!pv, noPrevia: true, noTimes: !!(ev.schedule && ev.schedule.length)}) || `<div class="data-note">📍 <b>${esc(ev.place||t('Lugar por confirmar'))}</b> — ${fechaLarga(ev.date, ev.end_date)}</div>`}
+        ${ev.date <= hoy && hoy <= (ev.end_date || ev.date) ? `<div class="data-note">🔴 <b>${t('Es hoy.')}</b> <button class="comp-pill active" onclick="event.stopPropagation();handleNavClick('directo')">${t('Ver en directo →')}</button></div>` : ''}
         ${horarioBlock(ev)}
         ${esIntlSinEspanoles(ev, pv) ? '' : previaBody(pv)}
         ${comp && comp.events.length ? `<div class="roster-grid">${renderEventBlocks(comp.id, comp.events)}</div>` : ''}
-        <button class="comp-pill" style="margin-top:10px;" onclick="showCompetitionDetail('${ev.id}')">Ver ficha completa →</button>
+        <button class="comp-pill" style="margin-top:10px;" onclick="showCompetitionDetail('${ev.id}')">${t('Ver ficha completa →')}</button>
       </div>`;
     }
     const enDirecto = LIVE_DATA && LIVE_DATA.date === hoyISO() && ((LIVE_DATA.items || {})[ev.id] || {}).status === 'en directo';
     return `${head}
       <div class="comp-accordion-item">
-        <button class="comp-pill ${isOpen?'active':''}" data-id="${ev.id}">${enDirecto ? '<span class="status-chip live"><span class="live-dot"></span>En directo</span> ' : ''}${esc(ev.name)}
+        <button class="comp-pill ${isOpen?'active':''}" data-id="${ev.id}">${enDirecto ? `<span class="status-chip live"><span class="live-dot"></span>${t('En directo')}</span> ` : ''}${esc(ev.name)}
           <span style="color:var(--gray);font-size:12px;">${[ev.place, ev.time, etiqueta].filter(Boolean).map(x=>'· '+esc(x)).join(' ')}</span></button>
         ${body}
       </div>`;
@@ -4191,7 +4234,7 @@ let openResultComp = null;
 // '16–19 julio 2026 · FINALIZADO' -> '2026-07-16' (para ordenar por fecha)
 function fechaDeTexto(txt){
   const t = String(txt||'').toLowerCase();
-  const mi = MESES.findIndex(m => t.includes(m));
+  const mi = MESES_ES.findIndex(m => t.includes(m));
   const y = (t.match(/20\d\d/)||['2026'])[0];
   const d = (t.match(/\d{1,2}/)||['1'])[0];
   return `${y}-${String(mi+1).padStart(2,'0')}-${d.padStart(2,'0')}`;
@@ -4206,15 +4249,15 @@ function renderResultsAccordion(){
     const isOpen = comp.id === openResultComp;
     const watch = getWatchInfo(comp.id);
     const body = comp.events.length === 0
-      ? `<div class="empty-state"><h3>Sin desglose todavía</h3>Esta competición ya ha finalizado pero aún no tengo medallistas confirmados con nombre y apellido.</div>`
+      ? `<div class="empty-state"><h3>${t('Sin desglose todavía')}</h3>${t('Esta competición ya ha finalizado pero aún no tengo medallistas confirmados con nombre y apellido.')}</div>`
       : renderEventBlocks(comp.id, comp.events);
     return `
       <div class="comp-accordion-item">
-        <button class="comp-pill ${isOpen?'active':''}" data-id="${comp.id}">${comp.name} <span style="color:var(--gray);font-size:12px;">· ${comp.place.split('·')[0].trim()}</span></button>
+        <button class="comp-pill ${isOpen?'active':''}" data-id="${comp.id}">${comp.name} <span style="color:var(--gray);font-size:12px;">· ${td(comp.place).split('·')[0].trim()}</span></button>
         ${isOpen ? `
           <div class="comp-accordion-body">
-            <div class="data-note">📍 <b>${comp.place}</b> — ${comp.dates}<br>${comp.note}</div>
-            <div class="data-note">📺 <b>Dónde ver: ${watch.channel}</b>${watch.note ? "<br>" + watch.note : ""}</div>
+            <div class="data-note">📍 <b>${td(comp.place)}</b> — ${td(comp.dates)}<br>${td(comp.note)}</div>
+            <div class="data-note">📺 <b>${t('Dónde ver:')} ${td(watch.channel)}</b>${watch.note ? "<br>" + td(watch.note) : ""}</div>
             <div class="roster-grid">${body}</div>
           </div>
         ` : ''}
@@ -4273,13 +4316,13 @@ function renderResultsSeason(){
 
   if(filtered.length === 0){
     count.style.display = 'none';
-    list.innerHTML = `<div class="empty-state"><h3>Sin resultados</h3>Ninguna competición disputada coincide con estos filtros.</div>`;
+    list.innerHTML = `<div class="empty-state"><h3>${t('Sin resultados')}</h3>${t('Ninguna competición disputada coincide con estos filtros.')}</div>`;
     return;
   }
 
   count.style.display = '';
   const conRes = filtered.filter(ev => resultFor(ev.id) || COMPETITIONS.some(c=>c.id===ev.id && c.events.length)).length;
-  count.innerHTML = `🏁 <b>${filtered.length}</b> competiciones disputadas este año con los filtros activos · <b>${conRes}</b> con resultados.`;
+  count.innerHTML = `🏁 ${t('<b>{n}</b> competiciones disputadas este año con los filtros activos · <b>{r}</b> con resultados.', {n: filtered.length, r: conRes})}`;
 
   let lastMonth = null;
   list.innerHTML = filtered.map(ev=>{
@@ -4293,16 +4336,16 @@ function renderResultsSeason(){
     const isOpen = openResultRow === ev.id;
     const missing = !hasDetail && MISSING_IDS.has(ev.id);
     const badge = hasDetail
-      ? `<div class="tag intl">Resultados</div>`
-      : missing ? `<div class="tag nac" title="Todavía no se han encontrado resultados oficiales en ninguna fuente; se siguen buscando">Resultados pendientes</div>`
-      : `<div class="tag nac">Disputada</div>`;
+      ? `<div class="tag intl">${t('Resultados')}</div>`
+      : missing ? `<div class="tag nac" title="${t('Todavía no se han encontrado resultados oficiales en ninguna fuente; se siguen buscando')}">${t('Resultados pendientes')}</div>`
+      : `<div class="tag nac">${t('Disputada')}</div>`;
     const body = !isOpen ? '' : `
       <div class="comp-accordion-body">
-        <div class="data-note">📍 <b>${esc(comp ? comp.place : (ev.place || '—'))}</b> — ${comp ? comp.dates : fechaLarga(ev.date, ev.end_date)}${comp && comp.note ? '<br>'+comp.note : ''}</div>
+        <div class="data-note">📍 <b>${esc(comp ? td(comp.place) : (ev.place || '—'))}</b> — ${comp ? td(comp.dates) : fechaLarga(ev.date, ev.end_date)}${comp && comp.note ? '<br>'+td(comp.note) : ''}</div>
         ${comp && comp.events && comp.events.length ? `<div class="roster-grid">${renderEventBlocks(ev.id, comp.events)}</div>` : ''}
         ${auto ? renderResultSummary(auto) : ''}
-        ${resultPageHref(auto) ? `<div class="data-note">📄 <a href="${resultPageHref(auto)}">Página de resultados de esta competición</a> (para compartir o guardar)</div>` : ''}
-        ${!hasDetail ? `<div class="empty-state"><h3>${missing ? 'Resultados pendientes' : 'Resultados aún no publicados'}</h3>${missing ? 'Todavía no se han encontrado los resultados oficiales de esta competición en ninguna fuente. Se siguen buscando automáticamente.' : 'Esta competición ya se ha celebrado, pero la organización todavía no ha publicado los resultados. Se añadirán solos en cuanto aparezcan.'}${linkButtons(ev.links||{}) ? '<br><br>'+linkButtons(ev.links||{}) : ''}</div>` : ''}
+        ${resultPageHref(auto) ? `<div class="data-note">📄 <a href="${resultPageHref(auto)}">${t('Página de resultados de esta competición')}</a> ${t('(para compartir o guardar)')}</div>` : ''}
+        ${!hasDetail ? `<div class="empty-state"><h3>${missing ? t('Resultados pendientes') : t('Resultados aún no publicados')}</h3>${missing ? t('Todavía no se han encontrado los resultados oficiales de esta competición en ninguna fuente. Se siguen buscando automáticamente.') : t('Esta competición ya se ha celebrado, pero la organización todavía no ha publicado los resultados. Se añadirán solos en cuanto aparezcan.')}${linkButtons(ev.links||{}) ? '<br><br>'+linkButtons(ev.links||{}) : ''}</div>` : ''}
       </div>`;
     return head + `
     <div class="comp-accordion-item">
@@ -4310,9 +4353,9 @@ function renderResultsSeason(){
         <div class="cal-date"><span class="day">${d}</span>${MESES[parseInt(m,10)-1].slice(0,3).toUpperCase()} ${y}</div>
         <div>
           <div class="cal-name">${esc(ev.name)}</div>
-          <div class="cal-place">${esc(ev.place)}${ev.place && ev.cat ? ' · ' : ''}${esc(ev.cat||'')}</div>
+          <div class="cal-place">${esc(ev.place)}${ev.place && ev.cat ? ' · ' : ''}${esc(td(ev.cat||''))}</div>
         </div>
-        <div class="cal-place">${ev.type}</div>
+        <div class="cal-place">${esc(typeLabel(ev.type))}</div>
         ${badge}
         <div class="cal-arrow">${isOpen?'↑':'→'}</div>
       </div>
@@ -4333,8 +4376,8 @@ function renderResultsSeason(){
   const past = resPastEvents();
   const monthOrder = MESES.filter(m => past.some(e => MESES[parseInt(e.date.split('-')[1],10)-1] === m));
   populateSelect('resMonth', monthOrder, 'Todos los meses');
-  populateSelect('resType', [...new Set(past.map(e=>e.type))].sort(), 'Todas las modalidades');
-  populateSelect('resCat', ordenarCCAA([...new Set(past.map(e=>getCCAA(e.place)))]), 'Todas las localidades');
+  populateSelect('resType', [...new Set(past.map(e=>e.type))].sort(), 'Todas las modalidades', typeLabel);
+  populateSelect('resCat', ordenarCCAA([...new Set(past.map(e=>getCCAA(e.place)))]), 'Todas las localidades', ccaaLabel);
   populateSelect('resFuente', ORDEN_FUENTES, 'Todos los calendarios');
   ['resMonth','resType','resCat','resFuente'].forEach(id=>document.getElementById(id).addEventListener('change', renderResultsSeason));
   document.getElementById('resSearch').addEventListener('input', renderResultsSeason);
@@ -4346,7 +4389,7 @@ function renderResultsSeason(){
    ============================================================ */
 // Ranking español del año: datos oficiales de la RFEA (ranking.json, se actualiza cada día)
 let RANKING_DATA = null;
-const RANK_SEASON_LABEL = {AL: 'Aire libre', PC: 'Pista cubierta'};
+const RANK_SEASON_LABEL = {AL: t('Aire libre'), PC: t('Pista cubierta')};
 
 function rankList(){
   const st = document.getElementById('rankSeason').value || 'AL';
@@ -4357,29 +4400,29 @@ function refreshRankEventOptions(){
   const sel = document.getElementById('rankEvent');
   const prev = sel.value;
   const names = rankList().map(e => e.event);
-  sel.innerHTML = `<option value="">Todas las pruebas</option>` + names.map(n => `<option value="${esc(n)}">${esc(n)}</option>`).join('');
+  sel.innerHTML = `<option value="">${t('Todas las pruebas')}</option>` + names.map(n => `<option value="${esc(n)}">${esc(td(n))}</option>`).join('');
   if(names.includes(prev)) sel.value = prev;
 }
 function renderRanking(){
   const wrap = document.getElementById('rankList');
   const note = document.getElementById('rankInfo');
   if(!RANKING_DATA){
-    wrap.innerHTML = `<div class="empty-state"><h3>Cargando ranking…</h3>Datos oficiales de la RFEA.</div>`;
+    wrap.innerHTML = `<div class="empty-state"><h3>${t('Cargando ranking…')}</h3>${t('Datos oficiales de la RFEA.')}</div>`;
     return;
   }
   const st = document.getElementById('rankSeason').value || 'AL';
   const ev = document.getElementById('rankEvent').value;
   const list = rankList().filter(e => !ev || e.event === ev);
-  note.innerHTML = `📊 <b>Ranking ${esc(RANK_SEASON_LABEL[st])} ${esc(RANKING_DATA.season)}</b> · categoría absoluta · mejor marca de cada atleta (solo marcas válidas).
-    Fuente: <a href="${esc(RANKING_DATA.source)}" target="_blank" rel="noopener">ranking oficial RFEA</a> · actualizado ${fechaCorta(RANKING_DATA.generated.slice(0,10))} ${horaDe(RANKING_DATA.generated)}`;
+  note.innerHTML = `📊 ${t('<b>Ranking {temporada} {anio}</b> · categoría absoluta · mejor marca de cada atleta (solo marcas válidas).', {temporada: esc(RANK_SEASON_LABEL[st]), anio: esc(RANKING_DATA.season)})}
+    ${t('Fuente:')} <a href="${esc(RANKING_DATA.source)}" target="_blank" rel="noopener">${t('ranking oficial RFEA')}</a> · ${t('actualizado')} ${fechaCorta(RANKING_DATA.generated.slice(0,10))} ${horaDe(RANKING_DATA.generated)}`;
   if(!list.length){
-    wrap.innerHTML = `<div class="empty-state"><h3>Sin marcas</h3>La RFEA todavía no tiene marcas en esta prueba y temporada.</div>`;
+    wrap.innerHTML = `<div class="empty-state"><h3>${t('Sin marcas')}</h3>${t('La RFEA todavía no tiene marcas en esta prueba y temporada.')}</div>`;
     return;
   }
   wrap.innerHTML = list.map(e => `
     <div class="event-block rank-block">
-      <div class="event-block-head"><h3>${esc(e.event)}</h3><span>Top ${e.rows.length}</span></div>
-      <table class="rank"><thead><tr><th>#</th><th>Marca</th><th>Atleta</th><th class="hide-sm">Club</th><th class="hide-sm">Lugar · fecha</th></tr></thead>
+      <div class="event-block-head"><h3>${esc(td(e.event))}</h3><span>Top ${e.rows.length}</span></div>
+      <table class="rank"><thead><tr><th>#</th><th>${t('Marca')}</th><th>${t('Atleta')}</th><th class="hide-sm">Club</th><th class="hide-sm">${t('Lugar · fecha')}</th></tr></thead>
       <tbody>${e.rows.map((r, i) => `<tr class="${i === 0 ? 'top1' : ''}">
         <td class="rk"><span class="rk-badge ${i < 3 ? 'm' + (i + 1) : ''}">${esc(r.rank)}</span></td>
         <td class="mark">${esc(r.mark)}${r.wind ? ` <small>(${esc(r.wind)})</small>` : ''}</td>
@@ -4415,18 +4458,26 @@ function hoyISO(){
   // fecha de hoy en España, se mire desde donde se mire
   return new Intl.DateTimeFormat('en-CA', {timeZone:'Europe/Madrid'}).format(new Date());
 }
-const DIAS = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+const DIAS = LANG === 'en' ? ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'] : ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
 function fechaCorta(iso){
   const [y,m,d] = iso.split('-');
   return `${parseInt(d,10)} ${MESES[parseInt(m,10)-1].slice(0,3)}`;
 }
 function fechaDia(iso){
   const dt = new Date(iso + 'T12:00:00');
-  const txt = `${DIAS[dt.getDay()]} ${dt.getDate()} de ${MESES[dt.getMonth()]}`;
-  return iso === hoyISO() ? `Hoy · ${txt}` : txt.charAt(0).toUpperCase() + txt.slice(1);
+  const txt = LANG === 'en' ? `${DIAS[dt.getDay()]} ${dt.getDate()} ${MESES[dt.getMonth()]}` : `${DIAS[dt.getDay()]} ${dt.getDate()} de ${MESES[dt.getMonth()]}`;
+  return iso === hoyISO() ? `${t('Hoy')} · ${txt}` : txt.charAt(0).toUpperCase() + txt.slice(1);
 }
 function fechaLarga(ini, fin){
   const [y,m,d] = ini.split('-');
+  if(LANG === 'en'){
+    if(fin && fin !== ini){
+      const [y2,m2,d2] = fin.split('-');
+      if(m2 === m) return `${parseInt(d,10)}–${parseInt(d2,10)} ${MESES[parseInt(m,10)-1]} ${y}`;
+      return `${parseInt(d,10)} ${MESES[parseInt(m,10)-1]} – ${parseInt(d2,10)} ${MESES[parseInt(m2,10)-1]} ${y2}`;
+    }
+    return `${parseInt(d,10)} ${MESES[parseInt(m,10)-1]} ${y}`;
+  }
   if(fin && fin !== ini){
     const [y2,m2,d2] = fin.split('-');
     if(m2 === m) return `${parseInt(d,10)}–${parseInt(d2,10)} de ${MESES[parseInt(m,10)-1]} de ${y}`;
@@ -4435,38 +4486,38 @@ function fechaLarga(ini, fin){
   return `${parseInt(d,10)} de ${MESES[parseInt(m,10)-1]} de ${y}`;
 }
 function horaDe(isoDateTime){
-  try { return new Date(isoDateTime).toLocaleTimeString('es-ES', {hour:'2-digit', minute:'2-digit', timeZone:'Europe/Madrid'}); }
+  try { return new Date(isoDateTime).toLocaleTimeString(LOCALE, {hour:'2-digit', minute:'2-digit', timeZone:'Europe/Madrid'}); }
   catch(e){ return ''; }
 }
 
-const LINK_LABELS = {inscritos:'📋 Inscritos', resultados:'🏁 Resultados', directo:'🔴 Directo', streaming:'📺 Streaming', horario:'🕒 Horario', web:'🌐 Web oficial', info:'ℹ️ Ficha oficial'};
+const LINK_LABELS = {inscritos:'📋 ' + t('Inscritos'), resultados:'🏁 ' + t('Resultados'), directo:'🔴 ' + t('Directo'), streaming:'📺 Streaming', horario:'🕒 ' + t('Horario'), web:'🌐 ' + t('Web oficial'), info:'ℹ️ ' + t('Ficha oficial')};
 function linkButtons(links){
   return Object.keys(LINK_LABELS).filter(k => links && links[k]).map(k =>
-    `<a class="ext-link" href="${esc(links[k])}" target="_blank" rel="noopener" title="Abrir ${esc(links[k])}">${LINK_LABELS[k]}<span class="ext-arrow" aria-hidden="true">↗</span></a>`
+    `<a class="ext-link" href="${esc(links[k])}" target="_blank" rel="noopener" title="${t('Abrir')} ${esc(links[k])}">${LINK_LABELS[k]}<span class="ext-arrow" aria-hidden="true">↗</span></a>`
   ).join('');
 }
 
 function calMeta(ev){
   const bits = [];
-  if(ev.end_date && ev.end_date !== ev.date) bits.push(`hasta el ${fechaCorta(ev.end_date)}`);
+  if(ev.end_date && ev.end_date !== ev.date) bits.push(t('hasta el {fecha}', {fecha: fechaCorta(ev.end_date)}));
   if(ev.time) bits.push(`🕒 ${ev.time}`);
-  if(ev.links && ev.links.inscritos) bits.push('📋 inscritos');
-  if(ev.destacados && ev.destacados.length) bits.push(`⭐ ${ev.destacados.length} destacados`);
+  if(ev.links && ev.links.inscritos) bits.push('📋 ' + t('inscritos'));
+  if(ev.destacados && ev.destacados.length) bits.push(`⭐ ${t('{n} destacados', {n: ev.destacados.length})}`);
   return bits.length ? `${ev.place ? ' · ' : ''}<span style="color:var(--gray)">${bits.join(' · ')}</span>` : '';
 }
 
 function renderDestacados(list){
   if(!list || !list.length) return '';
   return `<div class="event-block">
-    <div class="event-block-head"><h3>🇪🇸 Inscritos españoles destacados</h3><span>${list.length}</span></div>
+    <div class="event-block-head"><h3>🇪🇸 ${t('Inscritos españoles destacados')}</h3><span>${list.length}</span></div>
     <div class="athlete-list">${list.map(a=>`
       <div class="athlete-row">
         <div class="athlete-row-name">${esc(a.name)}</div>
-        <div class="athlete-row-ref">${esc(a.event)}${a.round?' · '+esc(a.round):''}${a.club?' · '+esc(a.club):''}</div>
+        <div class="athlete-row-ref">${esc(td(a.event))}${a.round?' · '+esc(td(a.round)):''}${a.club?' · '+esc(a.club):''}</div>
         <div class="athlete-row-meta">
-          <span><b>Por qué:</b> ${esc(a.why)}</span>
-          ${a.sb ? `<span><b>Mejor marca del año:</b> ${esc(a.sb)}</span>` : ''}
-          ${a.time ? `<span><b>Cuándo compite:</b> ${a.date ? fechaCorta(a.date)+', ' : ''}${esc(a.time)}</span>` : ''}
+          <span><b>${t('Por qué:')}</b> ${esc(tdr(a.why))}</span>
+          ${a.sb ? `<span><b>${t('Mejor marca del año:')}</b> ${esc(a.sb)}</span>` : ''}
+          ${a.time ? `<span><b>${t('Cuándo compite:')}</b> ${a.date ? fechaCorta(a.date)+', ' : ''}${esc(a.time)}</span>` : ''}
         </div>
       </div>`).join('')}
     </div>
@@ -4481,18 +4532,18 @@ function renderAutoInfo(ev, opts){
   if(opts.noTimes){
     // el horario completo va en su propio bloque
   } else if(ev.times && Object.keys(ev.times).length){
-    parts.push(`<div class="data-note">🕒 <b>Horario</b><br>${Object.keys(ev.times).sort().map(d=>`${fechaDia(d)}: ${ev.times[d][0]}–${ev.times[d][1]}`).join('<br>')}</div>`);
+    parts.push(`<div class="data-note">🕒 <b>${t('Horario')}</b><br>${Object.keys(ev.times).sort().map(d=>`${fechaDia(d)}: ${ev.times[d][0]}–${ev.times[d][1]}`).join('<br>')}</div>`);
   } else if(ev.time){
-    parts.push(`<div class="data-note">🕒 <b>Hora de inicio:</b> ${ev.time}${ev.time_end && ev.time_end!==ev.time ? ' · fin previsto ' + ev.time_end : ''}</div>`);
+    parts.push(`<div class="data-note">🕒 <b>${t('Hora de inicio')}:</b> ${ev.time}${ev.time_end && ev.time_end!==ev.time ? ' · ' + t('fin previsto') + ' ' + ev.time_end : ''}</div>`);
   }
   const links = linkButtons(Object.fromEntries(Object.entries(ev.links || {}).filter(([k]) => k !== 'resultados')));
   if(links) parts.push(`<div class="data-note">${links}</div>`);
   const pv = PREVIAS.find(p => p.id === ev.id);
   if(!opts.noDest && ev.destacados && ev.destacados.length) parts.push(`<div class="roster-grid">${renderDestacados(ev.destacados)}</div>`);
   if(pv && !opts.noPrevia) parts.push(`<div class="data-note">${pv.status === 'publicados'
-    ? `⭐ <b>Previa disponible</b> (${pv.n_inscritos} inscritos) en Próximas.`
-    : '📋 Inscritos no publicados aún.'}</div>`);
-  if(ev.sources && ev.sources.length) parts.push(`<div class="data-note" style="font-size:13px;color:var(--gray)">Datos: ${[...new Set(ev.sources.map(x => sourceLabel(x, ev)))].map(esc).join(', ')}</div>`);
+    ? `⭐ ${t('<b>Previa disponible</b> ({n} inscritos) en Próximas.', {n: pv.n_inscritos})}`
+    : '📋 ' + t('Inscritos no publicados aún.')}</div>`);
+  if(ev.sources && ev.sources.length) parts.push(`<div class="data-note" style="font-size:13px;color:var(--gray)">${t('Datos:')} ${[...new Set(ev.sources.map(x => sourceLabel(x, ev)))].map(esc).join(', ')}</div>`);
   return parts.join('');
 }
 
@@ -4502,7 +4553,7 @@ function resultPageHref(r){
   if(!r || !r.date || r.link_only || !r.n_podios) return '';
   const slug = r.name.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ').trim().replace(/ /g, '-').slice(0, 60).replace(/^-+|-+$/g, '');
-  return `/resultados/${slug}-${r.date}`;
+  return `${LANG === 'en' ? '/en/results' : '/resultados'}/${slug}-${r.date}`;
 }
 
 function resultFor(calId){
@@ -4524,7 +4575,7 @@ function resultTable(rows, showNat){
       ${r.pos ? `<span class="medal ${p>=1 && p<=3 ? 'm'+p : ''}">${esc(r.pos)}</span>` : ''}
       ${athleteBadge(r)}
       <span class="res-who"><b>${esc(r.name)}</b>${ref ? `<small>${esc(ref)}</small>` : ''}</span>
-      <span class="res-mark">${esc(r.mark || '—')}${r.wind || r.note ? `<small>${esc([r.wind ? '('+r.wind+')' : '', r.note||''].filter(Boolean).join(' '))}</small>` : ''}</span>
+      <span class="res-mark">${esc(r.mark || '—')}${r.wind || r.note ? `<small>${esc([r.wind ? '('+r.wind+')' : '', td(r.note||'')].filter(Boolean).join(' '))}</small>` : ''}</span>
     </div>`;}).join('')}</div>`;
 }
 
@@ -4543,7 +4594,7 @@ function expectedSexes(name){
   return f && !m ? ['F'] : m && !f ? ['M'] : ['F','M'];
 }
 function eventTitle(name){
-  return (name||'').replace(/\s*[·-]?\s*(mujeres|hombres|femenin[oa]s?|masculin[oa]s?|damas|varones)\s*$/i, '').trim() || 'Clasificación general';
+  return (name||'').replace(/\s*[·-]?\s*(mujeres|hombres|femenin[oa]s?|masculin[oa]s?|damas|varones)\s*$/i, '').trim() || t('Clasificación general');
 }
 
 // Ficha de resultados de una competición: TODAS las pruebas, separadas en femenino y masculino
@@ -4554,9 +4605,9 @@ function eventResultBlock(ev){
   return (finals.length ? finals : rounds).map(rd=>{
     const rows = (rd.rows || []);
     const top = rows.slice(0, 3), rest = rows.slice(3);
-    return `<div class="event-block"><div class="event-block-head"><h3>${esc(eventTitle(ev.name))}</h3><span>${esc(rd.round || '')}</span></div>
+    return `<div class="event-block"><div class="event-block-head"><h3>${esc(td(eventTitle(ev.name)))}</h3><span>${esc(td(rd.round || ''))}</span></div>
       ${resultTable(top, true)}
-      ${rest.length ? `<details class="res-more"><summary>Ver clasificación completa (${rows.length})</summary>${resultTable(rest, true)}</details>` : ''}</div>`;
+      ${rest.length ? `<details class="res-more"><summary>${t('Ver clasificación completa ({n})', {n: rows.length})}</summary>${resultTable(rest, true)}</details>` : ''}</div>`;
   }).join('');
 }
 function renderResultEvents(r, data){
@@ -4565,13 +4616,13 @@ function renderResultEvents(r, data){
   const by = {F: [], M: [], O: []};
   evs.forEach(ev => { const s = eventSex(ev); (s === 'F' ? by.F : s === 'M' ? by.M : by.O).push(ev); });
   const col = (sx) => {
-    const title = sx === 'F' ? 'Femenino' : 'Masculino';
+    const title = sx === 'F' ? t('Femenino') : t('Masculino');
     const list = by[sx];
-    return `<div class="res-sex-col"><h3 class="res-sex-title">${title} <span>${list.length} ${list.length === 1 ? 'prueba' : 'pruebas'}</span></h3>
-      ${list.length ? list.map(eventResultBlock).join('') : `<div class="empty-state">Sin resultados ${sx === 'F' ? 'femeninos' : 'masculinos'} localizados todavía. Se siguen buscando en todas las fuentes.</div>`}</div>`;
+    return `<div class="res-sex-col"><h3 class="res-sex-title">${title} <span>${list.length === 1 ? t('1 prueba') : t('{n} pruebas', {n: list.length})}</span></h3>
+      ${list.length ? list.map(eventResultBlock).join('') : `<div class="empty-state">${sx === 'F' ? t('Sin resultados femeninos localizados todavía. Se siguen buscando en todas las fuentes.') : t('Sin resultados masculinos localizados todavía. Se siguen buscando en todas las fuentes.')}</div>`}</div>`;
   };
   return `<div class="res-sex-grid${want.length === 1 ? ' single' : ''}">${want.map(col).join('')}</div>
-    ${by.O.length ? `<div class="res-sex-col" style="margin-top:18px;"><h3 class="res-sex-title">Mixtas / sin sexo indicado <span>${by.O.length}</span></h3>${by.O.map(eventResultBlock).join('')}</div>` : ''}`;
+    ${by.O.length ? `<div class="res-sex-col" style="margin-top:18px;"><h3 class="res-sex-title">${t('Mixtas / sin sexo indicado')} <span>${by.O.length}</span></h3>${by.O.map(eventResultBlock).join('')}</div>` : ''}`;
 }
 async function fillResultEvents(id){
   if(!RESULT_FILES[id]) RESULT_FILES[id] = loadData(`results/${id}.json`);
@@ -4582,22 +4633,22 @@ async function fillResultEvents(id){
 
 function renderResultSummary(r){
   if(r.link_only){
-    return `<div class="data-note">🏁 Clasificaciones publicadas por el cronometrador.<br><a class="comp-pill" style="display:inline-block;margin-top:6px;text-decoration:none;" href="${esc(r.url)}" target="_blank" rel="noopener">Ver clasificaciones →</a></div>`;
+    return `<div class="data-note">🏁 ${t('Clasificaciones publicadas por el cronometrador.')}<br><a class="comp-pill" style="display:inline-block;margin-top:6px;text-decoration:none;" href="${esc(r.url)}" target="_blank" rel="noopener">${t('Ver clasificaciones →')}</a></div>`;
   }
   const blocks = [];
   if(r.espanoles && r.espanoles.length){
-    blocks.push(`<div class="event-block"><div class="event-block-head"><h3>🇪🇸 Españoles</h3><span>${r.espanoles.length}</span></div>
-      ${resultTable(r.espanoles.map(x=>({...x, club: x.event + (x.round ? ' · ' + x.round : '')})), false)}</div>`);
+    blocks.push(`<div class="event-block"><div class="event-block-head"><h3>🇪🇸 ${t('Españoles')}</h3><span>${r.espanoles.length}</span></div>
+      ${resultTable(r.espanoles.map(x=>({...x, club: td(x.event) + (x.round ? ' · ' + td(x.round) : '')})), false)}</div>`);
   }
   if(r.destacados && r.destacados.length){
-    blocks.push(`<div class="event-block"><div class="event-block-head"><h3>⭐ Destacados</h3><span>${r.destacados.length}</span></div>
-      ${resultTable(r.destacados.map(x=>({...x, club: x.event + (x.round ? ' · ' + x.round : '')})), false)}</div>`);
+    blocks.push(`<div class="event-block"><div class="event-block-head"><h3>⭐ ${t('Destacados')}</h3><span>${r.destacados.length}</span></div>
+      ${resultTable(r.destacados.map(x=>({...x, club: td(x.event) + (x.round ? ' · ' + td(x.round) : '')})), false)}</div>`);
   }
   setTimeout(() => fillResultEvents(r.id), 0);
-  return `<div class="data-note">🏁 Resultados · ${r.n_podios || r.events || ''} pruebas · fuente: <b>${esc(sourceLabel(r.source, CALENDAR.find(c => c.id === r.cal_id)))}</b>${r.url ? ` · <a href="${esc(r.url)}" target="_blank" rel="noopener">original</a>` : ''}</div>
-    ${r.incomplete ? `<div class="data-note" style="border-color:var(--gold);">⚠️ <b>Clasificación incompleta.</b> ${esc(r.incomplete)}${r.url ? ` <a href="${esc(r.url)}" target="_blank" rel="noopener">Ver la clasificación completa en el documento oficial →</a>` : ''}</div>` : ''}
+  return `<div class="data-note">🏁 ${t('Resultados · {n} pruebas · fuente:', {n: r.n_podios || r.events || ''})} <b>${esc(sourceLabel(r.source, CALENDAR.find(c => c.id === r.cal_id)))}</b>${r.url ? ` · <a href="${esc(r.url)}" target="_blank" rel="noopener">${t('original')}</a>` : ''}</div>
+    ${r.incomplete ? `<div class="data-note" style="border-color:var(--gold);">⚠️ <b>${t('Clasificación incompleta.')}</b> ${esc(td(r.incomplete))}${r.url ? ` <a href="${esc(r.url)}" target="_blank" rel="noopener">${t('Ver la clasificación completa en el documento oficial →')}</a>` : ''}</div>` : ''}
     ${blocks.length ? `<div class="roster-grid">${blocks.join('')}</div>` : ''}
-    <div data-res-full="${r.id}">${RESULT_FILES[r.id] ? '' : '<div class="data-note">Cargando todas las pruebas…</div>'}</div>`;
+    <div data-res-full="${r.id}">${RESULT_FILES[r.id] ? '' : `<div class="data-note">${t('Cargando todas las pruebas…')}</div>`}</div>`;
 }
 
 // Ficha completa de resultados (vista de detalle)
@@ -4684,13 +4735,13 @@ function keepValue(id, fn){
 }
 function refreshFilters(){
   keepValue('calMonth', ()=>populateSelect('calMonth', MESES.filter(m => CALENDAR.some(e => MESES[parseInt(e.date.split('-')[1],10)-1] === m)), 'Todos los meses'));
-  keepValue('calType', ()=>populateSelect('calType', [...new Set(CALENDAR.map(e=>e.type))].sort(), 'Todos los tipos'));
-  keepValue('calCat', ()=>populateSelect('calCat', ordenarCCAA([...new Set(CALENDAR.map(e=>getCCAA(e.place)))]), 'Todas las localidades'));
+  keepValue('calType', ()=>populateSelect('calType', [...new Set(CALENDAR.map(e=>e.type))].sort(), 'Todos los tipos', typeLabel));
+  keepValue('calCat', ()=>populateSelect('calCat', ordenarCCAA([...new Set(CALENDAR.map(e=>getCCAA(e.place)))]), 'Todas las localidades', ccaaLabel));
   keepValue('calFuente', ()=>populateSelect('calFuente', ORDEN_FUENTES, 'Todos los calendarios'));
   const past = resPastEvents();
   keepValue('resMonth', ()=>populateSelect('resMonth', MESES.filter(m => past.some(e => MESES[parseInt(e.date.split('-')[1],10)-1] === m)), 'Todos los meses'));
-  keepValue('resType', ()=>populateSelect('resType', [...new Set(past.map(e=>e.type))].sort(), 'Todas las modalidades'));
-  keepValue('resCat', ()=>populateSelect('resCat', ordenarCCAA([...new Set(past.map(e=>getCCAA(e.place)))]), 'Todas las localidades'));
+  keepValue('resType', ()=>populateSelect('resType', [...new Set(past.map(e=>e.type))].sort(), 'Todas las modalidades', typeLabel));
+  keepValue('resCat', ()=>populateSelect('resCat', ordenarCCAA([...new Set(past.map(e=>getCCAA(e.place)))]), 'Todas las localidades', ccaaLabel));
   keepValue('resFuente', ()=>populateSelect('resFuente', ORDEN_FUENTES, 'Todos los calendarios'));
 }
 
@@ -4698,11 +4749,11 @@ function refreshFilters(){
    PREVIAS — destacados de cada lista de inscritos
    ============================================================ */
 function previaCol(title, list){
-  if(!list || !list.length) return `<div class="previa-col"><h4>${title}</h4><span style="color:var(--gray)">Sin destacados según los criterios.</span></div>`;
+  if(!list || !list.length) return `<div class="previa-col"><h4>${title}</h4><span style="color:var(--gray)">${t('Sin destacados según los criterios.')}</span></div>`;
   return `<div class="previa-col"><h4>${title}</h4>${list.map(a=>`
     <div class="previa-ath"><b>${esc(a.name)}</b>${a.nat && a.nat!=='ESP' ? ` <small style="color:var(--gray)">${esc(a.nat)}</small>` : ''}
-      ${a.pb || a.sb ? `<span class="marks"> · ${a.sb ? 'MMT ' + esc(a.sb) : ''}${a.sb && a.pb ? ' · ' : ''}${a.pb ? 'MMP ' + esc(a.pb) : ''}</span>` : ''}
-      <span class="why">${a.reasons.map(esc).join(' · ')}</span>
+      ${a.pb || a.sb ? `<span class="marks"> · ${a.sb ? t('MMT') + ' ' + esc(a.sb) : ''}${a.sb && a.pb ? ' · ' : ''}${a.pb ? t('MMP') + ' ' + esc(a.pb) : ''}</span>` : ''}
+      <span class="why">${a.reasons.map(x => esc(tdr(x))).join(' · ')}</span>
       ${a.club ? `<span class="why">${esc(a.club)}</span>` : ''}
     </div>`).join('')}</div>`;
 }
@@ -4714,23 +4765,23 @@ function espDest(list){
 
 // Contenido de la previa de una cita (se muestra dentro de Próximas)
 function previaBody(p){
-  if(!p || p.status !== 'publicados') return `<div class="empty-state"><h3>Inscritos no publicados aún</h3>Se revisa cada día. En cuanto la organización publique la lista, aquí aparecerán los inscritos españoles destacados.</div>`;
+  if(!p || p.status !== 'publicados') return `<div class="empty-state"><h3>${t('Inscritos no publicados aún')}</h3>${t('Se revisa cada día. En cuanto la organización publique la lista, aquí aparecerán los inscritos españoles destacados.')}</div>`;
   const ch = p.changes || {};
   const evs = (p.events||[]).map(e => ({...e, M: espDest(e.M), F: espDest(e.F), otros: espDest(e.otros)}))
     .filter(e => e.M.length || e.F.length || e.otros.length)
     .sort((a, b) => (/(é|e)lite/i.test(b.name) ? 1 : 0) - (/(é|e)lite/i.test(a.name) ? 1 : 0));   // la élite, primero
   const conElite = evs.some(e => [...e.M, ...e.F, ...e.otros].some(a => (a.reasons||[]).some(t => t.startsWith('Dorsal de élite'))));
-  return `<div class="data-note">🇪🇸 <b>Inscritos españoles destacados</b> · ${p.n_inscritos} inscritos en total
-      ${conElite ? '<br>🏅 Incluye a los favoritos con <b>dorsal de élite</b> asignado por la organización (la lista no indica la nacionalidad).' : ''} · actualizado ${p.updated ? fechaCorta(p.updated.slice(0,10)) + ' ' + horaDe(p.updated) : ''}
-      ${ch.altas || ch.bajas ? `<br>Cambios desde la última revisión: <b>+${ch.altas||0}</b> altas, <b>−${ch.bajas||0}</b> bajas` : ''}
-      ${(ch.altas_destacadas||[]).length ? `<br>⭐ Nuevos destacados: ${ch.altas_destacadas.map(esc).join(', ')}` : ''}
-      ${(ch.bajas_destacadas||[]).length ? `<br>✖ Bajas destacadas: ${ch.bajas_destacadas.map(esc).join(', ')}` : ''}
-      ${(p.sources||[]).length ? `<br><a href="${esc(p.sources[0])}" target="_blank" rel="noopener">Ver la lista de inscritos original</a>` : ''}</div>
+  return `<div class="data-note">🇪🇸 <b>${t('Inscritos españoles destacados')}</b> · ${t('{n} inscritos en total', {n: p.n_inscritos})}
+      ${conElite ? '<br>🏅 ' + t('Incluye a los favoritos con <b>dorsal de élite</b> asignado por la organización (la lista no indica la nacionalidad).') : ''} · ${t('actualizado')} ${p.updated ? fechaCorta(p.updated.slice(0,10)) + ' ' + horaDe(p.updated) : ''}
+      ${ch.altas || ch.bajas ? `<br>${t('Cambios desde la última revisión: <b>+{altas}</b> altas, <b>−{bajas}</b> bajas', {altas: ch.altas||0, bajas: ch.bajas||0})}` : ''}
+      ${(ch.altas_destacadas||[]).length ? `<br>⭐ ${t('Nuevos destacados:')} ${ch.altas_destacadas.map(esc).join(', ')}` : ''}
+      ${(ch.bajas_destacadas||[]).length ? `<br>✖ ${t('Bajas destacadas:')} ${ch.bajas_destacadas.map(esc).join(', ')}` : ''}
+      ${(p.sources||[]).length ? `<br><a href="${esc(p.sources[0])}" target="_blank" rel="noopener">${t('Ver la lista de inscritos original')}</a>` : ''}</div>
     ${evs.map(e=>`
-      <div class="previa-event"><h3>${esc(e.name)} <small style="color:var(--gray);font-size:14px;">· ${e.n} inscritos</small></h3>
-        <div class="previa-grid">${previaCol('Femenino', e.F)}${previaCol('Masculino', e.M)}</div>
-        ${e.otros.length ? previaCol('Sin sexo indicado en la lista', e.otros) : ''}
-      </div>`).join('') || '<div class="empty-state">Falta por confirmar la lista de inscritos</div>'}`;
+      <div class="previa-event"><h3>${esc(td(e.name))} <small style="color:var(--gray);font-size:14px;">· ${t('{n} inscritos', {n: e.n})}</small></h3>
+        <div class="previa-grid">${previaCol(t('Femenino'), e.F)}${previaCol(t('Masculino'), e.M)}</div>
+        ${e.otros.length ? previaCol(t('Sin sexo indicado en la lista'), e.otros) : ''}
+      </div>`).join('') || `<div class="empty-state">${t('Falta por confirmar la lista de inscritos')}</div>`}`;
 }
 
 function renderAll(){
@@ -4778,7 +4829,7 @@ async function refreshLive(){
   const setOpen = (open) => {
     header.classList.toggle('menu-open', open);
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    btn.setAttribute('aria-label', open ? 'Cerrar el menú' : 'Abrir el menú');
+    btn.setAttribute('aria-label', open ? t('Cerrar el menú') : t('Abrir el menú'));
   };
   btn.addEventListener('click', () => setOpen(!header.classList.contains('menu-open')));
   // al elegir una sección, el menú se cierra
@@ -4803,17 +4854,17 @@ function renderHome(){
   el('nowTodayN').textContent = today.length;
   el('nowToday').innerHTML = today.length
     ? today.slice(0,4).map(c => (live[c.id] || {}).status === 'en directo'
-        ? `<span class="it"><span class="pill-live"><span class="live-dot"></span>DIRECTO</span><span>${esc(c.name)}</span></span>`
-        : line(c.time || 'Hoy', c.name)).join('') + (today.length > 4 ? `<span class="it"><b></b><span>y ${today.length - 4} más</span></span>` : '')
-    : `<span class="now-empty">Hoy no hay competiciones.${next[0] ? ` La próxima: ${esc(next[0].name)} (${fechaCorta(next[0].date)}).` : ''}</span>`;
+        ? `<span class="it"><span class="pill-live"><span class="live-dot"></span>${t('DIRECTO')}</span><span>${esc(c.name)}</span></span>`
+        : line(c.time || t('Hoy'), c.name)).join('') + (today.length > 4 ? `<span class="it"><b></b><span>${t('y {n} más', {n: today.length - 4})}</span></span>` : '')
+    : `<span class="now-empty">${t('Hoy no hay competiciones.')}${next[0] ? ' ' + t('La próxima: {nombre} ({fecha}).', {nombre: esc(next[0].name), fecha: fechaCorta(next[0].date)}) : ''}</span>`;
   el('nowNextN').textContent = next.length;
   el('nowNext').innerHTML = next.length
-    ? next.slice(0,4).map(c => line(fechaCorta(c.date), c.name)).join('') + (next.length > 4 ? `<span class="it"><b></b><span>y ${next.length - 4} más</span></span>` : '')
-    : `<span class="now-empty">No hay citas en los próximos 7 días.</span>`;
+    ? next.slice(0,4).map(c => line(fechaCorta(c.date), c.name)).join('') + (next.length > 4 ? `<span class="it"><b></b><span>${t('y {n} más', {n: next.length - 4})}</span></span>` : '')
+    : `<span class="now-empty">${t('No hay citas en los próximos 7 días.')}</span>`;
   el('nowResN').textContent = last.length;
   el('nowRes').innerHTML = last.length
     ? last.slice(0,4).sort((a,b)=> a.date.localeCompare(b.date) || a.name.localeCompare(b.name)).map(r => line(fechaCorta(r.date), r.name)).join('')   // los 4 más recientes, del más antiguo al más nuevo
-    : `<span class="now-empty">Todavía no hay resultados.</span>`;
+    : `<span class="now-empty">${t('Todavía no hay resultados.')}</span>`;
 }
 
 /* ============================================================
@@ -4827,7 +4878,7 @@ function syncChips(){
     const sig = opts.map(o => o.value + '|' + o.text).join('§') + '#' + sel.value;
     if(wrap.dataset.sig === sig) return;
     wrap.dataset.sig = sig;
-    wrap.innerHTML = opts.map(o => `<button type="button" class="chip ${o.value === sel.value ? 'active' : ''}" data-v="${esc(o.value)}">${esc(o.text.replace(/^Todas las modalidades$/, 'Todas'))}</button>`).join('');
+    wrap.innerHTML = opts.map(o => `<button type="button" class="chip ${o.value === sel.value ? 'active' : ''}" data-v="${esc(o.value)}">${esc(o.text === t('Todas las modalidades') ? t('Todas') : o.text)}</button>`).join('');
     wrap.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
       sel.value = c.dataset.v;
       sel.dispatchEvent(new Event('change'));
@@ -4847,13 +4898,13 @@ renderHome();
     document.body.dataset.view = PAGE_VIEW;
     goToView(PAGE_VIEW);
     window.scrollTo(0, 0);
-    const m = PAGE_META[PAGE_VIEW];
+    const m = PAGE_META[PAGE_VIEW] && PAGE_META[PAGE_VIEW].map(x => t(x));
     if(m){
       document.title = m[0];
       const set = (sel, attr, val) => { const el = document.querySelector(sel); if(el) el.setAttribute(attr, val); };
       set('meta[name="description"]', 'content', m[1]);
-      set('link[rel="canonical"]', 'href', 'https://calledoss.com/' + PAGE_VIEW);
-      set('meta[property="og:url"]', 'content', 'https://calledoss.com/' + PAGE_VIEW);
+      set('link[rel="canonical"]', 'href', 'https://calledoss.com' + pageHref(PAGE_VIEW));
+      set('meta[property="og:url"]', 'content', 'https://calledoss.com' + pageHref(PAGE_VIEW));
       set('meta[property="og:title"]', 'content', m[0]);
       set('meta[property="og:description"]', 'content', m[1]);
     }
@@ -4921,28 +4972,28 @@ const CONTACT_EMAIL = 'calledosspodcast@gmail.com';
   const status = document.getElementById('cfStatus');
   const send = document.getElementById('cfSend');
   const say = (text, kind) => { status.textContent = text; status.className = 'cf-status' + (kind ? ' is-' + kind : ''); };
-  const fallback = 'No se ha podido enviar. Prueba otra vez en un rato o escríbenos a ' + CONTACT_EMAIL + '.';
+  const fallback = t('No se ha podido enviar. Prueba otra vez en un rato o escríbenos a {email}.', {email: CONTACT_EMAIL});
   form.addEventListener('submit', async (ev) => {
     ev.preventDefault();
     const name = form.nombre.value.trim(), email = form.email.value.trim(), msg = form.mensaje.value.trim();
-    if(!name || !email || !msg){ say('Rellena tu nombre y apellido, tu email y el mensaje.', 'error'); return; }
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ say('Revisa el email: parece que le falta algo.', 'error'); form.email.focus(); return; }
+    if(!name || !email || !msg){ say(t('Rellena tu nombre y apellido, tu email y el mensaje.'), 'error'); return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ say(t('Revisa el email: parece que le falta algo.'), 'error'); form.email.focus(); return; }
     if(form._honey.value) return;   // lo ha rellenado un robot
     send.disabled = true;
-    say('Enviando…');
+    say(t('Enviando…'));
     try {
       const r = await fetch('https://formsubmit.co/ajax/' + CONTACT_EMAIL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
           nombre: name, email, mensaje: msg,
-          _subject: 'Calledoss · Mensaje de ' + name, _replyto: email, _template: 'table', _captcha: 'false',
+          _subject: 'Calledoss · Mensaje de ' + name + (LANG === 'en' ? ' (web en inglés)' : ''), _replyto: email, _template: 'table', _captcha: 'false',
         }),
       });
       const j = await r.json().catch(() => ({}));
       if(!r.ok || String(j.success) !== 'true') throw new Error(j.message || ('HTTP ' + r.status));
       form.reset();
-      say('¡Mensaje enviado! Te contestaremos a tu email lo antes posible.', 'ok');
+      say(t('¡Mensaje enviado! Te contestaremos a tu email lo antes posible.'), 'ok');
     } catch(e) {
       say(fallback, 'error');
     } finally {
