@@ -9,7 +9,7 @@
 - Language: español
 
 ## Pages
-- **Página principal** (`index.html`) - Una sola página con pestañas en el menú superior:
+- **Seis páginas con el mismo menú** (cada una con su dirección): Inicio `index.html` (calledoss.com), `calendario.html` (/calendario), `resultados.html` (/resultados), `directo.html` (/directo), `proximas.html` (/proximas) y `ranking.html` (/ranking). Las cinco últimas se generan desde index.html con `python3 paginas.py`:
   - **Inicio** - Titular "El atletismo español al día" y tres bloques grandes: **Lo que puedes ver hoy** (terracota, con "VIVO" si hay directo), **¿Qué hay esta semana?** y **Últimos resultados**; debajo, **Todas las secciones** con icono. Arriba, la barra EN DIRECTO solo cuando hay competición.
   - **Calendario** - Lista de tarjetas por mes (fecha, lugar, hora, emisión, inscritos) con filtros de mes, localidad (las que no tienen localidad van en "Otros"), y calendario (RFEA, World Athletics, Diamond League o ADOC). Sin modalidades a la vista. Las pruebas del circuito ADOC llevan su etiqueta.
   - **Resultados** - Competiciones ya disputadas este año. Cada una muestra **todas sus pruebas**, separadas en **Femenino** y **Masculino** (podio y, si se quiere, la clasificación completa). Si una fuente solo trae un sexo, se busca el otro en las demás fuentes; mientras no aparece se indica "Sin resultados femeninos/masculinos localizados todavía". Las competiciones de un solo sexo (Liga Iberdrola, Liga Joma, carreras de la mujer) muestran solo ese.
@@ -120,7 +120,10 @@
 
 - 2026-10-01: SEO básico: título y descripción para Google, vista previa al compartir (images/compartir.png), iconos de pestaña, datos estructurados, robots.txt y sitemap.xml. Dirección pública: https://calledoss.com
 
+- 2026-10-01: Cada sección es una página propia: Inicio (calledoss.com), /calendario, /resultados, /directo, /proximas y /ranking, cada una con su título y descripción para Google. El menú son enlaces; las direcciones antiguas (#resultados) llevan a la página nueva. Las 5 páginas se crean desde index.html con `python3 paginas.py`.
+
 ## How to Customize
+- IMPORTANTE: el contenido de las páginas de sección (calendario.html, resultados.html, directo.html, proximas.html, ranking.html) sale de index.html. Después de cambiar index.html hay que ejecutar `python3 paginas.py` para que las demás páginas lo tengan también (sus títulos y descripciones están en ese archivo)
 - Si se añade una página nueva: añadirla a `sitemap.xml` y ponerle título, descripción y `canonical` en su `<head>`
 - Para añadir la élite anunciada de una prueba: editar `pipeline/extra_entries.json` (id de la competición, fuente y atletas)
 - Si a un resultado le falta un atleta (comprobado en la clasificación oficial): añadirlo en `pipeline/extra_results.json` con el id del resultado

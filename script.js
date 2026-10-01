@@ -3318,19 +3318,25 @@ const COMPETITIONS = [
 /* ============================================================
    NAVEGACIÓN
    ============================================================ */
-const tabs = document.querySelectorAll('#tabs button');
+const tabs = document.querySelectorAll('#tabs [data-view]');
+
+// Cada sección es una página propia (calledoss.com/resultados...). Esta es la de la página abierta.
+const SECTION_VIEWS = ['home', 'calendario', 'resultados', 'directo', 'proximas', 'ranking'];
+const PAGE_VIEW = document.body.dataset.view || 'home';
+function pageHref(viewName){
+  return viewName === 'home' ? '/' : '/' + viewName;
+}
 
 function goToView(viewName){
+  if(SECTION_VIEWS.includes(viewName) && viewName !== PAGE_VIEW){
+    location.href = pageHref(viewName);   // otra sección: su página
+    return;
+  }
   tabs.forEach(b=>b.classList.toggle('active', b.dataset.view===viewName));
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   document.getElementById('view-'+viewName).classList.add('active');
   window.scrollTo({top:0, behavior:'smooth'});
-  if(SECTION_VIEWS.includes(viewName)){
-    const h = viewName === 'home' ? location.pathname + location.search : '#' + viewName;
-    if((location.hash || '') !== (viewName === 'home' ? '' : h)) history.replaceState(null, '', h);
-  }
 }
-const SECTION_VIEWS = ['home', 'calendario', 'resultados', 'directo', 'proximas', 'ranking'];
 
 function goHome(){
   goToView('home');
@@ -3353,7 +3359,11 @@ function handleNavClick(viewName){
 }
 
 tabs.forEach(btn=>{
-  btn.addEventListener('click', ()=> handleNavClick(btn.dataset.view));
+  btn.addEventListener('click', (e)=>{
+    if(e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;  // abrir en otra pestaña: lo hace el navegador
+    e.preventDefault();
+    handleNavClick(btn.dataset.view);
+  });
 });
 
 document.querySelectorAll('.home-card').forEach(card=>{
@@ -4808,7 +4818,11 @@ function syncChips(){
 syncChips();
 setInterval(syncChips, 1500);   // las opciones cambian al llegar los datos automáticos
 renderHome();
-(function(){ const v = (location.hash || '').slice(1); if(SECTION_VIEWS.includes(v) && v !== 'home') goToView(v); })();
+// direcciones antiguas (calledoss.com/#resultados): a la página nueva
+(function(){
+  const v = (location.hash || '').slice(1);
+  if(SECTION_VIEWS.includes(v) && v !== PAGE_VIEW){ location.replace(pageHref(v)); return; }
+})();
 document.querySelectorAll('.now-tile').forEach(t => t.addEventListener('click', () => handleNavClick(t.dataset.view)));
 
 /* ============================================================

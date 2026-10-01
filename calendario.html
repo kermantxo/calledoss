@@ -3,24 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calledoss · Resultados, calendario y ranking del atletismo español</title>
-<meta name="description" content="Resultados de cada competición de atletismo en España, con los españoles destacados, calendario de pista, ruta, cross y trail, previas con los inscritos, directo y ranking del año.">
-<link rel="canonical" href="https://calledoss.com/">
+<title>Calendario de atletismo 2026 · Calledoss</title>
+<meta name="description" content="Todas las competiciones de atletismo de 2026 en España y las internacionales con españoles: pista, ruta, cross, trail y marcha.">
+<link rel="canonical" href="https://calledoss.com/calendario">
 <meta name="theme-color" content="#1B1A19">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Calledoss">
 <meta property="og:locale" content="es_ES">
-<meta property="og:url" content="https://calledoss.com/">
-<meta property="og:title" content="Calledoss · El atletismo español al día">
-<meta property="og:description" content="Resultados, calendario, previas, directo y ranking del atletismo español.">
+<meta property="og:url" content="https://calledoss.com/calendario">
+<meta property="og:title" content="Calendario de atletismo 2026 · Calledoss">
+<meta property="og:description" content="Todas las competiciones de atletismo de 2026 en España y las internacionales con españoles: pista, ruta, cross, trail y marcha.">
 <meta property="og:image" content="https://calledoss.com/images/compartir.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Calledoss · El atletismo español al día">
-<meta name="twitter:description" content="Resultados, calendario, previas, directo y ranking del atletismo español.">
+<meta name="twitter:title" content="Calendario de atletismo 2026 · Calledoss">
+<meta name="twitter:description" content="Todas las competiciones de atletismo de 2026 en España y las internacionales con españoles: pista, ruta, cross, trail y marcha.">
 <meta name="twitter:image" content="https://calledoss.com/images/compartir.png">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -33,7 +33,7 @@
 <link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body data-view="home">
+<body data-view="calendario">
 
 <div class="ticker-bar" id="tickerBar" hidden>
   <div class="ticker-label"><span class="live-dot"></span><span id="tickerLabelText">Hoy</span></div>
@@ -45,8 +45,8 @@
     <button class="logo" onclick="goHome()" aria-label="Ir a la página principal de Calledoss"><img src="images/logo.png" alt="Calledoss"><small>CALLEDOSS</small></button>
     <button class="menu-toggle" id="menuToggle" aria-label="Abrir el menú" aria-expanded="false" aria-controls="tabs"><span></span><span></span><span></span></button>
     <nav class="tabs" id="tabs">
-      <a href="/" data-view="home" class="active">Inicio</a>
-      <a href="/calendario" data-view="calendario">Calendario</a>
+      <a href="/" data-view="home">Inicio</a>
+      <a href="/calendario" data-view="calendario" class="active">Calendario</a>
       <a href="/resultados" data-view="resultados">Resultados</a>
       <a href="/directo" data-view="directo">En directo</a>
       <a href="/proximas" data-view="proximas">Próximas</a>
@@ -60,7 +60,7 @@
 <main>
 
   <!-- ===================== PÁGINA PRINCIPAL ===================== -->
-  <section class="view active" id="view-home">
+  <section class="view" id="view-home">
     <div class="hero home-hero">
       <h1 class="home-title">El atletismo español al día</h1>
       <p class="home-lead">Entérate de los resultados, competiciones y rankings de cada modalidad en Calledoss.</p>
@@ -109,7 +109,7 @@
   </section>
 
   <!-- ===================== CALENDARIO ===================== -->
-  <section class="view" id="view-calendario">
+  <section class="view active" id="view-calendario">
     <div class="hero">
       <div class="eyebrow">Temporada 2026</div>
       <h1>Calendario</h1>

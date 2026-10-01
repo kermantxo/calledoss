@@ -147,7 +147,7 @@
   .home-card h3{font-size:26px;letter-spacing:0.03em;margin-top:2px;}
   .home-card p{color:var(--gray);font-size:15px;line-height:1.35;}
   nav.tabs{display:flex;gap:2px;}
-  nav.tabs button{
+  nav.tabs button,nav.tabs a{
     background:none;border:none;color:var(--gray);
     font-family:'Bebas Neue',sans-serif;
     font-size:16px;letter-spacing:0.05em;
@@ -155,8 +155,8 @@
     border-bottom:3px solid transparent;
     transition:color .15s, border-color .15s;
   }
-  nav.tabs button:hover{color:var(--ivory);}
-  nav.tabs button.active{color:var(--ivory);border-bottom-color:var(--red);}
+  nav.tabs button:hover,nav.tabs a:hover{color:var(--ivory);}
+  nav.tabs button.active,nav.tabs a.active{color:var(--ivory);border-bottom-color:var(--red);}
   .live-pill{
     display:inline-flex;align-items:center;gap:6px;
     font-size:11px;
@@ -537,7 +537,7 @@
   @media (max-width:720px){
     .cal-row{grid-template-columns:70px 1fr;grid-template-rows:auto auto;row-gap:6px;}
     .cal-place,.cal-arrow{display:none;}
-    nav.tabs button{font-size:13px;padding:8px 10px;}
+    nav.tabs button,nav.tabs a{font-size:13px;padding:8px 10px;}
     .logo small{display:none;}
   }
 
@@ -637,11 +637,11 @@
     padding:6px 16px 12px;
   }
   header.menu-open nav.tabs{display:flex;}
-  nav.tabs button{
+  nav.tabs button,nav.tabs a{
     font-size:22px;padding:14px 4px;text-align:left;
     border-bottom:1px solid var(--line);border-left:3px solid transparent;
   }
-  nav.tabs button.active{border-bottom-color:var(--line);border-left-color:var(--red);padding-left:12px;}
+  nav.tabs button.active,nav.tabs a.active{border-bottom-color:var(--line);border-left-color:var(--red);padding-left:12px;}
 }
 
 /* =====================================================================
@@ -671,16 +671,16 @@ body{background:var(--bg);color:var(--ink);}
 
 /* ---------- cabecera oscura con el logo ---------- */
 header{background:var(--ink);border-bottom:3px solid var(--brand);backdrop-filter:none;}
-nav.tabs button{color:#CFC8BF;}
-nav.tabs button:hover{color:#fff;}
-nav.tabs button.active{color:#fff;border-bottom-color:var(--brand);}
+nav.tabs button,nav.tabs a{color:#CFC8BF;}
+nav.tabs button:hover,nav.tabs a:hover{color:#fff;}
+nav.tabs button.active,nav.tabs a.active{color:#fff;border-bottom-color:var(--brand);}
 .logo small{color:#A8A198;}
 .menu-toggle{border-color:#4a4643;}
 .menu-toggle span{background:#fff;}
 @media (max-width:760px){
   nav.tabs{background:var(--ink);border-bottom-color:#000;}
-  nav.tabs button{color:#fff;border-bottom-color:#34312e;}
-  nav.tabs button.active{border-bottom-color:#34312e;border-left-color:var(--brand);}
+  nav.tabs button,nav.tabs a{color:#fff;border-bottom-color:#34312e;}
+  nav.tabs button.active,nav.tabs a.active{border-bottom-color:#34312e;border-left-color:var(--brand);}
 }
 
 /* ---------- barra de directo (solo si hay competición hoy) ---------- */
@@ -1001,3 +1001,6 @@ nav.tabs-static a:hover{color:#fff;}
 .ext-link{display:inline-flex;align-items:center;gap:4px;margin:4px 14px 0 0;color:var(--brand);font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:3px;}
 .ext-link:hover{text-decoration-thickness:2px;}
 .ext-link .ext-arrow{font-size:12px;}
+
+/* el menú son enlaces (cada sección es una página) */
+nav.tabs a{text-decoration:none;display:inline-flex;align-items:center;}
