@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /panel
+Disallow: /pipeline/
+Disallow: /worker/
+Disallow: /data/state/
+
+Sitemap: https://calledoss.com/sitemap.xml

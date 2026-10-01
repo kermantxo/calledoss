@@ -3322,7 +3322,16 @@ const tabs = document.querySelectorAll('#tabs [data-view]');
 
 // Cada sección es una página propia (calledoss.com/resultados...). Esta es la de la página abierta.
 const SECTION_VIEWS = ['home', 'calendario', 'resultados', 'directo', 'proximas', 'ranking'];
-const PAGE_VIEW = document.body.dataset.view || 'home';
+// la sección sale de la dirección (/resultados, /ranking.html...) o, si no, de la propia página
+const PAGE_FROM_URL = location.pathname.replace(/^\/+|\/+$|\.html$/g, '');
+const PAGE_VIEW = SECTION_VIEWS.includes(PAGE_FROM_URL) ? PAGE_FROM_URL : (document.body.dataset.view || 'home');
+const PAGE_META = {
+  calendario: ['Calendario de atletismo 2026 · Calledoss', 'Todas las competiciones de atletismo de 2026 en España y las internacionales con españoles: pista, ruta, cross, trail y marcha.'],
+  resultados: ['Resultados de atletismo 2026 · Calledoss', 'Resultados de cada competición de atletismo desde el 1 de enero: podios femenino y masculino y los españoles destacados.'],
+  directo: ['Atletismo en directo · Calledoss', 'Marcador en directo de las competiciones de atletismo de hoy, con horarios y dónde verlas.'],
+  proximas: ['Próximas competiciones de atletismo · Calledoss', 'Las competiciones de los próximos 7 días con los inscritos españoles destacados de cada prueba.'],
+  ranking: ['Ranking español de atletismo 2026 · Calledoss', 'El top 10 español de cada prueba en 2026, aire libre y pista cubierta, con datos oficiales de la RFEA.'],
+};
 function pageHref(viewName){
   return viewName === 'home' ? '/' : '/' + viewName;
 }
@@ -4822,6 +4831,22 @@ renderHome();
 (function(){
   const v = (location.hash || '').slice(1);
   if(SECTION_VIEWS.includes(v) && v !== PAGE_VIEW){ location.replace(pageHref(v)); return; }
+  // la página que llega no es la de esta sección (el servidor ha devuelto la de Inicio): se muestra la buena
+  if(PAGE_VIEW !== (document.body.dataset.view || 'home')){
+    document.body.dataset.view = PAGE_VIEW;
+    goToView(PAGE_VIEW);
+    window.scrollTo(0, 0);
+    const m = PAGE_META[PAGE_VIEW];
+    if(m){
+      document.title = m[0];
+      const set = (sel, attr, val) => { const el = document.querySelector(sel); if(el) el.setAttribute(attr, val); };
+      set('meta[name="description"]', 'content', m[1]);
+      set('link[rel="canonical"]', 'href', 'https://calledoss.com/' + PAGE_VIEW);
+      set('meta[property="og:url"]', 'content', 'https://calledoss.com/' + PAGE_VIEW);
+      set('meta[property="og:title"]', 'content', m[0]);
+      set('meta[property="og:description"]', 'content', m[1]);
+    }
+  }
 })();
 document.querySelectorAll('.now-tile').forEach(t => t.addEventListener('click', () => handleNavClick(t.dataset.view)));
 

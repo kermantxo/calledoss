@@ -5,6 +5,9 @@ Todas comparten el mismo contenido y el mismo script.js; cada una cambia solo su
 descripción para Google, su dirección (canonical) y la sección que se ve al abrirla.
 
 Uso (después de cambiar index.html):   python3 paginas.py
+
+También deja una copia de estas páginas, de robots.txt y de sitemap.xml en public/, la carpeta que
+publica Cloudflare (su comando de publicación copia ahí el resto de archivos de la web).
 """
 import re
 
@@ -49,14 +52,21 @@ def build(src, view, title, desc):
 
 
 def main():
+    import os
+    import shutil
     with open("index.html", encoding="utf-8") as f:
         src = f.read()
+    # public/ es la carpeta que publica Cloudflare: su comando de publicación copia ahí el resto de la web
+    os.makedirs("public", exist_ok=True)
     for view, (title, desc) in PAGES.items():
         out = build(src, view, title, desc)
         assert 'data-view="%s"' % view in out and 'id="view-%s"' % view in out
-        with open("%s.html" % view, "w", encoding="utf-8") as f:
-            f.write(out)
+        for folder in (".", "public"):
+            with open(os.path.join(folder, "%s.html" % view), "w", encoding="utf-8") as f:
+                f.write(out)
         print("%s.html" % view)
+    for name in ("robots.txt", "sitemap.xml"):
+        shutil.copy(name, os.path.join("public", name))
 
 
 if __name__ == "__main__":
