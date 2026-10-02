@@ -1053,6 +1053,22 @@ window.CALLEDOSS_EN = {
  ],
  "reasons": [
   [
+   "^Ganador(?:a)? de la edición de (\\d{4}) \\((.+)\\)$",
+   "Winner of the $1 edition (⟦$2⟧)"
+  ],
+  [
+   "^1[ªº] en la edición de (\\d{4}) \\((.+)\\)$",
+   "1st in the $1 edition (⟦$2⟧)"
+  ],
+  [
+   "^2[ªº] en la edición de (\\d{4}) \\((.+)\\)$",
+   "2nd in the $1 edition (⟦$2⟧)"
+  ],
+  [
+   "^3[ªº] en la edición de (\\d{4}) \\((.+)\\)$",
+   "3rd in the $1 edition (⟦$2⟧)"
+  ],
+  [
    "^Dorsal de élite nº (.+)$",
    "Elite bib no. $1"
   ],

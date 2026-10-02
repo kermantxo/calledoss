@@ -1070,3 +1070,4 @@ nav.tabs a.lang-switch:hover{border-color:var(--brand);background:var(--brand);}
 @media (max-width:760px){
   nav.tabs a.lang-switch{align-self:flex-start;margin:12px 0 2px;padding:6px 14px;font-size:14px;border:1px solid #5a5551;}
 }
+.previa-grid.single{grid-template-columns:minmax(0,1fr);}

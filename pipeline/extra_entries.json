@@ -1,5 +1,5 @@
 {
- "_nota": "Atletas de élite de las listas oficiales de la organización cuando no hay lista oficial legible. Clave: id de la competición. Se añaden a la previa con la fuente indicada. 'excluir': atletas inscritos que no van a correr (se quitan de la previa). 'excluir_pruebas': pruebas de la lista que no se muestran en la previa (nombre tal cual sale en la lista).",
+ "_nota": "Atletas de élite de las listas oficiales de la organización cuando no hay lista oficial legible. Clave: id de la competición. Se añaden a la previa con la fuente indicada. 'excluir': atletas inscritos que no van a correr (se quitan de la previa). 'excluir_pruebas': pruebas de la lista que no se muestran en la previa (nombre tal cual sale en la lista). 'elite': false si el atleta no sale en un grupo de élite (por defecto se considera élite).",
  "rfea-2026-10-03-xxxviii-milla-internacional-de-berango": {
   "fuente": "https://www.instagram.com/p/Dd4bkxsjenH/",
   "atletas": [
@@ -348,6 +348,39 @@
  "avaibook-iii-legua-de-la-guardia-civil-de-valladolid-1": {
   "excluir_pruebas": [
    "CARRERA 5.5 KM SIN CAMISETA"
+  ]
+ },
+ "avaibook-iii-trail-el-calero": {
+  "fuente": "https://inscripciones.runvasport.es/inscripcion/ii-trail-el-calero/clasificaciones/",
+  "atletas": [
+   {
+    "name": "David Rueda Reguera",
+    "sex": "M",
+    "event": "TRAIL LARGO 25 KM",
+    "note": "Ganador de la edición de 2025 (25 km)",
+    "elite": false
+   },
+   {
+    "name": "Pablo Santos Martín",
+    "sex": "M",
+    "event": "TRAIL LARGO 25 KM",
+    "note": "3º en la edición de 2025 (25 km)",
+    "elite": false
+   },
+   {
+    "name": "Elsa Giribet Gómez",
+    "sex": "F",
+    "event": "TRAIL LARGO 25 KM",
+    "note": "3ª en la edición de 2025 (25 km)",
+    "elite": false
+   },
+   {
+    "name": "María Eugenia González Sánchez",
+    "sex": "F",
+    "event": "TRAIL CORTO 8.4 KM",
+    "note": "Ganadora de la edición de 2025 (8 km)",
+    "elite": false
+   }
   ]
  }
 }

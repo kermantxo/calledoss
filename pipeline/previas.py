@@ -170,6 +170,16 @@ def _race_of(cuota):
     return clean(c).strip(" -") or "Carrera"
 
 
+ONLY_F = re.compile(r"\b(mujer(es)?|femenin[oa]s?|iberdrola|women|feminina|dones)\b", re.I)
+ONLY_M = re.compile(r"\b(hombres|masculin[oa]s?|joma|men)\b", re.I)
+
+
+def only_sex(name):
+    """'F' o 'M' si la competición es de un solo sexo por su nombre (igual que expectedSexes() de la web)."""
+    f, m = bool(ONLY_F.search(name or "")), bool(ONLY_M.search(name or ""))
+    return "F" if f and not m else "M" if m and not f else ""
+
+
 def _old_year(url, date):
     """¿El documento lleva en el nombre solo años anteriores al de la competición?"""
     years = [int(y) for y in re.findall(r"(?<!\d)(20\d\d)(?!\d)", unquote(url))]
@@ -442,8 +452,11 @@ def run(http, health, items):
         # élite anunciada por la organización / prensa (pipeline/extra_entries.json)
         extra = EXTRA_ENTRIES.get(it["id"])
         if extra:
+            # si el atleta añadido a mano ya está en la lista, cuenta la ficha añadida (con su motivo)
+            puestos = {A.key(clean_name(a["name"])[0]) for a in extra.get("atletas", [])}
+            rows = [r for r in rows if A.key(clean_name(r.get("name", ""))[0]) not in puestos]
             rows = list(rows) + [{"event": a.get("event") or "Élite", "name": a["name"], "sex": a.get("sex", ""),
-                                  "nat": a.get("nat", ""), "club": a.get("club", ""), "cat": "", "bib": a.get("bib"), "elite": True, "popular": False,
+                                  "nat": a.get("nat", ""), "club": a.get("club", ""), "cat": "", "bib": a.get("bib"), "elite": a.get("elite", True), "popular": False,
                                   "anunciado": a.get("note") or "En la élite (anunciado por la organización)", "text": a["name"]}
                                  for a in extra.get("atletas", [])]
             srcs = list(srcs) + [extra.get("fuente")] if extra.get("fuente") else srcs
@@ -468,6 +481,11 @@ def run(http, health, items):
             out.append(entry)
             continue
         events = select(rows, ath, it.get("type", ""))
+        # carreras de un solo sexo (Carrera de la Mujer, Liga Iberdrola...): fuera los destacados del otro
+        solo = only_sex(it["name"])
+        if solo:
+            for e in events:
+                e["M" if solo == "F" else "F"] = []
         # altas y bajas: solo de la lista real de inscritos (la élite de extra_entries.json no cuenta:
         # quitar a alguien de ahí no es que se haya dado de baja)
         now_names = sorted({clean_name(r["name"])[0] for r in rows if not r.get("anunciado")})

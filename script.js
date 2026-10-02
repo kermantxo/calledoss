@@ -4767,6 +4767,7 @@ function espDest(list){
 function previaBody(p){
   if(!p || p.status !== 'publicados') return `<div class="empty-state"><h3>${t('Inscritos no publicados aún')}</h3>${t('Se revisa cada día. En cuanto la organización publique la lista, aquí aparecerán los inscritos españoles destacados.')}</div>`;
   const ch = p.changes || {};
+  const sexos = expectedSexes(p.name);   // «Carrera de la Mujer», Liga Iberdrola...: solo la columna que corresponde
   const evs = (p.events||[]).map(e => ({...e, M: espDest(e.M), F: espDest(e.F), otros: espDest(e.otros)}))
     .filter(e => e.M.length || e.F.length || e.otros.length)
     .sort((a, b) => (/(é|e)lite/i.test(b.name) ? 1 : 0) - (/(é|e)lite/i.test(a.name) ? 1 : 0));   // la élite, primero
@@ -4779,7 +4780,7 @@ function previaBody(p){
       ${(p.sources||[]).length ? `<br><a href="${esc(p.sources[0])}" target="_blank" rel="noopener">${t('Ver la lista de inscritos original')}</a>` : ''}</div>
     ${evs.map(e=>`
       <div class="previa-event"><h3>${esc(td(e.name))} <small style="color:var(--gray);font-size:14px;">· ${t('{n} inscritos', {n: e.n})}</small></h3>
-        <div class="previa-grid">${previaCol(t('Femenino'), e.F)}${previaCol(t('Masculino'), e.M)}</div>
+        <div class="previa-grid${sexos.length === 1 ? ' single' : ''}">${sexos.map(sx => sx === 'F' ? previaCol(t('Femenino'), e.F) : previaCol(t('Masculino'), e.M)).join('')}</div>
         ${e.otros.length ? previaCol(t('Sin sexo indicado en la lista'), e.otros) : ''}
       </div>`).join('') || `<div class="empty-state">${t('Falta por confirmar la lista de inscritos')}</div>`}`;
 }
@@ -4856,7 +4857,7 @@ function renderHome(){
     ? today.slice(0,4).map(c => (live[c.id] || {}).status === 'en directo'
         ? `<span class="it"><span class="pill-live"><span class="live-dot"></span>${t('DIRECTO')}</span><span>${esc(c.name)}</span></span>`
         : line(c.time || t('Hoy'), c.name)).join('') + (today.length > 4 ? `<span class="it"><b></b><span>${t('y {n} más', {n: today.length - 4})}</span></span>` : '')
-    : `<span class="now-empty">${t('Hoy no hay competiciones.')}${next[0] ? ' ' + t('La próxima: {nombre} ({fecha}).', {nombre: esc(next[0].name), fecha: fechaCorta(next[0].date)}) : ''}</span>`;
+    : `<span class="now-empty">${t('Hoy no hay competiciones.')}</span>`;
   el('nowNextN').textContent = next.length;
   el('nowNext').innerHTML = next.length
     ? next.slice(0,4).map(c => line(fechaCorta(c.date), c.name)).join('') + (next.length > 4 ? `<span class="it"><b></b><span>${t('y {n} más', {n: next.length - 4})}</span></span>` : '')
