@@ -14,7 +14,7 @@ import re
 
 from .common import MADRID, load_json, now, save_json, today, iso_now
 from .results import by_item, _index
-from .sources import rfealive, smarttrack, worldathletics, timers
+from .sources import rfealive, smarttrack, timing, worldathletics, timers
 
 BEFORE = dt.timedelta(hours=1)
 AFTER = dt.timedelta(hours=2)
@@ -23,7 +23,7 @@ DEFAULT_START, DEFAULT_END = "08:00", "21:00"  # si no se conoce el horario
 
 def _pollable(it):
     kinds = {x.get("kind") for x in it.get("live") or []}
-    return bool(kinds & {"rfealive", "smarttrack", "wa", "cronomancha", "pdf", "timingsys", "page"})
+    return bool(kinds & ({"rfealive", "smarttrack", "wa", "cronomancha", "pdf", "timingsys", "page"} | timing.KINDS))
 
 
 def plan(items):
@@ -116,6 +116,14 @@ def tick(http, health, force=False):
             health.note("live", "warning", "Directo de '%s': %s" % (w["name"], e))
             data = None
         st["checked"] = iso_now()
+        if data and data.get("store") and not st.get("results_id"):
+            try:
+                from .results import store
+                st["results_id"] = store(it, {"events": data["store"]["events"]}, data["store"]["source"], data["store"]["url"])
+            except Exception as e:
+                health.note("live", "warning", "Resultados de '%s': %s" % (w["name"], e))
+        if data:
+            data.pop("store", None)
         if data and data.get("events"):
             st["data"] = data
             st["status"] = "en directo"
@@ -129,8 +137,20 @@ def tick(http, health, force=False):
 
 
 def _poll(http, it, at):
-    """Consulta una vez las fuentes en directo de una cita. Devuelve {events:[...]} o None."""
+    """Consulta una vez las fuentes en directo de una cita. Devuelve {events:[...]} o None.
+    Si una fuente falla (p. ej. World Athletics antes de publicar), se prueba la siguiente."""
     for lv in it.get("live") or []:
+        try:
+            got = _poll_one(http, it, at, lv)
+        except Exception:
+            continue
+        if got:
+            return got
+    return None
+
+
+def _poll_one(http, it, at, lv):
+    for lv in [lv]:
         kind = lv.get("kind")
         if kind == "rfealive":
             sc = rfealive.schedule(http, lv["chid"], base=lv.get("base") or rfealive.BASE)
@@ -145,6 +165,15 @@ def _poll(http, it, at):
             return {"events": events[::-1], "schedule": [{"time": e["time"], "event": e["event"], "round": e["round"],
                                                           "status": e.get("status") or "Por disputar"} for e in nxt],
                     "done": len(done), "total": len(today_evs)}
+        if kind in timing.KINDS:
+            got = timing.poll(http, lv, it)
+            if got:
+                evs, final, source, url = got
+                return {"events": [{"name": timing.label(e),
+                                    "round": "Clasificación" if final else "Provisional · %d llegados" % e.get("finished", len(e["rows"])),
+                                    "rows": e["rows"][:8]} for e in evs],
+                        "store": {"events": timing.to_store(evs), "source": source, "url": url} if final else None}
+            continue
         if kind == "smarttrack":
             sc = [e for e in smarttrack.schedule(http, lv["chid"]) if not smarttrack.is_team(e)]
             today_evs = [e for e in sc if e["date"] == at.date().isoformat()] or sc

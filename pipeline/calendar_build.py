@@ -362,6 +362,10 @@ def add_extra_links(items):
                 continue
             if k in ("schedule", "time", "time_end"):  # horario oficial copiado a mano
                 it[k] = v
+            elif k == "live":  # fuentes de directo / resultados añadidas a mano (cronometradores)
+                for lv in v:
+                    if lv not in it.setdefault("live", []):
+                        it["live"].append(lv)
             else:
                 it.setdefault("links", {})[k] = v
             n += 1

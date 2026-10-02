@@ -270,6 +270,12 @@ def by_item(http, it, health, final=False):
                 res, complete = rfealive_champ(http, lv["chid"], base=base)
                 if res and res["events"] and (complete or final):
                     return store(it, res, "RFEA Live", base + "/Results/Schedule?chid=" + lv["chid"])
+            elif kind in ("irteerak", "uno", "ccnorte", "avai", "chiplevante"):
+                from .sources import timing
+                got = timing.poll(http, lv, it)
+                if got and (got[1] or final):
+                    evs, _, source, url = got
+                    return store(it, {"events": timing.to_store(evs)}, source, url)
             elif kind == "smarttrack":
                 from .sources import smarttrack
                 from .live import smarttrack_rows

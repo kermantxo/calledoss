@@ -1,5 +1,5 @@
 {
- "_nota": "Enlaces que no están en las fichas oficiales (p. ej. clasificaciones en Google Drive que nos pasan). Clave: id de la competición en el calendario. 'worldathletics': resultados de World Athletics de esa competición; 'solo_espanoles': guardar solo a los atletas españoles (todas las rondas).",
+ "_nota": "Enlaces que no están en las fichas oficiales (p. ej. clasificaciones en Google Drive que nos pasan). Clave: id de la competición en el calendario. 'worldathletics': resultados de World Athletics de esa competición; 'solo_espanoles': guardar solo a los atletas españoles (todas las rondas). 'live': fuentes de directo y resultados del cronometrador (irteerak, uno, ccnorte, avai, chiplevante, wa).",
  "rfea-2026-09-26-iv-milla-de-la-ceramica": {
   "resultados": "https://drive.google.com/file/d/14JnLrOCnKq2Td0HtitRpgLTUXH3_Z0mF/view"
  },
@@ -110,6 +110,16 @@
     "e": "Élite Femenino",
     "r": "Milla (1.609 m)"
    }
+  ],
+  "live": [
+   {
+    "kind": "avai",
+    "url": "https://inscripcion.kirolprobak.com/inscripcion/xxxviii-milla-internacional-de-berango-2026/clasificaciones/"
+   },
+   {
+    "kind": "wa",
+    "id": 7234389
+   }
   ]
  },
  "avaibook-iii-trail-el-calero": {
@@ -135,6 +145,12 @@
     "e": "Marcha (no competitiva)",
     "r": "8,4 km"
    }
+  ],
+  "live": [
+   {
+    "kind": "avai",
+    "url": "https://inscripciones.runvasport.es/inscripcion/iii-trail-el-calero/clasificaciones/"
+   }
   ]
  },
  "avaibook-x-carrera-de-la-mujer-medina-del-campo": {
@@ -151,6 +167,12 @@
     "t": "",
     "e": "Marcha (no competitiva, hora sin publicar)",
     "r": "5,56 km"
+   }
+  ],
+  "live": [
+   {
+    "kind": "avai",
+    "url": "https://inscripciones.runvasport.es/inscripcion/x-carrera-de-la-mujer-medina-del-campo/clasificaciones/"
    }
   ]
  },
@@ -176,6 +198,12 @@
     "t": "12:00",
     "e": "Carreras infantiles",
     "r": "según categoría"
+   }
+  ],
+  "live": [
+   {
+    "kind": "avai",
+    "url": "https://inscripciones.runvasport.es/inscripcion/iii-legua-de-la-guardia-civil-de-valladolid-1/clasificaciones/"
    }
   ]
  },
@@ -280,6 +308,12 @@
     "e": "Élite Masculino",
     "r": "Milla (1.609 m)"
    }
+  ],
+  "live": [
+   {
+    "kind": "avai",
+    "url": "https://inscripciones.runvasport.es/inscripcion/xx-milla-urbana-de-valladolid-gran-premio-caja-rural-de-zamora/clasificaciones/"
+   }
   ]
  },
  "rfea-2026-10-04-xii-maraton-internacional-ciudad-de-logrono": {
@@ -303,6 +337,13 @@
     "t": "09:00",
     "e": "10K",
     "r": "10 km"
+   }
+  ],
+  "live": [
+   {
+    "kind": "uno",
+    "cid": "16479",
+    "search": "Maratón de Logroño"
    }
   ]
  },
@@ -371,10 +412,42 @@
     "e": "Peques (2019 y después)",
     "r": "150 m"
    }
+  ],
+  "live": [
+   {
+    "kind": "ccnorte",
+    "words": [
+     "coru",
+     "10"
+    ]
+   },
+   {
+    "kind": "wa",
+    "id": 7246208
+   }
   ]
  },
  "rfea-2026-10-04-29o-medio-maraton-internacional-ciudad-de-albacete-2026": {
   "_fuente_horario": "Reglamento oficial 2026",
-  "time": "09:30"
+  "time": "09:30",
+  "live": [
+   {
+    "kind": "chiplevante",
+    "url": "https://www.chiplevante.com/es/prueba/medio-maraton-albacete-1081-2026"
+   },
+   {
+    "kind": "wa",
+    "id": 7234388
+   }
+  ]
+ },
+ "manual-2026-10-04-medio-maraton-san-sebastian-rural-kutxa": {
+  "live": [
+   {
+    "kind": "irteerak",
+    "slug": "medio-maraton-donostia-san-sebastian-rural-kutxa-2026-21k",
+    "name": "Media maratón"
+   }
+  ]
  }
 }
