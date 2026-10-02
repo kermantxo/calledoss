@@ -571,6 +571,10 @@ def run(http, health, items):
             fuera = {A.key(clean_name(n)[0]) for n in extra.get("excluir", [])}
             if fuera:
                 rows = [r for r in rows if A.key(clean_name(r.get("name", ""))[0]) not in fuera]
+            # corren, pero no son favoritos aunque tengan dorsal bajo (p. ej. una autoridad que corre): no se destacan
+            nodest = {A.key(clean_name(n)[0]) for n in extra.get("no_destacar", [])}
+            if nodest:
+                rows = [dict(r, elite=False, bib=None) if A.key(clean_name(r.get("name", ""))[0]) in nodest else r for r in rows]
             # pruebas que no se quieren en la previa (p. ej. la carrera corta «sin camiseta»)
             sin = {norm(p) for p in extra.get("excluir_pruebas", [])}
             if sin:

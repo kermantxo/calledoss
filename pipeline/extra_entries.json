@@ -1,5 +1,5 @@
 {
- "_nota": "Atletas de élite de las listas oficiales de la organización cuando no hay lista oficial legible. Clave: id de la competición. Se añaden a la previa con la fuente indicada. 'excluir': atletas inscritos que no van a correr (se quitan de la previa). 'excluir_pruebas': pruebas de la lista que no se muestran en la previa (nombre tal cual sale en la lista). 'elite': false si el atleta no sale en un grupo de élite (por defecto se considera élite). 'por_categoria': favoritos por categoría (M35, F40...) en vez de por carrera. 'edicion_anterior': {rfealive, base, nombre} para destacar a los medallistas de la edición anterior. Norma: solo listas y anuncios oficiales de la organización; la prensa solo con permiso expreso y diciéndolo en el motivo («anunciada en prensa (medio)»).",
+ "_nota": "Atletas de élite de las listas oficiales de la organización cuando no hay lista oficial legible. Clave: id de la competición. Se añaden a la previa con la fuente indicada. 'excluir': atletas inscritos que no van a correr (se quitan de la previa). 'excluir_pruebas': pruebas de la lista que no se muestran en la previa (nombre tal cual sale en la lista). 'elite': false si el atleta no sale en un grupo de élite (por defecto se considera élite). 'por_categoria': favoritos por categoría (M35, F40...) en vez de por carrera. 'edicion_anterior': {rfealive, base, nombre} para destacar a los medallistas de la edición anterior. Norma: solo listas y anuncios oficiales de la organización; la prensa solo con permiso expreso y diciéndolo en el motivo («anunciada en prensa (medio)»). 'no_destacar': atletas que corren pero no deben salir como favoritos aunque tengan dorsal de élite.",
  "rfea-2026-10-03-xxxviii-milla-internacional-de-berango": {
   "fuente": "https://www.instagram.com/p/Dd4bkxsjenH/",
   "atletas": [
@@ -343,7 +343,11 @@
   "excluir": [
    "Elena Silvestre"
   ],
-  "_motivo": "No corre: lo ha comunicado la organización (30-09-2026)"
+  "_motivo": "No corre: lo ha comunicado la organización (30-09-2026)",
+  "no_destacar": [
+   "Jon Insausti"
+  ],
+  "_motivo_no_destacar": "Jon Insausti, alcalde de San Sebastián: corre con dorsal bajo pero no es favorito (02-10-2026)"
  },
  "avaibook-iii-legua-de-la-guardia-civil-de-valladolid-1": {
   "excluir_pruebas": [
