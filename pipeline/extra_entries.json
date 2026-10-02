@@ -1,5 +1,5 @@
 {
- "_nota": "Atletas de élite de las listas oficiales de la organización cuando no hay lista oficial legible. Clave: id de la competición. Se añaden a la previa con la fuente indicada. 'excluir': atletas inscritos que no van a correr (se quitan de la previa). 'excluir_pruebas': pruebas de la lista que no se muestran en la previa (nombre tal cual sale en la lista). 'elite': false si el atleta no sale en un grupo de élite (por defecto se considera élite).",
+ "_nota": "Atletas de élite de las listas oficiales de la organización cuando no hay lista oficial legible. Clave: id de la competición. Se añaden a la previa con la fuente indicada. 'excluir': atletas inscritos que no van a correr (se quitan de la previa). 'excluir_pruebas': pruebas de la lista que no se muestran en la previa (nombre tal cual sale en la lista). 'elite': false si el atleta no sale en un grupo de élite (por defecto se considera élite). 'por_categoria': favoritos por categoría (M35, F40...) en vez de por carrera. 'edicion_anterior': {rfealive, base, nombre} para destacar a los medallistas de la edición anterior.",
  "rfea-2026-10-03-xxxviii-milla-internacional-de-berango": {
   "fuente": "https://www.instagram.com/p/Dd4bkxsjenH/",
   "atletas": [
@@ -380,6 +380,42 @@
     "event": "TRAIL CORTO 8.4 KM",
     "note": "Ganadora de la edición de 2025 (8 km)",
     "elite": false
+   }
+  ]
+ },
+ "rfea-2026-10-04-campeonato-de-espana-de-campo-traves-master-individual-y-por": {
+  "por_categoria": true,
+  "edicion_anterior": {
+   "rfealive": "2025AND60991",
+   "base": "https://rfealive.info",
+   "nombre": "Cto. de España Máster de Cross 2025"
+  }
+ },
+ "rfea-2026-10-04-xx-milla-urbana-de-valladolid-premio-caja-rural-de-zamora": {
+  "edicion_anterior": {
+   "pdf": "https://inscripciones.runvasport.es/inscripcion/xix-milla-urbana-de-valladolid-gran-premio-caja-rural-de-zamora/resultados/clasificaciones-finales-2025-xlsx-grupo",
+   "nombre": "la Milla Urbana de Valladolid 2025"
+  }
+ },
+ "rfea-2026-10-04-xx-carreira-popular-coruna-10": {
+  "fuente": [
+   "https://www.coruna.gal/web/gl/actualidade/novas/nova/o-atleta-galego-adrian-ben-finalista-olimpico-e-campion-de-espana-en-1-500-metros-participara-na/suceso/1453922832310",
+   "https://www.coruna.gal/web/es/actualidad/noticias/noticia/a-atleta-segoviana-agueda-marques-finalista-nos-xogos-olimpicos-de-paris-sumase-aos-deportistas/suceso/1453924041663"
+  ],
+  "atletas": [
+   {
+    "name": "Adrián Ben",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Élite",
+    "note": "Élite anunciada por la organización: finalista olímpico y campeón de España de 1.500 m"
+   },
+   {
+    "name": "Águeda Marqués",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Élite",
+    "note": "Élite anunciada por la organización: finalista olímpica de 1.500 m en París"
    }
   ]
  }

@@ -88,7 +88,7 @@ def from_timingsys(http, event_id):
 # Lista de inscritos de la RFEA ordenada por categoría (p. ej. Campeonato de España Máster de Campo a Través):
 #   «Carrera M35 (5500 m) - 13:40» y debajo «M35 NO 38,22 TO-3951035 Jonathan Paz Madroño ESP 18/11/1987 26millas MATICAL»
 RFEA_CAT_HEAD = re.compile(r"^(?:Carrera\s+)?(.+?\(\d+\s?m\))\s+-\s+(\d{1,2}:\d{2})\s*$")
-RFEA_CAT_ROW = re.compile(r"^(\S+)\s+(\S+)\s+\d+,\d+\s+(\S+)\s+(.+?)\s+([A-Z]{3})\s+\d{1,2}/\d{1,2}/\d{4}\s*(.*)$")
+RFEA_CAT_ROW = re.compile(r"^(\S+)\s+(\S+)\s+(\d+),\d+\s+(\S+)\s+(.+?)\s+([A-Z]{3})\s+\d{1,2}/\d{1,2}/\d{4}\s*(.*)$")
 
 
 def from_rfea_category_pdf(http, url):
@@ -108,12 +108,114 @@ def from_rfea_category_pdf(http, url):
                     continue
                 m = RFEA_CAT_ROW.match(line)
                 if m and event:
-                    cat = m.group(1)
+                    cat, age = m.group(1), int(m.group(3))
                     # en los relevos la 2.ª columna es el sexo (M/F); en el resto, la categoría lo dice (M35, F40...)
                     sex = m.group(2) if m.group(2) in ("M", "F") else \
-                        "F" if re.match(r"^[FW]\d", cat) else "M" if re.match(r"^M\d", cat) else ""
-                    out.append({"event": event, "name": m.group(4), "sex": sex, "club": m.group(6), "cat": cat,
-                                "nat": m.group(5), "time": time, "popular": False, "text": m.group(4)})
+                        next((x[0] for x in (cat, m.group(2), event) if re.match(r"^[MF]\d", x)), "")
+                    solo_equipo = cat == "NO"  # inscrito solo para puntuar por equipos: no opta a medalla individual
+                    if not re.match(r"^[MF]\d{2}$", cat) and sex and not event.startswith("Relevo"):
+                        cat = "%s%d" % (sex, max(35, age // 5 * 5))  # su categoría por edad
+                    out.append({"event": event, "name": m.group(5), "sex": sex, "club": m.group(7), "cat": cat,
+                                "nat": m.group(6), "time": time, "popular": False, "text": m.group(5),
+                                "solo_equipo": solo_equipo})
+    return out
+
+
+def _prev_pdf_podiums(http, url):
+    """Clasificación de la edición anterior en PDF (formato Runvasport): «SUB 16 (2010-2011) CLASIFICACIÓN»,
+    secciones MASCULINO / FEMENINO y filas «1 103 5,05 APELLIDOS NOMBRE CLUB POBLACIÓN».
+    Devuelve [(texto_de_la_fila, puesto, categoría, sexo)] con el podio de cada categoría y sexo."""
+    import io
+    import pdfplumber
+    c = http.get(url, timeout=120).content
+    out, cat, sex = [], None, None
+    with pdfplumber.open(io.BytesIO(c)) as pdf:
+        for page in pdf.pages:
+            for line in (page.extract_text() or "").split("\n"):
+                line = clean(line)
+                m = re.match(r"^(.+?)\s+CLASIFICACI", line)
+                if m:
+                    cat, sex = re.sub(r"\s*\(.*?\)", "", m.group(1)).strip(), ""
+                    continue
+                if line.upper() in ("MASCULINO", "FEMENINO"):
+                    sex = line[0].upper()
+                    continue
+                r = re.match(r"^\d+\s+\d+\s+\d+[,:.]\d+\s+(.+)$", line)
+                if r and cat:
+                    # sin sección de sexo: el nombre lo dice; si no se reconoce, cuenta como hombre (las listas
+                    # populares mixtas son mayoritariamente masculinas y así no se adelanta a nadie en el podio femenino)
+                    out.append([r.group(1), None, cat, sex or _sex_of_line(r.group(1)) or "M"])
+    return out
+
+
+def _sex_of_line(text):
+    """Sexo de una fila «APELLIDOS NOMBRE CLUB» sin sección de sexo: el primer nombre de pila reconocible."""
+    for w in text.split()[:5]:
+        s = sex_from_first_name(w)
+        if s:
+            return s
+    return ""
+
+
+def _name_in_row(name, text):
+    """¿La fila «APELLIDOS NOMBRE CLUB...» es de este inscrito «NOMBRE APELLIDOS»?"""
+    w = norm(name).split()
+    t = norm(text).split()
+    for k in (1, 2, 3):
+        if len(w) > k and t[:len(w)] == w[k:] + w[:k]:
+            return True
+    return False
+
+
+def mark_previous_podium(http, rows, prev):
+    """Marca a los inscritos que fueron medallistas en la edición anterior (resultados oficiales).
+    prev = {"rfealive": "2025AND60991", "base": "https://rfealive.info", "nombre": "Cto. de España Máster de Cross 2025"}
+    o {"pdf": url, "nombre": "Milla Urbana de Valladolid 2025"} (clasificación en PDF de Runvasport)."""
+    ords = {1: ("Campeón del", "Campeona del"), 2: ("Subcampeón del", "Subcampeona del"), 3: ("Bronce en el", "Bronce en el")}
+    if prev.get("pdf"):
+        lines = _prev_pdf_podiums(http, prev["pdf"])
+        # puesto de cada fila dentro de su categoría y sexo (las secciones sin sexo se reparten por el nombre)
+        hits = {}
+        for r in rows:
+            for txt, _, cat, sex in lines:
+                if _name_in_row(r.get("name", ""), txt):
+                    hits[id(r)] = (txt, cat, sex)
+                    break
+        order = {}
+        for txt, _, cat, sex in lines:
+            order.setdefault((cat, sex), []).append(txt)
+        out = []
+        for r in rows:
+            h = hits.get(id(r))
+            if h:
+                txt, cat, sex = h
+                pool = order.get((cat, sex)) or []
+                pos = pool.index(txt) + 1 if txt in pool else 99
+                if pos <= 3:
+                    who = "Ganadora" if sex == "F" else "Ganador"
+                    title = "%s de" % who if pos == 1 else "%d%s en" % (pos, "ª" if sex == "F" else "º")
+                    r = dict(r, prev_reason="%s %s (%s)" % (title, prev["nombre"], cat.title()), prev_score=(40, 30, 25)[pos - 1],
+                             sex=r.get("sex") or sex)
+            out.append(r)
+        return out
+    sc = rfealive.schedule(http, prev["rfealive"], base=prev.get("base") or rfealive.BASE)
+    medals = {}
+    for ev in sc["events"]:
+        if prev.get("solo", "Individual") not in ev["event"]:
+            continue
+        cat = ev["event"].split()[0]
+        for r in rfealive.results(http, ev["results_url"])["rows"][:3]:
+            if r.get("pos") in ("1", "2", "3"):
+                medals.setdefault(A.key(clean_name(r["name"])[0]), (int(r["pos"]), cat))
+    out = []
+    for r in rows:
+        k = A.key(clean_name(r.get("name", ""))[0])
+        hit = medals.get(k) or next((v for kk, v in medals.items() if kk <= k or k <= kk), None)
+        if hit and not r.get("event", "").startswith("Relevo"):
+            pos, cat = hit
+            title = ords[pos][1 if r.get("sex") == "F" else 0]
+            r = dict(r, prev_reason="%s %s (%s)" % (title, prev["nombre"], cat), prev_score=(40, 30, 25)[pos - 1])
+        out.append(r)
     return out
 
 
@@ -380,6 +482,9 @@ def select(rows, ath, comp_type=""):
                 continue
             seen.add(k)
             score, reasons = 0, []
+            if r.get("prev_reason"):  # medalla en la edición anterior del mismo campeonato
+                score += r.get("prev_score", 25)
+                reasons.append(r["prev_reason"])
             if r.get("record"):
                 score += 60; reasons.append("Plusmarquista")
             if r.get("le"):
@@ -459,7 +564,8 @@ def run(http, health, items):
                                   "nat": a.get("nat", ""), "club": a.get("club", ""), "cat": "", "bib": a.get("bib"), "elite": a.get("elite", True), "popular": False,
                                   "anunciado": a.get("note") or "En la élite (anunciado por la organización)", "text": a["name"]}
                                  for a in extra.get("atletas", [])]
-            srcs = list(srcs) + [extra.get("fuente")] if extra.get("fuente") else srcs
+            fuente = extra.get("fuente")
+            srcs = list(srcs) + (fuente if isinstance(fuente, list) else [fuente] if fuente else [])
             # atletas que siguen en la inscripción pero que no corren (confirmado a mano): fuera de la previa
             fuera = {A.key(clean_name(n)[0]) for n in extra.get("excluir", [])}
             if fuera:
@@ -468,6 +574,15 @@ def run(http, health, items):
             sin = {norm(p) for p in extra.get("excluir_pruebas", [])}
             if sin:
                 rows = [r for r in rows if norm(_event_label(r.get("event"))) not in sin]
+        if extra and extra.get("por_categoria"):
+            # favoritos de cada categoría (M35, M40...) en vez de cada carrera, que junta varias
+            rows = [dict(r, event="%s (%s)" % (r["cat"], r["event"].split("(")[-1].rstrip(")")) if "(" in r["event"] else r["cat"])
+                    if r.get("cat") and re.match(r"^[MF]\d{2}$", r["cat"]) else r for r in rows if not r.get("solo_equipo")]
+        if extra and extra.get("edicion_anterior") and rows:
+            try:
+                rows = mark_previous_podium(http, rows, extra["edicion_anterior"])
+            except Exception as e:
+                health.note("previas", "warning", "Edición anterior de '%s': %s" % (it["name"], e))
         entry = {"id": it["id"], "name": it["name"], "date": it["date"], "end_date": it.get("end_date"),
                  "place": it.get("place", ""), "type": it.get("type"), "links": it.get("links", {}),
                  "checked": iso_now(), "race_day": it["date"] <= t.isoformat() <= (it.get("end_date") or it["date"])}

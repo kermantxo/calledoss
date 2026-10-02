@@ -4772,14 +4772,14 @@ function previaBody(p){
     .filter(e => e.M.length || e.F.length || e.otros.length)
     .sort((a, b) => (/(é|e)lite/i.test(b.name) ? 1 : 0) - (/(é|e)lite/i.test(a.name) ? 1 : 0));   // la élite, primero
   const conElite = evs.some(e => [...e.M, ...e.F, ...e.otros].some(a => (a.reasons||[]).some(t => t.startsWith('Dorsal de élite'))));
-  return `<div class="data-note">🇪🇸 <b>${t('Inscritos españoles destacados')}</b> · ${t('{n} inscritos en total', {n: p.n_inscritos})}
+  return `<div class="data-note">🇪🇸 <b>${t('Inscritos españoles destacados')}</b> · ${p.n_inscritos ? t('{n} inscritos en total', {n: p.n_inscritos}) : t('élite anunciada por la organización (la lista completa de inscritos no es pública)')}
       ${conElite ? '<br>🏅 ' + t('Incluye a los favoritos con <b>dorsal de élite</b> asignado por la organización (la lista no indica la nacionalidad).') : ''} · ${t('actualizado')} ${p.updated ? fechaCorta(p.updated.slice(0,10)) + ' ' + horaDe(p.updated) : ''}
       ${ch.altas || ch.bajas ? `<br>${t('Cambios desde la última revisión: <b>+{altas}</b> altas, <b>−{bajas}</b> bajas', {altas: ch.altas||0, bajas: ch.bajas||0})}` : ''}
       ${(ch.altas_destacadas||[]).length ? `<br>⭐ ${t('Nuevos destacados:')} ${ch.altas_destacadas.map(esc).join(', ')}` : ''}
       ${(ch.bajas_destacadas||[]).length ? `<br>✖ ${t('Bajas destacadas:')} ${ch.bajas_destacadas.map(esc).join(', ')}` : ''}
       ${(p.sources||[]).length ? `<br><a href="${esc(p.sources[0])}" target="_blank" rel="noopener">${t('Ver la lista de inscritos original')}</a>` : ''}</div>
     ${evs.map(e=>`
-      <div class="previa-event"><h3>${esc(td(e.name))} <small style="color:var(--gray);font-size:14px;">· ${t('{n} inscritos', {n: e.n})}</small></h3>
+      <div class="previa-event"><h3>${esc(td(e.name))}${e.n ? ` <small style="color:var(--gray);font-size:14px;">· ${t('{n} inscritos', {n: e.n})}</small>` : ''}</h3>
         <div class="previa-grid${sexos.length === 1 ? ' single' : ''}">${sexos.map(sx => sx === 'F' ? previaCol(t('Femenino'), e.F) : previaCol(t('Masculino'), e.M)).join('')}</div>
         ${e.otros.length ? previaCol(t('Sin sexo indicado en la lista'), e.otros) : ''}
       </div>`).join('') || `<div class="empty-state">${t('Falta por confirmar la lista de inscritos')}</div>`}`;

@@ -277,7 +277,8 @@ window.CALLEDOSS_EN = {
   "¿Qué hay esta semana?": "What's on this week?",
   "Últimos resultados": "Latest results",
   "🇪🇸 Los inscritos españoles destacados se eligen con criterios objetivos: plusmarquistas, campeones de España, líderes del año, internacionales, medallistas y las mejores marcas (del año y personales) de la propia lista.": "🇪🇸 The Spanish entrants to watch are picked using objective criteria: national record holders, Spanish champions, leaders of the year, internationals, medallists and the best marks (season's and personal bests) on the entry list itself.",
-  "📡 Resultados automáticos de la Real Federación Española de Atletismo, World Athletics, Diamond League y ADOC, revisados varias veces al día.": "📡 Automatic results from the Royal Spanish Athletics Federation (RFEA), World Athletics, the Diamond League and ADOC, checked several times a day."
+  "📡 Resultados automáticos de la Real Federación Española de Atletismo, World Athletics, Diamond League y ADOC, revisados varias veces al día.": "📡 Automatic results from the Royal Spanish Athletics Federation (RFEA), World Athletics, the Diamond League and ADOC, checked several times a day.",
+  "élite anunciada por la organización (la lista completa de inscritos no es pública)": "elite field announced by the organisers (the full entry list is not public)"
  },
  "text": {
   "Pista Aire libre": "Outdoor track",
@@ -608,7 +609,10 @@ window.CALLEDOSS_EN = {
   "Retransmisión en abierto confirmada por RTVE. A nivel internacional, streaming oficial de European Athletics.": "Free-to-air coverage confirmed by RTVE. Internationally, official streaming from European Athletics.",
   "Movistar Plus+: Vamos y Vamos 2 (España)": "Movistar Plus+: Vamos and Vamos 2 (Spain)",
   "Confirmado en diamondleague.com. A nivel internacional también en el canal de YouTube y Facebook de Wanda Diamond League.": "Confirmed on diamondleague.com. Internationally, also on the Wanda Diamond League YouTube channel and Facebook page.",
-  "No hay streaming": "No streaming"
+  "No hay streaming": "No streaming",
+  "Élite anunciada por la organización: finalista olímpico y campeón de España de 1.500 m": "Elite field announced by the organisers: Olympic finalist and Spanish 1500 m champion",
+  "Élite anunciada por la organización: finalista olímpica de 1.500 m en París": "Elite field announced by the organisers: Olympic 1500 m finalist in Paris",
+  "Élite": "Elite"
  },
  "rules": [
   [
@@ -1067,6 +1071,30 @@ window.CALLEDOSS_EN = {
   [
    "^3[ªº] en la edición de (\\d{4}) \\((.+)\\)$",
    "3rd in the $1 edition (⟦$2⟧)"
+  ],
+  [
+   "^Ganador(?:a)? de la (.+) \\(([^()]+)\\)$",
+   "Winner of the $1 (⟦$2⟧)"
+  ],
+  [
+   "^2[ºª] en la (.+) \\(([^()]+)\\)$",
+   "2nd in the $1 (⟦$2⟧)"
+  ],
+  [
+   "^3[ºª] en la (.+) \\(([^()]+)\\)$",
+   "3rd in the $1 (⟦$2⟧)"
+  ],
+  [
+   "^Campe(?:ón|ona) del (.+) \\(([MFW]\\d{2})\\)$",
+   "Champion at the $1 ($2)"
+  ],
+  [
+   "^Subcampe(?:ón|ona) del (.+) \\(([MFW]\\d{2})\\)$",
+   "Runner-up at the $1 ($2)"
+  ],
+  [
+   "^Bronce en el (.+) \\(([MFW]\\d{2})\\)$",
+   "Bronze at the $1 ($2)"
   ],
   [
    "^Dorsal de élite nº (.+)$",
