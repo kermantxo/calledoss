@@ -4190,10 +4190,12 @@ function renderCompAccordion(){
     const pvL = PREVIAS.find(p => p.id === ev.id);
     const nDest = pvL && pvL.status === 'publicados'
       ? (pvL.events||[]).reduce((n,e)=> n + espDest(e.M).length + espDest(e.F).length + espDest(e.otros).length, 0) : 0;
-    const etiqueta = esIntlSinEspanoles(ev, pvL)
+    const nElite = pvL && pvL.status === 'publicados'
+      ? (pvL.events||[]).reduce((n,e)=> n + [...(e.M||[]), ...(e.F||[]), ...(e.otros||[])].filter(a => a.elite_anunciada && a.nat && a.nat !== 'ESP').length, 0) : 0;
+    const etiqueta = esIntlSinEspanoles(ev, pvL) && !nElite
       ? (ev.schedule && ev.schedule.length ? '🕒 ' + t('programa prueba a prueba') : '')
       : pvL && pvL.status === 'publicados'
-      ? (nDest ? `🇪🇸 ${t('{n} españoles destacados', {n: nDest})}` : `📋 ${t('{n} inscritos', {n: pvL.n_inscritos})}`)
+      ? (nDest ? `🇪🇸 ${t('{n} españoles destacados', {n: nDest})}` : nElite ? `⭐ ${t('{n} en la élite', {n: nElite})}` : `📋 ${t('{n} inscritos', {n: pvL.n_inscritos})}`)
       : '📋 ' + t('inscritos no publicados aún');
     let body = '';
     if(isOpen){
@@ -4203,7 +4205,7 @@ function renderCompAccordion(){
         ${renderAutoInfo(ev, {noDest: !!pv, noPrevia: true, noTimes: !!(ev.schedule && ev.schedule.length)}) || `<div class="data-note">📍 <b>${esc(ev.place||t('Lugar por confirmar'))}</b> — ${fechaLarga(ev.date, ev.end_date)}</div>`}
         ${ev.date <= hoy && hoy <= (ev.end_date || ev.date) ? `<div class="data-note">🔴 <b>${t('Es hoy.')}</b> <button class="comp-pill active" onclick="event.stopPropagation();handleNavClick('directo')">${t('Ver en directo →')}</button></div>` : ''}
         ${horarioBlock(ev)}
-        ${esIntlSinEspanoles(ev, pv) ? '' : previaBody(pv)}
+        ${esIntlSinEspanoles(ev, pv) && !nElite ? '' : previaBody(pv)}
         ${comp && comp.events.length ? `<div class="roster-grid">${renderEventBlocks(comp.id, comp.events)}</div>` : ''}
         <button class="comp-pill" style="margin-top:10px;" onclick="showCompetitionDetail('${ev.id}')">${t('Ver ficha completa →')}</button>
       </div>`;
@@ -4762,17 +4764,21 @@ function previaCol(title, list){
 function espDest(list){
   return (list || []).filter(a => !a.nat || a.nat === 'ESP');
 }
+// Lo que se enseña en la previa: los españoles destacados y la élite anunciada por la organización (de donde sea)
+function verDest(list){
+  return (list || []).filter(a => !a.nat || a.nat === 'ESP' || a.elite_anunciada);
+}
 
 // Contenido de la previa de una cita (se muestra dentro de Próximas)
 function previaBody(p){
   if(!p || p.status !== 'publicados') return `<div class="empty-state"><h3>${t('Inscritos no publicados aún')}</h3>${t('Se revisa cada día. En cuanto la organización publique la lista, aquí aparecerán los inscritos españoles destacados.')}</div>`;
   const ch = p.changes || {};
   const sexos = expectedSexes(p.name);   // «Carrera de la Mujer», Liga Iberdrola...: solo la columna que corresponde
-  const evs = (p.events||[]).map(e => ({...e, M: espDest(e.M), F: espDest(e.F), otros: espDest(e.otros)}))
+  const evs = (p.events||[]).map(e => ({...e, M: verDest(e.M), F: verDest(e.F), otros: verDest(e.otros)}))
     .filter(e => e.M.length || e.F.length || e.otros.length)
     .sort((a, b) => (/(é|e)lite/i.test(b.name) ? 1 : 0) - (/(é|e)lite/i.test(a.name) ? 1 : 0));   // la élite, primero
   const conElite = evs.some(e => [...e.M, ...e.F, ...e.otros].some(a => (a.reasons||[]).some(t => t.startsWith('Dorsal de élite'))));
-  return `<div class="data-note">🇪🇸 <b>${t('Inscritos españoles destacados')}</b> · ${p.n_inscritos ? t('{n} inscritos en total', {n: p.n_inscritos}) : t('élite anunciada por la organización (la lista completa de inscritos no es pública)')}
+  return `<div class="data-note">🇪🇸 <b>${t('Inscritos españoles destacados')}</b> · ${p.n_inscritos ? t('{n} inscritos en total', {n: p.n_inscritos}) : t('élite anunciada (la lista completa de inscritos no es pública)')}
       ${conElite ? '<br>🏅 ' + t('Incluye a los favoritos con <b>dorsal de élite</b> asignado por la organización (la lista no indica la nacionalidad).') : ''} · ${t('actualizado')} ${p.updated ? fechaCorta(p.updated.slice(0,10)) + ' ' + horaDe(p.updated) : ''}
       ${ch.altas || ch.bajas ? `<br>${t('Cambios desde la última revisión: <b>+{altas}</b> altas, <b>−{bajas}</b> bajas', {altas: ch.altas||0, bajas: ch.bajas||0})}` : ''}
       ${(ch.altas_destacadas||[]).length ? `<br>⭐ ${t('Nuevos destacados:')} ${ch.altas_destacadas.map(esc).join(', ')}` : ''}

@@ -278,7 +278,8 @@ window.CALLEDOSS_EN = {
   "Últimos resultados": "Latest results",
   "🇪🇸 Los inscritos españoles destacados se eligen con criterios objetivos: plusmarquistas, campeones de España, líderes del año, internacionales, medallistas y las mejores marcas (del año y personales) de la propia lista.": "🇪🇸 The Spanish entrants to watch are picked using objective criteria: national record holders, Spanish champions, leaders of the year, internationals, medallists and the best marks (season's and personal bests) on the entry list itself.",
   "📡 Resultados automáticos de la Real Federación Española de Atletismo, World Athletics, Diamond League y ADOC, revisados varias veces al día.": "📡 Automatic results from the Royal Spanish Athletics Federation (RFEA), World Athletics, the Diamond League and ADOC, checked several times a day.",
-  "élite anunciada por la organización (la lista completa de inscritos no es pública)": "elite field announced by the organisers (the full entry list is not public)"
+  "{n} en la élite": "{n} in the elite field",
+  "élite anunciada (la lista completa de inscritos no es pública)": "announced elite field (the full entry list is not public)"
  },
  "text": {
   "Pista Aire libre": "Outdoor track",
@@ -612,7 +613,13 @@ window.CALLEDOSS_EN = {
   "No hay streaming": "No streaming",
   "Élite anunciada por la organización: finalista olímpico y campeón de España de 1.500 m": "Elite field announced by the organisers: Olympic finalist and Spanish 1500 m champion",
   "Élite anunciada por la organización: finalista olímpica de 1.500 m en París": "Elite field announced by the organisers: Olympic 1500 m finalist in Paris",
-  "Élite": "Elite"
+  "Élite": "Elite",
+  "Élite anunciada en prensa (5 Más el Descuento): 1:00:03 en media maratón": "Elite field reported in the press (5 Más el Descuento): 1:00:03 half marathon",
+  "Élite anunciada en prensa (5 Más el Descuento): 28:30 en 10 km": "Elite field reported in the press (5 Más el Descuento): 28:30 over 10 km",
+  "Élite anunciada en prensa (5 Más el Descuento): 1:07:18 en media maratón": "Elite field reported in the press (5 Más el Descuento): 1:07:18 half marathon",
+  "Élite anunciada en prensa (5 Más el Descuento): 1:08:16 en media maratón": "Elite field reported in the press (5 Más el Descuento): 1:08:16 half marathon",
+  "Anunciada en prensa (Correr en La Rioja): 2ª en 2025 y ganadora en 2024 del Maratón de Logroño; campeona del mundo de 100 km M40": "Reported in the press (Correr en La Rioja): 2nd in 2025 and winner in 2024 of the Logroño Marathon; world 100 km champion (W40)",
+  "Anunciada en prensa (Correr en La Rioja): ganadora del Maratón de Logroño en 2025; este año corre la media maratón": "Reported in the press (Correr en La Rioja): winner of the 2025 Logroño Marathon; running the half marathon this year"
  },
  "rules": [
   [

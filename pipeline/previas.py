@@ -519,6 +519,7 @@ def select(rows, ath, comp_type=""):
                                "score": score, "reasons": list(dict.fromkeys(reasons))[:4],
                                "time": r.get("time"), "date": r.get("date"),
                                "_elite": bool(r.get("anunciado") or (r.get("bib") and r.get("elite"))),
+                               "elite_anunciada": bool(r.get("anunciado")),
                                "_orden": r["bib"] if r.get("anunciado") and r.get("bib") else None})
         # lista oficial de la organización: en el orden de sus dorsales, y por delante del resto
         scored.sort(key=lambda x: (0, x["_orden"]) if x["_orden"] is not None else (1, -x["score"]))

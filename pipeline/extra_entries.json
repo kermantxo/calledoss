@@ -1,5 +1,5 @@
 {
- "_nota": "Atletas de élite de las listas oficiales de la organización cuando no hay lista oficial legible. Clave: id de la competición. Se añaden a la previa con la fuente indicada. 'excluir': atletas inscritos que no van a correr (se quitan de la previa). 'excluir_pruebas': pruebas de la lista que no se muestran en la previa (nombre tal cual sale en la lista). 'elite': false si el atleta no sale en un grupo de élite (por defecto se considera élite). 'por_categoria': favoritos por categoría (M35, F40...) en vez de por carrera. 'edicion_anterior': {rfealive, base, nombre} para destacar a los medallistas de la edición anterior.",
+ "_nota": "Atletas de élite de las listas oficiales de la organización cuando no hay lista oficial legible. Clave: id de la competición. Se añaden a la previa con la fuente indicada. 'excluir': atletas inscritos que no van a correr (se quitan de la previa). 'excluir_pruebas': pruebas de la lista que no se muestran en la previa (nombre tal cual sale en la lista). 'elite': false si el atleta no sale en un grupo de élite (por defecto se considera élite). 'por_categoria': favoritos por categoría (M35, F40...) en vez de por carrera. 'edicion_anterior': {rfealive, base, nombre} para destacar a los medallistas de la edición anterior. Norma: solo listas y anuncios oficiales de la organización; la prensa solo con permiso expreso y diciéndolo en el motivo («anunciada en prensa (medio)»).",
  "rfea-2026-10-03-xxxviii-milla-internacional-de-berango": {
   "fuente": "https://www.instagram.com/p/Dd4bkxsjenH/",
   "atletas": [
@@ -416,6 +416,60 @@
     "nat": "ESP",
     "event": "Élite",
     "note": "Élite anunciada por la organización: finalista olímpica de 1.500 m en París"
+   }
+  ]
+ },
+ "rfea-2026-10-04-29o-medio-maraton-internacional-ciudad-de-albacete-2026": {
+  "fuente": "https://www.5maseldescuento.es/2026/10/el-medio-maraton-de-albacete-vuelve-a-batir-su-record-de-participacion/",
+  "atletas": [
+   {
+    "name": "Enos Kipruto",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Élite",
+    "note": "Élite anunciada en prensa (5 Más el Descuento): 1:00:03 en media maratón"
+   },
+   {
+    "name": "Heyiru Kedir",
+    "sex": "M",
+    "nat": "ETH",
+    "event": "Élite",
+    "note": "Élite anunciada en prensa (5 Más el Descuento): 28:30 en 10 km"
+   },
+   {
+    "name": "Eva Cherono",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Élite",
+    "note": "Élite anunciada en prensa (5 Más el Descuento): 1:07:18 en media maratón"
+   },
+   {
+    "name": "Vivian Jepkosgei Cheruiyot",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Élite",
+    "note": "Élite anunciada en prensa (5 Más el Descuento): 1:08:16 en media maratón"
+   }
+  ]
+ },
+ "rfea-2026-10-04-xii-maraton-internacional-ciudad-de-logrono": {
+  "fuente": "https://correrenlarioja.com/la-12a-maraton-de-logrono-supera-los-3-000-inscritos-y-alcanza-cifras-historicas-de-participacion-internacional/",
+  "atletas": [
+   {
+    "name": "Estefanía Unzu",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "note": "Anunciada en prensa (Correr en La Rioja): 2ª en 2025 y ganadora en 2024 del Maratón de Logroño; campeona del mundo de 100 km M40"
+   },
+   {
+    "name": "Esther Rodríguez",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Media maratón",
+    "elite": false,
+    "note": "Anunciada en prensa (Correr en La Rioja): ganadora del Maratón de Logroño en 2025; este año corre la media maratón"
    }
   ]
  }
