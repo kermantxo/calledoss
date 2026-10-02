@@ -10,6 +10,17 @@
    "url": "https://www.mediomaratonsansebastianruralkutxa.com",
    "type": "Ruta",
    "added": "2026-09-28T20:30:00Z"
+  },
+  {
+   "id": "manual-2026-11-08-behobia-san-sebastian",
+   "name": "61ª Behobia-San Sebastián",
+   "date": "2026-11-08",
+   "place": "Behobia (Irun) – San Sebastián",
+   "time": "09:30",
+   "time_end": "10:00",
+   "url": "https://www.behobia-sansebastian.com/es/carrera/ficha-carrera",
+   "type": "Ruta",
+   "added": "2026-10-02T21:57:37Z"
   }
  ]
 }
