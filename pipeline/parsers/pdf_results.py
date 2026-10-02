@@ -30,7 +30,7 @@ ROUND_RE = re.compile(r"^(Final|Ronda \d|Semifinal|Eliminatoria|Serie|Series|Cla
 # «NOMBRE APELLIDOS 11/3/2006»; en concursos detrás van los intentos («15.22 X 15.35», «- - O XO»)
 # y los invitados de otra federación llevan «(I)» detrás del nombre
 ATTEMPT = r"(?:[XOxo\-r]+|\d{1,2}\.\d{2}|NM|P)"
-NAME_DOB = re.compile(r"^([A-Za-zÀ-ÿ'`´\-\. …]+?)(?:\s*\(I\)\s*|\s+)(\d{1,2}/\d{1,2}/\d{4})(?:\s+" + ATTEMPT + r")*\s*$")
+NAME_DOB = re.compile(r"^([A-Za-zÀ-ÿ'`´\-\. …]+?)(\s*\(I\)\s*|\s+)(\d{1,2}/\d{1,2}/\d{4})(?:\s+" + ATTEMPT + r")*\s*$")
 TRAILING_ATTEMPTS = re.compile(r"(?:\s+" + ATTEMPT + r")+\s*$")
 # línea de resultado: puesto dorsal CLUBCODE ... marca [viento] [Q/q/...]
 # (en algunos campeonatos autonómicos la columna del dorsal va vacía: «1 PAMNA 3 6.87 MMP 8»)
@@ -108,12 +108,14 @@ def parse_conersys(pages):
             m = NAME_DOB.match(l)
             if m:
                 pending_name = m.group(1).rstrip(" …").strip()
+                pending_extra = {"born": m.group(3).rsplit("/", 1)[1], "invited": "(I)" in m.group(2)}
                 continue
             r = RESULT_LINE.match(l)
             if r and pending_name:
                 mark, wind, note = _last_mark(r.group(4))
                 cur["rows"].append({"pos": r.group(1), "bib": r.group(2) or "", "name": _nice(pending_name),
-                                    "club_code": r.group(3), "mark": mark, "wind": wind, "note": note, "club": ""})
+                                    "club_code": r.group(3), "mark": mark, "wind": wind, "note": note, "club": "",
+                                    **pending_extra})
                 pending_name = None
                 continue
             if cur["rows"] and not cur["rows"][-1]["club"] and not RESULT_LINE.match(l) and not NAME_DOB.match(l):
@@ -246,12 +248,58 @@ def parse_international(pages, keep_nat="ESP"):
     return out
 
 
+# Edad de cada categoría en la temporada (años cumplidos el 31 de diciembre)
+CATEGORY_AGES = {"Sub14": (12, 13), "Sub16": (14, 15), "Sub18": (16, 17), "Sub20": (18, 19), "Sub23": (20, 22)}
+
+
+def _categories(championship):
+    """'Campeonato Navarro Sub 23-Sub 20 ST' -> ['Sub20', 'Sub23']"""
+    found = {"Sub%s" % n for n in re.findall(r"\bsub[\s-]?(\d{2})\b", championship or "", re.I)}
+    return sorted(c for c in found if c in CATEGORY_AGES)
+
+
+def split_categories(res):
+    """Campeonatos de varias categorías juntas (p. ej. Sub20 y Sub23): en el PDF salen todos los que
+    compitieron, también los invitados «(I)» y atletas de otras edades. Se saca la clasificación de cada
+    categoría por separado: la final filtrada por año de nacimiento y, si no llega a 3, completada con
+    la clasificación de las series. Sin los invitados."""
+    meta = res.get("meta") or {}
+    cats = _categories(meta.get("championship"))
+    year = int((meta.get("dates") or ["//2000"])[0].rsplit("/", 1)[1])
+    if len(cats) < 2 or year < 2000:
+        return res
+    by_name = {}
+    for e in res["events"]:
+        by_name.setdefault(e["name"], []).append(e)
+    out = []
+    for name, evs in by_name.items():
+        finals = [e for e in evs if re.match(r"^final\b", e["round"] or "", re.I) and not re.match(r"^final b", e["round"] or "", re.I)]
+        finals = finals or [e for e in evs if not e["round"]]
+        summary = [e for e in evs if re.match(r"^(calificaci[oó]n|clasificaci[oó]n|series)$", e["round"] or "", re.I)]
+        for cat in cats:
+            lo, hi = CATEGORY_AGES[cat]
+            ok = lambda r: r.get("born") and not r.get("invited") and lo <= year - int(r["born"]) <= hi
+            rows, seen = [], set()
+            for src in finals[:1] + summary[:1]:
+                for r in src["rows"]:
+                    if ok(r) and r["name"] not in seen and re.match(r"^\d+$", str(r.get("pos", ""))):
+                        seen.add(r["name"])
+                        rows.append(dict(r))
+            for i, r in enumerate(rows):
+                r["pos"] = str(i + 1)
+            if rows:
+                out.append({"name": "%s %s" % (name, cat), "round": "Final", "date": evs[0]["date"], "rows": rows})
+    res["events"] = out
+    res["categories"] = cats
+    return res
+
+
 def parse(content, pages=None):
     pages = pages if pages is not None else extract_pages(content)
     res = parse_conersys(pages)
     if res["events"]:
         res["format"] = "conersys"
-        return res
+        return split_categories(res)
     intl = parse_international(pages)
     if intl:
         return {"meta": {}, "format": "internacional", "events": intl}

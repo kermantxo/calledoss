@@ -39,7 +39,7 @@ STATE = "state/backfill.json"
 # Súbelo cuando se añadan fuentes o lectores nuevos: todo lo "sin resultados" se vuelve a intentar.
 # formatos de PDF que se vuelven a leer al subir VERSION (los que han cambiado de lector)
 REREAD_FORMATS = ("columnas", "generic", "internacional", "conersys")
-VERSION = 21  # 21: lector Conersys mejorado (sin dorsal, invitados «(I)», intentos de concursos)
+VERSION = 22  # 22: campeonatos de varias categorías (Sub20 y Sub23...) con un podio por categoría y sin invitados
 MISSING = "results/sin_resultados.json"
 START = "2026-01-01"
 COMBINED = re.compile(r"decatlon|heptatlon|pentatlon|hexatlon|octatlon|triatlon|tetratlon")
