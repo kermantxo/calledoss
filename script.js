@@ -4443,11 +4443,14 @@ document.getElementById('rankEvent').addEventListener('change', renderRanking);
    "datos" del repositorio. Si no se pueden leer, se usa la copia
    de la carpeta data/ y, en último caso, los datos de este archivo.
    ============================================================ */
+// 1.º el Worker de Cloudflare (lee la rama "datos" casi al momento: copia de 20 s);
+// 2.º GitHub directamente (puede ir hasta 5 minutos por detrás); 3.º la copia de la propia web
 const DATA_URLS = [
+  'https://calledoss-panel.kermantxo.workers.dev/data/',
   'https://raw.githubusercontent.com/kermantxo/calledoss/datos/',
-  'data/'
+  '/data/'
 ];
-const LIVE_REFRESH_MS = 2 * 60 * 1000;
+const LIVE_REFRESH_MS = 60 * 1000;   // el directo se refresca solo cada minuto
 const CALENDAR_CURATED = CALENDAR.slice();
 
 function esc(s){

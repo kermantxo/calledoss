@@ -7,7 +7,9 @@
 //    DELETE /api/manual?id=...   la quita
 //    Los cambios se guardan en data/manual.json de la rama "datos" del repositorio y se lanza
 //    la tarea "plan" para que aparezcan en el calendario (y en el directo si es hoy).
-// 2. Disparador de directo (cron cada 3 min): si live_plan.json dice que hay una ventana de
+// 2. Datos para la web casi al momento: GET /data/<archivo>.json lee la rama "datos" por la API de GitHub
+//    (sin el retraso de hasta 5 minutos de raw.githubusercontent.com) y guarda copia solo 20 segundos.
+// 3. Disparador de directo (cron cada 3 min): si live_plan.json dice que hay una ventana de
 //    directo activa, lanza el workflow "Directo" de GitHub. Si no, no hace nada.
 //
 // Secretos (wrangler secret put ...): PANEL_PASSWORD, GITHUB_TOKEN
@@ -16,13 +18,16 @@
 const GH = "https://api.github.com";
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const origin = request.headers.get("Origin") || "";
     const cors = corsHeaders(origin, env);
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: cors });
 
     const url = new URL(request.url);
     try {
+      if (url.pathname.startsWith("/data/") && request.method === "GET") {
+        return await dataFile(url, env, ctx);
+      }
       if (!url.pathname.startsWith("/api/")) {
         return json({ ok: true, service: "calledoss-panel" }, 200, cors);
       }
@@ -85,6 +90,30 @@ export default {
     if (active) await dispatch(env, "directo.yml");
   },
 };
+
+// ------------------------------------------------------------------ datos para la web
+
+const DATA_TTL = 20; // segundos que se guarda cada archivo en la caché de Cloudflare
+
+async function dataFile(url, env, ctx) {
+  const name = url.pathname.slice("/data/".length);
+  const headers = { "Access-Control-Allow-Origin": "*", "Content-Type": "application/json; charset=utf-8",
+                    "Cache-Control": `public, max-age=${DATA_TTL}` };
+  if (!/^[a-z0-9_/-]+\.json$/i.test(name) || name.includes("..")) {
+    return new Response(JSON.stringify({ error: "archivo no válido" }), { status: 400, headers });
+  }
+  const cache = caches.default;
+  const key = new Request(`https://calledoss-data.cache/${name}`);
+  const hit = await cache.match(key);
+  if (hit) return new Response(hit.body, { status: 200, headers });
+  const r = await fetch(`${GH}/repos/${env.REPO}/contents/${name}?ref=${env.DATA_BRANCH}`, {
+    headers: { ...ghHeaders(env), Accept: "application/vnd.github.raw" },
+  });
+  if (!r.ok) return new Response(JSON.stringify({ error: `GitHub ${r.status}` }), { status: r.status === 404 ? 404 : 502, headers });
+  const body = await r.text();
+  ctx.waitUntil(cache.put(key, new Response(body, { headers })));
+  return new Response(body, { status: 200, headers });
+}
 
 // ------------------------------------------------------------------ validación
 
