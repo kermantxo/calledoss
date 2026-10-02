@@ -294,7 +294,7 @@ def by_item(http, it, health, final=False):
                 resp = http.get(u, timeout=180)
                 if b"%PDF" not in resp.content[:1024]:
                     continue
-                res = pdf_results.parse(resp.content)
+                res = pdf_results.parse(resp.content, title=it.get("name", ""))
                 done[u] = {"at": iso_now(), "events": len(res["events"])}
                 save_json("state/results_done.json", done, compact=True)
                 if res["events"]:

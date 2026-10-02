@@ -258,16 +258,30 @@ def _categories(championship):
     return sorted(c for c in found if c in CATEGORY_AGES)
 
 
-def split_categories(res):
+# Federación de cada campeonato autonómico (las siglas con las que acaban los códigos de club de Conersys:
+# PAMNA, ARDNA → Navarra; TATSS → Gipuzkoa...)
+REGION_CODE = [(r"navarr", "NA"), (r"guip[uú]zcoa|gipuzkoa", "SS"), (r"vizcaya|bizkaia", "BI"), (r"[aá]lava|araba", "VI"),
+               (r"riojan|la rioja", "LO"), (r"cantabr", "SA"), (r"burgal|burgos", "BU")]
+
+
+def _regions(text):
+    return [code for rx, code in REGION_CODE if re.search(rx, text or "", re.I)]
+
+
+def split_categories(res, title=""):
     """Campeonatos de varias categorías juntas (p. ej. Sub20 y Sub23): en el PDF salen todos los que
     compitieron, también los invitados «(I)» y atletas de otras edades. Se saca la clasificación de cada
     categoría por separado: la final filtrada por año de nacimiento y, si no llega a 3, completada con
     la clasificación de las series. Sin los invitados."""
     meta = res.get("meta") or {}
-    cats = _categories(meta.get("championship"))
+    # categorías: las del título del PDF o, si no las dice (p. ej. «S23 + PLP»), las del nombre en el calendario
+    cats = _categories(meta.get("championship")) or _categories(title)
     year = int((meta.get("dates") or ["//2000"])[0].rsplit("/", 1)[1])
     if len(cats) < 2 or year < 2000:
         return res
+    # campeonato conjunto de dos federaciones (p. ej. «Guipúzcoa Navarra»): solo los atletas de la nuestra
+    ours, pdf_regions = _regions(title), _regions(meta.get("championship"))
+    fed = ours[0] if len(ours) == 1 and len(pdf_regions) > 1 and ours[0] in pdf_regions else ""
     by_name = {}
     for e in res["events"]:
         by_name.setdefault(e["name"], []).append(e)
@@ -275,12 +289,18 @@ def split_categories(res):
     for name, evs in by_name.items():
         finals = [e for e in evs if re.match(r"^final\b", e["round"] or "", re.I) and not re.match(r"^final b", e["round"] or "", re.I)]
         finals = finals or [e for e in evs if not e["round"]]
-        summary = [e for e in evs if re.match(r"^(calificaci[oó]n|clasificaci[oó]n|series)$", e["round"] or "", re.I)]
+        # clasificación de las rondas previas (series, semifinales, calificación): primero el resumen de la ronda
+        # («Semifinal», «Calificación»), después cada serie («Semifinal 1/8»...), de la más avanzada a la primera
+        previas = [e for e in evs if e not in finals and not re.match(r"^final b", e["round"] or "", re.I)]
+        summary = sorted(previas, key=lambda e: (0 if re.search(r"semi", e["round"] or "", re.I) else 1,
+                                                 1 if re.search(r"\d+/\d+", e["round"] or "") else 0))
         for cat in cats:
             lo, hi = CATEGORY_AGES[cat]
-            ok = lambda r: r.get("born") and not r.get("invited") and lo <= year - int(r["born"]) <= hi
+            ok = lambda r: r.get("born") and not r.get("invited") and lo <= year - int(r["born"]) <= hi \
+                and (not fed or (r.get("club_code") or "").endswith(fed)) \
+                and r.get("mark") and not re.fullmatch(r"DNS|DNF|DQ|NM|NP|NT|DSQ|RET|ABD|DESC", r["mark"])
             rows, seen = [], set()
-            for src in finals[:1] + summary[:1]:
+            for src in finals[:1] + summary:
                 for r in src["rows"]:
                     if ok(r) and r["name"] not in seen and re.match(r"^\d+$", str(r.get("pos", ""))):
                         seen.add(r["name"])
@@ -288,18 +308,21 @@ def split_categories(res):
             for i, r in enumerate(rows):
                 r["pos"] = str(i + 1)
             if rows:
-                out.append({"name": "%s %s" % (name, cat), "round": "Final", "date": evs[0]["date"], "rows": rows})
+                # sin los códigos internos del cronometrador al final del nombre («PC», «PCS23», «AL», «NA»)
+                clean_name = re.sub(r"(\s+(?:PC\w*|AL|NA))+$", "", name).strip()
+                out.append({"name": "%s %s" % (clean_name, cat), "round": "Final", "date": evs[0]["date"], "rows": rows})
     res["events"] = out
     res["categories"] = cats
     return res
 
 
-def parse(content, pages=None):
+def parse(content, pages=None, title=""):
+    """title: nombre de la competición en el calendario (para campeonatos de varias categorías o federaciones)."""
     pages = pages if pages is not None else extract_pages(content)
     res = parse_conersys(pages)
     if res["events"]:
         res["format"] = "conersys"
-        return split_categories(res)
+        return split_categories(res, title)
     intl = parse_international(pages)
     if intl:
         return {"meta": {}, "format": "internacional", "events": intl}

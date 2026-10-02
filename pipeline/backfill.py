@@ -39,7 +39,7 @@ STATE = "state/backfill.json"
 # Súbelo cuando se añadan fuentes o lectores nuevos: todo lo "sin resultados" se vuelve a intentar.
 # formatos de PDF que se vuelven a leer al subir VERSION (los que han cambiado de lector)
 REREAD_FORMATS = ("columnas", "generic", "internacional", "conersys")
-VERSION = 22  # 22: campeonatos de varias categorías (Sub20 y Sub23...) con un podio por categoría y sin invitados
+VERSION = 23  # 23: campeonatos conjuntos de dos federaciones (solo la nuestra), series y semifinales en el podio por categoría
 MISSING = "results/sin_resultados.json"
 START = "2026-01-01"
 COMBINED = re.compile(r"decatlon|heptatlon|pentatlon|hexatlon|octatlon|triatlon|tetratlon")
@@ -241,7 +241,7 @@ def from_pdf(http, item, url, cache, trust="index"):
             cache[url] = c = {"pdf": False}
         else:
             pages = pdf_results.extract_pages(resp.content)
-            res = pdf_results.parse(resp.content, pages=pages)
+            res = pdf_results.parse(resp.content, pages=pages, title=item.get("name", ""))
             dates, title = _pdf_fingerprint(pages, res.get("meta") or {})
             good = podiums(res["events"]) if res.get("format") != "generic" else []
             # formatos de cronometradores: lector por columnas. Se queda el lector que saque más
