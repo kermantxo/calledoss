@@ -451,6 +451,10 @@ def run(http, health, items):
             fuera = {A.key(clean_name(n)[0]) for n in extra.get("excluir", [])}
             if fuera:
                 rows = [r for r in rows if A.key(clean_name(r.get("name", ""))[0]) not in fuera]
+            # pruebas que no se quieren en la previa (p. ej. la carrera corta «sin camiseta»)
+            sin = {norm(p) for p in extra.get("excluir_pruebas", [])}
+            if sin:
+                rows = [r for r in rows if norm(_event_label(r.get("event"))) not in sin]
         entry = {"id": it["id"], "name": it["name"], "date": it["date"], "end_date": it.get("end_date"),
                  "place": it.get("place", ""), "type": it.get("type"), "links": it.get("links", {}),
                  "checked": iso_now(), "race_day": it["date"] <= t.isoformat() <= (it.get("end_date") or it["date"])}

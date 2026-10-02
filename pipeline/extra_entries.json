@@ -1,5 +1,5 @@
 {
- "_nota": "Atletas de élite de las listas oficiales de la organización cuando no hay lista oficial legible. Clave: id de la competición. Se añaden a la previa con la fuente indicada. 'excluir': atletas inscritos que no van a correr (se quitan de la previa).",
+ "_nota": "Atletas de élite de las listas oficiales de la organización cuando no hay lista oficial legible. Clave: id de la competición. Se añaden a la previa con la fuente indicada. 'excluir': atletas inscritos que no van a correr (se quitan de la previa). 'excluir_pruebas': pruebas de la lista que no se muestran en la previa (nombre tal cual sale en la lista).",
  "rfea-2026-10-03-xxxviii-milla-internacional-de-berango": {
   "fuente": "https://www.instagram.com/p/Dd4bkxsjenH/",
   "atletas": [
@@ -344,5 +344,10 @@
    "Elena Silvestre"
   ],
   "_motivo": "No corre: lo ha comunicado la organización (30-09-2026)"
+ },
+ "avaibook-iii-legua-de-la-guardia-civil-de-valladolid-1": {
+  "excluir_pruebas": [
+   "CARRERA 5.5 KM SIN CAMISETA"
+  ]
  }
 }
