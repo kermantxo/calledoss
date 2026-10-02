@@ -32,6 +32,10 @@ from .sources import rfealive, timers
 DAYS_AHEAD = 45
 PER_SEX = 6
 MIN_SCORE = 20
+# Carreras populares: si menos de 3 atletas de un sexo llegan a MIN_SCORE, se completa hasta 3 con los que
+# tengan al menos MIN_SCORE_LOCAL por méritos reales (una victoria y un podio, o dos podios en otras carreras)
+MIN_SCORE_LOCAL = 10
+LOCAL_FILL = 3
 LIST_WORDS = re.compile(r"inscrit|participant|listado|start ?list|lista de salida|entry ?list|dorsales|admitid", re.I)
 ELITE = re.compile(r"\b(é|e)lite\b|caj[oó]n a\b|cajon a\b|grupo 1\b", re.I)
 
@@ -392,7 +396,8 @@ def select(rows, ath, comp_type=""):
                 score = max(score, MIN_SCORE)
             if intl_list and (r.get("nat") == "ESP" or (a and a.get("nat") == "ESP")):
                 score += 10; reasons.append("Español")
-            if score >= MIN_SCORE:
+            merit = [x for x in reasons if x != "Español"]  # ser español no es un mérito por sí solo
+            if score >= MIN_SCORE or (score >= MIN_SCORE_LOCAL and merit):
                 scored.append({"name": r["name"],
                                # en listas populares las columnas a veces vienen descolocadas: el club no es fiable
                                "club": "" if r.get("popular") else r.get("club", ""), "nat": r.get("nat", ""), "pb": r.get("pb", ""), "sb": r.get("sb", ""),
@@ -402,6 +407,9 @@ def select(rows, ath, comp_type=""):
                                "_orden": r["bib"] if r.get("anunciado") and r.get("bib") else None})
         # lista oficial de la organización: en el orden de sus dorsales, y por delante del resto
         scored.sort(key=lambda x: (0, x["_orden"]) if x["_orden"] is not None else (1, -x["score"]))
+        fuertes = [x for x in scored if x["score"] >= MIN_SCORE or x["_orden"] is not None or x["_elite"]]
+        flojos = [x for x in scored if x not in fuertes]
+        scored = fuertes + flojos[:max(0, LOCAL_FILL - len(fuertes))]
         for x in scored:
             x.pop("_orden")
         e = events.setdefault(ev, {"name": ev, "n": 0, "M": [], "F": [], "otros": []})
