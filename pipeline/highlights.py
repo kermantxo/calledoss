@@ -68,8 +68,8 @@ def _mark_value(m):
 FIELD = re.compile(r"altura|pertiga|longitud|triple|peso|disco|martillo|jabalina|decatlon|heptatlon|pentatlon", re.I)
 
 
-def from_rfealive(http, chid, max_events=80):
-    sc = rfealive.schedule(http, chid)
+def from_rfealive(http, chid, max_events=80, base=rfealive.BASE):
+    sc = rfealive.schedule(http, chid, base=base)
     wl = _wl_keys()
     out = []
     seen = set()
@@ -137,11 +137,11 @@ def compute(http, items, health, days_fwd=7):
         key = it["id"]
         if in_window:
             try:
-                chids = [x["chid"] for x in it.get("live") or [] if x.get("kind") == "rfealive"]
+                lives = [x for x in it.get("live") or [] if x.get("kind") == "rfealive"]
                 ins = (it.get("links") or {}).get("inscritos", "")
                 res = None
-                if chids:
-                    res = from_rfealive(http, chids[0])
+                if lives:
+                    res = from_rfealive(http, lives[0]["chid"], base=lives[0].get("base") or rfealive.BASE)
                 elif ins.lower().endswith(".pdf"):
                     res = from_pdf(http, ins)
                 if res is not None:

@@ -18,7 +18,7 @@ Salida: previas.json
 """
 import datetime as dt
 import re
-from urllib.parse import urljoin, urlparse, parse_qs
+from urllib.parse import urljoin, urlparse, parse_qs, unquote
 
 from bs4 import BeautifulSoup
 
@@ -81,6 +81,38 @@ def from_timingsys(http, event_id):
     return out
 
 
+# Lista de inscritos de la RFEA ordenada por categoría (p. ej. Campeonato de España Máster de Campo a Través):
+#   «Carrera M35 (5500 m) - 13:40» y debajo «M35 NO 38,22 TO-3951035 Jonathan Paz Madroño ESP 18/11/1987 26millas MATICAL»
+RFEA_CAT_HEAD = re.compile(r"^(?:Carrera\s+)?(.+?\(\d+\s?m\))\s+-\s+(\d{1,2}:\d{2})\s*$")
+RFEA_CAT_ROW = re.compile(r"^(\S+)\s+(\S+)\s+\d+,\d+\s+(\S+)\s+(.+?)\s+([A-Z]{3})\s+\d{1,2}/\d{1,2}/\d{4}\s*(.*)$")
+
+
+def from_rfea_category_pdf(http, url):
+    import io
+    import pdfplumber
+    c = http.get(url, timeout=120).content
+    if b"%PDF" not in c[:1024]:
+        return []
+    out, event, time = [], None, None
+    with pdfplumber.open(io.BytesIO(c)) as pdf:
+        for page in pdf.pages:
+            for line in (page.extract_text() or "").split("\n"):
+                line = clean(line)
+                h = RFEA_CAT_HEAD.match(line)
+                if h:
+                    event, time = h.group(1), h.group(2)
+                    continue
+                m = RFEA_CAT_ROW.match(line)
+                if m and event:
+                    cat = m.group(1)
+                    # en los relevos la 2.ª columna es el sexo (M/F); en el resto, la categoría lo dice (M35, F40...)
+                    sex = m.group(2) if m.group(2) in ("M", "F") else \
+                        "F" if re.match(r"^[FW]\d", cat) else "M" if re.match(r"^M\d", cat) else ""
+                    out.append({"event": event, "name": m.group(4), "sex": sex, "club": m.group(6), "cat": cat,
+                                "nat": m.group(5), "time": time, "popular": False, "text": m.group(4)})
+    return out
+
+
 def from_pdf_entries(http, url):
     c = http.get(url, timeout=120).content
     if b"%PDF" not in c[:1024]:
@@ -134,16 +166,23 @@ def _race_of(cuota):
     return clean(c).strip(" -") or "Carrera"
 
 
+def _old_year(url, date):
+    """¿El documento lleva en el nombre solo años anteriores al de la competición?"""
+    years = [int(y) for y in re.findall(r"(?<!\d)(20\d\d)(?!\d)", unquote(url))]
+    return bool(years) and max(years) < int(date[:4])
+
+
 def find_entries(http, it):
     """Devuelve (filas, fuentes) de la lista de inscritos de una cita, o ([], []) si no hay."""
     links = it.get("links") or {}
     tried = []
     for lv in it.get("live") or []:
         if lv.get("kind") == "rfealive":
+            base = lv.get("base") or rfealive.BASE  # rfealive.info o rfealive.me (federaciones autonómicas)
             try:
-                rows = from_rfealive(http, lv["chid"])
+                rows = from_rfealive(http, lv["chid"], base=base)
                 if rows:
-                    return rows, ["https://rfealive.info/Results/Schedule?chid=" + lv["chid"]]
+                    return rows, [base + "/Results/Schedule?chid=" + lv["chid"]]
             except Exception:
                 pass
         if lv.get("kind") == "timingsys":
@@ -184,7 +223,7 @@ def find_entries(http, it):
                          "elite": r["bib"] <= 50, "popular": False, "text": r["name"]} for r in rows], [rts]
         except Exception:
             pass
-    if insc and "runvasport" not in insc:  # Runvasport ya tiene su propio lector de listas
+    if insc:  # Kirolprobak, AvaiBook, Runvasport...: listado público de participantes
         try:
             rows = timers.inscripcion_participants(http, insc)
             if rows:
@@ -195,7 +234,7 @@ def find_entries(http, it):
     ins = links.get("inscritos", "")
     if ins.lower().split("?")[0].endswith(".pdf"):
         try:
-            rows = from_rfea_pdf(http, ins) or from_pdf_entries(http, ins)
+            rows = from_rfea_pdf(http, ins) or from_rfea_category_pdf(http, ins) or from_pdf_entries(http, ins)
             if rows:
                 return rows, [ins]
         except Exception:
@@ -205,6 +244,8 @@ def find_entries(http, it):
         if "rfealive" in p:
             continue
         for u in list_links(http, p):
+            if _old_year(u, it["date"]):
+                continue  # p. ej. «LISTADO INSCRITOS 2025.pdf» para la edición de 2026: es la lista del año pasado
             try:
                 rows = from_pdf_entries(http, u)
                 if len(rows) >= 3:

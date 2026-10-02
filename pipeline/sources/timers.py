@@ -3,8 +3,8 @@
 * Cronomancha (cronomancha.com → timingsys.com): API pública JSON de su app de resultados
   (resultados-api.cronomancha.com/api/v1/public). Índice de eventos con estado
   ('Finalizada', 'En curso'...) y resultados completos por carrera.
-* AvaiBook Sports (donde publica sus clasificaciones Runvasport; el enlace
-  inscripciones.runvasport.es es un acceso privado para organizadores).
+* AvaiBook Sports (donde publica sus clasificaciones Runvasport; inscripciones.runvasport.es
+  tiene también el listado público de participantes de cada carrera, en /participantes/).
   Índice público de eventos con enlace a sus clasificaciones.
 """
 import datetime as dt
