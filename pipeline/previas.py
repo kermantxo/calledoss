@@ -575,6 +575,8 @@ def run(http, health, items):
             sin = {norm(p) for p in extra.get("excluir_pruebas", [])}
             if sin:
                 rows = [r for r in rows if norm(_event_label(r.get("event"))) not in sin]
+        # las clasificaciones «por Equipos» repiten a los atletas de la prueba individual: fuera de la previa
+        rows = [r for r in rows if not re.search(r"\bequipos\b", r.get("event") or "", re.I)]
         if extra and extra.get("por_categoria"):
             # favoritos de cada categoría (M35, M40...) en vez de cada carrera, que junta varias
             rows = [dict(r, event="%s (%s)" % (r["cat"], r["event"].split("(")[-1].rstrip(")")) if "(" in r["event"] else r["cat"])
