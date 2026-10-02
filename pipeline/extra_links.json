@@ -111,5 +111,270 @@
     "r": "Milla (1.609 m)"
    }
   ]
+ },
+ "avaibook-iii-trail-el-calero": {
+  "_fuente_horario": "Reglamento oficial (Runvasport)",
+  "time": "10:00",
+  "time_end": "10:30",
+  "schedule": [
+   {
+    "d": "2026-10-03",
+    "t": "10:00",
+    "e": "Trail largo",
+    "r": "25 km"
+   },
+   {
+    "d": "2026-10-03",
+    "t": "10:30",
+    "e": "Trail corto",
+    "r": "8,4 km"
+   },
+   {
+    "d": "2026-10-03",
+    "t": "10:30",
+    "e": "Marcha (no competitiva)",
+    "r": "8,4 km"
+   }
+  ]
+ },
+ "avaibook-x-carrera-de-la-mujer-medina-del-campo": {
+  "_fuente_horario": "Reglamento oficial (Ayuntamiento de Medina del Campo)",
+  "schedule": [
+   {
+    "d": "2026-10-03",
+    "t": "19:00",
+    "e": "Carrera",
+    "r": "5,56 km"
+   },
+   {
+    "d": "2026-10-03",
+    "t": "",
+    "e": "Marcha (no competitiva, hora sin publicar)",
+    "r": "5,56 km"
+   }
+  ]
+ },
+ "avaibook-iii-legua-de-la-guardia-civil-de-valladolid-1": {
+  "_fuente_horario": "Reglamento oficial 2026 (Runvasport)",
+  "time": "11:00",
+  "time_end": "12:00",
+  "schedule": [
+   {
+    "d": "2026-10-04",
+    "t": "11:00",
+    "e": "Carrera popular",
+    "r": "5,5 km"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "11:05",
+    "e": "Marcha (no competitiva)",
+    "r": "5,5 km"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "12:00",
+    "e": "Carreras infantiles",
+    "r": "según categoría"
+   }
+  ]
+ },
+ "rfea-2026-10-04-xx-milla-urbana-de-valladolid-premio-caja-rural-de-zamora": {
+  "_fuente_horario": "Reglamento 2026 (fetacyl.org, Google Drive)",
+  "time": "17:15",
+  "time_end": "19:15",
+  "schedule": [
+   {
+    "d": "2026-10-04",
+    "t": "17:15",
+    "e": "Sub-20 y Sub-18 Masculino y Femenino",
+    "r": "Milla (1.609 m)"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "17:30",
+    "e": "Sub-16 Femenino",
+    "r": "1.000 m"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "17:40",
+    "e": "Sub-16 Masculino",
+    "r": "1.000 m"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "17:50",
+    "e": "Popular",
+    "r": "Milla (1.609 m)"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "17:50",
+    "e": "Deportistas con discapacidad",
+    "r": "según discapacidad"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "17:57",
+    "e": "Sub-10 Femenino",
+    "r": "400 m"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "18:04",
+    "e": "Sub-10 Masculino",
+    "r": "400 m"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "18:11",
+    "e": "Sub-12 Femenino",
+    "r": "600 m"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "18:18",
+    "e": "Sub-12 Masculino",
+    "r": "600 m"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "18:25",
+    "e": "Sub-14 Femenino",
+    "r": "800 m"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "18:32",
+    "e": "Sub-14 Masculino",
+    "r": "800 m"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "18:40",
+    "e": "Velocidad",
+    "r": "60 m"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "18:50",
+    "e": "Élite Femenino",
+    "r": "Milla (1.609 m)"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "19:00",
+    "e": "Sub-8 Femenino",
+    "r": "200 m"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "19:05",
+    "e": "Sub-8 Masculino",
+    "r": "200 m"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "19:15",
+    "e": "Élite Masculino",
+    "r": "Milla (1.609 m)"
+   }
+  ]
+ },
+ "rfea-2026-10-04-xii-maraton-internacional-ciudad-de-logrono": {
+  "_fuente_horario": "maratonlogrono.es (información general)",
+  "time": "09:00",
+  "schedule": [
+   {
+    "d": "2026-10-04",
+    "t": "09:00",
+    "e": "Maratón",
+    "r": "42,195 km"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "09:00",
+    "e": "Media maratón",
+    "r": "21,097 km"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "09:00",
+    "e": "10K",
+    "r": "10 km"
+   }
+  ]
+ },
+ "rfea-2026-10-04-xx-carreira-popular-coruna-10": {
+  "_fuente_horario": "coruna.gal (Servizos e horarios)",
+  "time": "10:00",
+  "time_end": "13:25",
+  "schedule": [
+   {
+    "d": "2026-10-04",
+    "t": "10:00",
+    "e": "Absoluta (Sub-20 a Máster)",
+    "r": "10 km"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "11:45",
+    "e": "Sub-18",
+    "r": "2.500 m"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "12:00",
+    "e": "Sub-16",
+    "r": "2.500 m"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "12:15",
+    "e": "Sub-14 Femenino",
+    "r": "1.425 m"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "12:30",
+    "e": "Sub-14 Masculino",
+    "r": "1.425 m"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "12:45",
+    "e": "Sub-12 Femenino",
+    "r": "845 m"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "12:55",
+    "e": "Sub-12 Masculino",
+    "r": "845 m"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "13:05",
+    "e": "Sub-10 Femenino",
+    "r": "845 m"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "13:15",
+    "e": "Sub-10 Masculino",
+    "r": "845 m"
+   },
+   {
+    "d": "2026-10-04",
+    "t": "13:25",
+    "e": "Peques (2019 y después)",
+    "r": "150 m"
+   }
+  ]
+ },
+ "rfea-2026-10-04-29o-medio-maraton-internacional-ciudad-de-albacete-2026": {
+  "_fuente_horario": "Reglamento oficial 2026",
+  "time": "09:30"
  }
 }
