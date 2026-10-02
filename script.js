@@ -4077,6 +4077,14 @@ function renderLive(){
     return;
   }
   items.forEach(l => { if((l.status === 'pendiente' || l.status === 'sin datos en directo') && enMarcha(l.first, l.last)) l.status = 'en directo'; });
+  // En directo solo lo que se está celebrando: cada competición entra justo a su hora de salida
+  // (lo de más tarde sigue en Próximas) y sale al terminar (pasa a Resultados)
+  for(let i = items.length - 1; i >= 0; i--) if(items[i].status !== 'en directo') items.splice(i, 1);
+  if(items.length === 0){
+    upd.hidden = true;
+    grid.innerHTML = `<div class="empty-state"><h3>${t('Sin competiciones en curso')}</h3>${t('Cuando haya pruebas hoy, aquí verás el marcador en vivo.')}</div>`;
+    return;
+  }
   const order = {'en directo':0,'sin datos en directo':1,'pendiente':2,'finalizado':3};
   items.sort((a,b)=> (order[a.status]??9)-(order[b.status]??9) || (a.first||'99').localeCompare(b.first||'99'));
   if(LIVE_DATA && LIVE_DATA.generated){
@@ -4840,6 +4848,8 @@ async function refreshLive(){
   if(live) LIVE_DATA = live;
   renderAll();
   setInterval(()=>{ if(!document.hidden) refreshLive(); }, LIVE_REFRESH_MS);
+  // cada 15 s se mira el reloj: una competición entra en En directo justo a su hora de salida
+  setInterval(()=>{ if(!document.hidden){ renderLive(); refreshTicker(); } }, 15 * 1000);
 })();
 
 /* ============================================================
