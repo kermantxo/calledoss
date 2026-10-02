@@ -279,7 +279,8 @@ window.CALLEDOSS_EN = {
   "Atletas a destacar": "Athletes to watch",
   "{n} atletas a destacar": "{n} athletes to watch",
   "no son los únicos: hay {n} inscritos en total": "not the only ones: there are {n} entrants in total",
-  "Se revisa cada día. En cuanto la organización publique la lista, aquí aparecerán los atletas a destacar.": "Checked every day. As soon as the organisers publish the list, the athletes to watch will appear here."
+  "Se revisa cada día. En cuanto la organización publique la lista, aquí aparecerán los atletas a destacar.": "Checked every day. As soon as the organisers publish the list, the athletes to watch will appear here.",
+  "1 atleta a destacar": "1 athlete to watch"
  },
  "text": {
   "Pista Aire libre": "Outdoor track",

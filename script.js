@@ -4195,7 +4195,7 @@ function renderCompAccordion(){
     const etiqueta = esIntlSinEspanoles(ev, pvL) && !nElite
       ? (ev.schedule && ev.schedule.length ? '🕒 ' + t('programa prueba a prueba') : '')
       : pvL && pvL.status === 'publicados'
-      ? (nDest + nElite ? `⭐ ${t('{n} atletas a destacar', {n: nDest + nElite})}` : `📋 ${t('{n} inscritos', {n: pvL.n_inscritos})}`)
+      ? (nDest + nElite ? `⭐ ${nDest + nElite === 1 ? t('1 atleta a destacar') : t('{n} atletas a destacar', {n: nDest + nElite})}` : `📋 ${t('{n} inscritos', {n: pvL.n_inscritos})}`)
       : '📋 ' + t('inscritos no publicados aún');
     let body = '';
     if(isOpen){
