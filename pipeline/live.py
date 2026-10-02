@@ -80,8 +80,11 @@ def tick(http, health, force=False):
                                          "links": w.get("links", {}), "status": "pendiente", "data": None})
         active = _in_window(w, at)
         ended = at > dt.datetime.fromisoformat(w["end"])
+        # ya ha empezado la prueba (hora de salida conocida) y aún no ha acabado: está «en directo»
+        started = w.get("schedule_known") and at >= dt.datetime.fromisoformat(w["start"]) + BEFORE and not ended
         if not w["poll"]:
-            st["status"] = "finalizado" if ended else ("sin datos en directo" if active or at >= dt.datetime.fromisoformat(w["start"]) else "pendiente")
+            st["status"] = "finalizado" if ended else ("en directo" if started else
+                                                       "sin datos en directo" if active or at >= dt.datetime.fromisoformat(w["start"]) else "pendiente")
             continue
         if ended and st["status"] != "finalizado":
             # cierre: último intento de pasar a Resultados
@@ -128,6 +131,8 @@ def tick(http, health, force=False):
             st["data"] = data
             st["status"] = "en directo"
             st["updated"] = iso_now()
+        elif started:
+            st["status"] = "en directo"  # en marcha, aunque el cronometrador aún no haya publicado nada
         elif st["status"] != "en directo":
             st["status"] = "sin datos en directo"
     live["generated"] = iso_now()

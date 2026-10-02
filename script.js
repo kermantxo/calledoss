@@ -4015,7 +4015,7 @@ function backToCalendar(){
 let openLiveComp = null;
 
 const LIVE_BADGE = {
-  'en directo':           {txt:t('EN DIRECTO'), live:true},
+  'en directo':           {txt:t('DIRECTO'), live:true},
   'sin datos en directo': {txt:t('SIN DATOS EN DIRECTO'), live:false},
   'pendiente':            {txt:t('HOY'), live:false},
   'finalizado':           {txt:t('FINALIZADO'), live:false},
@@ -4030,6 +4030,17 @@ function liveRows(rows){
       <span class="sb-name">${esc(r.name||'')}${(r.nat||r.club)?`<small>${esc([r.nat, r.club].filter(Boolean).join(' · '))}</small>`:''}</span>
       <span class="sb-mark">${esc(r.mark||'')}${r.note?` <small>${esc(td(r.note))}</small>`:''}</span>
     </div>`;}).join('')}</div>`;
+}
+
+// ¿Se está celebrando ahora? Hoy, desde la hora de salida hasta 2 h después de la última prueba
+// (si solo se sabe la salida, 5 h: da para un maratón), aunque el cronometrador aún no haya publicado nada
+function enMarcha(first, last){
+  if(!first) return false;
+  const ahora = new Intl.DateTimeFormat('es-ES', {hour:'2-digit', minute:'2-digit', hour12:false, timeZone:'Europe/Madrid'}).format(new Date());
+  const mas = (h, n) => { const [a, b] = String(h).split(':').map(Number); return String(Math.min(23, a + n)).padStart(2,'0') + ':' + String(b).padStart(2,'0'); };
+  const f = String(first).padStart(5, '0');
+  const fin = last && last !== first ? mas(last, 2) : mas(first, 5);
+  return ahora >= f && ahora <= fin;
 }
 
 function horarioPrevisto(l){
@@ -4065,6 +4076,7 @@ function renderLive(){
     grid.innerHTML = `<div class="empty-state"><h3>${t('Sin competiciones en curso')}</h3>${t('Cuando haya pruebas hoy, aquí verás el marcador en vivo.')}</div>`;
     return;
   }
+  items.forEach(l => { if((l.status === 'pendiente' || l.status === 'sin datos en directo') && enMarcha(l.first, l.last)) l.status = 'en directo'; });
   const order = {'en directo':0,'sin datos en directo':1,'pendiente':2,'finalizado':3};
   items.sort((a,b)=> (order[a.status]??9)-(order[b.status]??9) || (a.first||'99').localeCompare(b.first||'99'));
   if(LIVE_DATA && LIVE_DATA.generated){
@@ -4088,7 +4100,7 @@ function renderLive(){
           ${liveRows(e.rows)}`).join('');
         if(d.pdf) body += `<div class="mark-row" style="grid-template-columns:1fr"><span>📄 <a href="${d.pdf}" target="_blank" rel="noopener">${t('Resultados en PDF')}</a></span></div>`;
       } else {
-        body += `<div class="mark-row" style="grid-template-columns:1fr"><span>${l.status==='finalizado' ? t('Competición terminada. Los resultados aparecerán en la sección Resultados en cuanto se publiquen.') : t('Sin datos en directo.') + ' ' + horarioPrevisto(l) + '.'}</span></div>`;
+        body += `<div class="mark-row" style="grid-template-columns:1fr"><span>${l.status==='finalizado' ? t('Competición terminada. Los resultados aparecerán en la sección Resultados en cuanto se publiquen.') : l.status==='en directo' ? t('En marcha. Los resultados aparecerán aquí en cuanto el cronometrador los publique.') : t('Sin datos en directo.') + ' ' + horarioPrevisto(l) + '.'}</span></div>`;
       }
       if(d.schedule && d.schedule.length){
         body += `<div class="mark-row" style="grid-template-columns:1fr"><span><b>${t('Próximas pruebas')}</b></span></div>` +
@@ -4103,7 +4115,7 @@ function renderLive(){
           <h3>${esc(l.name)}</h3>
           <div class="meet">${esc(l.place||'')}${l.place?' · ':''}${horarioPrevisto(l)}${d.done!=null?` · ${t('{done}/{total} pruebas terminadas', {done: d.done, total: d.total})}`:''}</div>
         </div>
-        <div class="badge-live" style="${b.live?'':'background:var(--gray-dim)'}">${b.live?"<span class='live-dot'></span>":''}${b.txt}</div>
+        <div class="badge-live ${b.live ? 'is-on' : ''}" style="${b.live?'':'background:var(--gray-dim)'}">${b.live?"<span class='live-dot'></span>":''}${b.txt}</div>
       </div>
       ${body}
     </div>`;
@@ -4210,7 +4222,8 @@ function renderCompAccordion(){
         <button class="comp-pill" style="margin-top:10px;" onclick="showCompetitionDetail('${ev.id}')">${t('Ver ficha completa →')}</button>
       </div>`;
     }
-    const enDirecto = LIVE_DATA && LIVE_DATA.date === hoyISO() && ((LIVE_DATA.items || {})[ev.id] || {}).status === 'en directo';
+    const stLive = LIVE_DATA && LIVE_DATA.date === hoyISO() ? ((LIVE_DATA.items || {})[ev.id] || {}).status : '';
+    const enDirecto = stLive === 'en directo' || (ev.date === hoyISO() && stLive !== 'finalizado' && enMarcha(ev.time, ev.time_end));
     return `${head}
       <div class="comp-accordion-item">
         <button class="comp-pill ${isOpen?'active':''}" data-id="${ev.id}">${enDirecto ? `<span class="status-chip live"><span class="live-dot"></span>${t('En directo')}</span> ` : ''}${esc(ev.name)}

@@ -280,7 +280,8 @@ window.CALLEDOSS_EN = {
   "no son los únicos: hay {n} inscritos en total": "not the only ones: there are {n} entrants in total",
   "Se revisa cada día. En cuanto la organización publique la lista, aquí aparecerán los atletas a destacar.": "Checked every day. As soon as the organisers publish the list, the athletes to watch will appear here.",
   "1 atleta a destacar": "1 athlete to watch",
-  "¿Qué hay próximamente?": "What's coming up?"
+  "¿Qué hay próximamente?": "What's coming up?",
+  "En marcha. Los resultados aparecerán aquí en cuanto el cronometrador los publique.": "Under way. Results will appear here as soon as the timing company publishes them."
  },
  "text": {
   "Pista Aire libre": "Outdoor track",

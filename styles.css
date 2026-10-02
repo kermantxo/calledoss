@@ -1071,3 +1071,18 @@ nav.tabs a.lang-switch:hover{border-color:var(--brand);background:var(--brand);}
   nav.tabs a.lang-switch{align-self:flex-start;margin:12px 0 2px;padding:6px 14px;font-size:14px;border:1px solid #5a5551;}
 }
 .previa-grid.single{grid-template-columns:minmax(0,1fr);}
+
+/* ---------- DIRECTO en verde mientras se celebra la prueba ---------- */
+:root{ --live:#12A150; --live-dark:#0B7A3B; --live-tint:#E3F6EA; }
+.badge-live.is-on{background:var(--live);color:#fff;}
+.badge-live.is-on .live-dot{background:#fff;}
+.live-card.is-live{border-top-color:var(--live);}
+.status-chip.live{background:var(--live);color:#fff;}
+.status-chip.live .live-dot{background:#fff;}
+.pill-live{color:var(--live-dark);}
+.pill-live .live-dot{background:var(--live);}
+.ticker-bar.is-live{background:var(--live);}
+.ticker-bar.is-live .ticker-label{background:var(--live-dark);}
+.ticker-bar.is-live .ticker-label .live-dot{background:#fff;}
+.today-card.is-live{border-left-color:var(--live);background:linear-gradient(90deg, var(--live-tint), var(--card) 60%);}
+.live-dot.green{background:var(--live);}
