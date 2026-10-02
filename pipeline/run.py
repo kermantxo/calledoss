@@ -49,7 +49,9 @@ def previas_only():
     h, health = Http(), Health()
     health.run("rfealive", "RFEA Live · horarios", calendar_build.refresh_times, h, health, expect_min=0)
     live.plan(_items())  # con el horario nuevo, el directo sabe cuándo empezar
-    health.run("previas", "Previas (listas de inscritos)", previas.run, h, health, _items(), expect_min=0)
+    items = _items()
+    calendar_build.add_extra_links(items)  # enlaces añadidos a mano (pipeline/extra_links.json), p. ej. un PDF de inscritos
+    health.run("previas", "Previas (listas de inscritos)", previas.run, h, health, items, expect_min=0)
     health.save()
 
 
