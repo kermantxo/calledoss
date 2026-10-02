@@ -13,5 +13,103 @@
  "rfea-2026-10-04-campeonato-de-espana-de-campo-traves-master-individual-y-por": {
   "inscritos": "https://www.rfeacontent.es/competi/calendario2026/inscritos_cross_CtoESp_master_Hornachuelos.pdf",
   "directo": "https://smarttrackrfea.es/sch/2026AND67926"
+ },
+ "rfea-2026-10-03-xxxviii-milla-internacional-de-berango": {
+  "_fuente_horario": "https://www.berangoatletismo.com/horarios/ (díptico oficial 2026)",
+  "horario": "https://www.berangoatletismo.com/horarios/",
+  "time": "16:00",
+  "time_end": "19:30",
+  "schedule": [
+   {
+    "d": "2026-10-03",
+    "t": "16:00",
+    "e": "Sub-12 Femenino",
+    "r": "Milla (1.609 m)"
+   },
+   {
+    "d": "2026-10-03",
+    "t": "16:10",
+    "e": "Sub-12 Masculino",
+    "r": "Milla (1.609 m)"
+   },
+   {
+    "d": "2026-10-03",
+    "t": "16:20",
+    "e": "Sub-14 Femenino",
+    "r": "Milla (1.609 m)"
+   },
+   {
+    "d": "2026-10-03",
+    "t": "16:30",
+    "e": "Sub-14 Masculino",
+    "r": "Milla (1.609 m)"
+   },
+   {
+    "d": "2026-10-03",
+    "t": "16:40",
+    "e": "Sub-16 y Sub-18 Femenino",
+    "r": "Milla (1.609 m)"
+   },
+   {
+    "d": "2026-10-03",
+    "t": "16:55",
+    "e": "Sub-16 y Sub-18 Masculino",
+    "r": "Milla (1.609 m)"
+   },
+   {
+    "d": "2026-10-03",
+    "t": "17:10",
+    "e": "Sub-20 Femenino y Masculino",
+    "r": "Milla (1.609 m)"
+   },
+   {
+    "d": "2026-10-03",
+    "t": "17:25",
+    "e": "Máster Femenino y Popular/Senior Federadas",
+    "r": "Milla (1.609 m)"
+   },
+   {
+    "d": "2026-10-03",
+    "t": "17:35",
+    "e": "Máster Masculino",
+    "r": "Milla (1.609 m)"
+   },
+   {
+    "d": "2026-10-03",
+    "t": "17:45",
+    "e": "Popular/Senior Federados",
+    "r": "Milla (1.609 m)"
+   },
+   {
+    "d": "2026-10-03",
+    "t": "17:55",
+    "e": "Escuela Atlética Municipal de Berango (testimonial)",
+    "r": "Milla (1.609 m)"
+   },
+   {
+    "d": "2026-10-03",
+    "t": "18:15",
+    "e": "Paralímpicos",
+    "r": "Milla (1.609 m)"
+   },
+   {
+    "d": "2026-10-03",
+    "t": "18:45",
+    "e": "Exhibición relevo mixto",
+    "r": "Milla (1.609 m)"
+   },
+   {
+    "d": "2026-10-03",
+    "t": "19:10",
+    "e": "Élite Masculino",
+    "r": "Milla (1.609 m)"
+   },
+   {
+    "d": "2026-10-03",
+    "t": "19:30",
+    "e": "Élite Femenino",
+    "r": "Milla (1.609 m)"
+   }
+  ]
  }
 }

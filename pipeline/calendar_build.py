@@ -358,7 +358,12 @@ def add_extra_links(items):
     n = 0
     for it in items:
         for k, v in (extra.get(it["id"]) or {}).items():
-            it.setdefault("links", {})[k] = v
+            if k.startswith("_"):
+                continue
+            if k in ("schedule", "time", "time_end"):  # horario oficial copiado a mano
+                it[k] = v
+            else:
+                it.setdefault("links", {})[k] = v
             n += 1
         live_from_links(it)
     return n
