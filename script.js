@@ -3368,7 +3368,7 @@ const PAGE_META = {
   calendario: ['Calendario de atletismo 2026 · Calledoss', 'Todas las competiciones de atletismo de 2026 en España y las internacionales con españoles: pista, ruta, cross, trail y marcha.'],
   resultados: ['Resultados de atletismo 2026 · Calledoss', 'Resultados de cada competición de atletismo desde el 1 de enero: podios femenino y masculino y los españoles destacados.'],
   directo: ['Atletismo en directo · Calledoss', 'Marcador en directo de las competiciones de atletismo de hoy, con horarios y dónde verlas.'],
-  proximas: ['Próximas competiciones de atletismo · Calledoss', 'Las competiciones de los próximos 7 días con los inscritos españoles destacados de cada prueba.'],
+  proximas: ['Próximas competiciones de atletismo · Calledoss', 'Las competiciones de los próximos 7 días con los atletas a destacar de cada prueba.'],
   ranking: ['Ranking español de atletismo 2026 · Calledoss', 'El top 10 español de cada prueba en 2026, aire libre y pista cubierta, con datos oficiales de la RFEA.'],
   contacto: ['Contacto · Calledoss', 'Escribe a Calledoss: avisos de competiciones o resultados, propuestas para el pódcast de Calledoss y nuestras redes.'],
 };
@@ -4195,7 +4195,7 @@ function renderCompAccordion(){
     const etiqueta = esIntlSinEspanoles(ev, pvL) && !nElite
       ? (ev.schedule && ev.schedule.length ? '🕒 ' + t('programa prueba a prueba') : '')
       : pvL && pvL.status === 'publicados'
-      ? (nDest ? `🇪🇸 ${t('{n} españoles destacados', {n: nDest})}` : nElite ? `⭐ ${t('{n} en la élite', {n: nElite})}` : `📋 ${t('{n} inscritos', {n: pvL.n_inscritos})}`)
+      ? (nDest + nElite ? `⭐ ${t('{n} atletas a destacar', {n: nDest + nElite})}` : `📋 ${t('{n} inscritos', {n: pvL.n_inscritos})}`)
       : '📋 ' + t('inscritos no publicados aún');
     let body = '';
     if(isOpen){
@@ -4511,7 +4511,7 @@ function calMeta(ev){
 function renderDestacados(list){
   if(!list || !list.length) return '';
   return `<div class="event-block">
-    <div class="event-block-head"><h3>🇪🇸 ${t('Inscritos españoles destacados')}</h3><span>${list.length}</span></div>
+    <div class="event-block-head"><h3>⭐ ${t('Atletas a destacar')}</h3><span>${list.length}</span></div>
     <div class="athlete-list">${list.map(a=>`
       <div class="athlete-row">
         <div class="athlete-row-name">${esc(a.name)}</div>
@@ -4771,14 +4771,14 @@ function verDest(list){
 
 // Contenido de la previa de una cita (se muestra dentro de Próximas)
 function previaBody(p){
-  if(!p || p.status !== 'publicados') return `<div class="empty-state"><h3>${t('Inscritos no publicados aún')}</h3>${t('Se revisa cada día. En cuanto la organización publique la lista, aquí aparecerán los inscritos españoles destacados.')}</div>`;
+  if(!p || p.status !== 'publicados') return `<div class="empty-state"><h3>${t('Inscritos no publicados aún')}</h3>${t('Se revisa cada día. En cuanto la organización publique la lista, aquí aparecerán los atletas a destacar.')}</div>`;
   const ch = p.changes || {};
   const sexos = expectedSexes(p.name);   // «Carrera de la Mujer», Liga Iberdrola...: solo la columna que corresponde
   const evs = (p.events||[]).map(e => ({...e, M: verDest(e.M), F: verDest(e.F), otros: verDest(e.otros)}))
     .filter(e => e.M.length || e.F.length || e.otros.length)
     .sort((a, b) => (/(é|e)lite/i.test(b.name) ? 1 : 0) - (/(é|e)lite/i.test(a.name) ? 1 : 0));   // la élite, primero
   const conElite = evs.some(e => [...e.M, ...e.F, ...e.otros].some(a => (a.reasons||[]).some(t => t.startsWith('Dorsal de élite'))));
-  return `<div class="data-note">🇪🇸 <b>${t('Inscritos españoles destacados')}</b> · ${p.n_inscritos ? t('{n} inscritos en total', {n: p.n_inscritos}) : t('élite anunciada (la lista completa de inscritos no es pública)')}
+  return `<div class="data-note">⭐ <b>${t('Atletas a destacar')}</b> · ${p.n_inscritos ? t('no son los únicos: hay {n} inscritos en total', {n: p.n_inscritos}) : t('élite anunciada (la lista completa de inscritos no es pública)')}
       ${conElite ? '<br>🏅 ' + t('Incluye a los favoritos con <b>dorsal de élite</b> asignado por la organización (la lista no indica la nacionalidad).') : ''} · ${t('actualizado')} ${p.updated ? fechaCorta(p.updated.slice(0,10)) + ' ' + horaDe(p.updated) : ''}
       ${ch.altas || ch.bajas ? `<br>${t('Cambios desde la última revisión: <b>+{altas}</b> altas, <b>−{bajas}</b> bajas', {altas: ch.altas||0, bajas: ch.bajas||0})}` : ''}
       ${(ch.altas_destacadas||[]).length ? `<br>⭐ ${t('Nuevos destacados:')} ${ch.altas_destacadas.map(esc).join(', ')}` : ''}

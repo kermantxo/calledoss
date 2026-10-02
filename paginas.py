@@ -28,7 +28,7 @@ PAGES = {
     "directo": ("Atletismo en directo · Calledoss",
                 "Marcador en directo de las competiciones de atletismo de hoy, con horarios y dónde verlas."),
     "proximas": ("Próximas competiciones de atletismo · Calledoss",
-                 "Las competiciones de los próximos 7 días con los inscritos españoles destacados de cada prueba."),
+                 "Las competiciones de los próximos 7 días con los atletas a destacar de cada prueba."),
     "ranking": ("Ranking español de atletismo 2026 · Calledoss",
                 "El top 10 español de cada prueba en 2026, aire libre y pista cubierta, con datos oficiales de la RFEA."),
     "contacto": ("Contacto · Calledoss",
