@@ -37,7 +37,9 @@ from .sources import rfea, rfealive, worldathletics, timers, sportmaniacs, faali
 
 STATE = "state/backfill.json"
 # Súbelo cuando se añadan fuentes o lectores nuevos: todo lo "sin resultados" se vuelve a intentar.
-VERSION = 20
+# formatos de PDF que se vuelven a leer al subir VERSION (los que han cambiado de lector)
+REREAD_FORMATS = ("columnas", "generic", "internacional", "conersys")
+VERSION = 21  # 21: lector Conersys mejorado (sin dorsal, invitados «(I)», intentos de concursos)
 MISSING = "results/sin_resultados.json"
 START = "2026-01-01"
 COMBINED = re.compile(r"decatlon|heptatlon|pentatlon|hexatlon|octatlon|triatlon|tetratlon")
@@ -371,7 +373,7 @@ class Finder:
             self.state.setdefault(k, {})
         if self.state.get("version") != VERSION:
             # lectores nuevos: se reintenta lo que no se encontró y se rehace lo leído por columnas
-            col_urls = {k for k, v in self.state["pdf_cache"].items() if v.get("format") in ("columnas", "generic", "internacional")}
+            col_urls = {k for k, v in self.state["pdf_cache"].items() if v.get("format") in REREAD_FORMATS}
             by_url = {x.get("url"): x for x in _index()["items"]}
             redo_sources = {"Runvasport (PDF)", "Web de la competición (PDF)", "Federación Andaluza (PDF)", "RFEA (PDF)"}
             # nombres abreviados de RFEA Live ('H Santos Llorente'): se vuelven a pedir completos
@@ -415,7 +417,7 @@ class Finder:
                 if not x.get("cal_id"):
                     unstore(x["id"])
             self.state["pdf_cache"] = {k: v for k, v in self.state["pdf_cache"].items()
-                                       if v.get("events") and v.get("format") not in ("columnas", "generic", "internacional")}
+                                       if v.get("events") and v.get("format") not in REREAD_FORMATS}
             self.state["version"] = VERSION
         self._rl_index = None
         self._rfea_pdfs = None
