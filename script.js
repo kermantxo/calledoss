@@ -3369,7 +3369,7 @@ const PAGE_META = {
   resultados: ['Resultados de atletismo 2026 · Calledoss', 'Resultados de cada competición de atletismo desde el 1 de enero: podios femenino y masculino y los españoles destacados.'],
   directo: ['Atletismo en directo · Calledoss', 'Marcador en directo de las competiciones de atletismo de hoy, con horarios y dónde verlas.'],
   proximas: ['Próximas competiciones de atletismo · Calledoss', 'Las competiciones de los próximos 7 días con los atletas a destacar de cada prueba.'],
-  ranking: ['Ranking español de atletismo 2026 · Calledoss', 'El top 10 español de cada prueba en 2026, aire libre y pista cubierta, con datos oficiales de la RFEA.'],
+  ranking: ['Ranking español de atletismo 2026 · Calledoss', 'El top 10 español de cada prueba en 2026, aire libre, pista cubierta y ruta, con datos oficiales de la RFEA.'],
   contacto: ['Contacto · Calledoss', 'Escribe a Calledoss: avisos de competiciones o resultados, propuestas para el pódcast de Calledoss y nuestras redes.'],
 };
 function pageHref(viewName){
@@ -4412,7 +4412,7 @@ function renderResultsSeason(){
    ============================================================ */
 // Ranking español del año: datos oficiales de la RFEA (ranking.json, se actualiza cada día)
 let RANKING_DATA = null;
-const RANK_SEASON_LABEL = {AL: t('Aire libre'), PC: t('Pista cubierta')};
+const RANK_SEASON_LABEL = {AL: t('Aire libre'), PC: t('Pista cubierta'), RU: t('Ruta')};
 
 function rankList(){
   const st = document.getElementById('rankSeason').value || 'AL';

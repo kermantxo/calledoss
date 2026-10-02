@@ -30,7 +30,7 @@ PAGES = {
     "proximas": ("Próximas competiciones de atletismo · Calledoss",
                  "Las competiciones de los próximos 7 días con los atletas a destacar de cada prueba."),
     "ranking": ("Ranking español de atletismo 2026 · Calledoss",
-                "El top 10 español de cada prueba en 2026, aire libre y pista cubierta, con datos oficiales de la RFEA."),
+                "El top 10 español de cada prueba en 2026, aire libre, pista cubierta y ruta, con datos oficiales de la RFEA."),
     "contacto": ("Contacto · Calledoss",
                  "Escribe a Calledoss: avisos de competiciones o resultados, propuestas para el pódcast de Calledoss y nuestras redes."),
 }

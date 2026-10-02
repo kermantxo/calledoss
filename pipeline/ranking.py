@@ -25,14 +25,19 @@ INDOOR_ONLY = re.compile(r"^(60\s?m|60 m v|pentatl[oó]n|heptatl[oó]n st)", re.
 SKIP = re.compile(r"^(50 m v|150m|2 millas|300m$|500m$|600m$|1\.000m$|2\.000m$|milla$|1 hora)", re.I)
 
 
-def event_options(http, season, sex):
-    r = http.get("%s/options/ranking/%s/AL/%d/0/%d/" % (BASE, season, CAT[sex], GENDER[sex]))
+def event_options(http, season, sex, kind="AL"):
+    """Pruebas del ranking. kind: AL (pista), RT (ruta), MA (marcha en ruta)."""
+    r = http.get("%s/options/ranking/%s/%s/%d/0/%d/" % (BASE, season, kind, CAT[sex], GENDER[sex]))
     return [(e["key"], clean(e["value"])) for e in r.json().get("event", []) if "::" in (e.get("key") or "")]
 
 
 def nice_event(name):
     n = re.sub(r"\s+(MASC|FEM)\.?(\s+(AL|ST))?$|\s+(Mas|Fem|M)$", "", name.strip())
     n = re.sub(r"\s+ST$", "", n)
+    n = re.sub(r"\s+(masc|fem)\.?$", "", n, flags=re.I)
+    n = re.sub(r"\s+Ruta(\s+(Mujeres|Hombres))?$|\s+(Mujeres|Hombres)$", "", n, flags=re.I)
+    n = re.sub(r"\s+(masc|fem)\.?$", "", n, flags=re.I)
+    n = re.sub(r"^(\d+)km\b", r"\1 km", n)
     n = re.sub(r"\s+AL$", "", n)
     n = n.replace(" m v.", " m vallas").replace("Obst.", "obstáculos")
     return n
@@ -79,7 +84,7 @@ def _rank(rows):
 def run(http, health):
     season = str(today().year)
     out = {"generated": iso_now(), "season": season, "source": BASE + "/ranking",
-           "seasons": {"AL": {"F": [], "M": []}, "PC": {"F": [], "M": []}}}
+           "seasons": {"AL": {"F": [], "M": []}, "PC": {"F": [], "M": []}, "RU": {"F": [], "M": []}}}
     prev = load_json("ranking.json", {}) or {}
     n = 0
     for sex in ("F", "M"):
@@ -109,6 +114,28 @@ def run(http, health):
                     continue  # la RFEA repite algunas pruebas en la lista (p. ej. "Pentatlón" y "Pentatlón ST")
                 if rows:
                     out["seasons"][style][sex].append({"event": name, "rows": _rank(rows)})
+                    n += 1
+    # ruta: carreras (RT) y marcha en ruta (MA), con su propio ranking de la RFEA
+    for sex in ("F", "M"):
+        for kind in ("RT", "MA"):
+            try:
+                opts = event_options(http, season, sex, kind)
+            except Exception as e:
+                health.note("ranking", "warning", "Ranking RFEA de ruta (%s %s): %s" % (kind, sex, str(e)[:80]))
+                continue
+            for key, label in opts:
+                name = nice_event(label)
+                if kind == "MA" and "marcha" not in name.lower():
+                    name += " marcha"
+                if any(e["event"] == name for e in out["seasons"]["RU"][sex]):
+                    continue
+                try:
+                    rows = fetch(http, season, sex, key)
+                except Exception as e:
+                    health.note("ranking", "warning", "Ranking RFEA %s (%s): %s" % (name, sex, str(e)[:80]))
+                    continue
+                if rows:
+                    out["seasons"]["RU"][sex].append({"event": name, "rows": _rank(rows)})
                     n += 1
     if n == 0 and prev.get("seasons"):
         return 0  # la RFEA no ha respondido: se conserva el ranking anterior

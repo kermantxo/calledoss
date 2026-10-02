@@ -194,7 +194,6 @@ window.CALLEDOSS_EN = {
   "Marcador en directo de las competiciones de atletismo de hoy, con horarios y dónde verlas.": "Live scoreboard for today's athletics competitions, with timetables and where to watch them.",
   "Próximas competiciones de atletismo · Calledoss": "Upcoming athletics competitions · Calledoss",
   "Ranking español de atletismo 2026 · Calledoss": "2026 Spanish athletics rankings · Calledoss",
-  "El top 10 español de cada prueba en 2026, aire libre y pista cubierta, con datos oficiales de la RFEA.": "The Spanish top 10 in every event in 2026, outdoor and indoor, with official data from the Spanish Athletics Federation (RFEA).",
   "Contacto · Calledoss": "Contact · Calledoss",
   "Escribe a Calledoss: avisos de competiciones o resultados, propuestas para el pódcast de Calledoss y nuestras redes.": "Get in touch with Calledoss: tip-offs about competitions or results, ideas for the Calledoss podcast, and our social media.",
   "Aceptar": "Accept",
@@ -216,7 +215,6 @@ window.CALLEDOSS_EN = {
   "Contacto": "Contact",
   "El atletismo español al día": "Spanish athletics, up to date",
   "El pódcast": "The podcast",
-  "El top 10 español de cada prueba con los datos oficiales de la Real Federación Española de Atletismo, separado en temporada de aire libre y de pista cubierta. Se actualiza solo cada día.": "The Spanish top 10 in every event, with official data from the Royal Spanish Athletics Federation (RFEA), split into the outdoor and indoor seasons. Updated automatically every day.",
   "Entérate de los resultados, competiciones y rankings de cada modalidad en Calledoss.": "Results, competitions and rankings for every discipline of Spanish athletics, all in one place.",
   "Enviar mensaje": "Send message",
   "Escríbenos": "Write to us",
@@ -262,7 +260,6 @@ window.CALLEDOSS_EN = {
   "Todas las competiciones ya disputadas esta temporada, desde el 1 de enero hasta hoy. Los resultados se añaden solos en cuanto se publican. Filtra por mes, modalidad y categoría.": "Every competition held this season, from 1 January to today. Results are added automatically as soon as they are published. Filter by month, discipline and category.",
   "Todas las secciones": "All sections",
   "Todos los países": "All countries",
-  "Top 10 español, aire libre y pista cubierta.": "Spanish top 10, outdoor and indoor.",
   "Tu privacidad": "Your privacy",
   "Ver próximas →": "See upcoming →",
   "Ver resultados →": "See results →",
@@ -281,7 +278,11 @@ window.CALLEDOSS_EN = {
   "Se revisa cada día. En cuanto la organización publique la lista, aquí aparecerán los atletas a destacar.": "Checked every day. As soon as the organisers publish the list, the athletes to watch will appear here.",
   "1 atleta a destacar": "1 athlete to watch",
   "¿Qué hay próximamente?": "What's coming up?",
-  "En marcha. Los resultados aparecerán aquí en cuanto el cronometrador los publique.": "Under way. Results will appear here as soon as the timing company publishes them."
+  "En marcha. Los resultados aparecerán aquí en cuanto el cronometrador los publique.": "Under way. Results will appear here as soon as the timing company publishes them.",
+  "El top 10 español de cada prueba con los datos oficiales de la Real Federación Española de Atletismo, separado en aire libre, pista cubierta y ruta. Se actualiza solo cada día.": "The Spanish top 10 in every event, with official data from the Royal Spanish Athletics Federation (RFEA), split into outdoor, indoor and road. Updated automatically every day.",
+  "Ruta": "Road",
+  "Top 10 español: aire libre, pista cubierta y ruta.": "Spanish top 10: outdoor, indoor and road.",
+  "El top 10 español de cada prueba en 2026, aire libre, pista cubierta y ruta, con datos oficiales de la RFEA.": "The Spanish top 10 in every event in 2026, outdoor, indoor and road, with official data from the Spanish Athletics Federation (RFEA)."
  },
  "text": {
   "Pista Aire libre": "Outdoor track",
@@ -1069,6 +1070,10 @@ window.CALLEDOSS_EN = {
    "«y»",
    "and",
    1
+  ],
+  [
+   "«horas»",
+   "hours"
   ]
  ],
  "reasons": [
