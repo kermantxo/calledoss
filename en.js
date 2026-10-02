@@ -620,7 +620,14 @@ window.CALLEDOSS_EN = {
   "Élite anunciada en prensa (5 Más el Descuento): 1:07:18 en media maratón": "Elite field reported in the press (5 Más el Descuento): 1:07:18 half marathon",
   "Élite anunciada en prensa (5 Más el Descuento): 1:08:16 en media maratón": "Elite field reported in the press (5 Más el Descuento): 1:08:16 half marathon",
   "Anunciada en prensa (Correr en La Rioja): 2ª en 2025 y ganadora en 2024 del Maratón de Logroño; campeona del mundo de 100 km M40": "Reported in the press (Correr en La Rioja): 2nd in 2025 and winner in 2024 of the Logroño Marathon; world 100 km champion (W40)",
-  "Anunciada en prensa (Correr en La Rioja): ganadora del Maratón de Logroño en 2025; este año corre la media maratón": "Reported in the press (Correr en La Rioja): winner of the 2025 Logroño Marathon; running the half marathon this year"
+  "Anunciada en prensa (Correr en La Rioja): ganadora del Maratón de Logroño en 2025; este año corre la media maratón": "Reported in the press (Correr en La Rioja): winner of the 2025 Logroño Marathon; running the half marathon this year",
+  "Élite anunciada en prensa (Diario de Valladolid): plusmarquista español de 800 m; bronce en el Mundial en pista cubierta y en el Europeo de 2026": "Elite field reported in the press (Diario de Valladolid): Spanish 800 m record holder; bronze at the 2026 World Indoor and European Championships",
+  "Élite anunciada en prensa (Diario de Valladolid): campeón de España sub-23 de 1.500 m en pista cubierta y medallista absoluto en la milla": "Elite field reported in the press (Diario de Valladolid): Spanish U23 indoor 1500 m champion and senior national medallist in the mile",
+  "Élite anunciada en prensa (Diario de Valladolid): medallista nacional sub-23": "Elite field reported in the press (Diario de Valladolid): national U23 medallist",
+  "Élite anunciada en prensa (Diario de Valladolid): medallista nacional absoluto de 3.000 m obstáculos": "Elite field reported in the press (Diario de Valladolid): senior national medallist in the 3000 m steeplechase",
+  "Élite anunciada en prensa (Diario de Valladolid): olímpica; subcampeona de los Juegos Mediterráneos 2026 en 800 m": "Elite field reported in the press (Diario de Valladolid): Olympian; 800 m silver medallist at the 2026 Mediterranean Games",
+  "Élite anunciada en prensa (Diario de Valladolid): campeona de España sub-23 de 1.500 m; ganadora de la élite de la Milla de Valladolid 2025": "Elite field reported in the press (Diario de Valladolid): Spanish U23 1500 m champion; winner of the elite race at the 2025 Valladolid Mile",
+  "Élite anunciada en prensa (Diario de Valladolid): campeona de España en categorías inferiores y medallista nacional de campo a través": "Elite field reported in the press (Diario de Valladolid): Spanish champion in youth categories and national cross country medallist"
  },
  "rules": [
   [
