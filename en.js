@@ -268,7 +268,6 @@ window.CALLEDOSS_EN = {
   "Ver resultados →": "See results →",
   "← Volver al calendario": "← Back to the calendar",
   "¿Falta una competición, ves un resultado mal o quieres proponernos algo para el pódcast? Cuéntanoslo y te contestamos por email.": "Is a competition missing, is a result wrong, or do you have an idea for the podcast? Tell us and we'll reply by email.",
-  "¿Qué hay esta semana?": "What's on this week?",
   "Últimos resultados": "Latest results",
   "📡 Resultados automáticos de la Real Federación Española de Atletismo, World Athletics, Diamond League y ADOC, revisados varias veces al día.": "📡 Automatic results from the Royal Spanish Athletics Federation (RFEA), World Athletics, the Diamond League and ADOC, checked several times a day.",
   "{n} en la élite": "{n} in the elite field",
@@ -280,7 +279,8 @@ window.CALLEDOSS_EN = {
   "{n} atletas a destacar": "{n} athletes to watch",
   "no son los únicos: hay {n} inscritos en total": "not the only ones: there are {n} entrants in total",
   "Se revisa cada día. En cuanto la organización publique la lista, aquí aparecerán los atletas a destacar.": "Checked every day. As soon as the organisers publish the list, the athletes to watch will appear here.",
-  "1 atleta a destacar": "1 athlete to watch"
+  "1 atleta a destacar": "1 athlete to watch",
+  "¿Qué hay próximamente?": "What's coming up?"
  },
  "text": {
   "Pista Aire libre": "Outdoor track",
