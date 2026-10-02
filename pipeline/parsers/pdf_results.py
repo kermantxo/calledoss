@@ -26,10 +26,15 @@ EVENT_RE = re.compile(
     r"Decatl[oó]n.*|Heptatl[oó]n.*|Pentatl[oó]n.*|Hexatl[oó]n.*|Octatl[oó]n.*|Marat[oó]n.*|Media Marat[oó]n.*|"
     r"Milla.*|Relevo.*|4x\d+.*|Cross.*|Marcha.*)\s+(Hombres|Mujeres|Mixto|Masculino|Femenino)\b.*$",
     re.I)
-ROUND_RE = re.compile(r"^(Final|Ronda \d|Semifinal|Eliminatoria|Serie|Series|Clasificaci[oó]n|Combinadas|Final [A-Z]|Carrera)\b.*", re.I)
-NAME_DOB = re.compile(r"^([A-Za-zÀ-ÿ'`´\-\. …]+?)\s+(\d{1,2}/\d{1,2}/\d{4})\s*$")
+ROUND_RE = re.compile(r"^(Final|Ronda \d|Semifinal|Eliminatoria|Serie|Series|Clasificaci[oó]n|Calificaci[oó]n|Combinadas|Final [A-Z]|Carrera)\b.*", re.I)
+# «NOMBRE APELLIDOS 11/3/2006»; en concursos detrás van los intentos («15.22 X 15.35», «- - O XO»)
+# y los invitados de otra federación llevan «(I)» detrás del nombre
+ATTEMPT = r"(?:[XOxo\-r]+|\d{1,2}\.\d{2}|NM|P)"
+NAME_DOB = re.compile(r"^([A-Za-zÀ-ÿ'`´\-\. …]+?)(?:\s*\(I\)\s*|\s+)(\d{1,2}/\d{1,2}/\d{4})(?:\s+" + ATTEMPT + r")*\s*$")
+TRAILING_ATTEMPTS = re.compile(r"(?:\s+" + ATTEMPT + r")+\s*$")
 # línea de resultado: puesto dorsal CLUBCODE ... marca [viento] [Q/q/...]
-RESULT_LINE = re.compile(r"^(\d{1,3}|DNF|DNS|DQ|-)\s+(\d{1,5})\s+([A-Z0-9]{2,8})\s+(.*)$")
+# (en algunos campeonatos autonómicos la columna del dorsal va vacía: «1 PAMNA 3 6.87 MMP 8»)
+RESULT_LINE = re.compile(r"^(\d{1,3}|DNF|DNS|DQ|-)\s+(?:(\d{1,5})\s+)?([A-Z][A-Z0-9]{1,7}|[0-9][A-Z0-9]{1,7})\s+(.*)$")
 
 
 def extract_pages(content):
@@ -74,6 +79,8 @@ def parse_conersys(pages):
     cur = None
     for text in pages:
         lines = [l for l in (x.strip() for x in text.splitlines()) if l]
+        # «60m vallasHombres»: falta el espacio antes del sexo
+        lines = [re.sub(r"(?<=[a-zé)])(Hombres|Mujeres|Mixto)\b", r" \1", l) for l in lines]
         if not lines:
             continue
         if not meta:
@@ -105,13 +112,13 @@ def parse_conersys(pages):
             r = RESULT_LINE.match(l)
             if r and pending_name:
                 mark, wind, note = _last_mark(r.group(4))
-                cur["rows"].append({"pos": r.group(1), "bib": r.group(2), "name": _nice(pending_name),
+                cur["rows"].append({"pos": r.group(1), "bib": r.group(2) or "", "name": _nice(pending_name),
                                     "club_code": r.group(3), "mark": mark, "wind": wind, "note": note, "club": ""})
                 pending_name = None
                 continue
             if cur["rows"] and not cur["rows"][-1]["club"] and not RESULT_LINE.match(l) and not NAME_DOB.match(l):
                 # la línea siguiente al resultado es "Club  Licencia"
-                c = re.sub(r"\s+\S*\d\S*…?$", "", l).strip()
+                c = re.sub(r"\s+\S*\d\S*…?$", "", TRAILING_ATTEMPTS.sub("", l)).strip()
                 if c and len(c) < 60 and not re.match(r"^(Calificaci|Pasos|Leyend|Rank|Nombre|Club|Puesto)", c):
                     cur["rows"][-1]["club"] = c
     events = [e for e in events if e["rows"]]
