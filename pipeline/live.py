@@ -14,7 +14,7 @@ import re
 
 from .common import MADRID, load_json, now, save_json, today, iso_now
 from .results import by_item, _index
-from .sources import rfealive, worldathletics, timers
+from .sources import rfealive, smarttrack, worldathletics, timers
 
 BEFORE = dt.timedelta(hours=1)
 AFTER = dt.timedelta(hours=2)
@@ -23,7 +23,7 @@ DEFAULT_START, DEFAULT_END = "08:00", "21:00"  # si no se conoce el horario
 
 def _pollable(it):
     kinds = {x.get("kind") for x in it.get("live") or []}
-    return bool(kinds & {"rfealive", "wa", "cronomancha", "pdf", "timingsys", "page"})
+    return bool(kinds & {"rfealive", "smarttrack", "wa", "cronomancha", "pdf", "timingsys", "page"})
 
 
 def plan(items):
@@ -145,6 +145,19 @@ def _poll(http, it, at):
             return {"events": events[::-1], "schedule": [{"time": e["time"], "event": e["event"], "round": e["round"],
                                                           "status": e.get("status") or "Por disputar"} for e in nxt],
                     "done": len(done), "total": len(today_evs)}
+        if kind == "smarttrack":
+            sc = [e for e in smarttrack.schedule(http, lv["chid"]) if not smarttrack.is_team(e)]
+            today_evs = [e for e in sc if e["date"] == at.date().isoformat()] or sc
+            done = [e for e in today_evs if e["done"]]
+            events = []
+            for e in done[-6:]:  # las últimas pruebas terminadas, con el nombre completo del PDF oficial
+                rows = smarttrack_rows(http, e)[:8]
+                if rows:
+                    events.append({"name": e["event"], "round": e["round"], "time": e["time"], "rows": rows})
+            nxt = [e for e in today_evs if not e["done"]][:8]
+            return {"events": events[::-1], "schedule": [{"time": e["time"], "event": e["event"], "round": e["round"],
+                                                          "status": e["status"] or "Por disputar"} for e in nxt],
+                    "done": len(done), "total": len(today_evs)}
         if kind == "wa":
             start = dt.date.fromisoformat(it["date"])
             day = (at.date() - start).days + 1
@@ -176,6 +189,23 @@ def _poll(http, it, at):
             if resp.status_code == 200 and "pdf" in (resp.headers.get("content-type") or "").lower():
                 return {"events": [{"name": "Resultados publicados (PDF)", "round": "", "rows": []}], "pdf": lv["url"]}
     return None
+
+
+def smarttrack_rows(http, e):
+    """Clasificación de una prueba de SmartTrack: del PDF oficial (nombres completos) o, si aún no está,
+    el podio que publica la propia web."""
+    from .parsers import pdf_results
+    if e.get("results_pdf"):
+        try:
+            resp = http.get(e["results_pdf"], timeout=90)
+            if b"%PDF" in resp.content[:1024]:
+                res = pdf_results.parse(resp.content)
+                rows = [r for ev in res["events"] for r in ev["rows"]]
+                if rows:
+                    return [{k: r.get(k, "") for k in ("pos", "name", "club", "mark", "wind", "note")} for r in rows]
+        except Exception:
+            pass
+    return e.get("podium") or []
 
 
 def _similar(a, b):

@@ -270,6 +270,19 @@ def by_item(http, it, health, final=False):
                 res, complete = rfealive_champ(http, lv["chid"], base=base)
                 if res and res["events"] and (complete or final):
                     return store(it, res, "RFEA Live", base + "/Results/Schedule?chid=" + lv["chid"])
+            elif kind == "smarttrack":
+                from .sources import smarttrack
+                from .live import smarttrack_rows
+                sc = [e for e in smarttrack.schedule(http, lv["chid"]) if not smarttrack.is_team(e)]
+                complete = bool(sc) and all(e["done"] for e in sc)
+                events = []
+                for e in sc:
+                    rows = smarttrack_rows(http, e) if e["done"] else []
+                    if rows:
+                        events.append({"name": e["event"], "sex": e["sex"], "rounds": [
+                            {"round": e["round"] or "Final", "final": True, "time": e["time"], "date": e["date"], "rows": rows}]})
+                if events and (complete or final):
+                    return store(it, {"events": events}, "RFEA (SmartTrack)", smarttrack.WEB + lv["chid"])
             elif kind == "wa":
                 res = worldathletics.results(http, lv["id"])
                 if res and res["events"]:

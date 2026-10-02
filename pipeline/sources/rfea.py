@@ -184,7 +184,7 @@ def calendar(http, years=None):
 # ------------------------------------------------------------------ ficha
 
 LINK_RULES = [
-    ("directo", lambda t, h: "rfealive.info" in h),
+    ("directo", lambda t, h: "rfealive.info" in h or "smarttrackrfea.es" in h),
     ("resultados", lambda t, h: ("resultado" in t and "directo" not in t) or "/resultados/" in h),
     ("inscritos", lambda t, h: "inscrip" in t or "inscritos" in t or "inscritos" in h.lower()),
     ("streaming", lambda t, h: "streaming" in t or "youtube.com" in h or "youtu.be" in h),
@@ -215,6 +215,9 @@ def detail(http, url):
         chid = parse_qs(urlparse(links["directo"]).query).get("chid")
         if chid:
             out["rfealive_chid"] = chid[0]
+        st = re.search(r"smarttrackrfea\.es/sch/(\w+)", links["directo"])
+        if st:
+            out["smarttrack_chid"] = st.group(1)
     # fecha escrita en la ficha: '4 de Octubre' o 'Del 26 al 27 de Julio'
     txt = clean(main.get_text(" "))
     m = re.search(r"(?:Del\s+(\d{1,2})\s+al\s+)?(\d{1,2})\s+de\s+([A-Za-zé]+)", txt)

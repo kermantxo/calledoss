@@ -153,6 +153,7 @@ def _apply_detail(it, det):
         lv = {"kind": "rfealive", "chid": det["rfealive_chid"]}
         if lv not in it.setdefault("live", []):
             it["live"].append(lv)
+    live_from_links(it)
     res = links.get("resultados", "")
     if res.lower().endswith(".pdf"):
         lv = {"kind": "pdf", "url": res}
@@ -339,6 +340,15 @@ def tag_adoc(http, items):
     return n
 
 
+def live_from_links(it):
+    """Directo de SmartTrack RFEA (smarttrackrfea.es/sch/<código>) a partir del enlace «directo»."""
+    m = re.search(r"smarttrackrfea\.es/sch/(\w+)", (it.get("links") or {}).get("directo", ""))
+    if m:
+        lv = {"kind": "smarttrack", "chid": m.group(1)}
+        if lv not in it.setdefault("live", []):
+            it["live"].append(lv)
+
+
 def add_extra_links(items):
     """Enlaces añadidos a mano en pipeline/extra_links.json (clasificaciones en Drive, etc.)."""
     import os
@@ -350,6 +360,7 @@ def add_extra_links(items):
         for k, v in (extra.get(it["id"]) or {}).items():
             it.setdefault("links", {})[k] = v
             n += 1
+        live_from_links(it)
     return n
 
 
