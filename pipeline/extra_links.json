@@ -449,5 +449,37 @@
     "name": "Media maratón"
    }
   ]
+ },
+ "manual-2026-11-08-behobia-san-sebastian": {
+  "_fuente_horario": "behobia-sansebastian.com (ficha de la carrera)",
+  "web": "https://www.behobia-sansebastian.com",
+  "time": "09:30",
+  "time_end": "10:00",
+  "schedule": [
+   {
+    "d": "2026-11-08",
+    "t": "09:30",
+    "e": "Sillas de ruedas y handbike",
+    "r": "20 km"
+   },
+   {
+    "d": "2026-11-08",
+    "t": "09:35",
+    "e": "Patines",
+    "r": "20 km"
+   },
+   {
+    "d": "2026-11-08",
+    "t": "09:55",
+    "e": "Élite femenina",
+    "r": "20 km"
+   },
+   {
+    "d": "2026-11-08",
+    "t": "10:00",
+    "e": "Carrera a pie (por grupos)",
+    "r": "20 km"
+   }
+  ]
  }
 }
