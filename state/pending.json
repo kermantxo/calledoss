@@ -1,22 +1,17 @@
 {
- "avaibook-iii-trail-el-calero": {
-  "since": "2026-10-03",
-  "tries": 4,
-  "last": "2026-10-03"
- },
  "avaibook-x-carrera-de-la-mujer-medina-del-campo": {
   "since": "2026-10-03",
-  "tries": 4,
+  "tries": 5,
   "last": "2026-10-03"
  },
  "rfea-2026-10-03-xix-reunion-nacional-master-ciudad-de-la-laguna": {
   "since": "2026-10-03",
-  "tries": 4,
+  "tries": 5,
   "last": "2026-10-03"
  },
  "rfea-2026-10-03-xxxviii-milla-internacional-de-berango": {
   "since": "2026-10-03",
-  "tries": 4,
+  "tries": 5,
   "last": "2026-10-03"
  }
 }

@@ -66,17 +66,17 @@
   },
   "results": {
    "label": "Resultados (todas las fuentes)",
-   "last_run": "2026-10-03T12:12:23+02:00",
+   "last_run": "2026-10-03T15:19:00+02:00",
    "ok": true,
-   "last_ok": "2026-10-03T12:13:25+02:00",
+   "last_ok": "2026-10-03T15:20:15+02:00",
    "fails_in_a_row": 0,
-   "last_count": 0
+   "last_count": 1
   },
   "rfea_results": {
    "label": "RFEA · índice de resultados (PDF)",
-   "last_run": "2026-10-03T12:12:23+02:00",
+   "last_run": "2026-10-03T15:19:00+02:00",
    "ok": true,
-   "last_ok": "2026-10-03T12:12:25+02:00",
+   "last_ok": "2026-10-03T15:19:02+02:00",
    "fails_in_a_row": 0,
    "last_count": 0,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf",
@@ -134,6 +134,24 @@
   }
  },
  "log": [
+  {
+   "at": "2026-10-03T15:20:15+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Búsqueda de podios de 'XXXVIII Milla Internacional de Berango': expected string or bytes-like object, got 'list'"
+  },
+  {
+   "at": "2026-10-03T15:20:04+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de 'XXXVIII Milla Internacional de Berango' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7234389"
+  },
+  {
+   "at": "2026-10-03T15:19:52+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Búsqueda de podios de 'X Carrera de la Mujer Medina del Campo': expected string or bytes-like object, got 'list'"
+  },
   {
    "at": "2026-10-03T13:07:19+02:00",
    "level": "warning",
@@ -595,25 +613,7 @@
    "level": "warning",
    "source": "wa_calendar",
    "msg": "Programa de XXXVIII Milla Internacional de Berango no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-09-30T17:45:21+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de XX Carreira Popular Coruña 10 no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-09-30T17:45:11+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de 29º Medio Maratón Internacional Ciudad de Albacete 2026 no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-09-30T17:45:01+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de XXXVIII Milla Internacional de Berango no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
   }
  ],
- "updated": "2026-10-03T15:18:43+02:00"
+ "updated": "2026-10-03T15:20:15+02:00"
 }
