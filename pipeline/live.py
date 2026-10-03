@@ -147,14 +147,31 @@ def tick(http, health, force=False):
 def _poll(http, it, at):
     """Consulta una vez las fuentes en directo de una cita. Devuelve {events:[...]} o None.
     Si una fuente falla (p. ej. World Athletics antes de publicar), se prueba la siguiente."""
+    got = None
     for lv in it.get("live") or []:
         try:
             got = _poll_one(http, it, at, lv)
         except Exception:
             continue
         if got:
-            return got
-    return None
+            break
+    return _with_schedule(it, at, got)
+
+
+def _with_schedule(it, at, data):
+    """Si la cita tiene horario oficial por pruebas (calendario) y la fuente no da el suyo: se enseñan las
+    salidas que faltan y cuántas se han disputado, aunque el cronometrador aún no haya publicado nada."""
+    if data and data.get("schedule"):
+        return data
+    hoy, ahora = at.date().isoformat(), at.strftime("%H:%M")
+    sch = [x for x in it.get("schedule") or [] if x.get("d") in (None, hoy)]
+    if not sch:
+        return data
+    pend = [x for x in sch if not x.get("t") or x["t"].zfill(5) > ahora]
+    data = dict(data or {"events": []})
+    data["schedule"] = [{"time": x.get("t") or "", "event": x.get("e") or "", "round": x.get("r") or ""} for x in pend[:10]]
+    data["done"], data["total"] = len(sch) - len(pend), len(sch)
+    return data
 
 
 def _poll_one(http, it, at, lv):
