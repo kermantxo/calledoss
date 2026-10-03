@@ -172,7 +172,7 @@ def _a_mano(it, got):
         return got
     got = dict(got or {"events": []})
     hay = {norm(e["name"]) for e in got.get("events") or []}
-    got["events"] = list(got.get("events") or []) + [dict(e, round=e.get("round") or "Provisional (a falta de la clasificación oficial)")
+    got["events"] = list(got.get("events") or []) + [dict(e, a_mano=True, round=e.get("round") or "Provisional (a falta de la clasificación oficial)")
                                                      for e in mano if norm(e["name"]) not in hay]
     return got
 
@@ -208,7 +208,7 @@ def _with_schedule(it, at, data):
         rows_x = [dict(r) for i in mios for r in data["events"][i]["rows"]]
         sub = [{"name": data["events"][i]["name"], "rows": data["events"][i]["rows"]} for i in mios]
         timeline.append({"time": x.get("t") or "", "event": x.get("e") or "", "round": x.get("r") or "",
-                         "state": "oficial" if rows_x else ("pendiente" if x in pend else "en marcha"), "rows": [], "groups": sub})
+                         "state": ("provisional" if all(data["events"][i].get("a_mano") for i in mios) else "oficial") if rows_x else ("pendiente" if x in pend else "en marcha"), "rows": [], "groups": sub})
     data["timeline"] = timeline
     data["schedule"] = [{"time": x.get("t") or "", "event": x.get("e") or "", "round": x.get("r") or ""} for x in pend[:10]]
     data["done"], data["total"] = len(sch) - len(pend), len(sch)
