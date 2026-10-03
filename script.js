@@ -4068,13 +4068,11 @@ function yaTerminada(c){
 function renderLive(){
   const grid = document.getElementById('liveGrid');
   const upd = document.getElementById('liveUpdated');
-  // lo que ya ha terminado solo sale en Resultados
-  const items = (LIVE_DATA && LIVE_DATA.date === hoyISO() ? Object.values(LIVE_DATA.items || {}) : [])
-    .filter(i => i.status !== 'finalizado')
-    .filter(i => { const c = CALENDAR.find(x => x.id === i.id); return !(c && yaTerminada(c)); });
+  // las competiciones de hoy: desde su hora de salida hasta las 00:00 (las terminadas siguen, con sus resultados)
+  const items = (LIVE_DATA && LIVE_DATA.date === hoyISO() ? Object.values(LIVE_DATA.items || {}) : []);
   // Citas de hoy según el calendario aunque la tarea de directo aún no haya pasado
   const hoy = hoyISO();
-  CALENDAR.filter(c => c.date <= hoy && (c.end_date || c.date) >= hoy && !yaTerminada(c)).forEach(c=>{
+  CALENDAR.filter(c => c.date <= hoy && (c.end_date || c.date) >= hoy).forEach(c=>{
     if(!items.some(i=>i.id===c.id)) items.push({id:c.id, name:c.name, place:c.place, first:c.time, last:c.time_end, links:c.links||{}, status:'pendiente'});
   });
   if(items.length === 0){
@@ -4082,10 +4080,14 @@ function renderLive(){
     grid.innerHTML = `<div class="empty-state"><h3>${t('Sin competiciones en curso')}</h3>${t('Cuando haya pruebas hoy, aquí verás el marcador en vivo.')}</div>`;
     return;
   }
-  items.forEach(l => { if((l.status === 'pendiente' || l.status === 'sin datos en directo') && enMarcha(l.first, l.last)) l.status = 'en directo'; });
-  // En directo solo lo que se está celebrando: cada competición entra justo a su hora de salida
-  // (lo de más tarde sigue en Próximas) y sale al terminar (pasa a Resultados)
-  for(let i = items.length - 1; i >= 0; i--) if(items[i].status !== 'en directo') items.splice(i, 1);
+  items.forEach(l => {
+    const c = CALENDAR.find(x => x.id === l.id);
+    if(c && yaTerminada(c)) l.status = 'finalizado';
+    else if((l.status === 'pendiente' || l.status === 'sin datos en directo') && enMarcha(l.first, l.last)) l.status = 'en directo';
+  });
+  // En directo: cada competición entra justo a su hora de salida (lo de más tarde sigue en Próximas) y,
+  // cuando termina, se queda el resto del día con sus resultados (además de en Resultados)
+  for(let i = items.length - 1; i >= 0; i--) if(!['en directo', 'finalizado'].includes(items[i].status)) items.splice(i, 1);
   if(items.length === 0){
     upd.hidden = true;
     grid.innerHTML = `<div class="empty-state"><h3>${t('Sin competiciones en curso')}</h3>${t('Cuando haya pruebas hoy, aquí verás el marcador en vivo.')}</div>`;
@@ -4100,7 +4102,8 @@ function renderLive(){
 
   grid.innerHTML = items.map(l=>{
     const res = resultFor(l.id);
-    const b = res ? {txt:t('RESULTADOS'), live:false} : (LIVE_BADGE[l.status] || LIVE_BADGE['pendiente']);
+    // terminada: «FINALIZADO» (con sus resultados debajo); en marcha: «DIRECTO» en verde
+    const b = l.status === 'finalizado' ? LIVE_BADGE['finalizado'] : (LIVE_BADGE[l.status] || LIVE_BADGE['pendiente']);
     const d = l.data || {};
     const isOpen = b.live || !!res || openLiveComp === l.id;
     const links = linkButtons(l.links||{});

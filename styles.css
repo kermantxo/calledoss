@@ -1087,3 +1087,4 @@ nav.tabs a.lang-switch:hover{border-color:var(--brand);background:var(--brand);}
 .today-card.is-live{border-left-color:var(--live);background:linear-gradient(90deg, var(--live-tint), var(--card) 60%);}
 .live-dot.green{background:var(--live);}
 .tag.live-tag{background:var(--live);color:#fff;border-color:var(--live);}
+.live-card:not(.is-live) .badge-live{background:#57544E;}
