@@ -129,9 +129,10 @@ def tick(http, health, force=False):
                 health.note("live", "warning", "Resultados de '%s': %s" % (w["name"], e))
         if data:
             data.pop("store", None)
-        if data and data.get("events"):
+        if data and (data.get("events") or data.get("schedule")):
+            # aunque aún no haya pruebas terminadas, se enseña el horario de las próximas y el contador
             st["data"] = data
-            st["status"] = "en directo"
+            st["status"] = "en directo" if (data.get("events") or started) else st["status"]
             st["updated"] = iso_now()
         elif started:
             st["status"] = "en directo"  # en marcha, aunque el cronometrador aún no haya publicado nada
