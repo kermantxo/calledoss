@@ -4302,6 +4302,15 @@ renderResultsAccordion();
    ============================================================ */
 function resToday(){ return new Date().toISOString().slice(0,10); }
 
+// Al entrar en Resultados se ven los del mes actual (el desplegable permite cambiarlo)
+let RES_MES_ELEGIDO = false;
+function mesActualPorDefecto(){
+  if(RES_MES_ELEGIDO) return;
+  const sel = document.getElementById('resMonth');
+  const actual = MESES[parseInt(hoyISO().split('-')[1], 10) - 1];
+  if([...sel.options].some(o => o.value === actual)) sel.value = actual;
+}
+
 function resPastEvents(){
   const hoy = resToday();
   const inicio = hoy.slice(0,4) + '-01-01';
@@ -4399,10 +4408,13 @@ function renderResultsSeason(){
   const past = resPastEvents();
   const monthOrder = MESES.filter(m => past.some(e => MESES[parseInt(e.date.split('-')[1],10)-1] === m));
   populateSelect('resMonth', monthOrder, 'Todos los meses');
+  mesActualPorDefecto();
   populateSelect('resType', [...new Set(past.map(e=>e.type))].sort(), 'Todas las modalidades', typeLabel);
   populateSelect('resCat', ordenarCCAA([...new Set(past.map(e=>getCCAA(e.place)))]), 'Todas las localidades', ccaaLabel);
   populateSelect('resFuente', ORDEN_FUENTES, 'Todos los calendarios');
   ['resMonth','resType','resCat','resFuente'].forEach(id=>document.getElementById(id).addEventListener('change', renderResultsSeason));
+  // si se elige otro mes en el desplegable, se respeta (ya no se vuelve al mes actual)
+  document.getElementById('resMonth').addEventListener('change', () => { RES_MES_ELEGIDO = true; });
   document.getElementById('resSearch').addEventListener('input', renderResultsSeason);
   renderResultsSeason();
 })();
@@ -4766,6 +4778,7 @@ function refreshFilters(){
   keepValue('calFuente', ()=>populateSelect('calFuente', ORDEN_FUENTES, 'Todos los calendarios'));
   const past = resPastEvents();
   keepValue('resMonth', ()=>populateSelect('resMonth', MESES.filter(m => past.some(e => MESES[parseInt(e.date.split('-')[1],10)-1] === m)), 'Todos los meses'));
+  mesActualPorDefecto();
   keepValue('resType', ()=>populateSelect('resType', [...new Set(past.map(e=>e.type))].sort(), 'Todas las modalidades', typeLabel));
   keepValue('resCat', ()=>populateSelect('resCat', ordenarCCAA([...new Set(past.map(e=>getCCAA(e.place)))]), 'Todas las localidades', ccaaLabel));
   keepValue('resFuente', ()=>populateSelect('resFuente', ORDEN_FUENTES, 'Todos los calendarios'));
