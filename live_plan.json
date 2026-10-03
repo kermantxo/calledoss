@@ -1,6 +1,6 @@
 {
  "date": "2026-10-03",
- "generated": "2026-10-03T21:25:27+02:00",
+ "generated": "2026-10-03T21:54:24+02:00",
  "active_day": true,
  "windows": [
   {
@@ -26,9 +26,9 @@
    "place": "La Laguna",
    "source": "RFEA",
    "start": "2026-10-03T14:00:00+02:00",
-   "end": "2026-10-03T17:00:00+02:00",
+   "end": "2026-10-03T21:10:00+02:00",
    "first": "15:00",
-   "last": "15:00",
+   "last": "19:10",
    "schedule_known": true,
    "poll": true,
    "intl": false,
