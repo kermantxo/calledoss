@@ -4300,7 +4300,17 @@ renderResultsAccordion();
 /* ============================================================
    RESULTADOS — temporada completa (1 de enero → hoy)
    ============================================================ */
-function resToday(){ return new Date().toISOString().slice(0,10); }
+function resToday(){ return hoyISO(); }   // fecha de hoy en España
+
+// ¿Ha empezado ya? (las de hoy, a partir de su hora de salida; sin hora conocida, no se da por empezada)
+function yaEmpezada(ev){
+  const hoy = hoyISO();
+  if(ev.date < hoy) return true;
+  if(ev.date > hoy) return false;
+  if(resultFor(ev.id)) return true;
+  const ahora = new Intl.DateTimeFormat('es-ES', {hour:'2-digit', minute:'2-digit', hour12:false, timeZone:'Europe/Madrid'}).format(new Date());
+  return !!ev.time && ahora >= String(ev.time).padStart(5, '0');
+}
 
 // Al entrar en Resultados se ven los del mes actual (el desplegable permite cambiarlo)
 let RES_MES_ELEGIDO = false;
@@ -4316,7 +4326,8 @@ function resPastEvents(){
   const inicio = hoy.slice(0,4) + '-01-01';
   // competiciones que ya tienen ficha propia con otro id (p. ej. el Mundial de Toruń): no se repiten
   const alias = new Set(COMPETITIONS.flatMap(c => c.cal_ids || []));
-  const past = CALENDAR.filter(ev => ev.date >= inicio && ev.date <= hoy && !alias.has(ev.id));
+  // solo lo que ya se ha disputado o está en marcha: lo de hoy entra a su hora de salida
+  const past = CALENDAR.filter(ev => ev.date >= inicio && ev.date <= hoy && yaEmpezada(ev) && !alias.has(ev.id));
   // resultados publicados que no están en el calendario (p. ej. PDFs de RFEA de citas internacionales)
   RESULTS_INDEX.filter(r => !r.cal_id && r.date && r.date >= inicio && !past.some(p=>p.id===r.id)).forEach(r=>{
     past.push({id:r.id, date:r.date, name:r.name, place:r.place||'', type:'Internacional', cat:sourceLabel(r.source), source:sourceLabel(r.source), _resultOnly:true});
@@ -4370,6 +4381,7 @@ function renderResultsSeason(){
     const badge = hasDetail
       ? `<div class="tag intl">${t('Resultados')}</div>`
       : missing ? `<div class="tag nac" title="${t('Todavía no se han encontrado resultados oficiales en ninguna fuente; se siguen buscando')}">${t('Resultados pendientes')}</div>`
+      : !yaTerminada(ev) ? `<div class="tag live-tag">${t('En curso')}</div>`
       : `<div class="tag nac">${t('Disputada')}</div>`;
     const body = !isOpen ? '' : `
       <div class="comp-accordion-body">
@@ -4846,7 +4858,7 @@ async function loadRanking(){
 
 async function refreshLive(){
   const live = await loadData('live.json');
-  if(live){ LIVE_DATA = live; renderLive(); refreshTicker(); renderHome(); renderCompAccordion(); renderCalendar(); }
+  if(live){ LIVE_DATA = live; renderLive(); refreshTicker(); renderHome(); renderCompAccordion(); renderCalendar(); renderResultsSeason(); }
 }
 
 (async function bootAutoData(){

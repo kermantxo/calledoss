@@ -150,7 +150,7 @@
 - The national-team profiles are still written by hand in `script.js`; the ranking is automatic (RFEA)
 
 - 2026-10-01: Nueva sección **Contacto** en el menú (formulario que envía a calledosspodcast@gmail.com con FormSubmit, gratis, y botones a Instagram, X, TikTok y Spotify). Añadida al pie de página, a la política de cookies, a las páginas de resultados y al sitemap.
-- 2026-10-01: Arreglado que algunos navegadores siguieran usando el diseño antiguo (iconos de Contacto enormes). Los archivos de diseño llevan ahora un número de versión (`styles.css?v=20261001n`) y el navegador comprueba siempre si hay uno nuevo. **Al cambiar styles.css o script.js, sube ese número** en index.html, cookies.html, en/cookies.html y panel.html y ejecuta `python3 paginas.py` (las páginas de resultados lo copian solas de index.html).
+- 2026-10-01: Arreglado que algunos navegadores siguieran usando el diseño antiguo (iconos de Contacto enormes). Los archivos de diseño llevan ahora un número de versión (`styles.css?v=20261001o`) y el navegador comprueba siempre si hay uno nuevo. **Al cambiar styles.css o script.js, sube ese número** en index.html, cookies.html, en/cookies.html y panel.html y ejecuta `python3 paginas.py` (las páginas de resultados lo copian solas de index.html).
 - 2026-10-01: En Contacto, "el pódcast de Calle 2" pasa a "el pódcast de Calledoss".
 - 2026-10-01: En el formulario de Contacto, el campo "Nombre" pasa a "Nombre y apellido".
 - 2026-10-01: **Versión en inglés** completa en calledoss.com/en/ (todas las secciones, cookies y las 390 páginas de resultados), con botón ES/EN, etiquetas hreflang para Google y sitemap con las direcciones en inglés.
@@ -168,3 +168,4 @@
 - 2026-10-02: En directo solo muestra lo que se está celebrando: cada competición entra justo a su hora de salida (la página mira el reloj cada 15 s) y sale al terminar; hasta entonces está en Próximas.
 - 2026-10-03: Ranking: nueva pestaña **Ruta** con el ranking oficial de la RFEA de carreras en ruta (milla, 5 km, 10 km, 15 km, media, maratón, 50 km, 100 km, 24 horas) y de marcha en ruta (5 km a maratón).
 - 2026-10-03: Resultados se abre con el mes actual seleccionado (el desplegable permite ver otros meses o todos).
+- 2026-10-03: Resultados solo muestra lo ya disputado o en marcha: lo de hoy entra a su hora de salida y, mientras se celebra, aparece como «En curso» (verde) en vez de «Disputada».

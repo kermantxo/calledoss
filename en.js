@@ -282,7 +282,8 @@ window.CALLEDOSS_EN = {
   "El top 10 español de cada prueba con los datos oficiales de la Real Federación Española de Atletismo, separado en aire libre, pista cubierta y ruta. Se actualiza solo cada día.": "The Spanish top 10 in every event, with official data from the Royal Spanish Athletics Federation (RFEA), split into outdoor, indoor and road. Updated automatically every day.",
   "Ruta": "Road",
   "Top 10 español: aire libre, pista cubierta y ruta.": "Spanish top 10: outdoor, indoor and road.",
-  "El top 10 español de cada prueba en 2026, aire libre, pista cubierta y ruta, con datos oficiales de la RFEA.": "The Spanish top 10 in every event in 2026, outdoor, indoor and road, with official data from the Spanish Athletics Federation (RFEA)."
+  "El top 10 español de cada prueba en 2026, aire libre, pista cubierta y ruta, con datos oficiales de la RFEA.": "The Spanish top 10 in every event in 2026, outdoor, indoor and road, with official data from the Spanish Athletics Federation (RFEA).",
+  "En curso": "In progress"
  },
  "text": {
   "Pista Aire libre": "Outdoor track",
