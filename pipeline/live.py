@@ -13,6 +13,7 @@ import datetime as dt
 import json
 import os
 import re
+import time
 
 from .common import MADRID, load_json, norm, now, save_json, today, iso_now
 from .results import by_item, _index
@@ -193,8 +194,8 @@ def _a_mano(it, got):
 def _with_schedule(it, at, data):
     """Si la cita tiene horario oficial por pruebas (calendario) y la fuente no da el suyo: se enseñan las
     salidas que faltan y cuántas se han disputado, aunque el cronometrador aún no haya publicado nada."""
-    if data and data.get("schedule"):
-        return data
+    if data and (data.get("schedule") or data.get("timeline")):
+        return data  # la fuente ya trae su horario (RFEA Live, SmartTrack), aunque ya no quede nada por disputar
     hoy, ahora = at.date().isoformat(), at.strftime("%H:%M")
     sch = [x for x in it.get("schedule") or [] if x.get("d") in (None, hoy)]
     if not sch:
@@ -246,12 +247,16 @@ def _poll_one(http, it, at, lv):
             ahora = at.strftime("%H:%M")
             # pruebas ya empezadas que aún no son oficiales: si la RFEA ya enseña clasificación, sale como provisional
             en_marcha = [e for e in today_evs if e not in done and e.get("time") and e["time"] <= ahora]
-            events, guardar, filas = [], {}, {}
+            events, guardar, filas, nodisp = [], {}, {}, set()
             for e in done + en_marcha:  # TODAS las del día, cada una en cuanto tiene clasificación
                 try:
                     r = rfealive.results(http, e["results_url"])
                 except Exception:
-                    continue
+                    try:  # muchas pruebas seguidas: la RFEA corta alguna petición; se reintenta una vez
+                        time.sleep(2)
+                        r = rfealive.results(http, e["results_url"])
+                    except Exception:
+                        continue
                 oficial = e in done
                 if oficial and r["rows"]:  # a Resultados en cuanto es oficial (clasificación completa)
                     guardar.setdefault(e["event"], {"name": e["event"], "rounds": []})["rounds"].append(
@@ -259,6 +264,9 @@ def _poll_one(http, it, at, lv):
                          "time": e["time"], "date": e.get("date"), "rows": r["rows"]})
                 # sin marcas todavía (solo la lista de participantes): aún no hay nada que enseñar
                 # (una marca de verdad: con cifras; «DNS», «DNF», «NM»... no cuentan)
+                if r["rows"] and all(re.match(r"(?i)dns\b", (x.get("mark") or "").strip()) for x in r["rows"]):
+                    nodisp.add(e["results_url"])  # todos los inscritos «DNS»: no se llegó a disputar
+                    continue
                 if r["rows"] and (oficial or any(re.search(r"\d", x.get("mark") or "") for x in r["rows"])):
                     filas[e["results_url"]] = (oficial, r["rows"][:8])
                     events.append({"name": e["event"], "round": e["round"] if oficial else "%s · provisional" % e["round"],
@@ -267,7 +275,8 @@ def _poll_one(http, it, at, lv):
             nxt = [e for e in today_evs if e not in done and e not in en_marcha][:8]
             # horario prueba a prueba: hora, prueba, ronda, estado y su clasificación en cuanto la hay
             timeline = [{"time": e["time"], "event": e["event"], "round": e["round"],
-                         "state": ("oficial" if filas[e["results_url"]][0] else "provisional") if e["results_url"] in filas
+                         "state": "no disputada" if e["results_url"] in nodisp else
+                         ("oficial" if filas[e["results_url"]][0] else "provisional") if e["results_url"] in filas
                          else ("en marcha" if e in en_marcha else "pendiente"),
                          "rows": filas.get(e["results_url"], (0, []))[1]} for e in today_evs]
             return {"events": events, "timeline": timeline, "schedule": [{"time": e["time"], "event": e["event"], "round": e["round"],

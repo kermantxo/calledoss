@@ -63,6 +63,7 @@ window.CALLEDOSS_EN = {
     "Provisional": "Provisional",
     "En marcha": "Under way",
     "Sin resultados publicados": "No results published",
+    "No disputada": "Not held",
   "{done}/{total} pruebas terminadas": "{done}/{total} events finished",
   "Hoy · próximas pruebas": "Today · next events",
   "Ya disputadas hoy": "Already held today",
