@@ -86,6 +86,8 @@ def tick(http, health, force=False):
         ended = at > dt.datetime.fromisoformat(w["end"])
         # ya ha empezado la prueba (hora de salida conocida) y aún no ha acabado: está «en directo»
         started = w.get("schedule_known") and at >= dt.datetime.fromisoformat(w["start"]) + BEFORE and not ended
+        if ended:
+            _sin_resultados(st.get("data"), at, terminada=True)  # terminada: lo que no tiene clasificación ya no está «en marcha»
         if not w["poll"]:
             st["status"] = "finalizado" if ended else ("en directo" if started else
                                                        "sin datos en directo" if active or at >= dt.datetime.fromisoformat(w["start"]) else "pendiente")
@@ -146,6 +148,17 @@ def tick(http, health, force=False):
     return polled
 
 
+def _sin_resultados(data, at, terminada=False):
+    """Una prueba sin clasificación no está «en marcha» para siempre: pasada una hora de su salida (o con
+    la competición ya terminada) se dice la verdad, que no hay resultados publicados."""
+    limite = (at - dt.timedelta(minutes=60)).strftime("%H:%M")
+    for t in (data or {}).get("timeline") or []:
+        if (terminada and t.get("state") in ("en marcha", "pendiente")) or \
+                (t.get("state") == "en marcha" and (t.get("time") or "99:99").zfill(5) <= limite):
+            t["state"] = "sin resultados"
+    return data
+
+
 def _poll(http, it, at):
     """Consulta una vez las fuentes en directo de una cita. Devuelve {events:[...]} o None.
     Si una fuente falla (p. ej. World Athletics antes de publicar), se prueba la siguiente."""
@@ -157,7 +170,7 @@ def _poll(http, it, at):
             continue
         if got:
             break
-    return _with_schedule(it, at, _a_mano(it, got))
+    return _sin_resultados(_with_schedule(it, at, _a_mano(it, got)), at)
 
 
 def _a_mano(it, got):
@@ -209,6 +222,14 @@ def _with_schedule(it, at, data):
         sub = [{"name": data["events"][i]["name"], "rows": data["events"][i]["rows"]} for i in mios]
         timeline.append({"time": x.get("t") or "", "event": x.get("e") or "", "round": x.get("r") or "",
                          "state": ("provisional" if all(data["events"][i].get("a_mano") for i in mios) else "oficial") if rows_x else ("pendiente" if x in pend else "en marcha"), "rows": [], "groups": sub})
+    # lo que el cronometrador llama distinto («X Carrera de la Mujer...» frente a «Carrera»): si solo hay
+    # una carrera ya empezada sin clasificación, es la suya
+    sueltas = [i for i in range(len(data.get("events") or [])) if i not in usados and (data["events"][i].get("rows"))]
+    vacias_tl = [t for t, x in zip(timeline, sch) if t["state"] == "en marcha"]
+    if sueltas and len(vacias_tl) == 1:
+        t = vacias_tl[0]
+        t["groups"] = [{"name": data["events"][i]["name"], "rows": data["events"][i]["rows"]} for i in sueltas]
+        t["state"] = "provisional" if all(data["events"][i].get("a_mano") for i in sueltas) else "oficial"
     data["timeline"] = timeline
     data["schedule"] = [{"time": x.get("t") or "", "event": x.get("e") or "", "round": x.get("r") or ""} for x in pend[:10]]
     data["done"], data["total"] = len(sch) - len(pend), len(sch)

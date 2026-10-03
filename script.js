@@ -4023,7 +4023,7 @@ const LIVE_BADGE = {
 
 // Horario prueba a prueba: cada prueba es un desplegable con su clasificación debajo de la hora
 const openTl = new Set();
-const TL_STATE = {'oficial':'Oficial', 'provisional':'Provisional', 'en marcha':'En marcha', 'pendiente':'Pendiente'};
+const TL_STATE = {'oficial':'Oficial', 'provisional':'Provisional', 'en marcha':'En marcha', 'pendiente':'Pendiente', 'sin resultados':'Sin resultados publicados'};
 function liveTimeline(id, tl){
   return `<div class="tl">${tl.map(x=>{
     const key = id + '|' + x.time + '|' + x.event + '|' + (x.round||'');
