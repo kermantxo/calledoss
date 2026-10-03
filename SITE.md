@@ -151,7 +151,7 @@
 - The national-team profiles are still written by hand in `script.js`; the ranking is automatic (RFEA)
 
 - 2026-10-01: Nueva sección **Contacto** en el menú (formulario que envía a calledosspodcast@gmail.com con FormSubmit, gratis, y botones a Instagram, X, TikTok y Spotify). Añadida al pie de página, a la política de cookies, a las páginas de resultados y al sitemap.
-- 2026-10-01: Arreglado que algunos navegadores siguieran usando el diseño antiguo (iconos de Contacto enormes). Los archivos de diseño llevan ahora un número de versión (`styles.css?v=20261001s`) y el navegador comprueba siempre si hay uno nuevo. **Al cambiar styles.css o script.js, sube ese número** en index.html, cookies.html, en/cookies.html y panel.html y ejecuta `python3 paginas.py` (las páginas de resultados lo copian solas de index.html).
+- 2026-10-01: Arreglado que algunos navegadores siguieran usando el diseño antiguo (iconos de Contacto enormes). Los archivos de diseño llevan ahora un número de versión (`styles.css?v=20261001t`) y el navegador comprueba siempre si hay uno nuevo. **Al cambiar styles.css o script.js, sube ese número** en index.html, cookies.html, en/cookies.html y panel.html y ejecuta `python3 paginas.py` (las páginas de resultados lo copian solas de index.html).
 - 2026-10-01: En Contacto, "el pódcast de Calle 2" pasa a "el pódcast de Calledoss".
 - 2026-10-01: En el formulario de Contacto, el campo "Nombre" pasa a "Nombre y apellido".
 - 2026-10-01: **Versión en inglés** completa en calledoss.com/en/ (todas las secciones, cookies y las 390 páginas de resultados), con botón ES/EN, etiquetas hreflang para Google y sitemap con las direcciones en inglés.

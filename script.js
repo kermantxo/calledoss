@@ -4127,7 +4127,8 @@ function renderLive(){
     const isOpen = b.live || !!res || openLiveComp === l.id;
     const links = linkButtons(l.links||{});
     let body = '';
-    if(isOpen && res){
+    const hasTl = !!(d.timeline && d.timeline.length);
+    if(isOpen && res && !hasTl){
       body += `<div style="padding:10px 14px;">${renderResultSummary(res)}</div>`;
     } else if(isOpen){
       if(d.timeline && d.timeline.length){
