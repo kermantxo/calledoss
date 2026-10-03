@@ -1088,3 +1088,23 @@ nav.tabs a.lang-switch:hover{border-color:var(--brand);background:var(--brand);}
 .live-dot.green{background:var(--live);}
 .tag.live-tag{background:var(--live);color:#fff;border-color:var(--live);}
 .live-card:not(.is-live) .badge-live{background:#57544E;}
+
+/* En directo: horario prueba a prueba con la clasificación desplegable */
+.tl{border-top:1px solid #34312e;}
+.tl-item{border-bottom:1px solid #34312e;}
+.tl-item summary,.tl-sum{display:grid;grid-template-columns:52px 1fr auto 16px;gap:10px;align-items:center;padding:10px 18px;color:#E8E2DA;list-style:none;}
+.tl-item summary{cursor:pointer;}
+.tl-item summary::-webkit-details-marker{display:none;}
+.tl-item summary:hover{background:#2a2725;}
+.tl-time{font-family:'Roboto Mono',monospace;font-size:13px;color:#BDB6AD;}
+.tl-ev{font-weight:600;font-size:14px;}
+.tl-ev small{display:block;font-weight:400;font-size:12px;color:#BDB6AD;}
+.tl-st{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:3px 8px;border-radius:999px;background:#3a3633;color:#BDB6AD;white-space:nowrap;}
+.tl-st.st-oficial{background:var(--live);color:#fff;}
+.tl-st.st-provisional{background:#B7791F;color:#fff;}
+.tl-st.st-en-marcha{background:var(--live-tint);color:var(--live-dark);}
+.tl-caret{color:#BDB6AD;transition:transform .2s;}
+.tl-item[open] .tl-caret{transform:rotate(180deg);}
+.tl-group{padding:8px 18px 2px;font-size:12px;font-weight:700;color:#BDB6AD;text-transform:uppercase;}
+.tl-item[open]{background:#24211f;}
+@media (max-width:560px){.tl-item summary,.tl-sum{grid-template-columns:44px 1fr auto 12px;gap:8px;padding:10px 14px;}}

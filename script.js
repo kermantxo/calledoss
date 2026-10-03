@@ -4021,6 +4021,25 @@ const LIVE_BADGE = {
   'finalizado':           {txt:t('FINALIZADO'), live:false},
 };
 
+// Horario prueba a prueba: cada prueba es un desplegable con su clasificación debajo de la hora
+const openTl = new Set();
+const TL_STATE = {'oficial':'Oficial', 'provisional':'Provisional', 'en marcha':'En marcha', 'pendiente':'Pendiente'};
+function liveTimeline(id, tl){
+  return `<div class="tl">${tl.map(x=>{
+    const key = id + '|' + x.time + '|' + x.event + '|' + (x.round||'');
+    const groups = (x.groups||[]).filter(g=>g.rows && g.rows.length);
+    const has = (x.rows && x.rows.length) || groups.length;
+    const inner = (x.rows && x.rows.length ? liveRows(x.rows) : '') +
+      groups.map(g=>`<div class="tl-group">${esc(td(g.name))}</div>${liveRows(g.rows)}`).join('');
+    const head = `<span class="tl-time">${esc(x.time||'')}</span>
+      <span class="tl-ev">${esc(td(x.event||''))}${x.round?`<small>${esc(td(x.round))}</small>`:''}</span>
+      <span class="tl-st st-${(x.state||'pendiente').replace(' ','-')}">${t(TL_STATE[x.state]||'Pendiente')}</span>`;
+    return has
+      ? `<details class="tl-item" data-tl="${esc(key)}"${openTl.has(key)?' open':''}><summary>${head}<span class="tl-caret">▾</span></summary>${inner}</details>`
+      : `<div class="tl-item tl-empty"><div class="tl-sum">${head}<span class="tl-caret"></span></div></div>`;
+  }).join('')}</div>`;
+}
+
 function liveRows(rows){
   if(!rows || !rows.length) return '';
   return `<div class="sb-rows">${rows.map(r=>{
@@ -4111,7 +4130,10 @@ function renderLive(){
     if(isOpen && res){
       body += `<div style="padding:10px 14px;">${renderResultSummary(res)}</div>`;
     } else if(isOpen){
-      if(d.events && d.events.length){
+      if(d.timeline && d.timeline.length){
+        body += liveTimeline(l.id, d.timeline);
+        if(d.pdf) body += `<div class="mark-row" style="grid-template-columns:1fr"><span>📄 <a href="${d.pdf}" target="_blank" rel="noopener">${t('Resultados en PDF')}</a></span></div>`;
+      } else if(d.events && d.events.length){
         body += d.events.map(e=>`
           <div class="sb-event"><span>${esc(td(e.name))}</span><small>${esc([td(e.round), e.time].filter(Boolean).join(' · '))}</small></div>
           ${liveRows(e.rows)}`).join('');
@@ -4119,7 +4141,7 @@ function renderLive(){
       } else {
         body += `<div class="mark-row" style="grid-template-columns:1fr"><span>${l.status==='finalizado' ? t('Competición terminada. Los resultados aparecerán en la sección Resultados en cuanto se publiquen.') : l.status==='en directo' ? t('En marcha. Los resultados aparecerán aquí en cuanto el cronometrador los publique.') : t('Sin datos en directo.') + ' ' + horarioPrevisto(l) + '.'}</span></div>`;
       }
-      if(d.schedule && d.schedule.length){
+      if(!(d.timeline && d.timeline.length) && d.schedule && d.schedule.length){
         body += `<div class="mark-row" style="grid-template-columns:1fr"><span><b>${t('Próximas pruebas')}</b></span></div>` +
           d.schedule.map(x=>`<div class="mark-row" style="grid-template-columns:60px 1fr"><span class="mono">${esc(x.time)}</span><span>${esc(td(x.event))} · ${esc(td(x.round||''))}</span></div>`).join('');
       }
@@ -4137,6 +4159,9 @@ function renderLive(){
       ${body}
     </div>`;
   }).join('');
+  grid.querySelectorAll('details[data-tl]').forEach(det=>{
+    det.addEventListener('toggle', ()=>{ det.open ? openTl.add(det.dataset.tl) : openTl.delete(det.dataset.tl); });
+  });
   grid.querySelectorAll('[data-toggle]').forEach(head=>{
     head.addEventListener('click', ()=>{
       const id = head.dataset.toggle;

@@ -12,7 +12,7 @@
 import datetime as dt
 import re
 
-from .common import MADRID, load_json, now, save_json, today, iso_now
+from .common import MADRID, load_json, norm, now, save_json, today, iso_now
 from .results import by_item, _index
 from .sources import rfealive, smarttrack, timing, worldathletics, timers
 
@@ -169,6 +169,17 @@ def _with_schedule(it, at, data):
         return data
     pend = [x for x in sch if not x.get("t") or x["t"].zfill(5) > ahora]
     data = dict(data or {"events": []})
+    toks = lambda s: set(re.findall(r"[a-z]+|\d+", norm(s))) - {"y", "de", "la", "el", "hombres", "mujeres"}
+    usados, timeline = set(), []
+    for x in sch:
+        tx = toks(x.get("e", ""))
+        mios = [i for i, ev in enumerate(data.get("events") or []) if i not in usados and toks(ev["name"]) and toks(ev["name"]) <= tx]
+        usados |= set(mios)
+        rows_x = [dict(r) for i in mios for r in data["events"][i]["rows"]]
+        sub = [{"name": data["events"][i]["name"], "rows": data["events"][i]["rows"]} for i in mios]
+        timeline.append({"time": x.get("t") or "", "event": x.get("e") or "", "round": x.get("r") or "",
+                         "state": "oficial" if rows_x else ("pendiente" if x in pend else "en marcha"), "rows": [], "groups": sub})
+    data["timeline"] = timeline
     data["schedule"] = [{"time": x.get("t") or "", "event": x.get("e") or "", "round": x.get("r") or ""} for x in pend[:10]]
     data["done"], data["total"] = len(sch) - len(pend), len(sch)
     return data
@@ -184,7 +195,7 @@ def _poll_one(http, it, at, lv):
             ahora = at.strftime("%H:%M")
             # pruebas ya empezadas que aún no son oficiales: si la RFEA ya enseña clasificación, sale como provisional
             en_marcha = [e for e in today_evs if e not in done and e.get("time") and e["time"] <= ahora]
-            events, guardar = [], {}
+            events, guardar, filas = [], {}, {}
             for e in done + en_marcha:  # TODAS las del día, cada una en cuanto tiene clasificación
                 try:
                     r = rfealive.results(http, e["results_url"])
@@ -198,11 +209,17 @@ def _poll_one(http, it, at, lv):
                 # sin marcas todavía (solo la lista de participantes): aún no hay nada que enseñar
                 # (una marca de verdad: con cifras; «DNS», «DNF», «NM»... no cuentan)
                 if r["rows"] and (oficial or any(re.search(r"\d", x.get("mark") or "") for x in r["rows"])):
+                    filas[e["results_url"]] = (oficial, r["rows"][:8])
                     events.append({"name": e["event"], "round": e["round"] if oficial else "%s · provisional" % e["round"],
                                    "time": e["time"], "rows": r["rows"][:8]})
             events.sort(key=lambda x: (x["time"] or "").strip().zfill(5), reverse=True)  # la más reciente, arriba
             nxt = [e for e in today_evs if e not in done and e not in en_marcha][:8]
-            return {"events": events, "schedule": [{"time": e["time"], "event": e["event"], "round": e["round"],
+            # horario prueba a prueba: hora, prueba, ronda, estado y su clasificación en cuanto la hay
+            timeline = [{"time": e["time"], "event": e["event"], "round": e["round"],
+                         "state": ("oficial" if filas[e["results_url"]][0] else "provisional") if e["results_url"] in filas
+                         else ("en marcha" if e in en_marcha else "pendiente"),
+                         "rows": filas.get(e["results_url"], (0, []))[1]} for e in today_evs]
+            return {"events": events, "timeline": timeline, "schedule": [{"time": e["time"], "event": e["event"], "round": e["round"],
                                                     "status": e.get("status") or "Por disputar"} for e in nxt],
                     "done": len(done), "total": len(today_evs),
                     "store": {"events": list(guardar.values()), "source": "RFEA Live",
@@ -229,7 +246,12 @@ def _poll_one(http, it, at, lv):
                         {"round": e["round"] or "Final", "final": True, "time": e["time"], "date": e["date"], "rows": rows}]})
             events.sort(key=lambda x: (x["time"] or "").zfill(5), reverse=True)  # la más reciente, arriba
             nxt = [e for e in today_evs if not e["done"]][:8]
-            return {"events": events, "schedule": [{"time": e["time"], "event": e["event"], "round": e["round"],
+            por_prueba = {(x["name"], x["round"]): x["rows"] for x in events}
+            timeline = [{"time": e["time"], "event": e["event"], "round": e["round"],
+                         "state": "oficial" if (e["event"], e["round"]) in por_prueba else
+                         ("en marcha" if e["time"] and e["time"].zfill(5) <= at.strftime("%H:%M") else "pendiente"),
+                         "rows": por_prueba.get((e["event"], e["round"]), [])} for e in today_evs]
+            return {"events": events, "timeline": timeline, "schedule": [{"time": e["time"], "event": e["event"], "round": e["round"],
                                                     "status": e["status"] or "Por disputar"} for e in nxt],
                     "done": len(done), "total": len(today_evs),
                     "store": {"events": guardar, "source": "RFEA (SmartTrack)", "url": smarttrack.WEB + lv["chid"]} if guardar else None}
