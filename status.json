@@ -2,81 +2,81 @@
  "sources": {
   "rfea_calendar": {
    "label": "RFEA · calendario",
-   "last_run": "2026-10-03T18:35:44+02:00",
+   "last_run": "2026-10-03T20:47:30+02:00",
    "ok": true,
-   "last_ok": "2026-10-03T18:36:26+02:00",
+   "last_ok": "2026-10-03T20:48:12+02:00",
    "fails_in_a_row": 0,
    "last_count": 630
   },
   "wa_calendar": {
    "label": "World Athletics · calendario",
-   "last_run": "2026-10-03T18:36:26+02:00",
+   "last_run": "2026-10-03T20:48:12+02:00",
    "ok": true,
-   "last_ok": "2026-10-03T18:36:52+02:00",
+   "last_ok": "2026-10-03T20:48:37+02:00",
    "fails_in_a_row": 0,
    "last_count": 185
   },
   "cronomancha_upcoming": {
    "label": "Cronomancha · próximas",
-   "last_run": "2026-10-03T18:36:52+02:00",
+   "last_run": "2026-10-03T20:48:37+02:00",
    "ok": true,
-   "last_ok": "2026-10-03T18:36:54+02:00",
+   "last_ok": "2026-10-03T20:48:38+02:00",
    "fails_in_a_row": 0,
    "last_count": 7
   },
   "cronomancha_events": {
    "label": "Cronomancha · resultados",
-   "last_run": "2026-10-03T18:36:54+02:00",
+   "last_run": "2026-10-03T20:48:38+02:00",
    "ok": true,
-   "last_ok": "2026-10-03T18:36:55+02:00",
+   "last_ok": "2026-10-03T20:48:39+02:00",
    "fails_in_a_row": 0,
    "last_count": 37
   },
   "avaibook": {
    "label": "AvaiBook (Runvasport)",
-   "last_run": "2026-10-03T18:36:55+02:00",
+   "last_run": "2026-10-03T20:48:39+02:00",
    "ok": true,
-   "last_ok": "2026-10-03T18:36:56+02:00",
+   "last_ok": "2026-10-03T20:48:41+02:00",
    "fails_in_a_row": 0,
    "last_count": 47
   },
   "rfea_detail": {
    "label": "RFEA · fichas de competición",
-   "last_run": "2026-10-03T18:36:58+02:00",
+   "last_run": "2026-10-03T20:48:42+02:00",
    "ok": true,
-   "last_ok": "2026-10-03T18:36:58+02:00",
+   "last_ok": "2026-10-03T20:48:42+02:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
   "rfealive": {
    "label": "RFEA Live · horarios",
-   "last_run": "2026-10-03T18:36:58+02:00",
+   "last_run": "2026-10-03T20:48:42+02:00",
    "ok": true,
-   "last_ok": "2026-10-03T18:40:02+02:00",
+   "last_ok": "2026-10-03T20:51:46+02:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
   "destacados": {
    "label": "Atletas destacados (listas de salida)",
-   "last_run": "2026-10-03T18:40:12+02:00",
+   "last_run": "2026-10-03T20:51:56+02:00",
    "ok": true,
-   "last_ok": "2026-10-03T18:41:29+02:00",
+   "last_ok": "2026-10-03T20:52:27+02:00",
    "fails_in_a_row": 0,
    "last_count": 2
   },
   "results": {
    "label": "Resultados (todas las fuentes)",
-   "last_run": "2026-10-03T20:29:19+02:00",
+   "last_run": "2026-10-03T20:52:27+02:00",
    "ok": true,
-   "last_ok": "2026-10-03T20:31:34+02:00",
+   "last_ok": "2026-10-03T20:53:07+02:00",
    "fails_in_a_row": 0,
    "last_count": 5
   },
   "rfea_results": {
    "label": "RFEA · índice de resultados (PDF)",
-   "last_run": "2026-10-03T20:29:19+02:00",
+   "last_run": "2026-10-03T20:52:27+02:00",
    "ok": true,
-   "last_ok": "2026-10-03T20:29:21+02:00",
+   "last_ok": "2026-10-03T20:52:29+02:00",
    "fails_in_a_row": 0,
    "last_count": 0,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf",
@@ -94,46 +94,82 @@
   },
   "avaibook_upcoming": {
    "label": "Runvasport · próximas",
-   "last_run": "2026-10-03T18:36:56+02:00",
+   "last_run": "2026-10-03T20:48:41+02:00",
    "ok": true,
-   "last_ok": "2026-10-03T18:36:58+02:00",
+   "last_ok": "2026-10-03T20:48:42+02:00",
    "fails_in_a_row": 0,
-   "last_count": 20
+   "last_count": 19
   },
   "previas": {
    "label": "Previas (listas de inscritos)",
-   "last_run": "2026-10-03T18:43:19+02:00",
+   "last_run": "2026-10-03T20:53:07+02:00",
    "ok": true,
-   "last_ok": "2026-10-03T19:08:18+02:00",
+   "last_ok": "2026-10-03T21:18:05+02:00",
    "fails_in_a_row": 0,
    "last_count": 24
   },
   "ranking": {
    "label": "Ranking RFEA (aire libre y pista cubierta)",
-   "last_run": "2026-10-03T19:08:18+02:00",
+   "last_run": "2026-10-03T21:18:05+02:00",
    "ok": true,
-   "last_ok": "2026-10-03T19:15:12+02:00",
+   "last_ok": "2026-10-03T21:25:27+02:00",
    "fails_in_a_row": 0,
    "last_count": 121
   },
   "adoc": {
    "label": "ADOC · pruebas asociadas",
-   "last_run": "2026-10-03T18:40:02+02:00",
+   "last_run": "2026-10-03T20:51:46+02:00",
    "ok": true,
-   "last_ok": "2026-10-03T18:40:11+02:00",
+   "last_ok": "2026-10-03T20:51:56+02:00",
    "fails_in_a_row": 0,
    "last_count": 23
   },
   "adoc_calendar": {
    "label": "ADOC · calendario del circuito",
-   "last_run": "2026-10-03T18:40:11+02:00",
+   "last_run": "2026-10-03T20:51:56+02:00",
    "ok": true,
-   "last_ok": "2026-10-03T18:40:12+02:00",
+   "last_ok": "2026-10-03T20:51:56+02:00",
    "fails_in_a_row": 0,
    "last_count": 14
   }
  },
  "log": [
+  {
+   "at": "2026-10-03T20:52:53+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de 'XXXVIII Milla Internacional de Berango' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7234389"
+  },
+  {
+   "at": "2026-10-03T20:49:42+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Maratón Estepona - Jardín de la Costa del Sol no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-03T20:49:32+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Bank of America Chicago Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-03T20:49:23+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de XX Carreira Popular Coruña 10 no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-03T20:49:13+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de 29º Medio Maratón Internacional Ciudad de Albacete 2026 no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-03T20:49:03+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de XXXVIII Milla Internacional de Berango no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
   {
    "at": "2026-10-03T20:31:20+02:00",
    "level": "warning",
@@ -577,43 +613,7 @@
    "level": "warning",
    "source": "wa_calendar",
    "msg": "Programa de 29º Medio Maratón Internacional Ciudad de Albacete 2026 no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-01T06:35:24+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de XXXVIII Milla Internacional de Berango no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-01T01:47:23+02:00",
-   "level": "info",
-   "source": "backfill",
-   "msg": "Carga histórica: 87 con podios nuevos, 295 ya estaban, 49 sin resultados localizados (35.0 min)."
-  },
-  {
-   "at": "2026-10-01T01:11:36+02:00",
-   "level": "info",
-   "source": "backfill",
-   "msg": "Carga histórica: 37 con podios nuevos, 68 ya estaban, 15 sin resultados localizados (48.2 min)."
-  },
-  {
-   "at": "2026-10-01T01:11:36+02:00",
-   "level": "info",
-   "source": "backfill",
-   "msg": "Tanda terminada por tiempo; quedan 311 competiciones para la siguiente."
-  },
-  {
-   "at": "2026-10-01T00:11:12+02:00",
-   "level": "info",
-   "source": "backfill",
-   "msg": "Carga histórica: 1 con podios nuevos, 0 ya estaban, 0 sin resultados localizados (0.6 min)."
-  },
-  {
-   "at": "2026-10-01T00:04:26+02:00",
-   "level": "info",
-   "source": "backfill",
-   "msg": "Carga histórica: 1 con podios nuevos, 381 ya estaban, 49 sin resultados localizados (2.3 min)."
   }
  ],
- "updated": "2026-10-03T21:24:45+02:00"
+ "updated": "2026-10-03T21:25:27+02:00"
 }
