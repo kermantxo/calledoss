@@ -46,6 +46,8 @@ def plan(items):
             e = s + BEFORE + dt.timedelta(hours=4) + AFTER  # solo sabemos la hora de salida
         else:
             e = dt.datetime.combine(t, dt.time.fromisoformat(DEFAULT_END), MADRID) + AFTER
+        if it.get("type") in ("Trail", "Trail Running"):
+            e += dt.timedelta(hours=3)  # carreras largas: el cronometrador publica cuando llega el último
         windows.append({
             "id": it["id"], "name": it["name"], "place": it.get("place", ""), "source": it.get("source"),
             "start": s.isoformat(), "end": e.isoformat(), "first": first, "last": last,
