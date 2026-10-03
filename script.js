@@ -4057,7 +4057,12 @@ function yaTerminada(c){
   if(fin > hoy) return false;
   const l = LIVE_DATA && LIVE_DATA.date === hoy ? (LIVE_DATA.items || {})[c.id] : null;
   if(l && l.status === 'finalizado') return true;
-  return !!(c.schedule && c.schedule.length && c.schedule.every(x => x.done) && resultFor(c.id));
+  if(c.schedule && c.schedule.length && c.schedule.every(x => x.done) && resultFor(c.id)) return true;
+  // ya tiene resultados y ha pasado la última salida del día (p. ej. un trail con su clasificación publicada):
+  // está terminada, sale de Próximas y de En directo y se queda en Resultados
+  const ultima = [c.time_end, c.time, ...((c.schedule || []).filter(x => x.d === hoy).map(x => x.t))].filter(Boolean).sort().pop();
+  const ahora = new Intl.DateTimeFormat('es-ES', {hour:'2-digit', minute:'2-digit', hour12:false, timeZone:'Europe/Madrid'}).format(new Date());
+  return !!(resultFor(c.id) && ultima && ahora > String(ultima).padStart(5, '0'));
 }
 
 function renderLive(){
@@ -4065,7 +4070,8 @@ function renderLive(){
   const upd = document.getElementById('liveUpdated');
   // lo que ya ha terminado solo sale en Resultados
   const items = (LIVE_DATA && LIVE_DATA.date === hoyISO() ? Object.values(LIVE_DATA.items || {}) : [])
-    .filter(i => i.status !== 'finalizado');
+    .filter(i => i.status !== 'finalizado')
+    .filter(i => { const c = CALENDAR.find(x => x.id === i.id); return !(c && yaTerminada(c)); });
   // Citas de hoy según el calendario aunque la tarea de directo aún no haya pasado
   const hoy = hoyISO();
   CALENDAR.filter(c => c.date <= hoy && (c.end_date || c.date) >= hoy && !yaTerminada(c)).forEach(c=>{
