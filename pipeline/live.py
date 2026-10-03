@@ -172,7 +172,7 @@ def _with_schedule(it, at, data):
     # el cronometrador abrevia («Sub 12 Fem», «Senior / Vet Masc») y el horario no («Sub-12 Femenino»)
     sexo = {"fem": "F", "femenino": "F", "femenina": "F", "mujeres": "F", "f": "F", "federadas": "F",
             "masc": "M", "masculino": "M", "masculina": "M", "hombres": "M", "m": "M", "federados": "M"}
-    alias = {"vet": "master", "veteranos": "master", "veteranas": "master"}
+    alias = {"vet": "master", "veteranos": "master", "veteranas": "master", "paralimpicos": "paralimpico"}
     vacias = {"y", "de", "la", "el", "general", "clasificacion"}
 
     def toks(s):
