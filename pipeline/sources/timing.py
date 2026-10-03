@@ -17,7 +17,7 @@ from urllib.parse import urljoin
 from ..common import clean, norm
 
 TOP = 10  # filas por prueba y sexo que se guardan en las carreras multitudinarias (Behobia, maratones...)
-COMPLETA = 300  # hasta tantos llegados por prueba y sexo se guarda la clasificación entera (Berango)
+COMPLETA = 1500  # hasta tantos llegados por prueba y sexo se guarda la clasificación entera (Berango, Higuero)
 
 
 def _cut(rows):
@@ -189,8 +189,16 @@ def avai(http, page):
     out = []
     for u in general[:30]:
         try:
-            r = http.get(u, timeout=90)
-            if b"%PDF" not in r.content[:1024]:
+            r = None
+            # AvaiBook enlaza los PDF en su dominio, pero a veces solo los sirve Runvasport o Kirolprobak
+            for host in (None, "inscripciones.runvasport.es", "inscripcion.kirolprobak.com", "www.avaibooksports.com"):
+                try:
+                    r = http.get(re.sub(r"^https?://[^/]+", "https://" + host, u) if host else u, timeout=90, retries=0)
+                except Exception:
+                    r = None
+                if r is not None and b"%PDF" in r.content[:1024]:
+                    break
+            if r is None or b"%PDF" not in r.content[:1024]:
                 continue
             for ev in pdf_columns.parse(r.content, full=True):
                 label = ev.get("name") or u.rsplit("/", 1)[-1].replace("-", " ")
