@@ -171,3 +171,4 @@
 - 2026-10-03: Resultados solo muestra lo ya disputado o en marcha: lo de hoy entra a su hora de salida y, mientras se celebra, aparece como «En curso» (verde) en vez de «Disputada».
 - 2026-10-03: Una competición que ya tiene resultados y cuya última salida ya ha pasado se da por terminada: sale de Próximas y de En directo y queda solo en Resultados.
 - 2026-10-03: En directo muestra las competiciones de hoy desde su hora de salida hasta las 00:00: en marcha con «DIRECTO» en verde y, al terminar, con «FINALIZADO» y sus resultados. En Próximas ya no salen las terminadas.
+- 2026-10-03: Resultados: quitado el bloque aparte «Internacionales de la selección»; esas competiciones salen en la lista normal, por meses, como las demás.
