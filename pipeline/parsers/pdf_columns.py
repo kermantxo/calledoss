@@ -213,9 +213,9 @@ def _is_wrapped_cell(ws, cols):
     return min(w["x0"] for w in ws) + 3 >= cols[1][1]
 
 
-def parse(content=None, pdf=None, max_pages=3000):
+def parse(content=None, pdf=None, max_pages=3000, full=False):
     """Devuelve [{name, rounds:[{round, final, rows}]}]: podio general y, si se sabe el sexo,
-    podio masculino y femenino de cada sección (distancia/categoría)."""
+    podio masculino y femenino de cada sección (distancia/categoría). full=True: la clasificación entera."""
     rows_all = []      # filas con tiempo: dict(section, row, top, page)
     doc = pdf or pdfplumber.open(io.BytesIO(content))
     try:
@@ -440,7 +440,7 @@ def parse(content=None, pdf=None, max_pages=3000):
         if len(rows) < 2:
             continue
         rows.sort(key=lambda r: r["_s"])
-        top = [{"pos": str(i + 1), "name": r["name"], "club": r["club"], "mark": r["mark"], "cat": r["cat"]} for i, r in enumerate(rows[:3])]
+        top = [{"pos": str(i + 1), "name": r["name"], "club": r["club"], "mark": r["mark"], "cat": r["cat"]} for i, r in enumerate(rows if full else rows[:3])]
         section, sex = key
         label = clean(re.sub(r"(?i)clasificaci[oó]n( general)?( categor[ií]a)?( por categor[ií]as)?|classificaci[oó]( general)?", "", section)) or "Clasificación"
         label = re.split(r",\s*total|\s+total\.{2,}", label, flags=re.I)[0]

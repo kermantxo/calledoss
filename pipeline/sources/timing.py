@@ -16,7 +16,13 @@ from urllib.parse import urljoin
 
 from ..common import clean, norm
 
-TOP = 10  # filas por prueba y sexo que se guardan en el directo
+TOP = 10  # filas por prueba y sexo que se guardan en las carreras multitudinarias (Behobia, maratones...)
+COMPLETA = 300  # hasta tantos llegados por prueba y sexo se guarda la clasificación entera (Berango)
+
+
+def _cut(rows):
+    """Clasificación entera si la prueba es pequeña; solo los primeros si es multitudinaria."""
+    return rows if len(rows) <= COMPLETA else rows[:TOP]
 
 
 def _cells(tr):
@@ -37,7 +43,7 @@ def _split_sex(rows, name):
     for sx in ("M", "F"):
         lst = [r for r in rows if r.get("sex") == sx]
         if lst:
-            out.append({"name": name, "sex": sx, "rows": [dict(r, pos=str(i + 1)) for i, r in enumerate(lst[:TOP])],
+            out.append({"name": name, "sex": sx, "rows": [dict(r, pos=str(i + 1)) for i, r in enumerate(_cut(lst))],
                         "finished": len(lst)})
     return out
 
@@ -186,14 +192,16 @@ def avai(http, page):
             r = http.get(u, timeout=90)
             if b"%PDF" not in r.content[:1024]:
                 continue
-            for ev in pdf_columns.parse(r.content):
+            for ev in pdf_columns.parse(r.content, full=True):
                 label = ev.get("name") or u.rsplit("/", 1)[-1].replace("-", " ")
                 for rnd in ev.get("rounds") or []:
                     sx = "F" if re.search(r"femen|mujer", (label + " " + (rnd.get("round") or "")), re.I) else \
                         "M" if re.search(r"mascul|hombre", (label + " " + (rnd.get("round") or "")), re.I) else ""
                     rows = [{k: x.get(k, "") for k in ("pos", "name", "club", "mark")} for x in rnd.get("rows") or []]
+                    for x in rows:  # licencia pegada al apellido («Zurutuza Renom Ss-3719028-a-n-s»)
+                        x["name"] = re.sub(r"\s+[A-Za-z]{1,3}-?\d{3,}[\w-]*$", "", x["name"])
                     if rows:
-                        out.append({"name": label, "sex": sx, "rows": rows[:TOP], "finished": len(rnd.get("rows") or [])})
+                        out.append({"name": label, "sex": sx, "rows": _cut(rows), "finished": len(rnd.get("rows") or [])})
         except Exception:
             continue
     return out
