@@ -1,7 +1,10 @@
 {
  "_nota": "Atletas de élite de las listas oficiales de la organización cuando no hay lista oficial legible. Clave: id de la competición. Se añaden a la previa con la fuente indicada. 'excluir': atletas inscritos que no van a correr (se quitan de la previa). 'excluir_pruebas': pruebas de la lista que no se muestran en la previa (nombre tal cual sale en la lista). 'elite': false si el atleta no sale en un grupo de élite (por defecto se considera élite). 'por_categoria': favoritos por categoría (M35, F40...) en vez de por carrera. 'edicion_anterior': {rfealive, base, nombre} para destacar a los medallistas de la edición anterior. Norma: solo listas y anuncios oficiales de la organización; la prensa solo con permiso expreso y diciéndolo en el motivo («anunciada en prensa (medio)»). 'no_destacar': atletas que corren pero no deben salir como favoritos aunque tengan dorsal de élite.",
  "rfea-2026-10-03-xxxviii-milla-internacional-de-berango": {
-  "fuente": "https://www.instagram.com/p/Dd4bkxsjenH/",
+  "fuente": [
+   "https://www.instagram.com/p/Dd4bkxsjenH/",
+   "https://www.deia.eus/otros-deportes/2026/09/29/milla-berango-regresa-duelo-campeones-11597786.html"
+  ],
   "atletas": [
    {
     "name": "Isaac Nader",
@@ -335,9 +338,65 @@
     "club": "Berango AT",
     "bib": 18,
     "note": "En la élite (lista oficial de la organización)"
+   },
+   {
+    "name": "Markel Fernández",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Relevo 4x400 mixto",
+    "note": "Exhibición de relevo 4x400 mixto anunciada en prensa (Deia)"
+   },
+   {
+    "name": "Ángel González",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Relevo 4x400 mixto",
+    "note": "Exhibición de relevo 4x400 mixto anunciada en prensa (Deia)"
+   },
+   {
+    "name": "Juan José de la Rosa",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Relevo 4x400 mixto",
+    "note": "Exhibición de relevo 4x400 mixto anunciada en prensa (Deia)"
+   },
+   {
+    "name": "Manuel Bea",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Relevo 4x400 mixto",
+    "note": "Exhibición de relevo 4x400 mixto anunciada en prensa (Deia)"
+   },
+   {
+    "name": "Blanca Hervás",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Relevo 4x400 mixto",
+    "note": "Exhibición de relevo 4x400 mixto anunciada en prensa (Deia)"
+   },
+   {
+    "name": "Eva Santidrián",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Relevo 4x400 mixto",
+    "note": "Exhibición de relevo 4x400 mixto anunciada en prensa (Deia)"
+   },
+   {
+    "name": "Herminia Parra",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Relevo 4x400 mixto",
+    "note": "Exhibición de relevo 4x400 mixto anunciada en prensa (Deia)"
+   },
+   {
+    "name": "Daniela Fra",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Relevo 4x400 mixto",
+    "note": "Exhibición de relevo 4x400 mixto anunciada en prensa (Deia)"
    }
   ],
-  "_nota_lista": "Solo las hojas oficiales de la organización: élite masculina (19) y femenina (18) con dorsal (fotos, 30-09-2026)"
+  "_nota_lista": "Solo las hojas oficiales de la organización: élite masculina (19) y femenina (18) con dorsal (fotos, 30-09-2026). Relevo 4x400 mixto de exhibición: anunciado en prensa (Deia), puesto con permiso expreso."
  },
  "manual-2026-10-04-medio-maraton-san-sebastian-rural-kutxa": {
   "excluir": [
