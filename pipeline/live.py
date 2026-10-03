@@ -164,12 +164,22 @@ def _poll_one(http, it, at, lv):
             sc = rfealive.schedule(http, lv["chid"], base=lv.get("base") or rfealive.BASE)
             today_evs = [e for e in sc["events"] if e.get("date") == at.date().isoformat()] or sc["events"]
             done = [e for e in today_evs if (e.get("status") or "").lower().startswith("oficial")]
+            ahora = at.strftime("%H:%M")
+            # pruebas ya empezadas que aún no son oficiales: si la RFEA ya enseña clasificación, sale como provisional
+            en_marcha = [e for e in today_evs if e not in done and e.get("time") and e["time"] <= ahora]
             events = []
-            for e in done[-6:]:  # las últimas pruebas terminadas
-                r = rfealive.results(http, e["results_url"])
-                if r["rows"]:
-                    events.append({"name": e["event"], "round": e["round"], "time": e["time"], "rows": r["rows"][:8]})
-            nxt = [e for e in today_evs if e not in done][:8]
+            for e in done + en_marcha:  # TODAS las del día, cada una en cuanto tiene clasificación
+                try:
+                    r = rfealive.results(http, e["results_url"])
+                except Exception:
+                    continue
+                oficial = e in done
+                # sin marcas todavía (solo la lista de participantes): aún no hay nada que enseñar
+                if r["rows"] and (oficial or any((x.get("mark") or "").strip() for x in r["rows"])):
+                    events.append({"name": e["event"], "round": e["round"] if oficial else "%s · provisional" % e["round"],
+                                   "time": e["time"], "rows": r["rows"][:8]})
+            events.sort(key=lambda x: (x["time"] or "").strip().zfill(5), reverse=True)  # la más reciente, arriba
+            nxt = [e for e in today_evs if e not in done and e not in en_marcha][:8]
             return {"events": events[::-1], "schedule": [{"time": e["time"], "event": e["event"], "round": e["round"],
                                                           "status": e.get("status") or "Por disputar"} for e in nxt],
                     "done": len(done), "total": len(today_evs)}
