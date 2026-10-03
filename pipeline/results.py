@@ -129,6 +129,17 @@ def _add_extra_rows(rid, res):
         rnd["rows"].sort(key=lambda x: int(x["pos"]) if str(x.get("pos", "")).isdigit() else 10 ** 6)
 
 
+def _keep_previous(rid, res, source):
+    """Durante la competición la fuente puede devolver de golpe menos pruebas (p. ej. RFEA Live enseña solo
+    una sesión): las pruebas ya guardadas de la misma fuente que ahora no vienen se conservan."""
+    old = load_json("results/%s.json" % rid, None)
+    if not old or old.get("source") != source or old.get("link_only") or res.get("link_only"):
+        return
+    k = lambda e: norm(e.get("name", ""))
+    hay = {k(e) for e in res.get("events", [])}
+    res["events"] = list(res.get("events", [])) + [e for e in old.get("events", []) if k(e) not in hay]
+
+
 def store(item, res, source, url=None):
     """Guarda el detalle y actualiza el índice."""
     rid = item["id"] if item else "res-%s" % short_hash(url or source)
@@ -143,6 +154,7 @@ def store(item, res, source, url=None):
         return None
     from .quality import event_sex
     res["events"] = _dedupe(res.get("events", []))
+    _keep_previous(rid, res, source)
     _add_extra_rows(rid, res)
     for ev in res.get("events", []):
         ev["sex"] = event_sex(ev)  # la web separa femenino / masculino con este dato

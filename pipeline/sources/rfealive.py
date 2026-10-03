@@ -42,15 +42,31 @@ def _key(href):
     return (parse_qs(urlparse(href).query).get("key") or [None])[0]
 
 
+def _session_soups(http, url):
+    """La página de horario enseña una sesión (03/10 Mañana, 03/10 Tarde...) y enlaza las demás:
+    se leen todas, porque en cuanto aparece la sesión siguiente la de por defecto deja de ser la de hoy."""
+    first = BeautifulSoup(http.get(url).text, "lxml")
+    soups, seen = [first], set()
+    for a in first.find_all("a", href=re.compile(r"Schedule\?chid=.*session=")):
+        ses = parse_qs(urlparse(a["href"]).query).get("session", [""])[0]
+        if ses and ses not in seen:
+            seen.add(ses)
+            try:
+                soups.append(BeautifulSoup(http.get(url.split("&")[0] + "&session=" + quote(ses)).text, "lxml"))
+            except Exception:
+                continue
+    return soups
+
+
 def schedule(http, chid, base=BASE):
     """Horario completo del campeonato: lista de pruebas con fecha, hora, ronda y estado."""
     url = base + "/Results/Schedule?chid=" + chid
-    soup = BeautifulSoup(http.get(url).text, "lxml")
-    title = soup.find("h4", class_="section-title")
-    wrap = soup.select_one(".rfep-hidden-desktop table#myTable") or soup.find("table", id="myTable")
+    soups = _session_soups(http, url)
+    title = soups[0].find("h4", class_="section-title")
     events = {}
-    if wrap:
-        for tr in wrap.find_all("tr"):
+    for soup in soups:
+        wrap = soup.select_one(".rfep-hidden-desktop table#myTable") or soup.find("table", id="myTable")
+        for tr in (wrap.find_all("tr") if wrap else []):
             tds = tr.find_all("td")
             if not tds:
                 continue
@@ -167,12 +183,12 @@ def schedule_podiums(http, chid, base=BASE):
     Una sola petición por campeonato: cada prueba terminada muestra sus tres primeros.
     """
     url = base + "/Results/Schedule?chid=" + chid
-    soup = BeautifulSoup(http.get(url).text, "lxml")
-    title = soup.find("h4", class_="section-title")
-    wrap = soup.select_one(".rfep-hidden-desktop table#myTable") or soup.find("table", id="myTable")
+    soups = _session_soups(http, url)
+    title = soups[0].find("h4", class_="section-title")
     events, order = {}, []
-    if wrap:
-        for tr in wrap.find_all("tr"):
+    for soup in soups:
+        wrap = soup.select_one(".rfep-hidden-desktop table#myTable") or soup.find("table", id="myTable")
+        for tr in (wrap.find_all("tr") if wrap else []):
             tds = tr.find_all("td")
             if not tds:
                 continue
@@ -181,7 +197,7 @@ def schedule_podiums(http, chid, base=BASE):
                 link = tr.find("a", href=re.compile("ResultsEvent"))
                 date_el = tds[0].select_one("#eventDate")
                 rnd = tr.select_one(".rfep-champ-city")
-                if link:
+                if link and tid not in events:
                     d = parse_dmy(date_el.get_text() if date_el else "")
                     events[tid] = {"event": clean(link.get_text()), "round": clean(rnd.get_text()) if rnd else "",
                                    "date": d.isoformat() if d else None, "rows": [], "status": ""}
