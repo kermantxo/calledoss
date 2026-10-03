@@ -196,7 +196,8 @@ def _poll_one(http, it, at, lv):
                         {"round": e["round"], "final": bool(re.match(r"final", e["round"] or "", re.I)),
                          "time": e["time"], "date": e.get("date"), "rows": r["rows"]})
                 # sin marcas todavía (solo la lista de participantes): aún no hay nada que enseñar
-                if r["rows"] and (oficial or any((x.get("mark") or "").strip() for x in r["rows"])):
+                # (una marca de verdad: con cifras; «DNS», «DNF», «NM»... no cuentan)
+                if r["rows"] and (oficial or any(re.search(r"\d", x.get("mark") or "") for x in r["rows"])):
                     events.append({"name": e["event"], "round": e["round"] if oficial else "%s · provisional" % e["round"],
                                    "time": e["time"], "rows": r["rows"][:8]})
             events.sort(key=lambda x: (x["time"] or "").strip().zfill(5), reverse=True)  # la más reciente, arriba
