@@ -121,7 +121,7 @@ def tick(http, health, force=False):
             health.note("live", "warning", "Directo de '%s': %s" % (w["name"], e))
             data = None
         st["checked"] = iso_now()
-        if data and data.get("store") and not st.get("results_id"):
+        if data and data.get("store"):
             try:
                 from .results import store
                 st["results_id"] = store(it, {"events": data["store"]["events"]}, data["store"]["source"], data["store"]["url"])
@@ -184,22 +184,28 @@ def _poll_one(http, it, at, lv):
             ahora = at.strftime("%H:%M")
             # pruebas ya empezadas que aún no son oficiales: si la RFEA ya enseña clasificación, sale como provisional
             en_marcha = [e for e in today_evs if e not in done and e.get("time") and e["time"] <= ahora]
-            events = []
+            events, guardar = [], {}
             for e in done + en_marcha:  # TODAS las del día, cada una en cuanto tiene clasificación
                 try:
                     r = rfealive.results(http, e["results_url"])
                 except Exception:
                     continue
                 oficial = e in done
+                if oficial and r["rows"]:  # a Resultados en cuanto es oficial (clasificación completa)
+                    guardar.setdefault(e["event"], {"name": e["event"], "rounds": []})["rounds"].append(
+                        {"round": e["round"], "final": bool(re.match(r"final", e["round"] or "", re.I)),
+                         "time": e["time"], "date": e.get("date"), "rows": r["rows"]})
                 # sin marcas todavía (solo la lista de participantes): aún no hay nada que enseñar
                 if r["rows"] and (oficial or any((x.get("mark") or "").strip() for x in r["rows"])):
                     events.append({"name": e["event"], "round": e["round"] if oficial else "%s · provisional" % e["round"],
                                    "time": e["time"], "rows": r["rows"][:8]})
             events.sort(key=lambda x: (x["time"] or "").strip().zfill(5), reverse=True)  # la más reciente, arriba
             nxt = [e for e in today_evs if e not in done and e not in en_marcha][:8]
-            return {"events": events[::-1], "schedule": [{"time": e["time"], "event": e["event"], "round": e["round"],
-                                                          "status": e.get("status") or "Por disputar"} for e in nxt],
-                    "done": len(done), "total": len(today_evs)}
+            return {"events": events, "schedule": [{"time": e["time"], "event": e["event"], "round": e["round"],
+                                                    "status": e.get("status") or "Por disputar"} for e in nxt],
+                    "done": len(done), "total": len(today_evs),
+                    "store": {"events": list(guardar.values()), "source": "RFEA Live",
+                              "url": (lv.get("base") or rfealive.BASE) + "/Results/Schedule?chid=" + lv["chid"]} if guardar else None}
         if kind in timing.KINDS:
             got = timing.poll(http, lv, it)
             if got:
@@ -207,21 +213,25 @@ def _poll_one(http, it, at, lv):
                 return {"events": [{"name": timing.label(e),
                                     "round": "Clasificación" if final else "Provisional · %d llegados" % e.get("finished", len(e["rows"])),
                                     "rows": e["rows"][:8]} for e in evs],
-                        "store": {"events": timing.to_store(evs), "source": source, "url": url} if final else None}
+                        "store": {"events": timing.to_store(evs), "source": source, "url": url}}
             continue
         if kind == "smarttrack":
             sc = [e for e in smarttrack.schedule(http, lv["chid"]) if not smarttrack.is_team(e)]
             today_evs = [e for e in sc if e["date"] == at.date().isoformat()] or sc
             done = [e for e in today_evs if e["done"]]
-            events = []
-            for e in done[-6:]:  # las últimas pruebas terminadas, con el nombre completo del PDF oficial
-                rows = smarttrack_rows(http, e)[:8]
+            events, guardar = [], []
+            for e in done:  # todas las pruebas terminadas, con el nombre completo del PDF oficial
+                rows = smarttrack_rows(http, e)
                 if rows:
-                    events.append({"name": e["event"], "round": e["round"], "time": e["time"], "rows": rows})
+                    events.append({"name": e["event"], "round": e["round"], "time": e["time"], "rows": rows[:8]})
+                    guardar.append({"name": e["event"], "sex": e["sex"], "rounds": [
+                        {"round": e["round"] or "Final", "final": True, "time": e["time"], "date": e["date"], "rows": rows}]})
+            events.sort(key=lambda x: (x["time"] or "").zfill(5), reverse=True)  # la más reciente, arriba
             nxt = [e for e in today_evs if not e["done"]][:8]
-            return {"events": events[::-1], "schedule": [{"time": e["time"], "event": e["event"], "round": e["round"],
-                                                          "status": e["status"] or "Por disputar"} for e in nxt],
-                    "done": len(done), "total": len(today_evs)}
+            return {"events": events, "schedule": [{"time": e["time"], "event": e["event"], "round": e["round"],
+                                                    "status": e["status"] or "Por disputar"} for e in nxt],
+                    "done": len(done), "total": len(today_evs),
+                    "store": {"events": guardar, "source": "RFEA (SmartTrack)", "url": smarttrack.WEB + lv["chid"]} if guardar else None}
         if kind == "wa":
             start = dt.date.fromisoformat(it["date"])
             day = (at.date() - start).days + 1

@@ -150,7 +150,7 @@
 - The national-team profiles are still written by hand in `script.js`; the ranking is automatic (RFEA)
 
 - 2026-10-01: Nueva sección **Contacto** en el menú (formulario que envía a calledosspodcast@gmail.com con FormSubmit, gratis, y botones a Instagram, X, TikTok y Spotify). Añadida al pie de página, a la política de cookies, a las páginas de resultados y al sitemap.
-- 2026-10-01: Arreglado que algunos navegadores siguieran usando el diseño antiguo (iconos de Contacto enormes). Los archivos de diseño llevan ahora un número de versión (`styles.css?v=20261001q`) y el navegador comprueba siempre si hay uno nuevo. **Al cambiar styles.css o script.js, sube ese número** en index.html, cookies.html, en/cookies.html y panel.html y ejecuta `python3 paginas.py` (las páginas de resultados lo copian solas de index.html).
+- 2026-10-01: Arreglado que algunos navegadores siguieran usando el diseño antiguo (iconos de Contacto enormes). Los archivos de diseño llevan ahora un número de versión (`styles.css?v=20261001r`) y el navegador comprueba siempre si hay uno nuevo. **Al cambiar styles.css o script.js, sube ese número** en index.html, cookies.html, en/cookies.html y panel.html y ejecuta `python3 paginas.py` (las páginas de resultados lo copian solas de index.html).
 - 2026-10-01: En Contacto, "el pódcast de Calle 2" pasa a "el pódcast de Calledoss".
 - 2026-10-01: En el formulario de Contacto, el campo "Nombre" pasa a "Nombre y apellido".
 - 2026-10-01: **Versión en inglés** completa en calledoss.com/en/ (todas las secciones, cookies y las 390 páginas de resultados), con botón ES/EN, etiquetas hreflang para Google y sitemap con las direcciones en inglés.
@@ -172,3 +172,4 @@
 - 2026-10-03: Una competición que ya tiene resultados y cuya última salida ya ha pasado se da por terminada: sale de Próximas y de En directo y queda solo en Resultados.
 - 2026-10-03: En directo muestra las competiciones de hoy desde su hora de salida hasta las 00:00: en marcha con «DIRECTO» en verde y, al terminar, con «FINALIZADO» y sus resultados. En Próximas ya no salen las terminadas.
 - 2026-10-03: Resultados: quitado el bloque aparte «Internacionales de la selección»; esas competiciones salen en la lista normal, por meses, como las demás.
+- 2026-10-03: Los resultados del directo pasan a Resultados en el mismo momento (prueba a prueba en RFEA Live y SmartTrack, categoría a categoría en los cronometradores), sin esperar a que termine la competición; mientras tanto la competición sale como «En curso» en Resultados. En directo salen todas las pruebas del día, la más reciente arriba.

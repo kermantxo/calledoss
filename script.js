@@ -4387,7 +4387,9 @@ function renderResultsSeason(){
     const hasDetail = !!(comp && comp.events && comp.events.length) || !!auto;
     const isOpen = openResultRow === ev.id;
     const missing = !hasDetail && MISSING_IDS.has(ev.id);
-    const badge = hasDetail
+    const badge = hasDetail && !yaTerminada(ev)
+      ? `<div class="tag live-tag">${t('En curso')}</div>`   // va entrando: los resultados ya publicados, dentro
+      : hasDetail
       ? `<div class="tag intl">${t('Resultados')}</div>`
       : missing ? `<div class="tag nac" title="${t('Todavía no se han encontrado resultados oficiales en ninguna fuente; se siguen buscando')}">${t('Resultados pendientes')}</div>`
       : !yaTerminada(ev) ? `<div class="tag live-tag">${t('En curso')}</div>`
