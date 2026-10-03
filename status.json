@@ -66,17 +66,17 @@
   },
   "results": {
    "label": "Resultados (todas las fuentes)",
-   "last_run": "2026-10-03T18:41:29+02:00",
+   "last_run": "2026-10-03T20:29:19+02:00",
    "ok": true,
-   "last_ok": "2026-10-03T18:43:19+02:00",
+   "last_ok": "2026-10-03T20:31:34+02:00",
    "fails_in_a_row": 0,
-   "last_count": 3
+   "last_count": 5
   },
   "rfea_results": {
    "label": "RFEA · índice de resultados (PDF)",
-   "last_run": "2026-10-03T18:41:29+02:00",
+   "last_run": "2026-10-03T20:29:19+02:00",
    "ok": true,
-   "last_ok": "2026-10-03T18:41:31+02:00",
+   "last_ok": "2026-10-03T20:29:21+02:00",
    "fails_in_a_row": 0,
    "last_count": 0,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf",
@@ -134,6 +134,12 @@
   }
  },
  "log": [
+  {
+   "at": "2026-10-03T20:31:20+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de 'XXXVIII Milla Internacional de Berango' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7234389"
+  },
   {
    "at": "2026-10-03T18:43:07+02:00",
    "level": "warning",
@@ -607,13 +613,7 @@
    "level": "info",
    "source": "backfill",
    "msg": "Carga histórica: 1 con podios nuevos, 381 ya estaban, 49 sin resultados localizados (2.3 min)."
-  },
-  {
-   "at": "2026-10-01T00:01:23+02:00",
-   "level": "info",
-   "source": "backfill",
-   "msg": "Carga histórica: 3 con podios nuevos, 378 ya estaban, 50 sin resultados localizados (12.8 min)."
   }
  ],
- "updated": "2026-10-03T20:31:31+02:00"
+ "updated": "2026-10-03T20:31:34+02:00"
 }
