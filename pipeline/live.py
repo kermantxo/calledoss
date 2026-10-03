@@ -169,11 +169,22 @@ def _with_schedule(it, at, data):
         return data
     pend = [x for x in sch if not x.get("t") or x["t"].zfill(5) > ahora]
     data = dict(data or {"events": []})
-    toks = lambda s: set(re.findall(r"[a-z]+|\d+", norm(s))) - {"y", "de", "la", "el", "hombres", "mujeres"}
+    # el cronometrador abrevia («Sub 12 Fem», «Senior / Vet Masc») y el horario no («Sub-12 Femenino»)
+    sexo = {"fem": "F", "femenino": "F", "femenina": "F", "mujeres": "F", "f": "F", "federadas": "F",
+            "masc": "M", "masculino": "M", "masculina": "M", "hombres": "M", "m": "M", "federados": "M"}
+    alias = {"vet": "master", "veteranos": "master", "veteranas": "master"}
+    vacias = {"y", "de", "la", "el", "general", "clasificacion"}
+
+    def toks(s):
+        ws = [alias.get(w, w) for w in re.findall(r"[a-z]+|\d+", norm(s)) if w not in vacias]
+        return {w for w in ws if w not in sexo}, {sexo[w] for w in ws if w in sexo}
+
+    def encaja(ev, x):
+        (pe, se), (px, sx) = toks(ev), toks(x)
+        return bool(pe) and pe <= px and (not sx or not se or se <= sx)
     usados, timeline = set(), []
     for x in sch:
-        tx = toks(x.get("e", ""))
-        mios = [i for i, ev in enumerate(data.get("events") or []) if i not in usados and toks(ev["name"]) and toks(ev["name"]) <= tx]
+        mios = [i for i, ev in enumerate(data.get("events") or []) if i not in usados and encaja(ev["name"], x.get("e", ""))]
         usados |= set(mios)
         rows_x = [dict(r) for i in mios for r in data["events"][i]["rows"]]
         sub = [{"name": data["events"][i]["name"], "rows": data["events"][i]["rows"]} for i in mios]
