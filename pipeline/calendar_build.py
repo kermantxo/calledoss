@@ -358,7 +358,7 @@ def add_extra_links(items):
     n = 0
     for it in items:
         for k, v in (extra.get(it["id"]) or {}).items():
-            if k.startswith("_"):
+            if k.startswith("_") or k == "a_mano":  # a_mano: podios a mano para el directo (los lee live.py)
                 continue
             if k in ("schedule", "time", "time_end"):  # horario oficial copiado a mano
                 it[k] = v

@@ -10,6 +10,8 @@
   Resultados; lo que quede pendiente se reintenta en el chequeo diario siguiente.
 """
 import datetime as dt
+import json
+import os
 import re
 
 from .common import MADRID, load_json, norm, now, save_json, today, iso_now
@@ -155,7 +157,24 @@ def _poll(http, it, at):
             continue
         if got:
             break
-    return _with_schedule(it, at, got)
+    return _with_schedule(it, at, _a_mano(it, got))
+
+
+def _a_mano(it, got):
+    """Podios dados a mano (pipeline/extra_links.json, «a_mano») mientras el cronometrador no publica esa
+    prueba: en cuanto la fuente trae una prueba con el mismo nombre, manda la oficial."""
+    try:
+        with open(os.path.join(os.path.dirname(__file__), "extra_links.json"), encoding="utf-8") as f:
+            mano = (json.load(f).get(it["id"]) or {}).get("a_mano") or []
+    except Exception:
+        return got
+    if not mano:
+        return got
+    got = dict(got or {"events": []})
+    hay = {norm(e["name"]) for e in got.get("events") or []}
+    got["events"] = list(got.get("events") or []) + [dict(e, round=e.get("round") or "Provisional (a falta de la clasificación oficial)")
+                                                     for e in mano if norm(e["name"]) not in hay]
+    return got
 
 
 def _with_schedule(it, at, data):
