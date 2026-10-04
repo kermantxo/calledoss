@@ -250,7 +250,7 @@ def _with_schedule(it, at, data):
         t["groups"] = [{"name": data["events"][i]["name"], "rows": data["events"][i]["rows"]} for i in sueltas]
         t["state"] = "provisional" if all(data["events"][i].get("a_mano") for i in sueltas) else "oficial"
     data["timeline"] = timeline
-    data["schedule"] = [{"time": x.get("t") or "", "event": x.get("e") or "", "round": x.get("r") or ""} for x in pend[:10]]
+    data["schedule"] = [{"time": x.get("t") or "", "event": x.get("e") or "", "round": x.get("r") or ""} for x in pend]
     data["done"], data["total"] = len(sch) - len(pend), len(sch)
     return data
 
@@ -290,7 +290,7 @@ def _poll_one(http, it, at, lv):
                     events.append({"name": e["event"], "round": e["round"] if oficial else "%s · provisional" % e["round"],
                                    "time": e["time"], "rows": r["rows"][:8]})
             events.sort(key=lambda x: (x["time"] or "").strip().zfill(5), reverse=True)  # la más reciente, arriba
-            nxt = [e for e in today_evs if e not in done and e not in en_marcha][:8]
+            nxt = [e for e in today_evs if e not in done and e not in en_marcha]
             # horario prueba a prueba: hora, prueba, ronda, estado y su clasificación en cuanto la hay
             timeline = [{"time": e["time"], "event": e["event"], "round": e["round"],
                          "state": "no disputada" if e["results_url"] in nodisp else
@@ -323,7 +323,7 @@ def _poll_one(http, it, at, lv):
                     guardar.append({"name": e["event"], "sex": e["sex"], "rounds": [
                         {"round": e["round"] or "Final", "final": True, "time": e["time"], "date": e["date"], "rows": rows}]})
             events.sort(key=lambda x: (x["time"] or "").zfill(5), reverse=True)  # la más reciente, arriba
-            nxt = [e for e in today_evs if not e["done"]][:8]
+            nxt = [e for e in today_evs if not e["done"]]
             por_prueba = {(x["name"], x["round"]): x["rows"] for x in events}
             timeline = [{"time": e["time"], "event": e["event"], "round": e["round"],
                          "state": "oficial" if (e["event"], e["round"]) in por_prueba else
