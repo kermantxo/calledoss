@@ -66,17 +66,17 @@
   },
   "results": {
    "label": "Resultados (todas las fuentes)",
-   "last_run": "2026-10-04T23:52:46+02:00",
+   "last_run": "2026-10-05T00:12:59+02:00",
    "ok": true,
-   "last_ok": "2026-10-04T23:59:08+02:00",
+   "last_ok": "2026-10-05T00:18:48+02:00",
    "fails_in_a_row": 0,
-   "last_count": 11
+   "last_count": 7
   },
   "rfea_results": {
    "label": "RFEA · índice de resultados (PDF)",
-   "last_run": "2026-10-04T23:52:47+02:00",
+   "last_run": "2026-10-05T00:12:59+02:00",
    "ok": true,
-   "last_ok": "2026-10-04T23:52:49+02:00",
+   "last_ok": "2026-10-05T00:13:01+02:00",
    "fails_in_a_row": 0,
    "last_count": 0,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf",
@@ -134,6 +134,24 @@
   }
  },
  "log": [
+  {
+   "at": "2026-10-05T00:18:37+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Búsqueda de podios de 'XX Carreira Popular Coruña 10': expected string or bytes-like object, got 'list'"
+  },
+  {
+   "at": "2026-10-05T00:17:45+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de 'XX Carreira Popular Coruña 10' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7246208"
+  },
+  {
+   "at": "2026-10-05T00:15:47+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de '29º Medio Maratón Internacional Ciudad de Albacete 2026' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7234388"
+  },
   {
    "at": "2026-10-04T23:58:57+02:00",
    "level": "warning",
@@ -595,25 +613,7 @@
    "level": "warning",
    "source": "results",
    "msg": "Búsqueda de podios de 'X Carrera de la Mujer Medina del Campo': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-10-03T01:11:29+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de 'III Trail El Calero': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-10-03T00:39:38+02:00",
-   "level": "info",
-   "source": "backfill",
-   "msg": "Carga histórica: 4 con podios nuevos, 372 ya estaban, 47 sin resultados localizados (4.4 min)."
-  },
-  {
-   "at": "2026-10-03T00:34:27+02:00",
-   "level": "info",
-   "source": "backfill",
-   "msg": "Carga histórica: 99 con podios nuevos, 263 ya estaban, 47 sin resultados localizados (45.0 min)."
   }
  ],
- "updated": "2026-10-04T23:59:08+02:00"
+ "updated": "2026-10-05T00:18:48+02:00"
 }
