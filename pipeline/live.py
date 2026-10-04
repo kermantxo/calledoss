@@ -236,7 +236,9 @@ def _with_schedule(it, at, data):
     # lo que el cronometrador llama distinto («X Carrera de la Mujer...» frente a «Carrera»): si solo hay
     # una carrera ya empezada sin clasificación, es la suya
     sueltas = [i for i in range(len(data.get("events") or [])) if i not in usados and (data["events"][i].get("rows"))]
-    vacias_tl = [t for t, x in zip(timeline, sch) if t["state"] == "en marcha"]
+    vacias_tl = [t for t, x in zip(timeline, sch) if t["state"] in ("en marcha", "sin resultados")]
+    if len(vacias_tl) > 1:  # la marcha no competitiva y las infantiles no tienen la clasificación de la carrera
+        vacias_tl = [t for t in vacias_tl if not re.search(r"(?i)no competitiva|marcha|infantil|peques|chupetin", t["event"])]
     if sueltas and len(vacias_tl) == 1:
         t = vacias_tl[0]
         t["groups"] = [{"name": data["events"][i]["name"], "rows": data["events"][i]["rows"]} for i in sueltas]
