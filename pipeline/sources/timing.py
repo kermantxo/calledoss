@@ -124,8 +124,22 @@ def uno(http, cid, rid, max_pages=4):
             if not tables:
                 break
             got = 0
-            for tr in re.findall(r"<tr.*?</tr>", max(tables, key=len), re.S):
+            trs = re.findall(r"<tr.*?</tr>", max(tables, key=len), re.S)
+            # columnas por la cabecera (UNO cambió el diseño en 2026: Pto. · Nombre · Tiempo · Categoría · Género)
+            head = next((_cells(tr) for tr in trs if "Tiempo" in _cells(tr)), None)
+            if head:
+                i_t, i_g = head.index("Tiempo"), next((i for i, h in enumerate(head) if h in ("Género", "Sexo")), None)
+                i_c = next((i for i, h in enumerate(head) if h == "Club"), None)
+            for tr in trs:
                 c = _cells(tr)
+                if head:
+                    if len(c) <= i_t or not re.match(r"^\d+$", c[1] or ""):
+                        continue
+                    g = re.match(r"^([MF])\b", c[i_g] or "") if i_g is not None else None
+                    rows.append({"name": _nice(re.sub(r"\s*#\d+.*$", "", c[2])), "sex": g.group(1) if g else "",
+                                 "club": c[i_c] if i_c is not None else "", "mark": c[i_t]})
+                    got += 1
+                    continue
                 if len(c) < 10 or not re.match(r"^\d+$", c[1] or ""):
                     continue
                 g = re.match(r"^([MF])\b", c[9] or "")
