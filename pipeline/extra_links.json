@@ -415,6 +415,10 @@
   ],
   "live": [
    {
+    "kind": "cgal",
+    "comp": "P92x83lo"
+   },
+   {
     "kind": "ccnorte",
     "words": [
      "coru",

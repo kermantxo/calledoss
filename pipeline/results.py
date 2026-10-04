@@ -282,7 +282,7 @@ def by_item(http, it, health, final=False):
                 res, complete = rfealive_champ(http, lv["chid"], base=base)
                 if res and res["events"] and (complete or final):
                     return store(it, res, "RFEA Live", base + "/Results/Schedule?chid=" + lv["chid"])
-            elif kind in ("irteerak", "uno", "ccnorte", "avai", "chiplevante"):
+            elif kind in ("irteerak", "uno", "ccnorte", "avai", "chiplevante", "cgal"):
                 from .sources import timing
                 got = timing.poll(http, lv, it)
                 if got and (got[1] or final):

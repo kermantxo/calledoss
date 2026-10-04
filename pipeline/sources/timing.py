@@ -266,6 +266,36 @@ def chiplevante_pdf(http, page, s=None, name=None):
     return out
 
 
+# ------------------------------------------------------------------ Carreiras Galegas (Federación Galega)
+
+CGAL = "https://api.web.carreirasgalegas.com"
+
+
+def cgal(http, comp):
+    """Clasificación de cada carrera con resultados, por sexo (API pública de carreirasgalegas.com)."""
+    hdr = {"Origin": "https://www.carreirasgalegas.com", "Referer": "https://www.carreirasgalegas.com/"}
+    info = http.get("%s/competitions/%s" % (CGAL, comp), timeout=30, headers=hdr).json()
+    out = []
+    for race in sorted(info.get("races") or [], key=lambda r: (r.get("time") or "")):
+        if not race.get("hasResults"):
+            continue
+        for sx, g in (("M", "male"), ("F", "female")):
+            d = http.get("%s/competitions/%s/results" % (CGAL, comp), timeout=30, headers=hdr,
+                         params={"raceId": race["id"], "gender": g, "first": 0, "rows": 100}).json()
+            items = [x for x in d.get("items") or [] if x.get("raceId") == race["id"] and x.get("gender") == g
+                     and (x.get("status") or "ok") == "ok" and x.get("time")]
+            items.sort(key=lambda x: x.get("genderPosition") or 9999)
+            rows = [{"pos": str(x.get("genderPosition") or i + 1),
+                     "name": _nice("%s %s" % (x.get("name") or "", x.get("surname") or "")),
+                     "club": clean(x.get("club") or ""), "mark": re.sub(r"^00:", "", x.get("time") or "")}
+                    for i, x in enumerate(items)]
+            if rows:
+                n = d.get("count") or len(rows)
+                out.append({"name": "10 km" if race.get("distance") == 10000 else _nice(race.get("name") or ""),
+                            "sex": sx, "rows": rows if n <= COMPLETA else rows[:TOP], "finished": n})
+    return out
+
+
 # ------------------------------------------------------------------ común
 
 SEX_WORD = re.compile(r"mascul|femen|hombre|mujer|\bmen\b|women", re.I)
@@ -308,6 +338,10 @@ def poll(http, lv, it):
     if kind == "avai":
         evs = avai(http, lv["url"])
         return (evs, True, "Clasificaciones oficiales (PDF)", lv["url"]) if evs else None
+    if kind == "cgal":
+        evs = cgal(http, lv["comp"])
+        return (evs, False, "Carreiras Galegas (Federación Galega de Atletismo)",
+                "https://www.carreirasgalegas.com/events/%s" % lv["comp"]) if evs else None
     if kind == "chiplevante":
         evs = chiplevante(http, lv["url"])
         for e in evs:
@@ -317,4 +351,4 @@ def poll(http, lv, it):
     return None
 
 
-KINDS = {"irteerak", "uno", "ccnorte", "avai", "chiplevante"}
+KINDS = {"irteerak", "uno", "ccnorte", "avai", "chiplevante", "cgal"}
