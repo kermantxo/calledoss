@@ -140,6 +140,10 @@ def tick(http, health, force=False):
                 health.note("live", "warning", "Resultados de '%s': %s" % (w["name"], e))
         if data:
             data.pop("store", None)
+        prev = (st.get("data") or {}).get("events")
+        if prev and not (data or {}).get("events"):
+            # la fuente no ha contestado esta vez (o bloquea a GitHub y se cargó en local): se mantiene lo que ya había
+            data = _sin_resultados(_with_schedule(it, at, {"events": prev}), at)
         if data and (data.get("events") or data.get("schedule")):
             # aunque aún no haya pruebas terminadas, se enseña el horario de las próximas y el contador
             st["data"] = data
