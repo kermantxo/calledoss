@@ -4223,6 +4223,17 @@ function horarioBlock(ev){
     ${sinHoras ? `<div class="hor-foot">${t('La organización no publica la hora de cada prueba; se indica el día y la ronda.')}</div>` : ''}</div>`;
 }
 
+// día en que sale en Próximas (lo empezado antes del rango, el primer día del rango) y su hora de salida
+// ESE día: la Reunión de La Laguna empezó el sábado a las 15:00 pero el domingo sale a las 09:00
+function diaProx(ev, ini){ return ev.date < ini ? ini : ev.date; }
+function horaDelDia(ev, dia){
+  const hh = h => h ? String(h).padStart(5, '0') : '';
+  if(ev.times && ev.times[dia]) return hh(ev.times[dia][0]);
+  const hs = (ev.schedule||[]).filter(x => x.d === dia && x.t).map(x => hh(x.t)).sort();
+  if(hs.length) return hs[0];
+  return ev.date === dia && ev.time ? hh(ev.time) : '99:99';
+}
+
 function renderCompAccordion(){
   const wrap = document.getElementById('compSelectBar');
   const [ini, fin] = proximasRango();
@@ -4230,14 +4241,14 @@ function renderCompAccordion(){
     `📅 ${t('Del <b>{ini}</b> al <b>{fin}</b>.', {ini: fechaCorta(ini), fin: fechaCorta(fin)})}`;
   const lista = CALENDAR
     .filter(c => (c.end_date || c.date) >= ini && c.date <= fin && !yaTerminada(c))
-    .sort((a,b)=> a.date.localeCompare(b.date) || (a.time||'99').localeCompare(b.time||'99') || a.name.localeCompare(b.name));
+    .sort((a,b)=> diaProx(a, ini).localeCompare(diaProx(b, ini)) || horaDelDia(a, diaProx(a, ini)).localeCompare(horaDelDia(b, diaProx(b, ini))) || a.name.localeCompare(b.name));
   if(lista.length === 0){
     wrap.innerHTML = `<div class="empty-state"><h3>${t('Sin competiciones')}</h3>${t('No hay citas en el calendario para los próximos 7 días.')}</div>`;
     return;
   }
   let lastDay = null;
   wrap.innerHTML = lista.map(ev=>{
-    const day = ev.date < ini ? ini : ev.date;
+    const day = diaProx(ev, ini);
     const head = day !== lastDay ? `<div class="eyebrow" style="margin:18px 0 6px;">${fechaDia(day)}</div>` : '';
     lastDay = day;
     const isOpen = ev.id === openComp;
@@ -4270,7 +4281,7 @@ function renderCompAccordion(){
     return `${head}
       <div class="comp-accordion-item">
         <button class="comp-pill ${isOpen?'active':''}" data-id="${ev.id}">${enDirecto ? `<span class="status-chip live"><span class="live-dot"></span>${t('En directo')}</span> ` : ''}${esc(ev.name)}
-          <span style="color:var(--gray);font-size:12px;">${[ev.place, ev.time, etiqueta].filter(Boolean).map(x=>'· '+esc(x)).join(' ')}</span></button>
+          <span style="color:var(--gray);font-size:12px;">${[ev.place, (h => h === '99:99' ? '' : h)(horaDelDia(ev, day)), etiqueta].filter(Boolean).map(x=>'· '+esc(x)).join(' ')}</span></button>
         ${body}
       </div>`;
   }).join('');
