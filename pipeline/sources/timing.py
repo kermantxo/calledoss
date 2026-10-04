@@ -240,6 +240,29 @@ def chiplevante(http, page):
                      "club": "", "mark": re.sub(r"<[^>]+>", "", r.get("tiempo") or "")} for i, r in enumerate(j.get("data") or [])]
             if rows:
                 out.append({"name": "Carrera %d" % (n + 1), "sex": sx, "rows": rows, "finished": j.get("recordsFiltered") or len(rows)})
+    if not out:
+        out = chiplevante_pdf(http, page, s)
+    return out
+
+
+def chiplevante_pdf(http, page, s=None, name=None):
+    """Clasificación ya publicada en PDF (la página deja de tener la tabla en directo): la general
+    trae hombres y mujeres. Se marca «pdf» para saber que es la oficial."""
+    from ..parsers import pdf_columns
+    s = s or http.get(page, timeout=30).text
+    links = [(urljoin(page, h), clean(re.sub(r"<[^>]+>", " ", html.unescape(t))))
+             for h, t in re.findall(r'<a[^>]+href="([^"]*/clasificaciones/pdfs/[^"]+)"[^>]*>(.*?)</a>', s, re.S)]
+    gen = [u for u, t in links if re.search(r"(?i)general", t) and not re.search(r"(?i)local|equipo|silla|discap", t)]
+    out = []
+    for u in gen[:1]:
+        r = http.get(u, timeout=90)
+        for ev in pdf_columns.parse(r.content, full=True):
+            label = ev.get("name") or ""
+            sx = "F" if re.search(r"(?i)mujer|femen", label) else "M" if re.search(r"(?i)hombre|mascul", label) else ""
+            for rnd in ev.get("rounds") or []:
+                rows = [{k: x.get(k, "") for k in ("pos", "name", "club", "mark")} for x in rnd.get("rows") or []]
+                if rows:
+                    out.append({"name": name or "Carrera", "sex": sx, "rows": _cut(rows), "finished": len(rows), "pdf": True})
     return out
 
 
@@ -287,7 +310,10 @@ def poll(http, lv, it):
         return (evs, True, "Clasificaciones oficiales (PDF)", lv["url"]) if evs else None
     if kind == "chiplevante":
         evs = chiplevante(http, lv["url"])
-        return (evs, False, "Chip Levante (cronometraje oficial)", lv["url"]) if evs else None
+        for e in evs:
+            if e.get("pdf") and lv.get("name"):
+                e["name"] = lv["name"]
+        return (evs, all(e.get("pdf") for e in evs), "Chip Levante (cronometraje oficial)", lv["url"]) if evs else None
     return None
 
 

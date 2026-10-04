@@ -433,7 +433,8 @@
   "live": [
    {
     "kind": "chiplevante",
-    "url": "https://www.chiplevante.com/es/prueba/medio-maraton-albacete-1081-2026"
+    "url": "https://www.chiplevante.com/es/prueba/medio-maraton-albacete-1081-2026",
+    "name": "Medio maratón"
    },
    {
     "kind": "wa",
