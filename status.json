@@ -135,6 +135,12 @@
  },
  "log": [
   {
+   "at": "2026-10-04T15:31:01+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de '29º Medio Maratón Internacional Ciudad de Albacete 2026' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7234388"
+  },
+  {
    "at": "2026-10-04T15:28:08+02:00",
    "level": "warning",
    "source": "results",
@@ -607,13 +613,7 @@
    "level": "warning",
    "source": "wa_calendar",
    "msg": "Programa de 29º Medio Maratón Internacional Ciudad de Albacete 2026 no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-02T14:17:24+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de XXXVIII Milla Internacional de Berango no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
   }
  ],
- "updated": "2026-10-04T15:30:31+02:00"
+ "updated": "2026-10-04T15:32:15+02:00"
 }
