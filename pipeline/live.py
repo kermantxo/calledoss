@@ -374,6 +374,9 @@ def smarttrack_rows(http, e):
         try:
             resp = http.get(e["results_pdf"], timeout=90)
             if b"%PDF" in resp.content[:1024]:
+                rows = _smarttrack_tres_lineas(resp.content)
+                if rows:
+                    return rows
                 res = pdf_results.parse(resp.content)
                 rows = [r for ev in res["events"] for r in ev["rows"]]
                 if rows:
@@ -381,6 +384,28 @@ def smarttrack_rows(http, e):
         except Exception:
             pass
     return e.get("podium") or []
+
+
+def _smarttrack_tres_lineas(content):
+    """PDF de campo a través de SmartTrack: cada atleta ocupa tres líneas
+    «NOMBRE APELLIDOS dd/mm/aaaa» · «puesto dorsal CÓDIGO orden marca» · «Club Licencia»."""
+    import io
+    import pdfplumber
+    from .common import clean
+    lines = []
+    with pdfplumber.open(io.BytesIO(content)) as pdf:
+        for page in pdf.pages:
+            lines += [clean(x) for x in (page.extract_text() or "").splitlines() if clean(x)]
+    rows = []
+    for i in range(len(lines) - 2):
+        a = re.match(r"^(.+?)\s+\d{1,2}/\d{1,2}/\d{4}$", lines[i])
+        b = re.match(r"^(\d+)\s+\d+\s+\S+\s+\d+\s+(\d+:\d\d(?:[.,]\d+)?)\b", lines[i + 1])
+        if not (a and b):
+            continue
+        club = re.sub(r"\s+\S+$", "", lines[i + 2]) if " " in lines[i + 2] else lines[i + 2]
+        name = " ".join(w.capitalize() if w.isupper() else w for w in a.group(1).split())
+        rows.append({"pos": b.group(1), "name": name, "club": club, "mark": b.group(2), "wind": "", "note": ""})
+    return rows
 
 
 def _similar(a, b):

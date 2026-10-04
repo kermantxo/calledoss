@@ -187,3 +187,4 @@
 - 2026-10-04: Directo y resultados de hoy: Coruña 10 desde Carreiras Galegas (web de la Federación Galega, lector nuevo); Albacete desde el PDF oficial de Chip Levante; Logroño con el nuevo diseño de UNO crono; Donostia recupera su cronometrador (irteerak). El directo aplica siempre los enlaces puestos a mano.
 - 2026-10-04: Directo: la marcha popular, las carreras infantiles, las exhibiciones y las pruebas testimoniales sin clasificación salen como «No competitiva» (no «Sin resultados publicados»).
 - 2026-10-04: Directo y Próximas: se enseña el horario entero de las pruebas que faltan (antes solo las 10 siguientes; en la Milla de Valladolid se cortaba en las 18:25).
+- 2026-10-04: Cto. de España de Cross Máster: los PDF de SmartTrack de campo a través (tres líneas por atleta) se leen bien: nombre completo, club y marca.
