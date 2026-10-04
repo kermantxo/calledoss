@@ -164,6 +164,12 @@ def _sin_resultados(data, at, terminada=False):
     la competición ya terminada) se dice la verdad, que no hay resultados publicados."""
     limite = (at - dt.timedelta(minutes=60)).strftime("%H:%M")
     for t in (data or {}).get("timeline") or []:
+        # marcha popular, infantiles, exhibiciones y testimoniales: no hay clasificación que esperar
+        # («Marcha» sola no: en pista es la prueba de marcha atlética)
+        if not (t.get("rows") or t.get("groups")) and \
+                re.search(r"(?i)no competitiva|testimonial|exhibici|infantil|peques|chupet", t.get("event") or ""):
+            t["state"] = "no competitiva"
+            continue
         if (terminada and t.get("state") in ("en marcha", "pendiente")) or \
                 (t.get("state") == "en marcha" and (t.get("time") or "99:99").zfill(5) <= limite):
             t["state"] = "sin resultados"

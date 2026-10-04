@@ -185,3 +185,4 @@
 - 2026-10-03: Coruña 10: Isabel Barreiro en la élite de la previa (dato confirmado por Kerman, sin enlace).
 - 2026-10-04: Próximas: dentro de cada día, las competiciones van por su hora de salida de ESE día (una de varios días, como la Reunión de La Laguna, ya no sale primera el domingo con la hora del sábado). La hora que se ve en cada competición también es la de ese día.
 - 2026-10-04: Directo y resultados de hoy: Coruña 10 desde Carreiras Galegas (web de la Federación Galega, lector nuevo); Albacete desde el PDF oficial de Chip Levante; Logroño con el nuevo diseño de UNO crono; Donostia recupera su cronometrador (irteerak). El directo aplica siempre los enlaces puestos a mano.
+- 2026-10-04: Directo: la marcha popular, las carreras infantiles, las exhibiciones y las pruebas testimoniales sin clasificación salen como «No competitiva» (no «Sin resultados publicados»).
