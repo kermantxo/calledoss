@@ -17,7 +17,7 @@ from urllib.parse import urljoin
 from ..common import clean, norm
 
 TOP = 10  # filas por prueba y sexo que se guardan en las carreras multitudinarias (Behobia, maratones...)
-COMPLETA = 1500  # hasta tantos llegados por prueba y sexo se guarda la clasificación entera (Berango, Higuero)
+COMPLETA = 500  # hasta tantos llegados por prueba y sexo se guarda la clasificación entera (Berango, Higuero)
 
 
 def _cut(rows):

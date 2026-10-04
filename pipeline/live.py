@@ -73,7 +73,13 @@ def tick(http, health, force=False):
     p = load_json("live_plan.json", {}) or {}
     if p.get("date") != at.date().isoformat():
         return 0  # el plan de hoy aún no existe (lo crea el chequeo diario)
-    cal = {x["id"]: x for x in (load_json("calendar.json", {}) or {}).get("items", [])}
+    cal_items = (load_json("calendar.json", {}) or {}).get("items", [])
+    try:  # fuentes de directo puestas a mano (extra_links.json): siempre las del código, aunque el calendario sea viejo
+        from .calendar_build import add_extra_links
+        add_extra_links(cal_items)
+    except Exception as e:
+        health.note("live", "warning", "Enlaces a mano: %s" % e)
+    cal = {x["id"]: x for x in cal_items}
     live = load_json("live.json", {}) or {}
     if live.get("date") != p["date"]:
         live = {"date": p["date"], "items": {}}
