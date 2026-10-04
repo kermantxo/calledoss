@@ -135,6 +135,12 @@
  },
  "log": [
   {
+   "at": "2026-10-04T15:28:08+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de 'XX Carreira Popular Coruña 10' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7246208"
+  },
+  {
    "at": "2026-10-04T04:32:39+02:00",
    "level": "warning",
    "source": "results",
@@ -607,13 +613,7 @@
    "level": "warning",
    "source": "wa_calendar",
    "msg": "Programa de XXXVIII Milla Internacional de Berango no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-02T12:51:15+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de XX Carreira Popular Coruña 10 no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
   }
  ],
- "updated": "2026-10-04T15:25:59+02:00"
+ "updated": "2026-10-04T15:28:31+02:00"
 }
