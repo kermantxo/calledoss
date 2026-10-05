@@ -66,17 +66,17 @@
   },
   "results": {
    "label": "Resultados (todas las fuentes)",
-   "last_run": "2026-10-05T17:17:11+02:00",
+   "last_run": "2026-10-05T18:17:19+02:00",
    "ok": true,
-   "last_ok": "2026-10-05T17:24:48+02:00",
+   "last_ok": "2026-10-05T18:21:45+02:00",
    "fails_in_a_row": 0,
-   "last_count": 7
+   "last_count": 6
   },
   "rfea_results": {
    "label": "RFEA · índice de resultados (PDF)",
-   "last_run": "2026-10-05T17:17:11+02:00",
+   "last_run": "2026-10-05T18:17:19+02:00",
    "ok": true,
-   "last_ok": "2026-10-05T17:17:13+02:00",
+   "last_ok": "2026-10-05T18:17:21+02:00",
    "fails_in_a_row": 0,
    "last_count": 0,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf",
@@ -134,6 +134,24 @@
   }
  },
  "log": [
+  {
+   "at": "2026-10-05T18:21:35+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Búsqueda de podios de 'XX Carreira Popular Coruña 10': expected string or bytes-like object, got 'list'"
+  },
+  {
+   "at": "2026-10-05T18:21:13+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de 'XX Carreira Popular Coruña 10' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7246208"
+  },
+  {
+   "at": "2026-10-05T18:21:01+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Búsqueda de podios de 'Medio Maratón San Sebastián Rural Kutxa': expected string or bytes-like object, got 'list'"
+  },
   {
    "at": "2026-10-05T17:53:48+02:00",
    "level": "warning",
@@ -595,25 +613,7 @@
    "level": "warning",
    "source": "wa_calendar",
    "msg": "Programa de Maratón Estepona - Jardín de la Costa del Sol no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-03T20:49:32+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Bank of America Chicago Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-03T20:49:23+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de XX Carreira Popular Coruña 10 no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-03T20:49:13+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de 29º Medio Maratón Internacional Ciudad de Albacete 2026 no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
   }
  ],
- "updated": "2026-10-05T18:16:43+02:00"
+ "updated": "2026-10-05T18:21:45+02:00"
 }
