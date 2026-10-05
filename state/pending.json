@@ -1,12 +1,7 @@
 {
- "rfea-2026-10-04-xx-carreira-popular-coruna-10": {
-  "since": "2026-10-04",
-  "tries": 15,
-  "last": "2026-10-05"
- },
  "manual-2026-10-04-medio-maraton-san-sebastian-rural-kutxa": {
   "since": "2026-10-05",
-  "tries": 1,
+  "tries": 2,
   "last": "2026-10-05"
  }
 }
