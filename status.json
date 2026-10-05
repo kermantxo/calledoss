@@ -50,11 +50,11 @@
   },
   "rfealive": {
    "label": "RFEA Live · horarios",
-   "last_run": "2026-10-05T06:38:10+02:00",
+   "last_run": "2026-10-05T12:52:17+02:00",
    "ok": true,
-   "last_ok": "2026-10-05T06:41:23+02:00",
+   "last_ok": "2026-10-05T12:55:23+02:00",
    "fails_in_a_row": 0,
-   "last_count": 0
+   "last_count": 70
   },
   "destacados": {
    "label": "Atletas destacados (listas de salida)",
@@ -102,9 +102,9 @@
   },
   "previas": {
    "label": "Previas (listas de inscritos)",
-   "last_run": "2026-10-05T06:47:15+02:00",
+   "last_run": "2026-10-05T12:55:23+02:00",
    "ok": true,
-   "last_ok": "2026-10-05T07:07:46+02:00",
+   "last_ok": "2026-10-05T13:20:50+02:00",
    "fails_in_a_row": 0,
    "last_count": 12
   },
@@ -134,6 +134,24 @@
   }
  },
  "log": [
+  {
+   "at": "2026-10-05T12:53:10+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Maratón Estepona - Jardín de la Costa del Sol no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-05T12:53:00+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Bank of America Chicago Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-05T12:52:51+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de 29º Medio Maratón Internacional Ciudad de Albacete 2026 no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
   {
    "at": "2026-10-05T12:21:46+02:00",
    "level": "warning",
@@ -595,25 +613,7 @@
    "level": "warning",
    "source": "results",
    "msg": "Búsqueda de podios de 'XXXVIII Milla Internacional de Berango': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-10-03T12:13:14+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Resultados de 'XXXVIII Milla Internacional de Berango' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7234389"
-  },
-  {
-   "at": "2026-10-03T12:13:02+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de 'X Carrera de la Mujer Medina del Campo': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-10-03T12:13:01+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de 'III Trail El Calero': expected string or bytes-like object, got 'list'"
   }
  ],
- "updated": "2026-10-05T12:21:57+02:00"
+ "updated": "2026-10-05T13:20:50+02:00"
 }
