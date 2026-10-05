@@ -66,17 +66,17 @@
   },
   "results": {
    "label": "Resultados (todas las fuentes)",
-   "last_run": "2026-10-05T11:16:17+02:00",
+   "last_run": "2026-10-05T12:16:19+02:00",
    "ok": true,
-   "last_ok": "2026-10-05T11:22:01+02:00",
+   "last_ok": "2026-10-05T12:21:57+02:00",
    "fails_in_a_row": 0,
    "last_count": 7
   },
   "rfea_results": {
    "label": "RFEA · índice de resultados (PDF)",
-   "last_run": "2026-10-05T11:16:17+02:00",
+   "last_run": "2026-10-05T12:16:19+02:00",
    "ok": true,
-   "last_ok": "2026-10-05T11:16:19+02:00",
+   "last_ok": "2026-10-05T12:16:21+02:00",
    "fails_in_a_row": 0,
    "last_count": 0,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf",
@@ -134,6 +134,24 @@
   }
  },
  "log": [
+  {
+   "at": "2026-10-05T12:21:46+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Búsqueda de podios de 'XX Carreira Popular Coruña 10': expected string or bytes-like object, got 'list'"
+  },
+  {
+   "at": "2026-10-05T12:20:58+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de 'XX Carreira Popular Coruña 10' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7246208"
+  },
+  {
+   "at": "2026-10-05T12:19:06+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de '29º Medio Maratón Internacional Ciudad de Albacete 2026' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7234388"
+  },
   {
    "at": "2026-10-05T11:21:51+02:00",
    "level": "warning",
@@ -595,25 +613,7 @@
    "level": "warning",
    "source": "results",
    "msg": "Búsqueda de podios de 'III Trail El Calero': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-10-03T11:16:12+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de 'XXXVIII Milla Internacional de Berango': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-10-03T11:16:01+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Resultados de 'XXXVIII Milla Internacional de Berango' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7234389"
-  },
-  {
-   "at": "2026-10-03T11:15:49+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de 'X Carrera de la Mujer Medina del Campo': expected string or bytes-like object, got 'list'"
   }
  ],
- "updated": "2026-10-05T11:22:01+02:00"
+ "updated": "2026-10-05T12:21:57+02:00"
 }
