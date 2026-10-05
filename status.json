@@ -66,19 +66,19 @@
   },
   "results": {
    "label": "Resultados (todas las fuentes)",
-   "last_run": "2026-10-05T16:18:21+02:00",
+   "last_run": "2026-10-05T17:17:11+02:00",
    "ok": true,
-   "last_ok": "2026-10-05T16:26:50+02:00",
+   "last_ok": "2026-10-05T17:24:48+02:00",
    "fails_in_a_row": 0,
    "last_count": 7
   },
   "rfea_results": {
    "label": "RFEA · índice de resultados (PDF)",
-   "last_run": "2026-10-05T16:18:21+02:00",
+   "last_run": "2026-10-05T17:17:11+02:00",
    "ok": true,
-   "last_ok": "2026-10-05T16:18:54+02:00",
+   "last_ok": "2026-10-05T17:17:13+02:00",
    "fails_in_a_row": 0,
-   "last_count": 1,
+   "last_count": 0,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf",
    "last_error_at": "2026-09-27T00:13:10+02:00"
   },
@@ -134,6 +134,18 @@
   }
  },
  "log": [
+  {
+   "at": "2026-10-05T17:24:38+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Búsqueda de podios de 'XX Carreira Popular Coruña 10': expected string or bytes-like object, got 'list'"
+  },
+  {
+   "at": "2026-10-05T17:24:15+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de 'XX Carreira Popular Coruña 10' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7246208"
+  },
   {
    "at": "2026-10-05T16:26:37+02:00",
    "level": "warning",
@@ -601,19 +613,7 @@
    "level": "warning",
    "source": "results",
    "msg": "Resultados de 'XXXVIII Milla Internacional de Berango' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7234389"
-  },
-  {
-   "at": "2026-10-03T18:43:07+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Resultados de 'XXXVIII Milla Internacional de Berango' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7234389"
-  },
-  {
-   "at": "2026-10-03T18:42:22+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de 'X Carrera de la Mujer Medina del Campo': expected string or bytes-like object, got 'list'"
   }
  ],
- "updated": "2026-10-05T16:26:50+02:00"
+ "updated": "2026-10-05T17:24:48+02:00"
 }
