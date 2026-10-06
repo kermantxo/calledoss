@@ -2,81 +2,81 @@
  "sources": {
   "rfea_calendar": {
    "label": "RFEA · calendario",
-   "last_run": "2026-10-05T06:36:36+02:00",
+   "last_run": "2026-10-06T06:34:09+02:00",
    "ok": true,
-   "last_ok": "2026-10-05T06:37:17+02:00",
+   "last_ok": "2026-10-06T06:34:50+02:00",
    "fails_in_a_row": 0,
-   "last_count": 630
+   "last_count": 636
   },
   "wa_calendar": {
    "label": "World Athletics · calendario",
-   "last_run": "2026-10-05T06:37:17+02:00",
+   "last_run": "2026-10-06T06:34:50+02:00",
    "ok": true,
-   "last_ok": "2026-10-05T06:37:39+02:00",
+   "last_ok": "2026-10-06T06:35:15+02:00",
    "fails_in_a_row": 0,
    "last_count": 186
   },
   "cronomancha_upcoming": {
    "label": "Cronomancha · próximas",
-   "last_run": "2026-10-05T06:37:39+02:00",
+   "last_run": "2026-10-06T06:35:15+02:00",
    "ok": true,
-   "last_ok": "2026-10-05T06:37:40+02:00",
+   "last_ok": "2026-10-06T06:35:16+02:00",
    "fails_in_a_row": 0,
    "last_count": 7
   },
   "cronomancha_events": {
    "label": "Cronomancha · resultados",
-   "last_run": "2026-10-05T06:37:40+02:00",
+   "last_run": "2026-10-06T06:35:16+02:00",
    "ok": true,
-   "last_ok": "2026-10-05T06:37:41+02:00",
+   "last_ok": "2026-10-06T06:35:17+02:00",
    "fails_in_a_row": 0,
    "last_count": 37
   },
   "avaibook": {
    "label": "AvaiBook (Runvasport)",
-   "last_run": "2026-10-05T06:37:41+02:00",
+   "last_run": "2026-10-06T06:35:17+02:00",
    "ok": true,
-   "last_ok": "2026-10-05T06:37:43+02:00",
+   "last_ok": "2026-10-06T06:35:19+02:00",
    "fails_in_a_row": 0,
    "last_count": 48
   },
   "rfea_detail": {
    "label": "RFEA · fichas de competición",
-   "last_run": "2026-10-05T06:37:44+02:00",
+   "last_run": "2026-10-06T06:35:20+02:00",
    "ok": true,
-   "last_ok": "2026-10-05T06:38:10+02:00",
+   "last_ok": "2026-10-06T06:36:22+02:00",
    "fails_in_a_row": 0,
-   "last_count": 18
+   "last_count": 42
   },
   "rfealive": {
    "label": "RFEA Live · horarios",
-   "last_run": "2026-10-05T17:53:06+02:00",
+   "last_run": "2026-10-06T06:36:22+02:00",
    "ok": true,
-   "last_ok": "2026-10-05T17:56:00+02:00",
+   "last_ok": "2026-10-06T06:39:18+02:00",
    "fails_in_a_row": 0,
-   "last_count": 70
+   "last_count": 0
   },
   "destacados": {
    "label": "Atletas destacados (listas de salida)",
-   "last_run": "2026-10-05T06:41:34+02:00",
+   "last_run": "2026-10-06T06:39:29+02:00",
    "ok": true,
-   "last_ok": "2026-10-05T06:41:35+02:00",
+   "last_ok": "2026-10-06T06:39:30+02:00",
    "fails_in_a_row": 0,
    "last_count": 1
   },
   "results": {
    "label": "Resultados (todas las fuentes)",
-   "last_run": "2026-10-06T01:12:03+02:00",
+   "last_run": "2026-10-06T06:39:30+02:00",
    "ok": true,
-   "last_ok": "2026-10-06T01:12:05+02:00",
+   "last_ok": "2026-10-06T06:39:32+02:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
   "rfea_results": {
    "label": "RFEA · índice de resultados (PDF)",
-   "last_run": "2026-10-06T01:12:03+02:00",
+   "last_run": "2026-10-06T06:39:30+02:00",
    "ok": true,
-   "last_ok": "2026-10-06T01:12:05+02:00",
+   "last_ok": "2026-10-06T06:39:32+02:00",
    "fails_in_a_row": 0,
    "last_count": 0,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf",
@@ -94,46 +94,58 @@
   },
   "avaibook_upcoming": {
    "label": "Runvasport · próximas",
-   "last_run": "2026-10-05T06:37:43+02:00",
+   "last_run": "2026-10-06T06:35:19+02:00",
    "ok": true,
-   "last_ok": "2026-10-05T06:37:44+02:00",
+   "last_ok": "2026-10-06T06:35:20+02:00",
    "fails_in_a_row": 0,
-   "last_count": 17
+   "last_count": 18
   },
   "previas": {
    "label": "Previas (listas de inscritos)",
-   "last_run": "2026-10-05T17:56:00+02:00",
+   "last_run": "2026-10-06T06:39:32+02:00",
    "ok": true,
-   "last_ok": "2026-10-05T18:16:43+02:00",
+   "last_ok": "2026-10-06T06:59:56+02:00",
    "fails_in_a_row": 0,
    "last_count": 12
   },
   "ranking": {
    "label": "Ranking RFEA (aire libre y pista cubierta)",
-   "last_run": "2026-10-05T07:07:46+02:00",
+   "last_run": "2026-10-06T06:59:56+02:00",
    "ok": true,
-   "last_ok": "2026-10-05T07:15:17+02:00",
+   "last_ok": "2026-10-06T07:09:06+02:00",
    "fails_in_a_row": 0,
    "last_count": 121
   },
   "adoc": {
    "label": "ADOC · pruebas asociadas",
-   "last_run": "2026-10-05T06:41:23+02:00",
+   "last_run": "2026-10-06T06:39:18+02:00",
    "ok": true,
-   "last_ok": "2026-10-05T06:41:33+02:00",
+   "last_ok": "2026-10-06T06:39:28+02:00",
    "fails_in_a_row": 0,
-   "last_count": 23
+   "last_count": 24
   },
   "adoc_calendar": {
    "label": "ADOC · calendario del circuito",
-   "last_run": "2026-10-05T06:41:33+02:00",
+   "last_run": "2026-10-06T06:39:28+02:00",
    "ok": true,
-   "last_ok": "2026-10-05T06:41:34+02:00",
+   "last_ok": "2026-10-06T06:39:29+02:00",
    "fails_in_a_row": 0,
    "last_count": 14
   }
  },
  "log": [
+  {
+   "at": "2026-10-06T06:37:03+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Maratón Estepona - Jardín de la Costa del Sol no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-06T06:36:53+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Bank of America Chicago Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
   {
    "at": "2026-10-05T20:21:16+02:00",
    "level": "warning",
@@ -601,19 +613,7 @@
    "level": "warning",
    "source": "wa_calendar",
    "msg": "Programa de Bank of America Chicago Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-03T21:52:08+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de 29º Medio Maratón Internacional Ciudad de Albacete 2026 no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-03T21:30:50+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Resultados de 'XXXVIII Milla Internacional de Berango' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7234389"
   }
  ],
- "updated": "2026-10-06T01:12:05+02:00"
+ "updated": "2026-10-06T07:09:06+02:00"
 }
