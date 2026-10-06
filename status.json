@@ -66,17 +66,17 @@
   },
   "results": {
    "label": "Resultados (todas las fuentes)",
-   "last_run": "2026-10-06T23:13:03+02:00",
+   "last_run": "2026-10-07T00:12:58+02:00",
    "ok": true,
-   "last_ok": "2026-10-06T23:13:05+02:00",
+   "last_ok": "2026-10-07T00:13:00+02:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
   "rfea_results": {
    "label": "RFEA · índice de resultados (PDF)",
-   "last_run": "2026-10-06T23:13:03+02:00",
+   "last_run": "2026-10-07T00:12:58+02:00",
    "ok": true,
-   "last_ok": "2026-10-06T23:13:05+02:00",
+   "last_ok": "2026-10-07T00:13:00+02:00",
    "fails_in_a_row": 0,
    "last_count": 0,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf",
@@ -615,5 +615,5 @@
    "msg": "Resultados de '29º Medio Maratón Internacional Ciudad de Albacete 2026' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7234388"
   }
  ],
- "updated": "2026-10-06T23:13:05+02:00"
+ "updated": "2026-10-07T00:13:00+02:00"
 }
