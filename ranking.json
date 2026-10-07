@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-06T06:59:56+02:00",
+ "generated": "2026-10-07T07:02:19+02:00",
  "season": "2026",
  "source": "https://atletismorfea.es/ranking",
  "seasons": {
@@ -409,6 +409,17 @@
        "rank": "5"
       },
       {
+       "mark": "2:01.04",
+       "wind": "",
+       "name": "Daniela García Tena",
+       "club": "New Balance Team",
+       "born": "2001",
+       "fed": "BAL",
+       "city": "Ordizia",
+       "date": "04/07/2026",
+       "rank": "6"
+      },
+      {
        "mark": "2:01.22",
        "wind": "",
        "name": "Lara Alexia Tortell Eckhardt",
@@ -417,7 +428,7 @@
        "fed": "CAT",
        "city": "Barcelona-SE",
        "date": "07/07/2026",
-       "rank": "6"
+       "rank": "7"
       },
       {
        "mark": "2:01.45",
@@ -428,7 +439,18 @@
        "fed": "CYL",
        "city": "Barcelona-SE",
        "date": "07/07/2026",
-       "rank": "7"
+       "rank": "8"
+      },
+      {
+       "mark": "2:01.93",
+       "wind": "",
+       "name": "Naiara Garcia Moreno",
+       "club": "Trops-Cueva de Nerja",
+       "born": "2006",
+       "fed": "AND",
+       "city": "Ordizia",
+       "date": "04/07/2026",
+       "rank": "9"
       },
       {
        "mark": "2:02.36",
@@ -439,28 +461,6 @@
        "fed": "CAT",
        "city": "Guadalajara",
        "date": "09/06/2026",
-       "rank": "8"
-      },
-      {
-       "mark": "2:03.66",
-       "wind": "",
-       "name": "Valme Prado Duran",
-       "club": "Unicaja Jaen Paraiso Interior",
-       "born": "2000",
-       "fed": "AND",
-       "city": "Guadalajara",
-       "date": "09/06/2026",
-       "rank": "9"
-      },
-      {
-       "mark": "2:04.00",
-       "wind": "",
-       "name": "Lorena Martín Martín",
-       "club": "New Balance Team",
-       "born": "1996",
-       "fed": "CYL",
-       "city": "Salamanca",
-       "date": "06/06/2026",
        "rank": "10"
       }
      ]
@@ -502,6 +502,61 @@
        "rank": "3"
       },
       {
+       "mark": "4:05.56",
+       "wind": "",
+       "name": "Rocio Garrido Artiaga",
+       "club": "At. San Sebastian",
+       "born": "2003",
+       "fed": "CYL",
+       "city": "Ordizia",
+       "date": "04/07/2026",
+       "rank": "4"
+      },
+      {
+       "mark": "4:05.86",
+       "wind": "",
+       "name": "Marina Martinez Ortuño",
+       "club": "New Balance Team",
+       "born": "2002",
+       "fed": "CAT",
+       "city": "Ordizia",
+       "date": "04/07/2026",
+       "rank": "5"
+      },
+      {
+       "mark": "4:07.28",
+       "wind": "",
+       "name": "Lorea Ibarzabal Padorno",
+       "club": "Nike Running Club",
+       "born": "1994",
+       "fed": "MAD",
+       "city": "Ordizia",
+       "date": "04/07/2026",
+       "rank": "6"
+      },
+      {
+       "mark": "4:08.66",
+       "wind": "",
+       "name": "Judith Otazua Gerrikaetxebarria",
+       "club": "At. San Sebastian",
+       "born": "1999",
+       "fed": "PVA",
+       "city": "Ordizia",
+       "date": "04/07/2026",
+       "rank": "7"
+      },
+      {
+       "mark": "4:08.69",
+       "wind": "",
+       "name": "Maria Viciosa Villa",
+       "club": "Nike Running Club",
+       "born": "2006",
+       "fed": "CYL",
+       "city": "Ordizia",
+       "date": "04/07/2026",
+       "rank": "8"
+      },
+      {
        "mark": "4:09.61",
        "wind": "",
        "name": "Lorena Martín Martín",
@@ -510,7 +565,7 @@
        "fed": "CYL",
        "city": "Doha - (QAT)",
        "date": "19/06/2026",
-       "rank": "4"
+       "rank": "9"
       },
       {
        "mark": "4:10.24",
@@ -521,61 +576,6 @@
        "fed": "CAT",
        "city": "Barcelona-SE",
        "date": "07/07/2026",
-       "rank": "5"
-      },
-      {
-       "mark": "4:11.07",
-       "wind": "",
-       "name": "Marta Mitjans Muñoz",
-       "club": "Nike Running Club",
-       "born": "2006",
-       "fed": "CAT",
-       "city": "Nerja",
-       "date": "20/05/2026",
-       "rank": "6"
-      },
-      {
-       "mark": "4:12.59",
-       "wind": "",
-       "name": "Claudia Gutierrez Alonso",
-       "club": "Nike Running Club",
-       "born": "2007",
-       "fed": "CYL",
-       "city": "Nerja",
-       "date": "20/05/2026",
-       "rank": "7"
-      },
-      {
-       "mark": "4:13.60",
-       "wind": "",
-       "name": "Valme Prado Duran",
-       "club": "Unicaja Jaen Paraiso Interior",
-       "born": "2000",
-       "fed": "AND",
-       "city": "Málaga-CIU",
-       "date": "18/06/2026",
-       "rank": "8"
-      },
-      {
-       "mark": "4:16.30",
-       "wind": "",
-       "name": "Mireya Arnedillo Lahoz",
-       "club": "Facsa - Playas de Castellón",
-       "born": "2003",
-       "fed": "ARA",
-       "city": "Málaga-CIU",
-       "date": "18/06/2026",
-       "rank": "9"
-      },
-      {
-       "mark": "4:16.77",
-       "wind": "",
-       "name": "Carla Jimenez Sanandres",
-       "club": "Facsa - Playas de Castellón",
-       "born": "2005",
-       "fed": "CYL",
-       "city": "Málaga-CIU",
-       "date": "18/06/2026",
        "rank": "10"
       }
      ]
@@ -952,23 +952,23 @@
       },
       {
        "mark": "13.27",
-       "wind": "-3.2",
-       "name": "Laura Banko San Juan",
-       "club": "Barrutia A.E.",
-       "born": "2001",
-       "fed": "PVA",
-       "city": "Valladolid-REN",
-       "date": "03/06/2026",
-       "rank": "3"
-      },
-      {
-       "mark": "13.27",
        "wind": "0.7",
        "name": "Xènia Benach Sole",
        "club": "INDEPENDIENTE",
        "born": "2000",
        "fed": "CAT",
        "city": "Granada-JUV",
+       "date": "03/06/2026",
+       "rank": "3"
+      },
+      {
+       "mark": "13.27",
+       "wind": "-3.2",
+       "name": "Laura Banko San Juan",
+       "club": "Barrutia A.E.",
+       "born": "2001",
+       "fed": "PVA",
+       "city": "Valladolid-REN",
        "date": "03/06/2026",
        "rank": "="
       },
@@ -1783,6 +1783,17 @@
        "rank": "2"
       },
       {
+       "mark": "6.77",
+       "wind": "0.0",
+       "name": "Irati Mitxelena Balerdi",
+       "club": "At. San Sebastian",
+       "born": "1998",
+       "fed": "PVA",
+       "city": "Ordizia",
+       "date": "04/07/2026",
+       "rank": "3"
+      },
+      {
        "mark": "6.71",
        "wind": "0.4",
        "name": "Carmen Rosales Ruiz",
@@ -1791,7 +1802,7 @@
        "fed": "MAD",
        "city": "Castellón-MGH",
        "date": "01/07/2026",
-       "rank": "3"
+       "rank": "4"
       },
       {
        "mark": "6.54",
@@ -1802,7 +1813,7 @@
        "fed": "MAD",
        "city": "Málaga-CIU",
        "date": "24/07/2026",
-       "rank": "4"
+       "rank": "5"
       },
       {
        "mark": "6.53",
@@ -1813,7 +1824,7 @@
        "fed": "NAV",
        "city": "Cáceres-CIU",
        "date": "11/07/2026",
-       "rank": "5"
+       "rank": "6"
       },
       {
        "mark": "6.52",
@@ -1824,7 +1835,7 @@
        "fed": "MAD",
        "city": "Eugene - (USA)",
        "date": "13/06/2026",
-       "rank": "6"
+       "rank": "7"
       },
       {
        "mark": "6.52",
@@ -1846,7 +1857,7 @@
        "fed": "PVA",
        "city": "Birmingham - (GBR)",
        "date": "15/08/2026",
-       "rank": "8"
+       "rank": "9"
       },
       {
        "mark": "6.38",
@@ -1857,17 +1868,6 @@
        "fed": "CVA",
        "city": "Barcelona-SE",
        "date": "25/04/2026",
-       "rank": "9"
-      },
-      {
-       "mark": "6.31",
-       "wind": "-0.2",
-       "name": "Olaia Gisela Becerril Alvarez",
-       "club": "Super Amara BAT",
-       "born": "2001",
-       "fed": "GAL",
-       "city": "Pamplona",
-       "date": "13/06/2026",
        "rank": "10"
       }
      ]
@@ -3751,6 +3751,17 @@
        "rank": "3"
       },
       {
+       "mark": "1:44.95",
+       "wind": "",
+       "name": "Martin Segurola Larrinaga",
+       "club": "Real Sociedad",
+       "born": "2003",
+       "fed": "PVA",
+       "city": "Ordizia",
+       "date": "04/07/2026",
+       "rank": "4"
+      },
+      {
        "mark": "1:45.13",
        "wind": "",
        "name": "Pablo Sánchez-valladares García",
@@ -3759,7 +3770,7 @@
        "fed": "MAD",
        "city": "Banská Bystrica - (SVK)",
        "date": "21/07/2026",
-       "rank": "4"
+       "rank": "5"
       },
       {
        "mark": "1:45.29",
@@ -3770,7 +3781,7 @@
        "fed": "MAD",
        "city": "Viena - (AUT)",
        "date": "20/06/2026",
-       "rank": "5"
+       "rank": "6"
       },
       {
        "mark": "1:45.30",
@@ -3781,7 +3792,7 @@
        "fed": "GAL",
        "city": "Nerja",
        "date": "20/05/2026",
-       "rank": "6"
+       "rank": "7"
       },
       {
        "mark": "1:45.65",
@@ -3792,7 +3803,7 @@
        "fed": "MAD",
        "city": "Nerja",
        "date": "20/05/2026",
-       "rank": "7"
+       "rank": "8"
       },
       {
        "mark": "1:45.68",
@@ -3803,7 +3814,7 @@
        "fed": "CAT",
        "city": "Guadalajara",
        "date": "09/06/2026",
-       "rank": "8"
+       "rank": "9"
       },
       {
        "mark": "1:45.76",
@@ -3814,17 +3825,6 @@
        "fed": "MAD",
        "city": "Viena - (AUT)",
        "date": "20/06/2026",
-       "rank": "9"
-      },
-      {
-       "mark": "1:45.79",
-       "wind": "",
-       "name": "Alaa Souadi Hamel",
-       "club": "CA Fent Cami Mislata",
-       "born": "2005",
-       "fed": "MAD",
-       "city": "Nerja",
-       "date": "20/05/2026",
        "rank": "10"
       }
      ]
@@ -3910,6 +3910,28 @@
        "rank": "7"
       },
       {
+       "mark": "3:37.44",
+       "wind": "",
+       "name": "Alex Salas Molina",
+       "club": "Cornellà Atlètic",
+       "born": "2000",
+       "fed": "CAT",
+       "city": "Ordizia",
+       "date": "04/07/2026",
+       "rank": "8"
+      },
+      {
+       "mark": "3:37.96",
+       "wind": "",
+       "name": "Jorge David Torre Moreno",
+       "club": "Real Sociedad",
+       "born": "1998",
+       "fed": "ARA",
+       "city": "Ordizia",
+       "date": "04/07/2026",
+       "rank": "9"
+      },
+      {
        "mark": "3:38.15",
        "wind": "",
        "name": "Mario García Romo",
@@ -3918,28 +3940,6 @@
        "fed": "CYL",
        "city": "Los Angeles - (USA)",
        "date": "11/07/2026",
-       "rank": "8"
-      },
-      {
-       "mark": "3:38.19",
-       "wind": "",
-       "name": "David Cartiel Embid",
-       "club": "Nike Running Club",
-       "born": "2004",
-       "fed": "ARA",
-       "city": "Pfungstadt - (GER)",
-       "date": "13/06/2026",
-       "rank": "9"
-      },
-      {
-       "mark": "3:38.46",
-       "wind": "",
-       "name": "David de la Fuente Gomez",
-       "club": "Facsa - Playas de Castellón",
-       "born": "1997",
-       "fed": "GAL",
-       "city": "Castellón-MGH",
-       "date": "01/07/2026",
        "rank": "10"
       }
      ]
@@ -11100,121 +11100,6 @@
      ]
     },
     {
-     "event": "20 km Marcha",
-     "rows": [
-      {
-       "mark": "1:25:30",
-       "wind": "",
-       "name": "María Pérez García",
-       "club": "INDEPENDIENTE",
-       "born": "1996",
-       "fed": "AND",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "1"
-      },
-      {
-       "mark": "1:29:56",
-       "wind": "",
-       "name": "Aldara Meilán García",
-       "club": "Atletica Lucense",
-       "born": "2006",
-       "fed": "GAL",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "2"
-      },
-      {
-       "mark": "1:30:56",
-       "wind": "",
-       "name": "Antia Chamosa Dacasa",
-       "club": "INDEPENDIENTE",
-       "born": "1999",
-       "fed": "GAL",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "3"
-      },
-      {
-       "mark": "1:31:05",
-       "wind": "",
-       "name": "Sofia Santacreu Calatayud",
-       "club": "Cornellà Atlètic",
-       "born": "2006",
-       "fed": "CAT",
-       "city": "Brasilia - (BRA)",
-       "date": "12/04/2026",
-       "rank": "4"
-      },
-      {
-       "mark": "1:35:03",
-       "wind": "",
-       "name": "Raquel González Campos",
-       "club": "INDEPENDIENTE",
-       "born": "1989",
-       "fed": "CAT",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "5"
-      },
-      {
-       "mark": "1:35:45",
-       "wind": "",
-       "name": "Lidia Sanchez-puebla Fernandez",
-       "club": "Facsa - Playas de Castellón",
-       "born": "1996",
-       "fed": "MAD",
-       "city": "Brasilia - (BRA)",
-       "date": "12/04/2026",
-       "rank": "6"
-      },
-      {
-       "mark": "1:36:10",
-       "wind": "",
-       "name": "Griselda Serret Menendez",
-       "club": "Avinent Manresa",
-       "born": "2005",
-       "fed": "CAT",
-       "city": "Brasilia - (BRA)",
-       "date": "12/04/2026",
-       "rank": "7"
-      },
-      {
-       "mark": "1:39:13",
-       "wind": "",
-       "name": "Lucia Redondo Ardid",
-       "club": "Univ Leon Sprint Atletismo",
-       "born": "2003",
-       "fed": "MAD",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "8"
-      },
-      {
-       "mark": "1:46:01",
-       "wind": "",
-       "name": "Laura Monje Martinez",
-       "club": "CA Granollers",
-       "born": "2002",
-       "fed": "CAT",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "9"
-      },
-      {
-       "mark": "1:57:10",
-       "wind": "",
-       "name": "Marta Nogueira Fernandez",
-       "club": "Lleida UA",
-       "born": "1981",
-       "fed": "CAT",
-       "city": "Cieza",
-       "date": "08/03/2026",
-       "rank": "10"
-      }
-     ]
-    },
-    {
      "event": "Medio maratón Marcha",
      "rows": [
       {
@@ -11330,6 +11215,121 @@
      ]
     },
     {
+     "event": "20 km Marcha",
+     "rows": [
+      {
+       "mark": "1:25:30",
+       "wind": "",
+       "name": "María Pérez García",
+       "club": "INDEPENDIENTE",
+       "born": "1996",
+       "fed": "AND",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "1"
+      },
+      {
+       "mark": "1:29:56",
+       "wind": "",
+       "name": "Aldara Meilán García",
+       "club": "Atletica Lucense",
+       "born": "2006",
+       "fed": "GAL",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "2"
+      },
+      {
+       "mark": "1:30:56",
+       "wind": "",
+       "name": "Antia Chamosa Dacasa",
+       "club": "INDEPENDIENTE",
+       "born": "1999",
+       "fed": "GAL",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "3"
+      },
+      {
+       "mark": "1:31:05",
+       "wind": "",
+       "name": "Sofia Santacreu Calatayud",
+       "club": "Cornellà Atlètic",
+       "born": "2006",
+       "fed": "CAT",
+       "city": "Brasilia - (BRA)",
+       "date": "12/04/2026",
+       "rank": "4"
+      },
+      {
+       "mark": "1:35:03",
+       "wind": "",
+       "name": "Raquel González Campos",
+       "club": "INDEPENDIENTE",
+       "born": "1989",
+       "fed": "CAT",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "5"
+      },
+      {
+       "mark": "1:35:45",
+       "wind": "",
+       "name": "Lidia Sanchez-puebla Fernandez",
+       "club": "Facsa - Playas de Castellón",
+       "born": "1996",
+       "fed": "MAD",
+       "city": "Brasilia - (BRA)",
+       "date": "12/04/2026",
+       "rank": "6"
+      },
+      {
+       "mark": "1:36:10",
+       "wind": "",
+       "name": "Griselda Serret Menendez",
+       "club": "Avinent Manresa",
+       "born": "2005",
+       "fed": "CAT",
+       "city": "Brasilia - (BRA)",
+       "date": "12/04/2026",
+       "rank": "7"
+      },
+      {
+       "mark": "1:39:13",
+       "wind": "",
+       "name": "Lucia Redondo Ardid",
+       "club": "Univ Leon Sprint Atletismo",
+       "born": "2003",
+       "fed": "MAD",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "8"
+      },
+      {
+       "mark": "1:46:01",
+       "wind": "",
+       "name": "Laura Monje Martinez",
+       "club": "CA Granollers",
+       "born": "2002",
+       "fed": "CAT",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "9"
+      },
+      {
+       "mark": "1:57:10",
+       "wind": "",
+       "name": "Marta Nogueira Fernandez",
+       "club": "Lleida UA",
+       "born": "1981",
+       "fed": "CAT",
+       "city": "Cieza",
+       "date": "08/03/2026",
+       "rank": "10"
+      }
+     ]
+    },
+    {
      "event": "30 km Marcha",
      "rows": [
       {
@@ -11356,6 +11356,44 @@
       },
       {
        "mark": "2:38:16",
+       "wind": "",
+       "name": "Laura Monje Martinez",
+       "club": "CA Granollers",
+       "born": "2002",
+       "fed": "CAT",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "3"
+      }
+     ]
+    },
+    {
+     "event": "35 km Marcha",
+     "rows": [
+      {
+       "mark": "2:45:35",
+       "wind": "",
+       "name": "Raquel González Campos",
+       "club": "INDEPENDIENTE",
+       "born": "1989",
+       "fed": "CAT",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "1"
+      },
+      {
+       "mark": "2:53:45",
+       "wind": "",
+       "name": "Lucia Redondo Ardid",
+       "club": "Univ Leon Sprint Atletismo",
+       "born": "2003",
+       "fed": "MAD",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "2"
+      },
+      {
+       "mark": "3:04:24",
        "wind": "",
        "name": "Laura Monje Martinez",
        "club": "CA Granollers",
@@ -11457,44 +11495,6 @@
        "city": "Cieza",
        "date": "15/02/2026",
        "rank": "8"
-      }
-     ]
-    },
-    {
-     "event": "35 km Marcha",
-     "rows": [
-      {
-       "mark": "2:45:35",
-       "wind": "",
-       "name": "Raquel González Campos",
-       "club": "INDEPENDIENTE",
-       "born": "1989",
-       "fed": "CAT",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "1"
-      },
-      {
-       "mark": "2:53:45",
-       "wind": "",
-       "name": "Lucia Redondo Ardid",
-       "club": "Univ Leon Sprint Atletismo",
-       "born": "2003",
-       "fed": "MAD",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "2"
-      },
-      {
-       "mark": "3:04:24",
-       "wind": "",
-       "name": "Laura Monje Martinez",
-       "club": "CA Granollers",
-       "born": "2002",
-       "fed": "CAT",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "3"
       }
      ]
     }
