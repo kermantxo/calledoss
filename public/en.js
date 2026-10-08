@@ -156,7 +156,7 @@ window.CALLEDOSS_EN = {
   "DIRECTO": "LIVE",
   "y {n} más": "and {n} more",
   "Hoy no hay competiciones.": "No competitions today.",
-  "Alerta": "Alert",
+  "Última hora": "Breaking news",
   "Cancelada": "Cancelled",
   "Se ha suspendido el Cross de la Constitución de Alcobendas del 29 de noviembre por las elecciones generales.": "The Cross de la Constitución in Alcobendas on 29 November has been called off because of the general election.",
   "La próxima: {nombre} ({fecha}).": "Next up: {nombre} ({fecha}).",

@@ -4974,7 +4974,7 @@ function renderHome(){
   el('homeAlertas').hidden = !avisos.length;
   el('homeAlertas').innerHTML = avisos.map(a => {
     const ev = CALENDAR.find(c => alertaDe(c) === a);
-    return `<button class="alerta-item"${ev ? ` onclick="showCompetitionDetail('${ev.id}')"` : ''}><span class="alerta-label">⚠️ ${t('Alerta')}</span><span class="cancel-tag">${t(a.estado)}</span><span class="alerta-txt">${esc(t(a.texto))}</span></button>`;
+    return `<button class="alerta-item"${ev ? ` onclick="showCompetitionDetail('${ev.id}')"` : ''}><span class="alerta-label">⚠️ ${t('Última hora')}</span><span class="cancel-tag">${t(a.estado)}</span><span class="alerta-txt">${esc(t(a.texto))}</span></button>`;
   }).join('');
   el('nowTodayN').textContent = today.length;
   el('nowToday').innerHTML = today.length

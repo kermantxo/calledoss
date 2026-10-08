@@ -189,4 +189,4 @@
 - 2026-10-04: Directo: la marcha popular, las carreras infantiles, las exhibiciones y las pruebas testimoniales sin clasificación salen como «No competitiva» (no «Sin resultados publicados»).
 - 2026-10-04: Directo y Próximas: se enseña el horario entero de las pruebas que faltan (antes solo las 10 siguientes; en la Milla de Valladolid se cortaba en las 18:25).
 - 2026-10-04: Cto. de España de Cross Máster: los PDF de SmartTrack de campo a través (tres líneas por atleta) se leen bien: nombre completo, club y marca.
-- 2026-10-08: Alertas: franja roja de aviso en Inicio (encima de los tres recuadros). Primera alerta: el Cross de la Constitución de Alcobendas (29/11/2026) se suspende por las elecciones generales; en el calendario y en su ficha sale como «Cancelada» y deja de contar en Próximas y en Inicio.
+- 2026-10-08: Última hora: franja roja de aviso en Inicio (encima de los tres recuadros). Primera alerta: el Cross de la Constitución de Alcobendas (29/11/2026) se suspende por las elecciones generales; en el calendario y en su ficha sale como «Cancelada» y deja de contar en Próximas y en Inicio.
