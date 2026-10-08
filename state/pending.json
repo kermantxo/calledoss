@@ -1,7 +1,17 @@
 {
  "cronomancha-ev801": {
   "since": "2026-10-07",
-  "tries": 3,
-  "last": "2026-10-08"
+  "tries": 4,
+  "last": "2026-10-09"
+ },
+ "avaibook-10a-carrera-de-los-7-sietes-olmedo": {
+  "since": "2026-10-09",
+  "tries": 1,
+  "last": "2026-10-09"
+ },
+ "cronomancha-ev799": {
+  "since": "2026-10-09",
+  "tries": 1,
+  "last": "2026-10-09"
  }
 }
