@@ -135,6 +135,7 @@
 - 2026-10-01: Una página propia por cada competición con resultados (calledoss.com/resultados/<nombre>-<fecha>), con podios femeninos y masculinos y los españoles escritos en la página para que Google los lea. Se regeneran solas cada día (proceso diario de GitHub) junto con sitemap.xml, y desde la lista de Resultados hay un enlace a cada una.
 
 ## How to Customize
+- Para poner o quitar una alerta (prueba cancelada o aplazada): editar la lista `ALERTAS` al principio del calendario en `script.js` (fecha de la prueba, una palabra de su nombre o lugar, estado y texto). La alerta desaparece sola de Inicio pasado el día de la prueba. Añadir la traducción del texto en `en.js` (ui)
 - Las páginas de cada competición (`public/resultados/`) y `sitemap.xml` las crea `pipeline/static_pages.py` cada día; no se editan a mano. Para rehacerlas en el momento: GitHub → Actions → Datos → Run workflow → `paginas`
 - IMPORTANTE: el contenido de las páginas de sección (calendario.html, resultados.html, directo.html, proximas.html, ranking.html) sale de index.html. Después de cambiar index.html (o robots.txt / sitemap.xml) hay que ejecutar `python3 paginas.py` para que las demás páginas lo tengan también (sus títulos y descripciones están en ese archivo). Ese comando deja además una copia en `public/`, que es la carpeta que publica Cloudflare
 - Si se añade una página nueva: añadirla a `sitemap.xml` y ponerle título, descripción y `canonical` en su `<head>`
@@ -188,3 +189,4 @@
 - 2026-10-04: Directo: la marcha popular, las carreras infantiles, las exhibiciones y las pruebas testimoniales sin clasificación salen como «No competitiva» (no «Sin resultados publicados»).
 - 2026-10-04: Directo y Próximas: se enseña el horario entero de las pruebas que faltan (antes solo las 10 siguientes; en la Milla de Valladolid se cortaba en las 18:25).
 - 2026-10-04: Cto. de España de Cross Máster: los PDF de SmartTrack de campo a través (tres líneas por atleta) se leen bien: nombre completo, club y marca.
+- 2026-10-08: Alertas: franja roja de aviso en Inicio (encima de los tres recuadros). Primera alerta: el Cross de la Constitución de Alcobendas (29/11/2026) se suspende por las elecciones generales; en el calendario y en su ficha sale como «Cancelada» y deja de contar en Próximas y en Inicio.

@@ -3722,6 +3722,15 @@ function populateSelect(id, values, allLabel, labelFn){
 const ccaaLabel = v => t(v);
 const typeLabel = v => td(v);
 
+/* ALERTAS: avisos importantes (pruebas canceladas o aplazadas).
+   Salen en la portada hasta el día de la prueba, y la prueba aparece como «Cancelada»
+   en el calendario y en su ficha. Para quitar un aviso, borra su línea. */
+const ALERTAS = [
+  {date:'2026-11-29', match:/alcobendas/i, estado:'Cancelada',
+   texto:'Se ha suspendido el Cross de la Constitución de Alcobendas del 29 de noviembre por las elecciones generales.'},
+];
+function alertaDe(ev){ return ALERTAS.find(a => a.date === ev.date && a.match.test(ev.name + ' ' + (ev.place || ''))); }
+
 function renderCalendar(){
   const month = document.getElementById('calMonth').value;
   const type = document.getElementById('calType').value;
@@ -3762,7 +3771,8 @@ function calCard(ev, todayStr){
   const wd = new Date(ev.date + 'T12:00:00').toLocaleDateString(LOCALE, {weekday:'short'}).replace('.', '');
   const w = getWatchInfo(ev.id);
   const tv = w && w.channel && !/No hay streaming/i.test(w.channel) ? td(w.channel.replace(/<[^>]+>/g, '')) : '';
-  return `<button class="cal-card ${isPast ? 'is-past' : ''} ${isToday ? 'is-today' : ''}" onclick="showCompetitionDetail('${ev.id}')">
+  const alerta = alertaDe(ev);
+  return `<button class="cal-card ${isPast ? 'is-past' : ''} ${isToday ? 'is-today' : ''} ${alerta ? 'is-cancelled' : ''}" onclick="showCompetitionDetail('${ev.id}')">
     <span class="cal-when"><span class="wd">${esc(wd)}</span><span class="dd">${d}</span><span class="mm">${MESES[parseInt(m,10)-1].slice(0,3)}</span></span>
     <span class="cal-info">
       <h4>${esc(ev.name)}</h4>
@@ -3773,6 +3783,7 @@ function calCard(ev, todayStr){
         ${tv ? `<span>📺 ${esc(tv)}</span>` : ''}
         ${ev.links && ev.links.inscritos ? `<span>📋 ${t('Inscritos')}</span>` : ''}
       </span>
+      ${alerta ? `<span class="cancel-tag">${t(alerta.estado)}</span>` : ''}
       ${ev.adoc ? `<span class="type-tag" style="--c:#C0392B"><span class="dot"></span>ADOC${ev.adoc_cat ? ' · ' + esc(ev.adoc_cat) : ''}</span>` : ''}
     </span>
   </button>`;
@@ -3870,6 +3881,7 @@ function showCompetitionDetail(calId){
       <span class="tag ${ev.type==='Internacional'?'intl':'nac'}">${esc(typeLabel(ev.type))}</span>
       ${ev.cat ? `<span class="tag">${esc(td(ev.cat))}</span>` : ''}
     </div>
+    ${alertaDe(ev) ? `<div class="alerta-note"><span class="cancel-tag">${t(alertaDe(ev).estado)}</span> ${esc(t(alertaDe(ev).texto))}</div>` : ''}
     <div class="data-note">📺 <b>${t('Dónde ver:')} ${td(watch.channel)}</b>${watch.note ? "<br>" + td(watch.note) : ""}</div>
     ${euroBrowser}
     ${autoInfo}
@@ -4240,7 +4252,7 @@ function renderCompAccordion(){
   document.getElementById('proxRange').innerHTML =
     `📅 ${t('Del <b>{ini}</b> al <b>{fin}</b>.', {ini: fechaCorta(ini), fin: fechaCorta(fin)})}`;
   const lista = CALENDAR
-    .filter(c => (c.end_date || c.date) >= ini && c.date <= fin && !yaTerminada(c))
+    .filter(c => (c.end_date || c.date) >= ini && c.date <= fin && !yaTerminada(c) && !alertaDe(c))
     .sort((a,b)=> diaProx(a, ini).localeCompare(diaProx(b, ini)) || horaDelDia(a, diaProx(a, ini)).localeCompare(horaDelDia(b, diaProx(b, ini))) || a.name.localeCompare(b.name));
   if(lista.length === 0){
     wrap.innerHTML = `<div class="empty-state"><h3>${t('Sin competiciones')}</h3>${t('No hay citas en el calendario para los próximos 7 días.')}</div>`;
@@ -4545,6 +4557,7 @@ const DATA_URLS = [
 ];
 const LIVE_REFRESH_MS = 60 * 1000;   // el directo se refresca solo cada minuto
 const CALENDAR_CURATED = CALENDAR.slice();
+
 
 function esc(s){
   return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -4951,12 +4964,18 @@ function renderHome(){
   if(!el('nowToday')) return;
   const hoy = hoyISO();
   const live = LIVE_DATA && LIVE_DATA.date === hoy ? (LIVE_DATA.items || {}) : {};
-  const today = CALENDAR.filter(c => c.date <= hoy && hoy <= (c.end_date || c.date) && !yaTerminada(c)).sort((a,b) => (a.time||'99').localeCompare(b.time||'99'));
+  const today = CALENDAR.filter(c => c.date <= hoy && hoy <= (c.end_date || c.date) && !yaTerminada(c) && !alertaDe(c)).sort((a,b) => (a.time||'99').localeCompare(b.time||'99'));
   const [, fin] = proximasRango();
-  const next = CALENDAR.filter(c => c.date > hoy && c.date <= fin).sort((a,b) => a.date.localeCompare(b.date) || (a.time||'99').localeCompare(b.time||'99'));
+  const next = CALENDAR.filter(c => c.date > hoy && c.date <= fin && !alertaDe(c)).sort((a,b) => a.date.localeCompare(b.date) || (a.time||'99').localeCompare(b.time||'99'));
   const last = RESULTS_INDEX.filter(r => r.date && r.date <= hoy).sort((a,b) => b.date.localeCompare(a.date));
   const line = (b, t) => `<span class="it"><b>${esc(b)}</b><span>${esc(t)}</span></span>`;
 
+  const avisos = ALERTAS.filter(a => a.date >= hoy);
+  el('homeAlertas').hidden = !avisos.length;
+  el('homeAlertas').innerHTML = avisos.map(a => {
+    const ev = CALENDAR.find(c => alertaDe(c) === a);
+    return `<button class="alerta-item"${ev ? ` onclick="showCompetitionDetail('${ev.id}')"` : ''}><span class="alerta-label">⚠️ ${t('Alerta')}</span><span class="cancel-tag">${t(a.estado)}</span><span class="alerta-txt">${esc(t(a.texto))}</span></button>`;
+  }).join('');
   el('nowTodayN').textContent = today.length;
   el('nowToday').innerHTML = today.length
     ? today.slice(0,4).map(c => (live[c.id] || {}).status === 'en directo'

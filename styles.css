@@ -708,6 +708,15 @@ nav.tabs button.active,nav.tabs a.active{color:#fff;border-bottom-color:var(--br
 .home-hero{padding:44px 0 26px;margin-bottom:22px;border-bottom:none;}
 .hero h1.home-title{color:var(--ink);line-height:0.95;}
 .home-lead{font-size:20px !important;color:var(--gray) !important;margin-top:10px !important;}
+.alerta-bar{display:grid;gap:8px;margin-bottom:18px;}
+.alerta-bar[hidden]{display:none;}
+.alerta-item{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;width:100%;text-align:left;padding:14px 16px;border:1px solid var(--red);border-left-width:6px;background:rgba(192,23,10,0.10);color:inherit;font:inherit;font-size:16px;cursor:pointer;}
+.alerta-item:hover{background:rgba(192,23,10,0.16);}
+.alerta-label{font-weight:700;text-transform:uppercase;letter-spacing:0.06em;font-size:13px;color:var(--red);}
+.alerta-txt{flex:1 1 260px;}
+.cancel-tag{display:inline-block;align-self:flex-start;padding:2px 8px;background:var(--red);color:#fff;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;}
+.cal-card.is-cancelled h4{text-decoration:line-through;text-decoration-color:var(--red);}
+.alerta-note{padding:12px 14px;margin:14px 0;border:1px solid var(--red);border-left-width:6px;background:rgba(192,23,10,0.10);font-size:16px;}
 .now-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:14px;}
 .now-tile{
   text-align:left;border:none;border-radius:var(--radius);padding:20px 20px 16px;
