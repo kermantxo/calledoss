@@ -66,17 +66,17 @@
   },
   "results": {
    "label": "Resultados (todas las fuentes)",
-   "last_run": "2026-10-08T14:18:37+02:00",
+   "last_run": "2026-10-08T15:19:03+02:00",
    "ok": true,
-   "last_ok": "2026-10-08T14:18:39+02:00",
+   "last_ok": "2026-10-08T15:19:05+02:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
   "rfea_results": {
    "label": "RFEA · índice de resultados (PDF)",
-   "last_run": "2026-10-08T14:18:37+02:00",
+   "last_run": "2026-10-08T15:19:03+02:00",
    "ok": true,
-   "last_ok": "2026-10-08T14:18:39+02:00",
+   "last_ok": "2026-10-08T15:19:05+02:00",
    "fails_in_a_row": 0,
    "last_count": 0,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf",
@@ -615,5 +615,5 @@
    "msg": "Búsqueda de podios de 'Medio Maratón San Sebastián Rural Kutxa': expected string or bytes-like object, got 'list'"
   }
  ],
- "updated": "2026-10-08T14:18:39+02:00"
+ "updated": "2026-10-08T15:19:05+02:00"
 }
