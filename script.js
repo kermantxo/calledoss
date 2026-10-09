@@ -4526,18 +4526,24 @@ function renderRanking(){
     wrap.innerHTML = `<div class="empty-state"><h3>${t('Sin marcas')}</h3>${t('La RFEA todavía no tiene marcas en esta prueba y temporada.')}</div>`;
     return;
   }
-  wrap.innerHTML = list.map(e => `
+  wrap.innerHTML = list.map(e => {
+    // en el heptatlón, el atleta va antes que la marca
+    const atletaPrimero = /heptat/i.test(e.event);
+    const thMarca = `<th>${t('Marca')}</th>`, thAtleta = `<th>${t('Atleta')}</th>`;
+    return `
     <div class="event-block rank-block">
       <div class="event-block-head"><h3>${esc(td(e.event))}</h3><span>Top ${e.rows.length}</span></div>
-      <table class="rank"><thead><tr><th>#</th><th>${t('Marca')}</th><th>${t('Atleta')}</th><th class="hide-sm">Club</th><th class="hide-sm">${t('Lugar · fecha')}</th></tr></thead>
-      <tbody>${e.rows.map((r, i) => `<tr class="${i === 0 ? 'top1' : ''}">
+      <table class="rank"><thead><tr><th>#</th>${atletaPrimero ? thAtleta + thMarca : thMarca + thAtleta}<th class="hide-sm">Club</th><th class="hide-sm">${t('Lugar · fecha')}</th></tr></thead>
+      <tbody>${e.rows.map((r, i) => {
+        const marca = `<td class="mark">${esc(r.mark)}${r.wind ? ` <small>(${esc(r.wind)})</small>` : ''}</td>`;
+        const atleta = `<td>${esc(r.name)}${r.born ? ` <small class="club">${esc(r.born)}</small>` : ''}<div class="club show-sm">${esc(r.club)}</div></td>`;
+        return `<tr class="${i === 0 ? 'top1' : ''}">
         <td class="rk"><span class="rk-badge ${i < 3 ? 'm' + (i + 1) : ''}">${esc(r.rank)}</span></td>
-        <td class="mark">${esc(r.mark)}${r.wind ? ` <small>(${esc(r.wind)})</small>` : ''}</td>
-        <td>${esc(r.name)}${r.born ? ` <small class="club">${esc(r.born)}</small>` : ''}<div class="club show-sm">${esc(r.club)}</div></td>
+        ${atletaPrimero ? atleta + marca : marca + atleta}
         <td class="club hide-sm">${esc(r.club)}${r.fed ? ` · ${esc(r.fed)}` : ''}</td>
         <td class="club hide-sm">${esc(r.city)} · ${esc(r.date)}</td>
-      </tr>`).join('')}</tbody></table>
-    </div>`).join('');
+      </tr>`;}).join('')}</tbody></table>
+    </div>`;}).join('');
 }
 ['rankSeason','rankSex'].forEach(id => document.getElementById(id).addEventListener('change', ()=>{ refreshRankEventOptions(); renderRanking(); }));
 document.getElementById('rankEvent').addEventListener('change', renderRanking);
