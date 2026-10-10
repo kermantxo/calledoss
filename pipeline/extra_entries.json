@@ -594,5 +594,446 @@
     "note": "Anunciada en prensa (Correr en La Rioja): ganadora del Maratón de Logroño en 2025; este año corre la media maratón"
    }
   ]
+ },
+ "wa-7235563": {
+  "_nota": "Españoles inscritos en Chicago 2026 (buscador oficial de participantes, nacionalidad ESP) con marca por debajo de 3:10 en las clasificaciones oficiales de Sevilla 2026, Barcelona 2025 y 2026, Málaga 2025, Zaragoza 2026 y Chicago 2025. 'bib' es solo el orden por marca. Mejor marca encontrada en esas carreras.",
+  "fuente": [
+   "https://results.chicagomarathon.com/2026/?pid=search&event=MAR&search%5Bnation%5D=ESP"
+  ],
+  "max_por_sexo": 60,
+  "atletas": [
+   {
+    "name": "Mikel Garcia Escocia",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 1,
+    "note": "Marca personal (2:18:33, Maratón de Barcelona 2026)"
+   },
+   {
+    "name": "Iurgi Etxeandia Lejarcegui",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 2,
+    "note": "Marca personal (2:29:59, Maratón de Sevilla 2026)"
+   },
+   {
+    "name": "Guillermo Preckler",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 3,
+    "note": "Marca personal (2:31:35, Maratón de Barcelona 2025)"
+   },
+   {
+    "name": "Alvaro Catena Rallo",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 4,
+    "note": "Marca personal (2:33:40, Maratón de Barcelona 2026)"
+   },
+   {
+    "name": "Jose Ruiz-Herrera Hernandez",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 5,
+    "note": "Marca personal (2:34:34, Maratón de Chicago 2025)"
+   },
+   {
+    "name": "Fabiana Lafuente Pochettino",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 6,
+    "note": "Marca personal (2:36:41, Maratón de Barcelona 2026)"
+   },
+   {
+    "name": "Lluís Relat",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 7,
+    "note": "Marca personal (2:37:22, Maratón de Barcelona 2025)"
+   },
+   {
+    "name": "Jaime Gutierrez Vicente",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 8,
+    "note": "Marca personal (2:37:37, Maratón de Sevilla 2026)"
+   },
+   {
+    "name": "Marti Ducable",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 9,
+    "note": "Marca personal (2:38:32, Maratón de Barcelona 2025)"
+   },
+   {
+    "name": "Breixo Balboa Ruigomez",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 10,
+    "note": "Marca personal (2:42:14, Maratón de Barcelona 2026)"
+   },
+   {
+    "name": "Antonio Jimenez Alvarez",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 11,
+    "note": "Marca personal (2:44:27, Maratón de Sevilla 2026)"
+   },
+   {
+    "name": "Xavi Alet Alis",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 12,
+    "note": "Marca personal (2:44:43, Maratón de Barcelona 2025)"
+   },
+   {
+    "name": "Ruben Gonzalez Moreno",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 13,
+    "note": "Marca personal (2:44:52, Maratón de Sevilla 2026)"
+   },
+   {
+    "name": "Estefania Unzu Ripoll",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 14,
+    "note": "Marca personal (2:45:39, Maratón de Sevilla 2026)"
+   },
+   {
+    "name": "Francisco Acosta",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 15,
+    "note": "Marca personal (2:47:34, Maratón de Chicago 2025)"
+   },
+   {
+    "name": "Lucas Bojanich Ross",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 16,
+    "note": "Marca personal (2:48:36, Maratón de Barcelona 2026)"
+   },
+   {
+    "name": "Francisco Javier Holgado Simon",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 17,
+    "note": "Marca personal (2:50:24, Maratón de Sevilla 2026)"
+   },
+   {
+    "name": "Aleix Torne Piñol",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 18,
+    "note": "Marca personal (2:50:35, Maratón de Barcelona 2025)"
+   },
+   {
+    "name": "German Navas Camargo",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 19,
+    "note": "Marca personal (2:50:38, Maratón de Barcelona 2025)"
+   },
+   {
+    "name": "Jesus Carrero Garcia",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 20,
+    "note": "Marca personal (2:51:06, Maratón de Sevilla 2026)"
+   },
+   {
+    "name": "Carlos Azuaga Pozo",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 21,
+    "note": "Marca personal (2:51:42, Maratón de Chicago 2025)"
+   },
+   {
+    "name": "Oscar Sanchez Modesto",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 22,
+    "note": "Marca personal (2:53:57, Maratón de Barcelona 2025)"
+   },
+   {
+    "name": "Luis Sanz Villares",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 23,
+    "note": "Marca personal (2:54:34, Maratón de Barcelona 2025)"
+   },
+   {
+    "name": "Alberto Estebanez De Miguel",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 24,
+    "note": "Marca personal (2:55:19, Maratón de Barcelona 2025)"
+   },
+   {
+    "name": "Alejandro Estrada Gómez",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 25,
+    "note": "Marca personal (2:56:03, Maratón de Barcelona 2026)"
+   },
+   {
+    "name": "Miguel Miragall Arnal",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 26,
+    "note": "Marca personal (2:56:28, Maratón de Sevilla 2026)"
+   },
+   {
+    "name": "Gervasio Mogio Palau",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 27,
+    "note": "Marca personal (2:57:47, Maratón de Chicago 2025)"
+   },
+   {
+    "name": "Oscar Melendez",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 28,
+    "note": "Marca personal (2:58:29, Maratón de Chicago 2025)"
+   },
+   {
+    "name": "Javier Del Cerro",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 29,
+    "note": "Marca personal (2:59:11, Maratón de Sevilla 2026)"
+   },
+   {
+    "name": "Raul Montero Leon",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 30,
+    "note": "Marca personal (2:59:11, Maratón de Sevilla 2026)"
+   },
+   {
+    "name": "Javier Muñoz Palacios",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 31,
+    "note": "Marca personal (2:59:22, Maratón de Barcelona 2026)"
+   },
+   {
+    "name": "Victor Crespo Cuevas",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 32,
+    "note": "Marca personal (2:59:26, Maratón de Barcelona 2026)"
+   },
+   {
+    "name": "Gustavo Martiarena Matuda",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 33,
+    "note": "Marca personal (2:59:36, Maratón de Sevilla 2026)"
+   },
+   {
+    "name": "Marc Gispert Giron",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 34,
+    "note": "Marca personal (2:59:46, Maratón de Barcelona 2026)"
+   },
+   {
+    "name": "Luzia Echart López De Murillas",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 35,
+    "note": "Marca personal (3:00:45, Maratón de Barcelona 2026)"
+   },
+   {
+    "name": "Juan Carlos Del Cerro",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 36,
+    "note": "Marca personal (3:00:56, Maratón de Sevilla 2026)"
+   },
+   {
+    "name": "Antonio Jesus Panadero Garcia",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 37,
+    "note": "Marca personal (3:01:00, Maratón de Málaga 2025)"
+   },
+   {
+    "name": "Javier Garcia de Enterria",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 38,
+    "note": "Marca personal (3:01:32, Maratón de Chicago 2025)"
+   },
+   {
+    "name": "Marc Orantes Bravo",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 39,
+    "note": "Marca personal (3:01:46, Maratón de Barcelona 2025)"
+   },
+   {
+    "name": "Antonio Bueno Fernandez",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 40,
+    "note": "Marca personal (3:02:47, Maratón de Sevilla 2026)"
+   },
+   {
+    "name": "Alfonso Palacios",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 41,
+    "note": "Marca personal (3:03:07, Maratón de Sevilla 2026)"
+   },
+   {
+    "name": "Manuel Alejandro Lorente Garcia",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 42,
+    "note": "Marca personal (3:03:40, Maratón de Sevilla 2026)"
+   },
+   {
+    "name": "Luis García Abian",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 43,
+    "note": "Marca personal (3:03:47, Maratón de Barcelona 2025)"
+   },
+   {
+    "name": "Xavi Armengol",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 44,
+    "note": "Marca personal (3:06:02, Maratón de Barcelona 2025)"
+   },
+   {
+    "name": "Juan Francisco Esteban Muñoz",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 45,
+    "note": "Marca personal (3:06:46, Maratón de Chicago 2025)"
+   },
+   {
+    "name": "Alberto Rodriguez Castro",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 46,
+    "note": "Marca personal (3:07:30, Maratón de Barcelona 2025)"
+   },
+   {
+    "name": "Maximo Javier Hernandez Fernandez",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 47,
+    "note": "Marca personal (3:07:35, Maratón de Barcelona 2025)"
+   },
+   {
+    "name": "Raul Del Cerro Corrales",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "elite": false,
+    "bib": 48,
+    "note": "Marca personal (3:09:35, Maratón de Sevilla 2026)"
+   }
+  ]
  }
 }

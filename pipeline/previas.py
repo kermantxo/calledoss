@@ -596,7 +596,7 @@ def match_full(ath, text):
     return best
 
 
-def select(rows, ath, comp_type=""):
+def select(rows, ath, comp_type="", cap=25):
     """Destacados por prueba y sexo."""
     groups = {}
     for r in rows:
@@ -680,7 +680,7 @@ def select(rows, ath, comp_type=""):
         e = events.setdefault(ev, {"name": ev, "n": 0, "M": [], "F": [], "otros": []})
         e["n"] += len(seen)
         n_elite = sum(1 for x in scored if x.pop("_elite"))
-        e[sex if sex in ("M", "F") else "otros"] = scored[:max(PER_SEX, min(n_elite, 25))]
+        e[sex if sex in ("M", "F") else "otros"] = scored[:max(PER_SEX, min(n_elite, cap))]
     out = [e for e in events.values()]
     out.sort(key=lambda e: -(len(e["M"]) + len(e["F"])))
     return out
@@ -751,7 +751,7 @@ def run(http, health, items):
                 entry["status"] = "no_publicados"
             out.append(entry)
             continue
-        events = select(rows, ath, it.get("type", ""))
+        events = select(rows, ath, it.get("type", ""), cap=(extra or {}).get("max_por_sexo", 25))
         # carreras de un solo sexo (Carrera de la Mujer, Liga Iberdrola...): fuera los destacados del otro
         solo = only_sex(it["name"])
         if solo:
