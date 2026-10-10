@@ -1,12 +1,37 @@
 {
  "cronomancha-ev799": {
   "since": "2026-10-09",
-  "tries": 30,
-  "last": "2026-10-10"
+  "tries": 31,
+  "last": "2026-10-11"
  },
  "rfea-2026-10-10-15-mba-media-maraton-gijon": {
   "since": "2026-10-10",
-  "tries": 15,
-  "last": "2026-10-10"
+  "tries": 16,
+  "last": "2026-10-11"
+ },
+ "wa-7235563": {
+  "since": "2026-10-11",
+  "tries": 1,
+  "last": "2026-10-11"
+ },
+ "rfea-2026-10-11-campeonato-del-mundo-master-de-maraton": {
+  "since": "2026-10-11",
+  "tries": 1,
+  "last": "2026-10-11"
+ },
+ "avaibook-loop-race-ciudad-de-cantalejo": {
+  "since": "2026-10-11",
+  "tries": 1,
+  "last": "2026-10-11"
+ },
+ "wa-7244109": {
+  "since": "2026-10-11",
+  "tries": 1,
+  "last": "2026-10-11"
+ },
+ "rfea-2026-10-11-xxix-media-maraton-y-10km-villa-del-tratado-de-tordesillas": {
+  "since": "2026-10-11",
+  "tries": 1,
+  "last": "2026-10-11"
  }
 }
