@@ -85,6 +85,135 @@ def from_timingsys(http, event_id):
     return out
 
 
+
+def from_321go(http, race_slug):
+    """321go (live.321go.es/participantes.html?raceID=...): listado público de participantes.
+    Solo trae nombre, apellidos, dorsal y club; se usa la carrera principal (la primera modalidad)."""
+    base = "https://live.321go.es/api/"
+    cat = http.get(base + "eventos.php", timeout=60).json()
+    race = next((x for x in cat.get("items", []) if x.get("SlugCarreraCopernico") == race_slug), None)
+    if not race:
+        return []
+    evs = [e for e in race.get("Eventos") or [] if (e.get("VisualizarParticipantes") or "").lower().startswith("s")]
+    if not evs:
+        return []
+    ev = evs[0]["Nombre del evento"]
+    if (race.get("CopernicoLiveActivo") or "").lower().startswith("s"):
+        r = http.get(base + "copernico_live.php", params={"raceID": race_slug, "eventName": ev, "action": "participants"}, timeout=90)
+    else:
+        r = http.get(base + "participants_proxy.php", params={"raceID": race_slug, "eventName": ev}, timeout=90)
+    out = []
+    for p in (r.json() or {}).get("rows", []):
+        name = clean_name(clean("%s %s" % (p.get("name") or "", p.get("surname") or "")))[0]
+        if not name:
+            continue
+        # sin dorsal: con «bib» bastaría nombre y un apellido para dar por bueno al atleta, y aquí están completos
+        # «exacto»: nombre y apellidos vienen separados y en orden, así que el atleta tiene que coincidir palabra
+        # por palabra y en el mismo orden (Óscar Rodríguez Martínez no es Óscar Martínez Rodríguez)
+        out.append({"event": _event_label(ev), "name": name, "sex": "", "club": clean(p.get("club") or ""), "cat": "",
+                    "popular": True, "exacto": True, "text": name})
+    return out
+
+
+RFEA_LIC = re.compile(r"^[A-Z]{1,3}-?\d{2,7}(?:-[A-Za-z](?:-[A-Za-z]){2,3})?$")
+
+
+def rfea_inscritos_pdf_url(http, info_url):
+    """Ficha de la RFEA (atletismorfea.es/calendario/campeonato/...): enlace al PDF «Listado de inscritos»
+    que la propia ficha carga en su pestaña INSCRITOS. None si aún no hay inscritos."""
+    if "atletismorfea.es/calendario/campeonato/" not in (info_url or ""):
+        return None
+    m = re.search(r'href="#c_e_accordion_enrolled"[^>]*data-sfid="(\w+)"', http.get(info_url, timeout=30).text)
+    if not m:
+        return None
+    r = http.get("https://atletismorfea.es/championship-inscritos/%s/0/1?_wrapper_format=drupal_ajax" % m.group(1),
+                 headers={"X-Requested-With": "XMLHttpRequest"}, timeout=30)
+    html = " ".join(c.get("data") or "" for c in r.json() if isinstance(c.get("data"), str))
+    if "No hay resultados" in html:
+        return None
+    pdf = re.search(r'href="(/calendario/competicion/pdf/\d+)"', html)
+    return "https://atletismorfea.es" + pdf.group(1) if pdf else None
+
+
+def from_rfea_inscritos_pdf(http, url):
+    """PDF «Listado de inscritos» de la RFEA: una tabla por prueba (Marca, Licencia, Atleta, País, Fecha de
+    nacimiento, Club, Fecha, Lugar, MMP, MMT). Nombre y club pueden ocupar dos líneas, así que se lee por
+    la posición de cada palabra. Primero van las pruebas masculinas y luego las femeninas: cuando se repite
+    el nombre de una prueba, empiezan las mujeres. Los relevos no se usan."""
+    import io
+    import pdfplumber
+    c = http.get(url, timeout=120).content
+    if b"%PDF" not in c[:1024]:
+        return []
+    out, event, sex, seen, cols = [], None, "M", set(), None
+    with pdfplumber.open(io.BytesIO(c)) as pdf:
+        for page in pdf.pages:
+            ws = page.extract_words(extra_attrs=["size", "fontname"])
+            # título de prueba: letra algo más grande que la tabla (12,9 frente a 11) y en negrita
+            for w in ws:
+                if 12 < w["size"] < 14 and "Bold" in w["fontname"]:
+                    w["title"] = True
+            lines = {}
+            for w in ws:
+                lines.setdefault(round(w["top"]), []).append(w)
+            anchors = []
+            for top in sorted(lines):
+                lw = sorted(lines[top], key=lambda w: w["x0"])
+                if all(w.get("title") for w in lw):
+                    t = clean(" ".join(w["text"] for w in lw))
+                    if t in seen and sex == "M":
+                        sex = "F"
+                    seen.add(t)
+                    event = t
+                    continue
+                txt = [w["text"] for w in lw]
+                if "Licencia" in txt and "Atleta" in txt:
+                    hx = {w["text"]: w for w in lw}
+                    club_end = next((w["x0"] for w in lw if w["text"] == "Fecha" and w["x0"] > hx["Club"]["x0"]), 1e9)
+                    cols = {"lic": hx["Licencia"]["x0"] - 40, "name": hx["Atleta"]["x0"] - 60,
+                            "nat": hx["País"]["x0"] - 5, "club": hx["País"]["x1"] + 100, "club_end": club_end - 5}
+                    continue
+                if not cols or not event:
+                    continue
+                lic = next((w for w in lw if cols["lic"] <= w["x0"] < cols["name"] and RFEA_LIC.match(w["text"])), None)
+                if lic:
+                    anchors.append({"top": lic["top"], "lic": lic, "event": event, "sex": sex, "words": []})
+            if not cols:
+                continue
+            # cada palabra de nombre o club va con la fila (licencia) más cercana en vertical
+            for w in ws:
+                if w.get("title") or not anchors:
+                    continue
+                a = min(anchors, key=lambda a: abs(a["top"] - w["top"]))
+                if abs(a["top"] - w["top"]) <= 12:
+                    a["words"].append(w)
+            for a in anchors:
+                if a["event"].lower().startswith("4x"):
+                    continue
+                aw = sorted(a["words"], key=lambda w: (round(w["top"]), w["x0"]))
+                name = " ".join(w["text"] for w in aw if cols["name"] <= w["x0"] < cols["nat"] and w is not a["lic"]
+                                and not RFEA_LIC.match(w["text"]))
+                club = " ".join(w["text"] for w in aw if cols["club"] <= w["x0"] < cols["club_end"]
+                                and not re.match(r"^\d{1,2}/\d{1,2}/\d{4}$", w["text"]))
+                nat = next((w["text"] for w in aw if cols["nat"] <= w["x0"] < cols["nat"] + 30 and re.match(r"^[A-Z]{3}$", w["text"])), "")
+                mark = next((w["text"] for w in aw if w["x0"] < cols["lic"] and re.match(r"^[\d:.,]+$", w["text"])
+                             and abs(w["top"] - a["top"]) < 3), "")
+                # «APELLIDOS NOMBRE»: si ocupa dos líneas, la de arriba son los apellidos y la de abajo el nombre
+                above = [w["text"] for w in aw if cols["name"] <= w["x0"] < cols["nat"] and w["top"] < a["top"] - 3]
+                below = [w["text"] for w in aw if cols["name"] <= w["x0"] < cols["nat"] and w["top"] > a["top"] + 3]
+                if above and below:
+                    name = " ".join(below + above)
+                elif len(name.split()) >= 2:  # en una línea: dos apellidos (uno si solo hay dos palabras) y el nombre
+                    t = name.split()
+                    k = 2 if len(t) >= 3 else 1
+                    name = " ".join(t[k:] + t[:k])
+                name = clean_name(name.title(), nat)[0]
+                if name:
+                    # sin «nat»: son listas de competiciones en España y un extranjero no la convierte en internacional
+                    out.append({"event": a["event"], "name": name, "sex": a["sex"], "club": clean(club),
+                                "sb": mark, "popular": False, "text": name})
+    return out
+
 # Lista de inscritos de la RFEA ordenada por categoría (p. ej. Campeonato de España Máster de Campo a Través):
 #   «Carrera M35 (5500 m) - 13:40» y debajo «M35 NO 38,22 TO-3951035 Jonathan Paz Madroño ESP 18/11/1987 26millas MATICAL»
 RFEA_CAT_HEAD = re.compile(r"^(?:Carrera\s+)?(.+?\(\d+\s?m\))\s+-\s+(\d{1,2}:\d{2})\s*$")
@@ -308,6 +437,24 @@ def find_entries(http, it):
                     return rows, ["https://timingsys.com/event/%s/participants" % lv["event"]]
             except Exception:
                 pass
+    # 321go: listado público de participantes (live.321go.es/participantes.html?raceID=...)
+    for v in links.values():
+        m = re.search(r"321go\.es/participantes\.html\?raceID=([\w-]+)", v or "")
+        if m:
+            try:
+                rows = from_321go(http, m.group(1))
+                if rows:
+                    return rows, [v]
+            except Exception:
+                pass
+    # ficha de la RFEA: su pestaña INSCRITOS tiene el PDF oficial
+    try:
+        pdf = rfea_inscritos_pdf_url(http, links.get("info"))
+        rows = from_rfea_inscritos_pdf(http, pdf) if pdf else []
+        if rows:
+            return rows, [pdf]
+    except Exception:
+        pass
     # plataforma de inscripción tipo AvaiBook (Kirolprobak...): enlazada en la ficha o en la web oficial
     insc = next((timers.inscripcion_url(v) for v in links.values() if timers.inscripcion_url(v)), None)
     if not insc:
@@ -460,6 +607,8 @@ def select(rows, ath, comp_type=""):
             a = A.lookup_unique(ath, r["name"])  # solo nombre y un apellido: tiene que ser inequívoco
         else:
             a = match_full(ath, r.get("text") or r["name"]) if r.get("popular") else A.lookup(ath, r["name"])
+        if a and r.get("exacto") and A.tokens(a["name"]) != A.tokens(r["name"]):
+            a = None
         if a and r.get("popular"):
             r["name"] = a["name"]  # nombre completo y bien ordenado (todas sus palabras están en la fila)
         sex = _sex_of(r, a)
