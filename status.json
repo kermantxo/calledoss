@@ -50,11 +50,11 @@
   },
   "rfealive": {
    "label": "RFEA Live · horarios",
-   "last_run": "2026-10-11T06:35:19+02:00",
+   "last_run": "2026-10-11T12:50:12+02:00",
    "ok": true,
-   "last_ok": "2026-10-11T06:39:35+02:00",
+   "last_ok": "2026-10-11T12:54:38+02:00",
    "fails_in_a_row": 0,
-   "last_count": 0
+   "last_count": 71
   },
   "destacados": {
    "label": "Atletas destacados (listas de salida)",
@@ -102,9 +102,9 @@
   },
   "previas": {
    "label": "Previas (listas de inscritos)",
-   "last_run": "2026-10-11T06:45:34+02:00",
+   "last_run": "2026-10-11T12:54:38+02:00",
    "ok": true,
-   "last_ok": "2026-10-11T07:03:29+02:00",
+   "last_ok": "2026-10-11T13:12:58+02:00",
    "fails_in_a_row": 0,
    "last_count": 16
   },
@@ -134,6 +134,54 @@
   }
  },
  "log": [
+  {
+   "at": "2026-10-11T12:52:05+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Yellow River Estuary Dongying Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-11T12:51:55+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de TCS Amsterdam Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-11T12:51:46+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de NLB Ljubljana Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-11T12:51:36+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Bank of China Beijing Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-11T12:51:27+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de 72º Cross Internacional Zornotza no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-11T12:51:17+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de XVIII Bilbao Night Half Marathon & 10K no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-11T12:51:08+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Maratón Estepona - Jardín de la Costa del Sol no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-11T12:50:58+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Bank of America Chicago Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
   {
    "at": "2026-10-11T12:18:01+02:00",
    "level": "warning",
@@ -565,55 +613,7 @@
    "level": "warning",
    "source": "wa_calendar",
    "msg": "Programa de Maratón Estepona - Jardín de la Costa del Sol no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-08T12:53:10+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Bank of America Chicago Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-08T06:36:44+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Maratón Estepona - Jardín de la Costa del Sol no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-08T06:36:35+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Bank of America Chicago Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-07T21:49:59+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Maratón Estepona - Jardín de la Costa del Sol no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-07T21:49:50+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Bank of America Chicago Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-07T17:57:01+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Maratón Estepona - Jardín de la Costa del Sol no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-07T17:56:52+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Bank of America Chicago Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-07T12:53:01+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Maratón Estepona - Jardín de la Costa del Sol no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
   }
  ],
- "updated": "2026-10-11T13:11:13+02:00"
+ "updated": "2026-10-11T13:12:58+02:00"
 }
