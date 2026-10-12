@@ -1,92 +1,23 @@
 {
- "date": "2026-10-11",
- "generated": "2026-10-11T21:53:28+02:00",
- "active_day": true,
+ "date": "2026-10-12",
+ "generated": "2026-10-12T12:59:10+02:00",
+ "active_day": false,
  "windows": [
   {
-   "id": "wa-7235563",
-   "name": "Bank of America Chicago Marathon",
-   "place": "Chicago, IL (USA)",
-   "source": "World Athletics",
-   "start": "2026-10-11T07:00:00+02:00",
-   "end": "2026-10-11T23:00:00+02:00",
-   "first": null,
-   "last": null,
-   "schedule_known": false,
-   "poll": true,
-   "intl": true,
-   "links": {
-    "info": "https://worldathletics.org/competition/calendar-results/results/7235563"
-   }
-  },
-  {
-   "id": "wa-7244109",
-   "name": "Maratón Estepona - Jardín de la Costa del Sol",
-   "place": "Estepona",
-   "source": "World Athletics",
-   "start": "2026-10-11T07:00:00+02:00",
-   "end": "2026-10-11T23:00:00+02:00",
-   "first": null,
-   "last": null,
-   "schedule_known": false,
-   "poll": true,
-   "intl": false,
-   "links": {
-    "info": "https://worldathletics.org/competition/calendar-results/results/7244109"
-   }
-  },
-  {
-   "id": "rfea-2026-10-11-campeonato-del-mundo-master-de-maraton",
-   "name": "Campeonato del Mundo Master de Maratón",
-   "place": "Zagreb",
+   "id": "rfea-2026-10-12-milla-internacional-de-otono-manuel-pancorbo-0",
+   "name": "Milla Internacional de Otoño Manuel Pancorbo",
+   "place": "Jaen",
    "source": "RFEA",
-   "start": "2026-10-11T07:00:00+02:00",
-   "end": "2026-10-11T23:00:00+02:00",
+   "start": "2026-10-12T07:00:00+02:00",
+   "end": "2026-10-12T23:00:00+02:00",
    "first": null,
    "last": null,
    "schedule_known": false,
    "poll": false,
-   "intl": true,
-   "links": {
-    "info": "https://atletismorfea.es/calendario/campeonato/campeonato-del-mundo-master-de-maraton",
-    "web": "https://www.wmamc2026.com/",
-    "inscritos": "https://www.rfeacontent.es/competi/calendario2026/Inscritos_MasterMundialMarat%C3%B3n_Zagreb.pdf"
-   }
-  },
-  {
-   "id": "avaibook-loop-race-ciudad-de-cantalejo",
-   "name": "Loop Race Ciudad de Cantalejo",
-   "place": "",
-   "source": "AvaiBook (Runvasport)",
-   "start": "2026-10-11T10:00:00+02:00",
-   "end": "2026-10-11T17:00:00+02:00",
-   "first": "11:00",
-   "last": null,
-   "schedule_known": true,
-   "poll": false,
    "intl": false,
    "links": {
-    "inscritos": "https://inscripciones.runvasport.es/inscripcion/loop-race-ciudad-de-cantalejo/",
-    "resultados": "https://www.avaibooksports.com/inscripcion/loop-race-ciudad-de-cantalejo/clasificaciones/"
-   }
-  },
-  {
-   "id": "rfea-2026-10-11-xxix-media-maraton-y-10km-villa-del-tratado-de-tordesillas",
-   "name": "XXIX Media Maratón y 10km \"Villa del Tratado\" de Tordesillas",
-   "place": "Tordesillas",
-   "source": "RFEA",
-   "start": "2026-10-11T10:00:00+02:00",
-   "end": "2026-10-11T17:00:00+02:00",
-   "first": "11:00",
-   "last": null,
-   "schedule_known": true,
-   "poll": false,
-   "intl": false,
-   "links": {
-    "info": "https://atletismorfea.es/calendario/campeonato/xxix-media-maraton-y-10km-villa-del-tratado-de-tordesillas",
-    "inscritos": "https://inscripciones.runvasport.es/inscripcion/xxix-10-km-villa-del-tratado-de-tordesillas/",
-    "resultados": "https://www.avaibooksports.com/inscripcion/xxix-10-km-villa-del-tratado-de-tordesillas/clasificaciones/",
-    "web": "https://mmaratontordesillas.es"
+    "info": "https://atletismorfea.es/calendario/campeonato/milla-internacional-de-otono-manuel-pancorbo-0",
+    "web": "https://www.patronatodeportesjaen.es"
    }
   }
  ]
