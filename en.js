@@ -135,6 +135,8 @@ window.CALLEDOSS_EN = {
   "Ver clasificaciones →": "See standings →",
   "Españoles": "Spaniards",
   "Destacados": "Highlights",
+  "Podio femenino": "Women's podium",
+  "Podio masculino": "Men's podium",
   "Resultados · {n} pruebas · fuente:": "Results · {n} events · source:",
   "original": "original",
   "Clasificación incompleta.": "Incomplete standings.",

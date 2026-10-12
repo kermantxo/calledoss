@@ -4093,7 +4093,22 @@ function yaTerminada(c){
   // está terminada, sale de Próximas y de En directo y se queda en Resultados
   const ultima = [c.time_end, c.time, ...((c.schedule || []).filter(x => x.d === hoy).map(x => x.t))].filter(Boolean).sort().pop();
   const ahora = new Intl.DateTimeFormat('es-ES', {hour:'2-digit', minute:'2-digit', hour12:false, timeZone:'Europe/Madrid'}).format(new Date());
-  return !!(resultFor(c.id) && ultima && ahora > String(ultima).padStart(5, '0'));
+  // sin hora conocida (p. ej. la Milla de Jaén): si ya tiene resultados, está terminada
+  return !!(resultFor(c.id) && (!ultima || ahora > String(ultima).padStart(5, '0')));
+}
+
+// En directo: podio femenino y masculino de cada prueba ya terminada (lo primero que se ve en la tarjeta)
+function livePodios(r){
+  const pods = (r.podios || []).filter(p => p.rows && p.rows.length);
+  if(!pods.length) return '';
+  const col = (sx) => {
+    const list = pods.filter(p => eventSex({name: p.event}) === sx);
+    if(!list.length) return '';
+    return `<div class="event-block"><div class="event-block-head"><h3>🏆 ${sx === 'F' ? t('Podio femenino') : t('Podio masculino')}</h3></div>
+      ${list.map(p => (list.length > 1 ? `<div class="sb-event"><span>${esc(td(eventTitle(p.event)))}</span></div>` : '') + resultTable(p.rows.slice(0, 3), false)).join('')}</div>`;
+  };
+  const html = col('F') + col('M');
+  return html ? `<div class="roster-grid live-podios">${html}</div>` : '';
 }
 
 function renderLive(){
@@ -4141,7 +4156,9 @@ function renderLive(){
     let body = '';
     const hasTl = !!(d.timeline && d.timeline.length);
     if(isOpen && res && !hasTl){
-      body += `<div style="padding:10px 14px;">${renderResultSummary(res)}</div>`;
+      // solo los podios (la clasificación completa está en Resultados); sin podios, el resumen de siempre
+      const pods = livePodios(res);
+      body += `<div style="padding:10px 14px;">${pods ? pods + (res.url ? `<div class="data-note">🏁 <a href="${esc(res.url)}" target="_blank" rel="noopener">${t('Ver la clasificación completa en el documento oficial →')}</a></div>` : '') : renderResultSummary(res)}</div>`;
     } else if(isOpen){
       if(d.timeline && d.timeline.length){
         body += liveTimeline(l.id, d.timeline);
