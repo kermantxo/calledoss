@@ -3724,9 +3724,10 @@ const typeLabel = v => td(v);
 
 /* ALERTAS: avisos importantes (pruebas canceladas o aplazadas).
    Salen en la portada hasta el día de la prueba, y la prueba aparece como «Cancelada»
-   en el calendario y en su ficha. Para quitar un aviso, borra su línea. */
+   en el calendario y en su ficha. Para quitar un aviso, borra su línea.
+   Con portada:false deja de salir en «Última hora» pero la prueba sigue como «Cancelada». */
 const ALERTAS = [
-  {date:'2026-11-29', match:/alcobendas/i, estado:'Cancelada',
+  {date:'2026-11-29', match:/alcobendas/i, estado:'Cancelada', portada:false,
    texto:'Se ha suspendido el Cross de la Constitución de Alcobendas del 29 de noviembre por las elecciones generales.'},
 ];
 function alertaDe(ev){ return ALERTAS.find(a => a.date === ev.date && a.match.test(ev.name + ' ' + (ev.place || ''))); }
@@ -4993,7 +4994,7 @@ function renderHome(){
   const last = RESULTS_INDEX.filter(r => r.date && r.date <= hoy).sort((a,b) => b.date.localeCompare(a.date));
   const line = (b, t) => `<span class="it"><b>${esc(b)}</b><span>${esc(t)}</span></span>`;
 
-  const avisos = ALERTAS.filter(a => a.date >= hoy);
+  const avisos = ALERTAS.filter(a => a.date >= hoy && a.portada !== false);
   el('homeAlertas').hidden = !avisos.length;
   el('homeAlertas').innerHTML = avisos.map(a => {
     const ev = CALENDAR.find(c => alertaDe(c) === a);
@@ -5148,4 +5149,28 @@ const CONTACT_EMAIL = 'calledosspodcast@gmail.com';
       send.disabled = false;
     }
   });
+})();
+
+/* ============================================================
+   EL PÓDCAST (portada): reproductor de Spotify con el último programa.
+   El reproductor del programa enseña siempre el episodio más reciente el primero,
+   así que no hay que tocar nada al publicar uno nuevo. Solo se carga al pulsar
+   «Escuchar aquí» (Spotify pone sus cookies); luego se recuerda en este navegador.
+   ============================================================ */
+const PODCAST_SHOW = '6N0J6OLKb3HlVwz7RRvz9L';
+const PODCAST_KEY = 'calledoss-podcast';
+function loadPodcast(remember){
+  const box = document.getElementById('podcastPlayer');
+  if(!box || box.classList.contains('is-loaded')) return;
+  box.classList.add('is-loaded');
+  box.innerHTML = `<iframe title="${t('Último programa de Calledoss en Spotify')}" src="https://open.spotify.com/embed/show/${PODCAST_SHOW}?utm_source=generator" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`;
+  if(remember){ try { localStorage.setItem(PODCAST_KEY, '1'); } catch(e) {} }
+}
+(function initPodcast(){
+  const btn = document.getElementById('podcastLoad');
+  if(!btn) return;
+  btn.addEventListener('click', () => loadPodcast(true));
+  let yaElegido = false;
+  try { yaElegido = localStorage.getItem(PODCAST_KEY) === '1'; } catch(e) {}
+  if(yaElegido) loadPodcast(false);
 })();
