@@ -1,24 +1,6 @@
 {
- "date": "2026-10-12",
- "generated": "2026-10-12T21:56:34+02:00",
+ "date": "2026-10-13",
+ "generated": "2026-10-13T07:14:16+02:00",
  "active_day": false,
- "windows": [
-  {
-   "id": "rfea-2026-10-12-milla-internacional-de-otono-manuel-pancorbo-0",
-   "name": "Milla Internacional de Otoño Manuel Pancorbo",
-   "place": "Jaen",
-   "source": "RFEA",
-   "start": "2026-10-12T07:00:00+02:00",
-   "end": "2026-10-12T23:00:00+02:00",
-   "first": null,
-   "last": null,
-   "schedule_known": false,
-   "poll": false,
-   "intl": false,
-   "links": {
-    "info": "https://atletismorfea.es/calendario/campeonato/milla-internacional-de-otono-manuel-pancorbo-0",
-    "web": "https://www.patronatodeportesjaen.es"
-   }
-  }
- ]
+ "windows": []
 }
