@@ -198,4 +198,5 @@
 - 2026-10-12: En directo: las competiciones de hoy ya terminadas muestran solo el podio femenino y el masculino (sin «Destacados»), con un enlace a la clasificación oficial completa. Una carrera de hoy sin hora publicada pero con resultados ya cuenta como terminada y aparece en En directo como «Finalizado».
 - 2026-10-13: Nueva sección **El pódcast** al final de Inicio con el último programa de Spotify. No hay que tocar nada al publicar un episodio: sale solo. Por privacidad, el reproductor de Spotify no se carga hasta que el visitante pulsa «Escuchar aquí» (añadido a la política de cookies).
 - 2026-10-13: Quitado el aviso de «Última hora» de Inicio sobre el Cross de Alcobendas. En el calendario sigue como «Cancelada».
+- 2026-10-14: Previas del 72º Cross Internacional Zornotza (Amorebieta) y del XLI Cross del Aceite (Torredonjimeno), los dos el 18/10: favoritos y favoritas tal cual los publica ADOC (la asociación de organizadores del circuito), en `pipeline/extra_entries.json`.
 - Para cambiar el pódcast de la portada: el código del programa está en `PODCAST_SHOW` al final de `script.js` y en el enlace «Abrir en Spotify» de la página principal.

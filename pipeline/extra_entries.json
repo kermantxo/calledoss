@@ -1313,5 +1313,391 @@
     "note": "En la élite (lista oficial de la organización)"
    }
   ]
+ },
+ "rfea-2026-10-18-72o-cross-internacional-zornotza": {
+  "_fuente": "ADOC (asociación de organizadores del circuito): https://www.adocasociacion.es/Noticia/706/Amorebieta-presenta-su-cartel-para-este-domingo-18 — nombres tal cual los publica; lo pasó Kerman el 14/10/2026",
+  "fuente": "https://www.adocasociacion.es/Noticia/706/Amorebieta-presenta-su-cartel-para-este-domingo-18",
+  "max_por_sexo": 30,
+  "atletas": [
+   {
+    "name": "Egide Ntakarutimana",
+    "sex": "M",
+    "nat": "BDI",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorito anunciado por la organización (ADOC): 2º del ranking mundial del año en 5000 m y 2º en la Diamond League"
+   },
+   {
+    "name": "Elie Sindaykengdera",
+    "sex": "M",
+    "nat": "BDI",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorito anunciado por la organización (ADOC): 8º en el campeonato nacional africano de 10 000 m hace dos años"
+   },
+   {
+    "name": "Peter Rono",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorito anunciado por la organización (ADOC): 2º en el Campeonato de África de 3000 m obstáculos"
+   },
+   {
+    "name": "Nassim Hassaous",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorito anunciado por la organización (ADOC): Campeón de España de cross"
+   },
+   {
+    "name": "Dani Arce",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorito anunciado por la organización (ADOC): 2º en el Campeonato de España de cross"
+   },
+   {
+    "name": "Abdessamad Oukhelfen",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Yahya Aouina",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorito anunciado por la organización (ADOC): Campeón de España de cross hace dos años"
+   },
+   {
+    "name": "Jaime Migallón",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Sergio Paniagua",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "David de la Fuente",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "David Bascuñana",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Pablo Sánchez Gómez",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Oscar Gaitán",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Maximilian Berger",
+    "sex": "M",
+    "nat": "GER",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Likina Amebaw",
+    "sex": "F",
+    "nat": "ETH",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorita anunciada por la organización (ADOC): Campeona del mundo de 5 km en ruta, líder del ranking mundial y ganadora de la Diamond League en 5000 m"
+   },
+   {
+    "name": "Francine Niyomukunzi",
+    "sex": "F",
+    "nat": "BDI",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorita anunciada por la organización (ADOC): Ganadora en Amorebieta en 2021 y 2024; 8ª en el Mundial de 5 km en ruta"
+   },
+   {
+    "name": "Daniel Rahel",
+    "sex": "F",
+    "nat": "ERI",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorita anunciada por la organización (ADOC): Campeona de Eritrea; ganó en Atapuerca (2021) y Elgoibar (2023)"
+   },
+   {
+    "name": "Dorcus Chepwemoi",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorita anunciada por la organización (ADOC): Ganadora de la última edición del cross de Venta de Baños"
+   },
+   {
+    "name": "Mirriam Cherop",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorita anunciada por la organización (ADOC): 3ª en la milla del Mundial de ruta"
+   },
+   {
+    "name": "Carla Arce",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   },
+   {
+    "name": "Claudia Corral",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   },
+   {
+    "name": "Mariajo Pérez",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   },
+   {
+    "name": "Irene Pelayo",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   },
+   {
+    "name": "Azucena Diaz",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   },
+   {
+    "name": "Antía Castro",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   },
+   {
+    "name": "Marina Guerrero",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   },
+   {
+    "name": "Raquel de Francisco",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   },
+   {
+    "name": "Marina Altur",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   },
+   {
+    "name": "Uxue Mardaras",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   },
+   {
+    "name": "Ana Marinho",
+    "sex": "F",
+    "nat": "POR",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   },
+   {
+    "name": "Beatriz Rios",
+    "sex": "F",
+    "nat": "POR",
+    "event": "Cross élite (8,7 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   }
+  ]
+ },
+ "rfea-2026-10-18-xli-cross-del-aceite": {
+  "_fuente": "ADOC (asociación de organizadores del circuito): https://www.adocasociacion.es/Noticia/705/Torredonjimeno-tiene-atletas-para-este-domingo-18 — nombres tal cual los publica; lo pasó Kerman el 14/10/2026",
+  "fuente": "https://www.adocasociacion.es/Noticia/705/Torredonjimeno-tiene-atletas-para-este-domingo-18",
+  "max_por_sexo": 30,
+  "atletas": [
+   {
+    "name": "Zakaria Boufaljat",
+    "sex": "M",
+    "event": "Cross élite (8 km)",
+    "note": "Favorito anunciado por la organización (ADOC): Ha ganado tres veces este cross"
+   },
+   {
+    "name": "Ilias Fifa",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite (8 km)",
+    "note": "Favorito anunciado por la organización (ADOC): Campeón de España absoluto"
+   },
+   {
+    "name": "Chiki Pérez",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite (8 km)",
+    "note": "Favorito anunciado por la organización (ADOC): Campeón de España absoluto"
+   },
+   {
+    "name": "Sebas Martos",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite (8 km)",
+    "note": "Favorito anunciado por la organización (ADOC): Campeón de España absoluto"
+   },
+   {
+    "name": "David Palacio",
+    "sex": "M",
+    "event": "Cross élite (8 km)",
+    "note": "Favorito anunciado por la organización (ADOC): Ganador de este cross en 2019"
+   },
+   {
+    "name": "Mourad Ed Dafali",
+    "sex": "M",
+    "event": "Cross élite (8 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Reda El Mouazi",
+    "sex": "M",
+    "event": "Cross élite (8 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Manuel Jiménez",
+    "sex": "M",
+    "event": "Cross élite (8 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Andrés Estepa",
+    "sex": "M",
+    "event": "Cross élite (8 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Alberto Casas",
+    "sex": "M",
+    "event": "Cross élite (8 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Miguel Ruiz",
+    "sex": "M",
+    "event": "Cross élite (8 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Mustapha Sabili",
+    "sex": "M",
+    "event": "Cross élite (8 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Ayoub Arouzal",
+    "sex": "M",
+    "event": "Cross élite (8 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Zakaria Lahasaini",
+    "sex": "M",
+    "event": "Cross élite (8 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Mohamed Koula",
+    "sex": "M",
+    "event": "Cross élite (8 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Beatriz Alvarez",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite (6 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   },
+   {
+    "name": "Katherine Thisalema",
+    "sex": "F",
+    "nat": "ECU",
+    "event": "Cross élite (6 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   },
+   {
+    "name": "Nazha Marchrouch",
+    "sex": "F",
+    "event": "Cross élite (6 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   },
+   {
+    "name": "Soukaina El Khayami",
+    "sex": "F",
+    "event": "Cross élite (6 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   },
+   {
+    "name": "Silvia Lara",
+    "sex": "F",
+    "event": "Cross élite (6 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   },
+   {
+    "name": "Celia Romero",
+    "sex": "F",
+    "event": "Cross élite (6 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   },
+   {
+    "name": "Cristina Polanco",
+    "sex": "F",
+    "event": "Cross élite (6 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   },
+   {
+    "name": "Ariadna Carrasco",
+    "sex": "F",
+    "event": "Cross élite (6 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   },
+   {
+    "name": "María Barbero",
+    "sex": "F",
+    "event": "Cross élite (6 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   },
+   {
+    "name": "Cinthia Ramirez",
+    "sex": "F",
+    "event": "Cross élite (6 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   }
+  ]
  }
 }
