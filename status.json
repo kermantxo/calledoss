@@ -2,81 +2,81 @@
  "sources": {
   "rfea_calendar": {
    "label": "RFEA · calendario",
-   "last_run": "2026-10-14T06:49:34+02:00",
+   "last_run": "2026-10-15T06:47:52+02:00",
    "ok": true,
-   "last_ok": "2026-10-14T06:50:14+02:00",
+   "last_ok": "2026-10-15T06:48:32+02:00",
    "fails_in_a_row": 0,
-   "last_count": 641
+   "last_count": 642
   },
   "wa_calendar": {
    "label": "World Athletics · calendario",
-   "last_run": "2026-10-14T06:50:14+02:00",
+   "last_run": "2026-10-15T06:48:32+02:00",
    "ok": true,
-   "last_ok": "2026-10-14T06:50:43+02:00",
+   "last_ok": "2026-10-15T06:48:55+02:00",
    "fails_in_a_row": 0,
-   "last_count": 194
+   "last_count": 191
   },
   "cronomancha_upcoming": {
    "label": "Cronomancha · próximas",
-   "last_run": "2026-10-14T06:50:43+02:00",
+   "last_run": "2026-10-15T06:48:55+02:00",
    "ok": true,
-   "last_ok": "2026-10-14T06:50:44+02:00",
+   "last_ok": "2026-10-15T06:48:56+02:00",
    "fails_in_a_row": 0,
    "last_count": 6
   },
   "cronomancha_events": {
    "label": "Cronomancha · resultados",
-   "last_run": "2026-10-14T06:50:44+02:00",
+   "last_run": "2026-10-15T06:48:56+02:00",
    "ok": true,
-   "last_ok": "2026-10-14T06:50:45+02:00",
+   "last_ok": "2026-10-15T06:48:57+02:00",
    "fails_in_a_row": 0,
    "last_count": 38
   },
   "avaibook": {
    "label": "AvaiBook (Runvasport)",
-   "last_run": "2026-10-14T06:50:45+02:00",
+   "last_run": "2026-10-15T06:48:57+02:00",
    "ok": true,
-   "last_ok": "2026-10-14T06:50:47+02:00",
+   "last_ok": "2026-10-15T06:48:59+02:00",
    "fails_in_a_row": 0,
    "last_count": 48
   },
   "rfea_detail": {
    "label": "RFEA · fichas de competición",
-   "last_run": "2026-10-14T06:50:48+02:00",
+   "last_run": "2026-10-15T06:49:00+02:00",
    "ok": true,
-   "last_ok": "2026-10-14T06:51:14+02:00",
+   "last_ok": "2026-10-15T06:49:20+02:00",
    "fails_in_a_row": 0,
-   "last_count": 18
+   "last_count": 14
   },
   "rfealive": {
    "label": "RFEA Live · horarios",
-   "last_run": "2026-10-14T22:06:29+02:00",
+   "last_run": "2026-10-15T06:49:20+02:00",
    "ok": true,
-   "last_ok": "2026-10-14T22:10:17+02:00",
-   "fails_in_a_row": 0,
-   "last_count": 68
-  },
-  "destacados": {
-   "label": "Atletas destacados (listas de salida)",
-   "last_run": "2026-10-14T06:55:12+02:00",
-   "ok": true,
-   "last_ok": "2026-10-14T06:55:12+02:00",
+   "last_ok": "2026-10-15T06:53:03+02:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
+  "destacados": {
+   "label": "Atletas destacados (listas de salida)",
+   "last_run": "2026-10-15T06:53:13+02:00",
+   "ok": true,
+   "last_ok": "2026-10-15T06:53:20+02:00",
+   "fails_in_a_row": 0,
+   "last_count": 1
+  },
   "results": {
    "label": "Resultados (todas las fuentes)",
-   "last_run": "2026-10-15T01:22:24+02:00",
+   "last_run": "2026-10-15T06:53:20+02:00",
    "ok": true,
-   "last_ok": "2026-10-15T01:22:26+02:00",
+   "last_ok": "2026-10-15T06:57:39+02:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
   "rfea_results": {
    "label": "RFEA · índice de resultados (PDF)",
-   "last_run": "2026-10-15T01:22:24+02:00",
+   "last_run": "2026-10-15T06:53:20+02:00",
    "ok": true,
-   "last_ok": "2026-10-15T01:22:26+02:00",
+   "last_ok": "2026-10-15T06:53:23+02:00",
    "fails_in_a_row": 0,
    "last_count": 0,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf",
@@ -94,46 +94,88 @@
   },
   "avaibook_upcoming": {
    "label": "Runvasport · próximas",
-   "last_run": "2026-10-14T06:50:47+02:00",
+   "last_run": "2026-10-15T06:48:59+02:00",
    "ok": true,
-   "last_ok": "2026-10-14T06:50:48+02:00",
+   "last_ok": "2026-10-15T06:49:00+02:00",
    "fails_in_a_row": 0,
-   "last_count": 17
+   "last_count": 18
   },
   "previas": {
    "label": "Previas (listas de inscritos)",
-   "last_run": "2026-10-14T22:10:17+02:00",
+   "last_run": "2026-10-15T06:57:39+02:00",
    "ok": true,
-   "last_ok": "2026-10-14T22:28:03+02:00",
+   "last_ok": "2026-10-15T07:16:40+02:00",
    "fails_in_a_row": 0,
    "last_count": 17
   },
   "ranking": {
    "label": "Ranking RFEA (aire libre y pista cubierta)",
-   "last_run": "2026-10-14T07:17:27+02:00",
+   "last_run": "2026-10-15T07:16:40+02:00",
    "ok": true,
-   "last_ok": "2026-10-14T07:24:30+02:00",
+   "last_ok": "2026-10-15T07:23:23+02:00",
    "fails_in_a_row": 0,
    "last_count": 121
   },
   "adoc": {
    "label": "ADOC · pruebas asociadas",
-   "last_run": "2026-10-14T06:55:01+02:00",
+   "last_run": "2026-10-15T06:53:03+02:00",
    "ok": true,
-   "last_ok": "2026-10-14T06:55:11+02:00",
+   "last_ok": "2026-10-15T06:53:12+02:00",
    "fails_in_a_row": 0,
    "last_count": 23
   },
   "adoc_calendar": {
    "label": "ADOC · calendario del circuito",
-   "last_run": "2026-10-14T06:55:11+02:00",
+   "last_run": "2026-10-15T06:53:12+02:00",
    "ok": true,
-   "last_ok": "2026-10-14T06:55:12+02:00",
+   "last_ok": "2026-10-15T06:53:13+02:00",
    "fails_in_a_row": 0,
    "last_count": 14
   }
  },
  "log": [
+  {
+   "at": "2026-10-15T06:50:43+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Yellow River Estuary Dongying Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-15T06:50:34+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de TCS Amsterdam Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-15T06:50:24+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de NLB Ljubljana Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-15T06:50:15+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Bank of China Beijing Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-15T06:50:05+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de 72º Cross Internacional Zornotza no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-15T06:49:56+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de XVIII Bilbao Night Half Marathon & 10K no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-15T06:49:32+02:00",
+   "level": "warning",
+   "source": "rfealive",
+   "msg": "Índice de https://rfealive.me no disponible: HTTP 500 en https://rfealive.me/"
+  },
   {
    "at": "2026-10-15T00:27:20+02:00",
    "level": "warning",
@@ -571,49 +613,7 @@
    "level": "warning",
    "source": "results",
    "msg": "Resultados de 'Maratón Estepona - Jardín de la Costa del Sol' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7244109"
-  },
-  {
-   "at": "2026-10-12T20:15:28+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Resultados de 'Bank of America Chicago Marathon' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235563"
-  },
-  {
-   "at": "2026-10-12T19:16:27+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Resultados de 'Maratón Estepona - Jardín de la Costa del Sol' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7244109"
-  },
-  {
-   "at": "2026-10-12T19:14:55+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Resultados de 'Bank of America Chicago Marathon' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235563"
-  },
-  {
-   "at": "2026-10-12T18:17:51+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Resultados de 'Maratón Estepona - Jardín de la Costa del Sol' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7244109"
-  },
-  {
-   "at": "2026-10-12T18:16:38+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Resultados de 'Bank of America Chicago Marathon' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235563"
-  },
-  {
-   "at": "2026-10-12T17:56:59+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Yellow River Estuary Dongying Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-12T17:56:49+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de TCS Amsterdam Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
   }
  ],
- "updated": "2026-10-15T01:22:26+02:00"
+ "updated": "2026-10-15T07:23:23+02:00"
 }
