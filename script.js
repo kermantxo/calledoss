@@ -3726,8 +3726,8 @@ const typeLabel = v => td(v);
    Salen en la portada hasta el día de la prueba, y la prueba aparece como «Cancelada»
    en el calendario y en su ficha. Para quitar un aviso, borra su línea.
    Con portada:false deja de salir en «Última hora» pero la prueba sigue como «Cancelada».
-   Con aviso:true es solo una noticia en «Última hora» (no cancela nada); al pulsarla lleva
-   a la sección de "view". */
+   Con aviso:true es solo una noticia (no cancela nada): en vez de «Última hora» sale su "estado"
+   como título (p. ej. «¡Vuelve el cross!»); al pulsarla lleva a la sección de "view". */
 const ALERTAS = [
   {date:'2026-10-18', aviso:true, estado:'¡Vuelve el cross!', view:'proximas',
    texto:'Este domingo 18 de octubre arranca la temporada con el Cross de Zornotza (Amorebieta-Etxano) y el Cross del Aceite (Torredonjimeno). Mira los favoritos en Próximas.'},
@@ -5003,7 +5003,7 @@ function renderHome(){
   el('homeAlertas').innerHTML = avisos.map(a => {
     const ev = !a.aviso && CALENDAR.find(c => alertaDe(c) === a);
     const go = a.aviso ? (a.view ? `handleNavClick('${a.view}')` : '') : (ev ? `showCompetitionDetail('${ev.id}')` : '');
-    return `<button class="alerta-item"${go ? ` onclick="${go}"` : ''}><span class="alerta-label">⚠️ ${t('Última hora')}</span><span class="cancel-tag">${t(a.estado)}</span><span class="alerta-txt">${esc(t(a.texto))}</span></button>`;
+    return `<button class="alerta-item"${go ? ` onclick="${go}"` : ''}>${a.aviso ? `<span class="alerta-label">${t(a.estado)}</span>` : `<span class="alerta-label">⚠️ ${t('Última hora')}</span><span class="cancel-tag">${t(a.estado)}</span>`}<span class="alerta-txt">${esc(t(a.texto))}</span></button>`;
   }).join('');
   el('nowTodayN').textContent = today.length;
   el('nowToday').innerHTML = today.length
