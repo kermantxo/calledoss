@@ -3725,12 +3725,16 @@ const typeLabel = v => td(v);
 /* ALERTAS: avisos importantes (pruebas canceladas o aplazadas).
    Salen en la portada hasta el día de la prueba, y la prueba aparece como «Cancelada»
    en el calendario y en su ficha. Para quitar un aviso, borra su línea.
-   Con portada:false deja de salir en «Última hora» pero la prueba sigue como «Cancelada». */
+   Con portada:false deja de salir en «Última hora» pero la prueba sigue como «Cancelada».
+   Con aviso:true es solo una noticia en «Última hora» (no cancela nada); al pulsarla lleva
+   a la sección de "view". */
 const ALERTAS = [
+  {date:'2026-10-18', aviso:true, estado:'¡Vuelve el cross!', view:'proximas',
+   texto:'Este domingo 18 de octubre arranca la temporada con el Cross de Zornotza (Amorebieta-Etxano) y el Cross del Aceite (Torredonjimeno). Mira los favoritos en Próximas.'},
   {date:'2026-11-29', match:/alcobendas/i, estado:'Cancelada', portada:false,
    texto:'Se ha suspendido el Cross de la Constitución de Alcobendas del 29 de noviembre por las elecciones generales.'},
 ];
-function alertaDe(ev){ return ALERTAS.find(a => a.date === ev.date && a.match.test(ev.name + ' ' + (ev.place || ''))); }
+function alertaDe(ev){ return ALERTAS.find(a => !a.aviso && a.date === ev.date && a.match.test(ev.name + ' ' + (ev.place || ''))); }
 
 function renderCalendar(){
   const month = document.getElementById('calMonth').value;
@@ -4997,8 +5001,9 @@ function renderHome(){
   const avisos = ALERTAS.filter(a => a.date >= hoy && a.portada !== false);
   el('homeAlertas').hidden = !avisos.length;
   el('homeAlertas').innerHTML = avisos.map(a => {
-    const ev = CALENDAR.find(c => alertaDe(c) === a);
-    return `<button class="alerta-item"${ev ? ` onclick="showCompetitionDetail('${ev.id}')"` : ''}><span class="alerta-label">⚠️ ${t('Última hora')}</span><span class="cancel-tag">${t(a.estado)}</span><span class="alerta-txt">${esc(t(a.texto))}</span></button>`;
+    const ev = !a.aviso && CALENDAR.find(c => alertaDe(c) === a);
+    const go = a.aviso ? (a.view ? `handleNavClick('${a.view}')` : '') : (ev ? `showCompetitionDetail('${ev.id}')` : '');
+    return `<button class="alerta-item"${go ? ` onclick="${go}"` : ''}><span class="alerta-label">⚠️ ${t('Última hora')}</span><span class="cancel-tag">${t(a.estado)}</span><span class="alerta-txt">${esc(t(a.texto))}</span></button>`;
   }).join('');
   el('nowTodayN').textContent = today.length;
   el('nowToday').innerHTML = today.length
@@ -5060,13 +5065,6 @@ renderHome();
   }
 })();
 document.querySelectorAll('.now-tile').forEach(t => t.addEventListener('click', () => handleNavClick(t.dataset.view)));
-// Aviso destacado de la portada (p. ej. «¡Vuelve el cross!»): se oculta solo pasado el día de data-hasta.
-(function initAviso(){
-  const a = document.getElementById('avisoCross');
-  if(!a) return;
-  if(a.dataset.hasta && hoyISO() > a.dataset.hasta){ a.hidden = true; return; }
-  a.addEventListener('click', () => handleNavClick(a.dataset.view));
-})();
 
 /* ============================================================
    COOKIES: aviso en la primera visita y configuración
