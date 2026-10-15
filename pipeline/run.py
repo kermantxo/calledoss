@@ -7,12 +7,13 @@
     python -m pipeline.run backfill  # carga histórica de podios de 2026 (reanudable)
     python -m pipeline.run revisar   # revisa nombres y sexo de todos los podios guardados
     python -m pipeline.run ranking   # ranking español del año (RFEA), aire libre y pista cubierta
+    python -m pipeline.run podcast   # último programa del pódcast (también va en daily y results)
 """
 import os
 import sys
 import time
 
-from . import backfill, calendar_build, highlights, live, previas, ranking, results, static_pages
+from . import backfill, calendar_build, highlights, live, podcast, previas, ranking, results, static_pages
 from .common import Health, Http, load_json, save_json, iso_now
 
 
@@ -28,6 +29,7 @@ def daily():
     health.run("results", "Resultados (todas las fuentes)", results.sweep, h, items, health, deep=True, expect_min=0)
     health.run("previas", "Previas (listas de inscritos)", previas.run, h, health, items, expect_min=0)
     health.run("ranking", "Ranking RFEA (aire libre y pista cubierta)", ranking.run, h, health, expect_min=20)
+    health.run("podcast", "Pódcast (último programa en Spotify)", podcast.run, h, health)
     live.plan(items)
     health.save()
 
@@ -42,6 +44,7 @@ def results_only():
     h, health = Http(), Health()
     items = _items()
     health.run("results", "Resultados (todas las fuentes)", results.sweep, h, items, health, expect_min=0)
+    health.run("podcast", "Pódcast (último programa en Spotify)", podcast.run, h, health)
     health.save()
 
 
@@ -103,6 +106,12 @@ def revisar():
     print("revisadas %d competiciones; %d podios retirados por no cuadrar" % (n, dropped))
 
 
+def podcast_only():
+    h, health = Http(), Health()
+    health.run("podcast", "Pódcast (último programa en Spotify)", podcast.run, h, health)
+    health.save()
+
+
 def paginas():
     """Páginas de resultados para Google (una por competición) y sitemap.xml."""
     print("páginas de resultados:", static_pages.run())
@@ -120,5 +129,5 @@ if __name__ == "__main__":
     mode = sys.argv[1] if len(sys.argv) > 1 else "daily"
     t = time.time()
     {"daily": daily, "results": results_only, "plan": plan_only, "live": live_tick, "backfill": backfill_run,
-     "revisar": revisar, "previas": previas_only, "ranking": ranking_only, "paginas": paginas}[mode]()
+     "revisar": revisar, "previas": previas_only, "ranking": ranking_only, "paginas": paginas, "podcast": podcast_only}[mode]()
     print("%s terminado en %.0f s" % (mode, time.time() - t))

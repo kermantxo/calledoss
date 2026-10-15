@@ -5060,6 +5060,13 @@ renderHome();
   }
 })();
 document.querySelectorAll('.now-tile').forEach(t => t.addEventListener('click', () => handleNavClick(t.dataset.view)));
+// Aviso destacado de la portada (p. ej. «¡Vuelve el cross!»): se oculta solo pasado el día de data-hasta.
+(function initAviso(){
+  const a = document.getElementById('avisoCross');
+  if(!a) return;
+  if(a.dataset.hasta && hoyISO() > a.dataset.hasta){ a.hidden = true; return; }
+  a.addEventListener('click', () => handleNavClick(a.dataset.view));
+})();
 
 /* ============================================================
    COOKIES: aviso en la primera visita y configuración
@@ -5152,24 +5159,47 @@ const CONTACT_EMAIL = 'calledosspodcast@gmail.com';
 })();
 
 /* ============================================================
-   EL PÓDCAST (portada): reproductor de Spotify con el último programa.
-   El reproductor del programa enseña siempre el episodio más reciente el primero,
-   así que no hay que tocar nada al publicar uno nuevo. Solo se carga al pulsar
-   «Escuchar aquí» (Spotify pone sus cookies); luego se recuerda en este navegador.
+   EL PÓDCAST (portada): título, fecha y portada del último programa.
+   Los datos (podcast.json) los guarda cada hora el proceso automático leyendo Spotify,
+   así que no hay que tocar nada al publicar un episodio. El reproductor de Spotify
+   solo se carga al pulsar «Escuchar aquí» (Spotify pone sus cookies); luego se recuerda
+   en este navegador. Si no hay datos, se carga el reproductor del programa entero.
    ============================================================ */
 const PODCAST_SHOW = '6N0J6OLKb3HlVwz7RRvz9L';
 const PODCAST_KEY = 'calledoss-podcast';
+let podcastEpisode = null;
 function loadPodcast(remember){
   const box = document.getElementById('podcastPlayer');
   if(!box || box.classList.contains('is-loaded')) return;
+  const ep = podcastEpisode;
+  const src = ep ? `episode/${ep.id}` : `show/${PODCAST_SHOW}`;
   box.classList.add('is-loaded');
-  box.innerHTML = `<iframe title="${t('Último programa de Calledoss en Spotify')}" src="https://open.spotify.com/embed/show/${PODCAST_SHOW}?utm_source=generator" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`;
+  box.classList.toggle('is-show', !ep);
+  box.innerHTML = `<iframe title="${esc(ep ? ep.title : t('Último programa de Calledoss en Spotify'))}" src="https://open.spotify.com/embed/${src}?utm_source=generator" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`;
   if(remember){ try { localStorage.setItem(PODCAST_KEY, '1'); } catch(e) {} }
 }
-(function initPodcast(){
+function showPodcastEpisode(ep){
+  podcastEpisode = ep;
+  const title = document.getElementById('podcastTitle');
+  const meta = document.getElementById('podcastMeta');
+  const cover = document.getElementById('podcastCover');
+  const open = document.getElementById('podcastOpen');
+  if(title) title.textContent = ep.title;
+  if(meta){
+    const min = Math.round((ep.duration_ms || 0) / 60000);
+    meta.textContent = [ep.date ? fechaLarga(ep.date) : '', min ? `${min} min` : ''].filter(Boolean).join(' · ');
+  }
+  if(cover && ep.cover){
+    cover.innerHTML = `<img src="${esc(ep.cover)}" alt="${esc(t('Portada de «{t}»', {t: ep.title}))}" width="640" height="640">`;
+  }
+  if(open && ep.url) open.href = ep.url;
+}
+(async function initPodcast(){
   const btn = document.getElementById('podcastLoad');
   if(!btn) return;
   btn.addEventListener('click', () => loadPodcast(true));
+  const ep = await loadData('podcast.json');
+  if(ep && ep.id && ep.title) showPodcastEpisode(ep);
   let yaElegido = false;
   try { yaElegido = localStorage.getItem(PODCAST_KEY) === '1'; } catch(e) {}
   if(yaElegido) loadPodcast(false);
