@@ -1848,75 +1848,79 @@
   ]
  },
  "rfea-2026-10-17-milla-internacional-del-cantabrico": {
-  "_fuente": "Listado oficial de inscritos de la MIC (mic.gal, plataforma CCNorte), carrera «MILLA ELITE SABADO 17», consultado el 16/10/2026: 26 atletas con dorsal. Nombres tal cual (solo cambiadas las mayúsculas). Sexo por dorsal (51 en adelante, mujeres), salvo Klara Andrijasevic (croata, mujer) con el 7.",
-  "fuente": "https://mic.gal/es/web/inscripcion/listado/3357/?competicion=17653",
+  "_fuente": "Élite de la lista oficial de inscritos de la MIC (mic.gal, carrera «MILLA ELITE SABADO 17», 26 atletas con dorsal, 16/10/2026) y presentaciones de cada atleta en el Instagram oficial de la organización (@milla_internacional_cantabrico), de donde salen los méritos y la nacionalidad (bandera). Marina Martínez y Ronaldo Olivo: anunciados por la organización en Instagram pero aún no en la lista de inscritos. Jesús Ramos y Chema Martínez: élite anunciada del 10K Ciudad de Viveiro (domingo 18). Saúl Martínez y Claudia Gutiérrez: solo en la lista de inscritos (sin presentación). Kerman pasó el Instagram el 16/10/2026.",
+  "fuente": [
+   "https://mic.gal/es/web/inscripcion/listado/3357/?competicion=17653",
+   "https://www.instagram.com/milla_internacional_cantabrico/"
+  ],
   "max_por_sexo": 30,
   "atletas": [
    {
-    "name": "Adrian Ben Montenegro",
+    "name": "Adrián Ben Montenegro",
     "sex": "M",
     "event": "Milla élite",
+    "nat": "ESP",
     "bib": 1,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciado por la organización (Instagram de la MIC): Campeón de Europa de 800 m en pista cubierta; doble olímpico (Tokio 2020 y París 2024)"
    },
    {
-    "name": "Pablo Sanchez-Valladares Garcia",
+    "name": "Pablo Sánchez-Valladares García",
     "sex": "M",
     "event": "Milla élite",
+    "nat": "ESP",
     "bib": 2,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciado por la organización (Instagram de la MIC): Olímpico en Tokio 2020, bronce europeo sub-23 de 800 m (2019) y campeón de España de 800 m en pista cubierta (2020)"
    },
    {
     "name": "Pol Moya Betriu",
     "sex": "M",
     "event": "Milla élite",
+    "nat": "AND",
     "bib": 3,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciado por la organización (Instagram de la MIC): Doble olímpico (Río 2016 y Tokio 2020) y récord de Andorra de 1.500 m (3:34.54)"
    },
    {
     "name": "David Carranza Llanos",
     "sex": "M",
     "event": "Milla élite",
+    "nat": "ESP",
     "bib": 4,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciado por la organización (Instagram de la MIC): 1:46.36 en 800 m; campeón de España sub-23 y finalista del Campeonato de España absoluto"
    },
    {
     "name": "David Barroso Bravo",
     "sex": "M",
     "event": "Milla élite",
+    "nat": "ESP",
     "bib": 5,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciado por la organización (Instagram de la MIC): Campeón de España e Iberoamericano de 800 m, 4.º de Europa y 1:43.60 en 800 m; campeón mundial universitario (2025)"
    },
    {
     "name": "Pedro Osorio López",
     "sex": "M",
     "event": "Milla élite",
+    "nat": "ESP",
     "bib": 6,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
-   },
-   {
-    "name": "Klara Andrijasevic",
-    "sex": "F",
-    "event": "Milla élite",
-    "bib": 7,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciado por la organización (Instagram de la MIC): Bronce en el Campeonato de España absoluto de 800 m (2026); 1:45.30 en 800 m y 3:40.93 en 1.500 m"
    },
    {
     "name": "David Cartiel Embid",
     "sex": "M",
     "event": "Milla élite",
+    "nat": "ESP",
     "bib": 8,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciado por la organización (Instagram de la MIC): Campeón de España sub-23 de 800 m (2024); 3:38.19 en 1.500 m"
    },
    {
     "name": "Nuno Pereira",
     "sex": "M",
     "event": "Milla élite",
+    "nat": "POR",
     "bib": 9,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciado por la organización (Instagram de la MIC): Campeón de Europa sub-20 de 1.500 m y mundialista en Tokio 2025; 3:32.16 en 1.500 m"
    },
    {
-    "name": "Saul Martinez Moreno",
+    "name": "Saúl Martínez Moreno",
     "sex": "M",
     "event": "Milla élite",
     "bib": 10,
@@ -1926,85 +1930,112 @@
     "name": "Pedro Viciosa Villa",
     "sex": "M",
     "event": "Milla élite",
+    "nat": "ESP",
     "bib": 11,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciado por la organización (Instagram de la MIC): Bronce en el Campeonato de España de Milla (2026); 3:39.65 en 1.500 m"
    },
    {
-    "name": "Ignacio Fontes Garcia Balibrea",
+    "name": "Ignacio Fontes García Balibrea",
     "sex": "M",
     "event": "Milla élite",
+    "nat": "ESP",
     "bib": 12,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciado por la organización (Instagram de la MIC): Doble olímpico (Tokio 2020 y París 2024) y finalista olímpico de 1.500 m"
    },
    {
-    "name": "Marc Jose Tortell",
+    "name": "Marc Tortell",
     "sex": "M",
     "event": "Milla élite",
+    "nat": "GER",
     "bib": 13,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciado por la organización (Instagram de la MIC): Subcampeón de Alemania de 1.500 m (2026) e internacional absoluto; 3:33.69 en 1.500 m"
    },
    {
     "name": "Pablo Bocelo Bellas",
     "sex": "M",
     "event": "Milla élite",
+    "nat": "ESP",
     "bib": 14,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciado por la organización (Instagram de la MIC): Campeón de Galicia de 1.500 m"
    },
    {
     "name": "Simone Barontini",
     "sex": "M",
     "event": "Milla élite",
+    "nat": "ITA",
     "bib": 15,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciado por la organización (Instagram de la MIC): Olímpico en París 2024 y campeón de Europa sub-23 de 800 m; 1:44.34 en 800 m"
    },
    {
-    "name": "Jose Ignacio Perez Camino",
+    "name": "José Ignacio Pérez Camino",
     "sex": "M",
     "event": "Milla élite",
+    "nat": "ESP",
     "bib": 16,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciado por la organización (Instagram de la MIC): Bronce en el Campeonato de España de pista cubierta de 800 m (2026); 1:45.76 en 800 m"
    },
    {
-    "name": "Alejandro Quijada Sanchez",
+    "name": "Alejandro Quijada Sánchez",
     "sex": "M",
     "event": "Milla élite",
+    "nat": "ESP",
     "bib": 17,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciado por la organización (Instagram de la MIC): Campeón de Europa sub-23 y subcampeón mundial universitario de 3.000 m obstáculos"
+   },
+   {
+    "name": "Ronaldo Olivo",
+    "sex": "M",
+    "event": "Milla élite",
+    "nat": "ESP",
+    "note": "Anunciado por la organización (Instagram de la MIC): Campeón de España sub-23 de 1.500 m (2026) y de 800 m (2025); 1:44.87 en 800 m"
+   },
+   {
+    "name": "Klara Andrijašević",
+    "sex": "F",
+    "event": "Milla élite",
+    "nat": "CRO",
+    "bib": 7,
+    "note": "Anunciada por la organización (Instagram de la MIC): Campeona de Croacia de 1.500 m y campeona mediterránea sub-23; 4:12.33 en 1.500 m"
    },
    {
     "name": "Águeda Marqués Muñoz",
     "sex": "F",
     "event": "Milla élite",
+    "nat": "ESP",
     "bib": 51,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciada por la organización (Instagram de la MIC): Olímpica en París 2024, 4:00 en 1.500 m y campeona de España de 3.000 m en pista cubierta"
    },
    {
-    "name": "Maria Viciosa Villa",
+    "name": "María Viciosa Villa",
     "sex": "F",
     "event": "Milla élite",
+    "nat": "ESP",
     "bib": 52,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciada por la organización (Instagram de la MIC): Campeona de España sub-23 de 1.500 m y sub-20 de 3.000 m; 4:08.69 en 1.500 m"
    },
    {
     "name": "Lorena Martín Martín",
     "sex": "F",
     "event": "Milla élite",
+    "nat": "ESP",
     "bib": 53,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciada por la organización (Instagram de la MIC): Olímpica en París 2024, campeona de España de 800 m en pista cubierta (2022) y finalista mundial en Belgrado"
    },
    {
     "name": "Judith Otazua Gerrikaetxebarria",
     "sex": "F",
     "event": "Milla élite",
+    "nat": "ESP",
     "bib": 54,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciada por la organización (Instagram de la MIC): Bronce en el Campeonato de España de Milla (2026); 4:08.66 en 1.500 m"
    },
    {
-    "name": "Rocio Garrido Artiaga",
+    "name": "Rocío Garrido Artiaga",
     "sex": "F",
     "event": "Milla élite",
+    "nat": "ESP",
     "bib": 55,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciada por la organización (Instagram de la MIC): Subcampeona de España absoluta y campeona de España sub-23 de 1.500 m; 4:05.56 en 1.500 m"
    },
    {
     "name": "Claudia Gutiérrez Alonso",
@@ -2017,22 +2048,46 @@
     "name": "Marta Mitjans Muñoz",
     "sex": "F",
     "event": "Milla élite",
+    "nat": "ESP",
     "bib": 57,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciada por la organización (Instagram de la MIC): Campeona de España sub-23 de 800 m y récord de España sub-23 (1:58.52)"
    },
    {
-    "name": "Lara Alexia Tortell",
+    "name": "Lara Tortell",
     "sex": "F",
     "event": "Milla élite",
+    "nat": "GER",
     "bib": 58,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciada por la organización (Instagram de la MIC): Bronce en el Campeonato de Alemania absoluto de 800 m (2026); 2:01.22 en 800 m"
    },
    {
     "name": "Sara Guedes do Nascimento",
     "sex": "F",
     "event": "Milla élite",
+    "nat": "ESP",
     "bib": 59,
-    "note": "En la élite (lista oficial de inscritos de la organización)"
+    "note": "Anunciada por la organización (Instagram de la MIC): Bronce en el Campeonato de España sub-20 de 3.000 m obstáculos"
+   },
+   {
+    "name": "Marina Martínez",
+    "sex": "F",
+    "event": "Milla élite",
+    "nat": "ESP",
+    "note": "Anunciada por la organización (Instagram de la MIC): Campeona de España absoluta de 1.500 m e internacional; 4:03.33 en 1.500 m"
+   },
+   {
+    "name": "Jesús Ramos",
+    "sex": "M",
+    "event": "10K Ciudad de Viveiro (domingo 18)",
+    "nat": "ESP",
+    "note": "Anunciado por la organización (Instagram de la MIC): Subcampeón de la San Silvestre Vallecana 2025 y triple campeón de España de 10 km en ruta; 27:47 en 10 km"
+   },
+   {
+    "name": "Chema Martínez",
+    "sex": "M",
+    "event": "10K Ciudad de Viveiro (domingo 18)",
+    "nat": "ESP",
+    "note": "Anunciado por la organización (Instagram de la MIC): Campeón de Europa de 10.000 m (Múnich 2002) y subcampeón de Europa de maratón (Barcelona 2010)"
    }
   ]
  }
