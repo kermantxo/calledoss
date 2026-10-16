@@ -1846,5 +1846,194 @@
     "note": "Favorita anunciada en prensa (Atletismo24h): 35:54 de mejor marca"
    }
   ]
+ },
+ "rfea-2026-10-17-milla-internacional-del-cantabrico": {
+  "_fuente": "Listado oficial de inscritos de la MIC (mic.gal, plataforma CCNorte), carrera «MILLA ELITE SABADO 17», consultado el 16/10/2026: 26 atletas con dorsal. Nombres tal cual (solo cambiadas las mayúsculas). Sexo por dorsal (51 en adelante, mujeres), salvo Klara Andrijasevic (croata, mujer) con el 7.",
+  "fuente": "https://mic.gal/es/web/inscripcion/listado/3357/?competicion=17653",
+  "max_por_sexo": 30,
+  "atletas": [
+   {
+    "name": "Adrian Ben Montenegro",
+    "sex": "M",
+    "event": "Milla élite",
+    "bib": 1,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Pablo Sanchez-Valladares Garcia",
+    "sex": "M",
+    "event": "Milla élite",
+    "bib": 2,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Pol Moya Betriu",
+    "sex": "M",
+    "event": "Milla élite",
+    "bib": 3,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "David Carranza Llanos",
+    "sex": "M",
+    "event": "Milla élite",
+    "bib": 4,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "David Barroso Bravo",
+    "sex": "M",
+    "event": "Milla élite",
+    "bib": 5,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Pedro Osorio López",
+    "sex": "M",
+    "event": "Milla élite",
+    "bib": 6,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Klara Andrijasevic",
+    "sex": "F",
+    "event": "Milla élite",
+    "bib": 7,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "David Cartiel Embid",
+    "sex": "M",
+    "event": "Milla élite",
+    "bib": 8,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Nuno Pereira",
+    "sex": "M",
+    "event": "Milla élite",
+    "bib": 9,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Saul Martinez Moreno",
+    "sex": "M",
+    "event": "Milla élite",
+    "bib": 10,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Pedro Viciosa Villa",
+    "sex": "M",
+    "event": "Milla élite",
+    "bib": 11,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Ignacio Fontes Garcia Balibrea",
+    "sex": "M",
+    "event": "Milla élite",
+    "bib": 12,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Marc Jose Tortell",
+    "sex": "M",
+    "event": "Milla élite",
+    "bib": 13,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Pablo Bocelo Bellas",
+    "sex": "M",
+    "event": "Milla élite",
+    "bib": 14,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Simone Barontini",
+    "sex": "M",
+    "event": "Milla élite",
+    "bib": 15,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Jose Ignacio Perez Camino",
+    "sex": "M",
+    "event": "Milla élite",
+    "bib": 16,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Alejandro Quijada Sanchez",
+    "sex": "M",
+    "event": "Milla élite",
+    "bib": 17,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Águeda Marqués Muñoz",
+    "sex": "F",
+    "event": "Milla élite",
+    "bib": 51,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Maria Viciosa Villa",
+    "sex": "F",
+    "event": "Milla élite",
+    "bib": 52,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Lorena Martín Martín",
+    "sex": "F",
+    "event": "Milla élite",
+    "bib": 53,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Judith Otazua Gerrikaetxebarria",
+    "sex": "F",
+    "event": "Milla élite",
+    "bib": 54,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Rocio Garrido Artiaga",
+    "sex": "F",
+    "event": "Milla élite",
+    "bib": 55,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Claudia Gutiérrez Alonso",
+    "sex": "F",
+    "event": "Milla élite",
+    "bib": 56,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Marta Mitjans Muñoz",
+    "sex": "F",
+    "event": "Milla élite",
+    "bib": 57,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Lara Alexia Tortell",
+    "sex": "F",
+    "event": "Milla élite",
+    "bib": 58,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   },
+   {
+    "name": "Sara Guedes do Nascimento",
+    "sex": "F",
+    "event": "Milla élite",
+    "bib": 59,
+    "note": "En la élite (lista oficial de inscritos de la organización)"
+   }
+  ]
  }
 }
