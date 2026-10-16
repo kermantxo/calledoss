@@ -202,4 +202,5 @@
 - 2026-10-15: En el aviso del cross se quita «Última hora»: la franja pone solo **¡VUELVE EL CROSS!** y el texto.
 - 2026-10-13: Quitado el aviso de «Última hora» de Inicio sobre el Cross de Alcobendas. En el calendario sigue como «Cancelada».
 - 2026-10-14: Previas del 72º Cross Internacional Zornotza (Amorebieta) y del XLI Cross del Aceite (Torredonjimeno), los dos el 18/10: favoritos y favoritas tal cual los publica ADOC (la asociación de organizadores del circuito), en `pipeline/extra_entries.json`.
+- 2026-10-16: Previa de la XVIII Bilbao Night (17/10): favoritos y favoritas de la media maratón (11) y del 10K (9) con su mejor marca, tal cual los publica Atletismo24h en X; en la web pone «anunciado en prensa (Atletismo24h)». En `pipeline/extra_entries.json`.
 - Para cambiar el pódcast de la portada: el código del programa está en `SHOW` de `pipeline/podcast.py`, en `PODCAST_SHOW` al final de `script.js` y en el enlace «Abrir en Spotify» de la página principal.
