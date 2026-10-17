@@ -377,7 +377,8 @@ def poll(http, lv, it):
     if kind == "ccweb":
         evs = ccweb(http, lv["url"])
         # definitivo cuando ya están las carreras de élite (lo último del día)
-        return (evs, any("élite" in e["name"].lower() for e in evs), "ChampionChip Norte (cronometraje oficial)", lv["url"]) if evs else None
+        elite = {e.get("sex") for e in evs if "élite" in e["name"].lower()}
+        return (evs, elite >= {"M", "F"}, "ChampionChip Norte (cronometraje oficial)", lv["url"]) if evs else None
     if kind == "avai":
         evs = avai(http, lv["url"])
         return (evs, True, "Clasificaciones oficiales (PDF)", lv["url"]) if evs else None
