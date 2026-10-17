@@ -217,6 +217,33 @@ def ccweb(http, event_url):
     return out
 
 
+# ------------------------------------------------------------------ Kronoak (kronoak.com/live)
+
+def kronoak(http, url, name):
+    """Clasificación en directo de Kronoak: JSON «aaData» (lo que pinta su tabla). Cada fila:
+    dorsal, «APELLIDOS, NOMBRE», sexo, población, «(puesto) tiempo» en cada control y en meta, ...
+    La lista «controles» trae la meta («HELMUGA») y los puntos intermedios: la meta va detrás de ellos.
+    Devuelve (pruebas, fase) con los ya llegados a meta, ordenados por tiempo."""
+    import json
+    d = json.loads(http.get(url, timeout=60).content.decode("utf-8-sig"))
+    inter = max(0, len(d.get("controles") or []) - 1)
+    col = 4 + inter
+    rows = []
+    for r in d.get("aaData") or []:
+        if len(r) <= col:
+            continue
+        m = re.match(r"^\(\d*\)\s*(\d+:\d{2}:\d{2})", r[col] or "")
+        if not m:
+            continue
+        t = m.group(1)
+        mark = re.sub(r"^0:", "", t).lstrip("0") if t.startswith("0:") else t   # «0:28:33» -> «28:33»
+        rows.append({"name": _nice(r[1]), "sex": (r[2] or "").strip().upper()[:1], "club": "", "mark": mark, "_t": t})
+    rows.sort(key=lambda x: [int(p) for p in x["_t"].split(":")])
+    for x in rows:
+        x.pop("_t")
+    return _split_sex([x for x in rows if x["sex"] in ("M", "F")], name), (d.get("fase") or "").lower()
+
+
 # ------------------------------------------------------------------ AvaiBook / Runvasport / Kirolprobak
 
 def avai(http, page):
@@ -378,6 +405,13 @@ def poll(http, lv, it):
         evs = ccweb(http, lv["url"])
         # definitivo cuando ya están las carreras de élite (lo último del día)
         return (evs, any("élite" in e["name"].lower() for e in evs), "ChampionChip Norte (cronometraje oficial)", lv["url"]) if evs else None
+    if kind == "kronoak":
+        evs, fases = [], []
+        for c in lv["carreras"]:
+            e, fase = kronoak(http, c["url"], c["name"])
+            evs += e
+            fases.append(fase)
+        return (evs, bool(fases) and all(f == "final" for f in fases), "Kronoak (cronometraje oficial)", lv["web"]) if evs else None
     if kind == "avai":
         evs = avai(http, lv["url"])
         return (evs, True, "Clasificaciones oficiales (PDF)", lv["url"]) if evs else None
@@ -394,4 +428,4 @@ def poll(http, lv, it):
     return None
 
 
-KINDS = {"irteerak", "uno", "ccnorte", "ccweb", "avai", "chiplevante", "cgal"}
+KINDS = {"irteerak", "uno", "ccnorte", "ccweb", "kronoak", "avai", "chiplevante", "cgal"}

@@ -555,7 +555,25 @@
  },
  "rfea-2026-10-17-xviii-bilbao-night-half-marathon-10k": {
   "_fuente_horario": "https://www.bilbaonightrun.com/informacion (web oficial)",
-  "time": "19:00"
+  "time": "19:00",
+  "resultados": "https://www.kronoak.com/live/2026/Bilbao%20Night%20Running%20Fest/index.html",
+  "live": [
+   {
+    "kind": "kronoak",
+    "web": "https://www.kronoak.com/live/2026/Bilbao%20Night%20Running%20Fest/index.html",
+    "carreras": [
+     {
+      "name": "Media maratón",
+      "url": "https://www.kronoak.com/live/2026/media/data/bnm1.json"
+     },
+     {
+      "name": "10K",
+      "url": "https://www.kronoak.com/live/2026/media/data/bnm2.json"
+     }
+    ]
+   }
+  ],
+  "_fuente_resultados": "Clasificación en directo de Kronoak (cronometraje oficial); la pasó Kerman el 17/10/2026 (index2.html = 10K, index.html = media)"
  },
  "cronomancha-ev771": {
   "_fuente_horario": "https://timingsys.com/event/771 (cartel oficial)",
