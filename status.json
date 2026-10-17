@@ -143,6 +143,12 @@
  },
  "log": [
   {
+   "at": "2026-10-17T21:27:53+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de 'Campeonato de España sub-14 por Equipos' (smarttrack): 403 Client Error: Forbidden for url: https://conersys-live-d.s3.dualstack.eu-west-3.amazonaws.com/SCH2026GAL6559"
+  },
+  {
    "at": "2026-10-17T21:22:48+02:00",
    "level": "warning",
    "source": "results",
@@ -615,13 +621,7 @@
    "level": "warning",
    "source": "wa_calendar",
    "msg": "Programa de XVIII Bilbao Night Half Marathon & 10K no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-16T18:26:53+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Lusatian Race Walking no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
   }
  ],
- "updated": "2026-10-17T21:26:41+02:00"
+ "updated": "2026-10-17T21:30:34+02:00"
 }
