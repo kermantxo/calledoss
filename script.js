@@ -4038,11 +4038,14 @@ const LIVE_BADGE = {
   'finalizado':           {txt:t('FINALIZADO'), live:false},
 };
 
-// Horario prueba a prueba: cada prueba es un desplegable con su clasificación debajo de la hora
+// Horario prueba a prueba: cada prueba es un desplegable con su clasificación debajo de la hora.
+// Arriba, las pruebas ya terminadas (la última en terminar, la primera) abiertas con su podio;
+// debajo, el resto del horario del día en orden.
 const openTl = new Set();
+const closedTl = new Set();   // pruebas terminadas que el visitante ha cerrado
 const TL_STATE = {'oficial':'Oficial', 'provisional':'Provisional', 'en marcha':'En marcha', 'pendiente':'Pendiente', 'sin resultados':'Sin resultados publicados', 'no disputada':'No disputada', 'no competitiva':'No competitiva'};
 function liveTimeline(id, tl){
-  return `<div class="tl">${tl.map(x=>{
+  const item = (x, done) => {
     const key = id + '|' + x.time + '|' + x.event + '|' + (x.round||'');
     const groups = (x.groups||[]).filter(g=>g.rows && g.rows.length);
     const has = (x.rows && x.rows.length) || groups.length;
@@ -4051,10 +4054,19 @@ function liveTimeline(id, tl){
     const head = `<span class="tl-time">${esc(x.time||'')}</span>
       <span class="tl-ev">${esc(td(x.event||''))}${x.round?`<small>${esc(td(x.round))}</small>`:''}</span>
       <span class="tl-st st-${(x.state||'pendiente').replace(' ','-')}">${t(TL_STATE[x.state]||'Pendiente')}</span>`;
+    const open = done ? !closedTl.has(key) : openTl.has(key);
     return has
-      ? `<details class="tl-item" data-tl="${esc(key)}"${openTl.has(key)?' open':''}><summary>${head}<span class="tl-caret">▾</span></summary>${inner}</details>`
+      ? `<details class="tl-item" data-tl="${esc(key)}"${done ? ' data-done="1"' : ''}${open?' open':''}><summary>${head}<span class="tl-caret">▾</span></summary>${inner}</details>`
       : `<div class="tl-item tl-empty"><div class="tl-sum">${head}<span class="tl-caret"></span></div></div>`;
-  }).join('')}</div>`;
+  };
+  const conRes = x => (x.rows && x.rows.length) || (x.groups||[]).some(g => g.rows && g.rows.length);
+  const hechas = tl.map((x, i) => ({x, i})).filter(o => conRes(o.x))
+    .sort((a, b) => String(b.x.time||'').localeCompare(String(a.x.time||'')) || b.i - a.i).map(o => o.x);
+  const resto = tl.filter(x => !conRes(x));
+  if(!hechas.length) return `<div class="tl">${tl.map(x => item(x, false)).join('')}</div>`;
+  return `<div class="tl-title">${t('Pruebas terminadas · la última, arriba')} <small>${hechas.length}</small></div>
+    <div class="tl">${hechas.map(x => item(x, true)).join('')}</div>` +
+    (resto.length ? `<div class="tl-title">${t('Resto del horario')} <small>${resto.length}</small></div><div class="tl">${resto.map(x => item(x, false)).join('')}</div>` : '');
 }
 
 function liveRows(rows){
@@ -4195,7 +4207,10 @@ function renderLive(){
     </div>`;
   }).join('');
   grid.querySelectorAll('details[data-tl]').forEach(det=>{
-    det.addEventListener('toggle', ()=>{ det.open ? openTl.add(det.dataset.tl) : openTl.delete(det.dataset.tl); });
+    det.addEventListener('toggle', ()=>{
+      if(det.dataset.done) det.open ? closedTl.delete(det.dataset.tl) : closedTl.add(det.dataset.tl);
+      else det.open ? openTl.add(det.dataset.tl) : openTl.delete(det.dataset.tl);
+    });
   });
   grid.querySelectorAll('[data-toggle]').forEach(head=>{
     head.addEventListener('click', ()=>{

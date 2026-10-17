@@ -324,11 +324,13 @@ def _poll_one(http, it, at, lv):
                         {"round": e["round"] or "Final", "final": True, "time": e["time"], "date": e["date"], "rows": rows}]})
             events.sort(key=lambda x: (x["time"] or "").zfill(5), reverse=True)  # la más reciente, arriba
             nxt = [e for e in today_evs if not e["done"]]
-            por_prueba = {(x["name"], x["round"]): x["rows"] for x in events}
+            # con la hora en la clave: en combinadas hay pruebas con el mismo nombre a distinta hora
+            # (p. ej. «Peso F45» del pentatlón a las 10:55 y del heptatlón a las 18:10)
+            por_prueba = {(x["name"], x["round"], x["time"]): x["rows"] for x in events}
             timeline = [{"time": e["time"], "event": e["event"], "round": e["round"],
-                         "state": "oficial" if (e["event"], e["round"]) in por_prueba else
+                         "state": "oficial" if (e["event"], e["round"], e["time"]) in por_prueba else
                          ("en marcha" if e["time"] and e["time"].zfill(5) <= at.strftime("%H:%M") else "pendiente"),
-                         "rows": por_prueba.get((e["event"], e["round"]), [])} for e in today_evs]
+                         "rows": por_prueba.get((e["event"], e["round"], e["time"]), [])} for e in today_evs]
             return {"events": events, "timeline": timeline, "schedule": [{"time": e["time"], "event": e["event"], "round": e["round"],
                                                     "status": e["status"] or "Por disputar"} for e in nxt],
                     "done": len(done), "total": len(today_evs),

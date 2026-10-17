@@ -272,6 +272,8 @@ window.CALLEDOSS_EN = {
   "Todas las secciones": "All sections",
   "El pódcast": "The podcast",
   "Último programa": "Latest episode",
+  "Pruebas terminadas · la última, arriba": "Finished events · latest first",
+  "Resto del horario": "Rest of the schedule",
   "¡Vuelve el cross!": "Cross country is back!",
   "Este domingo 18 de octubre arranca la temporada con el Cross de Zornotza (Amorebieta-Etxano) y el Cross del Aceite (Torredonjimeno). Mira los favoritos en Próximas.": "This Sunday, 18 October, the season kicks off with the Zornotza Cross (Amorebieta-Etxano) and the Cross del Aceite (Torredonjimeno). See the favourites in Upcoming.",
   "El pódcast de Calledoss": "The Calledoss podcast",
