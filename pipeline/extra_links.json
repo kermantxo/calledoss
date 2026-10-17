@@ -514,6 +514,63 @@
     "e": "10K élite",
     "r": ""
    }
+  ],
+  "_fuente_a_mano": "Podio de la élite facilitado por Kerman el 17/10/2026",
+  "a_mano": [
+   {
+    "name": "10K élite Hombres",
+    "round": "Podio",
+    "rows": [
+     {
+      "name": "Javier Guerra",
+      "sex": "M",
+      "club": "",
+      "mark": "29:45",
+      "pos": "1"
+     },
+     {
+      "name": "Joel Camarena",
+      "sex": "M",
+      "club": "",
+      "mark": "31:06",
+      "pos": "2"
+     },
+     {
+      "name": "David Belda García",
+      "sex": "M",
+      "club": "",
+      "mark": "31:58",
+      "pos": "3"
+     }
+    ]
+   },
+   {
+    "name": "10K élite Mujeres",
+    "round": "Podio",
+    "rows": [
+     {
+      "name": "Lydia Arseguet",
+      "sex": "F",
+      "club": "",
+      "mark": "38:27",
+      "pos": "1"
+     },
+     {
+      "name": "Hue Nguyen Le",
+      "sex": "F",
+      "club": "",
+      "mark": "38:27",
+      "pos": "2"
+     },
+     {
+      "name": "Ana Peirats Silvestre",
+      "sex": "F",
+      "club": "",
+      "mark": "38:32",
+      "pos": "3"
+     }
+    ]
+   }
   ]
  },
  "rfea-2026-10-17-cto-de-espana-pruebas-combinadas-pentatlon-lanzamientos-1000": {

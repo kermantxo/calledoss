@@ -54,6 +54,7 @@
 
 ## Recent Changes
 - 3 oct 2026: En directo muestra el horario completo prueba a prueba. Cada prueba lleva su estado (Pendiente, En marcha, Provisional, Oficial) y, en cuanto sale la clasificación, se puede desplegar pinchando en ella para verla debajo de la hora.
+- 2026-10-17: 10K de Ontinyent: podio de la élite (hombres y mujeres) metido a mano en `pipeline/extra_links.json` («a_mano»), sale en En directo como provisional y en Resultados hasta que haya clasificación oficial.
 - 2026-09-23: Importada la web "CALLEDOSS · Atletismo" desde Descargas como página principal. Se separó en archivos de estructura, estilos y datos, y el logo pasó a la carpeta de imágenes. Se eliminó la página "About" de ejemplo.
 - 2026-09-23: Quitada la nota de "Fuentes" que aparecía encima del listado en la sección Calendario.
 - 2026-09-23: En directo: quitado el texto sobre el Mundial Sub-20, el Europeo de Birmingham y los Juegos Mediterráneos, y la nota de que no existe un feed público de resultados. Si no hay competiciones en curso solo se muestra "Sin competiciones en curso".
