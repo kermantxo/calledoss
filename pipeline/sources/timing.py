@@ -192,6 +192,31 @@ def ccnorte(http, races, max_pages=5):
     return out
 
 
+# ------------------------------------------------------------------ webs de evento de CCNorte (p. ej. mic.gal)
+
+def ccweb(http, event_url):
+    """Resultados en la web propia de un evento hecha por CCNorte (mic.gal/es/web/resultado/evento-N):
+    una tabla por carrera («ADULTOS FEM», «ELITE MASC»...) con puesto, nombre, apellidos, sexo y tiempo."""
+    s = http.get(event_url, timeout=30).text
+    comps = list(dict.fromkeys(re.findall(r'href="(/[a-z]{2}/web/resultado/competicion-\d+)"[^>]*>\s*([^<]+?)\s*<', s)))
+    out = []
+    for path, cname in comps:
+        page = http.get(urljoin(event_url, path), timeout=30).text
+        t = re.search(r"<table.*?</table>", page, re.S)
+        rows = []
+        for tr in re.findall(r"<tr.*?</tr>", t.group(0), re.S) if t else []:
+            c = _cells(tr)
+            if len(c) < 8 or not re.match(r"^\d+$", c[1]):
+                continue
+            sx = re.match(r"^([MF])-", c[5])
+            mark = re.sub(r"^00:", "", c[7]).lstrip("0") or c[7]   # «00:05:05» -> «5:05»
+            rows.append({"name": _nice("%s %s" % (c[3], c[4])), "sex": sx.group(1) if sx else "", "club": "", "mark": mark})
+        nombre = clean(re.sub(r"(?i)\b(fem|masc|femenin[oa]s?|masculin[oa]s?)\b", "", html.unescape(cname))).capitalize()
+        nombre = re.sub(r"^Elite\b", "Élite", nombre)
+        out += _split_sex(rows, nombre or "Carrera")
+    return out
+
+
 # ------------------------------------------------------------------ AvaiBook / Runvasport / Kirolprobak
 
 def avai(http, page):
@@ -349,6 +374,10 @@ def poll(http, lv, it):
         races = ccnorte_find(http, lv["words"])
         evs = ccnorte(http, [r for r in races if not lv.get("races") or r[0] in lv["races"]]) if races else []
         return (evs, True, "ChampionChip Norte (cronometraje oficial)", races[0][1]) if evs else None
+    if kind == "ccweb":
+        evs = ccweb(http, lv["url"])
+        # definitivo cuando ya están las carreras de élite (lo último del día)
+        return (evs, any("élite" in e["name"].lower() for e in evs), "ChampionChip Norte (cronometraje oficial)", lv["url"]) if evs else None
     if kind == "avai":
         evs = avai(http, lv["url"])
         return (evs, True, "Clasificaciones oficiales (PDF)", lv["url"]) if evs else None
@@ -365,4 +394,4 @@ def poll(http, lv, it):
     return None
 
 
-KINDS = {"irteerak", "uno", "ccnorte", "avai", "chiplevante", "cgal"}
+KINDS = {"irteerak", "uno", "ccnorte", "ccweb", "avai", "chiplevante", "cgal"}
