@@ -4110,14 +4110,8 @@ function yaTerminada(c){
   // está terminada, sale de Próximas y de En directo y se queda en Resultados
   const ultima = [c.time_end, c.time, ...((c.schedule || []).filter(x => x.d === hoy).map(x => x.t))].filter(Boolean).sort().pop();
   const ahora = new Intl.DateTimeFormat('es-ES', {hour:'2-digit', minute:'2-digit', hour12:false, timeZone:'Europe/Madrid'}).format(new Date());
-  // sin hora conocida (p. ej. la Milla de Jaén): si ya tiene resultados, está terminada.
-  // Con hora: hora y media después de la última salida (una carrera no acaba al darse la salida:
-  // en la Milla de Viveiro la élite femenina y la masculina salen a las 19:00 y se publican por separado)
-  if(!resultFor(c.id)) return false;
-  if(!ultima) return true;
-  const [hh, mm] = String(ultima).split(':').map(Number);
-  const fin = Math.min(23 * 60 + 59, hh * 60 + mm + 90);
-  return ahora > `${String(Math.floor(fin / 60)).padStart(2,'0')}:${String(fin % 60).padStart(2,'0')}`;
+  // sin hora conocida (p. ej. la Milla de Jaén): si ya tiene resultados, está terminada
+  return !!(resultFor(c.id) && (!ultima || ahora > String(ultima).padStart(5, '0')));
 }
 
 // En directo: podio femenino y masculino de cada prueba ya terminada (lo primero que se ve en la tarjeta)
