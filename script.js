@@ -4116,8 +4116,8 @@ function yaTerminada(c){
   if(!resultFor(c.id)) return false;
   if(!ultima) return true;
   const [hh, mm] = String(ultima).split(':').map(Number);
-  const fin = Math.min(23 * 60 + 59, hh * 60 + mm + 90);
-  return ahora > `${String(Math.floor(fin / 60)).padStart(2,'0')}:${String(fin % 60).padStart(2,'0')}`;
+  const limite = Math.min(23 * 60 + 59, hh * 60 + mm + 90);
+  return ahora > `${String(Math.floor(limite / 60)).padStart(2,'0')}:${String(limite % 60).padStart(2,'0')}`;
 }
 
 // En directo: podio femenino y masculino de cada prueba ya terminada (lo primero que se ve en la tarjeta)
