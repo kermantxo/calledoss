@@ -497,5 +497,74 @@
  },
  "rfea-2026-10-10-15-mba-media-maraton-gijon": {
   "inscritos": "https://live.321go.es/participantes.html?raceID=15a-mba-media-maraton-gijon-villa-de-jovellanos"
+ },
+ "rfea-2026-10-17-10k-fundacio-caixa-ontinyent": {
+  "_fuente_horario": "https://www.chiplevante.com/es/prueba/10k-fundacio-caixa-ontinyent-1175-2026 (ficha oficial de inscripción)",
+  "time": "17:30",
+  "schedule": [
+   {
+    "d": "2026-10-17",
+    "t": "17:30",
+    "e": "10K popular",
+    "r": ""
+   },
+   {
+    "d": "2026-10-17",
+    "t": "19:00",
+    "e": "10K élite",
+    "r": ""
+   }
+  ]
+ },
+ "rfea-2026-10-17-cto-de-espana-pruebas-combinadas-pentatlon-lanzamientos-1000": {
+  "_fuente_horario": "Horario oficial de la RFEA en SmartTrack (2026CAT65592): primera prueba 08:45 y última 20:30 el sábado",
+  "time": "08:45",
+  "time_end": "20:30"
+ },
+ "rfea-2026-10-17-milla-internacional-del-cantabrico": {
+  "_fuente_horario": "https://mic.gal/ (programa oficial del fin de semana)",
+  "time": "17:00",
+  "schedule": [
+   {
+    "d": "2026-10-17",
+    "t": "17:00",
+    "e": "MIC Kids",
+    "r": ""
+   },
+   {
+    "d": "2026-10-17",
+    "t": "18:00",
+    "e": "Series populares",
+    "r": "Milla"
+   },
+   {
+    "d": "2026-10-17",
+    "t": "19:00",
+    "e": "Milla élite",
+    "r": ""
+   }
+  ]
+ },
+ "rfea-2026-10-17-xviii-bilbao-night-half-marathon-10k": {
+  "_fuente_horario": "https://www.bilbaonightrun.com/informacion (web oficial)",
+  "time": "19:00"
+ },
+ "cronomancha-ev771": {
+  "_fuente_horario": "https://timingsys.com/event/771 (cartel oficial)",
+  "time": "16:00",
+  "schedule": [
+   {
+    "d": "2026-10-17",
+    "t": "16:00",
+    "e": "Carrera infantil",
+    "r": ""
+   },
+   {
+    "d": "2026-10-17",
+    "t": "17:00",
+    "e": "Carrera popular",
+    "r": "8,2 km"
+   }
+  ]
  }
 }
