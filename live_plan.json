@@ -1,6 +1,6 @@
 {
  "date": "2026-10-17",
- "generated": "2026-10-17T19:19:04+02:00",
+ "generated": "2026-10-17T19:47:05+02:00",
  "active_day": true,
  "windows": [
   {
@@ -88,7 +88,8 @@
    "intl": false,
    "links": {
     "info": "https://atletismorfea.es/calendario/campeonato/xviii-bilbao-night-half-marathon-10k",
-    "web": "https://info@bilbaonightrun.com"
+    "web": "https://info@bilbaonightrun.com",
+    "resultados": "https://www.kronoak.com/live/2026/Bilbao%20Night%20Running%20Fest/index.html"
    }
   },
   {
