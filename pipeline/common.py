@@ -101,7 +101,7 @@ def short_hash(*parts):
 # ------------------------------------------------------------------ HTTP
 
 # Pausa mínima entre peticiones a un mismo dominio (segundos). RFEA limita si se va rápido.
-HOST_DELAY = {"atletismorfea.es": 1.5, "www.rfeacontent.es": 1.0, "rfealive.info": 0.8}
+HOST_DELAY = {"atletismorfea.es": 1.5, "www.rfeacontent.es": 1.0, "rfealive.info": 0.8, "cdzornotza.eus": 2.0}
 
 
 class Http:

@@ -181,12 +181,32 @@ def _poll(http, it, at):
     Si una fuente falla (p. ej. World Athletics antes de publicar), se prueba la siguiente."""
     got = None
     for lv in it.get("live") or []:
+        if lv.get("junto"):
+            continue
         try:
             got = _poll_one(http, it, at, lv)
         except Exception:
             continue
         if got:
             break
+    # fuentes «junto»: se consultan siempre y se suman a la principal (p. ej. los PDF que sube la
+    # organización del Cross de Zornotza con todas las carreras, además de World Athletics)
+    for lv in [x for x in it.get("live") or [] if x.get("junto")]:
+        try:
+            extra = _poll_one(http, it, at, lv)
+        except Exception:
+            continue
+        if not (extra and extra.get("events")):
+            continue
+        if not (got and got.get("events")):
+            got = extra
+            continue
+        got = dict(got)
+        hay = {norm(e["name"]) for e in got["events"]}
+        got["events"] = list(got["events"]) + [e for e in extra["events"] if norm(e["name"]) not in hay]
+        if extra.get("store"):
+            st = got.get("store")
+            got["store"] = dict(st, events=st["events"] + extra["store"]["events"]) if st else extra["store"]
     return _sin_resultados(_with_schedule(it, at, _a_mano(it, got)), at)
 
 

@@ -9,6 +9,7 @@ con el podio (o las primeras posiciones) de cada prueba y sexo.
 * ChampionChip Norte (ccnorte.com): tablas HTML con el puesto por sexo ("F-1").
 * AvaiBook / Runvasport / Kirolprobak: un PDF de clasificación por categoría en /resultados/.
 * Chip Levante (chiplevante.com): tabla que se carga por partes (DataTables) y PDFs al terminar.
+* PDFs en la web de la organización (pdfweb): uno por carrera, subido al terminarla (Cross de Zornotza).
 """
 import html
 import re
@@ -281,6 +282,89 @@ def avai(http, page):
     return out
 
 
+# ------------------------------------------------------------------ PDFs en la web de la organización
+
+def pdfweb(http, page, pattern=""):
+    """Clasificaciones en PDF que la organización sube a su web al terminar cada carrera (p. ej. cdzornotza.eus/sailkapenak):
+    una tabla «puesto [orden] dorsal APELLIDOS, Nombre año club [licencia] tiempo» por carrera."""
+    s = http.get(page, timeout=30).text
+    links = list(dict.fromkeys(urljoin(page, h) for h in re.findall(r'href="([^"]+\.pdf)"', s, re.I) if re.search(pattern, h)))
+    stem = {u: re.sub(r"\.pdf$", "", u.rsplit("/", 1)[-1].lower()) for u in links}
+    toks = {u: set(stem[u].split("-")) for u in links}
+    # las clasificaciones por categoría (sub18-masculina) ya van dentro de la de su carrera (sub18-sub20-masculina)
+    carreras = [u for u in links if not any(v != u and toks[u] < toks[v] for v in links)]
+    # lo ya leído se guarda: la web corta (HTTP 429) si se le piden todos los PDF en cada vuelta del directo
+    from ..common import load_json, save_json
+    cache = load_json("state/pdfweb.json", {}) or {}
+    out = []
+    for u in carreras:
+        try:
+            h = http.request("HEAD", u, retries=0, allow_redirects=False)
+        except Exception:
+            continue
+        if h.status_code != 200:
+            continue  # todavía no subido (la web redirige a su página de error)
+        firma = "%s|%s" % (h.headers.get("last-modified", ""), h.headers.get("content-length", ""))
+        if (cache.get(u) or {}).get("firma") == firma and firma != "|":
+            rows = cache[u]["rows"]
+        else:
+            try:
+                r = http.get(u, timeout=60, retries=0)
+                if b"%PDF" not in r.content[:1024]:
+                    continue
+                rows = _pdfweb_rows(r.content, stem[u])
+            except Exception:
+                continue
+            if rows:
+                cache[u] = {"firma": firma, "rows": rows}
+                save_json("state/pdfweb.json", cache, compact=True)
+        if not rows:
+            continue
+        name = re.sub(r"\bsub(\d+)", r"Sub\1", stem[u].replace("-", " ")).capitalize().replace("sub", "Sub").replace("Paralimpica", "Paralímpica")
+        sx = "F" if re.search(r"femen", stem[u]) else "M" if re.search(r"mascul", stem[u]) else ""
+        out.append({"name": name, "sex": sx, "rows": _cut(rows), "finished": len(rows)})
+    return out
+
+
+def _pdfweb_rows(content, stem=""):
+    """Filas de la clasificación. Las hojas de la organización a veces traen dos tablas en la misma página o
+    páginas de otra carrera (2025: el final de la absoluta femenina dentro de la popular): cada tabla empieza en su
+    cabecera «Pos.» y una página cuyo título no es de esta carrera (o de otro sexo) se salta."""
+    import io
+    import pdfplumber
+    clave = next((t for t in stem.split("-") if re.match(r"absolut|popular|paral|sub\d", t)), "")
+    sx = "femen" if "femen" in stem else "mascul" if "mascul" in stem else ""
+    otro = {"femen": "mascul", "mascul": "femen"}.get(sx)
+    rows, vistos = [], set()
+    with pdfplumber.open(io.BytesIO(content)) as pdf:
+        for page in pdf.pages:
+            ws = page.extract_words()
+            cabs = {}  # la cabecera tiene dos «Pos.» (euskera e inglés): vale la de arriba
+            for w in sorted((w for w in ws if w["text"] == "Pos."), key=lambda w: -w["top"]):
+                cabs[round(w["x0"])] = w
+            cabs = sorted(cabs.values(), key=lambda w: w["x0"])
+            bordes = [w["x0"] - 25 for w in cabs] + [float("inf")]
+            for i, cab in enumerate(cabs):
+                mios = [w for w in ws if bordes[i] <= w["x0"] < bordes[i + 1]]
+                titulo = norm(" ".join(w["text"] for w in mios if cab["top"] - 45 < w["top"] < cab["top"] - 5)).replace(" ", "")
+                if titulo and ((clave and clave[:6] not in titulo) or (otro and otro in titulo and sx not in titulo)):
+                    continue  # tabla de otra carrera o del otro sexo
+                lines = {}
+                for w in mios:
+                    if w["top"] > cab["top"]:
+                        lines.setdefault(round(w["top"]), []).append(w)
+                for top in sorted(lines):
+                    txt = clean(" ".join(w["text"] for w in sorted(lines[top], key=lambda w: w["x0"])))
+                    m = re.match(r"^(\d+)\s+(?:\d+\s+)?\d+\s+([^\d,]+,[^\d]+?)\s+(?:19|20)\d\d\s+(.*?)\s*(\d{1,2}:\d\d(?::\d\d)?)(?:\s|$)", txt)
+                    if not m or (m.group(1), m.group(2)) in vistos:
+                        continue
+                    vistos.add((m.group(1), m.group(2)))
+                    club = re.sub(r"\s+(?:[A-Z]{1,4}-?\d+|\d{5,})$", "", m.group(3)).strip()
+                    rows.append({"pos": m.group(1), "name": _nice(m.group(2)), "club": club, "mark": m.group(4)})
+    rows.sort(key=lambda r: int(r["pos"]))
+    return rows
+
+
 # ------------------------------------------------------------------ Chip Levante
 
 CHL = "https://www.chiplevante.com"
@@ -415,6 +499,9 @@ def poll(http, lv, it):
     if kind == "avai":
         evs = avai(http, lv["url"])
         return (evs, True, "Clasificaciones oficiales (PDF)", lv["url"]) if evs else None
+    if kind == "pdfweb":
+        evs = pdfweb(http, lv["url"], lv.get("pattern") or "")
+        return (evs, True, "Clasificaciones oficiales de la organización (PDF)", lv["url"]) if evs else None
     if kind == "cgal":
         evs = cgal(http, lv["comp"])
         return (evs, False, "Carreiras Galegas (Federación Galega de Atletismo)",
@@ -428,4 +515,4 @@ def poll(http, lv, it):
     return None
 
 
-KINDS = {"irteerak", "uno", "ccnorte", "ccweb", "kronoak", "avai", "chiplevante", "cgal"}
+KINDS = {"irteerak", "uno", "ccnorte", "ccweb", "kronoak", "avai", "chiplevante", "cgal", "pdfweb"}

@@ -649,5 +649,82 @@
     "r": "8,2 km"
    }
   ]
+ },
+ "rfea-2026-10-18-72o-cross-internacional-zornotza": {
+  "_fuente_live": "Clasificaciones oficiales de la organización: cdzornotza.eus/sailkapenak (un PDF por carrera, subido al terminarla)",
+  "_fuente_horario": "https://cdzornotza.eus/src/doc/horario-y-recorrido/horario-cross.pdf (horario oficial)",
+  "time": "09:40",
+  "time_end": "13:00",
+  "schedule": [
+   {
+    "d": "2026-10-18",
+    "t": "09:40",
+    "e": "Sub14-Sub16 femenina",
+    "r": ""
+   },
+   {
+    "d": "2026-10-18",
+    "t": "09:55",
+    "e": "Sub14-Sub16 masculina",
+    "r": ""
+   },
+   {
+    "d": "2026-10-18",
+    "t": "10:10",
+    "e": "Sub12 femenina",
+    "r": ""
+   },
+   {
+    "d": "2026-10-18",
+    "t": "10:20",
+    "e": "Sub12 masculina",
+    "r": ""
+   },
+   {
+    "d": "2026-10-18",
+    "t": "10:30",
+    "e": "Sub18-Sub20 femenina",
+    "r": ""
+   },
+   {
+    "d": "2026-10-18",
+    "t": "11:00",
+    "e": "Sub18-Sub20 masculina",
+    "r": ""
+   },
+   {
+    "d": "2026-10-18",
+    "t": "11:25",
+    "e": "Paralímpica",
+    "r": ""
+   },
+   {
+    "d": "2026-10-18",
+    "t": "11:40",
+    "e": "Carrera popular",
+    "r": ""
+   },
+   {
+    "d": "2026-10-18",
+    "t": "12:15",
+    "e": "Absoluta femenina",
+    "r": ""
+   },
+   {
+    "d": "2026-10-18",
+    "t": "13:00",
+    "e": "Absoluta masculina",
+    "r": ""
+   }
+  ],
+  "resultados": "https://cdzornotza.eus/sailkapenak",
+  "live": [
+   {
+    "kind": "pdfweb",
+    "url": "https://cdzornotza.eus/sailkapenak",
+    "pattern": "72-edicion/",
+    "junto": true
+   }
+  ]
  }
 }
