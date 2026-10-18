@@ -66,17 +66,17 @@
   },
   "results": {
    "label": "Resultados (todas las fuentes)",
-   "last_run": "2026-10-18T01:15:33+02:00",
+   "last_run": "2026-10-18T11:21:15+02:00",
    "ok": true,
-   "last_ok": "2026-10-18T01:22:02+02:00",
+   "last_ok": "2026-10-18T11:28:36+02:00",
    "fails_in_a_row": 0,
    "last_count": 2
   },
   "rfea_results": {
    "label": "RFEA · índice de resultados (PDF)",
-   "last_run": "2026-10-18T01:15:33+02:00",
+   "last_run": "2026-10-18T11:21:15+02:00",
    "ok": true,
-   "last_ok": "2026-10-18T01:15:35+02:00",
+   "last_ok": "2026-10-18T11:21:17+02:00",
    "fails_in_a_row": 0,
    "last_count": 0,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf",
@@ -134,14 +134,80 @@
   },
   "podcast": {
    "label": "Pódcast (último programa en Spotify)",
-   "last_run": "2026-10-18T01:22:02+02:00",
+   "last_run": "2026-10-18T11:28:36+02:00",
    "ok": true,
-   "last_ok": "2026-10-18T01:22:03+02:00",
+   "last_ok": "2026-10-18T11:28:36+02:00",
    "fails_in_a_row": 0,
    "last_count": 1
   }
  },
  "log": [
+  {
+   "at": "2026-10-18T11:28:15+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de 'Yellow River Estuary Dongying Marathon' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235592"
+  },
+  {
+   "at": "2026-10-18T11:27:18+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de 'TCS Amsterdam Marathon' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235581"
+  },
+  {
+   "at": "2026-10-18T11:26:47+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de 'NLB Ljubljana Marathon' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235593"
+  },
+  {
+   "at": "2026-10-18T11:26:17+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de 'Bank of China Beijing Marathon' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235591"
+  },
+  {
+   "at": "2026-10-18T11:26:07+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Búsqueda de podios de '72º Cross Internacional Zornotza': expected string or bytes-like object, got 'list'"
+  },
+  {
+   "at": "2026-10-18T11:25:57+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de '72º Cross Internacional Zornotza' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7244939"
+  },
+  {
+   "at": "2026-10-18T11:25:47+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Búsqueda de podios de 'XVIII Bilbao Night Half Marathon & 10K': expected string or bytes-like object, got 'list'"
+  },
+  {
+   "at": "2026-10-18T11:25:37+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de 'XVIII Bilbao Night Half Marathon & 10K' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7236025"
+  },
+  {
+   "at": "2026-10-18T11:25:23+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Búsqueda de podios de 'Milla internacional del Cantábrico': expected string or bytes-like object, got 'list'"
+  },
+  {
+   "at": "2026-10-18T11:22:15+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de 'Campeonato de España sub-14 por Equipos' (smarttrack): 403 Client Error: Forbidden for url: https://conersys-live-d.s3.dualstack.eu-west-3.amazonaws.com/SCH2026GAL6559"
+  },
+  {
+   "at": "2026-10-18T11:22:05+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Búsqueda de podios de '10K Fundació Caixa Ontinyent': expected string or bytes-like object, got 'list'"
+  },
   {
    "at": "2026-10-18T01:21:41+02:00",
    "level": "warning",
@@ -555,73 +621,7 @@
    "level": "warning",
    "source": "results",
    "msg": "Búsqueda de podios de 'XXV CP Villa de Honrubia': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-10-17T17:26:10+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Resultados de 'XVIII Bilbao Night Half Marathon & 10K' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7236025"
-  },
-  {
-   "at": "2026-10-17T17:25:56+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de 'Milla internacional del Cantábrico': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-10-17T17:20:48+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Resultados de 'Campeonato de España sub-14 por Equipos' (smarttrack): 403 Client Error: Forbidden for url: https://conersys-live-d.s3.dualstack.eu-west-3.amazonaws.com/SCH2026GAL6559"
-  },
-  {
-   "at": "2026-10-17T17:20:38+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de '10K Fundació Caixa Ontinyent': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-10-17T16:24:26+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de 'XXV CP Villa de Honrubia': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-10-17T16:24:13+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Resultados de 'XVIII Bilbao Night Half Marathon & 10K' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7236025"
-  },
-  {
-   "at": "2026-10-17T16:23:58+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de 'Milla internacional del Cantábrico': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-10-17T16:20:36+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Resultados de 'Campeonato de España sub-14 por Equipos' (smarttrack): 403 Client Error: Forbidden for url: https://conersys-live-d.s3.dualstack.eu-west-3.amazonaws.com/SCH2026GAL6559"
-  },
-  {
-   "at": "2026-10-17T16:20:27+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de '10K Fundació Caixa Ontinyent': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-10-17T15:30:00+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de 'XXV CP Villa de Honrubia': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-10-17T15:29:46+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Resultados de 'XVIII Bilbao Night Half Marathon & 10K' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7236025"
   }
  ],
- "updated": "2026-10-18T11:26:24+02:00"
+ "updated": "2026-10-18T11:28:36+02:00"
 }
