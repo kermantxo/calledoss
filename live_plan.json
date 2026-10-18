@@ -1,6 +1,6 @@
 {
- "date": "2026-10-17",
- "generated": "2026-10-17T22:00:24+02:00",
+ "date": "2026-10-18",
+ "generated": "2026-10-18T09:59:23+02:00",
  "active_day": true,
  "windows": [
   {
@@ -8,11 +8,11 @@
    "name": "Cto de España Pruebas Combinadas, Pentatlon Lanzamientos, 10.000 y Milla Master",
    "place": "Palafrugell",
    "source": "RFEA",
-   "start": "2026-10-17T07:45:00+02:00",
-   "end": "2026-10-17T22:30:00+02:00",
-   "first": "08:45",
-   "last": "20:30",
-   "schedule_known": true,
+   "start": "2026-10-18T07:00:00+02:00",
+   "end": "2026-10-18T23:00:00+02:00",
+   "first": null,
+   "last": null,
+   "schedule_known": false,
    "poll": true,
    "intl": false,
    "links": {
@@ -21,14 +21,96 @@
    }
   },
   {
+   "id": "wa-7235591",
+   "name": "Bank of China Beijing Marathon",
+   "place": "Beijing (CHN)",
+   "source": "World Athletics",
+   "start": "2026-10-18T07:00:00+02:00",
+   "end": "2026-10-18T23:00:00+02:00",
+   "first": null,
+   "last": null,
+   "schedule_known": false,
+   "poll": true,
+   "intl": true,
+   "links": {
+    "info": "https://worldathletics.org/competition/calendar-results/results/7235591"
+   }
+  },
+  {
+   "id": "wa-7235593",
+   "name": "NLB Ljubljana Marathon",
+   "place": "Ljubljana (SLO)",
+   "source": "World Athletics",
+   "start": "2026-10-18T07:00:00+02:00",
+   "end": "2026-10-18T23:00:00+02:00",
+   "first": null,
+   "last": null,
+   "schedule_known": false,
+   "poll": true,
+   "intl": true,
+   "links": {
+    "info": "https://worldathletics.org/competition/calendar-results/results/7235593"
+   }
+  },
+  {
+   "id": "wa-7235581",
+   "name": "TCS Amsterdam Marathon",
+   "place": "Amsterdam (NED)",
+   "source": "World Athletics",
+   "start": "2026-10-18T07:00:00+02:00",
+   "end": "2026-10-18T23:00:00+02:00",
+   "first": null,
+   "last": null,
+   "schedule_known": false,
+   "poll": true,
+   "intl": true,
+   "links": {
+    "info": "https://worldathletics.org/competition/calendar-results/results/7235581"
+   }
+  },
+  {
+   "id": "wa-7235592",
+   "name": "Yellow River Estuary Dongying Marathon",
+   "place": "Dongying (CHN)",
+   "source": "World Athletics",
+   "start": "2026-10-18T07:00:00+02:00",
+   "end": "2026-10-18T23:00:00+02:00",
+   "first": null,
+   "last": null,
+   "schedule_known": false,
+   "poll": true,
+   "intl": true,
+   "links": {
+    "info": "https://worldathletics.org/competition/calendar-results/results/7235592"
+   }
+  },
+  {
+   "id": "rfea-2026-10-18-72o-cross-internacional-zornotza",
+   "name": "72º Cross Internacional Zornotza",
+   "place": "Amorebieta-etxano",
+   "source": "RFEA",
+   "start": "2026-10-18T08:40:00+02:00",
+   "end": "2026-10-18T15:00:00+02:00",
+   "first": "09:40",
+   "last": "13:00",
+   "schedule_known": true,
+   "poll": true,
+   "intl": false,
+   "links": {
+    "info": "https://atletismorfea.es/calendario/campeonato/72o-cross-internacional-zornotza",
+    "adoc": "https://www.adocasociacion.es/Organizacion/2/Zornotza-Amorebieta",
+    "resultados": "https://cdzornotza.eus/sailkapenak"
+   }
+  },
+  {
    "id": "rfea-2026-10-17-campeonato-de-espana-sub-14-por-equipos-2",
    "name": "Campeonato de España sub-14 por Equipos",
    "place": "Vigo",
    "source": "RFEA",
-   "start": "2026-10-17T15:00:00+02:00",
-   "end": "2026-10-17T21:27:00+02:00",
-   "first": "16:00",
-   "last": "19:27",
+   "start": "2026-10-18T09:00:00+02:00",
+   "end": "2026-10-18T15:27:00+02:00",
+   "first": "10:00",
+   "last": "13:27",
    "schedule_known": true,
    "poll": true,
    "intl": false,
@@ -40,105 +122,54 @@
    }
   },
   {
-   "id": "cronomancha-ev771",
-   "name": "XXV CP Villa de Honrubia",
-   "place": "",
-   "source": "Cronomancha",
-   "start": "2026-10-17T15:00:00+02:00",
-   "end": "2026-10-17T22:00:00+02:00",
-   "first": "16:00",
-   "last": null,
-   "schedule_known": true,
-   "poll": true,
-   "intl": false,
-   "links": {
-    "info": "https://timingsys.com/event/771",
-    "inscritos": "https://timingsys.com/event/771/participants",
-    "resultados": "https://timingsys.com/resultdata/771"
-   }
-  },
-  {
-   "id": "rfea-2026-10-17-milla-internacional-del-cantabrico",
-   "name": "Milla internacional del Cantábrico",
-   "place": "Viveiro",
+   "id": "rfea-2026-10-18-xli-cross-del-aceite",
+   "name": "XLI Cross del Aceite",
+   "place": "Torredonjimeno (jaén)",
    "source": "RFEA",
-   "start": "2026-10-17T16:00:00+02:00",
-   "end": "2026-10-17T23:00:00+02:00",
-   "first": "17:00",
-   "last": null,
-   "schedule_known": true,
-   "poll": true,
-   "intl": false,
-   "links": {
-    "info": "https://atletismorfea.es/calendario/campeonato/milla-internacional-del-cantabrico",
-    "resultados": "https://mic.gal/es/web/resultado/evento-3357"
-   }
-  },
-  {
-   "id": "rfea-2026-10-17-xviii-bilbao-night-half-marathon-10k",
-   "name": "XVIII Bilbao Night Half Marathon & 10K",
-   "place": "Bilbao",
-   "source": "RFEA",
-   "start": "2026-10-17T18:00:00+02:00",
-   "end": "2026-10-18T01:00:00+02:00",
-   "first": "19:00",
-   "last": null,
-   "schedule_known": true,
-   "poll": true,
-   "intl": false,
-   "links": {
-    "info": "https://atletismorfea.es/calendario/campeonato/xviii-bilbao-night-half-marathon-10k",
-    "web": "https://info@bilbaonightrun.com",
-    "resultados": "https://www.kronoak.com/live/2026/Bilbao%20Night%20Running%20Fest/index.html"
-   }
-  },
-  {
-   "id": "rfea-2026-10-17-vi-desafio-internacional-ecocamino-50k",
-   "name": "VI Desafío Internacional Ecocamiño 50K",
-   "place": "La Coruña",
-   "source": "RFEA",
-   "start": "2026-10-17T07:00:00+02:00",
-   "end": "2026-10-18T02:00:00+02:00",
+   "start": "2026-10-18T07:00:00+02:00",
+   "end": "2026-10-18T23:00:00+02:00",
    "first": null,
    "last": null,
    "schedule_known": false,
    "poll": false,
    "intl": false,
    "links": {
-    "info": "https://atletismorfea.es/calendario/campeonato/vi-desafio-internacional-ecocamino-50k"
+    "info": "https://atletismorfea.es/calendario/campeonato/xli-cross-del-aceite",
+    "adoc": "https://www.adocasociacion.es/Organizacion/18/Torredonjimeno"
    }
   },
   {
-   "id": "rfea-2026-10-17-10k-fundacio-caixa-ontinyent",
-   "name": "10K Fundació Caixa Ontinyent",
-   "place": "Onteniente",
+   "id": "rfea-2026-10-18-xxx-quijote-maraton-maraton-popular-adad",
+   "name": "XXX Quijote Maraton. Maraton Popular ADAD",
+   "place": "Ciudad Real",
    "source": "RFEA",
-   "start": "2026-10-17T16:30:00+02:00",
-   "end": "2026-10-17T23:30:00+02:00",
-   "first": "17:30",
+   "start": "2026-10-18T07:00:00+02:00",
+   "end": "2026-10-18T23:00:00+02:00",
+   "first": null,
    "last": null,
-   "schedule_known": true,
+   "schedule_known": false,
    "poll": false,
    "intl": false,
    "links": {
-    "info": "https://atletismorfea.es/calendario/campeonato/10k-fundacio-caixa-ontinyent"
+    "info": "https://atletismorfea.es/calendario/campeonato/xxx-quijote-maraton-maraton-popular-adad",
+    "web": "https://www.quijotemaraton.com"
    }
   },
   {
-   "id": "avaibook-cross-trail-desafio-empedrada-portillo-2",
-   "name": "Cross-trail Desafio Empedrada Portillo",
+   "id": "avaibook-xii-cross-tudela-de-duero-memorial-daniel-gonzalez-de-lucas",
+   "name": "XII Cross Tudela de Duero Memorial Daniel González de Lucas",
    "place": "",
    "source": "AvaiBook (Runvasport)",
-   "start": "2026-10-17T16:30:00+02:00",
-   "end": "2026-10-18T02:30:00+02:00",
-   "first": "17:30",
+   "start": "2026-10-18T09:00:00+02:00",
+   "end": "2026-10-18T16:00:00+02:00",
+   "first": "10:00",
    "last": null,
    "schedule_known": true,
    "poll": false,
    "intl": false,
    "links": {
-    "inscritos": "https://inscripciones.runvasport.es/inscripcion/cross-trail-desafio-empedrada-portillo-2/",
-    "resultados": "https://www.avaibooksports.com/inscripcion/cross-trail-desafio-empedrada-portillo-2/clasificaciones/"
+    "inscritos": "https://inscripciones.runvasport.es/inscripcion/xii-cross-tudela-de-duero-memorial-daniel-gonzalez-de-lucas/",
+    "resultados": "https://www.avaibooksports.com/inscripcion/xii-cross-tudela-de-duero-memorial-daniel-gonzalez-de-lucas/clasificaciones/"
    }
   }
  ]
