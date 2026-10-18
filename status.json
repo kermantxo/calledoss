@@ -143,6 +143,18 @@
  },
  "log": [
   {
+   "at": "2026-10-18T15:01:55+02:00",
+   "level": "warning",
+   "source": "live",
+   "msg": "Cierre de '72º Cross Internacional Zornotza': expected string or bytes-like object, got 'list'"
+  },
+  {
+   "at": "2026-10-18T15:01:22+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de '72º Cross Internacional Zornotza' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7244939"
+  },
+  {
    "at": "2026-10-18T14:28:44+02:00",
    "level": "warning",
    "source": "results",
@@ -609,19 +621,7 @@
    "level": "warning",
    "source": "live",
    "msg": "Cierre de 'Milla internacional del Cantábrico': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-10-17T22:26:45+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de 'XVIII Bilbao Night Half Marathon & 10K': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-10-17T22:26:35+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Resultados de 'XVIII Bilbao Night Half Marathon & 10K' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7236025"
   }
  ],
- "updated": "2026-10-18T14:59:39+02:00"
+ "updated": "2026-10-18T15:02:35+02:00"
 }
