@@ -6,12 +6,12 @@
  },
  "rfea-2026-10-10-15-mba-media-maraton-gijon": {
   "since": "2026-10-10",
-  "tries": 43,
+  "tries": 44,
   "last": "2026-10-19"
  },
  "rfea-2026-10-11-campeonato-del-mundo-master-de-maraton": {
   "since": "2026-10-11",
-  "tries": 42,
+  "tries": 43,
   "last": "2026-10-19"
  },
  "wa-7244109": {
@@ -21,7 +21,7 @@
  },
  "rfea-2026-10-17-10k-fundacio-caixa-ontinyent": {
   "since": "2026-10-17",
-  "tries": 31,
+  "tries": 32,
   "last": "2026-10-19"
  },
  "avaibook-cross-trail-desafio-empedrada-portillo-2": {
@@ -31,32 +31,32 @@
  },
  "rfea-2026-10-17-milla-internacional-del-cantabrico": {
   "since": "2026-10-17",
-  "tries": 31,
+  "tries": 32,
   "last": "2026-10-19"
  },
  "rfea-2026-10-17-vi-desafio-internacional-ecocamino-50k": {
   "since": "2026-10-17",
-  "tries": 31,
+  "tries": 32,
   "last": "2026-10-19"
  },
  "rfea-2026-10-17-xviii-bilbao-night-half-marathon-10k": {
   "since": "2026-10-17",
-  "tries": 31,
+  "tries": 32,
   "last": "2026-10-19"
  },
  "wa-7235591": {
   "since": "2026-10-18",
-  "tries": 17,
+  "tries": 18,
   "last": "2026-10-19"
  },
  "rfea-2026-10-18-xli-cross-del-aceite": {
   "since": "2026-10-18",
-  "tries": 17,
+  "tries": 18,
   "last": "2026-10-19"
  },
  "wa-7235592": {
   "since": "2026-10-18",
-  "tries": 17,
+  "tries": 18,
   "last": "2026-10-19"
  }
 }
