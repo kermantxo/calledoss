@@ -213,4 +213,5 @@
 - 2026-10-21: Añadida a mano al calendario la XIX CaixaBank 10K Zaragoza (25/10, 9:30), con enlace a su web oficial.
 - 2026-10-21: Previa del 10K Zaragoza: Abderrahmane Aferdi y Eduardo Menacho, los dos atletas de élite que anuncia la organización en su web e Instagram. En `pipeline/extra_entries.json`.
 - 2026-10-21: 10K Zaragoza: Raquel de Francisco e Isabel Linares en la élite de la previa (dato confirmado por Kerman, sin enlace).
+- 2026-10-21: Carreras de Runvasport con varias distancias el mismo día (p. ej. Burgos Tras las Huellas del Cid: 5K, 10K y 21K) salen como una sola cita con todas sus distancias en el nombre y la hora de la primera salida, y los resultados se leen de todas las distancias (cada clasificación con su distancia delante).
 - Para cambiar el pódcast de la portada: el código del programa está en `SHOW` de `pipeline/podcast.py`, en `PODCAST_SHOW` al final de `script.js` y en el enlace «Abrir en Spotify» de la página principal.

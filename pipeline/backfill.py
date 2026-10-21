@@ -767,8 +767,15 @@ class Finder:
 
         rv = next((v for v in links.values() if v and ("avaibooksports.com/inscripcion" in v or "runvasport.es/inscripcion" in v)), None)
         if rv:
-            slug = re.search(r"/inscripcion/([^/]+)", rv).group(1)
-            pods = self.runvasport(it, "https://www.avaibooksports.com/inscripcion/%s/clasificaciones/" % slug, tried)
+            # varias distancias juntas en una ficha (5K, 10K, 21K): las clasificaciones de todas
+            dists = it.get("distancias") or [{"dist": "", "slug": re.search(r"/inscripcion/([^/]+)", rv).group(1)}]
+            pods = []
+            for d in dists:
+                got = self.runvasport(it, "https://www.avaibooksports.com/inscripcion/%s/clasificaciones/" % d["slug"], tried) or []
+                if d["dist"]:  # que no se mezclen las clasificaciones de distancias distintas con el mismo título
+                    got = [dict(p, name="%s · %s" % (d["dist"], p["name"])) if d["dist"].lower() not in norm(p["name"]).replace(" ", "")
+                           else p for p in got]
+                pods += got
             if pods:
                 yield pods, "Runvasport (PDF)", links["resultados"], tried
         return

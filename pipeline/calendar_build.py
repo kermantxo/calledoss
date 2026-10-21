@@ -46,6 +46,35 @@ def _overlaps(a, b):
 
 PRIORITY = ["Manual", "RFEA", "World Athletics", "Cronomancha", "AvaiBook (Runvasport)"]
 
+# "5 Km Burgos Tras las Huellas del Cid", "21K Burgos...": en Runvasport cada distancia es un evento aparte
+_DIST = re.compile(r"^\s*(\d+(?:[.,]\d+)?)\s*(?:k|km|kms)\b\.?\s+", re.I)
+
+
+def _distancia(it):
+    """{'dist', 'slug', 'time'} si es una distancia suelta de Runvasport ("10 Km Burgos..."), si no None."""
+    m = _DIST.match(it.get("name") or "")
+    slug = next((re.search(r"/inscripcion/([^/]+)", v).group(1) for v in (it.get("links") or {}).values()
+                 if v and re.search(r"(avaibooksports\.com|runvasport\.es)/inscripcion/", v)), None)
+    if not m or not slug or "Runvasport" not in (it.get("source") or ""):
+        return None
+    return {"dist": m.group(1).replace(",", ".") + "K", "slug": slug, "time": it.get("time")}
+
+
+def _juntar_distancias(it):
+    """Una cita con varias distancias (5K, 10K, 21K) en una sola ficha: nombre sin la distancia y
+    la lista de distancias, cada una con su enlace de Runvasport (inscritos y clasificaciones)."""
+    ds = it.get("distancias") or []
+    if len({d["dist"] for d in ds}) < 2:
+        it.pop("distancias", None)
+        return
+    ds.sort(key=lambda d: float(d["dist"][:-1]))
+    if not _DIST.match(it["name"]):  # ya junta (otra pasada) o el nombre es de otra fuente (RFEA...)
+        return
+    it["name"] ="%s (%s)" % (_DIST.sub("", it["name"]).strip(), ", ".join(d["dist"] for d in ds[:-1]) + " y " + ds[-1]["dist"])
+    times = [d["time"] for d in ds if d.get("time")]
+    if times:
+        it["time"] = min(times, key=lambda t: tuple(int(x) for x in t.split(":")))
+
 
 def merge(lists):
     """Une listas de competiciones de varias fuentes. Si dos entradas son la misma cita
@@ -60,11 +89,20 @@ def merge(lists):
                 if _overlaps(cur, it) and similar(cur["name"], it["name"]):
                     match = cur
                     break
+            d = _distancia(it)
             if not match:
                 it = dict(it)
                 it["sources"] = [it["source"]]
+                if d:
+                    it["distancias"] = [d]
                 items.append(it)
                 continue
+            if d and match.get("distancias") is not None:
+                igual = next((x for x in match["distancias"] if x["slug"] == d["slug"]), None)
+                if igual:
+                    igual["time"] = igual.get("time") or d["time"]
+                else:
+                    match["distancias"].append(d)
             # fusiona
             if it["source"] not in match["sources"]:
                 match["sources"].append(it["source"])
@@ -79,6 +117,8 @@ def merge(lists):
             if PRIORITY.index(it["source"]) < PRIORITY.index(match["source"]) if it["source"] in PRIORITY and match["source"] in PRIORITY else False:
                 for k in ("name", "source", "cat", "type"):
                     match[k] = it[k]
+    for it in items:
+        _juntar_distancias(it)
     items.sort(key=lambda x: (x["date"], x["name"]))
     return items
 
