@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21T07:13:53+02:00",
+ "generated": "2026-10-21T16:59:19+02:00",
  "season": "2026",
  "source": "https://atletismorfea.es/ranking",
  "seasons": {
@@ -3048,7 +3048,7 @@
        "rank": "2"
       },
       {
-       "mark": "9:48.13",
+       "mark": "9:35.78",
        "wind": "",
        "name": "Nerea Almenara Hernández",
        "club": "CC Tenerife Santa Cruz",
@@ -3067,7 +3067,7 @@
        "fed": "CNR",
        "city": "Santa Cruz de Tenerife",
        "date": "17/10/2026",
-       "rank": "="
+       "rank": "4"
       }
      ]
     },
@@ -4698,6 +4698,17 @@
        "rank": "3"
       },
       {
+       "mark": "6:18.15",
+       "wind": "",
+       "name": "Miguel Lazaro Montane",
+       "club": "A. A. Moratalaz",
+       "born": "2007",
+       "fed": "MAD",
+       "city": "Madrid-VLL",
+       "date": "10/10/2026",
+       "rank": "4"
+      },
+      {
        "mark": "6:27.05",
        "wind": "",
        "name": "Dario Lopez Cortes",
@@ -4706,7 +4717,18 @@
        "fed": "AND",
        "city": "Motril",
        "date": "11/04/2026",
-       "rank": "4"
+       "rank": "5"
+      },
+      {
+       "mark": "6:31.61",
+       "wind": "",
+       "name": "Pablo Moro Devin",
+       "club": "Union Atletica Coslada",
+       "born": "2010",
+       "fed": "MAD",
+       "city": "Madrid-VLL",
+       "date": "10/10/2026",
+       "rank": "6"
       },
       {
        "mark": "6:33.16",
@@ -4717,7 +4739,18 @@
        "fed": "AND",
        "city": "Motril",
        "date": "11/04/2026",
-       "rank": "5"
+       "rank": "7"
+      },
+      {
+       "mark": "6:37.89",
+       "wind": "",
+       "name": "Fernando Martin Culsan",
+       "club": "Atletismo Alcorcon",
+       "born": "2008",
+       "fed": "MAD",
+       "city": "Madrid-VLL",
+       "date": "10/10/2026",
+       "rank": "8"
       },
       {
        "mark": "6:42.47",
@@ -4728,7 +4761,7 @@
        "fed": "CAT",
        "city": "Lleida",
        "date": "18/04/2026",
-       "rank": "6"
+       "rank": "9"
       },
       {
        "mark": "6:42.55",
@@ -4739,39 +4772,6 @@
        "fed": "CAT",
        "city": "Lleida",
        "date": "12/07/2026",
-       "rank": "7"
-      },
-      {
-       "mark": "6:47.75",
-       "wind": "",
-       "name": "Victor Machado Bejarano",
-       "club": "Cordoba Patrimonio C.A.C.",
-       "born": "2007",
-       "fed": "AND",
-       "city": "Motril",
-       "date": "11/04/2026",
-       "rank": "8"
-      },
-      {
-       "mark": "6:48.89",
-       "wind": "",
-       "name": "Alexandro Rodriguez Perez",
-       "club": "DELSUR Coop La Palma",
-       "born": "2008",
-       "fed": "AND",
-       "city": "Motril",
-       "date": "11/04/2026",
-       "rank": "9"
-      },
-      {
-       "mark": "7:01.67",
-       "wind": "",
-       "name": "Gonzalo Garcia Canales",
-       "club": "Trops-Cueva de Nerja",
-       "born": "2010",
-       "fed": "AND",
-       "city": "Motril",
-       "date": "11/04/2026",
        "rank": "10"
       }
      ]
@@ -5214,23 +5214,23 @@
       },
       {
        "mark": "7.78",
-       "wind": "2.0",
-       "name": "Anthony Yunier Perez Valdes",
-       "club": "Facsa - Playas de Castellón",
-       "born": "2008",
-       "fed": "CVA",
-       "city": "Sagunto",
-       "date": "20/06/2026",
-       "rank": "9"
-      },
-      {
-       "mark": "7.78",
        "wind": "1.7",
        "name": "Daniel Amez Villayandre",
        "club": "Univ Leon Sprint Atletismo",
        "born": "2000",
        "fed": "CYL",
        "city": "León-ULE",
+       "date": "20/06/2026",
+       "rank": "9"
+      },
+      {
+       "mark": "7.78",
+       "wind": "2.0",
+       "name": "Anthony Yunier Perez Valdes",
+       "club": "Facsa - Playas de Castellón",
+       "born": "2008",
+       "fed": "CVA",
+       "city": "Sagunto",
        "date": "20/06/2026",
        "rank": "="
       }
@@ -9623,22 +9623,22 @@
       {
        "mark": "14.90",
        "wind": "",
-       "name": "Unai Loureiro Arrojo",
-       "club": "Riazor Coruña",
-       "born": "2006",
-       "fed": "GAL",
-       "city": "Ourense",
+       "name": "Raul Martin Galve",
+       "club": "At. Intec-Zoiti",
+       "born": "2004",
+       "fed": "ARA",
+       "city": "Zaragoza",
        "date": "10/01/2026",
        "rank": "4"
       },
       {
        "mark": "14.90",
        "wind": "",
-       "name": "Raul Martin Galve",
-       "club": "At. Intec-Zoiti",
-       "born": "2004",
-       "fed": "ARA",
-       "city": "Zaragoza",
+       "name": "Unai Loureiro Arrojo",
+       "club": "Riazor Coruña",
+       "born": "2006",
+       "fed": "GAL",
+       "city": "Ourense",
        "date": "10/01/2026",
        "rank": "="
       },
@@ -11499,44 +11499,6 @@
      ]
     },
     {
-     "event": "35 km Marcha",
-     "rows": [
-      {
-       "mark": "2:45:35",
-       "wind": "",
-       "name": "Raquel González Campos",
-       "club": "INDEPENDIENTE",
-       "born": "1989",
-       "fed": "CAT",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "1"
-      },
-      {
-       "mark": "2:53:45",
-       "wind": "",
-       "name": "Lucia Redondo Ardid",
-       "club": "Univ Leon Sprint Atletismo",
-       "born": "2003",
-       "fed": "MAD",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "2"
-      },
-      {
-       "mark": "3:04:24",
-       "wind": "",
-       "name": "Laura Monje Martinez",
-       "club": "CA Granollers",
-       "born": "2002",
-       "fed": "CAT",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "3"
-      }
-     ]
-    },
-    {
      "event": "Maratón Marcha",
      "rows": [
       {
@@ -11626,6 +11588,44 @@
        "city": "Cieza",
        "date": "15/02/2026",
        "rank": "8"
+      }
+     ]
+    },
+    {
+     "event": "35 km Marcha",
+     "rows": [
+      {
+       "mark": "2:45:35",
+       "wind": "",
+       "name": "Raquel González Campos",
+       "club": "INDEPENDIENTE",
+       "born": "1989",
+       "fed": "CAT",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "1"
+      },
+      {
+       "mark": "2:53:45",
+       "wind": "",
+       "name": "Lucia Redondo Ardid",
+       "club": "Univ Leon Sprint Atletismo",
+       "born": "2003",
+       "fed": "MAD",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "2"
+      },
+      {
+       "mark": "3:04:24",
+       "wind": "",
+       "name": "Laura Monje Martinez",
+       "club": "CA Granollers",
+       "born": "2002",
+       "fed": "CAT",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "3"
       }
      ]
     }
@@ -11774,10 +11774,10 @@
       {
        "mark": "13:39",
        "wind": "",
-       "name": "Said Mechaal Mechaal",
+       "name": "Santiago Catrofe Cacharron",
        "club": "ADA Calvià - Vistasol",
-       "born": "1998",
-       "fed": "BAL",
+       "born": "1999",
+       "fed": "CAT",
        "city": "Praga - (CZE)",
        "date": "05/09/2026",
        "rank": "3"
@@ -11785,10 +11785,10 @@
       {
        "mark": "13:39",
        "wind": "",
-       "name": "Santiago Catrofe Cacharron",
+       "name": "Said Mechaal Mechaal",
        "club": "ADA Calvià - Vistasol",
-       "born": "1999",
-       "fed": "CAT",
+       "born": "1998",
+       "fed": "BAL",
        "city": "Praga - (CZE)",
        "date": "05/09/2026",
        "rank": "="
