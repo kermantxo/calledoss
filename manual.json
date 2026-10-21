@@ -21,6 +21,17 @@
    "url": "https://www.behobia-sansebastian.com/es/carrera/ficha-carrera",
    "type": "Ruta",
    "added": "2026-10-02T21:57:37Z"
+  },
+  {
+   "id": "manual-2026-10-25-caixabank-10k-zaragoza",
+   "name": "XIX CaixaBank 10K Zaragoza",
+   "date": "2026-10-25",
+   "place": "Zaragoza",
+   "time": "09:30",
+   "time_end": null,
+   "url": "https://10kzaragoza.com/",
+   "type": "Ruta",
+   "added": "2026-10-21T12:02:22Z"
   }
  ]
 }
