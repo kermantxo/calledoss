@@ -2281,5 +2281,740 @@
     "note": "Anunciada por la organización (Instagram de la carrera): Atleta local sub-23; campeona de Cantabria de cross y de 800 m sub-23"
    }
   ]
+ },
+ "rfea-2026-10-25-medio-maraton-valencia-trinidad-alfonso-zurich-1": {
+  "_fuente": "Entry list oficial de la élite (Valencia Ciudad del Running, 16/10/2026): https://www.valenciaciudaddelrunning.com/listado-atletas-entry-list-del-medio-maraton-valencia-2026/ — se ponen los internacionales de cabeza (dorsales 1-21 y 201-223) y todos los españoles, con su dorsal y la marca (PB) tal cual la da la organización; sin liebres. Lo pasó Kerman el 21/10/2026.",
+  "fuente": "https://www.valenciaciudaddelrunning.com/listado-atletas-entry-list-del-medio-maraton-valencia-2026/",
+  "max_por_sexo": 55,
+  "atletas": [
+   {
+    "name": "Rodrigue Kwizera",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 1,
+    "note": "Marca personal en media maratón (lista oficial): 58:16"
+   },
+   {
+    "name": "Jemal Yimer",
+    "sex": "M",
+    "nat": "ETH",
+    "event": "Medio maratón",
+    "bib": 2,
+    "note": "Marca personal en media maratón (lista oficial): 58:33"
+   },
+   {
+    "name": "Tadese Worku",
+    "sex": "M",
+    "nat": "ETH",
+    "event": "Medio maratón",
+    "bib": 3,
+    "note": "Marca personal en media maratón (lista oficial): 58:47"
+   },
+   {
+    "name": "Kenenisa Bekele",
+    "sex": "M",
+    "nat": "ETH",
+    "event": "Medio maratón",
+    "bib": 4,
+    "note": "Marca personal en media maratón (lista oficial): 1h00:22"
+   },
+   {
+    "name": "Owen Kapkama",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Medio maratón",
+    "bib": 5,
+    "note": "Marca personal en media maratón (lista oficial): 58:58"
+   },
+   {
+    "name": "Daniel Ebenyo",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Medio maratón",
+    "bib": 6,
+    "note": "Marca personal en media maratón (lista oficial): 59:04"
+   },
+   {
+    "name": "Alex Matata",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Medio maratón",
+    "bib": 8,
+    "note": "Marca personal en media maratón (lista oficial): 59:11"
+   },
+   {
+    "name": "Khairi Bejiga",
+    "sex": "M",
+    "nat": "ETH",
+    "event": "Medio maratón",
+    "bib": 10,
+    "note": "Marca personal en la lista oficial: 26.51"
+   },
+   {
+    "name": "Maxime Chaumeton",
+    "sex": "M",
+    "nat": "RSA",
+    "event": "Medio maratón",
+    "bib": 11,
+    "note": "Marca personal en la lista oficial: 26.55"
+   },
+   {
+    "name": "James Kipkogei",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Medio maratón",
+    "bib": 13,
+    "note": "Marca personal en media maratón (lista oficial): 59:31"
+   },
+   {
+    "name": "Emmanuel Roudolff",
+    "sex": "M",
+    "nat": "FRA",
+    "event": "Medio maratón",
+    "bib": 14,
+    "note": "Marca personal en media maratón (lista oficial): 59:37"
+   },
+   {
+    "name": "Samuel Barata",
+    "sex": "M",
+    "nat": "POR",
+    "event": "Medio maratón",
+    "bib": 15,
+    "note": "Marca personal en media maratón (lista oficial): 59:40"
+   },
+   {
+    "name": "Thierry Ndikumwenayo",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 16,
+    "note": "Marca personal en media maratón (lista oficial): 59:42"
+   },
+   {
+    "name": "Moses Cheruiyot",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Medio maratón",
+    "bib": 18,
+    "note": "Marca personal en media maratón (lista oficial): 1h00:00"
+   },
+   {
+    "name": "Tomoya Ogikubo",
+    "sex": "M",
+    "nat": "JAP",
+    "event": "Medio maratón",
+    "bib": 19,
+    "note": "Marca personal en media maratón (lista oficial): 1h00:22"
+   },
+   {
+    "name": "Mohamed Ismail",
+    "sex": "M",
+    "nat": "DJI",
+    "event": "Medio maratón",
+    "bib": 20,
+    "note": "Marca personal en media maratón (lista oficial): 59:45"
+   },
+   {
+    "name": "Pasquale Selvarolo",
+    "sex": "M",
+    "nat": "ITA",
+    "event": "Medio maratón",
+    "bib": 21,
+    "note": "Marca personal en media maratón (lista oficial): 1h00:32"
+   },
+   {
+    "name": "Yago Rojo",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 33,
+    "note": "Marca personal en media maratón (lista oficial): 1h01:57"
+   },
+   {
+    "name": "Miguel Baidal Marco",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 40,
+    "note": "Marca personal en la lista oficial: 28:17.99"
+   },
+   {
+    "name": "Aaron las Heras",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 41,
+    "note": "Marca personal en la lista oficial: 28:19.43"
+   },
+   {
+    "name": "Roger Suria",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 45,
+    "note": "Marca personal en la lista oficial: 28.52"
+   },
+   {
+    "name": "Adel Mechaal",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 57,
+    "note": "Marca personal en media maratón (lista oficial): 1h02:30"
+   },
+   {
+    "name": "Jesús Olmos",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 77,
+    "note": "Marca personal en media maratón (lista oficial): 1h03:21"
+   },
+   {
+    "name": "Pablo Alba Sanz",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 78,
+    "note": "Marca personal en media maratón (lista oficial): 1h03:21"
+   },
+   {
+    "name": "Cristian Martinez",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 83,
+    "note": "Marca personal en media maratón (lista oficial): 1h03:30"
+   },
+   {
+    "name": "Artur Bossy",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 88,
+    "note": "Marca personal en media maratón (lista oficial): 1h03:39"
+   },
+   {
+    "name": "Roberto Alaiz",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 92,
+    "note": "Marca personal en media maratón (lista oficial): 1h03:55"
+   },
+   {
+    "name": "Xavier Badia",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 102,
+    "note": "Marca personal en media maratón (lista oficial): 1h04:20"
+   },
+   {
+    "name": "Adriá Ceballos",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 104,
+    "note": "Marca personal en media maratón (lista oficial): 1h04:27"
+   },
+   {
+    "name": "Ivan Manceñido",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 124,
+    "note": "Marca personal en la lista oficial: 29.23"
+   },
+   {
+    "name": "Esteban Patiño",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 125,
+    "note": "Marca personal en la lista oficial: 29.23"
+   },
+   {
+    "name": "Javier Morales",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 126,
+    "note": "Marca personal en la lista oficial: 29.25"
+   },
+   {
+    "name": "Alejandro González",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 127,
+    "note": "Marca personal en la lista oficial: 29.25"
+   },
+   {
+    "name": "Amadeo Abal",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 128,
+    "note": "Marca personal en la lista oficial: 29.26"
+   },
+   {
+    "name": "Alejandro Pérez",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 129,
+    "note": "Marca personal en la lista oficial: 29.27"
+   },
+   {
+    "name": "Roger Sans",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 133,
+    "note": "Marca personal en media maratón (lista oficial): 1h05:05"
+   },
+   {
+    "name": "Francisco Serrano",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 139,
+    "note": "Marca personal en media maratón (lista oficial): 1h05:13"
+   },
+   {
+    "name": "Miguel Benítez",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 150,
+    "note": "Marca personal en media maratón (lista oficial): 1h05:38"
+   },
+   {
+    "name": "Fernando González",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 155,
+    "note": "Marca personal en media maratón (lista oficial): 1h05:45"
+   },
+   {
+    "name": "Ruben Monreal",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 156,
+    "note": "Marca personal en media maratón (lista oficial): 1h05:45"
+   },
+   {
+    "name": "Josep Gómez Sarriá",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 159,
+    "note": "Marca personal en media maratón (lista oficial): 1h05:51"
+   },
+   {
+    "name": "Genís Fernández",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 166,
+    "note": "Marca personal en la lista oficial: 29.41"
+   },
+   {
+    "name": "Marc Guardia",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 167,
+    "note": "Marca personal en la lista oficial: 29.42"
+   },
+   {
+    "name": "Alejandro Sanvalero",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 168,
+    "note": "Marca personal en la lista oficial: 29.43"
+   },
+   {
+    "name": "Rubén Sánchez",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 171,
+    "note": "Marca personal en la lista oficial: 29.47"
+   },
+   {
+    "name": "Jorge Ruiz",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 172,
+    "note": "Marca personal en la lista oficial: 29.47"
+   },
+   {
+    "name": "Joan Hidalgo",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 173,
+    "note": "Marca personal en la lista oficial: 29.52"
+   },
+   {
+    "name": "Ismael Allagui",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 175,
+    "note": "Marca personal en la lista oficial: 29.59"
+   },
+   {
+    "name": "Iván Hernández Illán",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 177,
+    "note": "Marca personal en la lista oficial: 2h18:43 (maratón)"
+   },
+   {
+    "name": "Alexander Oiarbide",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 178,
+    "note": "Marca personal en la lista oficial: 2h18:47 (maratón)"
+   },
+   {
+    "name": "Miguel Risco",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 180,
+    "note": "Marca personal en la lista oficial: 2h19:59 (maratón)"
+   },
+   {
+    "name": "Gonzalo Parra Maestre",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 181,
+    "note": "Marca personal en la lista oficial: 8:26.66 (3.000 m obstáculos)"
+   },
+   {
+    "name": "Marta Maza",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 189,
+    "note": "Marca personal en la lista oficial: 33.41"
+   },
+   {
+    "name": "Antia Castro Perez",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 191,
+    "note": "Marca personal en la lista oficial: 33.58"
+   },
+   {
+    "name": "Yalemzerf Yehualaw",
+    "sex": "F",
+    "nat": "ETH",
+    "event": "Medio maratón",
+    "bib": 201,
+    "note": "Marca personal en media maratón (lista oficial): 1h03:51"
+   },
+   {
+    "name": "Tsigie Gebreselama",
+    "sex": "F",
+    "nat": "ETH",
+    "event": "Medio maratón",
+    "bib": 202,
+    "note": "Marca personal en media maratón (lista oficial): 1h04:21"
+   },
+   {
+    "name": "Ftaw Zeray",
+    "sex": "F",
+    "nat": "ETH",
+    "event": "Medio maratón",
+    "bib": 203,
+    "note": "Marca personal en media maratón (lista oficial): 1h05:12"
+   },
+   {
+    "name": "Daisilah Jerono",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Medio maratón",
+    "bib": 204,
+    "note": "Marca personal en media maratón (lista oficial): 1h05:21"
+   },
+   {
+    "name": "Mizan Alem",
+    "sex": "F",
+    "nat": "ETH",
+    "event": "Medio maratón",
+    "bib": 205,
+    "note": "Marca personal en media maratón (lista oficial): 1h05:38"
+   },
+   {
+    "name": "Veronica Loleo",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Medio maratón",
+    "bib": 207,
+    "note": "Marca personal en media maratón (lista oficial): 1h05:46"
+   },
+   {
+    "name": "Faith Cherono",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Medio maratón",
+    "bib": 209,
+    "note": "Marca personal en la lista oficial: 30.06"
+   },
+   {
+    "name": "Jana van Lent",
+    "sex": "F",
+    "nat": "BEL",
+    "event": "Medio maratón",
+    "bib": 210,
+    "note": "Marca personal en la lista oficial: 30.10"
+   },
+   {
+    "name": "Axumawit Embaye",
+    "sex": "F",
+    "nat": "ETH",
+    "event": "Medio maratón",
+    "bib": 211,
+    "note": "Marca personal en la lista oficial: 30.22"
+   },
+   {
+    "name": "Sheila Chepkirui",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Medio maratón",
+    "bib": 212,
+    "note": "Marca personal en media maratón (lista oficial): 1h06:01"
+   },
+   {
+    "name": "Senayet Getachew",
+    "sex": "F",
+    "nat": "ETH",
+    "event": "Medio maratón",
+    "bib": 213,
+    "note": "Marca personal en media maratón (lista oficial): 1h06:05"
+   },
+   {
+    "name": "Miriam Chebet",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Medio maratón",
+    "bib": 214,
+    "note": "Marca personal en media maratón (lista oficial): 1h06:07"
+   },
+   {
+    "name": "Jesca Chelangat",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Medio maratón",
+    "bib": 215,
+    "note": "Marca personal en media maratón (lista oficial): 1h06:13"
+   },
+   {
+    "name": "Caroline Gitonga",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Medio maratón",
+    "bib": 216,
+    "note": "Marca personal en media maratón (lista oficial): 1h06:16"
+   },
+   {
+    "name": "Mercy Chebwogen",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Medio maratón",
+    "bib": 217,
+    "note": "Marca personal en media maratón (lista oficial): 1h06:33"
+   },
+   {
+    "name": "Magdalena Shauri",
+    "sex": "F",
+    "nat": "TAN",
+    "event": "Medio maratón",
+    "bib": 218,
+    "note": "Marca personal en media maratón (lista oficial): 1h06:37"
+   },
+   {
+    "name": "Gladys Kwamboka",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Medio maratón",
+    "bib": 219,
+    "note": "Marca personal en media maratón (lista oficial): 1h06:45"
+   },
+   {
+    "name": "Purity Gitonga",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Medio maratón",
+    "bib": 220,
+    "note": "Marca personal en media maratón (lista oficial): 1h06:50"
+   },
+   {
+    "name": "Samantha Harrisson",
+    "sex": "F",
+    "nat": "GBR",
+    "event": "Medio maratón",
+    "bib": 222,
+    "note": "Marca personal en media maratón (lista oficial): 1h07:10"
+   },
+   {
+    "name": "Diana Wanza",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Medio maratón",
+    "bib": 223,
+    "note": "Marca personal en media maratón (lista oficial): 1h07:31"
+   },
+   {
+    "name": "Carla Gallardo",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 225,
+    "note": "Marca personal en media maratón (lista oficial): 1h08:30"
+   },
+   {
+    "name": "Laura Luengo Caselles",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 235,
+    "note": "Marca personal en media maratón (lista oficial): 1h08:50"
+   },
+   {
+    "name": "Irene Sánchez-Escribano",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 237,
+    "note": "Marca personal en media maratón (lista oficial): 1h09:10"
+   },
+   {
+    "name": "Marta Galimany",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 239,
+    "note": "Marca personal en media maratón (lista oficial): 1h09:22"
+   },
+   {
+    "name": "Meritxell Soler",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 240,
+    "note": "Marca personal en media maratón (lista oficial): 1h09:30"
+   },
+   {
+    "name": "Ester Navarrete",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 243,
+    "note": "Marca personal en media maratón (lista oficial): 1h09:58"
+   },
+   {
+    "name": "Alicia Berzosa Martin",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 250,
+    "note": "Marca personal en media maratón (lista oficial): 1h10:37"
+   },
+   {
+    "name": "Ikram Rharsalla Laktab",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 256,
+    "note": "Marca personal en media maratón (lista oficial): 1h11:05"
+   },
+   {
+    "name": "Andrea Romero Escandell",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 260,
+    "note": "Marca personal en media maratón (lista oficial): 1h11:27"
+   },
+   {
+    "name": "María Ureña",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 265,
+    "note": "Marca personal en media maratón (lista oficial): 1h12:41"
+   },
+   {
+    "name": "Silvia Rey Veiga",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 279,
+    "note": "Marca personal en media maratón (lista oficial): 1h14:04"
+   },
+   {
+    "name": "Laura Domene",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 281,
+    "note": "Marca personal en media maratón (lista oficial): 1h14:16"
+   },
+   {
+    "name": "María Lázaro",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 282,
+    "note": "Marca personal en media maratón (lista oficial): 1h14:54"
+   },
+   {
+    "name": "Beatriz Alvarez Diaz",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 284,
+    "note": "Marca personal en media maratón (lista oficial): 1h15:06"
+   },
+   {
+    "name": "Queral Criado Ocaña",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 286,
+    "note": "Marca personal en media maratón (lista oficial): 1h15:40"
+   },
+   {
+    "name": "Cristina Juan",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 292,
+    "note": "Marca personal en media maratón (lista oficial): 1h17:08"
+   },
+   {
+    "name": "Maria Varo Zubiri",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Medio maratón",
+    "bib": 297,
+    "note": "Marca personal en la lista oficial: 33.06"
+   }
+  ]
  }
 }
