@@ -2062,5 +2062,224 @@
     "note": "Anunciada por la organización (Instagram de la MIC): Olímpica en París 2024, campeona de España de 800 m en pista cubierta (2022) y finalista mundial en Belgrado"
    }
   ]
+ },
+ "rfea-2026-10-25-xlii-cross-nacional-castellano-manchego-villa-de-quintanar-0": {
+  "_fuente": "ADOC (asociación de organizadores del circuito): https://www.adocasociacion.es/Noticia/711/Quintanar-tiene-plantel-de-atletas-para-el-domingo-25 — nombres tal cual los publica (21/10/2026); lo pasó Kerman el 21/10/2026",
+  "fuente": "https://www.adocasociacion.es/Noticia/711/Quintanar-tiene-plantel-de-atletas-para-el-domingo-25",
+  "max_por_sexo": 30,
+  "atletas": [
+   {
+    "name": "Ilias Fifa",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross absoluto (7 km)",
+    "note": "Favorito anunciado por la organización (ADOC): viene de ganar el Cross del Aceite (Torredonjimeno)"
+   },
+   {
+    "name": "Ignacio Fontes",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross absoluto (7 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "David Bascuñana",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross absoluto (7 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Wegene Adisu",
+    "sex": "M",
+    "nat": "ETH",
+    "event": "Cross absoluto (7 km)",
+    "note": "Favorito anunciado por la organización (ADOC): ganador en Quintanar hace dos años (C.A. Unión Guadalajara)"
+   },
+   {
+    "name": "Alberto Casas",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross absoluto (7 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Pablo Serrano",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross absoluto (7 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Alejandro Nogales",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross absoluto (7 km)",
+    "note": "Favorito anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Katerine Tisalema",
+    "sex": "F",
+    "nat": "ECU",
+    "event": "Cross absoluto (7 km)",
+    "note": "Favorita anunciada por la organización (ADOC): viene de ganar el Cross del Aceite (Torredonjimeno)"
+   },
+   {
+    "name": "María Forero",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross absoluto (7 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   },
+   {
+    "name": "Rosalía Tárraga",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross absoluto (7 km)",
+    "note": "Favorita anunciada por la organización (ADOC): ganadora en Quintanar hace dos años"
+   },
+   {
+    "name": "Elia Saura",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross absoluto (7 km)",
+    "note": "Favorita anunciada por la organización (ADOC)"
+   }
+  ]
+ },
+ "rfea-2026-10-25-xxxi-carrera-popular-costa-de-ajo": {
+  "_fuente": "Presentaciones de los principales atletas en el Instagram oficial de la carrera (@carrerapopularcostadeajo), publicadas del 18 al 21/10/2026; lo pasó Kerman el 21/10/2026. Méritos resumidos tal cual los presenta la organización.",
+  "fuente": "https://www.instagram.com/carrerapopularcostadeajo/",
+  "max_por_sexo": 30,
+  "atletas": [
+   {
+    "name": "Mariano García",
+    "sex": "M",
+    "nat": "ESP",
+    "club": "New Balance",
+    "event": "Carrera absoluta",
+    "note": "Anunciado por la organización (Instagram de la carrera): Campeón del mundo de 1.500 m en pista cubierta en 2026; 3º en Ajo el año pasado"
+   },
+   {
+    "name": "Carlos Sáez",
+    "sex": "M",
+    "nat": "ESP",
+    "club": "Hoka",
+    "event": "Carrera absoluta",
+    "note": "Anunciado por la organización (Instagram de la carrera): 8º en el Mundial de pista cubierta de 1.500 m en 2026; ganador de la pasada edición"
+   },
+   {
+    "name": "Fernando Carro",
+    "sex": "M",
+    "nat": "ESP",
+    "club": "Nike Running",
+    "event": "Carrera absoluta",
+    "note": "Anunciado por la organización (Instagram de la carrera): Plusmarquista de España de 3.000 m obstáculos y subcampeón de Europa en 2018; en el Europeo de Birmingham (maratón) este año"
+   },
+   {
+    "name": "David Martínez",
+    "sex": "M",
+    "nat": "ESP",
+    "club": "Maratón Rioja",
+    "event": "Carrera absoluta",
+    "note": "Anunciado por la organización (Instagram de la carrera): Campeón de España de 10 km en ruta máster 40; 13ª participación en Ajo, cuatro veces 4º"
+   },
+   {
+    "name": "Marco Gómez",
+    "sex": "M",
+    "nat": "ESP",
+    "club": "Inficant Villa de Noja",
+    "event": "Carrera absoluta",
+    "note": "Anunciado por la organización (Instagram de la carrera): Campeón de Cantabria de cross y montaña; 10º en el Campeonato de España de 5 km en ruta; 5º en Ajo en 2024"
+   },
+   {
+    "name": "Iker Fidalgo",
+    "sex": "M",
+    "nat": "ESP",
+    "club": "Bidezabal Durango",
+    "event": "Carrera absoluta",
+    "note": "Anunciado por la organización (Instagram de la carrera): Sub-20; campeón de Euskadi absoluto de 1.500 m; 1:53.01 en 800 m y 3:51.47 en 1.500 m"
+   },
+   {
+    "name": "Víctor Carriles",
+    "sex": "M",
+    "nat": "ESP",
+    "club": "Carcoba Ribamontán",
+    "event": "Carrera absoluta",
+    "note": "Anunciado por la organización (Instagram de la carrera): Sub-23; campeón de Cantabria de 5.000 m y de 10 km"
+   },
+   {
+    "name": "Álvaro Pardo",
+    "sex": "M",
+    "nat": "ESP",
+    "club": "Carcoba Ribamontán",
+    "event": "Carrera absoluta",
+    "note": "Anunciado por la organización (Instagram de la carrera): Subcampeón de Cantabria de 10 km"
+   },
+   {
+    "name": "Roberto Ruiz",
+    "sex": "M",
+    "nat": "ESP",
+    "club": "CD Costa de Ajo",
+    "event": "Carrera absoluta",
+    "note": "Anunciado por la organización (Instagram de la carrera): Atleta local; campeón de España máster 35 de 4x400"
+   },
+   {
+    "name": "Idaira Prieto",
+    "sex": "F",
+    "nat": "ESP",
+    "club": "Bilbao Atletismo",
+    "event": "Carrera absoluta",
+    "note": "Anunciada por la organización (Instagram de la carrera): 4ª en el Europeo de 10.000 m y 9ª en el de 5.000 m; campeona de España de 10.000 m y de 10 km en ruta"
+   },
+   {
+    "name": "Lorea Ibarzabal",
+    "sex": "F",
+    "nat": "ESP",
+    "club": "Nike Running",
+    "event": "Carrera absoluta",
+    "note": "Anunciada por la organización (Instagram de la carrera): Olímpica en París; doble campeona de España de 800 m al aire libre y cuádruple en pista cubierta"
+   },
+   {
+    "name": "Lorena Martín",
+    "sex": "F",
+    "nat": "ESP",
+    "club": "New Balance",
+    "event": "Carrera absoluta",
+    "note": "Anunciada por la organización (Instagram de la carrera): Olímpica en París 2024; bronce en el Campeonato de España de 1.500 m este año"
+   },
+   {
+    "name": "Irene Pelayo",
+    "sex": "F",
+    "nat": "ESP",
+    "club": "Piélagos",
+    "event": "Carrera absoluta",
+    "note": "Anunciada por la organización (Instagram de la carrera): Medallista por equipos en Europeos de cross y media maratón; viene de ganar la media maratón Bajo Pas"
+   },
+   {
+    "name": "Dolores Marco",
+    "sex": "F",
+    "nat": "ESP",
+    "club": "Kon Sports",
+    "event": "Carrera absoluta",
+    "note": "Anunciada por la organización (Instagram de la carrera): Récord de España máster 45 de maratón (2:41:50 en Varsovia); campeona de España de 50 km en ruta"
+   },
+   {
+    "name": "Lucía Fernández",
+    "sex": "F",
+    "nat": "ESP",
+    "club": "Bezana Atletismo",
+    "event": "Carrera absoluta",
+    "note": "Anunciada por la organización (Instagram de la carrera): Sub-23; plusmarquista de Cantabria absoluta de 3.000 m obstáculos"
+   },
+   {
+    "name": "Claudia Cuesta",
+    "sex": "F",
+    "nat": "ESP",
+    "club": "CD Costa de Ajo",
+    "event": "Carrera absoluta",
+    "note": "Anunciada por la organización (Instagram de la carrera): Atleta local sub-23; campeona de Cantabria de cross y de 800 m sub-23"
+   }
+  ]
  }
 }
