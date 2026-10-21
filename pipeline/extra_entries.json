@@ -2738,7 +2738,7 @@
   ]
  },
  "manual-2026-10-25-caixabank-10k-zaragoza": {
-  "_fuente": "Noticia oficial de la organización (15/09/2026) y presentaciones en su Instagram (@10kzaragoza): solo anuncian a Aferdi y Menacho; no hay élite femenina anunciada. Lo pidió Kerman el 21/10/2026.",
+  "_fuente": "Noticia oficial de la organización (15/09/2026) y presentaciones en su Instagram (@10kzaragoza): solo anuncian a Aferdi y Menacho; no hay élite femenina anunciada. Lo pidió Kerman el 21/10/2026. Raquel de Francisco e Isabel Linares: confirmadas por Kerman el 21/10/2026, sin enlace.",
   "fuente": [
    "https://10kzaragoza.com/noticias/aferdi-record-caixabank-10k-zaragoza-2026",
    "https://www.instagram.com/10kzaragoza/"
@@ -2757,6 +2757,20 @@
     "nat": "ESP",
     "event": "10K",
     "note": "Anunciado por la organización: plusmarquista de la prueba (28:51 en 2025); campeón de España de 5.000 m y de 10.000 m en 2026"
+   },
+   {
+    "name": "Raquel de Francisco",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "10K",
+    "note": "En la élite"
+   },
+   {
+    "name": "Isabel Linares",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "10K",
+    "note": "En la élite"
    }
   ]
  }
