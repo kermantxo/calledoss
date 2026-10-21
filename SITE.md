@@ -211,4 +211,5 @@
 - 2026-10-21: Previas del 25/10: XLII Cross de Quintanar de la Orden (favoritos y favoritas tal cual los publica ADOC, 7 hombres y 4 mujeres) y XXXI Carrera Popular Costa de Ajo (los 16 atletas presentados por la organización en su Instagram, con club y méritos). En `pipeline/extra_entries.json`.
 - 2026-10-21: Previa del Medio Maratón de Valencia (25/10) con la lista oficial de élite de la organización: solo los españoles (37 hombres y 19 mujeres), con dorsal y marca personal. En `pipeline/extra_entries.json`.
 - 2026-10-21: Añadida a mano al calendario la XIX CaixaBank 10K Zaragoza (25/10, 9:30), con enlace a su web oficial.
+- 2026-10-21: Previa del 10K Zaragoza: Abderrahmane Aferdi y Eduardo Menacho, los dos atletas de élite que anuncia la organización en su web e Instagram. En `pipeline/extra_entries.json`.
 - Para cambiar el pódcast de la portada: el código del programa está en `SHOW` de `pipeline/podcast.py`, en `PODCAST_SHOW` al final de `script.js` y en el enlace «Abrir en Spotify» de la página principal.
