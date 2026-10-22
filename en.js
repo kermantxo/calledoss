@@ -275,6 +275,7 @@ window.CALLEDOSS_EN = {
   "Pruebas terminadas · la última, arriba": "Finished events · latest first",
   "Resto del horario": "Rest of the schedule",
   "¡Vuelve el cross!": "Cross country is back!",
+  "Helsinki, sede del Europeo al Aire Libre en 2030": "Helsinki to host the 2030 European Athletics Championships",
   "Este domingo 18 de octubre arranca la temporada con el Cross de Zornotza (Amorebieta-Etxano) y el Cross del Aceite (Torredonjimeno). Mira los favoritos en Próximas.": "This Sunday, 18 October, the season kicks off with the Zornotza Cross (Amorebieta-Etxano) and the Cross del Aceite (Torredonjimeno). See the favourites in Upcoming.",
   "El pódcast de Calledoss": "The Calledoss podcast",
   "Escúchalo aquí mismo o en Spotify.": "Listen right here or on Spotify.",

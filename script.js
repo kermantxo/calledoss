@@ -3729,6 +3729,8 @@ const typeLabel = v => td(v);
    Con aviso:true es solo una noticia (no cancela nada): en vez de «Última hora» sale su "estado"
    como título (p. ej. «¡Vuelve el cross!»); al pulsarla lleva a la sección de "view". */
 const ALERTAS = [
+  {date:'2026-10-29', aviso:true, estado:'Última hora',
+   texto:'Helsinki, sede del Europeo al Aire Libre en 2030'},
   {date:'2026-10-18', aviso:true, estado:'¡Vuelve el cross!', view:'proximas',
    texto:'Este domingo 18 de octubre arranca la temporada con el Cross de Zornotza (Amorebieta-Etxano) y el Cross del Aceite (Torredonjimeno). Mira los favoritos en Próximas.'},
   {date:'2026-11-29', match:/alcobendas/i, estado:'Cancelada', portada:false,

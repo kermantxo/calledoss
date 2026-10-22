@@ -214,4 +214,5 @@
 - 2026-10-21: Previa del 10K Zaragoza: Abderrahmane Aferdi y Eduardo Menacho, los dos atletas de élite que anuncia la organización en su web e Instagram. En `pipeline/extra_entries.json`.
 - 2026-10-21: 10K Zaragoza: Raquel de Francisco e Isabel Linares en la élite de la previa, confirmadas por la organización a Kerman (sin enlace público).
 - 2026-10-21: Carreras de Runvasport con varias distancias el mismo día (p. ej. Burgos Tras las Huellas del Cid: 5K, 10K y 21K) salen como una sola cita con todas sus distancias en el nombre y la hora de la primera salida, y los resultados se leen de todas las distancias (cada clasificación con su distancia delante).
+- 2026-10-22: Aviso de «Última hora» en la portada: «Helsinki, sede del Europeo al Aire Libre en 2030» (sale hasta el 29/10; se cambia en la lista ALERTAS de script.js).
 - Para cambiar el pódcast de la portada: el código del programa está en `SHOW` de `pipeline/podcast.py`, en `PODCAST_SHOW` al final de `script.js` y en el enlace «Abrir en Spotify» de la página principal.
