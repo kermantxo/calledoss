@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22T07:21:16+02:00",
+ "generated": "2026-10-23T07:19:43+02:00",
  "season": "2026",
  "source": "https://atletismorfea.es/ranking",
  "seasons": {
@@ -5214,23 +5214,23 @@
       },
       {
        "mark": "7.78",
-       "wind": "1.7",
-       "name": "Daniel Amez Villayandre",
-       "club": "Univ Leon Sprint Atletismo",
-       "born": "2000",
-       "fed": "CYL",
-       "city": "León-ULE",
-       "date": "20/06/2026",
-       "rank": "9"
-      },
-      {
-       "mark": "7.78",
        "wind": "2.0",
        "name": "Anthony Yunier Perez Valdes",
        "club": "Facsa - Playas de Castellón",
        "born": "2008",
        "fed": "CVA",
        "city": "Sagunto",
+       "date": "20/06/2026",
+       "rank": "9"
+      },
+      {
+       "mark": "7.78",
+       "wind": "1.7",
+       "name": "Daniel Amez Villayandre",
+       "club": "Univ Leon Sprint Atletismo",
+       "born": "2000",
+       "fed": "CYL",
+       "city": "León-ULE",
        "date": "20/06/2026",
        "rank": "="
       }
@@ -8250,7 +8250,7 @@
        "rank": "3"
       },
       {
-       "mark": "3976 60m vallas Mujeres Pentatlón 8.69 Altura Mujeres Pentatlón 1.68 Peso Mujeres Pentatlón 11.49 Longitud Mujeres Pentathlón 5.80 800m Mujeres Pentathlón 2:25.24",
+       "mark": "3976 8.69-1,68-11,49-5,80-2:25.24",
        "wind": "",
        "name": "Paula Perez Gomez",
        "club": "Municipal Arganda",
@@ -8261,7 +8261,7 @@
        "rank": "4"
       },
       {
-       "mark": "3935 60m vallas Mujeres Pentatlón 8.77 Altura Mujeres Pentatlón 1.59 Peso Mujeres Pentatlón 11.36 Longitud Mujeres Pentathlón 5.74 800m Mujeres Pentathlón 2:17.23",
+       "mark": "3935 8.77-1,59-11,36-5,74-2:17.23",
        "wind": "",
        "name": "Ivet Rovira Figueras",
        "club": "L'Hospitalet At.",
@@ -8272,7 +8272,7 @@
        "rank": "5"
       },
       {
-       "mark": "3913 60m vallas Mujeres Pentatlón 8.91 Altura Mujeres Pentatlón 1.64 Peso Mujeres Pentatlón 12.09 Longitud Mujeres Pentathlón 5.52 800m Mujeres Pentathlón 2:19.67",
+       "mark": "3913 8.91-1,64-12,09-5,52-2:19.67",
        "wind": "",
        "name": "Carmen Ramos Vellon",
        "club": "TenerifeCajaCanarias",
@@ -8294,7 +8294,7 @@
        "rank": "7"
       },
       {
-       "mark": "3877 60m vallas Mujeres Pentatlón 8.65 Altura Mujeres Pentatlón 1.71 Peso Mujeres Pentatlón 11.72 Longitud Mujeres Pentathlón 5.23 800m Mujeres Pentathlón 2:24.74",
+       "mark": "3877 8.65-1,71-11,72-5,23-2:24.74",
        "wind": "",
        "name": "Andrea Reija Torron",
        "club": "Sanysec - Club Ourense Atletismo",
@@ -8305,7 +8305,7 @@
        "rank": "8"
       },
       {
-       "mark": "3815 60m vallas Mujeres Pentatlón 8.53 Altura Mujeres Pentatlón 1.62 Peso Mujeres Pentatlón 11.00 Longitud Mujeres Pentathlón 5.45 800m Mujeres Pentathlón 2:24.38",
+       "mark": "3815 8.53-1,62-11,00-5,45-2:24.38",
        "wind": "",
        "name": "Miren Ederra Marticorena",
        "club": "Hiru-Herri",
@@ -9623,22 +9623,22 @@
       {
        "mark": "14.90",
        "wind": "",
-       "name": "Raul Martin Galve",
-       "club": "At. Intec-Zoiti",
-       "born": "2004",
-       "fed": "ARA",
-       "city": "Zaragoza",
+       "name": "Unai Loureiro Arrojo",
+       "club": "Riazor Coruña",
+       "born": "2006",
+       "fed": "GAL",
+       "city": "Ourense",
        "date": "10/01/2026",
        "rank": "4"
       },
       {
        "mark": "14.90",
        "wind": "",
-       "name": "Unai Loureiro Arrojo",
-       "club": "Riazor Coruña",
-       "born": "2006",
-       "fed": "GAL",
-       "city": "Ourense",
+       "name": "Raul Martin Galve",
+       "club": "At. Intec-Zoiti",
+       "born": "2004",
+       "fed": "ARA",
+       "city": "Zaragoza",
        "date": "10/01/2026",
        "rank": "="
       },
@@ -9818,7 +9818,7 @@
      "event": "Heptatlón",
      "rows": [
       {
-       "mark": "6067 60m Masculino Heptathlón 6.86 Longitud Hombres Heptatlón 7.47 Peso Masculino Heptatlón 13.78 Altura Hombres Heptatlón 1.94 60m vallas Hombres Heptatlón 8.20 Pértiga Hombres Heptathlón 4.96 1.000m Masculino Heptathlón 2:36.46",
+       "mark": "6067 6.86-7,47-13,78-1,94-8.20-4,96-2:36.46",
        "wind": "",
        "name": "Pol Ferrer Moncusi",
        "club": "Cornellà Atlètic",
@@ -9829,7 +9829,7 @@
        "rank": "1"
       },
       {
-       "mark": "5774 60m Masculino Heptathlón 7.15 Longitud Hombres Heptatlón 7.12 Peso Masculino Heptatlón 13.05 Altura Hombres Heptatlón 1.97 60m vallas Hombres Heptatlón 8.31 Pértiga Hombres Heptathlón 4.96 1.000m Masculino Heptathlón 2:41.87",
+       "mark": "5774 7.15-7,12-13,05-1,97-8.31-4,96-2:41.87",
        "wind": "",
        "name": "Andreu Boix Esteve",
        "club": "Facsa - Playas de Castellón",
@@ -9840,7 +9840,7 @@
        "rank": "2"
       },
       {
-       "mark": "5753 60m Masculino Heptathlón 7.06 Longitud Hombres Heptatlón 7.37 Peso Masculino Heptatlón 14.29 Altura Hombres Heptatlón 1.94 60m vallas Hombres Heptatlón 7.95 Pértiga Hombres Heptathlón 4.56 1.000m Masculino Heptathlón 2:54.25",
+       "mark": "5753 7.06-7,37-14,29-1,94-7.95-4,56-2:54.25",
        "wind": "",
        "name": "Gerson Vidal Izaguirre Rangel",
        "club": "Unicaja Jaen Paraiso Interior",
@@ -9851,7 +9851,7 @@
        "rank": "3"
       },
       {
-       "mark": "5747 60m Masculino Heptathlón 6.91 Longitud Hombres Heptatlón 7.58 Peso Masculino Heptatlón 13.04 Altura Hombres Heptatlón 2.00 60m vallas Hombres Heptatlón 8.29 Pértiga Hombres Heptathlón 4.16 1.000m Masculino Heptathlón 2:43.73",
+       "mark": "5747 6.91-7,58-13,04-2,00-8.29-4,16-2:43.73",
        "wind": "",
        "name": "Tayb David Loum Pascual",
        "club": "C.A.Sprint Moncada",
@@ -9862,7 +9862,7 @@
        "rank": "4"
       },
       {
-       "mark": "5613 60m Masculino Heptathlón 7.03 Longitud Hombres Heptatlón 6.78 Peso Masculino Heptatlón 12.64 Altura Hombres Heptatlón 1.94 60m vallas Hombres Heptatlón 8.07 Pértiga Hombres Heptathlón 4.56 1.000m Masculino Heptathlón 2:42.72",
+       "mark": "5613 7.03-6,78-12,64-1,94-8.07-4,56-2:42.72",
        "wind": "",
        "name": "Pablo Gamez Bermudez",
        "club": "TenerifeCajaCanarias",
@@ -9873,18 +9873,18 @@
        "rank": "5"
       },
       {
-       "mark": "5480 60m Masculino Heptathlón 7.48 Longitud Hombres Heptatlón 6.85 Peso Masculino Heptatlón 13.87 Altura Hombres Heptatlón 2.22 60m vallas Hombres Heptatlón 8.46 Pértiga Hombres Heptathlón 4.70 1.000m Masculino Heptathlón 3:10.72",
+       "mark": "5480 7.48-6,85-13,87-2,22-8.46-4,70-3:10.72",
        "wind": "",
        "name": "Pablo Martinez Torre",
        "club": "TenerifeCajaCanarias",
        "born": "2004",
        "fed": "CAN",
        "city": "Sabadell",
-       "date": "07/02/2026",
+       "date": "08/02/2026",
        "rank": "6"
       },
       {
-       "mark": "5443 60m Masculino Heptathlón 7.27 Longitud Hombres Heptatlón 6.75 Peso Masculino Heptatlón 14.32 Altura Hombres Heptatlón 1.76 60m vallas Hombres Heptatlón 8.32 Pértiga Hombres Heptathlón 4.76 1.000m Masculino Heptathlón 2:45.07",
+       "mark": "5443 7.27-6,75-14,32-1,76-8.32-4,76-2:45.07",
        "wind": "",
        "name": "Pablo Roelas Riquelme",
        "club": "Centre Esp. Colivenc",
@@ -9895,7 +9895,7 @@
        "rank": "7"
       },
       {
-       "mark": "5401 60m Masculino Heptathlón 7.27 Longitud Hombres Heptatlón 6.60 Peso Masculino Heptatlón 13.62 Altura Hombres Heptatlón 1.91 60m vallas Hombres Heptatlón 8.66 Pértiga Hombres Heptathlón 4.86 1.000m Masculino Heptathlón 2:49.33",
+       "mark": "5401 7.27-6,60-13,62-1,91-8.66-4,86-2:49.33",
        "wind": "",
        "name": "Jorge Davila Lopez",
        "club": "Facsa - Playas de Castellón",
@@ -9906,7 +9906,7 @@
        "rank": "8"
       },
       {
-       "mark": "5391 60m Masculino Heptathlón 7.20 Longitud Hombres Heptatlón 7.04 Peso Masculino Heptatlón 15.10 Altura Hombres Heptatlón 1.82 60m vallas Hombres Heptatlón 8.37 Pértiga Hombres Heptathlón 4.56 1.000m Masculino Heptathlón 3:01.90",
+       "mark": "5391 7.20-7,04-15,10-1,82-8.37-4,56-3:01.90",
        "wind": "",
        "name": "Jose San Pastor Vicente",
        "club": "TenerifeCajaCanarias",
@@ -9917,7 +9917,7 @@
        "rank": "9"
       },
       {
-       "mark": "5356 60m Masculino Heptathlón 7.14 Longitud Hombres Heptatlón 7.00 Peso Masculino Heptatlón 13.76 Altura Hombres Heptatlón 1.79 60m vallas Hombres Heptatlón 8.48 Pértiga Hombres Heptathlón 4.46 1.000m Masculino Heptathlón 2:50.21",
+       "mark": "5356 7.14-7,00-13,76-1,79-8.48-4,46-2:50.21",
        "wind": "",
        "name": "Joaquim Rodriguez Fauroux",
        "club": "L'Hospitalet At.",
@@ -11231,121 +11231,6 @@
      ]
     },
     {
-     "event": "Medio maratón Marcha",
-     "rows": [
-      {
-       "mark": "1:30:06",
-       "wind": "",
-       "name": "María Pérez García",
-       "club": "INDEPENDIENTE",
-       "born": "1996",
-       "fed": "AND",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "1"
-      },
-      {
-       "mark": "1:33:45",
-       "wind": "",
-       "name": "Antia Chamosa Dacasa",
-       "club": "INDEPENDIENTE",
-       "born": "1999",
-       "fed": "GAL",
-       "city": "Cieza",
-       "date": "08/03/2026",
-       "rank": "2"
-      },
-      {
-       "mark": "1:34:22",
-       "wind": "",
-       "name": "Lucia Redondo Ardid",
-       "club": "Univ Leon Sprint Atletismo",
-       "born": "2003",
-       "fed": "MAD",
-       "city": "Poděbrady - (CZE)",
-       "date": "08/05/2026",
-       "rank": "3"
-      },
-      {
-       "mark": "1:34:44",
-       "wind": "",
-       "name": "Aldara Meilán García",
-       "club": "Atletica Lucense",
-       "born": "2006",
-       "fed": "GAL",
-       "city": "Cieza",
-       "date": "08/03/2026",
-       "rank": "4"
-      },
-      {
-       "mark": "1:34:44",
-       "wind": "",
-       "name": "Sofia Santacreu Calatayud",
-       "club": "Cornellà Atlètic",
-       "born": "2006",
-       "fed": "CAT",
-       "city": "Cieza",
-       "date": "08/03/2026",
-       "rank": "="
-      },
-      {
-       "mark": "1:36:58",
-       "wind": "",
-       "name": "Lidia Sanchez-puebla Fernandez",
-       "club": "Facsa - Playas de Castellón",
-       "born": "1996",
-       "fed": "MAD",
-       "city": "Cieza",
-       "date": "08/03/2026",
-       "rank": "6"
-      },
-      {
-       "mark": "1:38:47",
-       "wind": "",
-       "name": "Griselda Serret Menendez",
-       "club": "Avinent Manresa",
-       "born": "2005",
-       "fed": "CAT",
-       "city": "Cieza",
-       "date": "08/03/2026",
-       "rank": "7"
-      },
-      {
-       "mark": "1:40:09",
-       "wind": "",
-       "name": "Raquel González Campos",
-       "club": "INDEPENDIENTE",
-       "born": "1989",
-       "fed": "CAT",
-       "city": "A Coruña",
-       "date": "23/05/2026",
-       "rank": "8"
-      },
-      {
-       "mark": "1:41:37",
-       "wind": "",
-       "name": "Julia Suarez Piza",
-       "club": "CAPEX",
-       "born": "2006",
-       "fed": "CAT",
-       "city": "A Coruña",
-       "date": "23/05/2026",
-       "rank": "9"
-      },
-      {
-       "mark": "1:45:23",
-       "wind": "",
-       "name": "Alicia Sanchez Guilarte",
-       "club": "Trops-Cueva de Nerja",
-       "born": "2000",
-       "fed": "MAD",
-       "city": "El Vendrell",
-       "date": "17/01/2026",
-       "rank": "10"
-      }
-     ]
-    },
-    {
      "event": "20 km Marcha",
      "rows": [
       {
@@ -11461,6 +11346,121 @@
      ]
     },
     {
+     "event": "Medio maratón Marcha",
+     "rows": [
+      {
+       "mark": "1:30:06",
+       "wind": "",
+       "name": "María Pérez García",
+       "club": "INDEPENDIENTE",
+       "born": "1996",
+       "fed": "AND",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "1"
+      },
+      {
+       "mark": "1:33:45",
+       "wind": "",
+       "name": "Antia Chamosa Dacasa",
+       "club": "INDEPENDIENTE",
+       "born": "1999",
+       "fed": "GAL",
+       "city": "Cieza",
+       "date": "08/03/2026",
+       "rank": "2"
+      },
+      {
+       "mark": "1:34:22",
+       "wind": "",
+       "name": "Lucia Redondo Ardid",
+       "club": "Univ Leon Sprint Atletismo",
+       "born": "2003",
+       "fed": "MAD",
+       "city": "Poděbrady - (CZE)",
+       "date": "08/05/2026",
+       "rank": "3"
+      },
+      {
+       "mark": "1:34:44",
+       "wind": "",
+       "name": "Aldara Meilán García",
+       "club": "Atletica Lucense",
+       "born": "2006",
+       "fed": "GAL",
+       "city": "Cieza",
+       "date": "08/03/2026",
+       "rank": "4"
+      },
+      {
+       "mark": "1:34:44",
+       "wind": "",
+       "name": "Sofia Santacreu Calatayud",
+       "club": "Cornellà Atlètic",
+       "born": "2006",
+       "fed": "CAT",
+       "city": "Cieza",
+       "date": "08/03/2026",
+       "rank": "="
+      },
+      {
+       "mark": "1:36:58",
+       "wind": "",
+       "name": "Lidia Sanchez-puebla Fernandez",
+       "club": "Facsa - Playas de Castellón",
+       "born": "1996",
+       "fed": "MAD",
+       "city": "Cieza",
+       "date": "08/03/2026",
+       "rank": "6"
+      },
+      {
+       "mark": "1:38:47",
+       "wind": "",
+       "name": "Griselda Serret Menendez",
+       "club": "Avinent Manresa",
+       "born": "2005",
+       "fed": "CAT",
+       "city": "Cieza",
+       "date": "08/03/2026",
+       "rank": "7"
+      },
+      {
+       "mark": "1:40:09",
+       "wind": "",
+       "name": "Raquel González Campos",
+       "club": "INDEPENDIENTE",
+       "born": "1989",
+       "fed": "CAT",
+       "city": "A Coruña",
+       "date": "23/05/2026",
+       "rank": "8"
+      },
+      {
+       "mark": "1:41:37",
+       "wind": "",
+       "name": "Julia Suarez Piza",
+       "club": "CAPEX",
+       "born": "2006",
+       "fed": "CAT",
+       "city": "A Coruña",
+       "date": "23/05/2026",
+       "rank": "9"
+      },
+      {
+       "mark": "1:45:23",
+       "wind": "",
+       "name": "Alicia Sanchez Guilarte",
+       "club": "Trops-Cueva de Nerja",
+       "born": "2000",
+       "fed": "MAD",
+       "city": "El Vendrell",
+       "date": "17/01/2026",
+       "rank": "10"
+      }
+     ]
+    },
+    {
      "event": "30 km Marcha",
      "rows": [
       {
@@ -11487,44 +11487,6 @@
       },
       {
        "mark": "2:38:16",
-       "wind": "",
-       "name": "Laura Monje Martinez",
-       "club": "CA Granollers",
-       "born": "2002",
-       "fed": "CAT",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "3"
-      }
-     ]
-    },
-    {
-     "event": "35 km Marcha",
-     "rows": [
-      {
-       "mark": "2:45:35",
-       "wind": "",
-       "name": "Raquel González Campos",
-       "club": "INDEPENDIENTE",
-       "born": "1989",
-       "fed": "CAT",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "1"
-      },
-      {
-       "mark": "2:53:45",
-       "wind": "",
-       "name": "Lucia Redondo Ardid",
-       "club": "Univ Leon Sprint Atletismo",
-       "born": "2003",
-       "fed": "MAD",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "2"
-      },
-      {
-       "mark": "3:04:24",
        "wind": "",
        "name": "Laura Monje Martinez",
        "club": "CA Granollers",
@@ -11626,6 +11588,44 @@
        "city": "Cieza",
        "date": "15/02/2026",
        "rank": "8"
+      }
+     ]
+    },
+    {
+     "event": "35 km Marcha",
+     "rows": [
+      {
+       "mark": "2:45:35",
+       "wind": "",
+       "name": "Raquel González Campos",
+       "club": "INDEPENDIENTE",
+       "born": "1989",
+       "fed": "CAT",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "1"
+      },
+      {
+       "mark": "2:53:45",
+       "wind": "",
+       "name": "Lucia Redondo Ardid",
+       "club": "Univ Leon Sprint Atletismo",
+       "born": "2003",
+       "fed": "MAD",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "2"
+      },
+      {
+       "mark": "3:04:24",
+       "wind": "",
+       "name": "Laura Monje Martinez",
+       "club": "CA Granollers",
+       "born": "2002",
+       "fed": "CAT",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "3"
       }
      ]
     }
@@ -11774,10 +11774,10 @@
       {
        "mark": "13:39",
        "wind": "",
-       "name": "Said Mechaal Mechaal",
+       "name": "Santiago Catrofe Cacharron",
        "club": "ADA Calvià - Vistasol",
-       "born": "1998",
-       "fed": "BAL",
+       "born": "1999",
+       "fed": "CAT",
        "city": "Praga - (CZE)",
        "date": "05/09/2026",
        "rank": "3"
@@ -11785,10 +11785,10 @@
       {
        "mark": "13:39",
        "wind": "",
-       "name": "Santiago Catrofe Cacharron",
+       "name": "Said Mechaal Mechaal",
        "club": "ADA Calvià - Vistasol",
-       "born": "1999",
-       "fed": "CAT",
+       "born": "1998",
+       "fed": "BAL",
        "city": "Praga - (CZE)",
        "date": "05/09/2026",
        "rank": "="
@@ -12095,6 +12095,28 @@
      "event": "Medio Maratón",
      "rows": [
       {
+       "mark": "1.17:15",
+       "wind": "",
+       "name": "Luis Felix Martinez Gomez",
+       "club": "C.A. Carnicas Serrano",
+       "born": "1971",
+       "fed": "CVA",
+       "city": "Valencia",
+       "date": "04/10/2026",
+       "rank": "1"
+      },
+      {
+       "mark": "1:41.21",
+       "wind": "",
+       "name": "Juan Bautista Climent Sancho",
+       "club": "C.A.La Valldigna",
+       "born": "1972",
+       "fed": "CVA",
+       "city": "Valencia",
+       "date": "04/10/2026",
+       "rank": "2"
+      },
+      {
        "mark": "1:00:21",
        "wind": "",
        "name": "Santiago Catrofe Cacharron",
@@ -12103,7 +12125,7 @@
        "fed": "CAT",
        "city": "Marugame - (JPN)",
        "date": "01/02/2026",
-       "rank": "1"
+       "rank": "3"
       },
       {
        "mark": "1:00:24",
@@ -12114,7 +12136,7 @@
        "fed": "BAL",
        "city": "Berlín - (GER)",
        "date": "29/03/2026",
-       "rank": "2"
+       "rank": "4"
       },
       {
        "mark": "1:00:46",
@@ -12125,7 +12147,7 @@
        "fed": "EXT",
        "city": "Lisboa - (POR)",
        "date": "08/03/2026",
-       "rank": "3"
+       "rank": "5"
       },
       {
        "mark": "1:01:47",
@@ -12136,7 +12158,7 @@
        "fed": "CAT",
        "city": "Granollers",
        "date": "18/01/2026",
-       "rank": "4"
+       "rank": "6"
       },
       {
        "mark": "1:02:01",
@@ -12147,7 +12169,7 @@
        "fed": "PVA",
        "city": "Marrakech - (MAR)",
        "date": "25/01/2026",
-       "rank": "5"
+       "rank": "7"
       },
       {
        "mark": "1:02:43",
@@ -12158,7 +12180,7 @@
        "fed": "ARA",
        "city": "La Coruña",
        "date": "01/03/2026",
-       "rank": "6"
+       "rank": "8"
       },
       {
        "mark": "1:02:51",
@@ -12169,7 +12191,7 @@
        "fed": "CAT",
        "city": "Berlín - (GER)",
        "date": "29/03/2026",
-       "rank": "7"
+       "rank": "9"
       },
       {
        "mark": "1:02:52",
@@ -12180,28 +12202,6 @@
        "fed": "CAT",
        "city": "Trabzon - (TUR)",
        "date": "15/02/2026",
-       "rank": "8"
-      },
-      {
-       "mark": "1:03:08",
-       "wind": "",
-       "name": "Jorge Blanco Alvarez",
-       "club": "Asics Running",
-       "born": "1993",
-       "fed": "CYL",
-       "city": "Olomouc - (CZE)",
-       "date": "13/06/2026",
-       "rank": "9"
-      },
-      {
-       "mark": "1:03:11",
-       "wind": "",
-       "name": "Jesus Ramos Reviejo",
-       "club": "C.A. Adidas",
-       "born": "1996",
-       "fed": "MAD",
-       "city": "La Coruña",
-       "date": "01/03/2026",
        "rank": "10"
       }
      ]
@@ -12864,121 +12864,6 @@
      ]
     },
     {
-     "event": "Medio maratón Marcha",
-     "rows": [
-      {
-       "mark": "1:23:23",
-       "wind": "",
-       "name": "Paul Mcgrath Benito",
-       "club": "INDEPENDIENTE",
-       "born": "2002",
-       "fed": "CAT",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "1"
-      },
-      {
-       "mark": "1:25:05",
-       "wind": "",
-       "name": "Ivan Lopez Perez",
-       "club": "CAPEX",
-       "born": "1997",
-       "fed": "MUR",
-       "city": "Poděbrady - (CZE)",
-       "date": "08/05/2026",
-       "rank": "2"
-      },
-      {
-       "mark": "1:25:25",
-       "wind": "",
-       "name": "Alvaro Lopez Nuñez",
-       "club": "Grupompleo Pamplona At",
-       "born": "1999",
-       "fed": "MAD",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "3"
-      },
-      {
-       "mark": "1:25:41",
-       "wind": "",
-       "name": "Diego Garcia Carrera",
-       "club": "A.D. Marathon",
-       "born": "1996",
-       "fed": "MAD",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "4"
-      },
-      {
-       "mark": "1:26:37",
-       "wind": "",
-       "name": "Miguel Angel Lopez Nicolas",
-       "club": "UCAM Murcia",
-       "born": "1988",
-       "fed": "MUR",
-       "city": "Cieza",
-       "date": "08/03/2026",
-       "rank": "5"
-      },
-      {
-       "mark": "1:26:42",
-       "wind": "",
-       "name": "Oscar Martinez Rodriguez",
-       "club": "L'Hospitalet At.",
-       "born": "2003",
-       "fed": "CAT",
-       "city": "Poděbrady - (CZE)",
-       "date": "08/05/2026",
-       "rank": "6"
-      },
-      {
-       "mark": "1:27:53",
-       "wind": "",
-       "name": "Daniel Monfort Moreno",
-       "club": "Facsa - Playas de Castellón",
-       "born": "2006",
-       "fed": "CVA",
-       "city": "Cieza",
-       "date": "08/03/2026",
-       "rank": "7"
-      },
-      {
-       "mark": "1:29:25",
-       "wind": "",
-       "name": "Miguel Espinosa Olivares",
-       "club": "Real Sociedad",
-       "born": "2006",
-       "fed": "MAD",
-       "city": "Poděbrady - (CZE)",
-       "date": "08/05/2026",
-       "rank": "8"
-      },
-      {
-       "mark": "1:30:35",
-       "wind": "",
-       "name": "Jose Manuel Perez Rubio",
-       "club": "Trops-Cueva de Nerja",
-       "born": "1999",
-       "fed": "AND",
-       "city": "Guadix",
-       "date": "25/01/2026",
-       "rank": "9"
-      },
-      {
-       "mark": "1:30:57",
-       "wind": "",
-       "name": "Joan Querol Serrano",
-       "club": "Atletismo Albacete",
-       "born": "2006",
-       "fed": "CVA",
-       "city": "Burjassot",
-       "date": "31/01/2026",
-       "rank": "10"
-      }
-     ]
-    },
-    {
      "event": "20 km Marcha",
      "rows": [
       {
@@ -13094,6 +12979,121 @@
      ]
     },
     {
+     "event": "Medio maratón Marcha",
+     "rows": [
+      {
+       "mark": "1:23:23",
+       "wind": "",
+       "name": "Paul Mcgrath Benito",
+       "club": "INDEPENDIENTE",
+       "born": "2002",
+       "fed": "CAT",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "1"
+      },
+      {
+       "mark": "1:25:05",
+       "wind": "",
+       "name": "Ivan Lopez Perez",
+       "club": "CAPEX",
+       "born": "1997",
+       "fed": "MUR",
+       "city": "Poděbrady - (CZE)",
+       "date": "08/05/2026",
+       "rank": "2"
+      },
+      {
+       "mark": "1:25:25",
+       "wind": "",
+       "name": "Alvaro Lopez Nuñez",
+       "club": "Grupompleo Pamplona At",
+       "born": "1999",
+       "fed": "MAD",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "3"
+      },
+      {
+       "mark": "1:25:41",
+       "wind": "",
+       "name": "Diego Garcia Carrera",
+       "club": "A.D. Marathon",
+       "born": "1996",
+       "fed": "MAD",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "4"
+      },
+      {
+       "mark": "1:26:37",
+       "wind": "",
+       "name": "Miguel Angel Lopez Nicolas",
+       "club": "UCAM Murcia",
+       "born": "1988",
+       "fed": "MUR",
+       "city": "Cieza",
+       "date": "08/03/2026",
+       "rank": "5"
+      },
+      {
+       "mark": "1:26:42",
+       "wind": "",
+       "name": "Oscar Martinez Rodriguez",
+       "club": "L'Hospitalet At.",
+       "born": "2003",
+       "fed": "CAT",
+       "city": "Poděbrady - (CZE)",
+       "date": "08/05/2026",
+       "rank": "6"
+      },
+      {
+       "mark": "1:27:53",
+       "wind": "",
+       "name": "Daniel Monfort Moreno",
+       "club": "Facsa - Playas de Castellón",
+       "born": "2006",
+       "fed": "CVA",
+       "city": "Cieza",
+       "date": "08/03/2026",
+       "rank": "7"
+      },
+      {
+       "mark": "1:29:25",
+       "wind": "",
+       "name": "Miguel Espinosa Olivares",
+       "club": "Real Sociedad",
+       "born": "2006",
+       "fed": "MAD",
+       "city": "Poděbrady - (CZE)",
+       "date": "08/05/2026",
+       "rank": "8"
+      },
+      {
+       "mark": "1:30:35",
+       "wind": "",
+       "name": "Jose Manuel Perez Rubio",
+       "club": "Trops-Cueva de Nerja",
+       "born": "1999",
+       "fed": "AND",
+       "city": "Guadix",
+       "date": "25/01/2026",
+       "rank": "9"
+      },
+      {
+       "mark": "1:30:57",
+       "wind": "",
+       "name": "Joan Querol Serrano",
+       "club": "Atletismo Albacete",
+       "born": "2006",
+       "fed": "CVA",
+       "city": "Burjassot",
+       "date": "31/01/2026",
+       "rank": "10"
+      }
+     ]
+    },
+    {
      "event": "30 km Marcha",
      "rows": [
       {
@@ -13138,55 +13138,6 @@
        "fed": "AND",
        "city": "Brasilia - (BRA)",
        "date": "12/04/2026",
-       "rank": "4"
-      }
-     ]
-    },
-    {
-     "event": "35 km Marcha",
-     "rows": [
-      {
-       "mark": "2:27:10",
-       "wind": "",
-       "name": "Miguel Angel Lopez Nicolas",
-       "club": "UCAM Murcia",
-       "born": "1988",
-       "fed": "MUR",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "1"
-      },
-      {
-       "mark": "2:31:52",
-       "wind": "",
-       "name": "Daniel Chamosa Dacasa",
-       "club": "S.G. Pontevedra",
-       "born": "1997",
-       "fed": "GAL",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "2"
-      },
-      {
-       "mark": "2:32:59",
-       "wind": "",
-       "name": "Jose Manuel Perez Rubio",
-       "club": "Trops-Cueva de Nerja",
-       "born": "1999",
-       "fed": "AND",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "3"
-      },
-      {
-       "mark": "2:36:03",
-       "wind": "",
-       "name": "Manuel Bermudez Jimenez",
-       "club": "UCAM-Athleo Cieza",
-       "born": "1997",
-       "fed": "MUR",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
        "rank": "4"
       }
      ]
@@ -13303,6 +13254,55 @@
        "city": "Cieza",
        "date": "15/02/2026",
        "rank": "10"
+      }
+     ]
+    },
+    {
+     "event": "35 km Marcha",
+     "rows": [
+      {
+       "mark": "2:27:10",
+       "wind": "",
+       "name": "Miguel Angel Lopez Nicolas",
+       "club": "UCAM Murcia",
+       "born": "1988",
+       "fed": "MUR",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "1"
+      },
+      {
+       "mark": "2:31:52",
+       "wind": "",
+       "name": "Daniel Chamosa Dacasa",
+       "club": "S.G. Pontevedra",
+       "born": "1997",
+       "fed": "GAL",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "2"
+      },
+      {
+       "mark": "2:32:59",
+       "wind": "",
+       "name": "Jose Manuel Perez Rubio",
+       "club": "Trops-Cueva de Nerja",
+       "born": "1999",
+       "fed": "AND",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "3"
+      },
+      {
+       "mark": "2:36:03",
+       "wind": "",
+       "name": "Manuel Bermudez Jimenez",
+       "club": "UCAM-Athleo Cieza",
+       "born": "1997",
+       "fed": "MUR",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "4"
       }
      ]
     }

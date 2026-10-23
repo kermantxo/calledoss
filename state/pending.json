@@ -11,7 +11,7 @@
  },
  "rfea-2026-10-17-10k-fundacio-caixa-ontinyent": {
   "since": "2026-10-17",
-  "tries": 40,
+  "tries": 41,
   "last": "2026-10-23"
  },
  "avaibook-cross-trail-desafio-empedrada-portillo-2": {
@@ -21,12 +21,12 @@
  },
  "rfea-2026-10-17-milla-internacional-del-cantabrico": {
   "since": "2026-10-17",
-  "tries": 40,
+  "tries": 41,
   "last": "2026-10-23"
  },
  "rfea-2026-10-17-vi-desafio-internacional-ecocamino-50k": {
   "since": "2026-10-17",
-  "tries": 40,
+  "tries": 41,
   "last": "2026-10-23"
  }
 }
