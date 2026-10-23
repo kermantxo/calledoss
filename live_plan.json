@@ -1,6 +1,76 @@
 {
- "date": "2026-10-23",
- "generated": "2026-10-23T21:45:55+02:00",
- "active_day": false,
- "windows": []
+ "date": "2026-10-24",
+ "generated": "2026-10-24T00:47:40+02:00",
+ "active_day": true,
+ "windows": [
+  {
+   "id": "wa-7234919",
+   "name": "Lusatian Race Walking",
+   "place": "Weinauparkstadion, Zittau (GER)",
+   "source": "World Athletics",
+   "start": "2026-10-24T07:00:00+02:00",
+   "end": "2026-10-24T23:00:00+02:00",
+   "first": null,
+   "last": null,
+   "schedule_known": false,
+   "poll": true,
+   "intl": true,
+   "links": {
+    "info": "https://worldathletics.org/competition/calendar-results/results/7234919"
+   }
+  },
+  {
+   "id": "cronomancha-ev772",
+   "name": "Media Maratón de Cuenca y 10K",
+   "place": "",
+   "source": "Cronomancha",
+   "start": "2026-10-24T07:00:00+02:00",
+   "end": "2026-10-24T23:00:00+02:00",
+   "first": null,
+   "last": null,
+   "schedule_known": false,
+   "poll": true,
+   "intl": false,
+   "links": {
+    "info": "https://timingsys.com/event/772",
+    "inscritos": "https://timingsys.com/event/772/participants",
+    "resultados": "https://timingsys.com/resultdata/772"
+   }
+  },
+  {
+   "id": "rfea-2026-10-24-campeonato-de-espana-sub-20-por-clubes-final-hombres-y-mujer",
+   "name": "Campeonato de España sub-20 por Clubes - Final A Hombres y Mujeres",
+   "place": "Tres Cantos",
+   "source": "RFEA",
+   "start": "2026-10-24T15:00:00+02:00",
+   "end": "2026-10-24T21:10:00+02:00",
+   "first": "16:00",
+   "last": "19:10",
+   "schedule_known": true,
+   "poll": true,
+   "intl": false,
+   "links": {
+    "info": "https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-sub-20-por-clubes-final-hombres-y-mujeres",
+    "directo": "https://rfealive.me/Results/Schedule?chid=2026MUR70367"
+   }
+  },
+  {
+   "id": "rfea-2026-10-24-40-cross-de-la-constitucion-de-aranda-de-duero",
+   "name": "40 Cross de la Constitución de Aranda de Duero",
+   "place": "Aranda de Duero",
+   "source": "RFEA",
+   "start": "2026-10-24T07:00:00+02:00",
+   "end": "2026-10-24T23:00:00+02:00",
+   "first": null,
+   "last": null,
+   "schedule_known": false,
+   "poll": false,
+   "intl": false,
+   "links": {
+    "info": "https://atletismorfea.es/calendario/campeonato/40-cross-de-la-constitucion-de-aranda-de-duero",
+    "web": "https://www.arandactiva.es",
+    "adoc": "https://www.adocasociacion.es/Organizacion/5/Cross-de-la-Constitucion-de-Aranda-de-Duero"
+   }
+  }
+ ]
 }
