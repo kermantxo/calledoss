@@ -53,6 +53,7 @@
 - `worker/` - el pequeño servidor de Cloudflare que protege el panel con clave y lanza el modo directo a tiempo
 
 ## Recent Changes
+- 2026-10-24: Resultados de Sportmaniacs (Cross de Aranda): la élite y la absoluta salen primero, después la popular y luego las categorías, porque la lista solo enseña las 6 primeras pruebas. Las pruebas de un solo sexo («SUB12 FEM», «ÉLITE MASC») ya no generan un podio falso del otro sexo cuando alguien está mal inscrito.
 - 3 oct 2026: En directo muestra el horario completo prueba a prueba. Cada prueba lleva su estado (Pendiente, En marcha, Provisional, Oficial) y, en cuanto sale la clasificación, se puede desplegar pinchando en ella para verla debajo de la hora.
 - 2026-10-18: Cross de Zornotza: además de World Athletics, el directo lee los PDF de clasificación que la organización sube a cdzornotza.eus/sailkapenak al terminar cada carrera (nueva fuente «pdfweb» que se suma a la principal con «junto»). Horario oficial de las 10 carreras (09:40–13:00) en `pipeline/extra_links.json`.
 - 2026-10-17: 10K de Ontinyent: podio de la élite (hombres y mujeres) metido a mano en `pipeline/extra_links.json` («a_mano»), sale en En directo como provisional y en Resultados hasta que haya clasificación oficial.

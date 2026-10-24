@@ -58,13 +58,34 @@ def podium(http, event_id, gender):
              "mark": x.get("officialTime") or ""} for i, x in enumerate(rows[:3])]
 
 
+def _sexos(label):
+    """Una prueba de un solo sexo ('SUB12 FEM', 'Élite masculina') solo lleva ese podio: si no, un
+    inscrito con el sexo mal puesto sale como podio falso del otro sexo."""
+    n = norm(label)
+    fem = re.search(r"fem|mujer", n)
+    masc = re.search(r"masc|hombre|varon", n)
+    if fem and not masc:
+        return ((1, "Mujeres"),)
+    if masc and not fem:
+        return ((0, "Hombres"),)
+    return ((0, "Hombres"), (1, "Mujeres"))
+
+
+def _orden(ev):
+    """Primero la élite/absoluta, luego la popular y después las categorías (la lista muestra las 6 primeras)."""
+    n = norm(ev["name"])
+    if re.search(r"elite|absolut|senior|internacional", n):
+        return 0
+    return 1 if re.search(r"popular", n) else 2
+
+
 def results(http, slug):
     """Podio masculino y femenino de cada prueba de la carrera."""
     out = []
     for eid, label in events(http, slug):
-        for g, sex in ((0, "Hombres"), (1, "Mujeres")):
+        for g, sex in _sexos(label):
             rows = podium(http, eid, g)
             if rows:
                 out.append({"name": "%s %s" % (label or "Carrera", sex),
                             "rounds": [{"round": "General", "final": True, "rows": rows}]})
-    return out
+    return sorted(out, key=_orden)
