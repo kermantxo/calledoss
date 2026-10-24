@@ -2,81 +2,81 @@
  "sources": {
   "rfea_calendar": {
    "label": "RFEA · calendario",
-   "last_run": "2026-10-23T06:48:18+02:00",
+   "last_run": "2026-10-24T06:46:34+02:00",
    "ok": true,
-   "last_ok": "2026-10-23T06:48:58+02:00",
+   "last_ok": "2026-10-24T06:47:14+02:00",
    "fails_in_a_row": 0,
-   "last_count": 647
+   "last_count": 648
   },
   "wa_calendar": {
    "label": "World Athletics · calendario",
-   "last_run": "2026-10-23T06:48:58+02:00",
+   "last_run": "2026-10-24T06:47:14+02:00",
    "ok": true,
-   "last_ok": "2026-10-23T06:49:21+02:00",
+   "last_ok": "2026-10-24T06:47:37+02:00",
    "fails_in_a_row": 0,
-   "last_count": 195
+   "last_count": 193
   },
   "cronomancha_upcoming": {
    "label": "Cronomancha · próximas",
-   "last_run": "2026-10-23T06:49:21+02:00",
+   "last_run": "2026-10-24T06:47:37+02:00",
    "ok": true,
-   "last_ok": "2026-10-23T06:49:22+02:00",
+   "last_ok": "2026-10-24T06:47:43+02:00",
    "fails_in_a_row": 0,
    "last_count": 5
   },
   "cronomancha_events": {
    "label": "Cronomancha · resultados",
-   "last_run": "2026-10-23T06:49:22+02:00",
+   "last_run": "2026-10-24T06:47:43+02:00",
    "ok": true,
-   "last_ok": "2026-10-23T06:49:23+02:00",
+   "last_ok": "2026-10-24T06:47:44+02:00",
    "fails_in_a_row": 0,
-   "last_count": 39
+   "last_count": 40
   },
   "avaibook": {
    "label": "AvaiBook (Runvasport)",
-   "last_run": "2026-10-23T06:49:23+02:00",
+   "last_run": "2026-10-24T06:47:44+02:00",
    "ok": true,
-   "last_ok": "2026-10-23T06:49:25+02:00",
+   "last_ok": "2026-10-24T06:47:46+02:00",
    "fails_in_a_row": 0,
    "last_count": 46
   },
   "rfea_detail": {
    "label": "RFEA · fichas de competición",
-   "last_run": "2026-10-23T06:49:26+02:00",
+   "last_run": "2026-10-24T06:47:47+02:00",
    "ok": true,
-   "last_ok": "2026-10-23T06:49:34+02:00",
+   "last_ok": "2026-10-24T06:47:58+02:00",
    "fails_in_a_row": 0,
-   "last_count": 6
+   "last_count": 8
   },
   "rfealive": {
    "label": "RFEA Live · horarios",
-   "last_run": "2026-10-24T00:43:18+02:00",
+   "last_run": "2026-10-24T06:47:58+02:00",
    "ok": true,
-   "last_ok": "2026-10-24T00:47:40+02:00",
-   "fails_in_a_row": 0,
-   "last_count": 80
-  },
-  "destacados": {
-   "label": "Atletas destacados (listas de salida)",
-   "last_run": "2026-10-23T06:52:53+02:00",
-   "ok": true,
-   "last_ok": "2026-10-23T06:52:53+02:00",
+   "last_ok": "2026-10-24T06:51:51+02:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
+  "destacados": {
+   "label": "Atletas destacados (listas de salida)",
+   "last_run": "2026-10-24T06:52:01+02:00",
+   "ok": true,
+   "last_ok": "2026-10-24T06:52:15+02:00",
+   "fails_in_a_row": 0,
+   "last_count": 1
+  },
   "results": {
    "label": "Resultados (todas las fuentes)",
-   "last_run": "2026-10-24T02:21:16+02:00",
+   "last_run": "2026-10-24T06:52:15+02:00",
    "ok": true,
-   "last_ok": "2026-10-24T02:25:22+02:00",
+   "last_ok": "2026-10-24T06:56:22+02:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
   "rfea_results": {
    "label": "RFEA · índice de resultados (PDF)",
-   "last_run": "2026-10-24T02:21:16+02:00",
+   "last_run": "2026-10-24T06:52:15+02:00",
    "ok": true,
-   "last_ok": "2026-10-24T02:21:18+02:00",
+   "last_ok": "2026-10-24T06:52:17+02:00",
    "fails_in_a_row": 0,
    "last_count": 0,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf",
@@ -94,54 +94,114 @@
   },
   "avaibook_upcoming": {
    "label": "Runvasport · próximas",
-   "last_run": "2026-10-23T06:49:25+02:00",
+   "last_run": "2026-10-24T06:47:46+02:00",
    "ok": true,
-   "last_ok": "2026-10-23T06:49:26+02:00",
+   "last_ok": "2026-10-24T06:47:47+02:00",
    "fails_in_a_row": 0,
    "last_count": 24
   },
   "previas": {
    "label": "Previas (listas de inscritos)",
-   "last_run": "2026-10-24T00:47:40+02:00",
+   "last_run": "2026-10-24T06:56:22+02:00",
    "ok": true,
-   "last_ok": "2026-10-24T01:07:49+02:00",
+   "last_ok": "2026-10-24T07:15:45+02:00",
    "fails_in_a_row": 0,
    "last_count": 21
   },
   "ranking": {
    "label": "Ranking RFEA (aire libre y pista cubierta)",
-   "last_run": "2026-10-23T07:19:43+02:00",
+   "last_run": "2026-10-24T07:15:45+02:00",
    "ok": true,
-   "last_ok": "2026-10-23T07:25:47+02:00",
+   "last_ok": "2026-10-24T07:21:44+02:00",
    "fails_in_a_row": 0,
    "last_count": 123
   },
   "adoc": {
    "label": "ADOC · pruebas asociadas",
-   "last_run": "2026-10-23T06:52:43+02:00",
+   "last_run": "2026-10-24T06:51:51+02:00",
    "ok": true,
-   "last_ok": "2026-10-23T06:52:53+02:00",
+   "last_ok": "2026-10-24T06:52:01+02:00",
    "fails_in_a_row": 0,
    "last_count": 23
   },
   "adoc_calendar": {
    "label": "ADOC · calendario del circuito",
-   "last_run": "2026-10-23T06:52:53+02:00",
+   "last_run": "2026-10-24T06:52:01+02:00",
    "ok": true,
-   "last_ok": "2026-10-23T06:52:53+02:00",
+   "last_ok": "2026-10-24T06:52:01+02:00",
    "fails_in_a_row": 0,
    "last_count": 14
   },
   "podcast": {
    "label": "Pódcast (último programa en Spotify)",
-   "last_run": "2026-10-24T02:25:22+02:00",
+   "last_run": "2026-10-24T07:21:44+02:00",
    "ok": true,
-   "last_ok": "2026-10-24T02:25:22+02:00",
+   "last_ok": "2026-10-24T07:21:44+02:00",
    "fails_in_a_row": 0,
    "last_count": 1
   }
  },
  "log": [
+  {
+   "at": "2026-10-24T06:55:47+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de 'Lusatian Race Walking' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7234919"
+  },
+  {
+   "at": "2026-10-24T06:53:03+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Búsqueda de podios de 'Milla internacional del Cantábrico': expected string or bytes-like object, got 'list'"
+  },
+  {
+   "at": "2026-10-24T06:53:03+02:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Búsqueda de podios de '10K Fundació Caixa Ontinyent': expected string or bytes-like object, got 'list'"
+  },
+  {
+   "at": "2026-10-24T06:49:26+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de TCS New York City Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-24T06:49:17+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Istanbul Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-24T06:49:08+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Hangzhou Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-24T06:48:58+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de 70º Cross Internacional de San Sebastián - Lasarte no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-24T06:48:49+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Medio Maratón Valencia Trinidad Alfonso Zurich no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-24T06:48:39+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de 63rd All Japan Race Walking Takahata no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-24T06:48:29+02:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Lusatian Race Walking no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
   {
    "at": "2026-10-24T02:24:47+02:00",
    "level": "warning",
@@ -561,67 +621,7 @@
    "level": "warning",
    "source": "wa_calendar",
    "msg": "Programa de 63rd All Japan Race Walking Takahata no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-21T11:26:21+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Lusatian Race Walking no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-21T06:55:04+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Resultados de 'Yellow River Estuary Dongying Marathon' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235592"
-  },
-  {
-   "at": "2026-10-21T06:54:26+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de 'Milla internacional del Cantábrico': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-10-21T06:54:25+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de '10K Fundació Caixa Ontinyent': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-10-21T06:50:53+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Medio Maratón Valencia Trinidad Alfonso Zurich no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-21T06:50:43+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de 63rd All Japan Race Walking Takahata no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-21T06:50:34+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Lusatian Race Walking no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-21T00:29:33+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Resultados de 'Yellow River Estuary Dongying Marathon' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235592"
-  },
-  {
-   "at": "2026-10-21T00:28:54+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de 'Milla internacional del Cantábrico': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-10-21T00:28:53+02:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de '10K Fundació Caixa Ontinyent': expected string or bytes-like object, got 'list'"
   }
  ],
- "updated": "2026-10-24T07:19:05+02:00"
+ "updated": "2026-10-24T07:21:44+02:00"
 }
