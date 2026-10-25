@@ -32,6 +32,17 @@
    "url": "https://10kzaragoza.com/",
    "type": "Ruta",
    "added": "2026-10-21T12:02:22Z"
+  },
+  {
+   "id": "manual-2026-10-25-xvi-derbi-de-las-aficiones",
+   "name": "XVI Derbi de las Aficiones",
+   "date": "2026-10-25",
+   "place": "Madrid",
+   "time": "09:00",
+   "time_end": null,
+   "url": "https://www.derbidelasaficiones.com/",
+   "type": "Ruta",
+   "added": "2026-10-25T13:21:47Z"
   }
  ]
 }
