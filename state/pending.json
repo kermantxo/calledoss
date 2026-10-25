@@ -31,17 +31,17 @@
  },
  "rfea-2026-10-25-xlii-cross-nacional-castellano-manchego-villa-de-quintanar-0": {
   "since": "2026-10-25",
-  "tries": 4,
+  "tries": 5,
   "last": "2026-10-25"
  },
  "rfea-2026-10-25-xxxi-carrera-popular-costa-de-ajo": {
   "since": "2026-10-25",
-  "tries": 4,
+  "tries": 5,
   "last": "2026-10-25"
  },
  "manual-2026-10-25-xvi-derbi-de-las-aficiones": {
   "since": "2026-10-25",
-  "tries": 2,
+  "tries": 3,
   "last": "2026-10-25"
  }
 }
