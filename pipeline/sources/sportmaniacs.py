@@ -72,11 +72,22 @@ def _sexos(label):
 
 
 def _orden(ev):
-    """Primero la élite/absoluta, luego la popular y después las categorías (la lista muestra las 6 primeras)."""
+    """Primero la élite/absoluta, luego la popular, después las demás distancias (la más larga antes), las
+    categorías por edad y al final las adaptadas (la lista muestra las 6 primeras)."""
     n = norm(ev["name"])
+    km = re.search(r"(\d+(?: \d+)?) ?km\b|\b(\d+) ?k\b", n)
+    km = float((km.group(1) or km.group(2)).replace(" ", ".")) if km else 0
     if re.search(r"elite|absolut|senior|internacional", n):
-        return 0
-    return 1 if re.search(r"popular", n) else 2
+        grupo = 0
+    elif re.search(r"popular", n):
+        grupo = 1
+    elif re.search(r"handbike|silla|adaptad", n):
+        grupo = 4
+    elif re.search(r"\bsub ?\d|master|veteran|chupet|benjam|alevin|infantil|cadete|juvenil|junior|prebenj", n):
+        grupo = 3
+    else:
+        grupo = 2
+    return (grupo, -km)
 
 
 def results(http, slug):

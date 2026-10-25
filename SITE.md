@@ -53,6 +53,7 @@
 - `worker/` - el pequeño servidor de Cloudflare que protege el panel con clave y lanza el modo directo a tiempo
 
 ## Recent Changes
+- 2026-10-25: 10K Zaragoza: resultados de Sportmaniacs (10K, 5K y handbike). Sportmaniacs ordena ahora élite, popular, distancias de mayor a menor, categorías por edad y adaptadas al final. El control de «tiempos imposibles» ya no descarta pruebas llamadas «5K · 5km» (antes tomaba la distancia de la carrera, 10K, y daba por imposible el 15:30 del 5K).
 - 2026-10-25: Medio Maratón de Valencia: podios general y español (hombres y mujeres) cargados a mano desde la crónica oficial de la organización (valenciaciudaddelrunning.com), como resultado provisional. Cuando World Athletics publique la clasificación, la revisión automática la sustituye sola.
 - 2026-10-24: Resultados de Sportmaniacs (Cross de Aranda): la élite y la absoluta salen primero, después la popular y luego las categorías, porque la lista solo enseña las 6 primeras pruebas. Las pruebas de un solo sexo («SUB12 FEM», «ÉLITE MASC») ya no generan un podio falso del otro sexo cuando alguien está mal inscrito.
 - 3 oct 2026: En directo muestra el horario completo prueba a prueba. Cada prueba lleva su estado (Pendiente, En marcha, Provisional, Oficial) y, en cuanto sale la clasificación, se puede desplegar pinchando en ella para verla debajo de la hora.

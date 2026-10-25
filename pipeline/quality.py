@@ -149,7 +149,9 @@ def _plausible(label, comp_name, rows):
     if not s:
         return True
     # un título con varias distancias son cabeceras de parciales: no dice la distancia de la prueba
-    lab = label if len(re.findall(r"\d+(?:[.,]\d+)?\s?(?:km|kms|k)\b", label or "", re.I)) < 2 else ""
+    # ("5K · 5km" es una sola distancia escrita dos veces)
+    dists = {float(x.replace(",", ".")) for x in re.findall(r"(\d+(?:[.,]\d+)?)\s?(?:km|kms|k)\b", label or "", re.I)}
+    lab = label if len(dists) < 2 else ""
     kms = [k for k in (_distance_km(lab), _distance_km(comp_name)) if k and k >= 0.8]
     if not kms:
         return True
