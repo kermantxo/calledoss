@@ -9,39 +9,24 @@
   "tries": 36,
   "last": "2026-10-15"
  },
- "rfea-2026-10-17-10k-fundacio-caixa-ontinyent": {
-  "since": "2026-10-17",
-  "tries": 45,
-  "last": "2026-10-26"
- },
  "avaibook-cross-trail-desafio-empedrada-portillo-2": {
   "since": "2026-10-17",
   "tries": 31,
   "last": "2026-10-19"
  },
- "rfea-2026-10-17-milla-internacional-del-cantabrico": {
-  "since": "2026-10-17",
-  "tries": 45,
-  "last": "2026-10-26"
- },
  "rfea-2026-10-17-vi-desafio-internacional-ecocamino-50k": {
   "since": "2026-10-17",
-  "tries": 45,
-  "last": "2026-10-26"
- },
- "rfea-2026-10-25-xlii-cross-nacional-castellano-manchego-villa-de-quintanar-0": {
-  "since": "2026-10-25",
-  "tries": 7,
+  "tries": 46,
   "last": "2026-10-26"
  },
  "rfea-2026-10-25-xxxi-carrera-popular-costa-de-ajo": {
   "since": "2026-10-25",
-  "tries": 7,
+  "tries": 8,
   "last": "2026-10-26"
  },
  "manual-2026-10-25-xvi-derbi-de-las-aficiones": {
   "since": "2026-10-25",
-  "tries": 5,
+  "tries": 6,
   "last": "2026-10-26"
  }
 }
