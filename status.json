@@ -50,9 +50,9 @@
   },
   "rfealive": {
    "label": "RFEA Live · horarios",
-   "last_run": "2026-10-26T17:57:30+01:00",
+   "last_run": "2026-10-27T00:27:27+01:00",
    "ok": true,
-   "last_ok": "2026-10-26T18:00:22+01:00",
+   "last_ok": "2026-10-27T00:30:38+01:00",
    "fails_in_a_row": 0,
    "last_count": 76
   },
@@ -102,9 +102,9 @@
   },
   "previas": {
    "label": "Previas (listas de inscritos)",
-   "last_run": "2026-10-26T18:00:22+01:00",
+   "last_run": "2026-10-27T00:30:38+01:00",
    "ok": true,
-   "last_ok": "2026-10-26T18:17:21+01:00",
+   "last_ok": "2026-10-27T00:47:45+01:00",
    "fails_in_a_row": 0,
    "last_count": 14
   },
@@ -142,6 +142,30 @@
   }
  },
  "log": [
+  {
+   "at": "2026-10-27T00:28:18+01:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de TCS New York City Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-27T00:28:09+01:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Istanbul Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-27T00:27:59+01:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Hangzhou Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-27T00:27:50+01:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de 70º Cross Internacional de San Sebastián - Lasarte no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
   {
    "at": "2026-10-26T17:58:21+01:00",
    "level": "warning",
@@ -597,31 +621,7 @@
    "level": "warning",
    "source": "wa_calendar",
    "msg": "Programa de Medio Maratón Valencia Trinidad Alfonso Zurich no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-23T21:43:22+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de 63rd All Japan Race Walking Takahata no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-23T21:43:12+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Lusatian Race Walking no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-23T13:08:06+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Medio Maratón Valencia Trinidad Alfonso Zurich no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-23T13:07:57+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de 63rd All Japan Race Walking Takahata no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
   }
  ],
- "updated": "2026-10-26T21:57:34+01:00"
+ "updated": "2026-10-27T00:47:45+01:00"
 }
