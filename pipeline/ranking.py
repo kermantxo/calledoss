@@ -108,6 +108,10 @@ HIST_EVENTS = {
 }
 
 
+# nombres que la RFEA escribe incompletos en su lista histórica
+HIST_NAMES = {"Luis Miguel Martín": "Luis Miguel Martín Berlanas"}
+
+
 def fetch_hist(http, sex, event, style, mixed):
     url = "%s/ajax/ranking/historico/get-event-ranking/no/0/%d/%d/%d/%d/0?_wrapper_format=drupal_ajax" % (
         BASE, event, style, GENDER[sex], HIST_CAT[sex])
@@ -132,7 +136,7 @@ def fetch_hist(http, sex, event, style, mixed):
             city = re.sub(r"\s*\(i\)\s*$", "", city)   # en pruebas solo de aire libre, el "(i)" es un error de la RFEA
         rows.append({"rank": c.get("RANK.", ""), "mark": mark,
                      "wind": c.get("VIENTO", "") if c.get("VIENTO", "-") != "-" else "",
-                     "name": c["ATLETA"], "born": born if born.isdigit() and born >= "1900" else "",
+                     "name": HIST_NAMES.get(c["ATLETA"], c["ATLETA"]), "born": born if born.isdigit() and born >= "1900" else "",
                      "city": city, "date": c.get("FECHA", "")})
     return rows[:TOP]
 
