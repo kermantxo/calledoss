@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-27T11:14:01+01:00",
+ "generated": "2026-10-27T12:46:30+01:00",
  "season": "2026",
  "source": "https://atletismorfea.es/ranking",
  "seasons": {
@@ -5214,23 +5214,23 @@
       },
       {
        "mark": "7.78",
-       "wind": "2.0",
-       "name": "Anthony Yunier Perez Valdes",
-       "club": "Facsa - Playas de Castellón",
-       "born": "2008",
-       "fed": "CVA",
-       "city": "Sagunto",
-       "date": "20/06/2026",
-       "rank": "9"
-      },
-      {
-       "mark": "7.78",
        "wind": "1.7",
        "name": "Daniel Amez Villayandre",
        "club": "Univ Leon Sprint Atletismo",
        "born": "2000",
        "fed": "CYL",
        "city": "León-ULE",
+       "date": "20/06/2026",
+       "rank": "9"
+      },
+      {
+       "mark": "7.78",
+       "wind": "2.0",
+       "name": "Anthony Yunier Perez Valdes",
+       "club": "Facsa - Playas de Castellón",
+       "born": "2008",
+       "fed": "CVA",
+       "city": "Sagunto",
        "date": "20/06/2026",
        "rank": "="
       }
@@ -9623,22 +9623,22 @@
       {
        "mark": "14.90",
        "wind": "",
-       "name": "Unai Loureiro Arrojo",
-       "club": "Riazor Coruña",
-       "born": "2006",
-       "fed": "GAL",
-       "city": "Ourense",
+       "name": "Raul Martin Galve",
+       "club": "At. Intec-Zoiti",
+       "born": "2004",
+       "fed": "ARA",
+       "city": "Zaragoza",
        "date": "10/01/2026",
        "rank": "4"
       },
       {
        "mark": "14.90",
        "wind": "",
-       "name": "Raul Martin Galve",
-       "club": "At. Intec-Zoiti",
-       "born": "2004",
-       "fed": "ARA",
-       "city": "Zaragoza",
+       "name": "Unai Loureiro Arrojo",
+       "club": "Riazor Coruña",
+       "born": "2006",
+       "fed": "GAL",
+       "city": "Ourense",
        "date": "10/01/2026",
        "rank": "="
       },
@@ -11231,121 +11231,6 @@
      ]
     },
     {
-     "event": "20 km Marcha",
-     "rows": [
-      {
-       "mark": "1:25:30",
-       "wind": "",
-       "name": "María Pérez García",
-       "club": "INDEPENDIENTE",
-       "born": "1996",
-       "fed": "AND",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "1"
-      },
-      {
-       "mark": "1:29:56",
-       "wind": "",
-       "name": "Aldara Meilán García",
-       "club": "Atletica Lucense",
-       "born": "2006",
-       "fed": "GAL",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "2"
-      },
-      {
-       "mark": "1:30:56",
-       "wind": "",
-       "name": "Antia Chamosa Dacasa",
-       "club": "INDEPENDIENTE",
-       "born": "1999",
-       "fed": "GAL",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "3"
-      },
-      {
-       "mark": "1:31:05",
-       "wind": "",
-       "name": "Sofia Santacreu Calatayud",
-       "club": "Cornellà Atlètic",
-       "born": "2006",
-       "fed": "CAT",
-       "city": "Brasilia - (BRA)",
-       "date": "12/04/2026",
-       "rank": "4"
-      },
-      {
-       "mark": "1:35:03",
-       "wind": "",
-       "name": "Raquel González Campos",
-       "club": "INDEPENDIENTE",
-       "born": "1989",
-       "fed": "CAT",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "5"
-      },
-      {
-       "mark": "1:35:45",
-       "wind": "",
-       "name": "Lidia Sanchez-puebla Fernandez",
-       "club": "Facsa - Playas de Castellón",
-       "born": "1996",
-       "fed": "MAD",
-       "city": "Brasilia - (BRA)",
-       "date": "12/04/2026",
-       "rank": "6"
-      },
-      {
-       "mark": "1:36:10",
-       "wind": "",
-       "name": "Griselda Serret Menendez",
-       "club": "Avinent Manresa",
-       "born": "2005",
-       "fed": "CAT",
-       "city": "Brasilia - (BRA)",
-       "date": "12/04/2026",
-       "rank": "7"
-      },
-      {
-       "mark": "1:39:13",
-       "wind": "",
-       "name": "Lucia Redondo Ardid",
-       "club": "Univ Leon Sprint Atletismo",
-       "born": "2003",
-       "fed": "MAD",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "8"
-      },
-      {
-       "mark": "1:46:01",
-       "wind": "",
-       "name": "Laura Monje Martinez",
-       "club": "CA Granollers",
-       "born": "2002",
-       "fed": "CAT",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "9"
-      },
-      {
-       "mark": "1:57:10",
-       "wind": "",
-       "name": "Marta Nogueira Fernandez",
-       "club": "Lleida UA",
-       "born": "1981",
-       "fed": "CAT",
-       "city": "Cieza",
-       "date": "08/03/2026",
-       "rank": "10"
-      }
-     ]
-    },
-    {
      "event": "Medio maratón Marcha",
      "rows": [
       {
@@ -11456,6 +11341,121 @@
        "fed": "MAD",
        "city": "El Vendrell",
        "date": "17/01/2026",
+       "rank": "10"
+      }
+     ]
+    },
+    {
+     "event": "20 km Marcha",
+     "rows": [
+      {
+       "mark": "1:25:30",
+       "wind": "",
+       "name": "María Pérez García",
+       "club": "INDEPENDIENTE",
+       "born": "1996",
+       "fed": "AND",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "1"
+      },
+      {
+       "mark": "1:29:56",
+       "wind": "",
+       "name": "Aldara Meilán García",
+       "club": "Atletica Lucense",
+       "born": "2006",
+       "fed": "GAL",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "2"
+      },
+      {
+       "mark": "1:30:56",
+       "wind": "",
+       "name": "Antia Chamosa Dacasa",
+       "club": "INDEPENDIENTE",
+       "born": "1999",
+       "fed": "GAL",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "3"
+      },
+      {
+       "mark": "1:31:05",
+       "wind": "",
+       "name": "Sofia Santacreu Calatayud",
+       "club": "Cornellà Atlètic",
+       "born": "2006",
+       "fed": "CAT",
+       "city": "Brasilia - (BRA)",
+       "date": "12/04/2026",
+       "rank": "4"
+      },
+      {
+       "mark": "1:35:03",
+       "wind": "",
+       "name": "Raquel González Campos",
+       "club": "INDEPENDIENTE",
+       "born": "1989",
+       "fed": "CAT",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "5"
+      },
+      {
+       "mark": "1:35:45",
+       "wind": "",
+       "name": "Lidia Sanchez-puebla Fernandez",
+       "club": "Facsa - Playas de Castellón",
+       "born": "1996",
+       "fed": "MAD",
+       "city": "Brasilia - (BRA)",
+       "date": "12/04/2026",
+       "rank": "6"
+      },
+      {
+       "mark": "1:36:10",
+       "wind": "",
+       "name": "Griselda Serret Menendez",
+       "club": "Avinent Manresa",
+       "born": "2005",
+       "fed": "CAT",
+       "city": "Brasilia - (BRA)",
+       "date": "12/04/2026",
+       "rank": "7"
+      },
+      {
+       "mark": "1:39:13",
+       "wind": "",
+       "name": "Lucia Redondo Ardid",
+       "club": "Univ Leon Sprint Atletismo",
+       "born": "2003",
+       "fed": "MAD",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "8"
+      },
+      {
+       "mark": "1:46:01",
+       "wind": "",
+       "name": "Laura Monje Martinez",
+       "club": "CA Granollers",
+       "born": "2002",
+       "fed": "CAT",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "9"
+      },
+      {
+       "mark": "1:57:10",
+       "wind": "",
+       "name": "Marta Nogueira Fernandez",
+       "club": "Lleida UA",
+       "born": "1981",
+       "fed": "CAT",
+       "city": "Cieza",
+       "date": "08/03/2026",
        "rank": "10"
       }
      ]
@@ -13308,5 +13308,8115 @@
     }
    ]
   }
- }
+ },
+ "historico": {
+  "AL": {
+   "F": [
+    {
+     "event": "100 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "11.06",
+       "wind": "1,7",
+       "name": "Sandra Myers",
+       "born": "1961",
+       "city": "Vigo",
+       "date": "23/07/1991"
+      },
+      {
+       "rank": "2",
+       "mark": "11.07",
+       "wind": "1,6",
+       "name": "María Isabel Pérez",
+       "born": "1993",
+       "city": "Nerja",
+       "date": "25/06/2022"
+      },
+      {
+       "rank": "3",
+       "mark": "11.10",
+       "wind": "-0,1",
+       "name": "Jaël-Sakura Bestué",
+       "born": "2000",
+       "city": "Madrid",
+       "date": "22/07/2023"
+      },
+      {
+       "rank": "4",
+       "mark": "11.14",
+       "wind": "1,8",
+       "name": "Glory Alozie",
+       "born": "",
+       "city": "Lisboa (POR)",
+       "date": "25/05/2002"
+      },
+      {
+       "rank": "5",
+       "mark": "11.30",
+       "wind": "0,8",
+       "name": "Aitana Rodrigo",
+       "born": "2000",
+       "city": "Tarragona",
+       "date": "01/08/2025"
+      },
+      {
+       "rank": "5",
+       "mark": "11.30",
+       "wind": "1,4",
+       "name": "Estela García",
+       "born": "1989",
+       "city": "Getafe",
+       "date": "21/07/2018"
+      },
+      {
+       "rank": "7",
+       "mark": "11.31",
+       "wind": "1,0",
+       "name": "Sonia Molina-Prados",
+       "born": "1993",
+       "city": "Nerja",
+       "date": "25/06/2022"
+      },
+      {
+       "rank": "8",
+       "mark": "11.32",
+       "wind": "1,4",
+       "name": "Ericka Badeau Maseras",
+       "born": "2006",
+       "city": "Málaga",
+       "date": "24/07/2026"
+      },
+      {
+       "rank": "9",
+       "mark": "11.35",
+       "wind": "1,9",
+       "name": "Esperança Cladera",
+       "born": "2002",
+       "city": "Granada",
+       "date": "03/06/2026"
+      },
+      {
+       "rank": "9",
+       "mark": "11.35",
+       "wind": "0,7",
+       "name": "Lucía Carrillo",
+       "born": "2002",
+       "city": "Tarragona",
+       "date": "01/08/2025"
+      }
+     ]
+    },
+    {
+     "event": "200 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "22.19",
+       "wind": "0,8",
+       "name": "Jaël-Sakura Bestué",
+       "born": "2000",
+       "city": "Madrid",
+       "date": "29/06/2025"
+      },
+      {
+       "rank": "2",
+       "mark": "22.38",
+       "wind": "0,3",
+       "name": "Sandra Myers",
+       "born": "1961",
+       "city": "Split (YUG)",
+       "date": "30/08/1990"
+      },
+      {
+       "rank": "3",
+       "mark": "22.69",
+       "wind": "1,0",
+       "name": "Paula Sevilla",
+       "born": "1997",
+       "city": "Fuenlabrada",
+       "date": "29/05/2026"
+      },
+      {
+       "rank": "4",
+       "mark": "22.79",
+       "wind": "1,2",
+       "name": "Esperança Cladera",
+       "born": "2002",
+       "city": "Ciudad Real",
+       "date": "12/07/2025"
+      },
+      {
+       "rank": "5",
+       "mark": "22.80",
+       "wind": "1,9",
+       "name": "Lucía Carrillo",
+       "born": "2002",
+       "city": "Tarragona",
+       "date": "03/08/2025"
+      },
+      {
+       "rank": "6",
+       "mark": "22.86",
+       "wind": "0,6",
+       "name": "Cristina Pérez",
+       "born": "1965",
+       "city": "Sevilla",
+       "date": "01/06/1988"
+      },
+      {
+       "rank": "7",
+       "mark": "22.97",
+       "wind": "0,6",
+       "name": "Alba Borrero",
+       "born": "1998",
+       "city": "Málaga",
+       "date": "26/07/2026"
+      },
+      {
+       "rank": "8",
+       "mark": "23.00",
+       "wind": "1,2",
+       "name": "Paula García",
+       "born": "1998",
+       "city": "Tarragona",
+       "date": "03/08/2025"
+      },
+      {
+       "rank": "9",
+       "mark": "23.03",
+       "wind": "0,5",
+       "name": "María Vicente",
+       "born": "2001",
+       "city": "Getafe",
+       "date": "27/06/2021"
+      },
+      {
+       "rank": "10",
+       "mark": "23.06",
+       "wind": "-0,3",
+       "name": "Esther Navero",
+       "born": "2000",
+       "city": "La Nucía",
+       "date": "30/06/2024"
+      }
+     ]
+    },
+    {
+     "event": "400 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "49.67",
+       "wind": "",
+       "name": "Sandra Myers",
+       "born": "1961",
+       "city": "Oslo (NOR)",
+       "date": "06/07/1991"
+      },
+      {
+       "rank": "2",
+       "mark": "50.21",
+       "wind": "",
+       "name": "Paula Sevilla",
+       "born": "1997",
+       "city": "Biringham (GBR)",
+       "date": "13/08/2026"
+      },
+      {
+       "rank": "3",
+       "mark": "50.46",
+       "wind": "",
+       "name": "Blanca Hervás",
+       "born": "2002",
+       "city": "Madrid",
+       "date": "16/07/2026"
+      },
+      {
+       "rank": "4",
+       "mark": "51.08",
+       "wind": "",
+       "name": "Aauri Lorena Bokesa",
+       "born": "1988",
+       "city": "Berna (SUI)",
+       "date": "21/08/2021"
+      },
+      {
+       "rank": "5",
+       "mark": "51.35",
+       "wind": "",
+       "name": "Eva Santidrián",
+       "born": "2000",
+       "city": "León",
+       "date": "28/06/2025"
+      },
+      {
+       "rank": "6",
+       "mark": "51.38",
+       "wind": "",
+       "name": "Indira Terrero",
+       "born": "1985",
+       "city": "Zúrich (SUI)",
+       "date": "15/08/2014"
+      },
+      {
+       "rank": "7",
+       "mark": "51.53",
+       "wind": "",
+       "name": "Blanca Lacambra",
+       "born": "1965",
+       "city": "Madrid",
+       "date": "20/06/1986"
+      },
+      {
+       "rank": "8",
+       "mark": "51.50",
+       "wind": "",
+       "name": "Ana Prieto",
+       "born": "2005",
+       "city": "Taranto (ITA)",
+       "date": "01/09/2026"
+      },
+      {
+       "rank": "9",
+       "mark": "51.64",
+       "wind": "",
+       "name": "Daniela Fra",
+       "born": "2000",
+       "city": "Madrid",
+       "date": "23/02/2025"
+      },
+      {
+       "rank": "10",
+       "mark": "51.68",
+       "wind": "",
+       "name": "Berta Segura",
+       "born": "2003",
+       "city": "La Nucía",
+       "date": "29/06/2024"
+      }
+     ]
+    },
+    {
+     "event": "800 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "1:57.45",
+       "wind": "",
+       "name": "Maite Zúñiga",
+       "born": "1964",
+       "city": "Sevilla",
+       "date": "01/06/1988"
+      },
+      {
+       "rank": "2",
+       "mark": "1:57.62",
+       "wind": "",
+       "name": "Mayte Martínez",
+       "born": "1976",
+       "city": "Osaka (JPN)",
+       "date": "28/08/2007"
+      },
+      {
+       "rank": "3",
+       "mark": "1:58.52",
+       "wind": "",
+       "name": "Marta Mitjans",
+       "born": "2006",
+       "city": "Birmingham (GBR)",
+       "date": "11/08/2026"
+      },
+      {
+       "rank": "4",
+       "mark": "1:59.17",
+       "wind": "",
+       "name": "Rocío Arroyo",
+       "born": "2003",
+       "city": "Oordegem (BEL)",
+       "date": "09/08/2025"
+      },
+      {
+       "rank": "5",
+       "mark": "1:59.22",
+       "wind": "",
+       "name": "Esther Guerrero",
+       "born": "1990",
+       "city": "Doha (QAT)",
+       "date": "25/09/2020"
+      },
+      {
+       "rank": "6",
+       "mark": "1:59.60",
+       "wind": "",
+       "name": "Lorea Ibarzabal",
+       "born": "1994",
+       "city": "Madrid",
+       "date": "19/07/2025"
+      },
+      {
+       "rank": "7",
+       "mark": "2:00.05",
+       "wind": "",
+       "name": "Daniela García",
+       "born": "2001",
+       "city": "Ordizia",
+       "date": "05/07/2025"
+      },
+      {
+       "rank": "8",
+       "mark": "2:00.33",
+       "wind": "",
+       "name": "Rosa Colorado",
+       "born": "1954",
+       "city": "Oslo (NOR)",
+       "date": "04/07/1987"
+      },
+      {
+       "rank": "9",
+       "mark": "2:00.33",
+       "wind": "",
+       "name": "Lorena Martín",
+       "born": "1996",
+       "city": "Madrid",
+       "date": "21/06/2024"
+      },
+      {
+       "rank": "10",
+       "mark": "2:00.35",
+       "wind": "",
+       "name": "Nuria Fernández",
+       "born": "1976",
+       "city": "Rovereto (ITA)",
+       "date": "10/09/2008"
+      }
+     ]
+    },
+    {
+     "event": "1.500 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "3:57.75",
+       "wind": "",
+       "name": "Marta Pérez",
+       "born": "1993",
+       "city": "París (FRA)",
+       "date": "08/08/2024"
+      },
+      {
+       "rank": "2",
+       "mark": "3:59.40",
+       "wind": "",
+       "name": "Marta García",
+       "born": "1998",
+       "city": "Budapest (HUN)",
+       "date": "12/08/2025"
+      },
+      {
+       "rank": "3",
+       "mark": "3:59.45",
+       "wind": "",
+       "name": "Esther Guerrero",
+       "born": "1990",
+       "city": "Bruselas (BEL)",
+       "date": "22/08/2025"
+      },
+      {
+       "rank": "4",
+       "mark": "3:59.51",
+       "wind": "",
+       "name": "Natalia Rodríguez",
+       "born": "1979",
+       "city": "Rieti (ITA)",
+       "date": "28/08/2005"
+      },
+      {
+       "rank": "5",
+       "mark": "4:00.20",
+       "wind": "",
+       "name": "Nuria Fernández",
+       "born": "1976",
+       "city": "Barcelona",
+       "date": "01/08/2010"
+      },
+      {
+       "rank": "6",
+       "mark": "4:00.31",
+       "wind": "",
+       "name": "Águeda Marqués",
+       "born": "1999",
+       "city": "París (FRA)",
+       "date": "10/08/2024"
+      },
+      {
+       "rank": "7",
+       "mark": "4:00.59",
+       "wind": "",
+       "name": "Maite Zúñiga",
+       "born": "1964",
+       "city": "Barcelona",
+       "date": "08/08/1992"
+      },
+      {
+       "rank": "8",
+       "mark": "4:03.33",
+       "wind": "",
+       "name": "Marina Martínez",
+       "born": "2002",
+       "city": "Oordegem (BEL)",
+       "date": "09/08/2025"
+      },
+      {
+       "rank": "8",
+       "mark": "4:02.77",
+       "wind": "",
+       "name": "Dolores Checa",
+       "born": "1982",
+       "city": "Atenas (GRE)",
+       "date": "13/07/2008"
+      },
+      {
+       "rank": "10",
+       "mark": "4:04.25",
+       "wind": "",
+       "name": "Iris María Fuentes-Pila",
+       "born": "1980",
+       "city": "Roma (ITA)",
+       "date": "12/07/2002"
+      }
+     ]
+    },
+    {
+     "event": "3.000 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "8:28.80",
+       "wind": "",
+       "name": "Marta Domínguez",
+       "born": "1975",
+       "city": "Zúrich (SUI)",
+       "date": "11/08/2000"
+      },
+      {
+       "rank": "2",
+       "mark": "8:29.32",
+       "wind": "",
+       "name": "Marta García",
+       "born": "1998",
+       "city": "Oslo (NOR)",
+       "date": "30/05/2024"
+      },
+      {
+       "rank": "3",
+       "mark": "8:35.86",
+       "wind": "",
+       "name": "Natalia Rodríguez",
+       "born": "1979",
+       "city": "Huelva",
+       "date": "10/06/2009"
+      },
+      {
+       "rank": "4",
+       "mark": "8:37.24",
+       "wind": "",
+       "name": "Águeda Marqués",
+       "born": "1999",
+       "city": "Estocolmo (SWE)",
+       "date": "15/06/2025"
+      },
+      {
+       "rank": "5",
+       "mark": "8:37.78",
+       "wind": "",
+       "name": "Dolores Checa",
+       "born": "1982",
+       "city": "Mónaco (MON)",
+       "date": "29/07/2008"
+      },
+      {
+       "rank": "6",
+       "mark": "8:38.05",
+       "wind": "",
+       "name": "Nuria Fernández",
+       "born": "",
+       "city": "Huelva",
+       "date": "09/06/2010"
+      },
+      {
+       "rank": "7",
+       "mark": "8:41.23",
+       "wind": "",
+       "name": "Julia Vaquero",
+       "born": "1970",
+       "city": "Niza (FRA)",
+       "date": "10/07/1996"
+      },
+      {
+       "rank": "8",
+       "mark": "8:43.26",
+       "wind": "",
+       "name": "Joselyn Daniely Brea",
+       "born": "1994",
+       "city": "Chorzów (POL)",
+       "date": "16/07/2023"
+      },
+      {
+       "rank": "9",
+       "mark": "8:44.40",
+       "wind": "",
+       "name": "Marta Pérez",
+       "born": "1993",
+       "city": "Nueva York (USA)",
+       "date": "06/02/2022"
+      },
+      {
+       "rank": "10",
+       "mark": "8:44.47",
+       "wind": "",
+       "name": "Idaira Prieto",
+       "born": "1997",
+       "city": "Sollentuna (FIN)",
+       "date": "14/06/2026"
+      }
+     ]
+    },
+    {
+     "event": "5.000 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "14:33.40",
+       "wind": "",
+       "name": "Marta García",
+       "born": "1998",
+       "city": "Bruselas (BEL)",
+       "date": "22/08/2025"
+      },
+      {
+       "rank": "2",
+       "mark": "14:46.95",
+       "wind": "",
+       "name": "Julia Vaquero",
+       "born": "1970",
+       "city": "Oslo (NOR)",
+       "date": "05/07/1996"
+      },
+      {
+       "rank": "3",
+       "mark": "14:46.30",
+       "wind": "",
+       "name": "Dolores Checa",
+       "born": "1982",
+       "city": "Oslo (NOR)",
+       "date": "09/06/2011"
+      },
+      {
+       "rank": "4",
+       "mark": "14:47.76",
+       "wind": "",
+       "name": "Joselyn Daniely Brea",
+       "born": "1994",
+       "city": "Walnut (USA)",
+       "date": "07/05/2023"
+      },
+      {
+       "rank": "5",
+       "mark": "14:48.33",
+       "wind": "",
+       "name": "Marta Domínguez",
+       "born": "1975",
+       "city": "Saint-Denis (FRA)",
+       "date": "26/08/2003"
+      },
+      {
+       "rank": "6",
+       "mark": "14:55.15",
+       "wind": "",
+       "name": "Idaira Prieto",
+       "born": "1997",
+       "city": "Oordgeem (BEL)",
+       "date": "09/08/2025"
+      },
+      {
+       "rank": "7",
+       "mark": "15:03.88",
+       "wind": "",
+       "name": "María Forero",
+       "born": "2003",
+       "city": "Viena (AUT)",
+       "date": "14/06/2025"
+      },
+      {
+       "rank": "8",
+       "mark": "15:10.62",
+       "wind": "",
+       "name": "Carla Gallardo",
+       "born": "1999",
+       "city": "Birmingham (GBR)",
+       "date": "21/05/2022"
+      },
+      {
+       "rank": "9",
+       "mark": "15:11.01",
+       "wind": "",
+       "name": "Beatriz Santiago",
+       "born": "1968",
+       "city": "Heusden-Zolder (BEL)",
+       "date": "14/07/2001"
+      },
+      {
+       "rank": "10",
+       "mark": "15:12.06",
+       "wind": "",
+       "name": "Teresa Recio",
+       "born": "1963",
+       "city": "Heusden-Zolder (BEL)",
+       "date": "05/08/2000"
+      }
+     ]
+    },
+    {
+     "event": "10.000 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "30:51.69",
+       "wind": "",
+       "name": "Marta Domínguez",
+       "born": "1975",
+       "city": "Gotemburgo (SWE)",
+       "date": "07/08/2006"
+      },
+      {
+       "rank": "2",
+       "mark": "31:14.51",
+       "wind": "",
+       "name": "Julia Vaquero",
+       "born": "1970",
+       "city": "Barakaldo",
+       "date": "05/04/1997"
+      },
+      {
+       "rank": "3",
+       "mark": "31:43.80",
+       "wind": "",
+       "name": "Teresa Recio",
+       "born": "1963",
+       "city": "Sevilla",
+       "date": "26/08/1999"
+      },
+      {
+       "rank": "4",
+       "mark": "31:45.85",
+       "wind": "",
+       "name": "María Luisa Larraga",
+       "born": "1970",
+       "city": "Camaiore (ITA)",
+       "date": "06/04/2002"
+      },
+      {
+       "rank": "5",
+       "mark": "31:46.4 m",
+       "wind": "",
+       "name": "Griselda González",
+       "born": "1965",
+       "city": "Gijón",
+       "date": "12/08/2000"
+      },
+      {
+       "rank": "6",
+       "mark": "31:49.58",
+       "wind": "",
+       "name": "Yesenia Centeno",
+       "born": "1971",
+       "city": "Pontevedra",
+       "date": "20/07/2003"
+      },
+      {
+       "rank": "7",
+       "mark": "31:54.16",
+       "wind": "",
+       "name": "Rosa María Morató",
+       "born": "1979",
+       "city": "Manresa",
+       "date": "13/03/2010"
+      },
+      {
+       "rank": "8",
+       "mark": "31:54.64",
+       "wind": "",
+       "name": "Gema Barrachina",
+       "born": "1986",
+       "city": "Manresa",
+       "date": "13/03/2010"
+      },
+      {
+       "rank": "9",
+       "mark": "31:55.01",
+       "wind": "",
+       "name": "Trihas Gebre",
+       "born": "1990",
+       "city": "Burjassot",
+       "date": "13/04/2019"
+      },
+      {
+       "rank": "10",
+       "mark": "32:00.11",
+       "wind": "",
+       "name": "Rocío Ríos",
+       "born": "1969",
+       "city": "Leiria (POR)",
+       "date": "06/04/1996"
+      }
+     ]
+    },
+    {
+     "event": "100 m vallas",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "12.50",
+       "wind": "0.8",
+       "name": "Josephine Onyia",
+       "born": "1986",
+       "city": "Berlín (GER)",
+       "date": "01/06/2008"
+      },
+      {
+       "rank": "2",
+       "mark": "12.57",
+       "wind": "1.3",
+       "name": "Glory Alozie",
+       "born": "1977",
+       "city": "Gateshead (GBR)",
+       "date": "27/06/2004"
+      },
+      {
+       "rank": "3",
+       "mark": "12.88",
+       "wind": "1.6",
+       "name": "Aliuska López",
+       "born": "1969",
+       "city": "Rethymno (GRE)",
+       "date": "23/06/2004"
+      },
+      {
+       "rank": "4",
+       "mark": "12.89",
+       "wind": "1,0",
+       "name": "María José Mardomingo",
+       "born": "1969",
+       "city": "Atlanta (USA)",
+       "date": "31/07/1996"
+      },
+      {
+       "rank": "5",
+       "mark": "12.94",
+       "wind": "1.4",
+       "name": "Caridad Jerez",
+       "born": "1991",
+       "city": "Salamanca",
+       "date": "06/06/2015"
+      },
+      {
+       "rank": "6",
+       "mark": "12.94",
+       "wind": "1,0",
+       "name": "Xènia Benach",
+       "born": "2000",
+       "city": "Madrid",
+       "date": "28/06/2025"
+      },
+      {
+       "rank": "7",
+       "mark": "13.04",
+       "wind": "0,0",
+       "name": "Teresa Errandonea",
+       "born": "1994",
+       "city": "Madrid",
+       "date": "19/06/2021"
+      },
+      {
+       "rank": "8",
+       "mark": "13.06",
+       "wind": "1.3",
+       "name": "Lerato Pagés",
+       "born": "2005",
+       "city": "Málaga",
+       "date": "18/06/2026"
+      },
+      {
+       "rank": "9",
+       "mark": "13.07",
+       "wind": "1.4",
+       "name": "Paula Blanquer",
+       "born": "2003",
+       "city": "Pamplona",
+       "date": "13/06/2026"
+      },
+      {
+       "rank": "10",
+       "mark": "13.08",
+       "wind": "1.1",
+       "name": "Laura Banko",
+       "born": "1981",
+       "city": "Bochum (GER)",
+       "date": "25/07/2025"
+      }
+     ]
+    },
+    {
+     "event": "400 m vallas",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "54.34",
+       "wind": "",
+       "name": "Sara Gallego",
+       "born": "2000",
+       "city": "Nerja",
+       "date": "25/06/2022"
+      },
+      {
+       "rank": "2",
+       "mark": "54.69",
+       "wind": "",
+       "name": "Daniela Fra",
+       "born": "2000",
+       "city": "Tarragona",
+       "date": "02/08/2025"
+      },
+      {
+       "rank": "3",
+       "mark": "55.23",
+       "wind": "",
+       "name": "Cristina Pérez",
+       "born": "1965",
+       "city": "Seúl (KOR)",
+       "date": "26/09/1988"
+      },
+      {
+       "rank": "4",
+       "mark": "55.27",
+       "wind": "",
+       "name": "Cora Olivero",
+       "born": "1978",
+       "city": "Almería",
+       "date": "29/06/2005"
+      },
+      {
+       "rank": "5",
+       "mark": "55.45 A",
+       "wind": "",
+       "name": "Miriam Alonso",
+       "born": "1970",
+       "city": "Monachil",
+       "date": "10/07/1996"
+      },
+      {
+       "rank": "6",
+       "mark": "56.11 A",
+       "wind": "",
+       "name": "Eva Paniagua",
+       "born": "1974",
+       "city": "Monachil",
+       "date": "10/07/1996"
+      },
+      {
+       "rank": "7",
+       "mark": "56.12",
+       "wind": "",
+       "name": "Carla García",
+       "born": "2001",
+       "city": "Madrid",
+       "date": "21/06/2026"
+      },
+      {
+       "rank": "8",
+       "mark": "56.24",
+       "wind": "",
+       "name": "Laia Forcadell",
+       "born": "1982",
+       "city": "Jerez de la Frontera",
+       "date": "24/06/2008"
+      },
+      {
+       "rank": "9",
+       "mark": "56.28",
+       "wind": "",
+       "name": "Nerea Bermejo",
+       "born": "1998",
+       "city": "La Nucía",
+       "date": "13/06/2021"
+      },
+      {
+       "rank": "10",
+       "mark": "56.83",
+       "wind": "",
+       "name": "Laura Aguilera",
+       "born": "2003",
+       "city": "León",
+       "date": "24/05/2025"
+      }
+     ]
+    },
+    {
+     "event": "3.000 m obstáculos",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "9:09.39",
+       "wind": "",
+       "name": "Marta Domínguez",
+       "born": "1975",
+       "city": "Barcelona",
+       "date": "25/07/2009"
+      },
+      {
+       "rank": "2",
+       "mark": "9:10.49",
+       "wind": "",
+       "name": "Irene Sánchez-Escribano",
+       "born": "1992",
+       "city": "París (FRA)",
+       "date": "07/08/2024"
+      },
+      {
+       "rank": "3",
+       "mark": "9:21.00",
+       "wind": "",
+       "name": "Marta Serrano",
+       "born": "2003",
+       "city": "Tokio (JPN)",
+       "date": "15/09/2025"
+      },
+      {
+       "rank": "4",
+       "mark": "9:22.48",
+       "wind": "",
+       "name": "Carolina Robles",
+       "born": "1991",
+       "city": "París (FRA)",
+       "date": "04/08/2024"
+      },
+      {
+       "rank": "5",
+       "mark": "9:25.14",
+       "wind": "",
+       "name": "Eva Arias",
+       "born": "1980",
+       "city": "Berlín (GER)",
+       "date": "15/08/2009"
+      },
+      {
+       "rank": "6",
+       "mark": "9:26.23",
+       "wind": "",
+       "name": "Rosa María Morató",
+       "born": "1979",
+       "city": "Heusden-Zolder (BEL)",
+       "date": "28/07/2007"
+      },
+      {
+       "rank": "7",
+       "mark": "9:29.40",
+       "wind": "",
+       "name": "Zulema Fuentes-Pila",
+       "born": "1977",
+       "city": "Pekín (CHN)",
+       "date": "15/08/2008"
+      },
+      {
+       "rank": "8",
+       "mark": "9:30.70",
+       "wind": "",
+       "name": "Diana Martín Giménez",
+       "born": "1981",
+       "city": "Zúrich (SUI)",
+       "date": "17/08/2014"
+      },
+      {
+       "rank": "9",
+       "mark": "9:35.21",
+       "wind": "",
+       "name": "Blanca Fernández",
+       "born": "1992",
+       "city": "Castellón",
+       "date": "22/05/2024"
+      },
+      {
+       "rank": "10",
+       "mark": "9:40.51",
+       "wind": "",
+       "name": "María José Pérez",
+       "born": "1992",
+       "city": "París (FRA)",
+       "date": "01/07/2017"
+      }
+     ]
+    },
+    {
+     "event": "Altura",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "2.02",
+       "wind": "",
+       "name": "Ruth Beitia",
+       "born": "1979",
+       "city": "San Sebastián",
+       "date": "04/08/2007"
+      },
+      {
+       "rank": "2",
+       "mark": "1.96",
+       "wind": "",
+       "name": "Marta Mendía",
+       "born": "1975",
+       "city": "Budapest (HUN) (i)",
+       "date": "06/03/2004"
+      },
+      {
+       "rank": "3",
+       "mark": "1.91",
+       "wind": "",
+       "name": "Una Stancev",
+       "born": "2002",
+       "city": "Ginebra (SUI)",
+       "date": "21/06/2025"
+      },
+      {
+       "rank": "4",
+       "mark": "1.90",
+       "wind": "",
+       "name": "Clàudia García",
+       "born": "1992",
+       "city": "Fayetteville (USA) (i)",
+       "date": "13/03/2015"
+      },
+      {
+       "rank": "4",
+       "mark": "1.90",
+       "wind": "",
+       "name": "Ona Bonet",
+       "born": "2006",
+       "city": "Villafranca de los Barros",
+       "date": "27/07/2025"
+      },
+      {
+       "rank": "4",
+       "mark": "1.90",
+       "wind": "",
+       "name": "Saleta Fernández",
+       "born": "1997",
+       "city": "La Nucía",
+       "date": "31/08/2019"
+      },
+      {
+       "rank": "4",
+       "mark": "1.90",
+       "wind": "",
+       "name": "Raquel Álvarez",
+       "born": "1983",
+       "city": "Madrid (i)",
+       "date": "06/03/2016"
+      },
+      {
+       "rank": "8",
+       "mark": "1.89",
+       "wind": "",
+       "name": "Gema Martín-Pozuelo",
+       "born": "1987",
+       "city": "Valencia (i)",
+       "date": "30/01/2010"
+      },
+      {
+       "rank": "8",
+       "mark": "1.89",
+       "wind": "",
+       "name": "Carlota Castrejana",
+       "born": "1973",
+       "city": "San Sebastián (i)",
+       "date": "12/02/1995"
+      },
+      {
+       "rank": "10",
+       "mark": "1.88",
+       "wind": "",
+       "name": "Claudia Conte",
+       "born": "1999",
+       "city": "Arona",
+       "date": "12/06/2021"
+      }
+     ]
+    },
+    {
+     "event": "Pértiga",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "4.56",
+       "wind": "",
+       "name": "Naroa Agirre",
+       "born": "1979",
+       "city": "Sevilla (i)",
+       "date": "17/02/2007"
+      },
+      {
+       "rank": "2",
+       "mark": "4.50",
+       "wind": "",
+       "name": "Maialen Axpe",
+       "born": "1993",
+       "city": "Antequera (i)",
+       "date": "16/02/2019"
+      },
+      {
+       "rank": "3",
+       "mark": "4.47",
+       "wind": "",
+       "name": "Malen Ruiz de Azua",
+       "born": "1995",
+       "city": "Zaragoza",
+       "date": "08/05/2021"
+      },
+      {
+       "rank": "4",
+       "mark": "4.46",
+       "wind": "",
+       "name": "Dana Elvira Cervantes",
+       "born": "1978",
+       "city": "Zaragoza (i)",
+       "date": "31/01/2004"
+      },
+      {
+       "rank": "5",
+       "mark": "4.46",
+       "wind": "",
+       "name": "Mònica Clemente",
+       "born": "1996",
+       "city": "Valencia (i)",
+       "date": "14/02/2026"
+      },
+      {
+       "rank": "6",
+       "mark": "4.42",
+       "wind": "",
+       "name": "Andrea San José",
+       "born": "1997",
+       "city": "Barcelona (i)",
+       "date": "06/02/2021"
+      },
+      {
+       "rank": "6",
+       "mark": "4.42",
+       "wind": "",
+       "name": "Miren Bartolomé",
+       "born": "1998",
+       "city": "Pamplona",
+       "date": "23/06/2019"
+      },
+      {
+       "rank": "8",
+       "mark": "4.41",
+       "wind": "",
+       "name": "Anna María Pinero",
+       "born": "1986",
+       "city": "Zaragoza",
+       "date": "25/06/2011"
+      },
+      {
+       "rank": "9",
+       "mark": "4.35",
+       "wind": "",
+       "name": "María del Mar Sánchez",
+       "born": "1979",
+       "city": "Valencia (i)",
+       "date": "12/02/2005"
+      },
+      {
+       "rank": "10",
+       "mark": "4.35",
+       "wind": "",
+       "name": "Naiara Pérez",
+       "born": "2003",
+       "city": "Paterna",
+       "date": "23/06/2026"
+      }
+     ]
+    },
+    {
+     "event": "Longitud",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "7.06",
+       "wind": "-0,1",
+       "name": "Niurka Montalvo",
+       "born": "1968",
+       "city": "Sevilla",
+       "date": "23/08/1999"
+      },
+      {
+       "rank": "2",
+       "mark": "6.92",
+       "wind": "1,7",
+       "name": "Concepción Montaner",
+       "born": "1981",
+       "city": "Madrid",
+       "date": "16/07/2005"
+      },
+      {
+       "rank": "3",
+       "mark": "6.86",
+       "wind": "1,0",
+       "name": "Tessy Ebosele",
+       "born": "2002",
+       "city": "Castellón",
+       "date": "01/07/2026"
+      },
+      {
+       "rank": "4",
+       "mark": "6.85",
+       "wind": "1,1",
+       "name": "Fátima Diame",
+       "born": "1996",
+       "city": "Castellón",
+       "date": "01/07/2026"
+      },
+      {
+       "rank": "5",
+       "mark": "6.80",
+       "wind": "1,6",
+       "name": "María Vicente",
+       "born": "2001",
+       "city": "San Sebastián",
+       "date": "16/07/2022"
+      },
+      {
+       "rank": "5",
+       "mark": "6.80",
+       "wind": "1,3",
+       "name": "Juliet Itoya",
+       "born": "1986",
+       "city": "Getafe",
+       "date": "21/07/2018"
+      },
+      {
+       "rank": "7",
+       "mark": "6.79 A",
+       "wind": "1,8",
+       "name": "Evelyn Yankey",
+       "born": "2003",
+       "city": "Soria",
+       "date": "15/06/2025"
+      },
+      {
+       "rank": "8",
+       "mark": "6.78 A",
+       "wind": "1,1",
+       "name": "María del Mar Jover",
+       "born": "1988",
+       "city": "Monachil",
+       "date": "09/07/2014"
+      },
+      {
+       "rank": "9",
+       "mark": "6.77",
+       "wind": "0,0",
+       "name": "Irati Mitxelena",
+       "born": "1998",
+       "city": "Ordizia",
+       "date": "04/07/2026"
+      },
+      {
+       "rank": "10",
+       "mark": "6.71",
+       "wind": "0,4",
+       "name": "Carmen Rosales",
+       "born": "2002",
+       "city": "Castellón",
+       "date": "01/07/2026"
+      }
+     ]
+    },
+    {
+     "event": "Triple",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "14.87",
+       "wind": "0,5",
+       "name": "Ana Peleteiro",
+       "born": "1995",
+       "city": "Tokio (JPN)",
+       "date": "01/08/2021"
+      },
+      {
+       "rank": "2",
+       "mark": "14.64",
+       "wind": "",
+       "name": "Carlota Castrejana",
+       "born": "1973",
+       "city": "Birmingham (GBR) (i)",
+       "date": "04/03/2007"
+      },
+      {
+       "rank": "3",
+       "mark": "14.30 A",
+       "wind": "1,8",
+       "name": "Concepción Paredes",
+       "born": "1970",
+       "city": "Segovia",
+       "date": "28/06/1994"
+      },
+      {
+       "rank": "4",
+       "mark": "14.27",
+       "wind": "1,6",
+       "name": "Patricia Sarrapio",
+       "born": "1982",
+       "city": "Valencia",
+       "date": "13/07/2019"
+      },
+      {
+       "rank": "5",
+       "mark": "14.21",
+       "wind": "1,9",
+       "name": "María Vicente",
+       "born": "2001",
+       "city": "Tarragona",
+       "date": "02/07/2023"
+      },
+      {
+       "rank": "6",
+       "mark": "14.17",
+       "wind": "",
+       "name": "Fátima Diame",
+       "born": "1996",
+       "city": "Madrid (i)",
+       "date": "12/02/2022"
+      },
+      {
+       "rank": "7",
+       "mark": "14.15",
+       "wind": "1,6",
+       "name": "Ruth Marie Ndoumbe",
+       "born": "1987",
+       "city": "Alcobendas",
+       "date": "26/07/2014"
+      },
+      {
+       "rank": "8",
+       "mark": "14.02",
+       "wind": "",
+       "name": "Niurka Montalvo",
+       "born": "1968",
+       "city": "Madrid (i)",
+       "date": "14/03/2001"
+      },
+      {
+       "rank": "9",
+       "mark": "13.82",
+       "wind": "",
+       "name": "Tessy Ebosele",
+       "born": "2002",
+       "city": "Sabadell (i)",
+       "date": "10/01/2025"
+      },
+      {
+       "rank": "10",
+       "mark": "13.78",
+       "wind": "0,0",
+       "name": "Débora Calveras",
+       "born": "1988",
+       "city": "Alcorcón",
+       "date": "12/07/2014"
+      }
+     ]
+    },
+    {
+     "event": "Peso",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "18.80",
+       "wind": "",
+       "name": "María Belén Toimil",
+       "born": "1994",
+       "city": "Castellón",
+       "date": "29/06/2021"
+      },
+      {
+       "rank": "2",
+       "mark": "18.28",
+       "wind": "",
+       "name": "Úrsula Ruiz",
+       "born": "1983",
+       "city": "Barcelona",
+       "date": "22/07/2017"
+      },
+      {
+       "rank": "3",
+       "mark": "18.20",
+       "wind": "",
+       "name": "Irache Quintanal",
+       "born": "1978",
+       "city": "Barcelona",
+       "date": "04/07/2007"
+      },
+      {
+       "rank": "4",
+       "mark": "18.17",
+       "wind": "",
+       "name": "Martina de la Puente",
+       "born": "1975",
+       "city": "Jerez de la Frontera",
+       "date": "12/06/1999"
+      },
+      {
+       "rank": "5",
+       "mark": "17.93",
+       "wind": "",
+       "name": "Margarita Ramos",
+       "born": "1966",
+       "city": "Alcalá de Henares",
+       "date": "05/07/1997"
+      },
+      {
+       "rank": "6",
+       "mark": "17.07",
+       "wind": "",
+       "name": "Magnolia Iglesias",
+       "born": "1979",
+       "city": "Avilés",
+       "date": "09/04/2005"
+      },
+      {
+       "rank": "7",
+       "mark": "16.51",
+       "wind": "",
+       "name": "Inés López",
+       "born": "2003",
+       "city": "College Station (USA) (i)",
+       "date": "07/02/2026"
+      },
+      {
+       "rank": "8",
+       "mark": "16.17",
+       "wind": "",
+       "name": "Rita Lora",
+       "born": "1973",
+       "city": "Ferrol",
+       "date": "13/07/1992"
+      },
+      {
+       "rank": "9",
+       "mark": "16.15",
+       "wind": "",
+       "name": "Fiona Mar Villarroel",
+       "born": "2005",
+       "city": "Málaga",
+       "date": "26/07/2026"
+      },
+      {
+       "rank": "10",
+       "mark": "16.07",
+       "wind": "",
+       "name": "Mónica Borraz",
+       "born": "1999",
+       "city": "León",
+       "date": "04/05/2022"
+      }
+     ]
+    },
+    {
+     "event": "Disco",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "61.89",
+       "wind": "",
+       "name": "Sabina Asenjo",
+       "born": "1986",
+       "city": "Bilbao",
+       "date": "25/06/2016"
+      },
+      {
+       "rank": "2",
+       "mark": "60.57",
+       "wind": "",
+       "name": "Inés López",
+       "born": "2003",
+       "city": "Fayeteville (USA)",
+       "date": "30/05/2026"
+      },
+      {
+       "rank": "3",
+       "mark": "60.56",
+       "wind": "",
+       "name": "Ángeles Barreiro",
+       "born": "1963",
+       "city": "Ferrol",
+       "date": "10/06/1994"
+      },
+      {
+       "rank": "4",
+       "mark": "59.25",
+       "wind": "",
+       "name": "Alice Matejková",
+       "born": "1969",
+       "city": "Barcelona",
+       "date": "03/09/2000"
+      },
+      {
+       "rank": "5",
+       "mark": "59.16",
+       "wind": "",
+       "name": "Irache Quintanal",
+       "born": "1978",
+       "city": "Castellón",
+       "date": "24/07/2004"
+      },
+      {
+       "rank": "6",
+       "mark": "58.79",
+       "wind": "",
+       "name": "Nneka Naomey Ezenwa",
+       "born": "2003",
+       "city": "Castellón",
+       "date": "27/03/2026"
+      },
+      {
+       "rank": "7",
+       "mark": "58.08",
+       "wind": "",
+       "name": "June Kintana",
+       "born": "1995",
+       "city": "Barcelona",
+       "date": "05/07/2023"
+      },
+      {
+       "rank": "8",
+       "mark": "57.88",
+       "wind": "",
+       "name": "Sonia Godall",
+       "born": "1968",
+       "city": "Barcelona",
+       "date": "19/03/1995"
+      },
+      {
+       "rank": "9",
+       "mark": "57.20",
+       "wind": "",
+       "name": "Rita Lora",
+       "born": "1973",
+       "city": "Málaga",
+       "date": "28/07/2001"
+      },
+      {
+       "rank": "10",
+       "mark": "56.36",
+       "wind": "",
+       "name": "Carmen María Solé",
+       "born": "1971",
+       "city": "A Coruña",
+       "date": "06/06/1999"
+      }
+     ]
+    },
+    {
+     "event": "Martillo",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "72.00",
+       "wind": "",
+       "name": "Laura Redondo",
+       "born": "1988",
+       "city": "Madrid",
+       "date": "18/06/2022"
+      },
+      {
+       "rank": "2",
+       "mark": "70.58",
+       "wind": "",
+       "name": "Andrea Sales",
+       "born": "2006",
+       "city": "Pamplona",
+       "date": "13/06/2026"
+      },
+      {
+       "rank": "3",
+       "mark": "70.52",
+       "wind": "",
+       "name": "Berta Castells",
+       "born": "1984",
+       "city": "Manresa",
+       "date": "16/06/2016"
+      },
+      {
+       "rank": "4",
+       "mark": "67.14",
+       "wind": "",
+       "name": "María Dolores Pedrares",
+       "born": "1973",
+       "city": "Valladolid",
+       "date": "26/06/2004"
+      },
+      {
+       "rank": "5",
+       "mark": "66.81",
+       "wind": "",
+       "name": "Osarumen Odeh",
+       "born": "1995",
+       "city": "Madrid",
+       "date": "18/06/2022"
+      },
+      {
+       "rank": "6",
+       "mark": "66.62",
+       "wind": "",
+       "name": "Natalia Sánchez",
+       "born": "2000",
+       "city": "Madrid",
+       "date": "19/07/2025"
+      },
+      {
+       "rank": "7",
+       "mark": "64.85",
+       "wind": "",
+       "name": "Gema Martí",
+       "born": "2000",
+       "city": "La NUcía",
+       "date": "28/06/2024"
+      },
+      {
+       "rank": "8",
+       "mark": "63.70",
+       "wind": "",
+       "name": "Blanca Pereira",
+       "born": "2005",
+       "city": "Mount Olivenc (USA)",
+       "date": "09/05/2026"
+      },
+      {
+       "rank": "9",
+       "mark": "62.98",
+       "wind": "",
+       "name": "María Barbaño Acevedo",
+       "born": "1994",
+       "city": "Toledo",
+       "date": "25/06/2016"
+      },
+      {
+       "rank": "10",
+       "mark": "61.44",
+       "wind": "",
+       "name": "Nerea Ibinaga",
+       "born": "1999",
+       "city": "Pamplona",
+       "date": "20/06/2026"
+      }
+     ]
+    },
+    {
+     "event": "Jabalina",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "65.39",
+       "wind": "",
+       "name": "Yulenmis Aguilar",
+       "born": "1996",
+       "city": "Taranto (ITA)",
+       "date": "01/09/2026"
+      },
+      {
+       "rank": "2",
+       "mark": "64.07",
+       "wind": "",
+       "name": "Mercedes Chilla",
+       "born": "1980",
+       "city": "Valencia",
+       "date": "12/06/2010"
+      },
+      {
+       "rank": "3",
+       "mark": "61.25",
+       "wind": "",
+       "name": "Lidia Parada",
+       "born": "1993",
+       "city": "Getafe",
+       "date": "21/07/2018"
+      },
+      {
+       "rank": "4",
+       "mark": "59.86",
+       "wind": "",
+       "name": "Nora Aida Bicet",
+       "born": "1977",
+       "city": "Málaga",
+       "date": "06/08/2011"
+      },
+      {
+       "rank": "5",
+       "mark": "59.69",
+       "wind": "",
+       "name": "Arantza Moreno",
+       "born": "1995",
+       "city": "Castellón",
+       "date": "11/07/2018"
+      },
+      {
+       "rank": "6",
+       "mark": "59.43",
+       "wind": "",
+       "name": "Marta Míguez",
+       "born": "1973",
+       "city": "Valencia",
+       "date": "21/07/2001"
+      },
+      {
+       "rank": "7",
+       "mark": "57.50",
+       "wind": "",
+       "name": "Idoia Mariezkurrena",
+       "born": "1970",
+       "city": "Gavá",
+       "date": "28/05/2000"
+      },
+      {
+       "rank": "8",
+       "mark": "55.10",
+       "wind": "",
+       "name": "Paula Rodríguez",
+       "born": "2003",
+       "city": "Ciudad Real",
+       "date": "17/05/2025"
+      },
+      {
+       "rank": "9",
+       "mark": "54.61",
+       "wind": "",
+       "name": "Carmen Sánchez",
+       "born": "1992",
+       "city": "Lugo",
+       "date": "03/02/2024"
+      },
+      {
+       "rank": "10",
+       "mark": "53.77",
+       "wind": "",
+       "name": "Estefanía López",
+       "born": "1994",
+       "city": "Canyon (USA)",
+       "date": "07/04/2017"
+      }
+     ]
+    },
+    {
+     "event": "Heptatlón",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "6.372",
+       "wind": "",
+       "name": "María Vicente",
+       "born": "2001",
+       "city": "Birmingham (GBR)",
+       "date": "15/08/2026"
+      },
+      {
+       "rank": "2",
+       "mark": "6.194",
+       "wind": "",
+       "name": "Claudia Conte",
+       "born": "1999",
+       "city": "Eugene (USA)",
+       "date": "18/07/2022"
+      },
+      {
+       "rank": "3",
+       "mark": "6.182",
+       "wind": "",
+       "name": "Sofía Cosculluela",
+       "born": "2004",
+       "city": "Eugene (USA)",
+       "date": "13/06/2026"
+      },
+      {
+       "rank": "4",
+       "mark": "5.992",
+       "wind": "",
+       "name": "Andrea Medina",
+       "born": "1996",
+       "city": "Lisboa",
+       "date": "23/06/2026"
+      },
+      {
+       "rank": "5",
+       "mark": "5.905 A",
+       "wind": "",
+       "name": "Carmen Ramos",
+       "born": "1998",
+       "city": "Soria",
+       "date": "08/07/2018"
+      },
+      {
+       "rank": "6",
+       "mark": "5.860",
+       "wind": "",
+       "name": "María Peinado",
+       "born": "1977",
+       "city": "Castellón",
+       "date": "14/07/2002"
+      },
+      {
+       "rank": "7",
+       "mark": "5.860",
+       "wind": "",
+       "name": "Laura Ginés",
+       "born": "1986",
+       "city": "Barcelona",
+       "date": "03/07/2012"
+      },
+      {
+       "rank": "8",
+       "mark": "5.852",
+       "wind": "",
+       "name": "Cristina Bárcena",
+       "born": "1983",
+       "city": "Alhama de Murcia",
+       "date": "31/05/2009"
+      },
+      {
+       "rank": "9",
+       "mark": "5.843",
+       "wind": "",
+       "name": "Imma Clopés",
+       "born": "1968",
+       "city": "Logroño",
+       "date": "20/08/2000"
+      },
+      {
+       "rank": "10",
+       "mark": "5.828",
+       "wind": "",
+       "name": "Mariana Braz Simoez Bento",
+       "born": "2001",
+       "city": "Gótzis (AUT)",
+       "date": "31/05/2026"
+      }
+     ]
+    },
+    {
+     "event": "5.000 m marcha",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "20:28.17",
+       "wind": "",
+       "name": "María Pérez",
+       "born": "1996",
+       "city": "Andújar",
+       "date": "30/04/2022"
+      },
+      {
+       "rank": "2",
+       "mark": "20:30.04",
+       "wind": "",
+       "name": "Julia Takacs",
+       "born": "1989",
+       "city": "Cáceres",
+       "date": "02/07/2014"
+      },
+      {
+       "rank": "3",
+       "mark": "20:45.11",
+       "wind": "",
+       "name": "Beatriz Pascual",
+       "born": "1982",
+       "city": "Granollers",
+       "date": "18/07/2012"
+      },
+      {
+       "rank": "4",
+       "mark": "20:54.83",
+       "wind": "",
+       "name": "María José Poves",
+       "born": "1978",
+       "city": "Barcelona",
+       "date": "16/06/2012"
+      },
+      {
+       "rank": "5",
+       "mark": "20:57.11",
+       "wind": "",
+       "name": "María Vasco",
+       "born": "1975",
+       "city": "Barcelona",
+       "date": "02/06/2007"
+      },
+      {
+       "rank": "6",
+       "mark": "21:02.42",
+       "wind": "",
+       "name": "Lidia Sánchez-Puebla",
+       "born": "1996",
+       "city": "Plasencia",
+       "date": "28/06/2017"
+      },
+      {
+       "rank": "7",
+       "mark": "21:07.51",
+       "wind": "",
+       "name": "Raquel González",
+       "born": "1989",
+       "city": "Cartagena",
+       "date": "29/04/2015"
+      },
+      {
+       "rank": "8",
+       "mark": "21:12.19",
+       "wind": "",
+       "name": "Antía Chamosa",
+       "born": "1999",
+       "city": "Durango",
+       "date": "15/06/2025"
+      },
+      {
+       "rank": "9",
+       "mark": "21:23.80",
+       "wind": "",
+       "name": "Cristina Montesinos",
+       "born": "1994",
+       "city": "Castellón",
+       "date": "25/05/2024"
+      },
+      {
+       "rank": "10",
+       "mark": "21:29.41",
+       "wind": "",
+       "name": "Laura García-Caro",
+       "born": "1995",
+       "city": "L'Hospitalet de Llobregat",
+       "date": "10/07/2021"
+      }
+     ]
+    },
+    {
+     "event": "10.000 m marcha",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "42:14.12",
+       "wind": "",
+       "name": "Raquel González",
+       "born": "1989",
+       "city": "Gijón",
+       "date": "23/07/2016"
+      },
+      {
+       "rank": "2",
+       "mark": "42:23.37",
+       "wind": "",
+       "name": "Julia Takacs",
+       "born": "1989",
+       "city": "Alcobendas",
+       "date": "26/07/2014"
+      },
+      {
+       "rank": "3",
+       "mark": "42:24.68",
+       "wind": "",
+       "name": "María Pérez",
+       "born": "1996",
+       "city": "Tarragona",
+       "date": "02/08/2025"
+      },
+      {
+       "rank": "4",
+       "mark": "42:35.69",
+       "wind": "",
+       "name": "Beatriz Pascual",
+       "born": "1982",
+       "city": "Gijón",
+       "date": "23/07/2016"
+      },
+      {
+       "rank": "5",
+       "mark": "43:02.04",
+       "wind": "",
+       "name": "María Vasco",
+       "born": "1975",
+       "city": "Valencia",
+       "date": "21/07/2001"
+      },
+      {
+       "rank": "6",
+       "mark": "43:16.76",
+       "wind": "",
+       "name": "Laura García-Caro",
+       "born": "1995",
+       "city": "Nerja",
+       "date": "24/06/2022"
+      },
+      {
+       "rank": "7",
+       "mark": "43:29.19",
+       "wind": "",
+       "name": "Antía Chamosa",
+       "born": "1999",
+       "city": "Tarragona",
+       "date": "02/08/2025"
+      },
+      {
+       "rank": "8",
+       "mark": "43:30.22",
+       "wind": "",
+       "name": "Encarna Granados",
+       "born": "1972",
+       "city": "Barcelona",
+       "date": "02/09/2000"
+      },
+      {
+       "rank": "9",
+       "mark": "43:33.75",
+       "wind": "",
+       "name": "María José Poves",
+       "born": "1978",
+       "city": "Alcobendas",
+       "date": "27/07/2013"
+      },
+      {
+       "rank": "10",
+       "mark": "43:47.89",
+       "wind": "",
+       "name": "Sofía Santacreu",
+       "born": "2006",
+       "city": "Tampere (FIN)",
+       "date": "09/08/2025"
+      }
+     ]
+    }
+   ],
+   "M": [
+    {
+     "event": "100 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "10.06",
+       "wind": "1,0",
+       "name": "Bruno Hortelano",
+       "born": "1991",
+       "city": "Madrid",
+       "date": "23/06/2016"
+      },
+      {
+       "rank": "2",
+       "mark": "10.10",
+       "wind": "0.8",
+       "name": "Abel Alejandro Jordán",
+       "born": "2003",
+       "city": "Fayeteville (USA)",
+       "date": "29/05/2026"
+      },
+      {
+       "rank": "3",
+       "mark": "10.14",
+       "wind": "1.7",
+       "name": "Ángel David Rodríguez",
+       "born": "1980",
+       "city": "Salamanca",
+       "date": "02/07/2008"
+      },
+      {
+       "rank": "4",
+       "mark": "10.16",
+       "wind": "1,9",
+       "name": "Aitor Same Ekobo",
+       "born": "1997",
+       "city": "Getafe",
+       "date": "21/07/2018"
+      },
+      {
+       "rank": "5",
+       "mark": "10.16",
+       "wind": "1,9",
+       "name": "Patrick Chinedu Ike",
+       "born": "1984",
+       "city": "Getafe",
+       "date": "21/07/2018"
+      },
+      {
+       "rank": "6",
+       "mark": "10.17",
+       "wind": "1,3",
+       "name": "Venancio José",
+       "born": "1976",
+       "city": "Castellón",
+       "date": "09/08/2000"
+      },
+      {
+       "rank": "7",
+       "mark": "10.18",
+       "wind": "0,0",
+       "name": "Ricardo Sánchez",
+       "born": "1999",
+       "city": "Salamanca",
+       "date": "01/06/2024"
+      },
+      {
+       "rank": "8",
+       "mark": "10.18",
+       "wind": "0.7",
+       "name": "Guillem Crespí",
+       "born": "2002",
+       "city": "Roma (ITA)",
+       "date": "08/06/2024"
+      },
+      {
+       "rank": "9",
+       "mark": "10.21",
+       "wind": "1,8",
+       "name": "Javier Arques",
+       "born": "1960",
+       "city": "Madrid",
+       "date": "04/06/1986"
+      },
+      {
+       "rank": "10",
+       "mark": "10.22",
+       "wind": "1.3",
+       "name": "Jorge Hernández",
+       "born": "2006",
+       "city": "Málaga",
+       "date": "24/07/2026"
+      }
+     ]
+    },
+    {
+     "event": "200 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "20.04",
+       "wind": "0.8",
+       "name": "Bruno Hortelano",
+       "born": "1991",
+       "city": "Getafe",
+       "date": "22/07/2018"
+      },
+      {
+       "rank": "2",
+       "mark": "20.28",
+       "wind": "-1.1",
+       "name": "Pol Retamal",
+       "born": "1999",
+       "city": "Nerja",
+       "date": "26/06/2022"
+      },
+      {
+       "rank": "3",
+       "mark": "20.41",
+       "wind": "2,0",
+       "name": "Andoni Calbano",
+       "born": "2000",
+       "city": "Tarragona",
+       "date": "03/08/2025"
+      },
+      {
+       "rank": "4",
+       "mark": "20.51",
+       "wind": "1,4",
+       "name": "Sergio Ruiz",
+       "born": "1989",
+       "city": "Salamanca",
+       "date": "12/06/2013"
+      },
+      {
+       "rank": "5",
+       "mark": "20.52",
+       "wind": "2,0",
+       "name": "Jaime Sancho",
+       "born": "2003",
+       "city": "Tarragona",
+       "date": "03/08/2025"
+      },
+      {
+       "rank": "6",
+       "mark": "20.55",
+       "wind": "1.1",
+       "name": "Juan Carlos Castillo",
+       "born": "2004",
+       "city": "Burgos",
+       "date": "14/07/2024"
+      },
+      {
+       "rank": "7",
+       "mark": "20.55",
+       "wind": "0.8",
+       "name": "Adrià Alfonso",
+       "born": "2002",
+       "city": "Oordegem (BEL)",
+       "date": "09/08/2025"
+      },
+      {
+       "rank": "8",
+       "mark": "20.59",
+       "wind": "1.4",
+       "name": "Daniel Rodríguez",
+       "born": "1995",
+       "city": "Tarragona",
+       "date": "28/06/2018"
+      },
+      {
+       "rank": "8",
+       "mark": "20.59",
+       "wind": "0.6",
+       "name": "Samuel García",
+       "born": "1991",
+       "city": "Barcelona",
+       "date": "23/07/2017"
+      },
+      {
+       "rank": "8",
+       "mark": "20.59",
+       "wind": "0,0",
+       "name": "Venancio José",
+       "born": "1976",
+       "city": "Madrid",
+       "date": "05/09/1997"
+      }
+     ]
+    },
+    {
+     "event": "400 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "44.69",
+       "wind": "",
+       "name": "Bruno Hortelano",
+       "born": "1991",
+       "city": "Madrid",
+       "date": "22/06/2018"
+      },
+      {
+       "rank": "2",
+       "mark": "44.73",
+       "wind": "",
+       "name": "Óscar Husillos",
+       "born": "1993",
+       "city": "Madrid",
+       "date": "22/06/2018"
+      },
+      {
+       "rank": "3",
+       "mark": "44.96",
+       "wind": "",
+       "name": "Cayetano Cornet",
+       "born": "1963",
+       "city": "Barcelona",
+       "date": "12/08/1989"
+      },
+      {
+       "rank": "4",
+       "mark": "45.00 A",
+       "wind": "",
+       "name": "Samuel García",
+       "born": "1991",
+       "city": "Monachil",
+       "date": "07/07/2017"
+      },
+      {
+       "rank": "5",
+       "mark": "45.01",
+       "wind": "",
+       "name": "David Canal",
+       "born": "1978",
+       "city": "Jerez de la Frontera",
+       "date": "03/08/2003"
+      },
+      {
+       "rank": "6",
+       "mark": "45.25",
+       "wind": "",
+       "name": "Lucas Búa",
+       "born": "1994",
+       "city": "Huelva",
+       "date": "08/06/2018"
+      },
+      {
+       "rank": "7",
+       "mark": "45.27",
+       "wind": "",
+       "name": "Iñaki Cañal",
+       "born": "1997",
+       "city": "Madrid",
+       "date": "22/07/2023"
+      },
+      {
+       "rank": "8",
+       "mark": "45.36",
+       "wind": "",
+       "name": "Bernat Erta",
+       "born": "2001",
+       "city": "Tarragona",
+       "date": "01/08/2025"
+      },
+      {
+       "rank": "9",
+       "mark": "45.41",
+       "wind": "",
+       "name": "Antonio Sánchez",
+       "born": "1963",
+       "city": "Stuttgart (FRG)",
+       "date": "29/08/1986"
+      },
+      {
+       "rank": "10",
+       "mark": "45.47",
+       "wind": "",
+       "name": "Manuel Guijarro",
+       "born": "1998",
+       "city": "Madrid",
+       "date": "18/06/2022"
+      }
+     ]
+    },
+    {
+     "event": "800 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "1:42.04",
+       "wind": "",
+       "name": "Mohamed Attaoui",
+       "born": "2001",
+       "city": "Mónaco (MON)",
+       "date": "12/07/2024"
+      },
+      {
+       "rank": "2",
+       "mark": "1:43.60",
+       "wind": "",
+       "name": "David Barroso",
+       "born": "2001",
+       "city": "Budapest (GER)",
+       "date": "14/07/2026"
+      },
+      {
+       "rank": "3",
+       "mark": "1:43.62",
+       "wind": "",
+       "name": "Mariano García",
+       "born": "1997",
+       "city": "Madrid",
+       "date": "19/07/2025"
+      },
+      {
+       "rank": "4",
+       "mark": "1:43.65",
+       "wind": "",
+       "name": "Saúl Ordóñez",
+       "born": "1994",
+       "city": "Mónaco (MON)",
+       "date": "20/07/2018"
+      },
+      {
+       "rank": "5",
+       "mark": "1:43.74",
+       "wind": "",
+       "name": "Kevin López",
+       "born": "1990",
+       "city": "Mónaco (MON)",
+       "date": "20/07/2012"
+      },
+      {
+       "rank": "6",
+       "mark": "1:43.83",
+       "wind": "",
+       "name": "Antonio Manuel Reina",
+       "born": "1981",
+       "city": "Madrid",
+       "date": "21/09/2002"
+      },
+      {
+       "rank": "7",
+       "mark": "1:43.92",
+       "wind": "",
+       "name": "Adrián Ben",
+       "born": "1998",
+       "city": "Budapest (HUN)",
+       "date": "24/08/2023"
+      },
+      {
+       "rank": "8",
+       "mark": "1:44.46",
+       "wind": "",
+       "name": "Pablo Sánchez-Valladares",
+       "born": "1997",
+       "city": "Madrid",
+       "date": "19/07/2025"
+      },
+      {
+       "rank": "9",
+       "mark": "1:44.49",
+       "wind": "",
+       "name": "Elvin Josué Canales",
+       "born": "2001",
+       "city": "Guadalajara",
+       "date": "23/06/2024"
+      },
+      {
+       "rank": "10",
+       "mark": "1:44.56",
+       "wind": "",
+       "name": "Manuel Olmedo",
+       "born": "1983",
+       "city": "Barcelona",
+       "date": "22/07/2011"
+      }
+     ]
+    },
+    {
+     "event": "1.500 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "3:28.76",
+       "wind": "",
+       "name": "Mohamed Katir",
+       "born": "1998",
+       "city": "Mónaco (MON)",
+       "date": "09/07/2021"
+      },
+      {
+       "rank": "2",
+       "mark": "3:28.95",
+       "wind": "",
+       "name": "Fermín Cacho",
+       "born": "1969",
+       "city": "Zúrich (SUI)",
+       "date": "13/08/1997"
+      },
+      {
+       "rank": "3",
+       "mark": "3:29.18",
+       "wind": "",
+       "name": "Mario García",
+       "born": "1999",
+       "city": "Oslo (NOR)",
+       "date": "15/06/2023"
+      },
+      {
+       "rank": "4",
+       "mark": "3:30.57",
+       "wind": "",
+       "name": "Reyes Estévez",
+       "born": "1976",
+       "city": "Sevilla",
+       "date": "24/08/1999"
+      },
+      {
+       "rank": "5",
+       "mark": "3:30.77",
+       "wind": "",
+       "name": "Adel Mechaal",
+       "born": "1990",
+       "city": "Tokio (JPN)",
+       "date": "07/08/2021"
+      },
+      {
+       "rank": "6",
+       "mark": "3:30.92",
+       "wind": "",
+       "name": "José Luis González",
+       "born": "1957",
+       "city": "Niza (FRA)",
+       "date": "16/07/1985"
+      },
+      {
+       "rank": "7",
+       "mark": "3:30.94",
+       "wind": "",
+       "name": "Isaac Viciosa",
+       "born": "1969",
+       "city": "Mónaco (MON)",
+       "date": "08/08/1998"
+      },
+      {
+       "rank": "8",
+       "mark": "3:31.13",
+       "wind": "",
+       "name": "José Manuel Abascal",
+       "born": "1958",
+       "city": "Barcelona",
+       "date": "16/08/1986"
+      },
+      {
+       "rank": "9",
+       "mark": "3:31.21",
+       "wind": "",
+       "name": "José Antonio Redolat",
+       "born": "1976",
+       "city": "Estocolmo (SWE)",
+       "date": "17/07/2001"
+      },
+      {
+       "rank": "10",
+       "mark": "3:31.48",
+       "wind": "",
+       "name": "Andrés Manuel Díaz",
+       "born": "1969",
+       "city": "Mónaco (MON)",
+       "date": "18/08/2000"
+      }
+     ]
+    },
+    {
+     "event": "3.000 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "7:24.68",
+       "wind": "",
+       "name": "Mohamed Katir",
+       "born": "1998",
+       "city": "Liévin (FRA)",
+       "date": "15/02/2023"
+      },
+      {
+       "rank": "2",
+       "mark": "7:29.34",
+       "wind": "",
+       "name": "Isaac Carlos Viciosa",
+       "born": "1969",
+       "city": "Oslo (NOR)",
+       "date": "09/07/1998"
+      },
+      {
+       "rank": "3",
+       "mark": "7:29.72",
+       "wind": "",
+       "name": "Santiago Catrofe",
+       "born": "1999",
+       "city": "Shanghai (CHN)",
+       "date": "16/05/2026"
+      },
+      {
+       "rank": "4",
+       "mark": "7:30.82",
+       "wind": "",
+       "name": "Adel Mechaal",
+       "born": "1990",
+       "city": "Nueva York (USA)",
+       "date": "06/02/2022"
+      },
+      {
+       "rank": "5",
+       "mark": "7:31.59",
+       "wind": "",
+       "name": "Manuel Pancorbo",
+       "born": "1966",
+       "city": "Oslo (NOR)",
+       "date": "09/07/1998"
+      },
+      {
+       "rank": "6",
+       "mark": "7:32.32",
+       "wind": "",
+       "name": "Enrique Molina",
+       "born": "1968",
+       "city": "Oslo (NOR)",
+       "date": "04/07/1997"
+      },
+      {
+       "rank": "7",
+       "mark": "7:32.41",
+       "wind": "",
+       "name": "Sergio Sánchez",
+       "born": "1982",
+       "city": "Valencia",
+       "date": "13/02/2010"
+      },
+      {
+       "rank": "8",
+       "mark": "7:32.98",
+       "wind": "",
+       "name": "Alberto García",
+       "born": "1971",
+       "city": "Sevilla",
+       "date": "22/02/2003"
+      },
+      {
+       "rank": "9",
+       "mark": "7:34.74",
+       "wind": "",
+       "name": "Mario García",
+       "born": "1999",
+       "city": "Boston (USA)",
+       "date": "27/01/2023"
+      },
+      {
+       "rank": "10",
+       "mark": "7:35.83",
+       "wind": "",
+       "name": "Anacleto Jiménez",
+       "born": "1967",
+       "city": "Oslo (NOR)",
+       "date": "09/07/1998"
+      }
+     ]
+    },
+    {
+     "event": "5.000 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "12:45.01",
+       "wind": "",
+       "name": "Mohamed Katir",
+       "born": "1998",
+       "city": "Mónaco (MON)",
+       "date": "21/07/2023"
+      },
+      {
+       "rank": "2",
+       "mark": "12:47.67",
+       "wind": "",
+       "name": "Thierry Ndikumwenayo",
+       "born": "1997",
+       "city": "Oslo (NOR)",
+       "date": "12/06/2025"
+      },
+      {
+       "rank": "3",
+       "mark": "12:57.25",
+       "wind": "",
+       "name": "Aelemayehu Bezabeh",
+       "born": "1986",
+       "city": "Oslo (NOR)",
+       "date": "04/06/2010"
+      },
+      {
+       "rank": "4",
+       "mark": "12:59.26",
+       "wind": "",
+       "name": "Santiago Catrofe",
+       "born": "1999",
+       "city": "París (FRA)",
+       "date": "20/06/2025"
+      },
+      {
+       "rank": "5",
+       "mark": "13:02.54",
+       "wind": "",
+       "name": "Alberto García",
+       "born": "1971",
+       "city": "Roma (ITA)",
+       "date": "29/06/2001"
+      },
+      {
+       "rank": "6",
+       "mark": "13:04.73",
+       "wind": "",
+       "name": "Jesús España",
+       "born": "1978",
+       "city": "Mónaco (MON)",
+       "date": "22/07/2011"
+      },
+      {
+       "rank": "7",
+       "mark": "13:06.02",
+       "wind": "",
+       "name": "Adel Mechaal",
+       "born": "1990",
+       "city": "Oslo (NOR)",
+       "date": "16/06/2022"
+      },
+      {
+       "rank": "8",
+       "mark": "13:06.42",
+       "wind": "",
+       "name": "Ouassim Oumaiz",
+       "born": "1999",
+       "city": "Heusden-Zolder (BEL)",
+       "date": "15/07/2023"
+      },
+      {
+       "rank": "9",
+       "mark": "13:07.34",
+       "wind": "",
+       "name": "Enrique Molina",
+       "born": "1968",
+       "city": "Estocolmo (SWE)",
+       "date": "07/07/1997"
+      },
+      {
+       "rank": "10",
+       "mark": "13:07.59",
+       "wind": "",
+       "name": "José Ríos",
+       "born": "1974",
+       "city": "Estocolmo (SWE)",
+       "date": "01/08/2000"
+      }
+     ]
+    },
+    {
+     "event": "10.000 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "26:49.49",
+       "wind": "",
+       "name": "Thierry Ndikumwenayo",
+       "born": "1997",
+       "city": "París (FRA)",
+       "date": "02/08/2024"
+      },
+      {
+       "rank": "2",
+       "mark": "27:14.44",
+       "wind": "",
+       "name": "Fabián Roncero",
+       "born": "1970",
+       "city": "Lisboa (POR)",
+       "date": "04/04/1998"
+      },
+      {
+       "rank": "3",
+       "mark": "27:22.20",
+       "wind": "",
+       "name": "José Ríos",
+       "born": "1974",
+       "city": "Gijón",
+       "date": "12/08/2000"
+      },
+      {
+       "rank": "4",
+       "mark": "27:25.00",
+       "wind": "",
+       "name": "Carlos Mayo",
+       "born": "1995",
+       "city": "Birmingham (GBR)",
+       "date": "05/06/2021"
+      },
+      {
+       "rank": "5",
+       "mark": "27:27.80",
+       "wind": "",
+       "name": "Juan Carlos de la Ossa",
+       "born": "1976",
+       "city": "Barakaldo",
+       "date": "02/04/2005"
+      },
+      {
+       "rank": "6",
+       "mark": "27:30.56",
+       "wind": "",
+       "name": "José Manuel Martínez",
+       "born": "1971",
+       "city": "Pontevedra",
+       "date": "20/07/2003"
+      },
+      {
+       "rank": "7",
+       "mark": "27:36.23",
+       "wind": "",
+       "name": "Abdessamad Oukhelfen",
+       "born": "1998",
+       "city": "Londres (GBR)",
+       "date": "18/05/2024"
+      },
+      {
+       "rank": "8",
+       "mark": "27:36.90",
+       "wind": "",
+       "name": "Teodoro Cuñado",
+       "born": "1970",
+       "city": "Gijón",
+       "date": "12/08/2000"
+      },
+      {
+       "rank": "9",
+       "mark": "27:37.49",
+       "wind": "",
+       "name": "Antonio Prieto",
+       "born": "1958",
+       "city": "Oslo (NOR)",
+       "date": "14/07/1990"
+      },
+      {
+       "rank": "10",
+       "mark": "27:39.38",
+       "wind": "",
+       "name": "Alejandro Gómez",
+       "born": "1967",
+       "city": "Oslo (NOR)",
+       "date": "10/07/1993"
+      }
+     ]
+    },
+    {
+     "event": "110 m vallas",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "13.04",
+       "wind": "0,0",
+       "name": "Orlando Ortega",
+       "born": "1991",
+       "city": "Mónaco (MON)",
+       "date": "15/07/2016"
+      },
+      {
+       "rank": "2",
+       "mark": "13.09",
+       "wind": "0,0",
+       "name": "Enrique Llopis",
+       "born": "2000",
+       "city": "La NUcía",
+       "date": "30/06/2024"
+      },
+      {
+       "rank": "3",
+       "mark": "13.14",
+       "wind": "-0.2",
+       "name": "Asier Martínez",
+       "born": "2000",
+       "city": "Múnich (GER)",
+       "date": "17/08/2022"
+      },
+      {
+       "rank": "4",
+       "mark": "13.33",
+       "wind": "-0.4",
+       "name": "Jackson Quiñónez",
+       "born": "1980",
+       "city": "Osaka (JPN)",
+       "date": "30/08/2007"
+      },
+      {
+       "rank": "5",
+       "mark": "13.35",
+       "wind": "-1,0",
+       "name": "Yidiel Islay Contreras",
+       "born": "1992",
+       "city": "La Roche-sur-Yon (FRA)",
+       "date": "22/07/2015"
+      },
+      {
+       "rank": "6",
+       "mark": "13.37",
+       "wind": "0.6",
+       "name": "John Cabang",
+       "born": "2001",
+       "city": "Pasing (PHI)",
+       "date": "08/05/2024"
+      },
+      {
+       "rank": "7",
+       "mark": "13.41",
+       "wind": "2,0",
+       "name": "Felipe Vivancos",
+       "born": "1980",
+       "city": "Zaragoza",
+       "date": "22/07/2006"
+      },
+      {
+       "rank": "8",
+       "mark": "13.42",
+       "wind": "0.8",
+       "name": "Javier Moracho",
+       "born": "1957",
+       "city": "Barcelona",
+       "date": "16/08/1987"
+      },
+      {
+       "rank": "9",
+       "mark": "13.44",
+       "wind": "1.2",
+       "name": "Ángel Díaz",
+       "born": "2000",
+       "city": "Tarargona",
+       "date": "03/08/2025"
+      },
+      {
+       "rank": "9",
+       "mark": "13.44",
+       "wind": "0.8",
+       "name": "Carlos Sala",
+       "born": "1960",
+       "city": "Barcelona",
+       "date": "16/08/1987"
+      }
+     ]
+    },
+    {
+     "event": "400 m vallas",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "48.11",
+       "wind": "",
+       "name": "Jesús David Delgado",
+       "born": "1999",
+       "city": "Ostrava (CZE)",
+       "date": "16/06/2026"
+      },
+      {
+       "rank": "2",
+       "mark": "48.87",
+       "wind": "",
+       "name": "Sergio Fernández",
+       "born": "1993",
+       "city": "Río de Janeiro (BRA)",
+       "date": "16/08/2016"
+      },
+      {
+       "rank": "3",
+       "mark": "48.90",
+       "wind": "",
+       "name": "José Alonso",
+       "born": "1957",
+       "city": "L'Hospitalet de Llobregat",
+       "date": "24/05/2025"
+      },
+      {
+       "rank": "4",
+       "mark": "49.08",
+       "wind": "",
+       "name": "Eduardo Iván Rodríguez",
+       "born": "1978",
+       "city": "Huelva",
+       "date": "07/08/2004"
+      },
+      {
+       "rank": "5",
+       "mark": "49.19",
+       "wind": "",
+       "name": "Javier Lorente",
+       "born": "1998",
+       "city": "Madrid",
+       "date": "16/07/2026"
+      },
+      {
+       "rank": "6",
+       "mark": "49.34 A",
+       "wind": "",
+       "name": "José María Romera",
+       "born": "1980",
+       "city": "Soria",
+       "date": "20/07/2004"
+      },
+      {
+       "rank": "7",
+       "mark": "49.50 A",
+       "wind": "",
+       "name": "Óscar Pitillas",
+       "born": "1971",
+       "city": "Monachil",
+       "date": "10/07/1996"
+      },
+      {
+       "rank": "8",
+       "mark": "49.52 A",
+       "wind": "",
+       "name": "Salvador Vila",
+       "born": "1969",
+       "city": "Monachil",
+       "date": "10/07/1996"
+      },
+      {
+       "rank": "9",
+       "mark": "49.58",
+       "wind": "",
+       "name": "Mark Ujakpor",
+       "born": "1987",
+       "city": "Huelva",
+       "date": "08/06/2018"
+      },
+      {
+       "rank": "10",
+       "mark": "49.59",
+       "wind": "",
+       "name": "Carlos Miguel Azulay",
+       "born": "1958",
+       "city": "Madrid",
+       "date": "13/07/1983"
+      }
+     ]
+    },
+    {
+     "event": "3.000 m obstáculos",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "8:05.69",
+       "wind": "",
+       "name": "Fernando Carro",
+       "born": "1992",
+       "city": "Mónaco (MON)",
+       "date": "12/07/2019"
+      },
+      {
+       "rank": "2",
+       "mark": "8:07.44",
+       "wind": "",
+       "name": "Luis Miguel Martín",
+       "born": "1972",
+       "city": "Bruselas (BEL)",
+       "date": "30/08/2002"
+      },
+      {
+       "rank": "3",
+       "mark": "8:08.45",
+       "wind": "",
+       "name": "Daniel Arce",
+       "born": "1992",
+       "city": "Chórzow (POL)",
+       "date": "24/08/2024"
+      },
+      {
+       "rank": "4",
+       "mark": "8:09.09",
+       "wind": "",
+       "name": "Eliseo Martín",
+       "born": "1973",
+       "city": "Saint-Denis (FRA)",
+       "date": "26/08/2003"
+      },
+      {
+       "rank": "5",
+       "mark": "8:11.52",
+       "wind": "",
+       "name": "Antonio David Jiménez",
+       "born": "1977",
+       "city": "Sevilla",
+       "date": "08/06/2001"
+      },
+      {
+       "rank": "6",
+       "mark": "8:12.86",
+       "wind": "",
+       "name": "José Luis Blanco",
+       "born": "1975",
+       "city": "Huelva",
+       "date": "20/06/2006"
+      },
+      {
+       "rank": "7",
+       "mark": "8:13.06",
+       "wind": "",
+       "name": "César Pérez",
+       "born": "1975",
+       "city": "Huelva",
+       "date": "20/06/2006"
+      },
+      {
+       "rank": "8",
+       "mark": "8:13.40",
+       "wind": "",
+       "name": "Alejandro Quijada",
+       "born": "2001",
+       "city": "Oordegem (BEL)",
+       "date": "09/08/2025"
+      },
+      {
+       "rank": "9",
+       "mark": "8:13.71",
+       "wind": "",
+       "name": "Ángel Mullera",
+       "born": "1984",
+       "city": "Bruselas (BEL)",
+       "date": "07/09/2012"
+      },
+      {
+       "rank": "10",
+       "mark": "8:13.89",
+       "wind": "",
+       "name": "Víctor Ruiz",
+       "born": "1993",
+       "city": "París (FRA)",
+       "date": "09/06/2023"
+      }
+     ]
+    },
+    {
+     "event": "Altura",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "2.34",
+       "wind": "",
+       "name": "Arturo Ortiz",
+       "born": "1966",
+       "city": "Barcelona",
+       "date": "22/06/1991"
+      },
+      {
+       "rank": "2",
+       "mark": "2.30",
+       "wind": "",
+       "name": "Ignacio Pérez",
+       "born": "1973",
+       "city": "Cáceres",
+       "date": "04/07/1998"
+      },
+      {
+       "rank": "2",
+       "mark": "2.30",
+       "wind": "",
+       "name": "Gustavo Adolfo Bécker",
+       "born": "1966",
+       "city": "Eberstadt (GER)",
+       "date": "04/07/1992"
+      },
+      {
+       "rank": "4",
+       "mark": "2.28",
+       "wind": "",
+       "name": "Javier Bermejo",
+       "born": "1978",
+       "city": "Valladolid",
+       "date": "26/06/2004"
+      },
+      {
+       "rank": "5",
+       "mark": "2.27",
+       "wind": "",
+       "name": "Miguel Ángel Sancho",
+       "born": "1990",
+       "city": "San Sebastián (i)",
+       "date": "15/02/2009"
+      },
+      {
+       "rank": "6",
+       "mark": "2.26",
+       "wind": "",
+       "name": "Roberto Cabrejas",
+       "born": "1952",
+       "city": "Madrid",
+       "date": "27/07/1983"
+      },
+      {
+       "rank": "7",
+       "mark": "2.26",
+       "wind": "",
+       "name": "Simón Siverio",
+       "born": "1988",
+       "city": "Santa Cruz de Tenerife (i)",
+       "date": "18/02/2012"
+      },
+      {
+       "rank": "8",
+       "mark": "2.26",
+       "wind": "",
+       "name": "Carlos Rojas",
+       "born": "1995",
+       "city": "Alcobendas",
+       "date": "12/09/2020"
+      },
+      {
+       "rank": "8",
+       "mark": "2.26",
+       "wind": "",
+       "name": "Xesc Tresens",
+       "born": "1997",
+       "city": "Santa Coloma de Gramenet",
+       "date": "10/04/2022"
+      },
+      {
+       "rank": "10",
+       "mark": "2.25",
+       "wind": "",
+       "name": "David Antona",
+       "born": "1978",
+       "city": "Valencia (i)",
+       "date": "27/01/2001"
+      }
+     ]
+    },
+    {
+     "event": "Pértiga",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "5.81",
+       "wind": "",
+       "name": "Montxu Miranda",
+       "born": "1976",
+       "city": "Barcelona",
+       "date": "02/09/2000"
+      },
+      {
+       "rank": "2",
+       "mark": "5.80",
+       "wind": "",
+       "name": "José Manuel Arcos",
+       "born": "1973",
+       "city": "Zaragoza (i)",
+       "date": "27/02/1999"
+      },
+      {
+       "rank": "3",
+       "mark": "5.77",
+       "wind": "",
+       "name": "Javier García",
+       "born": "1966",
+       "city": "Grenoble (FRA) (i)",
+       "date": "14/03/1992"
+      },
+      {
+       "rank": "4",
+       "mark": "5.70",
+       "wind": "",
+       "name": "Igor Bychkov",
+       "born": "1987",
+       "city": "Lieja (BEL)",
+       "date": "19/07/2017"
+      },
+      {
+       "rank": "4",
+       "mark": "5.70",
+       "wind": "",
+       "name": "Adrián Vallés",
+       "born": "1995",
+       "city": "Landau (GER)",
+       "date": "28/06/2017"
+      },
+      {
+       "rank": "4",
+       "mark": "5.70",
+       "wind": "",
+       "name": "Juan Gabriel Concepción",
+       "born": "1972",
+       "city": "Barcelona",
+       "date": "06/07/1996"
+      },
+      {
+       "rank": "4",
+       "mark": "5.70",
+       "wind": "",
+       "name": "Daniel Martí",
+       "born": "1973",
+       "city": "Lisboa (POR)",
+       "date": "18/06/1994"
+      },
+      {
+       "rank": "4",
+       "mark": "5.70",
+       "wind": "",
+       "name": "Artur Coll",
+       "born": "2001",
+       "city": "Tarragona",
+       "date": "02/08/2025"
+      },
+      {
+       "rank": "9",
+       "mark": "5.65 A",
+       "wind": "",
+       "name": "Isaac Molinero",
+       "born": "1973",
+       "city": "Monachil",
+       "date": "10/07/1996"
+      },
+      {
+       "rank": "10",
+       "mark": "5.62 A",
+       "wind": "",
+       "name": "Juan Luis Bravo",
+       "born": "2003",
+       "city": "Soria",
+       "date": "14/06/2025"
+      }
+     ]
+    },
+    {
+     "event": "Longitud",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "8.56 i",
+       "wind": "",
+       "name": "Yago Lamela",
+       "born": "1977",
+       "city": "Maebashi (JPN)",
+       "date": "07/03/1999"
+      },
+      {
+       "rank": "2",
+       "mark": "8.37",
+       "wind": "1.1",
+       "name": "Eusebio Cáceres",
+       "born": "1991",
+       "city": "Tampere (FIN)",
+       "date": "12/07/2013"
+      },
+      {
+       "rank": "2",
+       "mark": "8.37 i",
+       "wind": "",
+       "name": "Joan Lino Martínez",
+       "born": "1978",
+       "city": "Madrid",
+       "date": "06/03/2005"
+      },
+      {
+       "rank": "4",
+       "mark": "8.26 A",
+       "wind": "-0.5",
+       "name": "Raúl Fernández",
+       "born": "1978",
+       "city": "Monachil",
+       "date": "10/07/2002"
+      },
+      {
+       "rank": "5",
+       "mark": "8.23",
+       "wind": "0.2",
+       "name": "Antonio Corgos",
+       "born": "1960",
+       "city": "Madrid",
+       "date": "24/08/1980"
+      },
+      {
+       "rank": "6",
+       "mark": "8.22",
+       "wind": "0.4",
+       "name": "Lester Alcides Lescay",
+       "born": "2001",
+       "city": "Castellón",
+       "date": "01/07/2026"
+      },
+      {
+       "rank": "7",
+       "mark": "8.21",
+       "wind": "1.7",
+       "name": "Luis Felipe Méliz",
+       "born": "1979",
+       "city": "Helsinki (FIN)",
+       "date": "01/07/2012"
+      },
+      {
+       "rank": "8",
+       "mark": "8.19",
+       "wind": "-0.1",
+       "name": "Héctor Santos",
+       "born": "1998",
+       "city": "Gävle (SWE)",
+       "date": "12/07/2019"
+      },
+      {
+       "rank": "9",
+       "mark": "8.18",
+       "wind": "1.5",
+       "name": "Ángel Hernández",
+       "born": "1966",
+       "city": "Bruselas (BEL)",
+       "date": "13/06/1992"
+      },
+      {
+       "rank": "10",
+       "mark": "8.12",
+       "wind": "1.1",
+       "name": "Jesús Oliván",
+       "born": "1968",
+       "city": "Vigo",
+       "date": "17/08/1991"
+      }
+     ]
+    },
+    {
+     "event": "Triple",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "18.18",
+       "wind": "-0.3",
+       "name": "Jordan Alejandro Díaz",
+       "born": "2001",
+       "city": "Roma (ITA)",
+       "date": "11/06/2024"
+      },
+      {
+       "rank": "2",
+       "mark": "17.18",
+       "wind": "",
+       "name": "Pablo Torrijos",
+       "born": "1992",
+       "city": "Ourense (i)",
+       "date": "01/03/2020"
+      },
+      {
+       "rank": "3",
+       "mark": "16.94",
+       "wind": "-0.1",
+       "name": "Marcos Ruiz",
+       "born": "1995",
+       "city": "La Nucía",
+       "date": "21/05/2022"
+      },
+      {
+       "rank": "4",
+       "mark": "16.93 A",
+       "wind": "2,0",
+       "name": "Santiago Moreno",
+       "born": "1964",
+       "city": "Ávila",
+       "date": "04/07/1991"
+      },
+      {
+       "rank": "5",
+       "mark": "16.92",
+       "wind": "1.1",
+       "name": "Juan Ambrosio González",
+       "born": "1960",
+       "city": "Salamanca",
+       "date": "30/06/1985"
+      },
+      {
+       "rank": "6",
+       "mark": "16.87",
+       "wind": "",
+       "name": "Raúl Chapado",
+       "born": "1970",
+       "city": "Valencia (i)",
+       "date": "01/03/1998"
+      },
+      {
+       "rank": "7",
+       "mark": "16.82",
+       "wind": "-0.2",
+       "name": "Lysvanys Arlys Pérez",
+       "born": "1982",
+       "city": "Málaga",
+       "date": "07/08/2011"
+      },
+      {
+       "rank": "8",
+       "mark": "16.80 A",
+       "wind": "1,0",
+       "name": "José Emilio Bellido",
+       "born": "1987",
+       "city": "Monachil",
+       "date": "14/07/2012"
+      },
+      {
+       "rank": "9",
+       "mark": "16.74",
+       "wind": "",
+       "name": "Julio López",
+       "born": "1972",
+       "city": "Madrid (i)",
+       "date": "09/02/1996"
+      },
+      {
+       "rank": "10",
+       "mark": "16.72",
+       "wind": "0.9",
+       "name": "Vicente Docavo",
+       "born": "1992",
+       "city": "Huelva",
+       "date": "07/06/2012"
+      }
+     ]
+    },
+    {
+     "event": "Peso",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "21.47",
+       "wind": "",
+       "name": "Manuel Martínez",
+       "born": "1974",
+       "city": "Salamanca",
+       "date": "10/07/2002"
+      },
+      {
+       "rank": "2",
+       "mark": "21.07",
+       "wind": "",
+       "name": "Borja Vivas",
+       "born": "1984",
+       "city": "Alcobendas",
+       "date": "27/07/2014"
+      },
+      {
+       "rank": "3",
+       "mark": "20.57",
+       "wind": "",
+       "name": "Carlos Tobalina",
+       "born": "1985",
+       "city": "Las Palmas de Gran Canaria",
+       "date": "12/03/2017"
+      },
+      {
+       "rank": "4",
+       "mark": "20.30",
+       "wind": "",
+       "name": "Miguel Gómez",
+       "born": "2001",
+       "city": "Valladolid",
+       "date": "27/05/2023"
+      },
+      {
+       "rank": "5",
+       "mark": "20.25",
+       "wind": "",
+       "name": "Yioser Toledo",
+       "born": "1983",
+       "city": "Alcobendas",
+       "date": "27/07/2014"
+      },
+      {
+       "rank": "6",
+       "mark": "19.82",
+       "wind": "",
+       "name": "José Ángel Pinedo",
+       "born": "1990",
+       "city": "Ourense (i)",
+       "date": "11/02/2023"
+      },
+      {
+       "rank": "7",
+       "mark": "19.34",
+       "wind": "",
+       "name": "Germán Millán",
+       "born": "1979",
+       "city": "La Laguna",
+       "date": "14/07/2007"
+      },
+      {
+       "rank": "8",
+       "mark": "19.31",
+       "wind": "",
+       "name": "José Luis Martínez",
+       "born": "1970",
+       "city": "Salamanca",
+       "date": "18/07/1995"
+      },
+      {
+       "rank": "9",
+       "mark": "19.10",
+       "wind": "",
+       "name": "José María Peña",
+       "born": "1982",
+       "city": "Sevilla (i)",
+       "date": "17/02/2007"
+      },
+      {
+       "rank": "10",
+       "mark": "19.05",
+       "wind": "",
+       "name": "Iker Sukía",
+       "born": "1978",
+       "city": "Tolosa",
+       "date": "07/07/1999"
+      }
+     ]
+    },
+    {
+     "event": "Disco",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "69.50",
+       "wind": "",
+       "name": "Mario Pestano",
+       "born": "1978",
+       "city": "Santa Cruz de Tenerife",
+       "date": "27/07/2008"
+      },
+      {
+       "rank": "2",
+       "mark": "67.98",
+       "wind": "",
+       "name": "Lois Maikel Martínez",
+       "born": "1981",
+       "city": "Durango",
+       "date": "14/07/2019"
+      },
+      {
+       "rank": "3",
+       "mark": "67.91",
+       "wind": "",
+       "name": "Frank Yennifer Casañas",
+       "born": "1978",
+       "city": "Castellón",
+       "date": "07/06/2008"
+      },
+      {
+       "rank": "4",
+       "mark": "65.95",
+       "wind": "",
+       "name": "Diego Casas",
+       "born": "1999",
+       "city": "Castellón",
+       "date": "01/07/2026"
+      },
+      {
+       "rank": "5",
+       "mark": "65.52",
+       "wind": "",
+       "name": "David Martínez",
+       "born": "1967",
+       "city": "Aranjuez",
+       "date": "07/06/1997"
+      },
+      {
+       "rank": "6",
+       "mark": "64.68",
+       "wind": "",
+       "name": "Yasiel Brayan Sotero",
+       "born": "2001",
+       "city": "Huelva",
+       "date": "06/06/2023"
+      },
+      {
+       "rank": "7",
+       "mark": "61.95",
+       "wind": "",
+       "name": "Pedro José Cuesta",
+       "born": "1983",
+       "city": "León",
+       "date": "23/07/2011"
+      },
+      {
+       "rank": "7",
+       "mark": "61.95",
+       "wind": "",
+       "name": "Marcos Moreno",
+       "born": "2003",
+       "city": "Logroño",
+       "date": "27/06/2026"
+      },
+      {
+       "rank": "9",
+       "mark": "61.21",
+       "wind": "",
+       "name": "Roberto Moya",
+       "born": "1965",
+       "city": "Valencia",
+       "date": "27/07/2002"
+      },
+      {
+       "rank": "10",
+       "mark": "59.31",
+       "wind": "",
+       "name": "Luis Manuel Ramírez",
+       "born": "1997",
+       "city": "Soria",
+       "date": "04/05/2024"
+      }
+     ]
+    },
+    {
+     "event": "Martillo",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "79.38",
+       "wind": "",
+       "name": "Javier Cienfuegos",
+       "born": "1990",
+       "city": "Andújar",
+       "date": "06/09/2019"
+      },
+      {
+       "rank": "2",
+       "mark": "75.78",
+       "wind": "",
+       "name": "Alberto González",
+       "born": "1998",
+       "city": "Andújar",
+       "date": "06/09/2019"
+      },
+      {
+       "rank": "3",
+       "mark": "75.42",
+       "wind": "",
+       "name": "Moisés Campeny",
+       "born": "1979",
+       "city": "Jaén",
+       "date": "23/02/2003"
+      },
+      {
+       "rank": "4",
+       "mark": "74.93",
+       "wind": "",
+       "name": "Pedro José Martín",
+       "born": "1992",
+       "city": "Coslada",
+       "date": "19/06/2021"
+      },
+      {
+       "rank": "5",
+       "mark": "73.34",
+       "wind": "",
+       "name": "José Manuel Pérez",
+       "born": "1973",
+       "city": "Madrid",
+       "date": "23/07/1995"
+      },
+      {
+       "rank": "6",
+       "mark": "74.63",
+       "wind": "",
+       "name": "Kevin Arreaga",
+       "born": "1995",
+       "city": "Jaén",
+       "date": "24/05/2025"
+      },
+      {
+       "rank": "7",
+       "mark": "72.36",
+       "wind": "",
+       "name": "Raúl Jimeno",
+       "born": "1959",
+       "city": "Madrid",
+       "date": "01/08/1986"
+      },
+      {
+       "rank": "8",
+       "mark": "72.28",
+       "wind": "",
+       "name": "Francisco Fuentes",
+       "born": "1963",
+       "city": "Sevilla",
+       "date": "01/06/1988"
+      },
+      {
+       "rank": "9",
+       "mark": "71.48",
+       "wind": "",
+       "name": "Aimar-Genis Palma",
+       "born": "1999",
+       "city": "Durham (USA)",
+       "date": "11/04/2024"
+      },
+      {
+       "rank": "10",
+       "mark": "71.25",
+       "wind": "",
+       "name": "Isaac Vicente",
+       "born": "1987",
+       "city": "Vila Nova de Cerveira (POR)",
+       "date": "09/07/2015"
+      }
+     ]
+    },
+    {
+     "event": "Jabalina",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "84.80",
+       "wind": "",
+       "name": "Odei Jainaga",
+       "born": "1997",
+       "city": "Chorzów (POL)",
+       "date": "29/05/2021"
+      },
+      {
+       "rank": "2",
+       "mark": "83.28",
+       "wind": "",
+       "name": "Manu Quijera",
+       "born": "1998",
+       "city": "La Nucía",
+       "date": "12/06/2022"
+      },
+      {
+       "rank": "3",
+       "mark": "80.21",
+       "wind": "",
+       "name": "Nicolás Quijera",
+       "born": "1996",
+       "city": "Eugene (USA)",
+       "date": "06/06/2018"
+      },
+      {
+       "rank": "4",
+       "mark": "78.88",
+       "wind": "",
+       "name": "Gustavo Dacal",
+       "born": "1977",
+       "city": "Pontevedra",
+       "date": "05/04/2003"
+      },
+      {
+       "rank": "5",
+       "mark": "78.78",
+       "wind": "",
+       "name": "Julián Sotelo",
+       "born": "1965",
+       "city": "Pamplona",
+       "date": "23/09/1992"
+      },
+      {
+       "rank": "6",
+       "mark": "77.60",
+       "wind": "",
+       "name": "Rafel Mahiques",
+       "born": "2006",
+       "city": "Villafranca de los Barros",
+       "date": "26/07/2025"
+      },
+      {
+       "rank": "7",
+       "mark": "77.36",
+       "wind": "",
+       "name": "Carlos Pérez",
+       "born": "1964",
+       "city": "Valencia",
+       "date": "04/05/1996"
+      },
+      {
+       "rank": "8",
+       "mark": "77.13",
+       "wind": "",
+       "name": "Pablo Costas",
+       "born": "2001",
+       "city": "Leiria",
+       "date": "10/03/2024"
+      },
+      {
+       "rank": "9",
+       "mark": "76.98",
+       "wind": "",
+       "name": "Jorge Franco",
+       "born": "1995",
+       "city": "Tarragona",
+       "date": "03/08/2025"
+      },
+      {
+       "rank": "10",
+       "mark": "76.22",
+       "wind": "",
+       "name": "Alejandro García",
+       "born": "1976",
+       "city": "Vitoria",
+       "date": "01/05/1999"
+      }
+     ]
+    },
+    {
+     "event": "Decatlón",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "8.526",
+       "wind": "",
+       "name": "Francisco Javier Benet",
+       "born": "1968",
+       "city": "Alhama de Murcia",
+       "date": "17/05/1998"
+      },
+      {
+       "rank": "2",
+       "mark": "8.478",
+       "wind": "",
+       "name": "Antonio Peñalver",
+       "born": "1968",
+       "city": "Alhama de Murcia",
+       "date": "24/05/1992"
+      },
+      {
+       "rank": "3",
+       "mark": "8.381",
+       "wind": "",
+       "name": "Jorge Ureña",
+       "born": "1993",
+       "city": "Ratingen (GER)",
+       "date": "18/06/2023"
+      },
+      {
+       "rank": "4",
+       "mark": "8.247",
+       "wind": "",
+       "name": "Pau Gaspar Tonnesen",
+       "born": "1992",
+       "city": "Eugene (USA)",
+       "date": "11/06/2015"
+      },
+      {
+       "rank": "5",
+       "mark": "8.128",
+       "wind": "",
+       "name": "Jaime Peñas",
+       "born": "1972",
+       "city": "Alhama de Murcia",
+       "date": "01/06/1997"
+      },
+      {
+       "rank": "6",
+       "mark": "8.005",
+       "wind": "",
+       "name": "Álvaro Burrell",
+       "born": "1969",
+       "city": "Alhama de Murcia",
+       "date": "24/05/1992"
+      },
+      {
+       "rank": "7",
+       "mark": "7.979",
+       "wind": "",
+       "name": "Bruno Comín",
+       "born": "2000",
+       "city": "Torrent",
+       "date": "29/07/2023"
+      },
+      {
+       "rank": "8",
+       "mark": "7.961",
+       "wind": "",
+       "name": "Andreu Boix",
+       "born": "2002",
+       "city": "Arona",
+       "date": "18/06/2023"
+      },
+      {
+       "rank": "9",
+       "mark": "7.960",
+       "wind": "",
+       "name": "Jorge Dávila",
+       "born": "2000",
+       "city": "Torrent",
+       "date": "29/07/2023"
+      },
+      {
+       "rank": "10",
+       "mark": "7.949",
+       "wind": "",
+       "name": "Óscar González",
+       "born": "1976",
+       "city": "Pekín (CHN)",
+       "date": "31/08/2001"
+      }
+     ]
+    },
+    {
+     "event": "5.000 m marcha",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "18:22.02",
+       "wind": "",
+       "name": "Paul McGrath",
+       "born": "2002",
+       "city": "Barcelona",
+       "date": "26/05/2024"
+      },
+      {
+       "rank": "2",
+       "mark": "18:24.13",
+       "wind": "",
+       "name": "Francisco Javier Fernández",
+       "born": "1977",
+       "city": "Belfast (GBR)",
+       "date": "17/02/2007"
+      },
+      {
+       "rank": "3",
+       "mark": "18:39.65",
+       "wind": "",
+       "name": "Álvaro Martín",
+       "born": "1994",
+       "city": "Gijón",
+       "date": "25/07/2015"
+      },
+      {
+       "rank": "4",
+       "mark": "18:46.95",
+       "wind": "",
+       "name": "Miguel Ángel López",
+       "born": "1988",
+       "city": "Murcia",
+       "date": "26/06/2016"
+      },
+      {
+       "rank": "5",
+       "mark": "18:48.76",
+       "wind": "",
+       "name": "Juan Manuel Molina",
+       "born": "1979",
+       "city": "Cieza",
+       "date": "09/02/2008"
+      },
+      {
+       "rank": "6",
+       "mark": "18:50.20",
+       "wind": "",
+       "name": "Alberto Amezcua",
+       "born": "1992",
+       "city": "Gijón",
+       "date": "25/07/2015"
+      },
+      {
+       "rank": "7",
+       "mark": "18:53.83",
+       "wind": "",
+       "name": "Miguel Ángel Prieto",
+       "born": "1964",
+       "city": "Sevilla",
+       "date": "10/03/1991"
+      },
+      {
+       "rank": "8",
+       "mark": "18:59.60",
+       "wind": "",
+       "name": "Valentí Massana",
+       "born": "1970",
+       "city": "Paris (FRA)",
+       "date": "23/02/1991"
+      },
+      {
+       "rank": "9",
+       "mark": "18:59.83",
+       "wind": "",
+       "name": "Daniel Chamosa",
+       "born": "1997",
+       "city": "Ciudda Real",
+       "date": "12/07/2025"
+      },
+      {
+       "rank": "10",
+       "mark": "19:03.16",
+       "wind": "",
+       "name": "Diego García",
+       "born": "1996",
+       "city": "Plasencia",
+       "date": "24/06/2015"
+      }
+     ]
+    },
+    {
+     "event": "10.000 m marcha",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "37:53.09",
+       "wind": "",
+       "name": "Francisco Javier Fernández",
+       "born": "1977",
+       "city": "Santa Cruz de Tenerife",
+       "date": "27/07/2008"
+      },
+      {
+       "rank": "2",
+       "mark": "38:06.28",
+       "wind": "",
+       "name": "Miguel Ángel López",
+       "born": "1988",
+       "city": "Gijón",
+       "date": "24/07/2016"
+      },
+      {
+       "rank": "3",
+       "mark": "38:49.76",
+       "wind": "",
+       "name": "Paul McGrath",
+       "born": "2002",
+       "city": "Tarragona",
+       "date": "01/08/2025"
+      },
+      {
+       "rank": "4",
+       "mark": "38:53.64",
+       "wind": "",
+       "name": "Álvaro Martín",
+       "born": "1994",
+       "city": "La Nucía",
+       "date": "29/06/2024"
+      },
+      {
+       "rank": "5",
+       "mark": "39:10.07",
+       "wind": "",
+       "name": "Joan Querol",
+       "born": "2006",
+       "city": "Tampere (FIN)",
+       "date": "10/08/2025"
+      },
+      {
+       "rank": "6",
+       "mark": "39:13.43",
+       "wind": "",
+       "name": "Diego García",
+       "born": "1996",
+       "city": "León",
+       "date": "22/04/2023"
+      },
+      {
+       "rank": "7",
+       "mark": "39:23.88",
+       "wind": "",
+       "name": "Benjamín Sánchez",
+       "born": "1985",
+       "city": "Santa Cruz de Tenerife",
+       "date": "27/07/2008"
+      },
+      {
+       "rank": "8",
+       "mark": "39:28.23",
+       "wind": "",
+       "name": "Daniel Chamosa",
+       "born": "1997",
+       "city": "La Nucía",
+       "date": "29/06/2024"
+      },
+      {
+       "rank": "9",
+       "mark": "39:29.00",
+       "wind": "",
+       "name": "Alberto Amezcua",
+       "born": "1992",
+       "city": "Gijón",
+       "date": "24/07/2016"
+      },
+      {
+       "rank": "10",
+       "mark": "39:30.36",
+       "wind": "",
+       "name": "Juan Manuel Molina",
+       "born": "1979",
+       "city": "Riga (LAT)",
+       "date": "28/05/2004"
+      }
+     ]
+    }
+   ]
+  },
+  "PC": {
+   "F": [
+    {
+     "event": "60 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "7.15",
+       "wind": "",
+       "name": "María Isabel Pérez",
+       "born": "1993",
+       "city": "Madrid",
+       "date": "22/02/2025"
+      },
+      {
+       "rank": "2",
+       "mark": "7.18",
+       "wind": "",
+       "name": "Jaël Sakura Bestué",
+       "born": "2000",
+       "city": "Ourense",
+       "date": "17/02/2024"
+      },
+      {
+       "rank": "3",
+       "mark": "7.23",
+       "wind": "",
+       "name": "Sandra Myers",
+       "born": "1961",
+       "city": "Madrid",
+       "date": "13/03/1990"
+      },
+      {
+       "rank": "4",
+       "mark": "7.24",
+       "wind": "",
+       "name": "Josephine Onyia",
+       "born": "1986",
+       "city": "Atenas (GRE)",
+       "date": "13/02/2008"
+      },
+      {
+       "rank": "5",
+       "mark": "7.27",
+       "wind": "",
+       "name": "Elena Guiu",
+       "born": "2004",
+       "city": "Valencia",
+       "date": "16/01/2026"
+      },
+      {
+       "rank": "6",
+       "mark": "7.28",
+       "wind": "",
+       "name": "Glory Alozie",
+       "born": "1977",
+       "city": "Valencia",
+       "date": "12/01/2002"
+      },
+      {
+       "rank": "7",
+       "mark": "7.29",
+       "wind": "",
+       "name": "Paula Sevilla",
+       "born": "1997",
+       "city": "Madrid",
+       "date": "21/02/2021"
+      },
+      {
+       "rank": "7",
+       "mark": "7.29",
+       "wind": "",
+       "name": "Aitana Rodrigo",
+       "born": "2000",
+       "city": "Valencia",
+       "date": "14/02/2026"
+      },
+      {
+       "rank": "9",
+       "mark": "7.30",
+       "wind": "",
+       "name": "Blanca Lacambra",
+       "born": "1965",
+       "city": "Madrid",
+       "date": "12/02/1986"
+      },
+      {
+       "rank": "10",
+       "mark": "7.31",
+       "wind": "",
+       "name": "Sonia Molina-Prados",
+       "born": "1993",
+       "city": "Ourense",
+       "date": "26/02/2022"
+      }
+     ]
+    },
+    {
+     "event": "200 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "22.69",
+       "wind": "",
+       "name": "Jaël-Sakura Bestué",
+       "born": "2000",
+       "city": "Metz (FRA)",
+       "date": "08/02/2026"
+      },
+      {
+       "rank": "2",
+       "mark": "22.81",
+       "wind": "",
+       "name": "Sandra Myers",
+       "born": "1961",
+       "city": "San Sebastián",
+       "date": "15/03/1991"
+      },
+      {
+       "rank": "3",
+       "mark": "23.00",
+       "wind": "",
+       "name": "Paula Sevilla",
+       "born": "1997",
+       "city": "Madrid",
+       "date": "26/01/2025"
+      },
+      {
+       "rank": "4",
+       "mark": "23.19",
+       "wind": "",
+       "name": "Blanca Lacambra",
+       "born": "1965",
+       "city": "Liévin (FRA)",
+       "date": "22/02/1987"
+      },
+      {
+       "rank": "5",
+       "mark": "23.20",
+       "wind": "",
+       "name": "Eva Santidrián",
+       "born": "2000",
+       "city": "Salamanca",
+       "date": "18/01/2025"
+      },
+      {
+       "rank": "6",
+       "mark": "23.22",
+       "wind": "",
+       "name": "Alba Borrero",
+       "born": "1998",
+       "city": "Valencia",
+       "date": "01/03/2026"
+      },
+      {
+       "rank": "7",
+       "mark": "23.28",
+       "wind": "",
+       "name": "Esther Navero",
+       "born": "2000",
+       "city": "Ourense",
+       "date": "17/02/2024"
+      },
+      {
+       "rank": "8",
+       "mark": "23.28",
+       "wind": "",
+       "name": "Esperança Cladera",
+       "born": "2002",
+       "city": "Madrid",
+       "date": "23/02/2025"
+      },
+      {
+       "rank": "9",
+       "mark": "23.34",
+       "wind": "",
+       "name": "María Vicente",
+       "born": "2001",
+       "city": "Salamanca",
+       "date": "08/01/2022"
+      },
+      {
+       "rank": "10",
+       "mark": "23.44",
+       "wind": "",
+       "name": "Lucía Carrillo",
+       "born": "2002",
+       "city": "Antequera",
+       "date": "04/02/2024"
+      }
+     ]
+    },
+    {
+     "event": "400 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "50.99",
+       "wind": "",
+       "name": "Sandra Myers",
+       "born": "1961",
+       "city": "Sevilla",
+       "date": "10/03/1991"
+      },
+      {
+       "rank": "2",
+       "mark": "50.99",
+       "wind": "",
+       "name": "Paula Sevilla",
+       "born": "1997",
+       "city": "Apeldoorn (NED)",
+       "date": "08/03/2025"
+      },
+      {
+       "rank": "3",
+       "mark": "51.43",
+       "wind": "",
+       "name": "Blanca Hervás",
+       "born": "2002",
+       "city": "Torun (POL)",
+       "date": "21/03/2026"
+      },
+      {
+       "rank": "4",
+       "mark": "51.46",
+       "wind": "",
+       "name": "Eva Santidrián",
+       "born": "2000",
+       "city": "Madrid",
+       "date": "23/02/2025"
+      },
+      {
+       "rank": "5",
+       "mark": "51.57",
+       "wind": "",
+       "name": "Daniela Fra",
+       "born": "2000",
+       "city": "Ginebra (SUI)",
+       "date": "21/06/2025"
+      },
+      {
+       "rank": "6",
+       "mark": "52.22",
+       "wind": "",
+       "name": "Julia Merino",
+       "born": "1971",
+       "city": "Génova (ITA)",
+       "date": "01/03/1992"
+      },
+      {
+       "rank": "7",
+       "mark": "52.22",
+       "wind": "",
+       "name": "Ana Prieto",
+       "born": "2005",
+       "city": "Valencia",
+       "date": "28/02/2026"
+      },
+      {
+       "rank": "8",
+       "mark": "52.37",
+       "wind": "",
+       "name": "Carmen Avilés",
+       "born": "2002",
+       "city": "Madrid",
+       "date": "23/02/2025"
+      },
+      {
+       "rank": "9",
+       "mark": "52.63",
+       "wind": "",
+       "name": "Cristina Pérez",
+       "born": "1965",
+       "city": "Liévin (FRA)",
+       "date": "22/02/1987"
+      },
+      {
+       "rank": "10",
+       "mark": "52.63",
+       "wind": "",
+       "name": "Indira Terrero",
+       "born": "1985",
+       "city": "Praga (CZE)",
+       "date": "07/03/2015"
+      }
+     ]
+    },
+    {
+     "event": "800 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "1:59.52",
+       "wind": "",
+       "name": "Mayte Martínez",
+       "born": "1976",
+       "city": "Gante (BEL)",
+       "date": "08/02/2004"
+      },
+      {
+       "rank": "2",
+       "mark": "1:59.97",
+       "wind": "",
+       "name": "Rocío Arroyo",
+       "born": "2003",
+       "city": "Madrid",
+       "date": "06/02/2026"
+      },
+      {
+       "rank": "3",
+       "mark": "2:00.56",
+       "wind": "",
+       "name": "Lorea Ibarzábal",
+       "born": "1994",
+       "city": "Glasgow (GBR)",
+       "date": "01/03/2024"
+      },
+      {
+       "rank": "4",
+       "mark": "2:01.13",
+       "wind": "",
+       "name": "Esther Guerrero",
+       "born": "1990",
+       "city": "Madrid",
+       "date": "24/02/2021"
+      },
+      {
+       "rank": "5",
+       "mark": "2:01.34",
+       "wind": "",
+       "name": "Lorena Martín",
+       "born": "1996",
+       "city": "Sabadell",
+       "date": "08/02/2022"
+      },
+      {
+       "rank": "6",
+       "mark": "2:01.83",
+       "wind": "",
+       "name": "Maite Zúñiga",
+       "born": "1964",
+       "city": "Sevilla",
+       "date": "28/02/1989"
+      },
+      {
+       "rank": "7",
+       "mark": "2:01.87",
+       "wind": "",
+       "name": "Rosa Colorado",
+       "born": "1954",
+       "city": "Turín (ITA)",
+       "date": "03/02/1985"
+      },
+      {
+       "rank": "8",
+       "mark": "2:02.15",
+       "wind": "",
+       "name": "Zoya Naumov",
+       "born": "1995",
+       "city": "Sabadell",
+       "date": "06/02/2019"
+      },
+      {
+       "rank": "9",
+       "mark": "2:02.21",
+       "wind": "",
+       "name": "Daniela García",
+       "born": "2001",
+       "city": "Madrid",
+       "date": "22/02/1987"
+      },
+      {
+       "rank": "10",
+       "mark": "2:02.31",
+       "wind": "",
+       "name": "Montserrat Pujol",
+       "born": "1961",
+       "city": "Liévin (FRA)",
+       "date": "22/02/2003"
+      }
+     ]
+    },
+    {
+     "event": "1.500 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "4:01.77",
+       "wind": "",
+       "name": "Nuria Fernández",
+       "born": "1976",
+       "city": "Valencia",
+       "date": "14/02/2009"
+      },
+      {
+       "rank": "2",
+       "mark": "4:04.86",
+       "wind": "",
+       "name": "Esther Guerrero",
+       "born": "1990",
+       "city": "Estambul (TUR)",
+       "date": "04/03/2023"
+      },
+      {
+       "rank": "3",
+       "mark": "4:04.92",
+       "wind": "",
+       "name": "Marta García",
+       "born": "1998",
+       "city": "Torun (POL)",
+       "date": "22/02/2026"
+      },
+      {
+       "rank": "4",
+       "mark": "4:05.61",
+       "wind": "",
+       "name": "Águeda Marqués",
+       "born": "1999",
+       "city": "Metz (FRA)",
+       "date": "08/02/2025"
+      },
+      {
+       "rank": "5",
+       "mark": "4:06.35",
+       "wind": "",
+       "name": "Natalia Rodríguez",
+       "born": "1979",
+       "city": "Zaragoza",
+       "date": "06/02/2010"
+      },
+      {
+       "rank": "6",
+       "mark": "4:06.41 +",
+       "wind": "",
+       "name": "Marta Pérez",
+       "born": "1993",
+       "city": "Nueva York (USA)",
+       "date": "11/02/2024"
+      },
+      {
+       "rank": "7",
+       "mark": "4:07.69",
+       "wind": "",
+       "name": "Marta Domínguez",
+       "born": "1975",
+       "city": "Sevilla",
+       "date": "09/02/2002"
+      },
+      {
+       "rank": "8",
+       "mark": "4:08.80",
+       "wind": "",
+       "name": "Isabel Macías",
+       "born": "1984",
+       "city": "Nueva York (USA)",
+       "date": "11/02/2012"
+      },
+      {
+       "rank": "9",
+       "mark": "4:09.18",
+       "wind": "",
+       "name": "Mayte Martínez",
+       "born": "1976",
+       "city": "Birmingham (GBR)",
+       "date": "03/03/2007"
+      },
+      {
+       "rank": "10",
+       "mark": "4:09.48",
+       "wind": "",
+       "name": "Montserrat Pujol",
+       "born": "1961",
+       "city": "San Sebastián",
+       "date": "20/02/1990"
+      }
+     ]
+    },
+    {
+     "event": "3.000 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "8:34.28",
+       "wind": "",
+       "name": "Marta García",
+       "born": "1998",
+       "city": "Liévin (FRA)",
+       "date": "19/02/2026"
+      },
+      {
+       "rank": "2",
+       "mark": "8:40.98",
+       "wind": "",
+       "name": "Marta Domínguez",
+       "born": "1975",
+       "city": "Lisboa (POR)",
+       "date": "10/03/2001"
+      },
+      {
+       "rank": "3",
+       "mark": "8:41.95",
+       "wind": "",
+       "name": "Águeda Marqués",
+       "born": "1999",
+       "city": "Liévin (FRA)",
+       "date": "13/02/2025"
+      },
+      {
+       "rank": "4",
+       "mark": "8:44.40",
+       "wind": "",
+       "name": "Marta Pérez",
+       "born": "1993",
+       "city": "Nueva York (USA)",
+       "date": "06/02/2022"
+      },
+      {
+       "rank": "5",
+       "mark": "8:49.49",
+       "wind": "",
+       "name": "Nuria Fernández",
+       "born": "1976",
+       "city": "Turín (ITA)",
+       "date": "08/03/2009"
+      },
+      {
+       "rank": "6",
+       "mark": "8:51.78",
+       "wind": "",
+       "name": "Dolores Checa",
+       "born": "1982",
+       "city": "Estocolmo (SWE)",
+       "date": "22/02/2011"
+      },
+      {
+       "rank": "7",
+       "mark": "8:51.82",
+       "wind": "",
+       "name": "Idaira Prieto",
+       "born": "1997",
+       "city": "Valencia",
+       "date": "07/02/2025"
+      },
+      {
+       "rank": "8",
+       "mark": "8:52.85",
+       "wind": "",
+       "name": "Cristina Petite",
+       "born": "1972",
+       "city": "Maebashi (JPN)",
+       "date": "07/03/1999"
+      },
+      {
+       "rank": "9",
+       "mark": "8:53.90",
+       "wind": "",
+       "name": "Lucía Rodríguez",
+       "born": "1998",
+       "city": "Torun (POL)",
+       "date": "05/03/2021"
+      },
+      {
+       "rank": "10",
+       "mark": "8:53.97",
+       "wind": "",
+       "name": "Marta Serrano",
+       "born": "2003",
+       "city": "Valencia",
+       "date": "07/02/2025"
+      }
+     ]
+    },
+    {
+     "event": "60 m vallas",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "7.83",
+       "wind": "",
+       "name": "Glory Alozie",
+       "born": "1977",
+       "city": "Birmingham (GBR)",
+       "date": "15/03/2003"
+      },
+      {
+       "rank": "2",
+       "mark": "7.84",
+       "wind": "",
+       "name": "Josephine Onyia",
+       "born": "1986",
+       "city": "Valencia",
+       "date": "08/03/2008"
+      },
+      {
+       "rank": "3",
+       "mark": "8.00",
+       "wind": "",
+       "name": "Teresa Errandonea",
+       "born": "1994",
+       "city": "Madrid",
+       "date": "21/02/2020"
+      },
+      {
+       "rank": "4",
+       "mark": "8.01",
+       "wind": "",
+       "name": "Aliuska Yanira López",
+       "born": "1969",
+       "city": "Linz (AUT)",
+       "date": "07/03/2003"
+      },
+      {
+       "rank": "5",
+       "mark": "8.01",
+       "wind": "",
+       "name": "Xènia Benach",
+       "born": "2000",
+       "city": "Madrid",
+       "date": "19/02/2023"
+      },
+      {
+       "rank": "6",
+       "mark": "8.06",
+       "wind": "",
+       "name": "María Vicente",
+       "born": "2001",
+       "city": "Ourense",
+       "date": "18/02/2024"
+      },
+      {
+       "rank": "7",
+       "mark": "8.08",
+       "wind": "",
+       "name": "María José Mardomingo",
+       "born": "1969",
+       "city": "Madrid",
+       "date": "09/02/1996"
+      },
+      {
+       "rank": "8",
+       "mark": "8.09",
+       "wind": "",
+       "name": "Caridad Jerez",
+       "born": "1991",
+       "city": "Ourense",
+       "date": "01/03/2020"
+      },
+      {
+       "rank": "9",
+       "mark": "8.10",
+       "wind": "",
+       "name": "Paula Blanquer",
+       "born": "2003",
+       "city": "Valencia",
+       "date": "14/02/2026"
+      },
+      {
+       "rank": "10",
+       "mark": "8.12",
+       "wind": "",
+       "name": "Claudia Villalante",
+       "born": "2002",
+       "city": "Ourense",
+       "date": "11/02/2023"
+      }
+     ]
+    },
+    {
+     "event": "Pentatlón",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "4.728",
+       "wind": "",
+       "name": "María Vicente",
+       "born": "2001",
+       "city": "Aubière (FRA)",
+       "date": "28/01/2024"
+      },
+      {
+       "rank": "2",
+       "mark": "4.499",
+       "wind": "",
+       "name": "Claudia Conte",
+       "born": "1999",
+       "city": "Belgrado (SRB)",
+       "date": "18/03/2022"
+      },
+      {
+       "rank": "3",
+       "mark": "4.381",
+       "wind": "",
+       "name": "Bárbara Hernando",
+       "born": "1988",
+       "city": "Valencia",
+       "date": "19/02/2011"
+      },
+      {
+       "rank": "4",
+       "mark": "4.352",
+       "wind": "",
+       "name": "María Peinado",
+       "born": "1977",
+       "city": "Sevilla",
+       "date": "17/02/2002"
+      },
+      {
+       "rank": "5",
+       "mark": "4.257",
+       "wind": "",
+       "name": "Andrea Medina",
+       "born": "1977",
+       "city": "Tallinn (EST)",
+       "date": "10/02/2024"
+      },
+      {
+       "rank": "6",
+       "mark": "4.248",
+       "wind": "",
+       "name": "Mariana Braz Simoez Bento",
+       "born": "2001",
+       "city": "Pombal (POR)",
+       "date": "01/03/2026"
+      },
+      {
+       "rank": "7",
+       "mark": "4.234",
+       "wind": "",
+       "name": "Imma Clopés",
+       "born": "1968",
+       "city": "Valencia",
+       "date": "27/02/1998"
+      },
+      {
+       "rank": "8",
+       "mark": "4.232",
+       "wind": "",
+       "name": "Cristina Bárcena",
+       "born": "1983",
+       "city": "Sevilla",
+       "date": "21/02/2009"
+      },
+      {
+       "rank": "9",
+       "mark": "4.216",
+       "wind": "",
+       "name": "Alba Ramírez",
+       "born": "2003",
+       "city": "Pombal (POR)",
+       "date": "16/03/2025"
+      },
+      {
+       "rank": "10",
+       "mark": "4.210",
+       "wind": "",
+       "name": "Patricia Ortega",
+       "born": "1994",
+       "city": "Antequera",
+       "date": "16/02/2019"
+      }
+     ]
+    }
+   ],
+   "M": [
+    {
+     "event": "60 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "6.52",
+       "wind": "",
+       "name": "Yunier Pérez",
+       "born": "1985",
+       "city": "Düsseldorf (GER)",
+       "date": "06/02/2018"
+      },
+      {
+       "rank": "2",
+       "mark": "6.54",
+       "wind": "",
+       "name": "Abel Alejandro Jordán",
+       "born": "2003",
+       "city": "Madrid",
+       "date": "22/02/2025"
+      },
+      {
+       "rank": "3",
+       "mark": "6.55",
+       "wind": "",
+       "name": "Ángel David Rodríguez",
+       "born": "1980",
+       "city": "Düsseldorf (GER)",
+       "date": "08/02/2013"
+      },
+      {
+       "rank": "4",
+       "mark": "6.57",
+       "wind": "",
+       "name": "Guillem Crespí",
+       "born": "2002",
+       "city": "Torun (POL)",
+       "date": "20/03/2026"
+      },
+      {
+       "rank": "5",
+       "mark": "6.58",
+       "wind": "",
+       "name": "Venancio José",
+       "born": "1976",
+       "city": "Valencia",
+       "date": "24/02/2001"
+      },
+      {
+       "rank": "6",
+       "mark": "6.59",
+       "wind": "",
+       "name": "Frutos Feo",
+       "born": "1972",
+       "city": "Zaragoza",
+       "date": "15/02/1997"
+      },
+      {
+       "rank": "7",
+       "mark": "6.60",
+       "wind": "",
+       "name": "José Javier Arques",
+       "born": "1960",
+       "city": "Madrid",
+       "date": "01/02/1986"
+      },
+      {
+       "rank": "8",
+       "mark": "6.61",
+       "wind": "",
+       "name": "Bernat Canet",
+       "born": "2000",
+       "city": "Ourense",
+       "date": "26/02/2022"
+      },
+      {
+       "rank": "9",
+       "mark": "6.62",
+       "wind": "",
+       "name": "Daniel Rodríguez",
+       "born": "1995",
+       "city": "Madrid",
+       "date": "18/02/2023"
+      },
+      {
+       "rank": "9",
+       "mark": "6.62",
+       "wind": "",
+       "name": "Juan Jesús Trapero",
+       "born": "1969",
+       "city": "Madrid",
+       "date": "11/02/1993"
+      }
+     ]
+    },
+    {
+     "event": "200 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "20.65",
+       "wind": "",
+       "name": "Adriá Alfonso",
+       "born": "2002",
+       "city": "Madrid",
+       "date": "23/02/2025"
+      },
+      {
+       "rank": "2",
+       "mark": "20.68",
+       "wind": "",
+       "name": "Óscar Husillos",
+       "born": "1993",
+       "city": "Valencia",
+       "date": "17/02/2018"
+      },
+      {
+       "rank": "3",
+       "mark": "20.75 A",
+       "wind": "",
+       "name": "Bruno Hortelano",
+       "born": "1991",
+       "city": "Albuquerque (USA)",
+       "date": "14/03/2014"
+      },
+      {
+       "rank": "4",
+       "mark": "20.83",
+       "wind": "",
+       "name": "Daniel Rodríguez",
+       "born": "1995",
+       "city": "Madrid",
+       "date": "21/02/2021"
+      },
+      {
+       "rank": "5",
+       "mark": "20.87",
+       "wind": "",
+       "name": "Antonio Sánchez",
+       "born": "1963",
+       "city": "Turín (ITA)",
+       "date": "03/02/1985"
+      },
+      {
+       "rank": "6",
+       "mark": "20.89",
+       "wind": "",
+       "name": "Cayetano Cornet",
+       "born": "1963",
+       "city": "San Sebastián",
+       "date": "18/02/1990"
+      },
+      {
+       "rank": "7",
+       "mark": "20.90",
+       "wind": "",
+       "name": "Christian Iguacel",
+       "born": "1996",
+       "city": "Gante (BEL)",
+       "date": "19/02/2023"
+      },
+      {
+       "rank": "8",
+       "mark": "20.93",
+       "wind": "",
+       "name": "Venancio José",
+       "born": "1976",
+       "city": "Espinho (POR)",
+       "date": "06/02/2000"
+      },
+      {
+       "rank": "9",
+       "mark": "20.95",
+       "wind": "",
+       "name": "David Canal",
+       "born": "1978",
+       "city": "Valencia",
+       "date": "29/01/2005"
+      },
+      {
+       "rank": "9",
+       "mark": "20.95",
+       "wind": "",
+       "name": "Andoni Calbano",
+       "born": "2000",
+       "city": "Madrid",
+       "date": "22/02/2205"
+      }
+     ]
+    },
+    {
+     "event": "400 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "45.58",
+       "wind": "",
+       "name": "Óscar Husillos",
+       "born": "1993",
+       "city": "Madrid",
+       "date": "19/02/2023"
+      },
+      {
+       "rank": "2",
+       "mark": "45.74",
+       "wind": "",
+       "name": "Iñaki Cañal",
+       "born": "1997",
+       "city": "Madrid",
+       "date": "23/02/2025"
+      },
+      {
+       "rank": "3",
+       "mark": "45.93",
+       "wind": "",
+       "name": "David Canal",
+       "born": "1978",
+       "city": "Madrid",
+       "date": "20/02/2005"
+      },
+      {
+       "rank": "4",
+       "mark": "45.95",
+       "wind": "",
+       "name": "Markel Fernández",
+       "born": "1973",
+       "city": "Salamanca",
+       "date": "07/02/2026"
+      },
+      {
+       "rank": "5",
+       "mark": "46.00",
+       "wind": "",
+       "name": "Cayetano Cornet",
+       "born": "1963",
+       "city": "Glasgow (GBR)",
+       "date": "03/03/1990"
+      },
+      {
+       "rank": "6",
+       "mark": "46.02",
+       "wind": "",
+       "name": "Manuel Guijarro",
+       "born": "1998",
+       "city": "Ourense",
+       "date": "26/02/2022"
+      },
+      {
+       "rank": "7",
+       "mark": "46.02",
+       "wind": "",
+       "name": "Bruno Hortelano",
+       "born": "1991",
+       "city": "Ourense",
+       "date": "27/02/2022"
+      },
+      {
+       "rank": "8",
+       "mark": "46.12",
+       "wind": "",
+       "name": "David García",
+       "born": "2005",
+       "city": "Sabadell",
+       "date": "08/02/2026"
+      },
+      {
+       "rank": "9",
+       "mark": "46.23",
+       "wind": "",
+       "name": "Lucas Búa",
+       "born": "1994",
+       "city": "Salamanca",
+       "date": "18/02/2017"
+      },
+      {
+       "rank": "10",
+       "mark": "46.23",
+       "wind": "",
+       "name": "Bernat Erta",
+       "born": "2001",
+       "city": "Ourense",
+       "date": "27/02/2022"
+      }
+     ]
+    },
+    {
+     "event": "800 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "1:44.48",
+       "wind": "",
+       "name": "Mohamed Attaoui",
+       "born": "2001",
+       "city": "Torun (POL)",
+       "date": "21/03/2026"
+      },
+      {
+       "rank": "2",
+       "mark": "1:44.65",
+       "wind": "",
+       "name": "Elvin Josué Canales",
+       "born": "2001",
+       "city": "Luxemburgo (LUX",
+       "date": "19/01/2025"
+      },
+      {
+       "rank": "3",
+       "mark": "1:45.12",
+       "wind": "",
+       "name": "Mariano García",
+       "born": "1997",
+       "city": "Nueva York (USA)",
+       "date": "06/02/2022"
+      },
+      {
+       "rank": "4",
+       "mark": "1:45.14",
+       "wind": "",
+       "name": "Adrián Ben",
+       "born": "1998",
+       "city": "Ourense",
+       "date": "21/02/2026"
+      },
+      {
+       "rank": "5",
+       "mark": "1:45.25",
+       "wind": "",
+       "name": "Antonio Manuel Reina",
+       "born": "1981",
+       "city": "Viena (AUT)",
+       "date": "03/03/2002"
+      },
+      {
+       "rank": "6",
+       "mark": "1:45.43",
+       "wind": "",
+       "name": "Álvaro de Arriba",
+       "born": "1994",
+       "city": "Salamanca",
+       "date": "03/02/2018"
+      },
+      {
+       "rank": "7",
+       "mark": "1:45.69",
+       "wind": "",
+       "name": "Kevin López",
+       "born": "1990",
+       "city": "Estocolmo (SWE)",
+       "date": "06/02/2014"
+      },
+      {
+       "rank": "8",
+       "mark": "1:45.88",
+       "wind": "",
+       "name": "Saúl Ordóñez",
+       "born": "1994",
+       "city": "Madrid",
+       "date": "19/02/2023"
+      },
+      {
+       "rank": "9",
+       "mark": "1:45.98",
+       "wind": "",
+       "name": "Javier Mirón",
+       "born": "1999",
+       "city": "Madrid",
+       "date": "19/02/2023"
+      },
+      {
+       "rank": "10",
+       "mark": "1:46.07",
+       "wind": "",
+       "name": "Manuel Olmedo",
+       "born": "1983",
+       "city": "Sevilla",
+       "date": "11/02/2011"
+      }
+     ]
+    },
+    {
+     "event": "1.500 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "3:33.28",
+       "wind": "",
+       "name": "Adel Mechaal",
+       "born": "1990",
+       "city": "Birmingham (GBR)",
+       "date": "25/02/2023"
+      },
+      {
+       "rank": "2",
+       "mark": "3:33.32",
+       "wind": "",
+       "name": "Andrés Manuel Díaz",
+       "born": "1969",
+       "city": "El Pireo (GRE)",
+       "date": "24/02/1999"
+      },
+      {
+       "rank": "3",
+       "mark": "3:34.32",
+       "wind": "",
+       "name": "Mohamed Katir",
+       "born": "1998",
+       "city": "Madrid",
+       "date": "22/02/2023"
+      },
+      {
+       "rank": "4",
+       "mark": "3:34.66",
+       "wind": "",
+       "name": "Roberto Parra",
+       "born": "1976",
+       "city": "Sevilla",
+       "date": "22/02/2003"
+      },
+      {
+       "rank": "5",
+       "mark": "3:35.29",
+       "wind": "",
+       "name": "Fermín Cacho",
+       "born": "1969",
+       "city": "Sevilla",
+       "date": "28/02/1991"
+      },
+      {
+       "rank": "6",
+       "mark": "3:35.53",
+       "wind": "",
+       "name": "Mariano García",
+       "born": "1997",
+       "city": "Karlsruhe (GER)",
+       "date": "08/02/2026"
+      },
+      {
+       "rank": "7",
+       "mark": "3:35.65",
+       "wind": "",
+       "name": "Mohamed Attaoui",
+       "born": "2001",
+       "city": "Antequera",
+       "date": "17/01/2026"
+      },
+      {
+       "rank": "8",
+       "mark": "3:35.83",
+       "wind": "",
+       "name": "Álvaro Fernández",
+       "born": "1981",
+       "city": "Sevilla",
+       "date": "22/02/2003"
+      },
+      {
+       "rank": "9",
+       "mark": "3:35.94",
+       "wind": "",
+       "name": "Carlos Sáez",
+       "born": "1999",
+       "city": "Luxemburgo (LUX)",
+       "date": "18/01/2026"
+      },
+      {
+       "rank": "10",
+       "mark": "3:35.98 +",
+       "wind": "",
+       "name": "Mario García",
+       "born": "1999",
+       "city": "Nueva York (USA)",
+       "date": "11/02/2023"
+      }
+     ]
+    },
+    {
+     "event": "3.000 m",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "7:24.68",
+       "wind": "",
+       "name": "Mohamed Katir",
+       "born": "1998",
+       "city": "Liévin (FRA)",
+       "date": "15/02/2023"
+      },
+      {
+       "rank": "2",
+       "mark": "7:30.82",
+       "wind": "",
+       "name": "Adel Mechaal",
+       "born": "1990",
+       "city": "Nueva York (USA)",
+       "date": "06/02/2022"
+      },
+      {
+       "rank": "3",
+       "mark": "7:32.41",
+       "wind": "",
+       "name": "Sergio Sánchez",
+       "born": "1982",
+       "city": "Valencia",
+       "date": "13/02/2010"
+      },
+      {
+       "rank": "4",
+       "mark": "7:32.98",
+       "wind": "",
+       "name": "Alberto García",
+       "born": "1971",
+       "city": "Sevilla",
+       "date": "22/02/2003"
+      },
+      {
+       "rank": "5",
+       "mark": "7:34.74",
+       "wind": "",
+       "name": "Mario García",
+       "born": "1999",
+       "city": "Boston (USA)",
+       "date": "27/01/2023"
+      },
+      {
+       "rank": "6",
+       "mark": "7:36.61",
+       "wind": "",
+       "name": "Fermín Cacho",
+       "born": "1969",
+       "city": "Stuttgart (GER)",
+       "date": "04/02/1996"
+      },
+      {
+       "rank": "7",
+       "mark": "7:39.10",
+       "wind": "",
+       "name": "Pol Oriach",
+       "born": "2002",
+       "city": "Karlsruhe (GER)",
+       "date": "08/02/2026"
+      },
+      {
+       "rank": "8",
+       "mark": "7:39.19",
+       "wind": "",
+       "name": "Enrique Molina",
+       "born": "1968",
+       "city": "Stuttgart (GER)",
+       "date": "04/02/1996"
+      },
+      {
+       "rank": "9",
+       "mark": "7:41.46",
+       "wind": "",
+       "name": "Isaac Carlos Viciosa",
+       "born": "1969",
+       "city": "Sevilla",
+       "date": "03/02/1994"
+      },
+      {
+       "rank": "10",
+       "mark": "7:42.54",
+       "wind": "",
+       "name": "Anacleto Jimenez",
+       "born": "1967",
+       "city": "Sevilla",
+       "date": "27/02/1994"
+      }
+     ]
+    },
+    {
+     "event": "60 m vallas",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "7.42",
+       "wind": "",
+       "name": "Enrique Llopis",
+       "born": "2000",
+       "city": "Torun (POL)",
+       "date": "21/03/2026"
+      },
+      {
+       "rank": "2",
+       "mark": "7.48",
+       "wind": "",
+       "name": "Orlando Ortega",
+       "born": "1991",
+       "city": "Torun (POL)",
+       "date": "10/02/2017"
+      },
+      {
+       "rank": "3",
+       "mark": "7.49",
+       "wind": "",
+       "name": "Asier Martínez",
+       "born": "2000",
+       "city": "Val-de-Reuil (FRA)",
+       "date": "28/01/2024"
+      },
+      {
+       "rank": "4",
+       "mark": "7.52",
+       "wind": "",
+       "name": "Jackson Quiñónez",
+       "born": "1980",
+       "city": "Valencia",
+       "date": "24/02/2008"
+      },
+      {
+       "rank": "5",
+       "mark": "8",
+       "wind": "",
+       "name": "Abel Alejandro Jordán",
+       "born": "2003",
+       "city": "Madrid",
+       "date": "23/02/2025"
+      },
+      {
+       "rank": "6",
+       "mark": "7.56",
+       "wind": "",
+       "name": "Felipe Vivancos",
+       "born": "1980",
+       "city": "París (FRA)",
+       "date": "04/03/2011"
+      },
+      {
+       "rank": "7",
+       "mark": "7.60",
+       "wind": "",
+       "name": "Javier Moracho",
+       "born": "1957",
+       "city": "San Sebastián",
+       "date": "12/02/1984"
+      },
+      {
+       "rank": "8",
+       "mark": "7.64",
+       "wind": "",
+       "name": "Daniel Cisneros",
+       "born": "1996",
+       "city": "Madrid",
+       "date": "19/02/2023"
+      },
+      {
+       "rank": "8",
+       "mark": "7.64",
+       "wind": "",
+       "name": "Yidiel Islay Contreras",
+       "born": "1992",
+       "city": "Lodz (POL)",
+       "date": "05/02/2016"
+      },
+      {
+       "rank": "8",
+       "mark": "7.64",
+       "wind": "",
+       "name": "John Cabang",
+       "born": "2001",
+       "city": "Tehran (IRI)",
+       "date": "17/02/2024"
+      }
+     ]
+    },
+    {
+     "event": "Heptatlón",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "6.249",
+       "wind": "",
+       "name": "Jorge Ureña",
+       "born": "1993",
+       "city": "Praga (CZE)",
+       "date": "29/01/2017"
+      },
+      {
+       "rank": "2",
+       "mark": "6.067",
+       "wind": "",
+       "name": "Pol Ferrer",
+       "born": "2003",
+       "city": "Valencia",
+       "date": "28/02/2026"
+      },
+      {
+       "rank": "3",
+       "mark": "6.062",
+       "wind": "",
+       "name": "Antonio Peñalver",
+       "born": "1968",
+       "city": "Génova (ITA)",
+       "date": "29/02/1992"
+      },
+      {
+       "rank": "4",
+       "mark": "6.044",
+       "wind": "",
+       "name": "Francisco Javier Benet",
+       "born": "1968",
+       "city": "Valencia",
+       "date": "01/03/1998"
+      },
+      {
+       "rank": "5",
+       "mark": "6.027",
+       "wind": "",
+       "name": "Pau Gaspar Tonnesen",
+       "born": "1992",
+       "city": "Birmingham (USA)",
+       "date": "12/03/2016"
+      },
+      {
+       "rank": "6",
+       "mark": "6.000",
+       "wind": "",
+       "name": "Bruno Comín",
+       "born": "2000",
+       "city": "Lincoln (USA)",
+       "date": "03/02/2024"
+      },
+      {
+       "rank": "7",
+       "mark": "5.900",
+       "wind": "",
+       "name": "Álvaro Burrell",
+       "born": "1969",
+       "city": "Zaragoza",
+       "date": "31/01/1993"
+      },
+      {
+       "rank": "8",
+       "mark": "5.873",
+       "wind": "",
+       "name": "Óscar González",
+       "born": "1976",
+       "city": "Viena (AUT)",
+       "date": "02/03/2002"
+      },
+      {
+       "rank": "9",
+       "mark": "5.807",
+       "wind": "",
+       "name": "Marc Magrans",
+       "born": "1976",
+       "city": "Madrid",
+       "date": "20/02/2005"
+      },
+      {
+       "rank": "10",
+       "mark": "5.787",
+       "wind": "",
+       "name": "Andreu Boix",
+       "born": "2002",
+       "city": "Antequera",
+       "date": "04/02/2024"
+      }
+     ]
+    }
+   ]
+  },
+  "RU": {
+   "F": [
+    {
+     "event": "5 km",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "14:59",
+       "wind": "",
+       "name": "Marta García",
+       "born": "1998",
+       "city": "Copenhague (DEN)",
+       "date": "19/09/2026"
+      },
+      {
+       "rank": "2",
+       "mark": "15:11",
+       "wind": "",
+       "name": "Marta Domínguez",
+       "born": "1975",
+       "city": "Londres (GBR)",
+       "date": "01/09/2002"
+      },
+      {
+       "rank": "3",
+       "mark": "15:27",
+       "wind": "",
+       "name": "María Forero",
+       "born": "2003",
+       "city": "Laredo",
+       "date": "16/03/2024"
+      },
+      {
+       "rank": "4",
+       "mark": "15:32 +",
+       "wind": "",
+       "name": "Irene Sánchez-Escribano",
+       "born": "1992",
+       "city": "Laredo",
+       "date": "18/04/2024"
+      },
+      {
+       "rank": "5",
+       "mark": "15:32",
+       "wind": "",
+       "name": "Esther Guerrero",
+       "born": "1990",
+       "city": "Barcelona",
+       "date": "31/12/2024"
+      },
+      {
+       "rank": "6",
+       "mark": "15:35",
+       "wind": "",
+       "name": "Cristina Ruiz",
+       "born": "1999",
+       "city": "Leicester (GBR)",
+       "date": "16/03/2024"
+      },
+      {
+       "rank": "7",
+       "mark": "15:37",
+       "wind": "",
+       "name": "Douae Ouboukir",
+       "born": "1996",
+       "city": "Barcelona",
+       "date": "31/12/2025"
+      },
+      {
+       "rank": "7",
+       "mark": "15:37",
+       "wind": "",
+       "name": "Marta Serrano",
+       "born": "2003",
+       "city": "Pollença",
+       "date": "17/05/2025"
+      },
+      {
+       "rank": "7",
+       "mark": "15:37",
+       "wind": "",
+       "name": "Carla Gallargo",
+       "born": "1999",
+       "city": "Leicester (GBR)",
+       "date": "16/03/2024"
+      },
+      {
+       "rank": "10",
+       "mark": "15:38",
+       "wind": "",
+       "name": "Dolores Checa",
+       "born": "1982",
+       "city": "Iurreta",
+       "date": "03/04/2011"
+      }
+     ]
+    },
+    {
+     "event": "10 km",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "31:11",
+       "wind": "",
+       "name": "Carla Gallardo",
+       "born": "1999",
+       "city": "Laredo",
+       "date": "24/05/2025"
+      },
+      {
+       "rank": "2",
+       "mark": "31:17",
+       "wind": "",
+       "name": "Marta García",
+       "born": "1998",
+       "city": "Valencia",
+       "date": "11/01/2026"
+      },
+      {
+       "rank": "3",
+       "mark": "31:23",
+       "wind": "",
+       "name": "Paula Herrero",
+       "born": "1996",
+       "city": "Laredo",
+       "date": "11/03/2023"
+      },
+      {
+       "rank": "4",
+       "mark": "31:31",
+       "wind": "",
+       "name": "Isabel Barreiro",
+       "born": "1999",
+       "city": "Valencia",
+       "date": "11/01/2026"
+      },
+      {
+       "rank": "5",
+       "mark": "31:35",
+       "wind": "",
+       "name": "Irene Sánchez-Escribano",
+       "born": "1992",
+       "city": "Laredo",
+       "date": "16/03/2024"
+      },
+      {
+       "rank": "6",
+       "mark": "31:36",
+       "wind": "",
+       "name": "Marta Galimany",
+       "born": "1985",
+       "city": "Barcelona",
+       "date": "31/12/2025"
+      },
+      {
+       "rank": "7",
+       "mark": "31:38",
+       "wind": "",
+       "name": "Alicia Berzosa",
+       "born": "2000",
+       "city": "Valencia",
+       "date": "11/01/2026"
+      },
+      {
+       "rank": "8",
+       "mark": "31:39",
+       "wind": "",
+       "name": "Trihas Gebre",
+       "born": "1990",
+       "city": "Valencia",
+       "date": "13/01/2019"
+      },
+      {
+       "rank": "9",
+       "mark": "31:47",
+       "wind": "",
+       "name": "Meritxell Soler",
+       "born": "1992",
+       "city": "Barcelona",
+       "date": "09/11/2025"
+      },
+      {
+       "rank": "10",
+       "mark": "31:58",
+       "wind": "",
+       "name": "Águeda Marqués",
+       "born": "1999",
+       "city": "Valencia",
+       "date": "14/01/2024"
+      }
+     ]
+    },
+    {
+     "event": "15 km",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "48:46 +",
+       "wind": "",
+       "name": "Carla Gallardo",
+       "born": "1999",
+       "city": "Berlín (GER)",
+       "date": "29/03/2026"
+      },
+      {
+       "rank": "2",
+       "mark": "48:50 +",
+       "wind": "",
+       "name": "Meritxell Soler",
+       "born": "1992",
+       "city": "Valencia",
+       "date": "25/10/2026"
+      },
+      {
+       "rank": "3",
+       "mark": "48:52 +",
+       "wind": "",
+       "name": "Laura Luengo",
+       "born": "1997",
+       "city": "Valencia",
+       "date": "25/10/2026"
+      },
+      {
+       "rank": "4",
+       "mark": "48:56 +",
+       "wind": "",
+       "name": "Kaoutar Boulaid",
+       "born": "1989",
+       "city": "Valencia",
+       "date": "27/10/2024"
+      },
+      {
+       "rank": "5",
+       "mark": "48:57 +",
+       "wind": "",
+       "name": "Irene Sánchez-Escribano",
+       "born": "1992",
+       "city": "Valencia",
+       "date": "25/10/2026"
+      },
+      {
+       "rank": "6",
+       "mark": "49:01 +",
+       "wind": "",
+       "name": "Marta Galimany",
+       "born": "1985",
+       "city": "Valencia",
+       "date": "25/10/2026"
+      },
+      {
+       "rank": "7",
+       "mark": "49:10 +",
+       "wind": "",
+       "name": "Carla Gallardo",
+       "born": "1969",
+       "city": "Valencia",
+       "date": "25/10/2026"
+      },
+      {
+       "rank": "8",
+       "mark": "49:14 +",
+       "wind": "",
+       "name": "Ester Navarrete",
+       "born": "1990",
+       "city": "Valencia",
+       "date": "25/10/2026"
+      },
+      {
+       "rank": "9",
+       "mark": "49:22 +",
+       "wind": "",
+       "name": "Trihas Gebre",
+       "born": "1990",
+       "city": "Praga (CZE)",
+       "date": "06/04/2019"
+      },
+      {
+       "rank": "10",
+       "mark": "49:33 +",
+       "wind": "",
+       "name": "Julia Vaquero",
+       "born": "1970",
+       "city": "Zúrich-Uster (SUI)",
+       "date": "27/09/1998"
+      }
+     ]
+    },
+    {
+     "event": "Medio Maratón",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "1:08:28",
+       "wind": "",
+       "name": "Laura Luengo",
+       "born": "1997",
+       "city": "Valencia",
+       "date": "25/10/2026"
+      },
+      {
+       "rank": "2",
+       "mark": "1:08:30",
+       "wind": "",
+       "name": "Carla Gallardo",
+       "born": "1992",
+       "city": "Berlín (GER)",
+       "date": "29/03/2026"
+      },
+      {
+       "rank": "3",
+       "mark": "1:08:47",
+       "wind": "",
+       "name": "Irene Sánchez-Escribano",
+       "born": "1992",
+       "city": "Valencia",
+       "date": "25/10/2026"
+      },
+      {
+       "rank": "3",
+       "mark": "1:08:47",
+       "wind": "",
+       "name": "Meritxell Soler",
+       "born": "1992",
+       "city": "Valencia",
+       "date": "25/10/2026"
+      },
+      {
+       "rank": "3",
+       "mark": "1:08:47",
+       "wind": "",
+       "name": "Kaoutar Boulaid",
+       "born": "1989",
+       "city": "Valencia",
+       "date": "27/10/2024"
+      },
+      {
+       "rank": "6",
+       "mark": "1:08:53",
+       "wind": "",
+       "name": "Alicia Berzosa",
+       "born": "2000",
+       "city": "Valencia",
+       "date": "25/10/2026"
+      },
+      {
+       "rank": "7",
+       "mark": "1:09:09",
+       "wind": "",
+       "name": "Fátima Azzahara Ouhaddou",
+       "born": "1993",
+       "city": "Meishan (CHN)",
+       "date": "23/02/2025"
+      },
+      {
+       "rank": "8",
+       "mark": "1:09:12",
+       "wind": "",
+       "name": "Marta Galimany",
+       "born": "1985",
+       "city": "Valencia",
+       "date": "25/10/2026"
+      },
+      {
+       "rank": "8",
+       "mark": "1:09:12",
+       "wind": "",
+       "name": "Mayida Maayouf",
+       "born": "1989",
+       "city": "Granollers",
+       "date": "03/03/2025"
+      },
+      {
+       "rank": "10",
+       "mark": "1:09:51",
+       "wind": "",
+       "name": "Trihas Gebre",
+       "born": "1990",
+       "city": "Olomouc (CZE)",
+       "date": "23/06/2018"
+      }
+     ]
+    },
+    {
+     "event": "Maratón",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "2:21:27",
+       "wind": "",
+       "name": "Majida Maayouf",
+       "born": "1989",
+       "city": "Valencia",
+       "date": "03/12/2023"
+      },
+      {
+       "rank": "2",
+       "mark": "2:22:31",
+       "wind": "",
+       "name": "Laura Luego",
+       "born": "1997",
+       "city": "Valencia",
+       "date": "01/12/2024"
+      },
+      {
+       "rank": "3",
+       "mark": "2:23:49",
+       "wind": "",
+       "name": "Meritxell Soler",
+       "born": "1992",
+       "city": "Valencia",
+       "date": "07/12/2025"
+      },
+      {
+       "rank": "4",
+       "mark": "2:24:05",
+       "wind": "",
+       "name": "Fátima Azzahara Ouhaddou",
+       "born": "1993",
+       "city": "Valencia",
+       "date": "01/12/2024"
+      },
+      {
+       "rank": "5",
+       "mark": "2:24:05",
+       "wind": "",
+       "name": "Kaoutar Boulaid",
+       "born": "1989",
+       "city": "Sevilla",
+       "date": "01/12/2024"
+      },
+      {
+       "rank": "6",
+       "mark": "2:24:31",
+       "wind": "",
+       "name": "Ester Navarrete",
+       "born": "1990",
+       "city": "Valencia",
+       "date": "07/12/2025"
+      },
+      {
+       "rank": "7",
+       "mark": "2:24:56",
+       "wind": "",
+       "name": "Carolina Robles",
+       "born": "1991",
+       "city": "Barcelona",
+       "date": "15/03/2026"
+      },
+      {
+       "rank": "8",
+       "mark": "2:26:14",
+       "wind": "",
+       "name": "Marta Galimany",
+       "born": "1985",
+       "city": "Valencia",
+       "date": "04/12/2022"
+      },
+      {
+       "rank": "9",
+       "mark": "2:26:40",
+       "wind": "",
+       "name": "Irene Pelayo",
+       "born": "1980",
+       "city": "Valencia",
+       "date": "03/12/2023"
+      },
+      {
+       "rank": "10",
+       "mark": "2:26:42",
+       "wind": "",
+       "name": "María José Pérez",
+       "born": "1992",
+       "city": "Valencia",
+       "date": "03/12/2023"
+      }
+     ]
+    },
+    {
+     "event": "50 km",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "3:15:09",
+       "wind": "",
+       "name": "Alicia Pérez",
+       "born": "1990",
+       "city": "Brasov (ROU)",
+       "date": "01/09/2019"
+      },
+      {
+       "rank": "2",
+       "mark": "3:15:12",
+       "wind": "",
+       "name": "María Lázaro",
+       "born": "1991",
+       "city": "Málaga",
+       "date": "21/03/2026"
+      },
+      {
+       "rank": "3",
+       "mark": "3:22:21",
+       "wind": "",
+       "name": "Dolores Marco",
+       "born": "1979",
+       "city": "Málaga",
+       "date": "03/05/2025"
+      },
+      {
+       "rank": "4",
+       "mark": "3:22:32",
+       "wind": "",
+       "name": "Beatriz Martínez",
+       "born": "1984",
+       "city": "Málaga",
+       "date": "03/05/2025"
+      },
+      {
+       "rank": "5",
+       "mark": "3:23:54",
+       "wind": "",
+       "name": "Esther Rodríguez",
+       "born": "1980",
+       "city": "Málaga",
+       "date": "03/05/2025"
+      },
+      {
+       "rank": "6",
+       "mark": "3:28:14",
+       "wind": "",
+       "name": "Yésica Mas",
+       "born": "1990",
+       "city": "Sotillo de la Adrada",
+       "date": "08/10/2022"
+      },
+      {
+       "rank": "7",
+       "mark": "3:33:34",
+       "wind": "",
+       "name": "María Mercedes Pila",
+       "born": "1979",
+       "city": "Santander",
+       "date": "12/06/2021"
+      },
+      {
+       "rank": "8",
+       "mark": "3:34:27",
+       "wind": "",
+       "name": "Nerea Egia",
+       "born": "1985",
+       "city": "Málaga",
+       "date": "03/05/2025"
+      },
+      {
+       "rank": "9",
+       "mark": "3:34:54",
+       "wind": "",
+       "name": "Mireia Sosa",
+       "born": "1980",
+       "city": "Burjassot",
+       "date": "21/01/2023"
+      },
+      {
+       "rank": "10",
+       "mark": "3:35:03",
+       "wind": "",
+       "name": "Bárbara Ramón",
+       "born": "1983",
+       "city": "Sotillo de la Adrada",
+       "date": "08/10/2022"
+      }
+     ]
+    },
+    {
+     "event": "100 km",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "7:17:50",
+       "wind": "",
+       "name": "Gemma Arenas",
+       "born": "1979",
+       "city": "Ames",
+       "date": "20/09/2026"
+      },
+      {
+       "rank": "2",
+       "mark": "7:22:13",
+       "wind": "",
+       "name": "Estefanía Unzu",
+       "born": "1985",
+       "city": "Ames",
+       "date": "20/09/2026"
+      },
+      {
+       "rank": "3",
+       "mark": "7:23:31",
+       "wind": "",
+       "name": "María Romero",
+       "born": "2000",
+       "city": "Málaga",
+       "date": "21/03/2026"
+      },
+      {
+       "rank": "4",
+       "mark": "7:41:03",
+       "wind": "",
+       "name": "Carmen María Pérez",
+       "born": "1982",
+       "city": "Ames",
+       "date": "20/09/2026"
+      },
+      {
+       "rank": "5",
+       "mark": "7:52:21",
+       "wind": "",
+       "name": "Mireia Sosa",
+       "born": "1980",
+       "city": "Burjassot",
+       "date": "01/04/2023"
+      },
+      {
+       "rank": "6",
+       "mark": "7:55:55",
+       "wind": "",
+       "name": "María Mercedes Pila",
+       "born": "1979",
+       "city": "Santander",
+       "date": "11/06/2022"
+      },
+      {
+       "rank": "7",
+       "mark": "7:56:54",
+       "wind": "",
+       "name": "Lucía Gonzálvez",
+       "born": "1997",
+       "city": "Málaga",
+       "date": "03/05/2025"
+      },
+      {
+       "rank": "8",
+       "mark": "7:58:50",
+       "wind": "",
+       "name": "Alicia Pérez",
+       "born": "1990",
+       "city": "Sveti Martin Na Muri (CRO)",
+       "date": "08/09/2018"
+      },
+      {
+       "rank": "9",
+       "mark": "8:10:30",
+       "wind": "",
+       "name": "Alba María Rgeuillo",
+       "born": "1985",
+       "city": "Sotillo de la Adrada",
+       "date": "12/05/2024"
+      },
+      {
+       "rank": "10",
+       "mark": "8:13:14",
+       "wind": "",
+       "name": "Eva Pareja",
+       "born": "1985",
+       "city": "Málaga",
+       "date": "21/03/2026"
+      }
+     ]
+    },
+    {
+     "event": "10 km Marcha",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "42:29 +",
+       "wind": "",
+       "name": "María Pérez",
+       "born": "1996",
+       "city": "Córdoba",
+       "date": "26/03/2023"
+      },
+      {
+       "rank": "2",
+       "mark": "43:02",
+       "wind": "",
+       "name": "María Vasco",
+       "born": "1975",
+       "city": "Budapest (HUN)",
+       "date": "20/08/1998"
+      },
+      {
+       "rank": "3",
+       "mark": "43:13",
+       "wind": "",
+       "name": "Raquel González",
+       "born": "1989",
+       "city": "Viladecans",
+       "date": "24/01/2016"
+      },
+      {
+       "rank": "4",
+       "mark": "43:21",
+       "wind": "",
+       "name": "Encarna Granados",
+       "born": "1972",
+       "city": "Stuttgart (GER)",
+       "date": "14/08/1993"
+      },
+      {
+       "rank": "5",
+       "mark": "43:22",
+       "wind": "",
+       "name": "Beatriz Pascual",
+       "born": "1982",
+       "city": "Viladecans",
+       "date": "24/01/2016"
+      },
+      {
+       "rank": "6",
+       "mark": "43:47",
+       "wind": "",
+       "name": "Sofía Santacreu",
+       "born": "2006",
+       "city": "Podebrady (CZE)",
+       "date": "18/05/2025"
+      },
+      {
+       "rank": "7",
+       "mark": "43:50",
+       "wind": "",
+       "name": "Laura García-Caro",
+       "born": "1995",
+       "city": "Madrid",
+       "date": "16/05/2022"
+      },
+      {
+       "rank": "8",
+       "mark": "43:56",
+       "wind": "",
+       "name": "María José Poves",
+       "born": "1978",
+       "city": "Ejea de los Caballeros",
+       "date": "10/04/2010"
+      },
+      {
+       "rank": "9",
+       "mark": "44:06",
+       "wind": "",
+       "name": "Celia Marcén",
+       "born": "1973",
+       "city": "A Coruña",
+       "date": "16/05/1998"
+      },
+      {
+       "rank": "10",
+       "mark": "44:08 +",
+       "wind": "",
+       "name": "Julia Takacs",
+       "born": "1989",
+       "city": "Murcia",
+       "date": "03/03/2013"
+      }
+     ]
+    },
+    {
+     "event": "20 km Marcha",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "1:25:30",
+       "wind": "",
+       "name": "María Pérez",
+       "born": "1996",
+       "city": "Córdoba",
+       "date": "26/03/2023"
+      },
+      {
+       "rank": "2",
+       "mark": "1:27:19",
+       "wind": "",
+       "name": "Laura García-Caro",
+       "born": "1995",
+       "city": "La Coruña",
+       "date": "18/05/2024"
+      },
+      {
+       "rank": "3",
+       "mark": "1:27:25",
+       "wind": "",
+       "name": "María Vasco",
+       "born": "1975",
+       "city": "Pekín (CHN)",
+       "date": "21/08/2008"
+      },
+      {
+       "rank": "4",
+       "mark": "1:27:44",
+       "wind": "",
+       "name": "Beatriz Pascual",
+       "born": "1982",
+       "city": "Pekín (CHN)",
+       "date": "21/08/2008"
+      },
+      {
+       "rank": "5",
+       "mark": "1:27:55",
+       "wind": "",
+       "name": "Antía Chamosa",
+       "born": "1999",
+       "city": "San Pedro de Pinatar",
+       "date": "30/03/2025"
+      },
+      {
+       "rank": "6",
+       "mark": "1:27:58",
+       "wind": "",
+       "name": "Julia Takacs",
+       "born": "1989",
+       "city": "A Coruña",
+       "date": "02/06/2018"
+      },
+      {
+       "rank": "7",
+       "mark": "1:28:15",
+       "wind": "",
+       "name": "María José Poves",
+       "born": "1978",
+       "city": "Pontevedra",
+       "date": "04/03/2012"
+      },
+      {
+       "rank": "8",
+       "mark": "1:28:36",
+       "wind": "",
+       "name": "Raquel González",
+       "born": "1989",
+       "city": "Taicang (CHN)",
+       "date": "03/05/2014"
+      },
+      {
+       "rank": "9",
+       "mark": "1:28:43",
+       "wind": "",
+       "name": "Cristina Montesinos",
+       "born": "1994",
+       "city": "Zaragoza",
+       "date": "25/02/2024"
+      },
+      {
+       "rank": "10",
+       "mark": "1:29:24",
+       "wind": "",
+       "name": "Paula Juárez",
+       "born": "1994",
+       "city": "Podebrady (CZE)",
+       "date": "18/05/2025"
+      }
+     ]
+    },
+    {
+     "event": "35 km Marcha",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "2:37:15",
+       "wind": "",
+       "name": "María Pérez",
+       "born": "1996",
+       "city": "Podebrady (CZE)",
+       "date": "21/05/2023"
+      },
+      {
+       "rank": "2",
+       "mark": "2:42:27",
+       "wind": "",
+       "name": "Raquel González",
+       "born": "1989",
+       "city": "Eugene (USA)",
+       "date": "22/07/2022"
+      },
+      {
+       "rank": "3",
+       "mark": "2:42:45",
+       "wind": "",
+       "name": "Laura García-Caro",
+       "born": "1995",
+       "city": "Eugene (USA)",
+       "date": "22/07/2022"
+      },
+      {
+       "rank": "4",
+       "mark": "2:44:50",
+       "wind": "",
+       "name": "Antía Chamosa",
+       "born": "1999",
+       "city": "Marín",
+       "date": "09/03/2025"
+      },
+      {
+       "rank": "5",
+       "mark": "2:45:32",
+       "wind": "",
+       "name": "Cristina Montesinos",
+       "born": "1994",
+       "city": "Budapest (HUN)",
+       "date": "23/08/2023"
+      },
+      {
+       "rank": "6",
+       "mark": "2:49:49",
+       "wind": "",
+       "name": "Paula Juárez",
+       "born": "2000",
+       "city": "Marín",
+       "date": "09/03/2025"
+      },
+      {
+       "rank": "7",
+       "mark": "2:51:37",
+       "wind": "",
+       "name": "Lucía Redondo",
+       "born": "2003",
+       "city": "Marín",
+       "date": "09/03/2025"
+      },
+      {
+       "rank": "8",
+       "mark": "2:52:44",
+       "wind": "",
+       "name": "Mar Juárez",
+       "born": "1993",
+       "city": "Podebrady (CZE)",
+       "date": "16/05/2021"
+      },
+      {
+       "rank": "9",
+       "mark": "2:44:50",
+       "wind": "",
+       "name": "Ainhoa Pinedo",
+       "born": "1983",
+       "city": "Marín",
+       "date": "09/03/2025"
+      },
+      {
+       "rank": "10",
+       "mark": "2:53:59 +",
+       "wind": "",
+       "name": "Julia Takacs",
+       "born": "1989",
+       "city": "Alytus (LTU)",
+       "date": "19/05/2019"
+      }
+     ]
+    },
+    {
+     "event": "Medio maratón Marcha",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "1:30:06",
+       "wind": "",
+       "name": "María Pérez",
+       "born": "1995",
+       "city": "Birmingham (GBR)",
+       "date": "15/08/2026"
+      },
+      {
+       "rank": "2",
+       "mark": "1:33:45",
+       "wind": "",
+       "name": "Antía Chamosa",
+       "born": "2003",
+       "city": "Cieza",
+       "date": "08/03/2026"
+      },
+      {
+       "rank": "3",
+       "mark": "1:34:22",
+       "wind": "",
+       "name": "Lucía Redondo",
+       "born": "2006",
+       "city": "Poděbrady (CZE)",
+       "date": "08/05/2026"
+      },
+      {
+       "rank": "4",
+       "mark": "1:34:44",
+       "wind": "",
+       "name": "Aldara Meilán",
+       "born": "2006",
+       "city": "Cieza",
+       "date": "08/03/2026"
+      },
+      {
+       "rank": "5",
+       "mark": "1:34:44",
+       "wind": "",
+       "name": "Sofía Santacreu",
+       "born": "2006",
+       "city": "Cieza",
+       "date": "08/03/2026"
+      },
+      {
+       "rank": "6",
+       "mark": "1:36:58",
+       "wind": "",
+       "name": "Lidia Sánchez-Puebla",
+       "born": "1996",
+       "city": "Cieza",
+       "date": "08/03/2026"
+      },
+      {
+       "rank": "7",
+       "mark": "1:38:47",
+       "wind": "",
+       "name": "Griselda Serret",
+       "born": "2005",
+       "city": "Cieza",
+       "date": "08/03/2026"
+      },
+      {
+       "rank": "8",
+       "mark": "1:40:09",
+       "wind": "",
+       "name": "Raquel González",
+       "born": "1989",
+       "city": "A Coruña",
+       "date": "23/05/2026"
+      },
+      {
+       "rank": "9",
+       "mark": "1:41:37",
+       "wind": "",
+       "name": "Julia Suárez",
+       "born": "2006",
+       "city": "A Coruña",
+       "date": "23/05/2026"
+      },
+      {
+       "rank": "10",
+       "mark": "1:45:23",
+       "wind": "",
+       "name": "Alicia Sánchez",
+       "born": "2000",
+       "city": "El Vendrell",
+       "date": "17/01/2026"
+      }
+     ]
+    },
+    {
+     "event": "Maratón Marcha",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "3:20:49",
+       "wind": "",
+       "name": "Raquel González",
+       "born": "1989",
+       "city": "Birmingham (GBR)",
+       "date": "15/08/2026"
+      },
+      {
+       "rank": "2",
+       "mark": "3:28:28",
+       "wind": "",
+       "name": "Lucía Redondo",
+       "born": "2003",
+       "city": "Birmingham (GBR)",
+       "date": "15/08/2026"
+      },
+      {
+       "rank": "3",
+       "mark": "3:39:11",
+       "wind": "",
+       "name": "Laura Monje",
+       "born": "2002",
+       "city": "Dudinde (SVK)",
+       "date": "07/03/2026"
+      },
+      {
+       "rank": "4",
+       "mark": "3:53:51",
+       "wind": "",
+       "name": "Beatriz Cantero",
+       "born": "1992",
+       "city": "Cieza",
+       "date": "15/02/2026"
+      },
+      {
+       "rank": "5",
+       "mark": "3:57:09",
+       "wind": "",
+       "name": "Ainhoa Pinedo",
+       "born": "1983",
+       "city": "Cieza",
+       "date": "15/02/2026"
+      }
+     ]
+    },
+    {
+     "event": "50 km Marcha",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "4:05:46",
+       "wind": "",
+       "name": "Julia Takacs",
+       "born": "1989",
+       "city": "Alytus (LTU)",
+       "date": "19/05/2019"
+      },
+      {
+       "rank": "2",
+       "mark": "4:11:01",
+       "wind": "",
+       "name": "Raquel González",
+       "born": "1989",
+       "city": "El Vendrell",
+       "date": "10/02/2019"
+      },
+      {
+       "rank": "3",
+       "mark": "4:15:46",
+       "wind": "",
+       "name": "Mar Juárez",
+       "born": "1993",
+       "city": "Torrevieja",
+       "date": "16/02/2020"
+      },
+      {
+       "rank": "4",
+       "mark": "4:18:56",
+       "wind": "",
+       "name": "Ainhoa Pinedo",
+       "born": "1983",
+       "city": "Burjassot",
+       "date": "25/02/2018"
+      },
+      {
+       "rank": "5",
+       "mark": "4:37:43",
+       "wind": "",
+       "name": "María Larios",
+       "born": "1992",
+       "city": "Taicang (CHN)",
+       "date": "05/05/2018"
+      },
+      {
+       "rank": "6",
+       "mark": "4:48:26",
+       "wind": "",
+       "name": "María Dolores Marcos",
+       "born": "1979",
+       "city": "Naumburg (GER)",
+       "date": "23/04/2017"
+      },
+      {
+       "rank": "7",
+       "mark": "5:00:39",
+       "wind": "",
+       "name": "Olga Cabrera",
+       "born": "1974",
+       "city": "Torrevieja",
+       "date": "16/02/2020"
+      },
+      {
+       "rank": "8",
+       "mark": "5:14:18",
+       "wind": "",
+       "name": "Samantha Mulloni",
+       "born": "1990",
+       "city": "Torrevieja",
+       "date": "16/02/2020"
+      },
+      {
+       "rank": "9",
+       "mark": "5:37:24",
+       "wind": "",
+       "name": "Marina Hoernecke",
+       "born": "1942",
+       "city": "Basildon (GBR)",
+       "date": "10/04/1993"
+      }
+     ]
+    }
+   ],
+   "M": [
+    {
+     "event": "5 km",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "12:57",
+       "wind": "",
+       "name": "Santiago Catrofe",
+       "born": "1999",
+       "city": "Valencia",
+       "date": "12/01/2025"
+      },
+      {
+       "rank": "2",
+       "mark": "13:08",
+       "wind": "",
+       "name": "Thierry Ndikumwenayo",
+       "born": "1997",
+       "city": "Herzogenaurach (GER)",
+       "date": "26/04/2025"
+      },
+      {
+       "rank": "3",
+       "mark": "13:19",
+       "wind": "",
+       "name": "Ouassim Oumaiz",
+       "born": "1999",
+       "city": "Nimega (NED)",
+       "date": "19/07/2020"
+      },
+      {
+       "rank": "4",
+       "mark": "13:20",
+       "wind": "",
+       "name": "Mohamed Katir",
+       "born": "1998",
+       "city": "Málaga",
+       "date": "24/04/2022"
+      },
+      {
+       "rank": "5",
+       "mark": "13:27",
+       "wind": "",
+       "name": "Abdessamad Oukhelfen",
+       "born": "1998",
+       "city": "Barcelona",
+       "date": "31/12/2023"
+      },
+      {
+       "rank": "6",
+       "mark": "13:30",
+       "wind": "",
+       "name": "Ilias Fifa",
+       "born": "1989",
+       "city": "Barcelona",
+       "date": "31/12/2022"
+      },
+      {
+       "rank": "7",
+       "mark": "13:34",
+       "wind": "",
+       "name": "Adel Mechaal",
+       "born": "1990",
+       "city": "París (FRA)",
+       "date": "06/04/2024"
+      },
+      {
+       "rank": "8",
+       "mark": "13:38 +",
+       "wind": "",
+       "name": "Rodrigue Kwizera",
+       "born": "1999",
+       "city": "Praga (CZE)",
+       "date": "05/09/2026"
+      },
+      {
+       "rank": "9",
+       "mark": "13:40 +",
+       "wind": "",
+       "name": "Said Mechaal",
+       "born": "1995",
+       "city": "Valencia",
+       "date": "11/02/2026"
+      },
+      {
+       "rank": "9",
+       "mark": "13:40",
+       "wind": "",
+       "name": "Carlos Mayo",
+       "born": "1995",
+       "city": "Barcelona",
+       "date": "31/12/2021"
+      }
+     ]
+    },
+    {
+     "event": "10 km",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "27:15",
+       "wind": "",
+       "name": "Rodrigue Kwizera",
+       "born": "1999",
+       "city": "Praga (CZE)",
+       "date": "05/09/2026"
+      },
+      {
+       "rank": "2",
+       "mark": "27:16",
+       "wind": "",
+       "name": "Santiago Catrofe",
+       "born": "1999",
+       "city": "Valencia",
+       "date": "12/01/2025"
+      },
+      {
+       "rank": "3",
+       "mark": "27:25",
+       "wind": "",
+       "name": "Said Mechaal",
+       "born": "1998",
+       "city": "Valencia",
+       "date": "11/01/2026"
+      },
+      {
+       "rank": "4",
+       "mark": "27:40 +",
+       "wind": "",
+       "name": "Thierry Ndikumwenayo",
+       "born": "1997",
+       "city": "Valencia",
+       "date": "25/10/2026"
+      },
+      {
+       "rank": "5",
+       "mark": "27:41",
+       "wind": "",
+       "name": "Ilias Fifa",
+       "born": "1989",
+       "city": "Valencia",
+       "date": "12/01/2025"
+      },
+      {
+       "rank": "6",
+       "mark": "27:44",
+       "wind": "",
+       "name": "Abdessamad Oukhelfen",
+       "born": "1998",
+       "city": "Valencia",
+       "date": "14/01/2024"
+      },
+      {
+       "rank": "7",
+       "mark": "27:45",
+       "wind": "",
+       "name": "Juan Antonio Pérez",
+       "born": "1988",
+       "city": "Valencia",
+       "date": "12/01/2025"
+      },
+      {
+       "rank": "8",
+       "mark": "27.46",
+       "wind": "",
+       "name": "Adel Mechaal",
+       "born": "1990",
+       "city": "Manchester (GBR)",
+       "date": "26/05/2024"
+      },
+      {
+       "rank": "9",
+       "mark": "27:47",
+       "wind": "",
+       "name": "Jesús Ramos",
+       "born": "1996",
+       "city": "Valencia",
+       "date": "11/01/2026"
+      },
+      {
+       "rank": "10",
+       "mark": "27:47",
+       "wind": "",
+       "name": "Andreu Blanes",
+       "born": "1991",
+       "city": "Valencia",
+       "date": "11/01/2026"
+      }
+     ]
+    },
+    {
+     "event": "15 km",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "41:31 +",
+       "wind": "",
+       "name": "Thierry Ndikumwenayo",
+       "born": "1997",
+       "city": "Valencia",
+       "date": "25/10/2026"
+      },
+      {
+       "rank": "2",
+       "mark": "41:32 +",
+       "wind": "",
+       "name": "Rodrigue Kwizera",
+       "born": "1997",
+       "city": "Valencia",
+       "date": "25/10/2026"
+      },
+      {
+       "rank": "3",
+       "mark": "42:02 +",
+       "wind": "",
+       "name": "Said Mechaal",
+       "born": "1998",
+       "city": "París (FRA)",
+       "date": "12/10/2025"
+      },
+      {
+       "rank": "4",
+       "mark": "42:19 +",
+       "wind": "",
+       "name": "Carlos Mayo",
+       "born": "1995",
+       "city": "Valencia",
+       "date": "22/10/2023"
+      },
+      {
+       "rank": "5",
+       "mark": "42:51 +",
+       "wind": "",
+       "name": "Fabián Roncero",
+       "born": "1970",
+       "city": "Berlín",
+       "date": "01/04/2001"
+      },
+      {
+       "rank": "6",
+       "mark": "42:52 +",
+       "wind": "",
+       "name": "Aarón Las Heras",
+       "born": "2000",
+       "city": "Valencia",
+       "date": "25/10/2026"
+      },
+      {
+       "rank": "7",
+       "mark": "43:16 +",
+       "wind": "",
+       "name": "Ayad Lamdassem",
+       "born": "1981",
+       "city": "Gdynia (POL)",
+       "date": "17/10/2020"
+      },
+      {
+       "rank": "8",
+       "mark": "43:19 +",
+       "wind": "",
+       "name": "Juan Antonio Pérez",
+       "born": "1988",
+       "city": "Gdynia (POL)",
+       "date": "17/10/2020"
+      },
+      {
+       "rank": "9",
+       "mark": "43:21 +",
+       "wind": "",
+       "name": "Hamid Ben Daoub",
+       "born": "1996",
+       "city": "Valencia",
+       "date": "22/10/2023"
+      },
+      {
+       "rank": "10",
+       "mark": "43:24 +",
+       "wind": "",
+       "name": "Yago Rojo",
+       "born": "1995",
+       "city": "Valencia",
+       "date": "25/10/2026"
+      }
+     ]
+    },
+    {
+     "event": "Medio Maratón",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "58:03",
+       "wind": "",
+       "name": "Rodrigue Kwizera",
+       "born": "1997",
+       "city": "Valencia",
+       "date": "25/10/2026"
+      },
+      {
+       "rank": "2",
+       "mark": "58:09",
+       "wind": "",
+       "name": "Thierry Ndikumwenayo",
+       "born": "1997",
+       "city": "Valencia",
+       "date": "25/10/2026"
+      },
+      {
+       "rank": "3",
+       "mark": "59:39",
+       "wind": "",
+       "name": "Carlos Mayo",
+       "born": "1995",
+       "city": "Valencia",
+       "date": "22/10/2023"
+      },
+      {
+       "rank": "4",
+       "mark": "59:42",
+       "wind": "",
+       "name": "Thierry Ndikumwenayo",
+       "born": "1997",
+       "city": "Valencia",
+       "date": "27/10/2024"
+      },
+      {
+       "rank": "5",
+       "mark": "59:52",
+       "wind": "",
+       "name": "Fabián Roncero",
+       "born": "1970",
+       "city": "Berlín (GER)",
+       "date": "01/04/2001"
+      },
+      {
+       "rank": "6",
+       "mark": "1:00:08",
+       "wind": "",
+       "name": "Aarón Las Heras",
+       "born": "2000",
+       "city": "Valencia",
+       "date": "25/10/2026"
+      },
+      {
+       "rank": "7",
+       "mark": "1:00:21",
+       "wind": "",
+       "name": "Santiago Catrofe",
+       "born": "1999",
+       "city": "Marugame (JPN)",
+       "date": "01/02/2026"
+      },
+      {
+       "rank": "8",
+       "mark": "1:00:24",
+       "wind": "",
+       "name": "Said Mechaal",
+       "born": "1998",
+       "city": "Berlín (GER)",
+       "date": "29/03/2026"
+      },
+      {
+       "rank": "9",
+       "mark": "1:00:46",
+       "wind": "",
+       "name": "Jorge González",
+       "born": "1995",
+       "city": "Lisboa (POR)",
+       "date": "08/03/2026"
+      },
+      {
+       "rank": "10",
+       "mark": "1:00:55",
+       "wind": "",
+       "name": "Nassim Hassaous",
+       "born": "1994",
+       "city": "Valencia",
+       "date": "26/10/2025"
+      }
+     ]
+    },
+    {
+     "event": "Maratón",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "2:05:48",
+       "wind": "",
+       "name": "Tariku Novales",
+       "born": "1998",
+       "city": "Valencia",
+       "date": "03/12/2023"
+      },
+      {
+       "rank": "2",
+       "mark": "2:06:25",
+       "wind": "",
+       "name": "Ayad Lamdassem",
+       "born": "1981",
+       "city": "Sevilla",
+       "date": "20/02/2022"
+      },
+      {
+       "rank": "3",
+       "mark": "2:06:35",
+       "wind": "",
+       "name": "Hamid Ben Daoud",
+       "born": "1996",
+       "city": "Valencia",
+       "date": "05/12/2021"
+      },
+      {
+       "rank": "4",
+       "mark": "2:06:52",
+       "wind": "",
+       "name": "Julio Rey",
+       "born": "1972",
+       "city": "Hamburgo (GER)",
+       "date": "23/04/2006"
+      },
+      {
+       "rank": "5",
+       "mark": "2:07:21",
+       "wind": "",
+       "name": "Ibrahim Chakir",
+       "born": "1994",
+       "city": "Valencia",
+       "date": "07/12/2025"
+      },
+      {
+       "rank": "6",
+       "mark": "2:07:23",
+       "wind": "",
+       "name": "Fabián Roncero",
+       "born": "1970",
+       "city": "Rotterdam (NED)",
+       "date": "18/04/1999"
+      },
+      {
+       "rank": "7",
+       "mark": "2:07:27",
+       "wind": "",
+       "name": "Javier Guerra",
+       "born": "1983",
+       "city": "Sevilla",
+       "date": "23/02/2020"
+      },
+      {
+       "rank": "8",
+       "mark": "2:07:34",
+       "wind": "",
+       "name": "Antonio Peña",
+       "born": "1970",
+       "city": "Otsu (JPN)",
+       "date": "04/03/2001"
+      },
+      {
+       "rank": "9",
+       "mark": "2:07:42",
+       "wind": "",
+       "name": "José Ríos",
+       "born": "1974",
+       "city": "Otsu (JPN)",
+       "date": "07/03/2004"
+      },
+      {
+       "rank": "10",
+       "mark": "2:07:47",
+       "wind": "",
+       "name": "Yago Rojo",
+       "born": "1995",
+       "city": "Valencia",
+       "date": "03/12/2023"
+      }
+     ]
+    },
+    {
+     "event": "50 km",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "2:47:42",
+       "wind": "",
+       "name": "Iraitz Arrospide",
+       "born": "1988",
+       "city": "Brasov (ROU)",
+       "date": "01/09/2019"
+      },
+      {
+       "rank": "2",
+       "mark": "2:48:20",
+       "wind": "",
+       "name": "Chakib Lachgar",
+       "born": "1989",
+       "city": "Hyderabad (IND)",
+       "date": "05/11/2023"
+      },
+      {
+       "rank": "3",
+       "mark": "2:49:16",
+       "wind": "",
+       "name": "Francisco Serrano",
+       "born": "1992",
+       "city": "Málaga",
+       "date": "03/05/2025"
+      },
+      {
+       "rank": "4",
+       "mark": "2:49:20",
+       "wind": "",
+       "name": "Houssame Eddine Benabbou",
+       "born": "1993",
+       "city": "Sotillo de la Adrada",
+       "date": "08/10/2022"
+      },
+      {
+       "rank": "5",
+       "mark": "2:49:30",
+       "wind": "",
+       "name": "Alejandro Jiménez",
+       "born": "1984",
+       "city": "Hyderabad (IND)",
+       "date": "05/11/2023"
+      },
+      {
+       "rank": "6",
+       "mark": "2:50:34",
+       "wind": "",
+       "name": "Alberto Puyuelo",
+       "born": "1986",
+       "city": "Málaga",
+       "date": "03/05/2025"
+      },
+      {
+       "rank": "7",
+       "mark": "2:50:43",
+       "wind": "",
+       "name": "Jesús Ángel Olmos",
+       "born": "1986",
+       "city": "Burjassot",
+       "date": "21/01/2023"
+      },
+      {
+       "rank": "8",
+       "mark": "2:52:37",
+       "wind": "",
+       "name": "Juan Gimeno",
+       "born": "1987",
+       "city": "Málaga",
+       "date": "02/05/2025"
+      },
+      {
+       "rank": "9",
+       "mark": "2:53:30",
+       "wind": "",
+       "name": "Carles Montllor",
+       "born": "1987",
+       "city": "Burjassot",
+       "date": "21/01/2023"
+      },
+      {
+       "rank": "10",
+       "mark": "2:54:28",
+       "wind": "",
+       "name": "Severino Felipe",
+       "born": "1975",
+       "city": "Ubstadt-Weiher (GER)",
+       "date": "25/02/2023"
+      }
+     ]
+    },
+    {
+     "event": "100 km",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "6:21:06",
+       "wind": "",
+       "name": "Carlos Gazapo",
+       "born": "1986",
+       "city": "Málaga",
+       "date": "03/05/2025"
+      },
+      {
+       "rank": "2",
+       "mark": "6:23:44",
+       "wind": "",
+       "name": "José María González",
+       "born": "1965",
+       "city": "Tourhout (BEL)",
+       "date": "17/06/2006"
+      },
+      {
+       "rank": "3",
+       "mark": "6:25:54",
+       "wind": "",
+       "name": "Antonio Jesús Aguilar",
+       "born": "1979",
+       "city": "Bangalore (IND)",
+       "date": "07/12/2024"
+      },
+      {
+       "rank": "4",
+       "mark": "6:26:38",
+       "wind": "",
+       "name": "Jorge Aubeso",
+       "born": "1966",
+       "city": "Madrid",
+       "date": "16/03/2003"
+      },
+      {
+       "rank": "5",
+       "mark": "6:30:24",
+       "wind": "",
+       "name": "Manel Deli",
+       "born": "1974",
+       "city": "Bernau (GER)",
+       "date": "27/08/2022"
+      },
+      {
+       "rank": "6",
+       "mark": "6:30:37",
+       "wind": "",
+       "name": "Domingo Catalán",
+       "born": "1948",
+       "city": "Palamós",
+       "date": "16/02/1992"
+      },
+      {
+       "rank": "7",
+       "mark": "6:33:52",
+       "wind": "",
+       "name": "Félix Pont",
+       "born": "1982",
+       "city": "Málaga",
+       "date": "03/05/2025"
+      },
+      {
+       "rank": "8",
+       "mark": "6:35:49",
+       "wind": "",
+       "name": "Asier Cuevas",
+       "born": "1973",
+       "city": "Winschoten (NED)",
+       "date": "05/09/2015"
+      },
+      {
+       "rank": "9",
+       "mark": "6:37:01",
+       "wind": "",
+       "name": "José Antonio Requejo",
+       "born": "1982",
+       "city": "Doha (QAT)",
+       "date": "21/11/2014"
+      },
+      {
+       "rank": "10",
+       "mark": "6:39:57",
+       "wind": "",
+       "name": "Fermín Martínez",
+       "born": "1961",
+       "city": "Tourhout (BEL)",
+       "date": "21/06/2002"
+      }
+     ]
+    },
+    {
+     "event": "10 km Marcha",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "37:52",
+       "wind": "",
+       "name": "Francisco Javier Fernández",
+       "born": "1977",
+       "city": "Cracovia (POL)",
+       "date": "08/06/2002"
+      },
+      {
+       "rank": "2",
+       "mark": "38:46",
+       "wind": "",
+       "name": "Juan Manuel Molina",
+       "born": "1979",
+       "city": "Madrid",
+       "date": "04/03/2006"
+      },
+      {
+       "rank": "3",
+       "mark": "38:49",
+       "wind": "",
+       "name": "Diego García",
+       "born": "1996",
+       "city": "Madrid",
+       "date": "16/05/2022"
+      },
+      {
+       "rank": "4",
+       "mark": "38:54 +",
+       "wind": "",
+       "name": "Álvaro Martín",
+       "born": "1994",
+       "city": "A Coruña",
+       "date": "09/06/2019"
+      },
+      {
+       "rank": "5",
+       "mark": "39:09",
+       "wind": "",
+       "name": "Paul McGrath",
+       "born": "2002",
+       "city": "Madrid",
+       "date": "30/04/2023"
+      },
+      {
+       "rank": "6",
+       "mark": "39:10",
+       "wind": "",
+       "name": "José Ignacio Díaz",
+       "born": "1979",
+       "city": "Madrid",
+       "date": "04/03/2006"
+      },
+      {
+       "rank": "7",
+       "mark": "39:12",
+       "wind": "",
+       "name": "Miguel Ángel Prieto",
+       "born": "1964",
+       "city": "A Coruña",
+       "date": "03/06/1989"
+      },
+      {
+       "rank": "8",
+       "mark": "39:27 +",
+       "wind": "",
+       "name": "Valentí Massana",
+       "born": "1970",
+       "city": "A Coruña",
+       "date": "06/06/1992"
+      },
+      {
+       "rank": "9",
+       "mark": "39:29 +",
+       "wind": "",
+       "name": "Miguel Ángel López",
+       "born": "1988",
+       "city": "A Coruña",
+       "date": "06/06/2015"
+      },
+      {
+       "rank": "10",
+       "mark": "39:30",
+       "wind": "",
+       "name": "José Marín",
+       "born": "1950",
+       "city": "A Coruña",
+       "date": "03/06/1989"
+      }
+     ]
+    },
+    {
+     "event": "20 km Marcha",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "1:17:22",
+       "wind": "",
+       "name": "Francisco Javier Fernández",
+       "born": "1977",
+       "city": "Turku (FIN)",
+       "date": "28/04/2002"
+      },
+      {
+       "rank": "2",
+       "mark": "1:17:32",
+       "wind": "",
+       "name": "Álvaro Martín",
+       "born": "1994",
+       "city": "Budapest (HUN)",
+       "date": "19/08/2023"
+      },
+      {
+       "rank": "3",
+       "mark": "1:17:55",
+       "wind": "",
+       "name": "Paul McGrath",
+       "born": "2002",
+       "city": "Zaragoza",
+       "date": "25/02/2024"
+      },
+      {
+       "rank": "4",
+       "mark": "1:18:19",
+       "wind": "",
+       "name": "Diego García",
+       "born": "1996",
+       "city": "La Coruña",
+       "date": "18/05/2024"
+      },
+      {
+       "rank": "5",
+       "mark": "1:18:33",
+       "wind": "",
+       "name": "Miguel Ángel López",
+       "born": "1988",
+       "city": "La Coruña",
+       "date": "19/05/2024"
+      },
+      {
+       "rank": "6",
+       "mark": "1:19:19",
+       "wind": "",
+       "name": "Juan Manuel Molina",
+       "born": "1979",
+       "city": "Cheboksary (RUS)",
+       "date": "10/05/2008"
+      },
+      {
+       "rank": "7",
+       "mark": "1:19:25",
+       "wind": "",
+       "name": "Valentí Massana",
+       "born": "1970",
+       "city": "A Coruña",
+       "date": "06/06/1992"
+      },
+      {
+       "rank": "8",
+       "mark": "1:19:28",
+       "wind": "",
+       "name": "Alberto Amezcua",
+       "born": "1992",
+       "city": "Budapest (HUN)",
+       "date": "19/08/2023"
+      },
+      {
+       "rank": "9",
+       "mark": "1:19:38",
+       "wind": "",
+       "name": "Álvaro López",
+       "born": "1999",
+       "city": "Podebrady (CZE)",
+       "date": "18/05/2025"
+      },
+      {
+       "rank": "10",
+       "mark": "1:19:46",
+       "wind": "",
+       "name": "David Márquez",
+       "born": "1977",
+       "city": "Saint-Denis (FRA)",
+       "date": "23/08/2003"
+      }
+     ]
+    },
+    {
+     "event": "35 km Marcha",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "2:23:48",
+       "wind": "",
+       "name": "Miguel Ángel López",
+       "born": "1988",
+       "city": "Podebrady (CZE)",
+       "date": "18/05/2025"
+      },
+      {
+       "rank": "2",
+       "mark": "2:24:20",
+       "wind": "",
+       "name": "Álvaro Martín",
+       "born": "1994",
+       "city": "Budapest (HUN)",
+       "date": "14/08/2025"
+      },
+      {
+       "rank": "3",
+       "mark": "2:27:56",
+       "wind": "",
+       "name": "Daniel Chamosa",
+       "born": "1997",
+       "city": "Podebrady (CZE)",
+       "date": "18/05/2025"
+      },
+      {
+       "rank": "4",
+       "mark": "2:28:43",
+       "wind": "",
+       "name": "Manuel Bermúdez",
+       "born": "1997",
+       "city": "Podebrady (CZE)",
+       "date": "18/05/2025"
+      },
+      {
+       "rank": "5",
+       "mark": "2:29:04",
+       "wind": "",
+       "name": "Diego García",
+       "born": "1996",
+       "city": "Cieza",
+       "date": "26/02/2023"
+      },
+      {
+       "rank": "6",
+       "mark": "2:29:38",
+       "wind": "",
+       "name": "Marc Tur",
+       "born": "1994",
+       "city": "Cieza",
+       "date": "26/02/2023"
+      },
+      {
+       "rank": "7",
+       "mark": "2:30:33",
+       "wind": "",
+       "name": "Valentí Massana",
+       "born": "1970",
+       "city": "Eschborn (GER)",
+       "date": "12/06/1993"
+      },
+      {
+       "rank": "8",
+       "mark": "2:30:56",
+       "wind": "",
+       "name": "Álvaro López",
+       "born": "1999",
+       "city": "Marín",
+       "date": "09/03/2025"
+      },
+      {
+       "rank": "9",
+       "mark": "2:31:06",
+       "wind": "",
+       "name": "Jesús Ángel García",
+       "born": "1969",
+       "city": "Livorno (ITA)",
+       "date": "12/06/1994"
+      },
+      {
+       "rank": "10",
+       "mark": "2:31:26",
+       "wind": "",
+       "name": "Daniel Plaza",
+       "born": "1966",
+       "city": "Eschborn (GER)",
+       "date": "12/06/1993"
+      }
+     ]
+    },
+    {
+     "event": "Medio maratón Marcha",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "1:23:23",
+       "wind": "",
+       "name": "Paul McGrath",
+       "born": "2002",
+       "city": "Birmingham (GBR)",
+       "date": "15/08/2026"
+      },
+      {
+       "rank": "2",
+       "mark": "1:25:05",
+       "wind": "",
+       "name": "Iván López",
+       "born": "1997",
+       "city": "Poděbrady (CZE)",
+       "date": "08/05/2026"
+      },
+      {
+       "rank": "3",
+       "mark": "1:25:25",
+       "wind": "",
+       "name": "Álvaro López",
+       "born": "1999",
+       "city": "Birmi",
+       "date": "15/08/2026"
+      },
+      {
+       "rank": "4",
+       "mark": "1:25:41",
+       "wind": "",
+       "name": "Diego García",
+       "born": "1996",
+       "city": "Birmingham (GBR)",
+       "date": "15/08/2026"
+      },
+      {
+       "rank": "5",
+       "mark": "1:26:37",
+       "wind": "",
+       "name": "Miguel Ángel López",
+       "born": "1988",
+       "city": "Cieza",
+       "date": "08/03/2026"
+      },
+      {
+       "rank": "6",
+       "mark": "1:26:42",
+       "wind": "",
+       "name": "Óscar Martínez",
+       "born": "2003",
+       "city": "Poděbrady (CZE)",
+       "date": "08/05/2026"
+      },
+      {
+       "rank": "7",
+       "mark": "1:27:53",
+       "wind": "",
+       "name": "Daniel Monfort",
+       "born": "2006",
+       "city": "Cieza",
+       "date": "08/03/2026"
+      },
+      {
+       "rank": "8",
+       "mark": "1:29:25",
+       "wind": "",
+       "name": "Miguel Espinosa",
+       "born": "2006",
+       "city": "Poděbrady (CZE)",
+       "date": "08/05/2026"
+      },
+      {
+       "rank": "9",
+       "mark": "1:30:35",
+       "wind": "",
+       "name": "José Manuel Pérez",
+       "born": "1999",
+       "city": "Guadix",
+       "date": "25/01/2026"
+      },
+      {
+       "rank": "10",
+       "mark": "1:30:57",
+       "wind": "",
+       "name": "Joan Querol",
+       "born": "2006",
+       "city": "BurjassoT",
+       "date": "31/01/2026"
+      }
+     ]
+    },
+    {
+     "event": "Maratón Marcha",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "2:56:57",
+       "wind": "",
+       "name": "Miguel Ángel López",
+       "born": "1988",
+       "city": "Birmingham (GBR)",
+       "date": "15/08/2026"
+      },
+      {
+       "rank": "2",
+       "mark": "3:02:32",
+       "wind": "",
+       "name": "Daniel Chamosa",
+       "born": "1997",
+       "city": "Birmingham (GBR)",
+       "date": "15/08/2026"
+      },
+      {
+       "rank": "3",
+       "mark": "3:03:50",
+       "wind": "",
+       "name": "José Manuel Pérez",
+       "born": "1999",
+       "city": "Birmingham (GBR)",
+       "date": "15/08/2026"
+      },
+      {
+       "rank": "4",
+       "mark": "3:09:08",
+       "wind": "",
+       "name": "Óscar Martínez",
+       "born": "2003",
+       "city": "Dudince (SVK)",
+       "date": "07/03/2026"
+      },
+      {
+       "rank": "5",
+       "mark": "3:10:38",
+       "wind": "",
+       "name": "Manuel Bermúdez",
+       "born": "1997",
+       "city": "Birmingham (GBR)",
+       "date": "15/08/2026"
+      },
+      {
+       "rank": "6",
+       "mark": "3:14:29",
+       "wind": "",
+       "name": "Hodei Caballero",
+       "born": "2003",
+       "city": "Dudince (SVK)",
+       "date": "07/03/2026"
+      },
+      {
+       "rank": "7",
+       "mark": "3:16:16",
+       "wind": "",
+       "name": "Javier de Arriba",
+       "born": "2005",
+       "city": "Cieza",
+       "date": "15/02/2026"
+      }
+     ]
+    },
+    {
+     "event": "50 km Marcha",
+     "rows": [
+      {
+       "rank": "1",
+       "mark": "3:38:43",
+       "wind": "",
+       "name": "Valentín Massana",
+       "born": "1970",
+       "city": "Ourense",
+       "date": "20/03/1994"
+      },
+      {
+       "rank": "2",
+       "mark": "3:39:54",
+       "wind": "",
+       "name": "Jesús Ángel García",
+       "born": "1969",
+       "city": "Podebrady (CZE)",
+       "date": "20/04/1997"
+      },
+      {
+       "rank": "3",
+       "mark": "3:40:46",
+       "wind": "",
+       "name": "José Marín",
+       "born": "1950",
+       "city": "Valencia",
+       "date": "13/03/1983"
+      },
+      {
+       "rank": "4",
+       "mark": "3:41:02",
+       "wind": "",
+       "name": "Francisco Javier Fernández",
+       "born": "1977",
+       "city": "San Pedro del Pinatar",
+       "date": "01/03/2009"
+      },
+      {
+       "rank": "5",
+       "mark": "3:41:47",
+       "wind": "",
+       "name": "Mikel Odriozola",
+       "born": "1973",
+       "city": "El Prat de Llobregat",
+       "date": "27/02/2005"
+      },
+      {
+       "rank": "6",
+       "mark": "3:44:24",
+       "wind": "",
+       "name": "Daniel Plaza",
+       "born": "1966",
+       "city": "Palma de Mallorca",
+       "date": "05/03/1995"
+      },
+      {
+       "rank": "7",
+       "mark": "3:44:33",
+       "wind": "",
+       "name": "Jorge Llopart",
+       "born": "1952",
+       "city": "Reus",
+       "date": "26/08/1979"
+      },
+      {
+       "rank": "8",
+       "mark": "3:45:55",
+       "wind": "",
+       "name": "Santiago Pérez",
+       "born": "1972",
+       "city": "Ourense",
+       "date": "22/02/1998"
+      },
+      {
+       "rank": "9",
+       "mark": "3:46:46",
+       "wind": "",
+       "name": "Basilio Labrador",
+       "born": "1967",
+       "city": "Stuttgart (GER)",
+       "date": "21/08/1993"
+      },
+      {
+       "rank": "10",
+       "mark": "3:47:40",
+       "wind": "",
+       "name": "Marc Tur",
+       "born": "1994",
+       "city": "Podebrady (CZE)",
+       "date": "16/05/2021"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "historico_source": "https://atletismorfea.es/ranking/historico"
 }
