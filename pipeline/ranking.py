@@ -8,6 +8,9 @@ cada atleta (solo marcas válidas: viento legal y cronometraje eléctrico). Se s
   de pista cubierta) y, en los concursos que se hacen en las dos temporadas (altura, pértiga, longitud,
   triple, peso), las marcas que la RFEA marca como pista cubierta: "(i)" junto a la ciudad.
 
+Además, el RANKING HISTÓRICO (atletismorfea.es/ranking/historico): las 10 mejores marcas españolas de
+todos los tiempos en cada prueba, con las mismas tres temporadas. Va en ranking.json, en "historico".
+
 Todo es código normal (HTML de la RFEA). Sin IA. Resultado en ranking.json.
 """
 import re
@@ -81,6 +84,75 @@ def _rank(rows):
     return out
 
 
+# Ranking histórico: (nombre, id de prueba de la RFEA, estilo). Estilos de la RFEA: 16 pista, 17 short track
+# (pista cubierta), 19 ruta, 20 marcha. Altura, pértiga, longitud, triple y peso mezclan aire libre y pista
+# cubierta (como hace la RFEA), con "(i)" junto a la ciudad.
+HIST_CAT = {"F": 145, "M": 146}
+_HIST_AL = [("100 m", 189, 16), ("200 m", 226, 16), ("400 m", 227, 16), ("800 m", 230, 16), ("1.500 m", 223, 16),
+            ("3.000 m", 234, 16), ("5.000 m", 235, 16), ("10.000 m", 236, 16)]
+_HIST_AL2 = [("400 m vallas", 247, 16), ("3.000 m obstáculos", 249, 16), ("Altura", 250, 16), ("Pértiga", 251, 16),
+             ("Longitud", 252, 16), ("Triple", 253, 16), ("Peso", 254, 16), ("Disco", 255, 16), ("Martillo", 256, 16),
+             ("Jabalina", 257, 16)]
+_HIST_PC = [("60 m", 224, 16), ("200 m", 423, 17), ("400 m", 426, 17), ("800 m", 429, 17), ("1.500 m", 431, 17),
+            ("3.000 m", 434, 17), ("60 m vallas", 289, 16)]
+_HIST_RU = [("5 km", 239, 19), ("10 km", 240, 19), ("15 km", 467, 19), ("Medio Maratón", 241, 19), ("Maratón", 242, 19),
+            ("50 km", 243, 19), ("100 km", 244, 19), ("10 km Marcha", 265, 20), ("20 km Marcha", 266, 20),
+            ("35 km Marcha", 267, 20), ("Medio maratón Marcha", 479, 20), ("Maratón Marcha", 480, 20), ("50 km Marcha", 268, 20)]
+HIST_EVENTS = {
+    "AL": {"F": _HIST_AL + [("100 m vallas", 270, 16)] + _HIST_AL2 + [("Heptatlón", 271, 16), ("5.000 m marcha", 263, 20),
+                                                                         ("10.000 m marcha", 264, 20)],
+           "M": _HIST_AL + [("110 m vallas", 245, 16)] + _HIST_AL2 + [("Decatlón", 258, 16), ("5.000 m marcha", 263, 20),
+                                                                         ("10.000 m marcha", 264, 20)]},
+    "PC": {"F": _HIST_PC + [("Pentatlón", 445, 17)], "M": _HIST_PC + [("Heptatlón", 436, 17)]},
+    "RU": {"F": _HIST_RU, "M": _HIST_RU},
+}
+
+
+def fetch_hist(http, sex, event, style, mixed):
+    url = "%s/ajax/ranking/historico/get-event-ranking/no/0/%d/%d/%d/%d/0?_wrapper_format=drupal_ajax" % (
+        BASE, event, style, GENDER[sex], HIST_CAT[sex])
+    data = http.get(url).json()
+    html = next((c.get("data") for c in data if isinstance(c.get("data"), str) and "ranking_container" in c["data"]), "")
+    table = BeautifulSoup(html, "lxml").find("table", class_="tabla_ranking")
+    if not table:
+        return []
+    heads = [clean(th.get_text()).upper() for th in table.find_all("th")]
+    rows = []
+    for tr in table.find_all("tr")[1:]:
+        c = dict(zip(heads, [clean(td.get_text(" ")) for td in tr.find_all("td")]))
+        if not c.get("MARCA") or not c.get("ATLETA"):
+            continue
+        mark = c["MARCA"]
+        mark = re.sub(r"^(\d),(\d{3})$", r"\1.\2", mark)                # puntos de combinadas: 6,067 -> 6.067
+        if style in (19, 20):
+            mark = re.sub(r"^(\d:\d\d)\.(\d\d)$", r"\1:\2", mark)     # 2:05.48 en un maratón -> 2:05:48
+        born = c.get("F.N.", "")[-4:]
+        city = c.get("CIUDAD", "")
+        if not mixed:
+            city = re.sub(r"\s*\(i\)\s*$", "", city)   # en pruebas solo de aire libre, el "(i)" es un error de la RFEA
+        rows.append({"rank": c.get("RANK.", ""), "mark": mark,
+                     "wind": c.get("VIENTO", "") if c.get("VIENTO", "-") != "-" else "",
+                     "name": c["ATLETA"], "born": born if born.isdigit() and born >= "1900" else "",
+                     "city": city, "date": c.get("FECHA", "")})
+    return rows[:TOP]
+
+
+def historic(http, health):
+    out, n = {"AL": {"F": [], "M": []}, "PC": {"F": [], "M": []}, "RU": {"F": [], "M": []}}, 0
+    for style_key, by_sex in HIST_EVENTS.items():
+        for sex, events in by_sex.items():
+            for name, event, style in events:
+                try:
+                    rows = fetch_hist(http, sex, event, style, mixed=style_key == "AL" and BOTH.search(name) is not None)
+                except Exception as e:
+                    health.note("ranking", "warning", "Ranking histórico RFEA %s (%s): %s" % (name, sex, str(e)[:80]))
+                    continue
+                if rows:
+                    out[style_key][sex].append({"event": name, "rows": rows})
+                    n += 1
+    return out, n
+
+
 def run(http, health):
     season = str(today().year)
     out = {"generated": iso_now(), "season": season, "source": BASE + "/ranking",
@@ -139,5 +211,9 @@ def run(http, health):
                     n += 1
     if n == 0 and prev.get("seasons"):
         return 0  # la RFEA no ha respondido: se conserva el ranking anterior
+    hist, nh = historic(http, health)
+    # el histórico apenas cambia: si la RFEA falla, se queda el anterior
+    out["historico"] = hist if nh >= 40 or not prev.get("historico") else prev["historico"]
+    out["historico_source"] = BASE + "/ranking/historico"
     save_json("ranking.json", out)
     return n
