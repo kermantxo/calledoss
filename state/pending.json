@@ -14,19 +14,14 @@
   "tries": 31,
   "last": "2026-10-19"
  },
- "rfea-2026-10-17-vi-desafio-internacional-ecocamino-50k": {
-  "since": "2026-10-17",
-  "tries": 48,
-  "last": "2026-10-27"
- },
  "rfea-2026-10-25-xxxi-carrera-popular-costa-de-ajo": {
   "since": "2026-10-25",
-  "tries": 12,
-  "last": "2026-10-27"
+  "tries": 13,
+  "last": "2026-10-28"
  },
  "manual-2026-10-25-xvi-derbi-de-las-aficiones": {
   "since": "2026-10-25",
-  "tries": 10,
-  "last": "2026-10-27"
+  "tries": 11,
+  "last": "2026-10-28"
  }
 }
