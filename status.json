@@ -2,81 +2,81 @@
  "sources": {
   "rfea_calendar": {
    "label": "RFEA · calendario",
-   "last_run": "2026-10-28T11:37:43+01:00",
+   "last_run": "2026-10-29T11:55:41+01:00",
    "ok": true,
-   "last_ok": "2026-10-28T11:38:24+01:00",
+   "last_ok": "2026-10-29T11:56:22+01:00",
    "fails_in_a_row": 0,
-   "last_count": 651
+   "last_count": 650
   },
   "wa_calendar": {
    "label": "World Athletics · calendario",
-   "last_run": "2026-10-28T11:38:24+01:00",
+   "last_run": "2026-10-29T11:56:22+01:00",
    "ok": true,
-   "last_ok": "2026-10-28T11:38:53+01:00",
+   "last_ok": "2026-10-29T11:56:45+01:00",
    "fails_in_a_row": 0,
    "last_count": 194
   },
   "cronomancha_upcoming": {
    "label": "Cronomancha · próximas",
-   "last_run": "2026-10-28T11:38:53+01:00",
+   "last_run": "2026-10-29T11:56:45+01:00",
    "ok": true,
-   "last_ok": "2026-10-28T11:38:54+01:00",
+   "last_ok": "2026-10-29T11:56:46+01:00",
    "fails_in_a_row": 0,
    "last_count": 4
   },
   "cronomancha_events": {
    "label": "Cronomancha · resultados",
-   "last_run": "2026-10-28T11:38:54+01:00",
+   "last_run": "2026-10-29T11:56:46+01:00",
    "ok": true,
-   "last_ok": "2026-10-28T11:38:54+01:00",
+   "last_ok": "2026-10-29T11:56:47+01:00",
    "fails_in_a_row": 0,
    "last_count": 41
   },
   "avaibook": {
    "label": "AvaiBook (Runvasport)",
-   "last_run": "2026-10-28T11:38:54+01:00",
+   "last_run": "2026-10-29T11:56:47+01:00",
    "ok": true,
-   "last_ok": "2026-10-28T11:38:56+01:00",
+   "last_ok": "2026-10-29T11:56:49+01:00",
    "fails_in_a_row": 0,
    "last_count": 46
   },
   "rfea_detail": {
    "label": "RFEA · fichas de competición",
-   "last_run": "2026-10-28T11:38:58+01:00",
+   "last_run": "2026-10-29T11:56:50+01:00",
    "ok": true,
-   "last_ok": "2026-10-28T11:39:10+01:00",
+   "last_ok": "2026-10-29T11:57:06+01:00",
    "fails_in_a_row": 0,
-   "last_count": 9
+   "last_count": 11
   },
   "rfealive": {
    "label": "RFEA Live · horarios",
-   "last_run": "2026-10-29T00:29:36+01:00",
+   "last_run": "2026-10-29T11:57:06+01:00",
    "ok": true,
-   "last_ok": "2026-10-29T00:32:24+01:00",
+   "last_ok": "2026-10-29T11:59:56+01:00",
    "fails_in_a_row": 0,
-   "last_count": 76
+   "last_count": 0
   },
   "destacados": {
    "label": "Atletas destacados (listas de salida)",
-   "last_run": "2026-10-28T11:42:13+01:00",
+   "last_run": "2026-10-29T12:00:15+01:00",
    "ok": true,
-   "last_ok": "2026-10-28T11:42:13+01:00",
+   "last_ok": "2026-10-29T12:00:15+01:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
   "results": {
    "label": "Resultados (todas las fuentes)",
-   "last_run": "2026-10-29T01:39:36+01:00",
+   "last_run": "2026-10-29T12:00:15+01:00",
    "ok": true,
-   "last_ok": "2026-10-29T01:41:49+01:00",
+   "last_ok": "2026-10-29T12:01:49+01:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
   "rfea_results": {
    "label": "RFEA · índice de resultados (PDF)",
-   "last_run": "2026-10-29T01:39:36+01:00",
+   "last_run": "2026-10-29T12:00:15+01:00",
    "ok": true,
-   "last_ok": "2026-10-29T01:39:38+01:00",
+   "last_ok": "2026-10-29T12:00:17+01:00",
    "fails_in_a_row": 0,
    "last_count": 0,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf",
@@ -94,54 +94,84 @@
   },
   "avaibook_upcoming": {
    "label": "Runvasport · próximas",
-   "last_run": "2026-10-28T11:38:56+01:00",
+   "last_run": "2026-10-29T11:56:49+01:00",
    "ok": true,
-   "last_ok": "2026-10-28T11:38:58+01:00",
+   "last_ok": "2026-10-29T11:56:50+01:00",
    "fails_in_a_row": 0,
-   "last_count": 19
+   "last_count": 20
   },
   "previas": {
    "label": "Previas (listas de inscritos)",
-   "last_run": "2026-10-29T00:32:24+01:00",
+   "last_run": "2026-10-29T12:01:49+01:00",
    "ok": true,
-   "last_ok": "2026-10-29T00:52:06+01:00",
+   "last_ok": "2026-10-29T12:24:16+01:00",
    "fails_in_a_row": 0,
-   "last_count": 18
+   "last_count": 19
   },
   "ranking": {
    "label": "Ranking RFEA (aire libre y pista cubierta)",
-   "last_run": "2026-10-28T12:02:02+01:00",
+   "last_run": "2026-10-29T12:24:16+01:00",
    "ok": true,
-   "last_ok": "2026-10-28T12:10:09+01:00",
+   "last_ok": "2026-10-29T12:32:04+01:00",
    "fails_in_a_row": 0,
    "last_count": 123
   },
   "adoc": {
    "label": "ADOC · pruebas asociadas",
-   "last_run": "2026-10-28T11:42:02+01:00",
+   "last_run": "2026-10-29T11:59:56+01:00",
    "ok": true,
-   "last_ok": "2026-10-28T11:42:12+01:00",
+   "last_ok": "2026-10-29T12:00:06+01:00",
    "fails_in_a_row": 0,
    "last_count": 23
   },
   "adoc_calendar": {
    "label": "ADOC · calendario del circuito",
-   "last_run": "2026-10-28T11:42:12+01:00",
+   "last_run": "2026-10-29T12:00:06+01:00",
    "ok": true,
-   "last_ok": "2026-10-28T11:42:13+01:00",
+   "last_ok": "2026-10-29T12:00:15+01:00",
    "fails_in_a_row": 0,
    "last_count": 14
   },
   "podcast": {
    "label": "Pódcast (último programa en Spotify)",
-   "last_run": "2026-10-29T01:41:49+01:00",
+   "last_run": "2026-10-29T12:32:04+01:00",
    "ok": true,
-   "last_ok": "2026-10-29T01:41:50+01:00",
+   "last_ok": "2026-10-29T12:32:07+01:00",
    "fails_in_a_row": 0,
    "last_count": 1
   }
  },
  "log": [
+  {
+   "at": "2026-10-29T12:00:15+01:00",
+   "level": "warning",
+   "source": "adoc_calendar",
+   "msg": "No se pudo comprobar el calendario de ADOC: HTTPSConnectionPool(host='www.adocasociacion.es', port=443): Max retries exceede"
+  },
+  {
+   "at": "2026-10-29T11:57:56+01:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de TCS New York City Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-29T11:57:47+01:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Istanbul Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-29T11:57:37+01:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Hangzhou Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-29T11:57:28+01:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de 70º Cross Internacional de San Sebastián - Lasarte no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
   {
    "at": "2026-10-29T00:30:28+01:00",
    "level": "warning",
@@ -591,37 +621,7 @@
    "level": "warning",
    "source": "wa_calendar",
    "msg": "Programa de TCS New York City Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-24T16:08:26+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Istanbul Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-24T16:08:17+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Hangzhou Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-24T16:08:07+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de 70º Cross Internacional de San Sebastián - Lasarte no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-24T16:07:58+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Medio Maratón Valencia Trinidad Alfonso Zurich no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-24T16:07:48+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de 63rd All Japan Race Walking Takahata no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
   }
  ],
- "updated": "2026-10-29T01:41:50+01:00"
+ "updated": "2026-10-29T12:32:07+01:00"
 }
