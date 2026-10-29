@@ -1,6 +1,24 @@
 {
- "date": "2026-10-29",
- "generated": "2026-10-29T18:06:40+01:00",
+ "date": "2026-10-30",
+ "generated": "2026-10-30T00:36:17+01:00",
  "active_day": false,
- "windows": []
+ "windows": [
+  {
+   "id": "rfea-2026-10-30-juegos-olimpicos-de-la-juventud",
+   "name": "Juegos Olímpicos de la Juventud",
+   "place": "Dakar",
+   "source": "RFEA",
+   "start": "2026-10-30T07:00:00+01:00",
+   "end": "2026-10-30T23:00:00+01:00",
+   "first": null,
+   "last": null,
+   "schedule_known": false,
+   "poll": false,
+   "intl": false,
+   "links": {
+    "info": "https://atletismorfea.es/calendario/campeonato/juegos-olimpicos-de-la-juventud",
+    "web": "https://www.olympics.com/es/olympic-games/dakar-2026"
+   }
+  }
+ ]
 }

@@ -50,9 +50,9 @@
   },
   "rfealive": {
    "label": "RFEA Live · horarios",
-   "last_run": "2026-10-29T18:03:48+01:00",
+   "last_run": "2026-10-30T00:33:29+01:00",
    "ok": true,
-   "last_ok": "2026-10-29T18:06:40+01:00",
+   "last_ok": "2026-10-30T00:36:17+01:00",
    "fails_in_a_row": 0,
    "last_count": 77
   },
@@ -102,9 +102,9 @@
   },
   "previas": {
    "label": "Previas (listas de inscritos)",
-   "last_run": "2026-10-29T18:06:40+01:00",
+   "last_run": "2026-10-30T00:36:17+01:00",
    "ok": true,
-   "last_ok": "2026-10-29T18:26:24+01:00",
+   "last_ok": "2026-10-30T00:55:40+01:00",
    "fails_in_a_row": 0,
    "last_count": 19
   },
@@ -142,6 +142,36 @@
   }
  },
  "log": [
+  {
+   "at": "2026-10-30T00:34:26+01:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de TCS New York City Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-30T00:34:17+01:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Istanbul Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-30T00:34:07+01:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Hangzhou Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-30T00:33:58+01:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de 70º Cross Internacional de San Sebastián - Lasarte no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-10-30T00:33:38+01:00",
+   "level": "warning",
+   "source": "adoc_calendar",
+   "msg": "No se pudo comprobar el calendario de ADOC: HTTPSConnectionPool(host='www.adocasociacion.es', port=443): Max retries exceede"
+  },
   {
    "at": "2026-10-29T18:04:46+01:00",
    "level": "warning",
@@ -591,37 +621,7 @@
    "level": "warning",
    "source": "wa_calendar",
    "msg": "Programa de 63rd All Japan Race Walking Takahata no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-24T23:53:01+02:00",
-   "level": "warning",
-   "source": "rfealive",
-   "msg": "Horario de 2026MUR70367 no disponible: HTTPSConnectionPool(host='rfealive.me', port=443): Max retries exceeded with url: /Results/Schedule?chid=2026MUR70367 (Caused by NameResolutionError(\"HTTPSConnection(host='rfealive.me', port=443): Failed to resolve 'rfealive.me' ([Errno -3] Temporary failure in name resolution)\"))"
-  },
-  {
-   "at": "2026-10-24T23:52:22+02:00",
-   "level": "warning",
-   "source": "rfealive",
-   "msg": "Índice de https://rfealive.me no disponible: HTTPSConnectionPool(host='rfealive.me', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='rfealive.me', port=443): Failed to resolve 'rfealive.me' ([Errno -3] Temporary failure in name resolution)\"))"
-  },
-  {
-   "at": "2026-10-24T23:51:43+02:00",
-   "level": "warning",
-   "source": "rfealive",
-   "msg": "Índice de https://rfealive.info no disponible: HTTPSConnectionPool(host='rfealive.info', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='rfealive.info', port=443): Failed to resolve 'rfealive.info' ([Errno -3] Temporary failure in name resolution)\"))"
-  },
-  {
-   "at": "2026-10-24T20:22:11+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de TCS New York City Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-24T20:22:02+02:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Istanbul Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
   }
  ],
- "updated": "2026-10-29T21:55:24+01:00"
+ "updated": "2026-10-30T00:55:40+01:00"
 }
