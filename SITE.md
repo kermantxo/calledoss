@@ -53,6 +53,7 @@
 - `worker/` - el pequeño servidor de Cloudflare que protege el panel con clave y lanza el modo directo a tiempo
 
 ## Recent Changes
+- 2026-10-31: Cross de San Sebastián-Lasarte (1 de noviembre): previa con los atletas a destacar que anuncia la organización (13 mujeres y 20 hombres, entre ellos Rosalía Tárraga, Marta Serrano, Isabel Barreiro, Efrem Gidey y Martín Segurola), en `pipeline/extra_entries.json`.
 - 2026-10-31: Cross Ponte Romana (Lugo, 1 de noviembre): previa con la élite del cartel oficial de la organización (listado provisional): 12 mujeres (Alice Finot, Andrea Romero, Sandra González…) y 20 hombres (Adrián Ben, David de la Fuente, Víctor Ruiz…), en `pipeline/extra_entries.json`.
 - 2026-10-27: Ranking histórico: Luis Miguel Martín sale con su nombre completo, «Luis Miguel Martín Berlanas» (la RFEA no pone el segundo apellido). Las correcciones de nombres del histórico están en la lista `HIST_NAMES` de `pipeline/ranking.py`.
 - 2026-10-27: Ranking histórico español: nuevo botón «Histórico» en Ranking con el top 10 de todos los tiempos de cada prueba (86 listas: aire libre, pista cubierta y ruta/marcha, mujeres y hombres), sacado del ranking histórico oficial de la RFEA. Se descarga en la tarea diaria del ranking; si la RFEA falla, se mantiene el anterior. En altura, pértiga, longitud, triple y peso entran también las marcas en pista cubierta (i), como en la lista de la RFEA. Las letras junto a algunas marcas son de la RFEA (A = altitud, i = pista cubierta, + = paso intermedio).
