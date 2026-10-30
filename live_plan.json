@@ -1,15 +1,33 @@
 {
- "date": "2026-10-30",
- "generated": "2026-10-30T17:52:00+01:00",
- "active_day": false,
+ "date": "2026-10-31",
+ "generated": "2026-10-31T00:07:51+01:00",
+ "active_day": true,
  "windows": [
+  {
+   "id": "cronomancha-ev773",
+   "name": "I CP Záncara Canforrales",
+   "place": "",
+   "source": "Cronomancha",
+   "start": "2026-10-31T07:00:00+01:00",
+   "end": "2026-10-31T23:00:00+01:00",
+   "first": null,
+   "last": null,
+   "schedule_known": false,
+   "poll": true,
+   "intl": false,
+   "links": {
+    "info": "https://timingsys.com/event/773",
+    "inscritos": "https://timingsys.com/event/773/participants",
+    "resultados": "https://timingsys.com/resultdata/773"
+   }
+  },
   {
    "id": "rfea-2026-10-30-juegos-olimpicos-de-la-juventud",
    "name": "Juegos Olímpicos de la Juventud",
    "place": "Dakar",
    "source": "RFEA",
-   "start": "2026-10-30T07:00:00+01:00",
-   "end": "2026-10-30T23:00:00+01:00",
+   "start": "2026-10-31T07:00:00+01:00",
+   "end": "2026-10-31T23:00:00+01:00",
    "first": null,
    "last": null,
    "schedule_known": false,
