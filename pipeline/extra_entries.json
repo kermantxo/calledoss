@@ -2773,5 +2773,236 @@
     "note": "Confirmada por la organización"
    }
   ]
+ },
+ "rfea-2026-11-01-ix-cross-ponte-romana-2026": {
+  "_fuente": "Cartel oficial del Cross Ponte Romana «Élite femenina / Élite masculina» (listado provisional), imagen que pasó Kerman el 31/10/2026; nombres tal cual y en el mismo orden",
+  "fuente": "https://crossponteromana.com",
+  "max_por_sexo": 30,
+  "atletas": [
+   {
+    "name": "Alice Finot",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Andrea Romero",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Sandra González",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Sabela Castelo",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Demeku Paniagua",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Debris Paniagua",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Emma Méndez",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Sabela Martínez",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Ainhoa Brea",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Irma Veiguela",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Celia Castro",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Marina Porteiro",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Adrián Ben",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "David de la Fuente",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Víctor Ruiz",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Óscar Gaitán",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Mario Palencia",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Pedro Osorio",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Pablo Sánchez-Valladares",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Pablo Bocelo",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Daniel Alonso",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Pablo Otero",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Hugo García",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Anxo Bello",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Martí Torregrossa",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Guillermo Sánchez",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Xoel Franco",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Enrique García",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Teo de Frutos",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Javier Picos",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Pepe Sánchez del Valle",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   },
+   {
+    "name": "Pablo Ulla",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "En la élite (listado provisional de la organización)"
+   }
+  ]
  }
 }
