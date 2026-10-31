@@ -459,5 +459,14 @@ def _previous(source):
     return [x for x in old.get("items", []) if x.get("source") == source]
 
 
+def quitadas():
+    """Ids de las competiciones quitadas a mano del calendario (pipeline/quitadas.json)."""
+    import os
+    with open(os.path.join(os.path.dirname(__file__), "quitadas.json"), encoding="utf-8") as f:
+        return {k for k in json.load(f) if not k.startswith("_")}
+
+
 def save(items):
+    fuera = quitadas()
+    items[:] = [x for x in items if x["id"] not in fuera]  # en el sitio: el resto de la tarea tampoco las ve
     save_json("calendar.json", {"generated": iso_now(), "count": len(items), "items": items}, compact=True)

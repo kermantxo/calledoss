@@ -53,6 +53,7 @@
 - `worker/` - el pequeño servidor de Cloudflare que protege el panel con clave y lanza el modo directo a tiempo
 
 ## Recent Changes
+- 2026-10-31: Quitados del calendario los Juegos Olímpicos de la Juventud de Dakar (las dos fichas, RFEA y World Athletics). Nueva lista `pipeline/quitadas.json`: las competiciones que se ponen ahí desaparecen de la web (calendario, Próximas, directo) aunque las fuentes las sigan publicando.
 - 2026-10-31: El Tast de la Mitja (La Garriga, 10K) añadida al calendario a mano, con el podio provisional publicado por Atletismo24h (Ilias Fifa 27:31 y Laura Rodríguez 33:23); se sustituirá cuando haya clasificación oficial. I CP Záncara Canforrales: resultados oficiales de Cronomancha (10K y 5K).
 - 2026-10-31: Cross de San Sebastián-Lasarte (1 de noviembre): previa con los atletas a destacar que anuncia la organización (13 mujeres y 20 hombres, entre ellos Rosalía Tárraga, Marta Serrano, Isabel Barreiro, Efrem Gidey y Martín Segurola), en `pipeline/extra_entries.json`.
 - 2026-10-31: Cross Ponte Romana (Lugo, 1 de noviembre): previa con la élite del cartel oficial de la organización (listado provisional): 12 mujeres (Alice Finot, Andrea Romero, Sandra González…) y 20 hombres (Adrián Ben, David de la Fuente, Víctor Ruiz…), en `pipeline/extra_entries.json`.
@@ -152,6 +153,7 @@
 - Si se añade una página nueva: añadirla a `sitemap.xml` y ponerle título, descripción y `canonical` en su `<head>`
 - Para añadir la élite anunciada de una prueba: editar `pipeline/extra_entries.json` (id de la competición, fuente y atletas)
 - Si a un resultado le falta un atleta (comprobado en la clasificación oficial): añadirlo en `pipeline/extra_results.json` con el id del resultado
+- Para quitar una competición de la web: añadir su id en `pipeline/quitadas.json`
 - Si un resultado está mal (PDF mal leído o de otra competición): añadir el id y el enlace en `pipeline/bad_results.json`; se retira y vuelve a quedar pendiente
 - Para quitar de una previa a alguien que no corre: en `pipeline/extra_entries.json`, añadir su nombre en "excluir" dentro del id de la competición
 - Si se añaden estadísticas o publicidad: cargarlas solo si `hasCookieConsent('estadisticas')` / `hasCookieConsent('publicidad')` (script.js) y actualizar `cookies.html`
