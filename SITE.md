@@ -53,6 +53,7 @@
 - `worker/` - el pequeño servidor de Cloudflare que protege el panel con clave y lanza el modo directo a tiempo
 
 ## Recent Changes
+- 2026-10-31: El Tast de la Mitja (La Garriga, 10K) añadida al calendario a mano, con el podio provisional publicado por Atletismo24h (Ilias Fifa 27:31 y Laura Rodríguez 33:23); se sustituirá cuando haya clasificación oficial. I CP Záncara Canforrales: resultados oficiales de Cronomancha (10K y 5K).
 - 2026-10-31: Cross de San Sebastián-Lasarte (1 de noviembre): previa con los atletas a destacar que anuncia la organización (13 mujeres y 20 hombres, entre ellos Rosalía Tárraga, Marta Serrano, Isabel Barreiro, Efrem Gidey y Martín Segurola), en `pipeline/extra_entries.json`.
 - 2026-10-31: Cross Ponte Romana (Lugo, 1 de noviembre): previa con la élite del cartel oficial de la organización (listado provisional): 12 mujeres (Alice Finot, Andrea Romero, Sandra González…) y 20 hombres (Adrián Ben, David de la Fuente, Víctor Ruiz…), en `pipeline/extra_entries.json`.
 - 2026-10-27: Ranking histórico: Luis Miguel Martín sale con su nombre completo, «Luis Miguel Martín Berlanas» (la RFEA no pone el segundo apellido). Las correcciones de nombres del histórico están en la lista `HIST_NAMES` de `pipeline/ranking.py`.
