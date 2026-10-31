@@ -26,7 +26,12 @@
  },
  "rfea-2026-10-30-juegos-olimpicos-de-la-juventud": {
   "since": "2026-10-30",
-  "tries": 8,
+  "tries": 9,
+  "last": "2026-10-31"
+ },
+ "manual-2026-10-31-el-tast-de-la-mitja": {
+  "since": "2026-10-31",
+  "tries": 1,
   "last": "2026-10-31"
  }
 }
