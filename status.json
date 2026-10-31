@@ -66,17 +66,17 @@
   },
   "results": {
    "label": "Resultados (todas las fuentes)",
-   "last_run": "2026-10-30T21:30:09+01:00",
+   "last_run": "2026-10-31T01:30:48+01:00",
    "ok": true,
-   "last_ok": "2026-10-30T21:32:38+01:00",
+   "last_ok": "2026-10-31T01:34:20+01:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
   "rfea_results": {
    "label": "RFEA · índice de resultados (PDF)",
-   "last_run": "2026-10-30T21:30:09+01:00",
+   "last_run": "2026-10-31T01:30:48+01:00",
    "ok": true,
-   "last_ok": "2026-10-30T21:30:11+01:00",
+   "last_ok": "2026-10-31T01:30:50+01:00",
    "fails_in_a_row": 0,
    "last_count": 0,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf",
@@ -134,14 +134,20 @@
   },
   "podcast": {
    "label": "Pódcast (último programa en Spotify)",
-   "last_run": "2026-10-30T21:32:38+01:00",
+   "last_run": "2026-10-31T01:34:20+01:00",
    "ok": true,
-   "last_ok": "2026-10-30T21:32:39+01:00",
+   "last_ok": "2026-10-31T01:34:21+01:00",
    "fails_in_a_row": 0,
    "last_count": 1
   }
  },
  "log": [
+  {
+   "at": "2026-10-31T01:34:07+01:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Resultados de 'I CP Záncara Canforrales' (cronomancha): 404 Client Error: Not Found for url: https://resultados-api.cronomancha.com/api/v1/public/races/copia-de-i-cp-zancara-canforrales-5k-2026/results?limit=0"
+  },
   {
    "at": "2026-10-31T00:25:33+01:00",
    "level": "warning",
@@ -615,13 +621,7 @@
    "level": "warning",
    "source": "wa_calendar",
    "msg": "Programa de Hangzhou Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-26T11:14:36+01:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de 70º Cross Internacional de San Sebastián - Lasarte no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
   }
  ],
- "updated": "2026-10-31T00:41:45+01:00"
+ "updated": "2026-10-31T01:34:21+01:00"
 }

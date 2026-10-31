@@ -16,17 +16,22 @@
  },
  "rfea-2026-10-25-xxxi-carrera-popular-costa-de-ajo": {
   "since": "2026-10-25",
-  "tries": 18,
-  "last": "2026-10-30"
+  "tries": 19,
+  "last": "2026-10-31"
  },
  "manual-2026-10-25-xvi-derbi-de-las-aficiones": {
   "since": "2026-10-25",
-  "tries": 16,
-  "last": "2026-10-30"
+  "tries": 17,
+  "last": "2026-10-31"
  },
  "rfea-2026-10-30-juegos-olimpicos-de-la-juventud": {
   "since": "2026-10-30",
-  "tries": 4,
-  "last": "2026-10-30"
+  "tries": 5,
+  "last": "2026-10-31"
+ },
+ "cronomancha-ev773": {
+  "since": "2026-10-31",
+  "tries": 1,
+  "last": "2026-10-31"
  }
 }
