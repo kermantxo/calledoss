@@ -53,6 +53,7 @@
 - `worker/` - el pequeño servidor de Cloudflare que protege el panel con clave y lanza el modo directo a tiempo
 
 ## Recent Changes
+- 2026-11-01: Resultados oficiales del Cross de San Sebastián-Lasarte (clasificación de Kirolprobak: Maurine Chebor y Denis Kipkemoi; María Forero 2ª) y del Cross Ponte Romana (web de la organización: Alice Finot y David de la Fuente). Top 15 absoluto de cada sexo.
 - 2026-10-31: Quitados del calendario los Juegos Olímpicos de la Juventud de Dakar (las dos fichas, RFEA y World Athletics). Nueva lista `pipeline/quitadas.json`: las competiciones que se ponen ahí desaparecen de la web (calendario, Próximas, directo) aunque las fuentes las sigan publicando.
 - 2026-10-31: El Tast de la Mitja (La Garriga, 10K) añadida al calendario a mano, con el podio provisional publicado por Atletismo24h (Ilias Fifa 27:31 y Laura Rodríguez 33:23); se sustituirá cuando haya clasificación oficial. I CP Záncara Canforrales: resultados oficiales de Cronomancha (10K y 5K).
 - 2026-10-31: Cross de San Sebastián-Lasarte (1 de noviembre): previa con los atletas a destacar que anuncia la organización (13 mujeres y 20 hombres, entre ellos Rosalía Tárraga, Marta Serrano, Isabel Barreiro, Efrem Gidey y Martín Segurola), en `pipeline/extra_entries.json`.
