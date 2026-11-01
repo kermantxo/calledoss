@@ -31,7 +31,7 @@
  },
  "manual-2026-10-31-el-tast-de-la-mitja": {
   "since": "2026-10-31",
-  "tries": 3,
+  "tries": 4,
   "last": "2026-11-01"
  },
  "avaibook-15a-carrera-popular-de-la-salchicha": {
@@ -41,32 +41,27 @@
  },
  "rfea-2026-11-01-70o-cross-internacional-de-san-sebastian-lasarte": {
   "since": "2026-11-01",
-  "tries": 2,
+  "tries": 3,
   "last": "2026-11-01"
  },
  "wa-7235594": {
   "since": "2026-11-01",
-  "tries": 2,
-  "last": "2026-11-01"
- },
- "rfea-2026-11-01-iv-edicion-21k-ciudad-de-huelva": {
-  "since": "2026-11-01",
-  "tries": 2,
+  "tries": 3,
   "last": "2026-11-01"
  },
  "rfea-2026-11-01-ix-cross-ponte-romana-2026": {
   "since": "2026-11-01",
-  "tries": 2,
+  "tries": 3,
   "last": "2026-11-01"
  },
  "wa-7235596": {
   "since": "2026-11-01",
-  "tries": 2,
+  "tries": 3,
   "last": "2026-11-01"
  },
  "wa-7235564": {
   "since": "2026-11-01",
-  "tries": 2,
+  "tries": 3,
   "last": "2026-11-01"
  }
 }
