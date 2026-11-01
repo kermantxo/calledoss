@@ -50,11 +50,11 @@
   },
   "rfealive": {
    "label": "RFEA Live · horarios",
-   "last_run": "2026-11-01T12:20:38+01:00",
+   "last_run": "2026-11-01T17:54:21+01:00",
    "ok": true,
-   "last_ok": "2026-11-01T12:22:40+01:00",
+   "last_ok": "2026-11-01T17:56:24+01:00",
    "fails_in_a_row": 0,
-   "last_count": 0
+   "last_count": 76
   },
   "destacados": {
    "label": "Atletas destacados (listas de salida)",
@@ -102,9 +102,9 @@
   },
   "previas": {
    "label": "Previas (listas de inscritos)",
-   "last_run": "2026-11-01T12:26:22+01:00",
+   "last_run": "2026-11-01T17:56:24+01:00",
    "ok": true,
-   "last_ok": "2026-11-01T12:40:04+01:00",
+   "last_ok": "2026-11-01T18:10:57+01:00",
    "fails_in_a_row": 0,
    "last_count": 19
   },
@@ -142,6 +142,54 @@
   }
  },
  "log": [
+  {
+   "at": "2026-11-01T17:55:53+01:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de XLIV Cross Internacional de Italica no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-11-01T17:55:44+01:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Generali Maratón Málaga no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-11-01T17:55:34+01:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Cardiff Cross Challenge no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-11-01T17:55:25+01:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de 15th Cross della Valsugana no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-11-01T17:55:15+01:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de TCS New York City Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-11-01T17:55:06+01:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Istanbul Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-11-01T17:54:57+01:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de Hangzhou Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
+  {
+   "at": "2026-11-01T17:54:48+01:00",
+   "level": "warning",
+   "source": "wa_calendar",
+   "msg": "Programa de 70º Cross Internacional de San Sebastián - Lasarte no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
+  },
   {
    "at": "2026-11-01T16:55:20+01:00",
    "level": "warning",
@@ -573,55 +621,7 @@
    "level": "warning",
    "source": "wa_calendar",
    "msg": "Programa de 15th Cross della Valsugana no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-31T00:05:38+01:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de TCS New York City Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-31T00:05:28+01:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Istanbul Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-31T00:05:19+01:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Hangzhou Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-31T00:05:09+01:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de 70º Cross Internacional de San Sebastián - Lasarte no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-30T17:49:56+01:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de TCS New York City Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-30T17:49:46+01:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Istanbul Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-30T17:49:37+01:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de Hangzhou Marathon no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-10-30T17:49:27+01:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de 70º Cross Internacional de San Sebastián - Lasarte no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
   }
  ],
- "updated": "2026-11-01T18:10:16+01:00"
+ "updated": "2026-11-01T18:10:57+01:00"
 }
