@@ -16,13 +16,13 @@
  },
  "rfea-2026-10-25-xxxi-carrera-popular-costa-de-ajo": {
   "since": "2026-10-25",
-  "tries": 22,
-  "last": "2026-11-01"
+  "tries": 23,
+  "last": "2026-11-02"
  },
  "manual-2026-10-25-xvi-derbi-de-las-aficiones": {
   "since": "2026-10-25",
-  "tries": 20,
-  "last": "2026-11-01"
+  "tries": 21,
+  "last": "2026-11-02"
  },
  "rfea-2026-10-30-juegos-olimpicos-de-la-juventud": {
   "since": "2026-10-30",
@@ -31,8 +31,8 @@
  },
  "manual-2026-10-31-el-tast-de-la-mitja": {
   "since": "2026-10-31",
-  "tries": 5,
-  "last": "2026-11-01"
+  "tries": 6,
+  "last": "2026-11-02"
  },
  "avaibook-15a-carrera-popular-de-la-salchicha": {
   "since": "2026-11-01",
@@ -41,22 +41,17 @@
  },
  "wa-7235594": {
   "since": "2026-11-01",
-  "tries": 4,
-  "last": "2026-11-01"
+  "tries": 5,
+  "last": "2026-11-02"
  },
  "rfea-2026-11-01-ix-cross-ponte-romana-2026": {
   "since": "2026-11-01",
-  "tries": 4,
-  "last": "2026-11-01"
+  "tries": 5,
+  "last": "2026-11-02"
  },
  "wa-7235596": {
   "since": "2026-11-01",
-  "tries": 4,
-  "last": "2026-11-01"
- },
- "wa-7235564": {
-  "since": "2026-11-01",
-  "tries": 4,
-  "last": "2026-11-01"
+  "tries": 5,
+  "last": "2026-11-02"
  }
 }
