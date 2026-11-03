@@ -53,6 +53,7 @@
 - `worker/` - el pequeño servidor de Cloudflare que protege el panel con clave y lanza el modo directo a tiempo
 
 ## Recent Changes
+- 2026-11-03: Quitado del calendario el Viding Hyrox Valladolid (sábado 7 de noviembre).
 - 2026-11-03: Quitada la ficha repetida del Cross de Itálica (la edición de 2027); queda la de este año, domingo 8 de noviembre.
 - 2026-11-01: Resultados oficiales del Cross de San Sebastián-Lasarte (clasificación de Kirolprobak: Maurine Chebor y Denis Kipkemoi; María Forero 2ª) y del Cross Ponte Romana (web de la organización: Alice Finot y David de la Fuente). Top 15 absoluto de cada sexo.
 - 2026-10-31: Quitados del calendario los Juegos Olímpicos de la Juventud de Dakar (las dos fichas, RFEA y World Athletics). Nueva lista `pipeline/quitadas.json`: las competiciones que se ponen ahí desaparecen de la web (calendario, Próximas, directo) aunque las fuentes las sigan publicando.
