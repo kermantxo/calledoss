@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02T13:54:42+01:00",
+ "generated": "2026-11-03T13:19:01+01:00",
  "season": "2026",
  "source": "https://atletismorfea.es/ranking",
  "seasons": {
@@ -13354,20 +13354,20 @@
       {
        "rank": "5",
        "mark": "11.30",
-       "wind": "0,8",
-       "name": "Aitana Rodrigo",
-       "born": "2000",
-       "city": "Tarragona",
-       "date": "01/08/2025"
-      },
-      {
-       "rank": "5",
-       "mark": "11.30",
        "wind": "1,4",
        "name": "Estela García",
        "born": "1989",
        "city": "Getafe",
        "date": "21/07/2018"
+      },
+      {
+       "rank": "5",
+       "mark": "11.30",
+       "wind": "0,8",
+       "name": "Aitana Rodrigo",
+       "born": "2000",
+       "city": "Tarragona",
+       "date": "01/08/2025"
       },
       {
        "rank": "7",
@@ -13760,21 +13760,21 @@
       },
       {
        "rank": "8",
-       "mark": "4:03.33",
-       "wind": "",
-       "name": "Marina Martínez",
-       "born": "2002",
-       "city": "Oordegem (BEL)",
-       "date": "09/08/2025"
-      },
-      {
-       "rank": "8",
        "mark": "4:02.77",
        "wind": "",
        "name": "Dolores Checa",
        "born": "1982",
        "city": "Atenas (GRE)",
        "date": "13/07/2008"
+      },
+      {
+       "rank": "8",
+       "mark": "4:03.33",
+       "wind": "",
+       "name": "Marina Martínez",
+       "born": "2002",
+       "city": "Oordegem (BEL)",
+       "date": "09/08/2025"
       },
       {
        "rank": "10",
@@ -14391,24 +14391,6 @@
        "rank": "4",
        "mark": "1.90",
        "wind": "",
-       "name": "Raquel Álvarez",
-       "born": "1983",
-       "city": "Madrid (i)",
-       "date": "06/03/2016"
-      },
-      {
-       "rank": "4",
-       "mark": "1.90",
-       "wind": "",
-       "name": "Clàudia García",
-       "born": "1992",
-       "city": "Fayetteville (USA) (i)",
-       "date": "13/03/2015"
-      },
-      {
-       "rank": "4",
-       "mark": "1.90",
-       "wind": "",
        "name": "Ona Bonet",
        "born": "2006",
        "city": "Villafranca de los Barros",
@@ -14424,13 +14406,22 @@
        "date": "31/08/2019"
       },
       {
-       "rank": "8",
-       "mark": "1.89",
+       "rank": "4",
+       "mark": "1.90",
        "wind": "",
-       "name": "Gema Martín-Pozuelo",
-       "born": "1987",
-       "city": "Valencia (i)",
-       "date": "30/01/2010"
+       "name": "Raquel Álvarez",
+       "born": "1983",
+       "city": "Madrid (i)",
+       "date": "06/03/2016"
+      },
+      {
+       "rank": "4",
+       "mark": "1.90",
+       "wind": "",
+       "name": "Clàudia García",
+       "born": "1992",
+       "city": "Fayetteville (USA) (i)",
+       "date": "13/03/2015"
       },
       {
        "rank": "8",
@@ -14440,6 +14431,15 @@
        "born": "1973",
        "city": "San Sebastián (i)",
        "date": "12/02/1995"
+      },
+      {
+       "rank": "8",
+       "mark": "1.89",
+       "wind": "",
+       "name": "Gema Martín-Pozuelo",
+       "born": "1987",
+       "city": "Valencia (i)",
+       "date": "30/01/2010"
       },
       {
        "rank": "10",
@@ -15568,15 +15568,6 @@
       {
        "rank": "8",
        "mark": "20.59",
-       "wind": "0.6",
-       "name": "Samuel García",
-       "born": "1991",
-       "city": "Barcelona",
-       "date": "23/07/2017"
-      },
-      {
-       "rank": "8",
-       "mark": "20.59",
        "wind": "0,0",
        "name": "Venancio José",
        "born": "1976",
@@ -15591,6 +15582,15 @@
        "born": "1995",
        "city": "Tarragona",
        "date": "28/06/2018"
+      },
+      {
+       "rank": "8",
+       "mark": "20.59",
+       "wind": "0.6",
+       "name": "Samuel García",
+       "born": "1991",
+       "city": "Barcelona",
+       "date": "23/07/2017"
       }
      ]
     },
@@ -16242,20 +16242,20 @@
       {
        "rank": "9",
        "mark": "13.44",
-       "wind": "0.8",
-       "name": "Carlos Sala",
-       "born": "1960",
-       "city": "Barcelona",
-       "date": "16/08/1987"
-      },
-      {
-       "rank": "9",
-       "mark": "13.44",
        "wind": "1.2",
        "name": "Ángel Díaz",
        "born": "2000",
        "city": "Tarargona",
        "date": "03/08/2025"
+      },
+      {
+       "rank": "9",
+       "mark": "13.44",
+       "wind": "0.8",
+       "name": "Carlos Sala",
+       "born": "1960",
+       "city": "Barcelona",
+       "date": "16/08/1987"
       }
      ]
     },
@@ -16465,19 +16465,19 @@
        "rank": "2",
        "mark": "2.30",
        "wind": "",
-       "name": "Ignacio Pérez",
-       "born": "1973",
-       "city": "Cáceres",
-       "date": "04/07/1998"
+       "name": "Gustavo Adolfo Bécker",
+       "born": "1966",
+       "city": "Eberstadt (GER)",
+       "date": "04/07/1992"
       },
       {
        "rank": "2",
        "mark": "2.30",
        "wind": "",
-       "name": "Gustavo Adolfo Bécker",
-       "born": "1966",
-       "city": "Eberstadt (GER)",
-       "date": "04/07/1992"
+       "name": "Ignacio Pérez",
+       "born": "1973",
+       "city": "Cáceres",
+       "date": "04/07/1998"
       },
       {
        "rank": "4",
@@ -16519,19 +16519,19 @@
        "rank": "8",
        "mark": "2.26",
        "wind": "",
-       "name": "Carlos Rojas",
-       "born": "1995",
-       "city": "Alcobendas",
-       "date": "12/09/2020"
+       "name": "Xesc Tresens",
+       "born": "1997",
+       "city": "Santa Coloma de Gramenet",
+       "date": "10/04/2022"
       },
       {
        "rank": "8",
        "mark": "2.26",
        "wind": "",
-       "name": "Xesc Tresens",
-       "born": "1997",
-       "city": "Santa Coloma de Gramenet",
-       "date": "10/04/2022"
+       "name": "Carlos Rojas",
+       "born": "1995",
+       "city": "Alcobendas",
+       "date": "12/09/2020"
       },
       {
        "rank": "10",
@@ -16578,24 +16578,6 @@
        "rank": "4",
        "mark": "5.70",
        "wind": "",
-       "name": "Daniel Martí",
-       "born": "1973",
-       "city": "Lisboa (POR)",
-       "date": "18/06/1994"
-      },
-      {
-       "rank": "4",
-       "mark": "5.70",
-       "wind": "",
-       "name": "Artur Coll",
-       "born": "2001",
-       "city": "Tarragona",
-       "date": "02/08/2025"
-      },
-      {
-       "rank": "4",
-       "mark": "5.70",
-       "wind": "",
        "name": "Igor Bychkov",
        "born": "1987",
        "city": "Lieja (BEL)",
@@ -16618,6 +16600,24 @@
        "born": "1972",
        "city": "Barcelona",
        "date": "06/07/1996"
+      },
+      {
+       "rank": "4",
+       "mark": "5.70",
+       "wind": "",
+       "name": "Daniel Martí",
+       "born": "1973",
+       "city": "Lisboa (POR)",
+       "date": "18/06/1994"
+      },
+      {
+       "rank": "4",
+       "mark": "5.70",
+       "wind": "",
+       "name": "Artur Coll",
+       "born": "2001",
+       "city": "Tarragona",
+       "date": "02/08/2025"
       },
       {
        "rank": "9",
@@ -18900,15 +18900,6 @@
        "rank": "8",
        "mark": "7.64",
        "wind": "",
-       "name": "Daniel Cisneros",
-       "born": "1996",
-       "city": "Madrid",
-       "date": "19/02/2023"
-      },
-      {
-       "rank": "8",
-       "mark": "7.64",
-       "wind": "",
        "name": "Yidiel Islay Contreras",
        "born": "1992",
        "city": "Lodz (POL)",
@@ -18922,6 +18913,15 @@
        "born": "2001",
        "city": "Tehran (IRI)",
        "date": "17/02/2024"
+      },
+      {
+       "rank": "8",
+       "mark": "7.64",
+       "wind": "",
+       "name": "Daniel Cisneros",
+       "born": "1996",
+       "city": "Madrid",
+       "date": "19/02/2023"
       }
      ]
     },
