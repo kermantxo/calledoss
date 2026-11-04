@@ -16,12 +16,12 @@
  },
  "rfea-2026-10-25-xxxi-carrera-popular-costa-de-ajo": {
   "since": "2026-10-25",
-  "tries": 27,
+  "tries": 28,
   "last": "2026-11-04"
  },
  "manual-2026-10-25-xvi-derbi-de-las-aficiones": {
   "since": "2026-10-25",
-  "tries": 25,
+  "tries": 26,
   "last": "2026-11-04"
  },
  "rfea-2026-10-30-juegos-olimpicos-de-la-juventud": {
@@ -31,7 +31,7 @@
  },
  "manual-2026-10-31-el-tast-de-la-mitja": {
   "since": "2026-10-31",
-  "tries": 10,
+  "tries": 11,
   "last": "2026-11-04"
  },
  "wa-7235594": {
@@ -41,7 +41,7 @@
  },
  "rfea-2026-11-01-ix-cross-ponte-romana-2026": {
   "since": "2026-11-01",
-  "tries": 10,
+  "tries": 11,
   "last": "2026-11-04"
  }
 }
