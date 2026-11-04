@@ -3227,5 +3227,50 @@
     "note": "Atleta a destacar anunciado por la organización (Cross Internacional San Sebastián)"
    }
   ]
+ },
+ "manual-2026-11-08-behobia-san-sebastian": {
+  "_fuente": "Noticia de EFE recogida por EITB (03/11/2026) «Casi 30.000 participantes en una Behobia-San Sebastián sin claros favoritos»; la organización no ha publicado lista de élite. Puesto con permiso expreso de Kerman (04/11/2026). Tiempos de 2025 de la noticia oficial de resultados de la Behobia.",
+  "fuente": [
+   "https://kirolakeitb.eus/es/atletismo/2026/11/03/presentacion-behobiasan-sebastian-2026/",
+   "https://www.behobia-sansebastian.com/es/noticias/60-behobia-san-sebastian"
+  ],
+  "atletas": [
+   {
+    "name": "Raúl Celada",
+    "sex": "M",
+    "event": "Behobia (20 km)",
+    "note": "Favorito anunciado en prensa (EITB/EFE): ganador de la Behobia 2025 (1:01:28)"
+   },
+   {
+    "name": "Javi Guerra",
+    "sex": "M",
+    "event": "Behobia (20 km)",
+    "note": "Favorito anunciado en prensa (EITB/EFE): veterano, entre los rivales de peso"
+   },
+   {
+    "name": "Iraitz Arrospide",
+    "sex": "M",
+    "event": "Behobia (20 km)",
+    "note": "Favorito anunciado en prensa (EITB/EFE): 3º en la Behobia en 2024 y 2025 (1:01:46 en 2025)"
+   },
+   {
+    "name": "Katherine Tisalema",
+    "sex": "F",
+    "event": "Behobia (20 km)",
+    "note": "Favorita anunciada en prensa (EITB/EFE): ganadora de la Behobia 2025 (1:09:34)"
+   },
+   {
+    "name": "Elena Loyo",
+    "sex": "F",
+    "event": "Behobia (20 km)",
+    "note": "Favorita anunciada en prensa (EITB/EFE): atleta alavesa"
+   },
+   {
+    "name": "Mireia Guarner",
+    "sex": "F",
+    "event": "Behobia (20 km)",
+    "note": "Favorita anunciada en prensa (EITB/EFE): ganadora de la Behobia 2024"
+   }
+  ]
  }
 }
