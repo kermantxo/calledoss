@@ -3229,7 +3229,7 @@
   ]
  },
  "manual-2026-11-08-behobia-san-sebastian": {
-  "_fuente": "Noticia de EFE recogida por EITB (03/11/2026) «Casi 30.000 participantes en una Behobia-San Sebastián sin claros favoritos»; la organización no ha publicado lista de élite. Puesto con permiso expreso de Kerman (04/11/2026). Tiempos de 2025 de la noticia oficial de resultados de la Behobia.",
+  "_fuente": "Noticia de EFE recogida por EITB (03/11/2026) «Casi 30.000 participantes en una Behobia-San Sebastián sin claros favoritos»; la organización no ha publicado lista de élite. Puesto con permiso expreso de Kerman (04/11/2026). Tiempos de 2025 de la noticia oficial de resultados de la Behobia. Celia Antón: añadida por indicación de Kerman (04/11/2026); no sale en la noticia de EITB/EFE.",
   "fuente": [
    "https://kirolakeitb.eus/es/atletismo/2026/11/03/presentacion-behobiasan-sebastian-2026/",
    "https://www.behobia-sansebastian.com/es/noticias/60-behobia-san-sebastian"
@@ -3252,6 +3252,12 @@
     "sex": "M",
     "event": "Behobia (20 km)",
     "note": "Favorito anunciado en prensa (EITB/EFE): 3º en la Behobia en 2024 y 2025 (1:01:46 en 2025)"
+   },
+   {
+    "name": "Celia Antón",
+    "sex": "F",
+    "event": "Behobia (20 km)",
+    "note": "Entre las favoritas (según Calledoss)"
    },
    {
     "name": "Katherine Tisalema",

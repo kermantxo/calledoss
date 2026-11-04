@@ -53,7 +53,7 @@
 - `worker/` - el pequeño servidor de Cloudflare que protege el panel con clave y lanza el modo directo a tiempo
 
 ## Recent Changes
-- 2026-11-04: Behobia-San Sebastián (8 de noviembre): previa con los favoritos que da la prensa (EITB/EFE), puestos con permiso de Kerman porque la organización no ha publicado lista de élite: Raúl Celada, Javi Guerra e Iraitz Arrospide; Katherine Tisalema, Elena Loyo y Mireia Guarner.
+- 2026-11-04: Behobia-San Sebastián (8 de noviembre): previa con los favoritos que da la prensa (EITB/EFE), puestos con permiso de Kerman porque la organización no ha publicado lista de élite: Raúl Celada, Javi Guerra e Iraitz Arrospide; Katherine Tisalema, Elena Loyo y Mireia Guarner. Añadida después Celia Antón por indicación de Kerman (no sale en esa noticia).
 - 2026-11-03: Quitado del calendario el Viding Hyrox Valladolid (sábado 7 de noviembre).
 - 2026-11-03: Quitada la ficha repetida del Cross de Itálica (la edición de 2027); queda la de este año, domingo 8 de noviembre.
 - 2026-11-01: Resultados oficiales del Cross de San Sebastián-Lasarte (clasificación de Kirolprobak: Maurine Chebor y Denis Kipkemoi; María Forero 2ª) y del Cross Ponte Romana (web de la organización: Alice Finot y David de la Fuente). Top 15 absoluto de cada sexo.
