@@ -1,26 +1,8 @@
 {
  "date": "2026-11-07",
- "generated": "2026-11-07T00:49:34+01:00",
+ "generated": "2026-11-07T12:33:44+01:00",
  "active_day": true,
  "windows": [
-  {
-   "id": "cronomancha-ev800",
-   "name": "Homenaje Jose Manuel y Fernando - ENTRENAMIENTO SOLIDARIO",
-   "place": "",
-   "source": "Cronomancha",
-   "start": "2026-11-07T07:00:00+01:00",
-   "end": "2026-11-07T23:00:00+01:00",
-   "first": null,
-   "last": null,
-   "schedule_known": false,
-   "poll": true,
-   "intl": false,
-   "links": {
-    "info": "https://timingsys.com/event/800",
-    "inscritos": "https://timingsys.com/event/800/participants",
-    "resultados": "https://timingsys.com/resultdata/800"
-   }
-  },
   {
    "id": "cronomancha-ev774",
    "name": "VII Edición Las 10 Mil Zancadas de Ledaña",
@@ -54,23 +36,6 @@
    "links": {
     "info": "https://atletismorfea.es/calendario/campeonato/38-marcha-atletica-en-ruta-espada-toledana",
     "web": "https://www.clubatletismotoledo.net"
-   }
-  },
-  {
-   "id": "avaibook-xviii-kedada-motera-acerela-manolete",
-   "name": "XVIII Kedada Motera \"acerela Manolete\"",
-   "place": "",
-   "source": "AvaiBook (Runvasport)",
-   "start": "2026-11-07T08:00:00+01:00",
-   "end": "2026-11-07T15:00:00+01:00",
-   "first": "9:00",
-   "last": null,
-   "schedule_known": true,
-   "poll": false,
-   "intl": false,
-   "links": {
-    "inscritos": "https://inscripciones.runvasport.es/inscripcion/xviii-kedada-motera-acerela-manolete/",
-    "resultados": "https://www.avaibooksports.com/inscripcion/xviii-kedada-motera-acerela-manolete/clasificaciones/"
    }
   }
  ]
