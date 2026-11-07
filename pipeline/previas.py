@@ -654,7 +654,7 @@ def select(rows, ath, comp_type="", cap=25):
             if r.get("anunciado"):
                 reasons.insert(0, r["anunciado"])
                 score = max(score, MIN_SCORE)
-            if r.get("bib") and r.get("elite"):
+            if r.get("bib") and r.get("elite") and not r.get("anunciado"):
                 # dorsal de élite asignado por la organización (Rockthesport): favorito aunque no lo conozcamos
                 reasons.append("Dorsal de élite nº %s" % r["bib"])
                 score = max(score, MIN_SCORE)

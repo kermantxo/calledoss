@@ -3635,5 +3635,228 @@
     "note": "Élite anunciada en prensa (InfoAtletismo)"
    }
   ]
+ },
+ "rfea-2026-11-08-generali-maraton-malaga-0": {
+  "_fuente": "Listado internacional de InfoAtletismo (@Atletismo24h, X) que pasó Kerman en imágenes el 07/11/2026; la organización no ha publicado lista de élite. Nombres, banderas y marcas tal cual («DaDi Dereje» → Dadi Dereje). 'bib' es solo el orden de la lista (por marca), no el dorsal.",
+  "fuente": "https://x.com/Atletismo24h",
+  "max_por_sexo": 30,
+  "atletas": [
+   {
+    "name": "Ivyne Jeruto",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Maratón",
+    "bib": 1,
+    "note": "Élite anunciada en prensa (InfoAtletismo): marca de 2:22:21"
+   },
+   {
+    "name": "Rodah Jepkorir Tanui",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Maratón",
+    "bib": 2,
+    "note": "Élite anunciada en prensa (InfoAtletismo): marca de 2:23:14"
+   },
+   {
+    "name": "Rebecca Kangogo Chesir",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Maratón",
+    "bib": 3,
+    "note": "Élite anunciada en prensa (InfoAtletismo): marca de 2:23:36"
+   },
+   {
+    "name": "Rebecca Jeruto",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Maratón",
+    "bib": 4,
+    "note": "Élite anunciada en prensa (InfoAtletismo): marca de 2:27:46"
+   },
+   {
+    "name": "Bekelech Teku",
+    "sex": "F",
+    "nat": "ETH",
+    "event": "Maratón",
+    "bib": 5,
+    "note": "Élite anunciada en prensa (InfoAtletismo): marca de 2:29:04"
+   },
+   {
+    "name": "Keleltu Kayamo",
+    "sex": "F",
+    "nat": "ETH",
+    "event": "Maratón",
+    "bib": 6,
+    "note": "Élite anunciada en prensa (InfoAtletismo): marca de 2:31:42"
+   },
+   {
+    "name": "Siftolina Daba Chemeda",
+    "sex": "F",
+    "nat": "ETH",
+    "event": "Maratón",
+    "bib": 7,
+    "note": "Élite anunciada en prensa (InfoAtletismo): marca de 2:36:16"
+   },
+   {
+    "name": "Sofie Karoline Haugen",
+    "sex": "F",
+    "nat": "NOR",
+    "event": "Maratón",
+    "bib": 8,
+    "note": "Élite anunciada en prensa (InfoAtletismo): debuta en maratón"
+   },
+   {
+    "name": "Sintayehu Masire",
+    "sex": "F",
+    "nat": "ETH",
+    "event": "Maratón",
+    "bib": 9,
+    "note": "Élite anunciada en prensa (InfoAtletismo): debuta en maratón"
+   },
+   {
+    "name": "Birhan Nebebew",
+    "sex": "M",
+    "nat": "ETH",
+    "event": "Maratón",
+    "bib": 1,
+    "note": "Élite anunciada en prensa (InfoAtletismo): marca de 2:06:52"
+   },
+   {
+    "name": "Gaddisa Tafa",
+    "sex": "M",
+    "nat": "ETH",
+    "event": "Maratón",
+    "bib": 2,
+    "note": "Élite anunciada en prensa (InfoAtletismo): marca de 2:07:02"
+   },
+   {
+    "name": "Titus Kimutai Kipkosgei",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Maratón",
+    "bib": 3,
+    "note": "Élite anunciada en prensa (InfoAtletismo): marca de 2:07:12"
+   },
+   {
+    "name": "Dereje Adugna",
+    "sex": "M",
+    "nat": "ETH",
+    "event": "Maratón",
+    "bib": 4,
+    "note": "Élite anunciada en prensa (InfoAtletismo): marca de 2:08:54"
+   },
+   {
+    "name": "Therence Bizoza",
+    "sex": "M",
+    "nat": "BDI",
+    "event": "Maratón",
+    "bib": 5,
+    "note": "Élite anunciada en prensa (InfoAtletismo): marca de 2:09:18"
+   },
+   {
+    "name": "Victor Kiplimo",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Maratón",
+    "bib": 6,
+    "note": "Élite anunciada en prensa (InfoAtletismo): marca de 2:09:58"
+   },
+   {
+    "name": "Archie Casteel",
+    "sex": "M",
+    "nat": "SWE",
+    "event": "Maratón",
+    "bib": 7,
+    "note": "Élite anunciada en prensa (InfoAtletismo): marca de 2:10:06"
+   },
+   {
+    "name": "Alejandro Jiménez",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Maratón",
+    "bib": 8,
+    "note": "Élite anunciada en prensa (InfoAtletismo): marca de 2:10:29"
+   },
+   {
+    "name": "Bernard Muia",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Maratón",
+    "bib": 9,
+    "note": "Élite anunciada en prensa (InfoAtletismo): marca de 2:10:42"
+   },
+   {
+    "name": "Zacharia Krop",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Maratón",
+    "bib": 10,
+    "note": "Élite anunciada en prensa (InfoAtletismo): marca de 2:11:35"
+   },
+   {
+    "name": "Dadi Dereje",
+    "sex": "M",
+    "nat": "ETH",
+    "event": "Maratón",
+    "bib": 11,
+    "note": "Élite anunciada en prensa (InfoAtletismo): marca de 2:12:02"
+   },
+   {
+    "name": "Cornelius Kipkoech",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Maratón",
+    "bib": 12,
+    "note": "Élite anunciada en prensa (InfoAtletismo): marca de 2:12:37"
+   },
+   {
+    "name": "Nathan Sevenois",
+    "sex": "M",
+    "nat": "BEL",
+    "event": "Maratón",
+    "bib": 13,
+    "note": "Élite anunciada en prensa (InfoAtletismo): marca de 2:14:00"
+   },
+   {
+    "name": "Simon Njuguna",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Maratón",
+    "bib": 14,
+    "note": "Élite anunciada en prensa (InfoAtletismo): debuta en maratón"
+   },
+   {
+    "name": "Jonson Mugeni",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Maratón",
+    "bib": 15,
+    "note": "Élite anunciada en prensa (InfoAtletismo): debuta en maratón"
+   },
+   {
+    "name": "Ulrik Hovig",
+    "sex": "M",
+    "nat": "NOR",
+    "event": "Maratón",
+    "bib": 16,
+    "note": "Élite anunciada en prensa (InfoAtletismo): debuta en maratón"
+   },
+   {
+    "name": "Alemu Balicha Ragasa",
+    "sex": "M",
+    "nat": "ETH",
+    "event": "Maratón",
+    "bib": 17,
+    "note": "Élite anunciada en prensa (InfoAtletismo): debuta en maratón"
+   },
+   {
+    "name": "Clement Kipkoech",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Maratón",
+    "bib": 18,
+    "note": "Élite anunciada en prensa (InfoAtletismo): debuta en maratón"
+   }
+  ]
  }
 }
