@@ -3278,5 +3278,362 @@
     "note": "Favorita anunciada en prensa (EITB/EFE): ganadora de la Behobia 2024"
    }
   ]
+ },
+ "rfea-2026-11-08-xliv-cross-internacional-de-italica": {
+  "_fuente": "Tuit de InfoAtletismo (@Atletismo24h) del 07/11/2026 con los inscritos internacionales de las carreras F (11:40) y M (12:25); la organización no ha publicado lista de élite en su web. Pasado por Kerman el 07/11/2026. Nombres en el orden del tuit; «Amina Mantoog» corregido a Amina Maatoug (NED).",
+  "fuente": "https://x.com/Atletismo24h/status/2118952793268490398",
+  "max_por_sexo": 30,
+  "atletas": [
+   {
+    "name": "Likina Amebaw",
+    "sex": "F",
+    "nat": "ETH",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Charity Cherop",
+    "sex": "F",
+    "nat": "UGA",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Stella Chebet",
+    "sex": "F",
+    "nat": "UGA",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Wosane Asefa Mangistu",
+    "sex": "F",
+    "nat": "ETH",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Cynthia Chepkirui",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Maurine Cherop",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Yenenesh Shimket",
+    "sex": "F",
+    "nat": "ETH",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Francine Niyomukunzi",
+    "sex": "F",
+    "nat": "BDI",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Alice Finot",
+    "sex": "F",
+    "nat": "FRA",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Elena Burkard",
+    "sex": "F",
+    "nat": "GER",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Amina Maatoug",
+    "sex": "F",
+    "nat": "NED",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Izzy Fry",
+    "sex": "F",
+    "nat": "GBR",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "María Forero",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Carolina Robles",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Marta Serrano",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Carla Gallardo",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Beatriz Álvarez",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Claudia Corral",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Ángela Viciosa",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Laura Priego",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Lucía Rodríguez",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Inés Herault",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Berihu Aregawi",
+    "sex": "M",
+    "nat": "ETH",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Rodrigue Kwizera",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Thierry Ndikumwenayo",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Denis Kipkoech Kemboi",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Charles Kiprono Kiboino",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Adisu Wegene",
+    "sex": "M",
+    "nat": "ETH",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Frankline Kibet",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Andrew Kiptoo Alamisi",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Samuel Simba Cherop",
+    "sex": "M",
+    "nat": "UGA",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Dismas Yeko",
+    "sex": "M",
+    "nat": "UGA",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Aarón Las Heras",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Daniel Arce",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Nassim Hassaous",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Fernando Carro",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Juan Antonio Pérez",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Zakaria Boufaljat",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Mesfin Escamilla",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Alejandro Quijada",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Yahya Aouina",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Víctor Ruiz",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Pablo Alba",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Ciro Martín",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Jaime Migallón",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Brahim El Ourdazi",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Unai Naranjo",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Carlos Ángel",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Miguel Baidal",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   },
+   {
+    "name": "Mario Priego",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Élite anunciada en prensa (InfoAtletismo)"
+   }
+  ]
  }
 }
