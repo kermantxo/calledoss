@@ -53,6 +53,7 @@
 - `worker/` - el pequeño servidor de Cloudflare que protege el panel con clave y lanza el modo directo a tiempo
 
 ## Recent Changes
+- 2026-11-07: Cross de Itálica (8 de noviembre): previa con los 28 hombres y 22 mujeres del listado internacional que publica InfoAtletismo (@Atletismo24h) en X, puestos por indicación de Kerman (la organización no ha sacado lista de élite). Entre ellos Berihu Aregawi, Thierry Ndikumwenayo, Rodrigue Kwizera, Likina Amebaw, Alice Finot y María Forero.
 - 2026-11-04: Behobia-San Sebastián (8 de noviembre): previa con los favoritos que da la prensa (EITB/EFE), puestos con permiso de Kerman porque la organización no ha publicado lista de élite: Raúl Celada, Javi Guerra e Iraitz Arrospide; Katherine Tisalema, Elena Loyo y Mireia Guarner. Añadida después Celia Antón por indicación de Kerman (no sale en esa noticia).
 - 2026-11-03: Quitado del calendario el Viding Hyrox Valladolid (sábado 7 de noviembre).
 - 2026-11-03: Quitada la ficha repetida del Cross de Itálica (la edición de 2027); queda la de este año, domingo 8 de noviembre.
