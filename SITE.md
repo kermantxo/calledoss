@@ -54,6 +54,7 @@
 
 ## Recent Changes
 - 2026-11-08: Maratón y media maratón de Málaga: clasificación oficial de Sportmaniacs (top 15 de cada sexo) y podios en el directo con el podio español. En la general femenina oficial aparece un hombre (Jonathan Kerr, 9º); se ha quitado. Carreira de San Martiño (Ourense): clasificación oficial de Carreiras Galegas y podios en el directo. Espada Toledana: enlazada su clasificación de Sportmaniacs (a las 15:00 aún sin publicar).
+- 2026-11-08: Paisajes por la Provincia (Valverde de Campos, Valladolid) y VIII Cross Popular de Sariegos (León): clasificación oficial de Runvasport (top 15 de cada sexo) y podios en el directo. El PDF parte algunos nombres en dos líneas; se han leído por columnas para que salgan completos. Los podios también van «a mano» en pipeline/extra_links.json para que el directo no los borre.
 - 2026-11-08: Directo: los podios de la Behobia e Itálica van dentro de cada salida del horario (la web solo enseña lo que va dentro del horario cuando la prueba lo tiene); el podio español de Itálica va debajo de cada carrera.
 - 2026-11-08: Behobia: quitadas del horario y del directo las salidas de sillas de ruedas/handbike y patines; quedan la élite femenina y la carrera a pie.
 - 2026-11-08: Directo: podios de la Behobia (provisional) y de Itálica, con el podio español de Itálica (Kwizera, Ndikumwenayo, Martínez Chazarra; Robles, Forero, Serrano). Quedan en `pipeline/extra_links.json` («a_mano»).

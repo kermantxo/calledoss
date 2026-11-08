@@ -919,5 +919,123 @@
  },
  "rfea-2026-11-08-47-cross-nacional-espada-toledana": {
   "resultados": "https://sportmaniacs.com/es/races/47ordm-cross-nacional-lsquoespada-toledanarsquo"
+ },
+ "avaibook-paisajes-por-la-provincia-valverde-de-campos": {
+  "_fuente_a_mano": "Clasificación oficial Runvasport (PDF general), 08/11/2026",
+  "a_mano": [
+   {
+    "name": "Carrera Hombres",
+    "round": "Oficial · 60 llegados",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Jonatan De Fuentes Villa",
+      "club": "COTIRUN CLUB",
+      "mark": "23:05",
+      "sex": "M"
+     },
+     {
+      "pos": "2",
+      "name": "Javier Bregon Fernández",
+      "club": "INDEPENDIENTE",
+      "mark": "24:01",
+      "sex": "M"
+     },
+     {
+      "pos": "3",
+      "name": "Mario Carranza Gonzalez",
+      "club": "ZARARUN",
+      "mark": "24:20",
+      "sex": "M"
+     }
+    ]
+   },
+   {
+    "name": "Carrera Mujeres",
+    "round": "Oficial · 23 llegados",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Beatriz Trujillo Quintás",
+      "club": "INDEPENDIENTE",
+      "mark": "28:04",
+      "sex": "F"
+     },
+     {
+      "pos": "2",
+      "name": "Paula Martín Álvarez",
+      "club": "INDEPENDIENTE",
+      "mark": "29:16",
+      "sex": "F"
+     },
+     {
+      "pos": "3",
+      "name": "Mayte Sánchez Fernandez",
+      "club": "INDEPENDIENTE",
+      "mark": "31:07",
+      "sex": "F"
+     }
+    ]
+   }
+  ]
+ },
+ "avaibook-viii-cross-popular-de-sariegos": {
+  "_fuente_a_mano": "Clasificación oficial Runvasport (PDF general), 08/11/2026",
+  "a_mano": [
+   {
+    "name": "Cross Hombres",
+    "round": "Oficial · 136 llegados",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Gustavo Silván Silván",
+      "club": "CLUB ATLETISMO LEÓN",
+      "mark": "39:12",
+      "sex": "M"
+     },
+     {
+      "pos": "2",
+      "name": "Miguel Vara García",
+      "club": "AVITRAIL",
+      "mark": "39:25",
+      "sex": "M"
+     },
+     {
+      "pos": "3",
+      "name": "Alejandro Fernández González",
+      "club": "BENAVENTE ATLETISMO",
+      "mark": "39:41",
+      "sex": "M"
+     }
+    ]
+   },
+   {
+    "name": "Cross Mujeres",
+    "round": "Oficial · 58 llegados",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Verónica Robla Iglesias",
+      "club": "LA DESPENSA DE FER",
+      "mark": "45:18",
+      "sex": "F"
+     },
+     {
+      "pos": "2",
+      "name": "Alba Holguin",
+      "club": "ASTORGA RUNNING",
+      "mark": "45:59",
+      "sex": "F"
+     },
+     {
+      "pos": "3",
+      "name": "Dovile Eibutyte",
+      "club": "C.D DE MONTAÑA VALDEÓN",
+      "mark": "48:36",
+      "sex": "F"
+     }
+    ]
+   }
+  ]
  }
 }
