@@ -53,6 +53,7 @@
 - `worker/` - el pequeño servidor de Cloudflare que protege el panel con clave y lanza el modo directo a tiempo
 
 ## Recent Changes
+- 2026-11-08: Itálica: favoritos en el mismo orden que el tuit de InfoAtletismo y horario en el directo (femenina 11:40, masculina 12:25). Maratón de Málaga: arreglado el enlace a la web (la RFEA ponía un correo) y añadidas sus clasificaciones oficiales (Sportmaniacs).
 - 2026-11-07: Maratón de Málaga (8 de noviembre): previa con los 18 hombres y 9 mujeres del listado internacional de InfoAtletismo que pasó Kerman, con sus marcas y en el mismo orden (Birhan Nebebew 2:06:52, Ivyne Jeruto 2:22:21…). Arreglo: a los atletas anunciados ya no les sale «Dorsal de élite» cuando el número es solo el orden de la lista.
 - 2026-11-07: Cross de Itálica (8 de noviembre): previa con los 28 hombres y 22 mujeres del listado internacional que publica InfoAtletismo (@Atletismo24h) en X, puestos por indicación de Kerman (la organización no ha sacado lista de élite). Entre ellos Berihu Aregawi, Thierry Ndikumwenayo, Rodrigue Kwizera, Likina Amebaw, Alice Finot y María Forero.
 - 2026-11-04: Behobia-San Sebastián (8 de noviembre): previa con los favoritos que da la prensa (EITB/EFE), puestos con permiso de Kerman porque la organización no ha publicado lista de élite: Raúl Celada, Javi Guerra e Iraitz Arrospide; Katherine Tisalema, Elena Loyo y Mireia Guarner. Añadida después Celia Antón por indicación de Kerman (no sale en esa noticia).
