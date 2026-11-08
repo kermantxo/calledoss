@@ -64,6 +64,7 @@ def plan_only():
     # fuera solo lo que venía únicamente del panel (se vuelve a leer de manual.json); lo fusionado con otra fuente se queda
     items = [x for x in _items() if x.get("sources") != ["Manual"]]
     items = calendar_build.merge([items, calendar_build.manual_items()])  # mismo orden que el diario
+    calendar_build.add_extra_links(items)  # horarios y enlaces puestos a mano (pipeline/extra_links.json)
     calendar_build.save(items)
     live.plan(items)
     health.save()
