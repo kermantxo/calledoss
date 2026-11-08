@@ -726,5 +726,30 @@
     "junto": true
    }
   ]
+ },
+ "rfea-2026-11-08-generali-maraton-malaga-0": {
+  "_nota": "La ficha de la RFEA pone un correo como web; web oficial y clasificaciones (Sportmaniacs) enlazadas desde ella. 08/11/2026",
+  "web": "https://site.generalimaratonmalaga.com/home",
+  "resultados": "https://sportmaniacs.com/es/races/generali-maraton-malaga-2026"
+ },
+ "rfea-2026-11-08-xliv-cross-internacional-de-italica": {
+  "_fuente_horario": "InfoAtletismo (@Atletismo24h) en X, 07/11/2026",
+  "resultados": "https://crossinternacionaldeitalica.es/es/resultados/listados-de-resultados/",
+  "time": "11:40",
+  "time_end": "12:25",
+  "schedule": [
+   {
+    "d": "2026-11-08",
+    "t": "11:40",
+    "e": "Internacional femenino",
+    "r": "Cross"
+   },
+   {
+    "d": "2026-11-08",
+    "t": "12:25",
+    "e": "Internacional masculino",
+    "r": "Cross"
+   }
+  ]
  }
 }
