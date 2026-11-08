@@ -21,7 +21,7 @@
  },
  "manual-2026-10-31-el-tast-de-la-mitja": {
   "since": "2026-10-31",
-  "tries": 18,
+  "tries": 19,
   "last": "2026-11-08"
  },
  "wa-7235594": {
@@ -31,17 +31,17 @@
  },
  "rfea-2026-11-01-ix-cross-ponte-romana-2026": {
   "since": "2026-11-01",
-  "tries": 18,
+  "tries": 19,
   "last": "2026-11-08"
  },
  "rfea-2026-11-07-38-marcha-atletica-en-ruta-espada-toledana": {
   "since": "2026-11-07",
-  "tries": 5,
+  "tries": 6,
   "last": "2026-11-08"
  },
  "cronomancha-ev800": {
   "since": "2026-11-07",
-  "tries": 5,
+  "tries": 6,
   "last": "2026-11-08"
  },
  "avaibook-xviii-kedada-motera-acerela-manolete": {
@@ -51,35 +51,25 @@
  },
  "rfea-2026-11-08-47-cross-nacional-espada-toledana": {
   "since": "2026-11-08",
-  "tries": 1,
+  "tries": 2,
   "last": "2026-11-08"
  },
  "rfea-2026-11-08-60-cros-internacional-de-catalunya-ciutat-de-granollers": {
   "since": "2026-11-08",
-  "tries": 1,
+  "tries": 2,
   "last": "2026-11-08"
  },
  "manual-2026-11-08-behobia-san-sebastian": {
   "since": "2026-11-08",
-  "tries": 1,
+  "tries": 2,
   "last": "2026-11-08"
  },
  "rfea-2026-11-08-generali-maraton-malaga-0": {
   "since": "2026-11-08",
-  "tries": 1,
-  "last": "2026-11-08"
- },
- "rfea-2026-11-08-ii-carrera-superfast-innoporc-5k": {
-  "since": "2026-11-08",
-  "tries": 1,
+  "tries": 2,
   "last": "2026-11-08"
  },
  "avaibook-paisajes-por-la-provincia-valverde-de-campos": {
-  "since": "2026-11-08",
-  "tries": 1,
-  "last": "2026-11-08"
- },
- "rfea-2026-11-08-vii-gran-carrera-del-mediterraneo-21k-alicante-santa-pola": {
   "since": "2026-11-08",
   "tries": 1,
   "last": "2026-11-08"
@@ -91,22 +81,17 @@
  },
  "rfea-2026-11-08-xii-media-maraton-avila-monumental-y-iv-carrera-agora-broker": {
   "since": "2026-11-08",
-  "tries": 1,
+  "tries": 2,
   "last": "2026-11-08"
  },
  "rfea-2026-11-08-xliv-cross-internacional-de-italica": {
   "since": "2026-11-08",
-  "tries": 1,
+  "tries": 2,
   "last": "2026-11-08"
  },
  "rfea-2026-11-08-xlix-carreira-popular-do-san-martino": {
   "since": "2026-11-08",
-  "tries": 1,
-  "last": "2026-11-08"
- },
- "rfea-2026-11-08-xxxviii-media-maraton-ciudad-de-talavera": {
-  "since": "2026-11-08",
-  "tries": 1,
+  "tries": 2,
   "last": "2026-11-08"
  }
 }

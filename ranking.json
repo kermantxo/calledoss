@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-07T12:24:57+01:00",
+ "generated": "2026-11-08T12:39:12+01:00",
  "season": "2026",
  "source": "https://atletismorfea.es/ranking",
  "seasons": {
@@ -952,23 +952,23 @@
       },
       {
        "mark": "13.27",
-       "wind": "0.7",
-       "name": "Xènia Benach Sole",
-       "club": "INDEPENDIENTE",
-       "born": "2000",
-       "fed": "CAT",
-       "city": "Granada-JUV",
-       "date": "03/06/2026",
-       "rank": "3"
-      },
-      {
-       "mark": "13.27",
        "wind": "-3.2",
        "name": "Laura Banko San Juan",
        "club": "Barrutia A.E.",
        "born": "2001",
        "fed": "PVA",
        "city": "Valladolid-REN",
+       "date": "03/06/2026",
+       "rank": "3"
+      },
+      {
+       "mark": "13.27",
+       "wind": "0.7",
+       "name": "Xènia Benach Sole",
+       "club": "INDEPENDIENTE",
+       "born": "2000",
+       "fed": "CAT",
+       "city": "Granada-JUV",
        "date": "03/06/2026",
        "rank": "="
       },
@@ -5214,23 +5214,23 @@
       },
       {
        "mark": "7.78",
-       "wind": "1.7",
-       "name": "Daniel Amez Villayandre",
-       "club": "Univ Leon Sprint Atletismo",
-       "born": "2000",
-       "fed": "CYL",
-       "city": "León-ULE",
-       "date": "20/06/2026",
-       "rank": "9"
-      },
-      {
-       "mark": "7.78",
        "wind": "2.0",
        "name": "Anthony Yunier Perez Valdes",
        "club": "Facsa - Playas de Castellón",
        "born": "2008",
        "fed": "CVA",
        "city": "Sagunto",
+       "date": "20/06/2026",
+       "rank": "9"
+      },
+      {
+       "mark": "7.78",
+       "wind": "1.7",
+       "name": "Daniel Amez Villayandre",
+       "club": "Univ Leon Sprint Atletismo",
+       "born": "2000",
+       "fed": "CYL",
+       "city": "León-ULE",
        "date": "20/06/2026",
        "rank": "="
       }
@@ -11807,10 +11807,10 @@
       {
        "mark": "13:54",
        "wind": "",
-       "name": "Jesus Ramos Reviejo",
-       "club": "C.A. Adidas",
-       "born": "1996",
-       "fed": "MAD",
+       "name": "Juan Antonio Perez Moreno",
+       "club": "INDEPENDIENTE",
+       "born": "1988",
+       "fed": "CLM",
        "city": "Valencia",
        "date": "11/01/2026",
        "rank": "6"
@@ -11818,10 +11818,10 @@
       {
        "mark": "13:54",
        "wind": "",
-       "name": "Juan Antonio Perez Moreno",
-       "club": "INDEPENDIENTE",
-       "born": "1988",
-       "fed": "CLM",
+       "name": "Jesus Ramos Reviejo",
+       "club": "C.A. Adidas",
+       "born": "1996",
+       "fed": "MAD",
        "city": "Valencia",
        "date": "11/01/2026",
        "rank": "="
@@ -12864,121 +12864,6 @@
      ]
     },
     {
-     "event": "20 km Marcha",
-     "rows": [
-      {
-       "mark": "1:19:13",
-       "wind": "",
-       "name": "Paul Mcgrath Benito",
-       "club": "INDEPENDIENTE",
-       "born": "2002",
-       "fed": "CAT",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "1"
-      },
-      {
-       "mark": "1:21:01",
-       "wind": "",
-       "name": "Alvaro Lopez Nuñez",
-       "club": "Grupompleo Pamplona At",
-       "born": "1999",
-       "fed": "MAD",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "2"
-      },
-      {
-       "mark": "1:21:18",
-       "wind": "",
-       "name": "Diego Garcia Carrera",
-       "club": "A.D. Marathon",
-       "born": "1996",
-       "fed": "MAD",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "3"
-      },
-      {
-       "mark": "1:24:58",
-       "wind": "",
-       "name": "Miguel Angel Lopez Nicolas",
-       "club": "UCAM Murcia",
-       "born": "1988",
-       "fed": "MUR",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "4"
-      },
-      {
-       "mark": "1:26:46",
-       "wind": "",
-       "name": "Daniel Chamosa Dacasa",
-       "club": "S.G. Pontevedra",
-       "born": "1997",
-       "fed": "GAL",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "5"
-      },
-      {
-       "mark": "1:28:36",
-       "wind": "",
-       "name": "Jose Manuel Perez Rubio",
-       "club": "Trops-Cueva de Nerja",
-       "born": "1999",
-       "fed": "AND",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "6"
-      },
-      {
-       "mark": "1:28:46",
-       "wind": "",
-       "name": "Daniel Jimeno Rivera",
-       "club": "Alcampo Scorpio 71",
-       "born": "2000",
-       "fed": "ARA",
-       "city": "A Coruña",
-       "date": "23/05/2026",
-       "rank": "7"
-      },
-      {
-       "mark": "1:29:24",
-       "wind": "",
-       "name": "Manuel Bermudez Jimenez",
-       "club": "UCAM-Athleo Cieza",
-       "born": "1997",
-       "fed": "MUR",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "8"
-      },
-      {
-       "mark": "1:31:20",
-       "wind": "",
-       "name": "Daniel Monfort Moreno",
-       "club": "Facsa - Playas de Castellón",
-       "born": "2006",
-       "fed": "CVA",
-       "city": "Brasilia - (BRA)",
-       "date": "12/04/2026",
-       "rank": "9"
-      },
-      {
-       "mark": "1:41:48",
-       "wind": "",
-       "name": "Francisco Arcilla Aller",
-       "club": "Universidad Oviedo",
-       "born": "1984",
-       "fed": "AST",
-       "city": "Cieza",
-       "date": "08/03/2026",
-       "rank": "10"
-      }
-     ]
-    },
-    {
      "event": "Medio maratón Marcha",
      "rows": [
       {
@@ -13089,6 +12974,121 @@
        "fed": "CVA",
        "city": "Burjassot",
        "date": "31/01/2026",
+       "rank": "10"
+      }
+     ]
+    },
+    {
+     "event": "20 km Marcha",
+     "rows": [
+      {
+       "mark": "1:19:13",
+       "wind": "",
+       "name": "Paul Mcgrath Benito",
+       "club": "INDEPENDIENTE",
+       "born": "2002",
+       "fed": "CAT",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "1"
+      },
+      {
+       "mark": "1:21:01",
+       "wind": "",
+       "name": "Alvaro Lopez Nuñez",
+       "club": "Grupompleo Pamplona At",
+       "born": "1999",
+       "fed": "MAD",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "2"
+      },
+      {
+       "mark": "1:21:18",
+       "wind": "",
+       "name": "Diego Garcia Carrera",
+       "club": "A.D. Marathon",
+       "born": "1996",
+       "fed": "MAD",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "3"
+      },
+      {
+       "mark": "1:24:58",
+       "wind": "",
+       "name": "Miguel Angel Lopez Nicolas",
+       "club": "UCAM Murcia",
+       "born": "1988",
+       "fed": "MUR",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "4"
+      },
+      {
+       "mark": "1:26:46",
+       "wind": "",
+       "name": "Daniel Chamosa Dacasa",
+       "club": "S.G. Pontevedra",
+       "born": "1997",
+       "fed": "GAL",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "5"
+      },
+      {
+       "mark": "1:28:36",
+       "wind": "",
+       "name": "Jose Manuel Perez Rubio",
+       "club": "Trops-Cueva de Nerja",
+       "born": "1999",
+       "fed": "AND",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "6"
+      },
+      {
+       "mark": "1:28:46",
+       "wind": "",
+       "name": "Daniel Jimeno Rivera",
+       "club": "Alcampo Scorpio 71",
+       "born": "2000",
+       "fed": "ARA",
+       "city": "A Coruña",
+       "date": "23/05/2026",
+       "rank": "7"
+      },
+      {
+       "mark": "1:29:24",
+       "wind": "",
+       "name": "Manuel Bermudez Jimenez",
+       "club": "UCAM-Athleo Cieza",
+       "born": "1997",
+       "fed": "MUR",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "8"
+      },
+      {
+       "mark": "1:31:20",
+       "wind": "",
+       "name": "Daniel Monfort Moreno",
+       "club": "Facsa - Playas de Castellón",
+       "born": "2006",
+       "fed": "CVA",
+       "city": "Brasilia - (BRA)",
+       "date": "12/04/2026",
+       "rank": "9"
+      },
+      {
+       "mark": "1:41:48",
+       "wind": "",
+       "name": "Francisco Arcilla Aller",
+       "club": "Universidad Oviedo",
+       "born": "1984",
+       "fed": "AST",
+       "city": "Cieza",
+       "date": "08/03/2026",
        "rank": "10"
       }
      ]
@@ -14504,19 +14504,19 @@
        "rank": "6",
        "mark": "4.42",
        "wind": "",
-       "name": "Miren Bartolomé",
-       "born": "1998",
-       "city": "Pamplona",
-       "date": "23/06/2019"
+       "name": "Andrea San José",
+       "born": "1997",
+       "city": "Barcelona (i)",
+       "date": "06/02/2021"
       },
       {
        "rank": "6",
        "mark": "4.42",
        "wind": "",
-       "name": "Andrea San José",
-       "born": "1997",
-       "city": "Barcelona (i)",
-       "date": "06/02/2021"
+       "name": "Miren Bartolomé",
+       "born": "1998",
+       "city": "Pamplona",
+       "date": "23/06/2019"
       },
       {
        "rank": "8",
@@ -15490,12 +15490,12 @@
       },
       {
        "rank": "10",
-       "mark": "10.22 A",
-       "wind": "2,0",
-       "name": "Frutos Feo",
-       "born": "1972",
-       "city": "Monachil",
-       "date": "09/07/1997"
+       "mark": "10.22",
+       "wind": "1.3",
+       "name": "Jorge Hernández",
+       "born": "2006",
+       "city": "Málaga",
+       "date": "24/07/2026"
       }
      ]
     },
@@ -15568,15 +15568,6 @@
       {
        "rank": "8",
        "mark": "20.59",
-       "wind": "1.4",
-       "name": "Daniel Rodríguez",
-       "born": "1995",
-       "city": "Tarragona",
-       "date": "28/06/2018"
-      },
-      {
-       "rank": "8",
-       "mark": "20.59",
        "wind": "0.6",
        "name": "Samuel García",
        "born": "1991",
@@ -15591,6 +15582,15 @@
        "born": "1976",
        "city": "Madrid",
        "date": "05/09/1997"
+      },
+      {
+       "rank": "8",
+       "mark": "20.59",
+       "wind": "1.4",
+       "name": "Daniel Rodríguez",
+       "born": "1995",
+       "city": "Tarragona",
+       "date": "28/06/2018"
       }
      ]
     },
@@ -16242,20 +16242,20 @@
       {
        "rank": "9",
        "mark": "13.44",
-       "wind": "0.8",
-       "name": "Carlos Sala",
-       "born": "1960",
-       "city": "Barcelona",
-       "date": "16/08/1987"
-      },
-      {
-       "rank": "9",
-       "mark": "13.44",
        "wind": "1.2",
        "name": "Ángel Díaz",
        "born": "2000",
        "city": "Tarargona",
        "date": "03/08/2025"
+      },
+      {
+       "rank": "9",
+       "mark": "13.44",
+       "wind": "0.8",
+       "name": "Carlos Sala",
+       "born": "1960",
+       "city": "Barcelona",
+       "date": "16/08/1987"
       }
      ]
     },
@@ -16519,19 +16519,19 @@
        "rank": "8",
        "mark": "2.26",
        "wind": "",
-       "name": "Xesc Tresens",
-       "born": "1997",
-       "city": "Santa Coloma de Gramenet",
-       "date": "10/04/2022"
+       "name": "Carlos Rojas",
+       "born": "1995",
+       "city": "Alcobendas",
+       "date": "12/09/2020"
       },
       {
        "rank": "8",
        "mark": "2.26",
        "wind": "",
-       "name": "Carlos Rojas",
-       "born": "1995",
-       "city": "Alcobendas",
-       "date": "12/09/2020"
+       "name": "Xesc Tresens",
+       "born": "1997",
+       "city": "Santa Coloma de Gramenet",
+       "date": "10/04/2022"
       },
       {
        "rank": "10",
@@ -16578,15 +16578,6 @@
        "rank": "4",
        "mark": "5.70",
        "wind": "",
-       "name": "Juan Gabriel Concepción",
-       "born": "1972",
-       "city": "Barcelona",
-       "date": "06/07/1996"
-      },
-      {
-       "rank": "4",
-       "mark": "5.70",
-       "wind": "",
        "name": "Daniel Martí",
        "born": "1973",
        "city": "Lisboa (POR)",
@@ -16618,6 +16609,15 @@
        "born": "1995",
        "city": "Landau (GER)",
        "date": "28/06/2017"
+      },
+      {
+       "rank": "4",
+       "mark": "5.70",
+       "wind": "",
+       "name": "Juan Gabriel Concepción",
+       "born": "1972",
+       "city": "Barcelona",
+       "date": "06/07/1996"
       },
       {
        "rank": "9",
@@ -16725,12 +16725,12 @@
       },
       {
        "rank": "10",
-       "mark": "8.17",
-       "wind": "0.1",
-       "name": "Jaime Guerra",
-       "born": "1999",
-       "city": "La Nucía",
-       "date": "29/06/2024"
+       "mark": "8.12",
+       "wind": "1.1",
+       "name": "Jesús Oliván",
+       "born": "1968",
+       "city": "Vigo",
+       "date": "17/08/1991"
       }
      ]
     },
@@ -17869,12 +17869,12 @@
       },
       {
        "rank": "10",
-       "mark": "2:02.52",
+       "mark": "2:02.31",
        "wind": "",
-       "name": "Esther Desviat",
-       "born": "1982",
-       "city": "Sevilla",
-       "date": "07/02/2025"
+       "name": "Montserrat Pujol",
+       "born": "1961",
+       "city": "Liévin (FRA)",
+       "date": "22/02/2003"
       }
      ]
     },
@@ -18900,6 +18900,15 @@
        "rank": "8",
        "mark": "7.64",
        "wind": "",
+       "name": "John Cabang",
+       "born": "2001",
+       "city": "Tehran (IRI)",
+       "date": "17/02/2024"
+      },
+      {
+       "rank": "8",
+       "mark": "7.64",
+       "wind": "",
        "name": "Daniel Cisneros",
        "born": "1996",
        "city": "Madrid",
@@ -18913,15 +18922,6 @@
        "born": "1992",
        "city": "Lodz (POL)",
        "date": "05/02/2016"
-      },
-      {
-       "rank": "8",
-       "mark": "7.64",
-       "wind": "",
-       "name": "John Cabang",
-       "born": "2001",
-       "city": "Tehran (IRI)",
-       "date": "17/02/2024"
       }
      ]
     },
