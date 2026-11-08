@@ -485,6 +485,63 @@
     "e": "Carrera a pie (por grupos)",
     "r": "20 km"
    }
+  ],
+  "_fuente_a_mano": "Clasificación en directo de la organización (provisional), 08/11/2026",
+  "a_mano": [
+   {
+    "name": "Behobia Hombres",
+    "round": "Podio",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Javier Guerra",
+      "sex": "M",
+      "club": "",
+      "mark": "1:01:14"
+     },
+     {
+      "pos": "2",
+      "name": "Raúl Celada",
+      "sex": "M",
+      "club": "",
+      "mark": "1:01:45"
+     },
+     {
+      "pos": "3",
+      "name": "Iraitz Arrospide",
+      "sex": "M",
+      "club": "",
+      "mark": "1:02:27"
+     }
+    ]
+   },
+   {
+    "name": "Behobia Mujeres",
+    "round": "Podio",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Katherine Tisalema",
+      "sex": "F",
+      "club": "",
+      "mark": "1:08:58"
+     },
+     {
+      "pos": "2",
+      "name": "Devora Avramova",
+      "sex": "F",
+      "club": "",
+      "mark": "1:09:52"
+     },
+     {
+      "pos": "3",
+      "name": "Celia Antón",
+      "sex": "F",
+      "club": "",
+      "mark": "1:10:20"
+     }
+    ]
+   }
   ]
  },
  "avaibook-xii-higuero-running-festival-2026": {
@@ -749,6 +806,117 @@
     "t": "12:25",
     "e": "Internacional masculino",
     "r": "Cross"
+   }
+  ],
+  "_fuente_a_mano": "PDF oficial de la organización (INTERNACIONAL-FEMENINO/MASCULINO-General), 08/11/2026",
+  "a_mano": [
+   {
+    "name": "Internacional Hombres",
+    "round": "Podio",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Rodrigue Kwizera",
+      "sex": "M",
+      "club": "",
+      "mark": "27:37"
+     },
+     {
+      "pos": "2",
+      "name": "Charles Kiboino Kiprono",
+      "sex": "M",
+      "club": "",
+      "mark": "27:38"
+     },
+     {
+      "pos": "3",
+      "name": "Frankline Kibet",
+      "sex": "M",
+      "club": "",
+      "mark": "27:39"
+     }
+    ]
+   },
+   {
+    "name": "Internacional Mujeres",
+    "round": "Podio",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Likina Amebaw",
+      "sex": "F",
+      "club": "",
+      "mark": "30:41"
+     },
+     {
+      "pos": "2",
+      "name": "Charity Cherop",
+      "sex": "F",
+      "club": "",
+      "mark": "30:49"
+     },
+     {
+      "pos": "3",
+      "name": "Cynthia Chepkirui",
+      "sex": "F",
+      "club": "",
+      "mark": "30:57"
+     }
+    ]
+   },
+   {
+    "name": "Podio español Hombres",
+    "round": "Españoles (puesto en la general)",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Rodrigue Kwizera",
+      "sex": "M",
+      "club": "",
+      "mark": "27:37"
+     },
+     {
+      "pos": "5",
+      "name": "Thierry Ndikumwenayo",
+      "sex": "M",
+      "club": "",
+      "mark": "27:59"
+     },
+     {
+      "pos": "6",
+      "name": "Miguel Ángel Martínez Chazarra",
+      "sex": "M",
+      "club": "",
+      "mark": "28:00"
+     }
+    ]
+   },
+   {
+    "name": "Podio español Mujeres",
+    "round": "Españolas (puesto en la general)",
+    "rows": [
+     {
+      "pos": "8",
+      "name": "Carolina Robles",
+      "sex": "F",
+      "club": "",
+      "mark": "32:51"
+     },
+     {
+      "pos": "9",
+      "name": "María Forero",
+      "sex": "F",
+      "club": "",
+      "mark": "33:16"
+     },
+     {
+      "pos": "11",
+      "name": "Marta Serrano",
+      "sex": "F",
+      "club": "",
+      "mark": "33:26"
+     }
+    ]
    }
   ]
  }
