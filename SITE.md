@@ -53,6 +53,7 @@
 - `worker/` - el pequeño servidor de Cloudflare que protege el panel con clave y lanza el modo directo a tiempo
 
 ## Recent Changes
+- 2026-11-08: Directo: podios de la Behobia (provisional) y de Itálica, con el podio español de Itálica (Kwizera, Ndikumwenayo, Martínez Chazarra; Robles, Forero, Serrano). Quedan en `pipeline/extra_links.json` («a_mano»).
 - 2026-11-08: Resultados del día: Cross de Itálica (PDF oficial de la organización: Likina Amebaw y Rodrigue Kwizera) y Behobia (clasificación en directo de la organización, provisional: Katherine Tisalema y Javier Guerra). Top 15 de cada sexo. Santa Pola, Talavera y Superfast 5K entraron solas desde Sportmaniacs. Maratón de Málaga pendiente: Sportmaniacs publica una clasificación sin los primeros puestos. Arreglado también el modo «plan», que ahora aplica los horarios y enlaces puestos a mano.
 - 2026-11-08: Itálica: favoritos en el mismo orden que el tuit de InfoAtletismo y horario en el directo (femenina 11:40, masculina 12:25). Maratón de Málaga: arreglado el enlace a la web (la RFEA ponía un correo) y añadidas sus clasificaciones oficiales (Sportmaniacs).
 - 2026-11-07: Maratón de Málaga (8 de noviembre): previa con los 18 hombres y 9 mujeres del listado internacional de InfoAtletismo que pasó Kerman, con sus marcas y en el mismo orden (Birhan Nebebew 2:06:52, Ivyne Jeruto 2:22:21…). Arreglo: a los atletas anunciados ya no les sale «Dorsal de élite» cuando el número es solo el orden de la lista.
