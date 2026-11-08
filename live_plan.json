@@ -1,6 +1,6 @@
 {
  "date": "2026-11-08",
- "generated": "2026-11-08T09:54:18+01:00",
+ "generated": "2026-11-08T09:55:30+01:00",
  "active_day": true,
  "windows": [
   {
@@ -16,7 +16,7 @@
    "poll": true,
    "intl": false,
    "links": {
-    "web": "https://www.behobia-sansebastian.com/es/carrera/ficha-carrera"
+    "web": "https://www.behobia-sansebastian.com"
    }
   },
   {
@@ -67,7 +67,8 @@
    "intl": false,
    "links": {
     "info": "https://atletismorfea.es/calendario/campeonato/generali-maraton-malaga-0",
-    "web": "https://martinriosalberto@gmail.com"
+    "web": "https://site.generalimaratonmalaga.com/home",
+    "resultados": "https://sportmaniacs.com/es/races/generali-maraton-malaga-2026"
    }
   },
   {
@@ -118,24 +119,6 @@
    "links": {
     "info": "https://atletismorfea.es/calendario/campeonato/xii-media-maraton-avila-monumental-y-iv-carrera-agora-brokers",
     "web": "https://mmavilamonumental.com"
-   }
-  },
-  {
-   "id": "rfea-2026-11-08-xliv-cross-internacional-de-italica",
-   "name": "XLIV Cross Internacional de Italica",
-   "place": "Sevilla",
-   "source": "RFEA",
-   "start": "2026-11-08T07:00:00+01:00",
-   "end": "2026-11-08T23:00:00+01:00",
-   "first": null,
-   "last": null,
-   "schedule_known": false,
-   "poll": false,
-   "intl": false,
-   "links": {
-    "info": "https://atletismorfea.es/calendario/campeonato/xliv-cross-internacional-de-italica",
-    "web": "https://crossinternacionaldeitalica.es",
-    "adoc": "https://www.adocasociacion.es/Organizacion/6/Santiponce-Sevilla"
    }
   },
   {
@@ -203,6 +186,25 @@
    "links": {
     "inscritos": "https://inscripciones.runvasport.es/inscripcion/viii-cross-popular-de-sariegos/",
     "resultados": "https://www.avaibooksports.com/inscripcion/viii-cross-popular-de-sariegos/clasificaciones/"
+   }
+  },
+  {
+   "id": "rfea-2026-11-08-xliv-cross-internacional-de-italica",
+   "name": "XLIV Cross Internacional de Italica",
+   "place": "Sevilla",
+   "source": "RFEA",
+   "start": "2026-11-08T10:40:00+01:00",
+   "end": "2026-11-08T14:25:00+01:00",
+   "first": "11:40",
+   "last": "12:25",
+   "schedule_known": true,
+   "poll": false,
+   "intl": false,
+   "links": {
+    "info": "https://atletismorfea.es/calendario/campeonato/xliv-cross-internacional-de-italica",
+    "web": "https://crossinternacionaldeitalica.es",
+    "adoc": "https://www.adocasociacion.es/Organizacion/6/Santiponce-Sevilla",
+    "resultados": "https://crossinternacionaldeitalica.es/es/resultados/listados-de-resultados/"
    }
   }
  ]
