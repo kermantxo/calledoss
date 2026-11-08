@@ -53,6 +53,7 @@
 - `worker/` - el pequeño servidor de Cloudflare que protege el panel con clave y lanza el modo directo a tiempo
 
 ## Recent Changes
+- 2026-11-08: Maratón y media maratón de Málaga: clasificación oficial de Sportmaniacs (top 15 de cada sexo) y podios en el directo con el podio español. En la general femenina oficial aparece un hombre (Jonathan Kerr, 9º); se ha quitado. Carreira de San Martiño (Ourense): clasificación oficial de Carreiras Galegas y podios en el directo. Espada Toledana: enlazada su clasificación de Sportmaniacs (a las 15:00 aún sin publicar).
 - 2026-11-08: Directo: los podios de la Behobia e Itálica van dentro de cada salida del horario (la web solo enseña lo que va dentro del horario cuando la prueba lo tiene); el podio español de Itálica va debajo de cada carrera.
 - 2026-11-08: Behobia: quitadas del horario y del directo las salidas de sillas de ruedas/handbike y patines; quedan la élite femenina y la carrera a pie.
 - 2026-11-08: Directo: podios de la Behobia (provisional) y de Itálica, con el podio español de Itálica (Kwizera, Ndikumwenayo, Martínez Chazarra; Robles, Forero, Serrano). Quedan en `pipeline/extra_links.json` («a_mano»).
