@@ -1,16 +1,33 @@
 {
  "date": "2026-11-08",
- "generated": "2026-11-08T12:46:45+01:00",
+ "generated": "2026-11-08T17:47:26+01:00",
  "active_day": true,
  "windows": [
+  {
+   "id": "rfea-2026-11-08-xlix-carreira-popular-do-san-martino",
+   "name": "XLIX Carreira Popular do San Martiño",
+   "place": "San Martiño",
+   "source": "RFEA",
+   "start": "2026-11-08T07:00:00+01:00",
+   "end": "2026-11-08T23:00:00+01:00",
+   "first": null,
+   "last": null,
+   "schedule_known": false,
+   "poll": true,
+   "intl": false,
+   "links": {
+    "info": "https://atletismorfea.es/calendario/campeonato/xlix-carreira-popular-do-san-martino",
+    "resultados": "https://www.carreirasgalegas.com/results/xlix-carreira-pedestre-popular-do-san-martio/V9LyyPjJ"
+   }
+  },
   {
    "id": "manual-2026-11-08-behobia-san-sebastian",
    "name": "61ª Behobia-San Sebastián",
    "place": "Behobia (Irun) – San Sebastián",
    "source": "Manual",
-   "start": "2026-11-08T08:30:00+01:00",
+   "start": "2026-11-08T08:55:00+01:00",
    "end": "2026-11-08T12:00:00+01:00",
-   "first": "09:30",
+   "first": "09:55",
    "last": "10:00",
    "schedule_known": true,
    "poll": true,
@@ -33,7 +50,8 @@
    "intl": false,
    "links": {
     "info": "https://atletismorfea.es/calendario/campeonato/47-cross-nacional-espada-toledana",
-    "web": "https://www.clubatletismotoledo.net"
+    "web": "https://www.clubatletismotoledo.net",
+    "resultados": "https://sportmaniacs.com/es/races/47ordm-cross-nacional-lsquoespada-toledanarsquo"
    }
   },
   {
@@ -119,22 +137,6 @@
    "links": {
     "info": "https://atletismorfea.es/calendario/campeonato/xii-media-maraton-avila-monumental-y-iv-carrera-agora-brokers",
     "web": "https://mmavilamonumental.com"
-   }
-  },
-  {
-   "id": "rfea-2026-11-08-xlix-carreira-popular-do-san-martino",
-   "name": "XLIX Carreira Popular do San Martiño",
-   "place": "San Martiño",
-   "source": "RFEA",
-   "start": "2026-11-08T07:00:00+01:00",
-   "end": "2026-11-08T23:00:00+01:00",
-   "first": null,
-   "last": null,
-   "schedule_known": false,
-   "poll": false,
-   "intl": false,
-   "links": {
-    "info": "https://atletismorfea.es/calendario/campeonato/xlix-carreira-popular-do-san-martino"
    }
   },
   {
