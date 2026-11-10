@@ -2,81 +2,81 @@
  "sources": {
   "rfea_calendar": {
    "label": "RFEA · calendario",
-   "last_run": "2026-11-09T13:56:39+01:00",
+   "last_run": "2026-11-10T13:45:03+01:00",
    "ok": true,
-   "last_ok": "2026-11-09T13:57:19+01:00",
+   "last_ok": "2026-11-10T13:45:43+01:00",
    "fails_in_a_row": 0,
    "last_count": 674
   },
   "wa_calendar": {
    "label": "World Athletics · calendario",
-   "last_run": "2026-11-09T13:57:19+01:00",
+   "last_run": "2026-11-10T13:45:43+01:00",
    "ok": true,
-   "last_ok": "2026-11-09T13:57:45+01:00",
+   "last_ok": "2026-11-10T13:46:12+01:00",
    "fails_in_a_row": 0,
-   "last_count": 181
+   "last_count": 180
   },
   "cronomancha_upcoming": {
    "label": "Cronomancha · próximas",
-   "last_run": "2026-11-09T13:57:45+01:00",
+   "last_run": "2026-11-10T13:46:12+01:00",
    "ok": true,
-   "last_ok": "2026-11-09T13:57:47+01:00",
+   "last_ok": "2026-11-10T13:46:13+01:00",
    "fails_in_a_row": 0,
    "last_count": 6
   },
   "cronomancha_events": {
    "label": "Cronomancha · resultados",
-   "last_run": "2026-11-09T13:57:47+01:00",
+   "last_run": "2026-11-10T13:46:13+01:00",
    "ok": true,
-   "last_ok": "2026-11-09T13:57:47+01:00",
+   "last_ok": "2026-11-10T13:46:14+01:00",
    "fails_in_a_row": 0,
    "last_count": 43
   },
   "avaibook": {
    "label": "AvaiBook (Runvasport)",
-   "last_run": "2026-11-09T13:57:47+01:00",
+   "last_run": "2026-11-10T13:46:14+01:00",
    "ok": true,
-   "last_ok": "2026-11-09T13:57:49+01:00",
+   "last_ok": "2026-11-10T13:46:16+01:00",
    "fails_in_a_row": 0,
    "last_count": 47
   },
   "rfea_detail": {
    "label": "RFEA · fichas de competición",
-   "last_run": "2026-11-09T13:57:51+01:00",
+   "last_run": "2026-11-10T13:46:17+01:00",
    "ok": true,
-   "last_ok": "2026-11-09T13:58:21+01:00",
+   "last_ok": "2026-11-10T13:47:03+01:00",
    "fails_in_a_row": 0,
-   "last_count": 21
+   "last_count": 31
   },
   "rfealive": {
    "label": "RFEA Live · horarios",
-   "last_run": "2026-11-09T22:01:54+01:00",
+   "last_run": "2026-11-10T13:47:03+01:00",
    "ok": true,
-   "last_ok": "2026-11-09T22:02:31+01:00",
+   "last_ok": "2026-11-10T13:47:41+01:00",
    "fails_in_a_row": 0,
-   "last_count": 75
+   "last_count": 0
   },
   "destacados": {
    "label": "Atletas destacados (listas de salida)",
-   "last_run": "2026-11-09T13:59:20+01:00",
+   "last_run": "2026-11-10T13:47:51+01:00",
    "ok": true,
-   "last_ok": "2026-11-09T13:59:20+01:00",
+   "last_ok": "2026-11-10T13:47:51+01:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
   "results": {
    "label": "Resultados (todas las fuentes)",
-   "last_run": "2026-11-10T03:35:48+01:00",
+   "last_run": "2026-11-10T13:47:51+01:00",
    "ok": true,
-   "last_ok": "2026-11-10T03:37:16+01:00",
+   "last_ok": "2026-11-10T13:49:11+01:00",
    "fails_in_a_row": 0,
-   "last_count": 1
+   "last_count": 0
   },
   "rfea_results": {
    "label": "RFEA · índice de resultados (PDF)",
-   "last_run": "2026-11-10T03:35:48+01:00",
+   "last_run": "2026-11-10T13:47:51+01:00",
    "ok": true,
-   "last_ok": "2026-11-10T03:35:51+01:00",
+   "last_ok": "2026-11-10T13:47:53+01:00",
    "fails_in_a_row": 0,
    "last_count": 0,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf",
@@ -94,54 +94,72 @@
   },
   "avaibook_upcoming": {
    "label": "Runvasport · próximas",
-   "last_run": "2026-11-09T13:57:49+01:00",
+   "last_run": "2026-11-10T13:46:16+01:00",
    "ok": true,
-   "last_ok": "2026-11-09T13:57:51+01:00",
+   "last_ok": "2026-11-10T13:46:17+01:00",
    "fails_in_a_row": 0,
-   "last_count": 17
+   "last_count": 19
   },
   "previas": {
    "label": "Previas (listas de inscritos)",
-   "last_run": "2026-11-09T22:02:31+01:00",
+   "last_run": "2026-11-10T13:49:11+01:00",
    "ok": true,
-   "last_ok": "2026-11-09T22:14:14+01:00",
+   "last_ok": "2026-11-10T14:00:47+01:00",
    "fails_in_a_row": 0,
    "last_count": 16
   },
   "ranking": {
    "label": "Ranking RFEA (aire libre y pista cubierta)",
-   "last_run": "2026-11-09T14:16:57+01:00",
+   "last_run": "2026-11-10T14:00:47+01:00",
    "ok": true,
-   "last_ok": "2026-11-09T14:24:15+01:00",
+   "last_ok": "2026-11-10T14:09:47+01:00",
    "fails_in_a_row": 0,
    "last_count": 123
   },
   "adoc": {
    "label": "ADOC · pruebas asociadas",
-   "last_run": "2026-11-09T13:59:09+01:00",
+   "last_run": "2026-11-10T13:47:41+01:00",
    "ok": true,
-   "last_ok": "2026-11-09T13:59:19+01:00",
+   "last_ok": "2026-11-10T13:47:51+01:00",
    "fails_in_a_row": 0,
    "last_count": 23
   },
   "adoc_calendar": {
    "label": "ADOC · calendario del circuito",
-   "last_run": "2026-11-09T13:59:19+01:00",
+   "last_run": "2026-11-10T13:47:51+01:00",
    "ok": true,
-   "last_ok": "2026-11-09T13:59:20+01:00",
+   "last_ok": "2026-11-10T13:47:51+01:00",
    "fails_in_a_row": 0,
    "last_count": 14
   },
   "podcast": {
    "label": "Pódcast (último programa en Spotify)",
-   "last_run": "2026-11-10T03:37:16+01:00",
+   "last_run": "2026-11-10T14:09:47+01:00",
    "ok": true,
-   "last_ok": "2026-11-10T03:37:17+01:00",
+   "last_ok": "2026-11-10T14:09:47+01:00",
    "fails_in_a_row": 0,
    "last_count": 1
   }
  },
  "log": [
+  {
+   "at": "2026-11-10T13:48:55+01:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Búsqueda de podios de 'VIII Cross Popular de Sariegos': expected string or bytes-like object, got 'list'"
+  },
+  {
+   "at": "2026-11-10T13:48:55+01:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Búsqueda de podios de 'Paisajes por la Provincia - Valverde de Campos': expected string or bytes-like object, got 'list'"
+  },
+  {
+   "at": "2026-11-10T13:48:55+01:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Búsqueda de podios de '61ª Behobia-San Sebastián': expected string or bytes-like object, got 'list'"
+  },
   {
    "at": "2026-11-10T03:36:55+01:00",
    "level": "warning",
@@ -603,25 +621,7 @@
    "level": "warning",
    "source": "wa_calendar",
    "msg": "Programa de Cardiff Cross Challenge no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-11-03T13:00:47+01:00",
-   "level": "warning",
-   "source": "wa_calendar",
-   "msg": "Programa de 15th Cross della Valsugana no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
-  },
-  {
-   "at": "2026-11-03T03:05:40+01:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Resultados de 'Istanbul Marathon' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235596"
-  },
-  {
-   "at": "2026-11-03T03:05:05+01:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Resultados de 'Hangzhou Marathon' (wa): HTTP 500 en https://worldathletics.org/competition/calendar-results/results/7235594"
   }
  ],
- "updated": "2026-11-10T03:37:17+01:00"
+ "updated": "2026-11-10T14:09:47+01:00"
 }
