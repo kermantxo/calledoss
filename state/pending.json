@@ -24,20 +24,15 @@
   "tries": 10,
   "last": "2026-11-04"
  },
- "rfea-2026-11-01-ix-cross-ponte-romana-2026": {
-  "since": "2026-11-01",
-  "tries": 25,
-  "last": "2026-11-11"
- },
  "rfea-2026-11-07-38-marcha-atletica-en-ruta-espada-toledana": {
   "since": "2026-11-07",
-  "tries": 14,
-  "last": "2026-11-11"
+  "tries": 15,
+  "last": "2026-11-12"
  },
  "cronomancha-ev800": {
   "since": "2026-11-07",
-  "tries": 18,
-  "last": "2026-11-11"
+  "tries": 19,
+  "last": "2026-11-12"
  },
  "avaibook-xviii-kedada-motera-acerela-manolete": {
   "since": "2026-11-07",
@@ -46,32 +41,32 @@
  },
  "rfea-2026-11-08-47-cross-nacional-espada-toledana": {
   "since": "2026-11-08",
-  "tries": 11,
-  "last": "2026-11-11"
+  "tries": 12,
+  "last": "2026-11-12"
  },
  "rfea-2026-11-08-60-cros-internacional-de-catalunya-ciutat-de-granollers": {
   "since": "2026-11-08",
-  "tries": 11,
-  "last": "2026-11-11"
+  "tries": 12,
+  "last": "2026-11-12"
  },
  "manual-2026-11-08-behobia-san-sebastian": {
   "since": "2026-11-08",
-  "tries": 11,
-  "last": "2026-11-11"
+  "tries": 12,
+  "last": "2026-11-12"
  },
  "avaibook-paisajes-por-la-provincia-valverde-de-campos": {
   "since": "2026-11-08",
-  "tries": 7,
-  "last": "2026-11-11"
+  "tries": 8,
+  "last": "2026-11-12"
  },
  "avaibook-viii-cross-popular-de-sariegos": {
   "since": "2026-11-08",
-  "tries": 7,
-  "last": "2026-11-11"
+  "tries": 8,
+  "last": "2026-11-12"
  },
  "rfea-2026-11-08-xii-media-maraton-avila-monumental-y-iv-carrera-agora-broker": {
   "since": "2026-11-08",
-  "tries": 11,
-  "last": "2026-11-11"
+  "tries": 12,
+  "last": "2026-11-12"
  }
 }
