@@ -5236,3 +5236,73 @@ function showPodcastEpisode(ep){
   try { yaElegido = localStorage.getItem(PODCAST_KEY) === '1'; } catch(e) {}
   if(yaElegido) loadPodcast(false);
 })();
+
+/* ============================================================
+   VENTANITA DE INICIO (abajo): noticia con un botón que abre una imagen en grande.
+   Solo en la página de Inicio en castellano. Si se cierra con la ✕, no vuelve a salir en ese navegador.
+   Para cambiar la noticia: edita AVISO_INICIO (cambia "id" para que la vean también quien cerró la anterior).
+   Para quitarla: pon AVISO_INICIO = null.
+   ============================================================ */
+const AVISO_INICIO = {
+  id: 'minimas-la28',
+  texto: 'Ya son oficiales las mínimas olímpicas para Los Ángeles 2028.',
+  boton: 'Mirarlo ahora',
+  imagen: 'images/minimas-los-angeles-2028.jpg',
+  alt: 'Mínimas de World Athletics para los Juegos Olímpicos de Los Ángeles 2028, prueba a prueba, hombres y mujeres'
+};
+(function(){
+  if(!AVISO_INICIO || LANG !== 'es' || PAGE_VIEW !== 'home') return;
+  const KEY = 'calledoss-aviso-cerrado';
+  try { if(localStorage.getItem(KEY) === AVISO_INICIO.id) return; } catch(e) {}
+  const img = '/' + AVISO_INICIO.imagen;
+  const box = document.createElement('div');
+  box.className = 'home-toast';
+  box.setAttribute('role', 'region');
+  box.setAttribute('aria-label', 'Aviso');
+  box.hidden = true;
+  box.innerHTML = '<p class="home-toast-text"></p>' +
+    '<a class="home-toast-cta" href="' + img + '"></a>' +
+    '<button type="button" class="home-toast-close" aria-label="Cerrar aviso">✕</button>';
+  box.querySelector('.home-toast-text').textContent = AVISO_INICIO.texto;
+  box.querySelector('.home-toast-cta').textContent = AVISO_INICIO.boton + ' →';
+  document.body.appendChild(box);
+
+  // la imagen se abre en grande encima de la web; Esc, la ✕ o pulsar fuera la cierran
+  const viewer = document.createElement('div');
+  viewer.className = 'img-viewer';
+  viewer.setAttribute('role', 'dialog');
+  viewer.setAttribute('aria-modal', 'true');
+  viewer.setAttribute('aria-label', AVISO_INICIO.texto);
+  viewer.hidden = true;
+  viewer.innerHTML = '<button type="button" class="img-viewer-close" aria-label="Cerrar imagen">✕</button><img alt="">';
+  viewer.querySelector('img').alt = AVISO_INICIO.alt;
+  document.body.appendChild(viewer);
+  const closeViewer = () => { viewer.hidden = true; document.body.style.overflow = ''; };
+  box.querySelector('.home-toast-cta').addEventListener('click', ev => {
+    ev.preventDefault();
+    viewer.querySelector('img').src = img;
+    viewer.hidden = false;
+    document.body.style.overflow = 'hidden';
+    viewer.querySelector('.img-viewer-close').focus();
+  });
+  viewer.addEventListener('click', ev => { if(ev.target !== viewer.querySelector('img')) closeViewer(); });
+  document.addEventListener('keydown', ev => { if(ev.key === 'Escape' && !viewer.hidden) closeViewer(); });
+
+  box.querySelector('.home-toast-close').addEventListener('click', () => {
+    box.hidden = true;
+    try { localStorage.setItem(KEY, AVISO_INICIO.id); } catch(e) {}
+  });
+
+  // sale cuando se ve Inicio (no encima de una ficha) y no está abierto el aviso de cookies
+  const home = document.getElementById('view-home');
+  const cookies = document.getElementById('cookieBanner');
+  let cerrado = false;
+  box.querySelector('.home-toast-close').addEventListener('click', () => { cerrado = true; });
+  const update = () => {
+    box.hidden = cerrado || !home.classList.contains('active') || (cookies && !cookies.hidden);
+  };
+  const mo = new MutationObserver(update);
+  mo.observe(home, {attributes:true, attributeFilter:['class']});
+  if(cookies) mo.observe(cookies, {attributes:true, attributeFilter:['hidden']});
+  setTimeout(update, 600);
+})();
