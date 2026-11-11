@@ -19,11 +19,6 @@
   "tries": 9,
   "last": "2026-10-31"
  },
- "manual-2026-10-31-el-tast-de-la-mitja": {
-  "since": "2026-10-31",
-  "tries": 23,
-  "last": "2026-11-10"
- },
  "wa-7235594": {
   "since": "2026-11-01",
   "tries": 10,
@@ -31,18 +26,18 @@
  },
  "rfea-2026-11-01-ix-cross-ponte-romana-2026": {
   "since": "2026-11-01",
-  "tries": 23,
-  "last": "2026-11-10"
+  "tries": 24,
+  "last": "2026-11-11"
  },
  "rfea-2026-11-07-38-marcha-atletica-en-ruta-espada-toledana": {
   "since": "2026-11-07",
-  "tries": 12,
-  "last": "2026-11-10"
+  "tries": 13,
+  "last": "2026-11-11"
  },
  "cronomancha-ev800": {
   "since": "2026-11-07",
-  "tries": 15,
-  "last": "2026-11-10"
+  "tries": 16,
+  "last": "2026-11-11"
  },
  "avaibook-xviii-kedada-motera-acerela-manolete": {
   "since": "2026-11-07",
@@ -51,32 +46,32 @@
  },
  "rfea-2026-11-08-47-cross-nacional-espada-toledana": {
   "since": "2026-11-08",
-  "tries": 9,
-  "last": "2026-11-10"
+  "tries": 10,
+  "last": "2026-11-11"
  },
  "rfea-2026-11-08-60-cros-internacional-de-catalunya-ciutat-de-granollers": {
   "since": "2026-11-08",
-  "tries": 9,
-  "last": "2026-11-10"
+  "tries": 10,
+  "last": "2026-11-11"
  },
  "manual-2026-11-08-behobia-san-sebastian": {
   "since": "2026-11-08",
-  "tries": 9,
-  "last": "2026-11-10"
+  "tries": 10,
+  "last": "2026-11-11"
  },
  "avaibook-paisajes-por-la-provincia-valverde-de-campos": {
   "since": "2026-11-08",
-  "tries": 5,
-  "last": "2026-11-10"
+  "tries": 6,
+  "last": "2026-11-11"
  },
  "avaibook-viii-cross-popular-de-sariegos": {
   "since": "2026-11-08",
-  "tries": 5,
-  "last": "2026-11-10"
+  "tries": 6,
+  "last": "2026-11-11"
  },
  "rfea-2026-11-08-xii-media-maraton-avila-monumental-y-iv-carrera-agora-broker": {
   "since": "2026-11-08",
-  "tries": 9,
-  "last": "2026-11-10"
+  "tries": 10,
+  "last": "2026-11-11"
  }
 }
