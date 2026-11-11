@@ -3908,5 +3908,155 @@
     "note": "Élite anunciada en prensa (InfoAtletismo): debuta en maratón"
    }
   ]
+ },
+ "rfea-2026-11-15-xxxii-cross-internacional-de-soria": {
+  "_fuente": "Texto de confirmaciones de la carrera absoluta femenina pasado por Kerman el 11/11/2026 («Soria sigue confirmando atletas…»). Nombres en el orden del texto; «Cinthya» escrito Cynthia como en Itálica. 'bib' es solo ese orden, no el dorsal. Falta la absoluta masculina.",
+  "max_por_sexo": 30,
+  "atletas": [
+   {
+    "name": "Cynthia Chepkirui",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Cross absoluto",
+    "note": "Confirmada para la absoluta femenina; viene de ser 3ª en Itálica",
+    "bib": 1
+   },
+   {
+    "name": "Peace Chebet",
+    "sex": "F",
+    "nat": "UGA",
+    "event": "Cross absoluto",
+    "note": "Confirmada para la absoluta femenina",
+    "bib": 2
+   },
+   {
+    "name": "Stella Chebet",
+    "sex": "F",
+    "nat": "UGA",
+    "event": "Cross absoluto",
+    "note": "Confirmada para la absoluta femenina",
+    "bib": 3
+   },
+   {
+    "name": "Lemlem Nibret",
+    "sex": "F",
+    "nat": "ETH",
+    "event": "Cross absoluto",
+    "note": "Confirmada para la absoluta femenina; 2ª en Amorebieta 2023 con 18 años",
+    "bib": 4
+   },
+   {
+    "name": "Mariana Machado",
+    "sex": "F",
+    "nat": "POR",
+    "event": "Cross absoluto",
+    "note": "Confirmada para la absoluta femenina",
+    "bib": 5
+   },
+   {
+    "name": "Salomé Afonso",
+    "sex": "F",
+    "nat": "POR",
+    "event": "Cross absoluto",
+    "note": "Confirmada para la absoluta femenina",
+    "bib": 6
+   },
+   {
+    "name": "Mariana Maciel",
+    "sex": "F",
+    "nat": "POR",
+    "event": "Cross absoluto",
+    "note": "Confirmada para la absoluta femenina",
+    "bib": 7
+   },
+   {
+    "name": "Idaira Prieto",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross absoluto",
+    "note": "Confirmada para la absoluta femenina",
+    "bib": 8
+   },
+   {
+    "name": "Carla Gallardo",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross absoluto",
+    "note": "Confirmada para la absoluta femenina",
+    "bib": 9
+   },
+   {
+    "name": "Claudia Corral",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross absoluto",
+    "note": "Confirmada para la absoluta femenina",
+    "bib": 10
+   },
+   {
+    "name": "María José Pérez",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross absoluto",
+    "note": "Confirmada para la absoluta femenina",
+    "bib": 11
+   },
+   {
+    "name": "Beatriz Álvarez",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross absoluto",
+    "note": "Confirmada para la absoluta femenina",
+    "bib": 12
+   },
+   {
+    "name": "Marina Guerrero",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross absoluto",
+    "note": "Confirmada para la absoluta femenina",
+    "bib": 13
+   },
+   {
+    "name": "Rocío Garrido",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross absoluto",
+    "note": "Confirmada para la absoluta femenina",
+    "bib": 14
+   },
+   {
+    "name": "Antía Castro",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross absoluto",
+    "note": "Confirmada para la absoluta femenina",
+    "bib": 15
+   },
+   {
+    "name": "María Barbero",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross absoluto",
+    "note": "Confirmada para la absoluta femenina",
+    "bib": 16
+   },
+   {
+    "name": "Ainhoa Brea",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross absoluto",
+    "note": "Confirmada para la absoluta femenina",
+    "bib": 17
+   },
+   {
+    "name": "Azucena Díaz",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross absoluto",
+    "note": "Confirmada para la absoluta femenina; temporada de despedida del atletismo",
+    "bib": 18
+   }
+  ]
  }
 }
