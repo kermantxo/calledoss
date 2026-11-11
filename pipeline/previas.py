@@ -709,6 +709,8 @@ def run(http, health, items):
         if extra:
             # si el atleta añadido a mano ya está en la lista, cuenta la ficha añadida (con su motivo)
             puestos = {A.key(clean_name(a["name"])[0]) for a in extra.get("atletas", [])}
+            if extra.get("solo_anunciados"):  # la lista de inscritos no vale (mal leída o sin élite): solo los puestos a mano
+                rows, srcs = [], []
             rows = [r for r in rows if A.key(clean_name(r.get("name", ""))[0]) not in puestos]
             rows = list(rows) + [{"event": a.get("event") or "Élite", "name": a["name"], "sex": a.get("sex", ""),
                                   "nat": a.get("nat", ""), "club": a.get("club", ""), "cat": "", "bib": a.get("bib"), "elite": a.get("elite", True), "popular": False,

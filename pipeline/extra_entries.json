@@ -3910,7 +3910,9 @@
   ]
  },
  "rfea-2026-11-15-xxxii-cross-internacional-de-soria": {
-  "_fuente": "Texto de confirmaciones de la carrera absoluta femenina pasado por Kerman el 11/11/2026 («Soria sigue confirmando atletas…»). Nombres en el orden del texto; «Cinthya» escrito Cynthia como en Itálica. 'bib' es solo ese orden, no el dorsal. Falta la absoluta masculina.",
+  "_fuente": "Confirmaciones de ADOC para la carrera absoluta femenina (texto pasado por Kerman el 11/11/2026, «Soria sigue confirmando atletas…»). Solo estas atletas: Kerman pidió quitar el resto (la lista de inscritos de AvaiBook se leía mal). Nombres en el orden del texto; «Cinthya» escrito Cynthia como en Itálica. 'bib' es solo ese orden, no el dorsal.",
+  "fuente": "https://www.adocasociacion.es/Organizacion/4/Soria",
+  "solo_anunciados": true,
   "max_por_sexo": 30,
   "atletas": [
    {
@@ -3918,7 +3920,7 @@
     "sex": "F",
     "nat": "KEN",
     "event": "Cross absoluto",
-    "note": "Confirmada para la absoluta femenina; viene de ser 3ª en Itálica",
+    "note": "Confirmada por ADOC en la absoluta femenina; viene de ser 3ª en Itálica",
     "bib": 1
    },
    {
@@ -3926,7 +3928,7 @@
     "sex": "F",
     "nat": "UGA",
     "event": "Cross absoluto",
-    "note": "Confirmada para la absoluta femenina",
+    "note": "Confirmada por ADOC en la absoluta femenina",
     "bib": 2
    },
    {
@@ -3934,7 +3936,7 @@
     "sex": "F",
     "nat": "UGA",
     "event": "Cross absoluto",
-    "note": "Confirmada para la absoluta femenina",
+    "note": "Confirmada por ADOC en la absoluta femenina",
     "bib": 3
    },
    {
@@ -3942,7 +3944,7 @@
     "sex": "F",
     "nat": "ETH",
     "event": "Cross absoluto",
-    "note": "Confirmada para la absoluta femenina; 2ª en Amorebieta 2023 con 18 años",
+    "note": "Confirmada por ADOC en la absoluta femenina; 2ª en Amorebieta 2023 con 18 años",
     "bib": 4
    },
    {
@@ -3950,7 +3952,7 @@
     "sex": "F",
     "nat": "POR",
     "event": "Cross absoluto",
-    "note": "Confirmada para la absoluta femenina",
+    "note": "Confirmada por ADOC en la absoluta femenina",
     "bib": 5
    },
    {
@@ -3958,7 +3960,7 @@
     "sex": "F",
     "nat": "POR",
     "event": "Cross absoluto",
-    "note": "Confirmada para la absoluta femenina",
+    "note": "Confirmada por ADOC en la absoluta femenina",
     "bib": 6
    },
    {
@@ -3966,7 +3968,7 @@
     "sex": "F",
     "nat": "POR",
     "event": "Cross absoluto",
-    "note": "Confirmada para la absoluta femenina",
+    "note": "Confirmada por ADOC en la absoluta femenina",
     "bib": 7
    },
    {
@@ -3974,7 +3976,7 @@
     "sex": "F",
     "nat": "ESP",
     "event": "Cross absoluto",
-    "note": "Confirmada para la absoluta femenina",
+    "note": "Confirmada por ADOC en la absoluta femenina",
     "bib": 8
    },
    {
@@ -3982,7 +3984,7 @@
     "sex": "F",
     "nat": "ESP",
     "event": "Cross absoluto",
-    "note": "Confirmada para la absoluta femenina",
+    "note": "Confirmada por ADOC en la absoluta femenina",
     "bib": 9
    },
    {
@@ -3990,7 +3992,7 @@
     "sex": "F",
     "nat": "ESP",
     "event": "Cross absoluto",
-    "note": "Confirmada para la absoluta femenina",
+    "note": "Confirmada por ADOC en la absoluta femenina",
     "bib": 10
    },
    {
@@ -3998,7 +4000,7 @@
     "sex": "F",
     "nat": "ESP",
     "event": "Cross absoluto",
-    "note": "Confirmada para la absoluta femenina",
+    "note": "Confirmada por ADOC en la absoluta femenina",
     "bib": 11
    },
    {
@@ -4006,7 +4008,7 @@
     "sex": "F",
     "nat": "ESP",
     "event": "Cross absoluto",
-    "note": "Confirmada para la absoluta femenina",
+    "note": "Confirmada por ADOC en la absoluta femenina",
     "bib": 12
    },
    {
@@ -4014,7 +4016,7 @@
     "sex": "F",
     "nat": "ESP",
     "event": "Cross absoluto",
-    "note": "Confirmada para la absoluta femenina",
+    "note": "Confirmada por ADOC en la absoluta femenina",
     "bib": 13
    },
    {
@@ -4022,7 +4024,7 @@
     "sex": "F",
     "nat": "ESP",
     "event": "Cross absoluto",
-    "note": "Confirmada para la absoluta femenina",
+    "note": "Confirmada por ADOC en la absoluta femenina",
     "bib": 14
    },
    {
@@ -4030,7 +4032,7 @@
     "sex": "F",
     "nat": "ESP",
     "event": "Cross absoluto",
-    "note": "Confirmada para la absoluta femenina",
+    "note": "Confirmada por ADOC en la absoluta femenina",
     "bib": 15
    },
    {
@@ -4038,7 +4040,7 @@
     "sex": "F",
     "nat": "ESP",
     "event": "Cross absoluto",
-    "note": "Confirmada para la absoluta femenina",
+    "note": "Confirmada por ADOC en la absoluta femenina",
     "bib": 16
    },
    {
@@ -4046,7 +4048,7 @@
     "sex": "F",
     "nat": "ESP",
     "event": "Cross absoluto",
-    "note": "Confirmada para la absoluta femenina",
+    "note": "Confirmada por ADOC en la absoluta femenina",
     "bib": 17
    },
    {
@@ -4054,7 +4056,7 @@
     "sex": "F",
     "nat": "ESP",
     "event": "Cross absoluto",
-    "note": "Confirmada para la absoluta femenina; temporada de despedida del atletismo",
+    "note": "Confirmada por ADOC en la absoluta femenina; temporada de despedida del atletismo",
     "bib": 18
    }
   ]
