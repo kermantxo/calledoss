@@ -66,17 +66,17 @@
   },
   "results": {
    "label": "Resultados (todas las fuentes)",
-   "last_run": "2026-11-11T12:58:04+01:00",
+   "last_run": "2026-11-11T17:57:20+01:00",
    "ok": true,
-   "last_ok": "2026-11-11T12:59:23+01:00",
+   "last_ok": "2026-11-11T17:58:21+01:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
   "rfea_results": {
    "label": "RFEA · índice de resultados (PDF)",
-   "last_run": "2026-11-11T12:58:05+01:00",
+   "last_run": "2026-11-11T17:57:20+01:00",
    "ok": true,
-   "last_ok": "2026-11-11T12:58:07+01:00",
+   "last_ok": "2026-11-11T17:57:22+01:00",
    "fails_in_a_row": 0,
    "last_count": 0,
    "last_error": "HTTPError: 404 Client Error: Not Found for url: https://www.rfeacontent.es/resultados/2026/airelibre/al_Cto.ESP_universitario_Jaen.pdf",
@@ -134,9 +134,9 @@
   },
   "podcast": {
    "label": "Pódcast (último programa en Spotify)",
-   "last_run": "2026-11-11T13:19:02+01:00",
+   "last_run": "2026-11-11T17:58:21+01:00",
    "ok": true,
-   "last_ok": "2026-11-11T13:19:02+01:00",
+   "last_ok": "2026-11-11T17:58:22+01:00",
    "fails_in_a_row": 0,
    "last_count": 1
   }
@@ -623,5 +623,5 @@
    "msg": "Programa de Cardiff Cross Challenge no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
   }
  ],
- "updated": "2026-11-11T13:19:02+01:00"
+ "updated": "2026-11-11T17:58:22+01:00"
 }
