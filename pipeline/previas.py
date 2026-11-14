@@ -63,6 +63,40 @@ def from_rfealive(http, chid, base=rfealive.BASE):
     return out
 
 
+def from_smarttrack(http, chid):
+    """Inscritos de un campeonato en SmartTrack RFEA (smarttrackrfea.es/allinscriptions/<código>): archivo
+    público ALLINS:<código> con prueba, nombre, club, marca personal y de la temporada. Fuera las pruebas por equipos."""
+    from .sources import smarttrack
+    data = smarttrack._get_json(http, "ALLINS:" + chid)
+    out = []
+    for r in (data.get("Data") if isinstance(data, dict) else data) or []:
+        ev = smarttrack._msg(r.get("EventDescription"))
+        if not ev or "equipos" in ev.lower():
+            continue
+        name = " ".join(w.capitalize() for w in ("%s %s" % (r.get("Name") or "", r.get("FamilyName") or "")).split())
+        out.append({"event": ev, "name": name, "sex": {"M": "M", "W": "F"}.get(r.get("Gender"), ""),
+                    "club": r.get("ClubDes") or "", "nat": r.get("Country") or "", "pb": r.get("PB") or "",
+                    "sb": r.get("SB") or "", "bib": None, "text": name})
+    return out
+
+
+def from_clax(http, url):
+    """Inscritos en un archivo .clax (formato de cronometradores con g-live, p. ej. Toptime): una etiqueta
+    <E d=dorsal n="NOMBRE APELLIDOS" x=sexo na=país c=club p=carrera ca=categoría/> por inscrito."""
+    import html as _html
+    s = http.get(url, timeout=90).content.decode("utf-8-sig", "replace")
+    out = []
+    for t in re.findall(r"<E ([^>]*)/>", s):
+        a = {k: _html.unescape(v) for k, v in re.findall(r'(\w+)="([^"]*)"', t)}
+        if not a.get("n"):
+            continue
+        name = " ".join(w.capitalize() for w in a["n"].replace("\xa0", " ").split())
+        out.append({"event": a.get("p") or "Carrera", "name": name, "sex": a.get("x", "") if a.get("x") in ("M", "F") else "",
+                    "club": a.get("c", ""), "nat": a.get("na", ""), "cat": a.get("ca", ""), "bib": None,
+                    "popular": True, "text": name})
+    return out
+
+
 def from_rfea_pdf(http, url):
     c = http.get(url, timeout=120).content
     if b"%PDF" not in c[:1024]:
@@ -437,6 +471,15 @@ def find_entries(http, it):
                     return rows, ["https://timingsys.com/event/%s/participants" % lv["event"]]
             except Exception:
                 pass
+    # SmartTrack RFEA (campeonatos de España con directo nuevo): enlace «directo» smarttrackrfea.es/sch/<código>
+    m = re.search(r"smarttrackrfea\.es/sch/(\w+)", links.get("directo") or "")
+    if m:
+        try:
+            rows = from_smarttrack(http, m.group(1))
+            if rows:
+                return rows, ["https://smarttrackrfea.es/allinscriptions/" + m.group(1)]
+        except Exception:
+            pass
     # 321go: listado público de participantes (live.321go.es/participantes.html?raceID=...)
     for v in links.values():
         m = re.search(r"321go\.es/participantes\.html\?raceID=([\w-]+)", v or "")
@@ -495,6 +538,13 @@ def find_entries(http, it):
         except Exception:
             pass
     ins = links.get("inscritos", "")
+    if ins.lower().split("?")[0].endswith(".clax"):
+        try:
+            rows = from_clax(http, ins)
+            if rows:
+                return rows, [ins]
+        except Exception:
+            pass
     if ins.lower().split("?")[0].endswith(".pdf"):
         try:
             rows = from_rfea_pdf(http, ins) or from_rfea_category_pdf(http, ins) or from_pdf_entries(http, ins)

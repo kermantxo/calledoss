@@ -268,7 +268,7 @@ def avaibook_upcoming(http, pages=3):
 # ------------------------------------------------------------------ plataformas de inscripción tipo AvaiBook
 # (Kirolprobak, AvaiBook Sports, Runvasport...): misma web con /inscripcion/<evento>/ y /participantes/
 
-INSCRIPCION = re.compile(r"https?://[^/\s\"']*(kirolprobak\.com|avaibooksports\.com|runvasport\.es)/inscripcion/([a-z0-9-]+)", re.I)
+INSCRIPCION = re.compile(r"https?://[^/\s\"']*(kirolprobak\.com|avaibooksports\.com|runvasport\.es|emesports\.es|runrunsports\.com)/inscripcion/([a-z0-9-]+)", re.I)
 
 
 def inscripcion_url(text):
