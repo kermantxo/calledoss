@@ -3910,7 +3910,7 @@
   ]
  },
  "rfea-2026-11-15-xxxii-cross-internacional-de-soria": {
-  "_fuente": "Confirmaciones de ADOC para la carrera absoluta femenina (texto pasado por Kerman el 11/11/2026, «Soria sigue confirmando atletas…»). Solo estas atletas: Kerman pidió quitar el resto (la lista de inscritos de AvaiBook se leía mal). Nombres en el orden del texto; «Cinthya» escrito Cynthia como en Itálica. 'bib' es solo ese orden, no el dorsal. El 14/11/2026 Kerman pidió dejar solo a las españolas (fuera Chepkirui, Peace y Stella Chebet, Nibret, Machado, Afonso y Maciel).",
+  "_fuente": "Confirmaciones de ADOC para la carrera absoluta femenina (texto pasado por Kerman el 11/11/2026, «Soria sigue confirmando atletas…»). Solo estas atletas: Kerman pidió quitar el resto (la lista de inscritos de AvaiBook se leía mal). Nombres en el orden del texto; «Cinthya» escrito Cynthia como en Itálica. 'bib' es solo ese orden, no el dorsal. El 14/11/2026 Kerman pidió dejar solo a las españolas (fuera Chepkirui, Peace y Stella Chebet, Nibret, Machado, Afonso y Maciel). 14/11/2026: absoluta masculina (14:00) del cartel de confirmados pasado por Kerman: Kwizera, Víctor Ruiz, Vicente Viciosa, Estanislao Nicolás Ruiz, Pablo Sánchez y Eleazar Cantón, en ese orden.",
   "fuente": "https://www.adocasociacion.es/Organizacion/4/Soria",
   "solo_anunciados": true,
   "max_por_sexo": 30,
@@ -4002,6 +4002,54 @@
     "event": "Cross absoluto",
     "note": "Confirmada por ADOC en la absoluta femenina; temporada de despedida del atletismo",
     "bib": 11
+   },
+   {
+    "name": "Rodrigue Kwizera",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross absoluto",
+    "note": "Confirmado por ADOC en la absoluta masculina; ganador en Itálica",
+    "bib": 1
+   },
+   {
+    "name": "Víctor Ruiz",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross absoluto",
+    "note": "Confirmado por ADOC en la absoluta masculina",
+    "bib": 2
+   },
+   {
+    "name": "Vicente Viciosa",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross absoluto",
+    "note": "Confirmado por ADOC en la absoluta masculina",
+    "bib": 3
+   },
+   {
+    "name": "Estanislao Nicolás Ruiz",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross absoluto",
+    "note": "Confirmado por ADOC en la absoluta masculina",
+    "bib": 4
+   },
+   {
+    "name": "Pablo Sánchez",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross absoluto",
+    "note": "Confirmado por ADOC en la absoluta masculina",
+    "bib": 5
+   },
+   {
+    "name": "Eleazar Cantón",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross absoluto",
+    "note": "Confirmado por ADOC en la absoluta masculina",
+    "bib": 6
    }
   ]
  }
