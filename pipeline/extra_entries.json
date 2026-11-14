@@ -3910,74 +3910,18 @@
   ]
  },
  "rfea-2026-11-15-xxxii-cross-internacional-de-soria": {
-  "_fuente": "Confirmaciones de ADOC para la carrera absoluta femenina (texto pasado por Kerman el 11/11/2026, «Soria sigue confirmando atletas…»). Solo estas atletas: Kerman pidió quitar el resto (la lista de inscritos de AvaiBook se leía mal). Nombres en el orden del texto; «Cinthya» escrito Cynthia como en Itálica. 'bib' es solo ese orden, no el dorsal.",
+  "_fuente": "Confirmaciones de ADOC para la carrera absoluta femenina (texto pasado por Kerman el 11/11/2026, «Soria sigue confirmando atletas…»). Solo estas atletas: Kerman pidió quitar el resto (la lista de inscritos de AvaiBook se leía mal). Nombres en el orden del texto; «Cinthya» escrito Cynthia como en Itálica. 'bib' es solo ese orden, no el dorsal. El 14/11/2026 Kerman pidió dejar solo a las españolas (fuera Chepkirui, Peace y Stella Chebet, Nibret, Machado, Afonso y Maciel).",
   "fuente": "https://www.adocasociacion.es/Organizacion/4/Soria",
   "solo_anunciados": true,
   "max_por_sexo": 30,
   "atletas": [
-   {
-    "name": "Cynthia Chepkirui",
-    "sex": "F",
-    "nat": "KEN",
-    "event": "Cross absoluto",
-    "note": "Confirmada por ADOC en la absoluta femenina; viene de ser 3ª en Itálica",
-    "bib": 1
-   },
-   {
-    "name": "Peace Chebet",
-    "sex": "F",
-    "nat": "UGA",
-    "event": "Cross absoluto",
-    "note": "Confirmada por ADOC en la absoluta femenina",
-    "bib": 2
-   },
-   {
-    "name": "Stella Chebet",
-    "sex": "F",
-    "nat": "UGA",
-    "event": "Cross absoluto",
-    "note": "Confirmada por ADOC en la absoluta femenina",
-    "bib": 3
-   },
-   {
-    "name": "Lemlem Nibret",
-    "sex": "F",
-    "nat": "ETH",
-    "event": "Cross absoluto",
-    "note": "Confirmada por ADOC en la absoluta femenina; 2ª en Amorebieta 2023 con 18 años",
-    "bib": 4
-   },
-   {
-    "name": "Mariana Machado",
-    "sex": "F",
-    "nat": "POR",
-    "event": "Cross absoluto",
-    "note": "Confirmada por ADOC en la absoluta femenina",
-    "bib": 5
-   },
-   {
-    "name": "Salomé Afonso",
-    "sex": "F",
-    "nat": "POR",
-    "event": "Cross absoluto",
-    "note": "Confirmada por ADOC en la absoluta femenina",
-    "bib": 6
-   },
-   {
-    "name": "Mariana Maciel",
-    "sex": "F",
-    "nat": "POR",
-    "event": "Cross absoluto",
-    "note": "Confirmada por ADOC en la absoluta femenina",
-    "bib": 7
-   },
    {
     "name": "Idaira Prieto",
     "sex": "F",
     "nat": "ESP",
     "event": "Cross absoluto",
     "note": "Confirmada por ADOC en la absoluta femenina",
-    "bib": 8
+    "bib": 1
    },
    {
     "name": "Carla Gallardo",
@@ -3985,7 +3929,7 @@
     "nat": "ESP",
     "event": "Cross absoluto",
     "note": "Confirmada por ADOC en la absoluta femenina",
-    "bib": 9
+    "bib": 2
    },
    {
     "name": "Claudia Corral",
@@ -3993,7 +3937,7 @@
     "nat": "ESP",
     "event": "Cross absoluto",
     "note": "Confirmada por ADOC en la absoluta femenina",
-    "bib": 10
+    "bib": 3
    },
    {
     "name": "María José Pérez",
@@ -4001,7 +3945,7 @@
     "nat": "ESP",
     "event": "Cross absoluto",
     "note": "Confirmada por ADOC en la absoluta femenina",
-    "bib": 11
+    "bib": 4
    },
    {
     "name": "Beatriz Álvarez",
@@ -4009,7 +3953,7 @@
     "nat": "ESP",
     "event": "Cross absoluto",
     "note": "Confirmada por ADOC en la absoluta femenina",
-    "bib": 12
+    "bib": 5
    },
    {
     "name": "Marina Guerrero",
@@ -4017,7 +3961,7 @@
     "nat": "ESP",
     "event": "Cross absoluto",
     "note": "Confirmada por ADOC en la absoluta femenina",
-    "bib": 13
+    "bib": 6
    },
    {
     "name": "Rocío Garrido",
@@ -4025,7 +3969,7 @@
     "nat": "ESP",
     "event": "Cross absoluto",
     "note": "Confirmada por ADOC en la absoluta femenina",
-    "bib": 14
+    "bib": 7
    },
    {
     "name": "Antía Castro",
@@ -4033,7 +3977,7 @@
     "nat": "ESP",
     "event": "Cross absoluto",
     "note": "Confirmada por ADOC en la absoluta femenina",
-    "bib": 15
+    "bib": 8
    },
    {
     "name": "María Barbero",
@@ -4041,7 +3985,7 @@
     "nat": "ESP",
     "event": "Cross absoluto",
     "note": "Confirmada por ADOC en la absoluta femenina",
-    "bib": 16
+    "bib": 9
    },
    {
     "name": "Ainhoa Brea",
@@ -4049,7 +3993,7 @@
     "nat": "ESP",
     "event": "Cross absoluto",
     "note": "Confirmada por ADOC en la absoluta femenina",
-    "bib": 17
+    "bib": 10
    },
    {
     "name": "Azucena Díaz",
@@ -4057,7 +4001,7 @@
     "nat": "ESP",
     "event": "Cross absoluto",
     "note": "Confirmada por ADOC en la absoluta femenina; temporada de despedida del atletismo",
-    "bib": 18
+    "bib": 11
    }
   ]
  }
