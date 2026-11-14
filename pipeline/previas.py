@@ -598,6 +598,10 @@ def _facts_ok(a, ev_label, row, comp_type):
     for f in a.get("facts", []):
         if fam and f.get("family") and f["family"] != fam:
             continue
+        # campeonatos solo de lanzamientos / saltos / velocidad que la base guarda sin prueba ni familia fiable:
+        # en una carrera de fondo son casi siempre otra persona con el mismo nombre
+        if fam == "resistencia" and re.search(r"lanzamiento|saltos|velocidad|vallas|combinadas|p[eé]rtiga|martillo", f.get("text", ""), re.I):
+            continue
         if age == "menores" and f.get("cat") != "menores":
             continue
         if age != "menores" and f.get("cat") == "menores":
