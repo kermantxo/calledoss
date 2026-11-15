@@ -34,6 +34,8 @@ def summarize(res, is_intl):
     vistos = set()  # el mismo atleta en la general y en «primeros españoles» de esa prueba: una sola vez
     for ev in res.get("events", []):
         rounds = ev.get("rounds") or [ev]
+        # primero «Primeros españoles»: en el bloque de españoles manda su orden, no el puesto en la general
+        rounds = sorted(rounds, key=lambda rd: not re.search(r"espa[ñn]ol", rd.get("round") or "", re.I))
         for rnd in rounds:
             name = rnd.get("round") or ""
             is_final = rnd.get("final", bool(re.search(r"^final\b|^final$", name, re.I)) or name == "")
