@@ -1,6 +1,6 @@
 {
  "date": "2026-11-15",
- "generated": "2026-11-15T00:21:16+01:00",
+ "generated": "2026-11-15T13:23:04+01:00",
  "active_day": true,
  "windows": [
   {
@@ -153,8 +153,8 @@
    "poll": false,
    "intl": false,
    "links": {
-    "inscritos": "https://inscripciones.runvasport.es/inscripcion/10a-carrera-de-las-empresas-el-norte-de-castilla/",
-    "resultados": "https://www.avaibooksports.com/inscripcion/10a-carrera-de-las-empresas-el-norte-de-castilla/clasificaciones/"
+    "resultados": "https://www.avaibooksports.com/inscripcion/10a-carrera-de-las-empresas-el-norte-de-castilla/clasificaciones/",
+    "inscritos": "https://www.avaibooksports.com/inscripcion/10a-carrera-de-las-empresas-el-norte-de-castilla/participantes/"
    }
   },
   {
@@ -170,8 +170,8 @@
    "poll": false,
    "intl": false,
    "links": {
-    "inscritos": "https://inscripciones.runvasport.es/inscripcion/carrera-y-marcha-del-nicalo-3/",
-    "resultados": "https://www.avaibooksports.com/inscripcion/carrera-y-marcha-del-nicalo-3/clasificaciones/"
+    "resultados": "https://www.avaibooksports.com/inscripcion/carrera-y-marcha-del-nicalo-3/clasificaciones/",
+    "inscritos": "https://www.avaibooksports.com/inscripcion/carrera-y-marcha-del-nicalo-3/participantes/"
    }
   }
  ]

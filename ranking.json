@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-14T12:47:09+01:00",
+ "generated": "2026-11-15T13:15:44+01:00",
  "season": "2026",
  "source": "https://atletismorfea.es/ranking",
  "seasons": {
@@ -5214,23 +5214,23 @@
       },
       {
        "mark": "7.78",
-       "wind": "2.0",
-       "name": "Anthony Yunier Perez Valdes",
-       "club": "Facsa - Playas de Castellón",
-       "born": "2008",
-       "fed": "CVA",
-       "city": "Sagunto",
-       "date": "20/06/2026",
-       "rank": "9"
-      },
-      {
-       "mark": "7.78",
        "wind": "1.7",
        "name": "Daniel Amez Villayandre",
        "club": "Univ Leon Sprint Atletismo",
        "born": "2000",
        "fed": "CYL",
        "city": "León-ULE",
+       "date": "20/06/2026",
+       "rank": "9"
+      },
+      {
+       "mark": "7.78",
+       "wind": "2.0",
+       "name": "Anthony Yunier Perez Valdes",
+       "club": "Facsa - Playas de Castellón",
+       "born": "2008",
+       "fed": "CVA",
+       "city": "Sagunto",
        "date": "20/06/2026",
        "rank": "="
       }
@@ -9634,22 +9634,22 @@
       {
        "mark": "14.90",
        "wind": "",
-       "name": "Raul Martin Galve",
-       "club": "At. Intec-Zoiti",
-       "born": "2004",
-       "fed": "ARA",
-       "city": "Zaragoza",
+       "name": "Unai Loureiro Arrojo",
+       "club": "Riazor Coruña",
+       "born": "2006",
+       "fed": "GAL",
+       "city": "Ourense",
        "date": "10/01/2026",
        "rank": "5"
       },
       {
        "mark": "14.90",
        "wind": "",
-       "name": "Unai Loureiro Arrojo",
-       "club": "Riazor Coruña",
-       "born": "2006",
-       "fed": "GAL",
-       "city": "Ourense",
+       "name": "Raul Martin Galve",
+       "club": "At. Intec-Zoiti",
+       "born": "2004",
+       "fed": "ARA",
+       "city": "Zaragoza",
        "date": "10/01/2026",
        "rank": "="
       },
@@ -11499,6 +11499,44 @@
      ]
     },
     {
+     "event": "35 km Marcha",
+     "rows": [
+      {
+       "mark": "2:45:35",
+       "wind": "",
+       "name": "Raquel González Campos",
+       "club": "INDEPENDIENTE",
+       "born": "1989",
+       "fed": "CAT",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "1"
+      },
+      {
+       "mark": "2:53:45",
+       "wind": "",
+       "name": "Lucia Redondo Ardid",
+       "club": "Univ Leon Sprint Atletismo",
+       "born": "2003",
+       "fed": "MAD",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "2"
+      },
+      {
+       "mark": "3:04:24",
+       "wind": "",
+       "name": "Laura Monje Martinez",
+       "club": "CA Granollers",
+       "born": "2002",
+       "fed": "CAT",
+       "city": "Birmingham - (GBR)",
+       "date": "15/08/2026",
+       "rank": "3"
+      }
+     ]
+    },
+    {
      "event": "Maratón Marcha",
      "rows": [
       {
@@ -11588,44 +11626,6 @@
        "city": "Cieza",
        "date": "15/02/2026",
        "rank": "8"
-      }
-     ]
-    },
-    {
-     "event": "35 km Marcha",
-     "rows": [
-      {
-       "mark": "2:45:35",
-       "wind": "",
-       "name": "Raquel González Campos",
-       "club": "INDEPENDIENTE",
-       "born": "1989",
-       "fed": "CAT",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "1"
-      },
-      {
-       "mark": "2:53:45",
-       "wind": "",
-       "name": "Lucia Redondo Ardid",
-       "club": "Univ Leon Sprint Atletismo",
-       "born": "2003",
-       "fed": "MAD",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "2"
-      },
-      {
-       "mark": "3:04:24",
-       "wind": "",
-       "name": "Laura Monje Martinez",
-       "club": "CA Granollers",
-       "born": "2002",
-       "fed": "CAT",
-       "city": "Birmingham - (GBR)",
-       "date": "15/08/2026",
-       "rank": "3"
       }
      ]
     }
@@ -11774,10 +11774,10 @@
       {
        "mark": "13:39",
        "wind": "",
-       "name": "Santiago Catrofe Cacharron",
+       "name": "Said Mechaal Mechaal",
        "club": "ADA Calvià - Vistasol",
-       "born": "1999",
-       "fed": "CAT",
+       "born": "1998",
+       "fed": "BAL",
        "city": "Praga - (CZE)",
        "date": "05/09/2026",
        "rank": "3"
@@ -11785,10 +11785,10 @@
       {
        "mark": "13:39",
        "wind": "",
-       "name": "Said Mechaal Mechaal",
+       "name": "Santiago Catrofe Cacharron",
        "club": "ADA Calvià - Vistasol",
-       "born": "1998",
-       "fed": "BAL",
+       "born": "1999",
+       "fed": "CAT",
        "city": "Praga - (CZE)",
        "date": "05/09/2026",
        "rank": "="
@@ -11807,10 +11807,10 @@
       {
        "mark": "13:54",
        "wind": "",
-       "name": "Jesus Ramos Reviejo",
-       "club": "C.A. Adidas",
-       "born": "1996",
-       "fed": "MAD",
+       "name": "Juan Antonio Perez Moreno",
+       "club": "INDEPENDIENTE",
+       "born": "1988",
+       "fed": "CLM",
        "city": "Valencia",
        "date": "11/01/2026",
        "rank": "6"
@@ -11818,10 +11818,10 @@
       {
        "mark": "13:54",
        "wind": "",
-       "name": "Juan Antonio Perez Moreno",
-       "club": "INDEPENDIENTE",
-       "born": "1988",
-       "fed": "CLM",
+       "name": "Jesus Ramos Reviejo",
+       "club": "C.A. Adidas",
+       "born": "1996",
+       "fed": "MAD",
        "city": "Valencia",
        "date": "11/01/2026",
        "rank": "="
@@ -13390,20 +13390,20 @@
       {
        "rank": "9",
        "mark": "11.35",
-       "wind": "1,9",
-       "name": "Esperança Cladera",
-       "born": "2002",
-       "city": "Granada",
-       "date": "03/06/2026"
-      },
-      {
-       "rank": "9",
-       "mark": "11.35",
        "wind": "0,7",
        "name": "Lucía Carrillo",
        "born": "2002",
        "city": "Tarragona",
        "date": "01/08/2025"
+      },
+      {
+       "rank": "9",
+       "mark": "11.35",
+       "wind": "1,5",
+       "name": "Paula Sevilla",
+       "born": "1997",
+       "city": "Getafe",
+       "date": "26/06/2021"
       }
      ]
     },
@@ -14391,15 +14391,6 @@
        "rank": "4",
        "mark": "1.90",
        "wind": "",
-       "name": "Saleta Fernández",
-       "born": "1997",
-       "city": "La Nucía",
-       "date": "31/08/2019"
-      },
-      {
-       "rank": "4",
-       "mark": "1.90",
-       "wind": "",
        "name": "Raquel Álvarez",
        "born": "1983",
        "city": "Madrid (i)",
@@ -14422,6 +14413,15 @@
        "born": "2006",
        "city": "Villafranca de los Barros",
        "date": "27/07/2025"
+      },
+      {
+       "rank": "4",
+       "mark": "1.90",
+       "wind": "",
+       "name": "Saleta Fernández",
+       "born": "1997",
+       "city": "La Nucía",
+       "date": "31/08/2019"
       },
       {
        "rank": "8",
@@ -15568,15 +15568,6 @@
       {
        "rank": "8",
        "mark": "20.59",
-       "wind": "0,0",
-       "name": "Venancio José",
-       "born": "1976",
-       "city": "Madrid",
-       "date": "05/09/1997"
-      },
-      {
-       "rank": "8",
-       "mark": "20.59",
        "wind": "1.4",
        "name": "Daniel Rodríguez",
        "born": "1995",
@@ -15591,6 +15582,15 @@
        "born": "1991",
        "city": "Barcelona",
        "date": "23/07/2017"
+      },
+      {
+       "rank": "8",
+       "mark": "20.59",
+       "wind": "0,0",
+       "name": "Venancio José",
+       "born": "1976",
+       "city": "Madrid",
+       "date": "05/09/1997"
       }
      ]
     },
@@ -16578,6 +16578,24 @@
        "rank": "4",
        "mark": "5.70",
        "wind": "",
+       "name": "Artur Coll",
+       "born": "2001",
+       "city": "Tarragona",
+       "date": "02/08/2025"
+      },
+      {
+       "rank": "4",
+       "mark": "5.70",
+       "wind": "",
+       "name": "Igor Bychkov",
+       "born": "1987",
+       "city": "Lieja (BEL)",
+       "date": "19/07/2017"
+      },
+      {
+       "rank": "4",
+       "mark": "5.70",
+       "wind": "",
        "name": "Adrián Vallés",
        "born": "1995",
        "city": "Landau (GER)",
@@ -16600,24 +16618,6 @@
        "born": "1973",
        "city": "Lisboa (POR)",
        "date": "18/06/1994"
-      },
-      {
-       "rank": "4",
-       "mark": "5.70",
-       "wind": "",
-       "name": "Artur Coll",
-       "born": "2001",
-       "city": "Tarragona",
-       "date": "02/08/2025"
-      },
-      {
-       "rank": "4",
-       "mark": "5.70",
-       "wind": "",
-       "name": "Igor Bychkov",
-       "born": "1987",
-       "city": "Lieja (BEL)",
-       "date": "19/07/2017"
       },
       {
        "rank": "9",
@@ -16821,11 +16821,11 @@
       {
        "rank": "10",
        "mark": "16.72",
-       "wind": "0.4",
-       "name": "Yago Lamela",
-       "born": "1977",
-       "city": "Castellón",
-       "date": "26/07/1998"
+       "wind": "0.9",
+       "name": "Vicente Docavo",
+       "born": "1992",
+       "city": "Huelva",
+       "date": "07/06/2012"
       }
      ]
     },
@@ -17869,12 +17869,12 @@
       },
       {
        "rank": "10",
-       "mark": "2:02.31",
+       "mark": "2:02.52",
        "wind": "",
-       "name": "Montserrat Pujol",
-       "born": "1961",
-       "city": "Liévin (FRA)",
-       "date": "22/02/2003"
+       "name": "Esther Desviat",
+       "born": "1982",
+       "city": "Sevilla",
+       "date": "07/02/2025"
       }
      ]
     },
@@ -18434,19 +18434,19 @@
        "rank": "9",
        "mark": "20.95",
        "wind": "",
-       "name": "Andoni Calbano",
-       "born": "2000",
-       "city": "Madrid",
-       "date": "22/02/2205"
+       "name": "David Canal",
+       "born": "1978",
+       "city": "Valencia",
+       "date": "29/01/2005"
       },
       {
        "rank": "9",
        "mark": "20.95",
        "wind": "",
-       "name": "David Canal",
-       "born": "1978",
-       "city": "Valencia",
-       "date": "29/01/2005"
+       "name": "Andoni Calbano",
+       "born": "2000",
+       "city": "Madrid",
+       "date": "22/02/2205"
       }
      ]
     },
@@ -19395,12 +19395,12 @@
       },
       {
        "rank": "10",
-       "mark": "1:09:30",
+       "mark": "1:09:51",
        "wind": "",
-       "name": "Carolina Robles",
-       "born": "1991",
+       "name": "Trihas Gebre",
+       "born": "1990",
        "city": "Olomouc (CZE)",
-       "date": "13/06/2026"
+       "date": "23/06/2018"
       }
      ]
     },
