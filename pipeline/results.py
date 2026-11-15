@@ -31,6 +31,7 @@ def summarize(res, is_intl):
     """Resumen para la lista: podio de las finales + españoles destacados."""
     wl = _wl_keys()
     podios, espanoles, destacados = [], [], []
+    vistos = set()  # el mismo atleta en la general y en «primeros españoles» de esa prueba: una sola vez
     for ev in res.get("events", []):
         rounds = ev.get("rounds") or [ev]
         for rnd in rounds:
@@ -41,6 +42,9 @@ def summarize(res, is_intl):
                 podios.append({"event": ev["name"], "round": name, "rows": rows[:3]})
             for r in rows:
                 if r.get("nat") == "ESP":
+                    if (ev["name"], norm(r.get("name", ""))) in vistos:
+                        continue
+                    vistos.add((ev["name"], norm(r.get("name", ""))))
                     espanoles.append({"event": ev["name"], "round": name, **r})
                 elif _match(r.get("name", ""), wl, international=is_intl):
                     destacados.append({"event": ev["name"], "round": name, **r})

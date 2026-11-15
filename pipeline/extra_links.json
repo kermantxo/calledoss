@@ -1045,5 +1045,25 @@
   "inscritos": "https://toptime.live/wp-content/glive-results/media-maraton-santa-cruz-de-tenerife-2026/MEDIA%20MARATON%20SANTA%20CRUZ%20DE%20TENERIFE.clax",
   "web": "https://media.maratondetenerife.com/",
   "resultados": "https://toptime.live/resultados/media-maraton-santa-cruz-de-tenerife-2026/"
+ },
+ "rfea-2026-11-15-xxxii-cross-internacional-de-soria": {
+  "_fuente_horario": "Programa oficial (tríptico 2026 de crossdesoria.com): sénior femenino 13:10 y sénior masculino 13:50, 8.000 m",
+  "resultados": "https://crossdesoria.com/",
+  "time": "13:10",
+  "time_end": "13:50",
+  "schedule": [
+   {
+    "d": "2026-11-15",
+    "t": "13:10",
+    "e": "Absoluta femenina",
+    "r": "Cross"
+   },
+   {
+    "d": "2026-11-15",
+    "t": "13:50",
+    "e": "Absoluta masculina",
+    "r": "Cross"
+   }
+  ]
  }
 }
