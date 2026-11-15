@@ -1065,7 +1065,7 @@
     "r": "Cross"
    }
   ],
-  "_fuente_a_mano": "Lo que va viendo Kerman en la retransmisión, 15/11/2026 (provisional, a falta de la clasificación oficial): gana Charity Cherop; primera española Idaira Prieto; 2ª Cynthia Chepkirui; españolas: Idaira Prieto, Carla Gallardo y Lidia Campo",
+  "_fuente_a_mano": "Lo que va viendo Kerman en la retransmisión, 15/11/2026 (provisional, a falta de la clasificación oficial): gana Charity Cherop; primera española Idaira Prieto; 2ª Cynthia Chepkirui; españolas: Idaira Prieto, Carla Gallardo y Lidia Campo; 3ª Mirriam Cherop (confirmado por Kerman)",
   "a_mano": [
    {
     "name": "Absoluta Mujeres",
@@ -1081,6 +1081,13 @@
      {
       "pos": "2",
       "name": "Cynthia Chepkirui",
+      "sex": "F",
+      "club": "",
+      "mark": ""
+     },
+     {
+      "pos": "3",
+      "name": "Mirriam Cherop",
       "sex": "F",
       "club": "",
       "mark": ""
