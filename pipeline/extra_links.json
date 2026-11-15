@@ -1065,7 +1065,7 @@
     "r": "Cross"
    }
   ],
-  "_fuente_a_mano": "Lo que va viendo Kerman en la retransmisión, 15/11/2026 (provisional, a falta de la clasificación oficial): gana Charity Cherop; primera española Idaira Prieto; 2ª Cynthia Chepkirui; españolas: Idaira Prieto, Carla Gallardo y Lidia Campo; 3ª Mirriam Cherop (confirmado por Kerman)",
+  "_fuente_a_mano": "Lo que va viendo Kerman en la retransmisión, 15/11/2026 (provisional, a falta de la clasificación oficial): gana Charity Cherop; primera española Idaira Prieto; 2ª Cynthia Chepkirui; españolas: Idaira Prieto, Carla Gallardo y Lidia Campo; 3ª Mirriam Cherop (confirmado por Kerman); masculina: Kipchumba, Kwizera y Ayebe (nombre de pila de Ayebe aún sin confirmar)",
   "a_mano": [
    {
     "name": "Absoluta Mujeres",
@@ -1116,6 +1116,46 @@
       "pos": "3",
       "name": "Lidia Campo",
       "sex": "F",
+      "club": "",
+      "mark": ""
+     }
+    ]
+   },
+   {
+    "name": "Absoluta Hombres",
+    "round": "Provisional (a falta de la clasificación oficial)",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Mathew Kipchumba Kipsang",
+      "sex": "M",
+      "club": "",
+      "mark": ""
+     },
+     {
+      "pos": "2",
+      "name": "Rodrigue Kwizera",
+      "sex": "M",
+      "club": "",
+      "mark": ""
+     },
+     {
+      "pos": "3",
+      "name": "Ayebe",
+      "sex": "M",
+      "club": "",
+      "mark": ""
+     }
+    ]
+   },
+   {
+    "name": "Primeros españoles (absoluta masculina)",
+    "round": "Provisional",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Rodrigue Kwizera",
+      "sex": "M",
       "club": "",
       "mark": ""
      }
