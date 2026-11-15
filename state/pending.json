@@ -26,7 +26,7 @@
  },
  "cronomancha-ev800": {
   "since": "2026-11-07",
-  "tries": 32,
+  "tries": 33,
   "last": "2026-11-15"
  },
  "avaibook-xviii-kedada-motera-acerela-manolete": {
@@ -66,32 +66,32 @@
  },
  "rfea-2026-11-15-media-maraton-ciudad-de-jaen-y-10k-en-memoria-de-paco-manzan": {
   "since": "2026-11-15",
-  "tries": 3,
+  "tries": 4,
   "last": "2026-11-15"
  },
  "rfea-2026-11-15-xii-media-maraton-de-tenerife": {
   "since": "2026-11-15",
-  "tries": 3,
+  "tries": 4,
   "last": "2026-11-15"
  },
  "rfea-2026-11-15-xli-edicion-cross-nacional-llodio": {
   "since": "2026-11-15",
-  "tries": 3,
+  "tries": 4,
   "last": "2026-11-15"
  },
  "rfea-2026-11-15-xlv-carreira-internacional-clasica-negreira": {
   "since": "2026-11-15",
-  "tries": 3,
+  "tries": 4,
   "last": "2026-11-15"
  },
  "rfea-2026-11-15-xxvii-medio-maraton-nacional-orihuela-monumental": {
   "since": "2026-11-15",
-  "tries": 3,
+  "tries": 4,
   "last": "2026-11-15"
  },
  "rfea-2026-11-15-xxxii-cross-internacional-de-soria": {
   "since": "2026-11-15",
-  "tries": 3,
+  "tries": 4,
   "last": "2026-11-15"
  }
 }
