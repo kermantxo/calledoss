@@ -1064,6 +1064,22 @@
     "e": "Absoluta masculina",
     "r": "Cross"
    }
+  ],
+  "_fuente_a_mano": "Ganadora de la absoluta femenina comunicada por Kerman el 15/11/2026 a las 13:45 (provisional, a falta de la clasificación oficial)",
+  "a_mano": [
+   {
+    "name": "Absoluta Mujeres",
+    "round": "Provisional (a falta de la clasificación oficial)",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Charity Cherop",
+      "sex": "F",
+      "club": "",
+      "mark": ""
+     }
+    ]
+   }
   ]
  }
 }
