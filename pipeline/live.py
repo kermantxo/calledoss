@@ -242,7 +242,8 @@ def _with_schedule(it, at, data):
     sexo = {"fem": "F", "femenino": "F", "femenina": "F", "mujeres": "F", "f": "F", "federadas": "F",
             "masc": "M", "masculino": "M", "masculina": "M", "hombres": "M", "m": "M", "federados": "M"}
     alias = {"vet": "master", "veteranos": "master", "veteranas": "master", "paralimpicos": "paralimpico"}
-    vacias = {"y", "de", "la", "el", "general", "clasificacion"}
+    # «Primeras españolas (absoluta femenina)»: el podio español va dentro de su carrera
+    vacias = {"y", "de", "la", "el", "general", "clasificacion", "primeras", "primeros", "espanolas", "espanoles"}
 
     def toks(s):
         ws = [alias.get(w, w) for w in re.findall(r"[a-z]+|\d+", norm(s)) if w not in vacias]
