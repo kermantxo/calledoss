@@ -1,6 +1,6 @@
 {
  "date": "2026-11-15",
- "generated": "2026-11-15T13:23:04+01:00",
+ "generated": "2026-11-15T18:24:16+01:00",
  "active_day": true,
  "windows": [
   {
@@ -122,25 +122,6 @@
    }
   },
   {
-   "id": "rfea-2026-11-15-xxxii-cross-internacional-de-soria",
-   "name": "XXXII Cross Internacional de Soria",
-   "place": "Soria",
-   "source": "RFEA",
-   "start": "2026-11-15T09:00:00+01:00",
-   "end": "2026-11-15T16:00:00+01:00",
-   "first": "10:00",
-   "last": null,
-   "schedule_known": true,
-   "poll": false,
-   "intl": false,
-   "links": {
-    "info": "https://atletismorfea.es/calendario/campeonato/xxxii-cross-internacional-de-soria",
-    "web": "https://www.crossdesoria.com",
-    "inscritos": "https://www.avaibooksports.com/inscripcion/xxxiicampo-a-traves-internacional-de-soria-copia/participantes/",
-    "adoc": "https://www.adocasociacion.es/Organizacion/4/Soria"
-   }
-  },
-  {
    "id": "avaibook-10a-carrera-de-las-empresas-el-norte-de-castilla",
    "name": "10ª Carrera de las Empresas El Norte de Castilla",
    "place": "",
@@ -172,6 +153,26 @@
    "links": {
     "resultados": "https://www.avaibooksports.com/inscripcion/carrera-y-marcha-del-nicalo-3/clasificaciones/",
     "inscritos": "https://www.avaibooksports.com/inscripcion/carrera-y-marcha-del-nicalo-3/participantes/"
+   }
+  },
+  {
+   "id": "rfea-2026-11-15-xxxii-cross-internacional-de-soria",
+   "name": "XXXII Cross Internacional de Soria",
+   "place": "Soria",
+   "source": "RFEA",
+   "start": "2026-11-15T12:10:00+01:00",
+   "end": "2026-11-15T15:50:00+01:00",
+   "first": "13:10",
+   "last": "13:50",
+   "schedule_known": true,
+   "poll": false,
+   "intl": false,
+   "links": {
+    "info": "https://atletismorfea.es/calendario/campeonato/xxxii-cross-internacional-de-soria",
+    "web": "https://www.crossdesoria.com",
+    "inscritos": "https://www.avaibooksports.com/inscripcion/xxxiicampo-a-traves-internacional-de-soria-copia/participantes/",
+    "adoc": "https://www.adocasociacion.es/Organizacion/4/Soria",
+    "resultados": "https://crossdesoria.com/"
    }
   }
  ]
