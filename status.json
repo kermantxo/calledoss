@@ -50,11 +50,11 @@
   },
   "rfealive": {
    "label": "RFEA Live · horarios",
-   "last_run": "2026-11-17T14:32:54+01:00",
+   "last_run": "2026-11-17T20:21:04+01:00",
    "ok": true,
-   "last_ok": "2026-11-17T14:33:36+01:00",
+   "last_ok": "2026-11-17T20:21:51+01:00",
    "fails_in_a_row": 0,
-   "last_count": 0
+   "last_count": 76
   },
   "destacados": {
    "label": "Atletas destacados (listas de salida)",
@@ -102,9 +102,9 @@
   },
   "previas": {
    "label": "Previas (listas de inscritos)",
-   "last_run": "2026-11-17T14:35:39+01:00",
+   "last_run": "2026-11-17T20:21:51+01:00",
    "ok": true,
-   "last_ok": "2026-11-17T14:48:05+01:00",
+   "last_ok": "2026-11-17T20:53:30+01:00",
    "fails_in_a_row": 0,
    "last_count": 17
   },
@@ -627,5 +627,5 @@
    "msg": "Programa de Sparkassen Cross Pforzheim no disponible: HTTP 500 en https://worldathletics.org/competition/calendar-"
   }
  ],
- "updated": "2026-11-17T19:17:43+01:00"
+ "updated": "2026-11-17T20:53:30+01:00"
 }
