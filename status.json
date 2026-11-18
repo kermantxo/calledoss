@@ -52,11 +52,11 @@
   },
   "rfealive": {
    "label": "RFEA Live · horarios",
-   "last_run": "2026-11-18T14:11:10+01:00",
+   "last_run": "2026-11-18T20:01:17+01:00",
    "ok": true,
-   "last_ok": "2026-11-18T14:12:00+01:00",
+   "last_ok": "2026-11-18T20:02:02+01:00",
    "fails_in_a_row": 0,
-   "last_count": 0
+   "last_count": 79
   },
   "destacados": {
    "label": "Atletas destacados (listas de salida)",
@@ -104,9 +104,9 @@
   },
   "previas": {
    "label": "Previas (listas de inscritos)",
-   "last_run": "2026-11-18T14:14:48+01:00",
+   "last_run": "2026-11-18T20:02:02+01:00",
    "ok": true,
-   "last_ok": "2026-11-18T14:40:43+01:00",
+   "last_ok": "2026-11-18T20:29:04+01:00",
    "fails_in_a_row": 0,
    "last_count": 17
   },
@@ -636,5 +636,5 @@
    "msg": "Índice de https://rfealive.me no disponible: HTTP 500 en https://rfealive.me/"
   }
  ],
- "updated": "2026-11-18T18:53:26+01:00"
+ "updated": "2026-11-18T20:29:04+01:00"
 }
