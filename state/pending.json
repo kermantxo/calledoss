@@ -26,8 +26,8 @@
  },
  "cronomancha-ev800": {
   "since": "2026-11-07",
-  "tries": 39,
-  "last": "2026-11-17"
+  "tries": 40,
+  "last": "2026-11-18"
  },
  "avaibook-xviii-kedada-motera-acerela-manolete": {
   "since": "2026-11-07",
@@ -36,23 +36,23 @@
  },
  "manual-2026-11-08-behobia-san-sebastian": {
   "since": "2026-11-08",
-  "tries": 23,
-  "last": "2026-11-17"
+  "tries": 24,
+  "last": "2026-11-18"
  },
  "avaibook-paisajes-por-la-provincia-valverde-de-campos": {
   "since": "2026-11-08",
-  "tries": 19,
-  "last": "2026-11-17"
+  "tries": 20,
+  "last": "2026-11-18"
  },
  "avaibook-viii-cross-popular-de-sariegos": {
   "since": "2026-11-08",
-  "tries": 19,
-  "last": "2026-11-17"
+  "tries": 20,
+  "last": "2026-11-18"
  },
  "rfea-2026-11-08-xii-media-maraton-avila-monumental-y-iv-carrera-agora-broker": {
   "since": "2026-11-08",
-  "tries": 23,
-  "last": "2026-11-17"
+  "tries": 24,
+  "last": "2026-11-18"
  },
  "avaibook-3-x-7k-palencia-1": {
   "since": "2026-11-14",
@@ -61,27 +61,27 @@
  },
  "rfea-2026-11-15-media-maraton-ciudad-de-jaen-y-10k-en-memoria-de-paco-manzan": {
   "since": "2026-11-15",
-  "tries": 9,
-  "last": "2026-11-17"
+  "tries": 10,
+  "last": "2026-11-18"
  },
  "rfea-2026-11-15-xii-media-maraton-de-tenerife": {
   "since": "2026-11-15",
-  "tries": 9,
-  "last": "2026-11-17"
+  "tries": 10,
+  "last": "2026-11-18"
  },
  "rfea-2026-11-15-xlv-carreira-internacional-clasica-negreira": {
   "since": "2026-11-15",
-  "tries": 9,
-  "last": "2026-11-17"
+  "tries": 10,
+  "last": "2026-11-18"
  },
  "rfea-2026-11-15-xxvii-medio-maraton-nacional-orihuela-monumental": {
   "since": "2026-11-15",
-  "tries": 9,
-  "last": "2026-11-17"
+  "tries": 10,
+  "last": "2026-11-18"
  },
  "rfea-2026-11-15-xxxii-cross-internacional-de-soria": {
   "since": "2026-11-15",
-  "tries": 9,
-  "last": "2026-11-17"
+  "tries": 10,
+  "last": "2026-11-18"
  }
 }
