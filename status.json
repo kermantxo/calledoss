@@ -68,21 +68,21 @@
   },
   "results": {
    "label": "Resultados (todas las fuentes)",
-   "last_run": "2026-11-18T18:52:21+01:00",
+   "last_run": "2026-11-19T00:59:46+01:00",
    "ok": true,
-   "last_ok": "2026-11-18T18:53:25+01:00",
+   "last_ok": "2026-11-19T01:02:19+01:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
   "rfea_results": {
    "label": "RFEA · índice de resultados (PDF)",
-   "last_run": "2026-11-18T18:52:21+01:00",
+   "last_run": "2026-11-19T00:59:46+01:00",
    "ok": false,
    "last_ok": "2026-11-17T14:33:48+01:00",
-   "fails_in_a_row": 4,
+   "fails_in_a_row": 5,
    "last_count": 0,
    "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/atletismo-plus/categoria/resultados",
-   "last_error_at": "2026-11-18T18:52:30+01:00"
+   "last_error_at": "2026-11-19T00:59:55+01:00"
   },
   "backfill": {
    "label": "Carga histórica de resultados 2026",
@@ -138,9 +138,9 @@
   },
   "podcast": {
    "label": "Pódcast (último programa en Spotify)",
-   "last_run": "2026-11-18T18:53:25+01:00",
+   "last_run": "2026-11-19T01:02:19+01:00",
    "ok": true,
-   "last_ok": "2026-11-18T18:53:26+01:00",
+   "last_ok": "2026-11-19T01:02:20+01:00",
    "fails_in_a_row": 0,
    "last_count": 1,
    "last_error": "KeyError: 'state'",
@@ -148,6 +148,37 @@
   }
  },
  "log": [
+  {
+   "at": "2026-11-19T01:02:07+01:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Búsqueda de podios de 'XXXII Cross Internacional de Soria': expected string or bytes-like object, got 'list'"
+  },
+  {
+   "at": "2026-11-19T01:00:38+01:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Búsqueda de podios de 'VIII Cross Popular de Sariegos': expected string or bytes-like object, got 'list'"
+  },
+  {
+   "at": "2026-11-19T01:00:38+01:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Búsqueda de podios de 'Paisajes por la Provincia - Valverde de Campos': expected string or bytes-like object, got 'list'"
+  },
+  {
+   "at": "2026-11-19T01:00:38+01:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Búsqueda de podios de '61ª Behobia-San Sebastián': expected string or bytes-like object, got 'list'"
+  },
+  {
+   "at": "2026-11-19T00:59:55+01:00",
+   "level": "error",
+   "source": "rfea_results",
+   "msg": "HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/atletismo-plus/categoria/resultados",
+   "detail": "Traceback (most recent call last):\n  File \"/home/runner/work/calledoss/calledoss/pipeline/common.py\", line 212, in run\n    result = fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/results.py\", line 225, in rfea_pdf_index\n    for link in rfea.results_index(http):\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/sources/rfea.py\", line 239, in results_index\n    soup = BeautifulSoup(http.get(url).text, \"lxml\")\n                         ^^^^^^^^^^^^^\nrequests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/atletismo-plus/categoria/resultados\n"
+  },
   {
    "at": "2026-11-18T18:52:30+01:00",
    "level": "error",
@@ -604,37 +635,7 @@
    "level": "warning",
    "source": "results",
    "msg": "Búsqueda de podios de 'Paisajes por la Provincia - Valverde de Campos': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-11-12T00:22:20+01:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de '61ª Behobia-San Sebastián': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-11-11T12:59:06+01:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de 'VIII Cross Popular de Sariegos': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-11-11T12:59:06+01:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de 'Paisajes por la Provincia - Valverde de Campos': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-11-11T12:59:06+01:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de '61ª Behobia-San Sebastián': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-11-11T12:57:22+01:00",
-   "level": "warning",
-   "source": "rfealive",
-   "msg": "Índice de https://rfealive.me no disponible: HTTP 500 en https://rfealive.me/"
   }
  ],
- "updated": "2026-11-18T20:29:04+01:00"
+ "updated": "2026-11-19T01:02:20+01:00"
 }
