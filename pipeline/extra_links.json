@@ -1176,5 +1176,80 @@
     ]
    }
   ]
+ },
+ "rfea-2026-11-21-xxii-cross-internacional-de-atapuerca": {
+  "_fuente_horario": "Circular RFEA 204/2026 (13/11/2026): el Cto. de España de Campo a Través por Clubes se corre el domingo 22 dentro del Cross Internacional de Atapuerca («en todas las categorías se compartirá prueba»). Kerman pidió el 20/11/2026 dejar una sola ficha (la de Atapuerca).",
+  "date": "2026-11-22",
+  "horario": "https://atletismorfea.es/sites/default/files/2026-11/204-2026%20Campeonato%20de%20Espa%C3%B1a%20de%20Campo%20a%20Trav%C3%A9s%20por%20clubes%20-%20Informaci%C3%B3n%20t%C3%A9cnica%20y%20equipos%20clasificados_0.pdf",
+  "time": "09:00",
+  "time_end": "14:00",
+  "schedule": [
+   {
+    "d": "2026-11-22",
+    "t": "09:00",
+    "e": "Sub-16 femenina",
+    "r": "Cross"
+   },
+   {
+    "d": "2026-11-22",
+    "t": "09:20",
+    "e": "Sub-16 masculina",
+    "r": "Cross"
+   },
+   {
+    "d": "2026-11-22",
+    "t": "09:40",
+    "e": "Sub-18 femenina",
+    "r": "Cross"
+   },
+   {
+    "d": "2026-11-22",
+    "t": "10:10",
+    "e": "Sub-18 masculina",
+    "r": "Cross"
+   },
+   {
+    "d": "2026-11-22",
+    "t": "10:35",
+    "e": "Sub-20 femenina",
+    "r": "Cross"
+   },
+   {
+    "d": "2026-11-22",
+    "t": "11:05",
+    "e": "Sub-20 masculina",
+    "r": "Cross"
+   },
+   {
+    "d": "2026-11-22",
+    "t": "11:35",
+    "e": "Sub-23 femenina",
+    "r": "Cross"
+   },
+   {
+    "d": "2026-11-22",
+    "t": "12:10",
+    "e": "Sub-23 masculina",
+    "r": "Cross"
+   },
+   {
+    "d": "2026-11-22",
+    "t": "12:45",
+    "e": "Absoluta femenina",
+    "r": "Cross"
+   },
+   {
+    "d": "2026-11-22",
+    "t": "13:20",
+    "e": "Absoluta masculina",
+    "r": "Cross"
+   },
+   {
+    "d": "2026-11-22",
+    "t": "14:00",
+    "e": "Relevo mixto",
+    "r": "Cross"
+   }
+  ]
  }
 }

@@ -400,7 +400,7 @@ def add_extra_links(items):
         for k, v in (extra.get(it["id"]) or {}).items():
             if k.startswith("_") or k == "a_mano":  # a_mano: podios a mano para el directo (los lee live.py)
                 continue
-            if k in ("schedule", "time", "time_end"):  # horario oficial copiado a mano
+            if k in ("schedule", "time", "time_end", "date", "end_date"):  # horario / fecha oficial copiados a mano
                 it[k] = v
             elif k == "live":  # fuentes de directo / resultados añadidas a mano (cronometradores)
                 for lv in v:
@@ -478,4 +478,5 @@ def save(items):
     fuera, nombres = quitadas(), quitadas_nombres()
     items[:] = [x for x in items if x["id"] not in fuera
                 and not any(n in norm(x.get("name", "")) for n in nombres)]  # en el sitio: el resto de la tarea tampoco las ve
+    items.sort(key=lambda x: (x["date"], x["name"]))  # por si una fecha se cambió a mano (extra_links.json)
     save_json("calendar.json", {"generated": iso_now(), "count": len(items), "items": items}, compact=True)
