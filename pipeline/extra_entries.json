@@ -4055,5 +4055,54 @@
     "bib": 6
    }
   ]
+ },
+ "rfea-2026-11-21-xxii-cross-internacional-de-atapuerca": {
+  "_fuente": "Publicación de la organización del Cross de Atapuerca (redes sociales, «Las estrellas del atletismo llegan a Atapuerca»); la pasó Kerman el 20/11/2026. Sustituye a los destacados sacados de la lista de inscritos.",
+  "fuente": "https://www.crossatapuerca.com",
+  "solo_anunciados": true,
+  "atletas": [
+   {
+    "name": "Berihu Aregawi",
+    "sex": "M",
+    "nat": "ETH",
+    "event": "Cross élite",
+    "note": "Anunciado por la organización: plata olímpica en 10.000 m y subcampeón mundial de cross"
+   },
+   {
+    "name": "Mariano García",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Anunciado por la organización: campeón del mundo de 1.500 m en pista cubierta 2026"
+   },
+   {
+    "name": "Nassim Hassaous",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Anunciado por la organización: campeón de España de campo a través 2026"
+   },
+   {
+    "name": "Carla Gallardo",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Anunciado por la organización: récord de España de medio maratón (1:08:30)"
+   },
+   {
+    "name": "María Forero",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Cross élite",
+    "note": "Anunciado por la organización: campeona de Europa sub-23 de cross y de 5.000 m"
+   },
+   {
+    "name": "Francine Niyomukunzi",
+    "sex": "F",
+    "nat": "BDI",
+    "event": "Cross élite",
+    "note": "Anunciado por la organización: récord de Burundi de 10 km y 2.ª en el Cross de Pforzheim"
+   }
+  ]
  }
 }
