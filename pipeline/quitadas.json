@@ -4,5 +4,13 @@
  "wa-7147638": "Youth Olympic Games (Dakar), la misma competición desde World Athletics: quitados por Kerman el 31/10/2026",
  "rfea-2027-11-07-xlv-cross-internacional-de-italica": "Cross de Itálica 2027 (XLV): salía repetido junto al de 2026; quitado por Kerman el 03/11/2026",
  "avaibook-viding-hyrox-valladolid": "Viding Hyrox Valladolid (7/11/2026): no es atletismo; quitado por Kerman el 03/11/2026",
- "cronomancha-ev800": "Homenaje Jose Manuel y Fernando - Entrenamiento solidario (Cronomancha, 21/11/2026): quitado por Kerman el 20/11/2026"
+ "cronomancha-ev800": "Homenaje Jose Manuel y Fernando - Entrenamiento solidario (Cronomancha, 21/11/2026): quitado por Kerman el 20/11/2026",
+ "avaibook-paisajes-por-la-provincia-valverde-de-campos": "Paisajes por la Provincia (AvaiBook/Runvasport): quitado por Kerman el 20/11/2026",
+ "avaibook-paisajes-por-la-provincia-pinel-de-abajo": "Paisajes por la Provincia (AvaiBook/Runvasport): quitado por Kerman el 20/11/2026",
+ "avaibook-paisajes-por-la-provincia-montealegre-de-campos": "Paisajes por la Provincia (AvaiBook/Runvasport): quitado por Kerman el 20/11/2026",
+ "avaibook-paisajes-por-la-provincia-gallegos-de-hornija": "Paisajes por la Provincia (AvaiBook/Runvasport): quitado por Kerman el 20/11/2026",
+ "_nombres": [
+  "paisajes por la provincia"
+ ],
+ "_nota_nombres": "«_nombres»: cualquier competición cuyo nombre contenga uno de estos textos (sin mayúsculas ni tildes) se quita también, aunque salga un pueblo o una edición nueva."
 }

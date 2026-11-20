@@ -466,7 +466,16 @@ def quitadas():
         return {k for k in json.load(f) if not k.startswith("_")}
 
 
+def quitadas_nombres():
+    """Textos de nombre quitados a mano (pipeline/quitadas.json, «_nombres»): sirven para series con muchas
+    ediciones o pueblos (p. ej. «Paisajes por la Provincia»)."""
+    import os
+    with open(os.path.join(os.path.dirname(__file__), "quitadas.json"), encoding="utf-8") as f:
+        return [norm(n) for n in json.load(f).get("_nombres", [])]
+
+
 def save(items):
-    fuera = quitadas()
-    items[:] = [x for x in items if x["id"] not in fuera]  # en el sitio: el resto de la tarea tampoco las ve
+    fuera, nombres = quitadas(), quitadas_nombres()
+    items[:] = [x for x in items if x["id"] not in fuera
+                and not any(n in norm(x.get("name", "")) for n in nombres)]  # en el sitio: el resto de la tarea tampoco las ve
     save_json("calendar.json", {"generated": iso_now(), "count": len(items), "items": items}, compact=True)
