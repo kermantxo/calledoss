@@ -4104,5 +4104,61 @@
     "note": "Anunciado por la organización: récord de Burundi de 10 km y 2.ª en el Cross de Pforzheim"
    }
   ]
+ },
+ "rfea-2026-11-22-zara-athleticz-speed-run-1": {
+  "_fuente": "Texto con los nombres anunciados de la 3.ª edición; lo pasó Kerman el 20/11/2026 como confirmados.",
+  "fuente": "https://speedrun.es",
+  "solo_anunciados": true,
+  "atletas": [
+   {
+    "name": "Eduardo Menacho",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Élite",
+    "note": "Anunciado: campeón de España de 10.000 m"
+   },
+   {
+    "name": "Adrián Ben",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Élite",
+    "note": "Anunciado: campeón de Europa de 800 m en pista cubierta"
+   },
+   {
+    "name": "Jesús Ramos",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Élite",
+    "note": "Anunciado: triple campeón de España de 10K y 3.º en la primera edición (2024)"
+   },
+   {
+    "name": "Gonzalo Parra",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Élite",
+    "note": "Anunciado: campeón iberoamericano de 3000 m obstáculos y ganador este año de la KLM Norte vs Sur"
+   },
+   {
+    "name": "Marcelo Fabián Manrique",
+    "sex": "M",
+    "nat": "ARG",
+    "event": "Élite",
+    "note": "Anunciado: campeón de Argentina de 5000 y 10.000 m"
+   },
+   {
+    "name": "Lidia Campo",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Élite",
+    "note": "Anunciado: campeona de España de 10K"
+   },
+   {
+    "name": "Katherine Tisalema",
+    "sex": "F",
+    "nat": "ECU",
+    "event": "Élite",
+    "note": "Anunciado: plusmarquista ecuatoriana de 10K y reciente ganadora de la Behobia-San Sebastián"
+   }
+  ]
  }
 }

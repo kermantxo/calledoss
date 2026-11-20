@@ -53,6 +53,7 @@
 - `worker/` - el pequeño servidor de Cloudflare que protege el panel con clave y lanza el modo directo a tiempo
 
 ## Recent Changes
+- 2026-11-20: Previa de la Zara Athleticz Speed Run (Madrid, 22/11): atletas anunciados, confirmados por Kerman: Eduardo Menacho, Adrián Ben, Jesús Ramos, Gonzalo Parra y Marcelo Fabián Manrique (ARG); Lidia Campo y Katherine Tisalema (ECU).
 - 2026-11-20: Quitadas, a petición de Kerman, todas las «Paisajes por la Provincia» (Valverde de Campos 8/11 con sus resultados, Piñel de Abajo 22/11, Montealegre de Campos 28/11 y Gallegos de Hornija 6/12). Nuevo en pipeline/quitadas.json: «_nombres», una lista de textos; cualquier competición cuyo nombre los contenga se quita también, aunque aparezca un pueblo nuevo de la serie.
 - 2026-11-20: Previa del Cross de Atapuerca (21/11): fuera los destacados sacados de la lista de inscritos (3.000 corredores, mezclados con populares); ahora solo los seis que anuncia la organización: Berihu Aregawi, Mariano García y Nassim Hassaous; Carla Gallardo, María Forero y Francine Niyomukunzi (pipeline/extra_entries.json, «solo_anunciados»).
 - 2026-11-20: Quitado del calendario, a petición de Kerman, el «Homenaje Jose Manuel y Fernando - Entrenamiento solidario» (Cronomancha, 21/11/2026). Está en pipeline/quitadas.json, así que no vuelve aunque Cronomancha lo siga publicando.
