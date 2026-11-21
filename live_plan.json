@@ -1,8 +1,25 @@
 {
  "date": "2026-11-21",
- "generated": "2026-11-21T01:57:16+01:00",
- "active_day": false,
+ "generated": "2026-11-21T14:16:31+01:00",
+ "active_day": true,
  "windows": [
+  {
+   "id": "rfea-2026-11-21-vi-reunion-nacional-de-marcha-atletica-villa-de-valverde-isl",
+   "name": "VI Reunión Nacional de Marcha atletica Villa de Valverde - isla de El Hierro",
+   "place": "El Hierro",
+   "source": "RFEA",
+   "start": "2026-11-21T10:00:00+01:00",
+   "end": "2026-11-21T14:00:00+01:00",
+   "first": "11:00",
+   "last": "12:00",
+   "schedule_known": true,
+   "poll": true,
+   "intl": false,
+   "links": {
+    "info": "https://atletismorfea.es/calendario/campeonato/vi-reunion-nacional-de-marcha-atletica-villa-de-valverde-isla-de-el-hierro",
+    "directo": "https://rfealive.me/Results/Schedule?chid=2026CNR70709"
+   }
+  },
   {
    "id": "rfea-2026-11-21-benidorm-half-2",
    "name": "Benidorm Half",
@@ -18,22 +35,6 @@
    "links": {
     "info": "https://atletismorfea.es/calendario/campeonato/benidorm-half-2",
     "web": "https://www.benidormhalf.com"
-   }
-  },
-  {
-   "id": "rfea-2026-11-21-vi-reunion-nacional-de-marcha-atletica-villa-de-valverde-isl",
-   "name": "VI Reunión Nacional de Marcha atletica Villa de Valverde - isla de El Hierro",
-   "place": "El Hierro",
-   "source": "RFEA",
-   "start": "2026-11-21T07:00:00+01:00",
-   "end": "2026-11-21T23:00:00+01:00",
-   "first": null,
-   "last": null,
-   "schedule_known": false,
-   "poll": false,
-   "intl": false,
-   "links": {
-    "info": "https://atletismorfea.es/calendario/campeonato/vi-reunion-nacional-de-marcha-atletica-villa-de-valverde-isla-de-el-hierro"
    }
   },
   {
