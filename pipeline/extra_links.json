@@ -1255,7 +1255,7 @@
   "_fuente_a_mano": "Clasificaciones oficiales (PDF) de la organización: crossatapuerca.com/nw/historial-e-imagenes/xxii-cross-2026/ (22/11/2026)",
   "a_mano": [
    {
-    "name": "Sub-16 femenina",
+    "name": "General (Sub-16 femenina)",
     "round": "Oficial",
     "rows": [
      {
@@ -1282,7 +1282,7 @@
     ]
    },
    {
-    "name": "Sub-16 masculina",
+    "name": "General (Sub-16 masculina)",
     "round": "Oficial",
     "rows": [
      {
@@ -1309,7 +1309,7 @@
     ]
    },
    {
-    "name": "Sub-18 femenina",
+    "name": "General (Sub-18 femenina)",
     "round": "Oficial",
     "rows": [
      {
@@ -1336,7 +1336,7 @@
     ]
    },
    {
-    "name": "Sub-18 masculina",
+    "name": "General (Sub-18 masculina)",
     "round": "Oficial",
     "rows": [
      {
@@ -1363,7 +1363,7 @@
     ]
    },
    {
-    "name": "Sub-20 femenina",
+    "name": "General (Sub-20 femenina)",
     "round": "Oficial",
     "rows": [
      {
@@ -1390,7 +1390,34 @@
     ]
    },
    {
-    "name": "Sub-20 masculina",
+    "name": "Campeonato de España (sub-20 femenina)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Rocío García Ventura",
+      "sex": "F",
+      "club": "Ardillas-Escorial",
+      "mark": "17:37"
+     },
+     {
+      "pos": "2",
+      "name": "Laia Cariñanos Estalella",
+      "sex": "F",
+      "club": "Bidezabal Durango AT",
+      "mark": "17:55"
+     },
+     {
+      "pos": "3",
+      "name": "Patricia Delgado González",
+      "sex": "F",
+      "club": "Ardillas-Escorial",
+      "mark": "17:58"
+     }
+    ]
+   },
+   {
+    "name": "General (Sub-20 masculina)",
     "round": "Oficial",
     "rows": [
      {
@@ -1417,7 +1444,34 @@
     ]
    },
    {
-    "name": "Sub-23 femenina",
+    "name": "Campeonato de España (sub-20 masculina)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Alejandro Ibáñez Jaramillo",
+      "sex": "M",
+      "club": "A.A. Moratalaz",
+      "mark": "14:54"
+     },
+     {
+      "pos": "2",
+      "name": "Álvaro González Fernández",
+      "sex": "M",
+      "club": "Atlético Salamanca",
+      "mark": "14:57"
+     },
+     {
+      "pos": "3",
+      "name": "Adrià Boyano Requena",
+      "sex": "M",
+      "club": "CA Granollers",
+      "mark": "15:01"
+     }
+    ]
+   },
+   {
+    "name": "General (Sub-23 femenina)",
     "round": "Oficial",
     "rows": [
      {
@@ -1440,6 +1494,33 @@
       "sex": "F",
       "club": "CAPEX",
       "mark": "22:43"
+     }
+    ]
+   },
+   {
+    "name": "Campeonato de España (sub-23 femenina)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Mariam Benkert Elalaoui",
+      "sex": "F",
+      "club": "Universidad Oviedo",
+      "mark": "23:39"
+     },
+     {
+      "pos": "2",
+      "name": "Leyre Campo de Quevedo",
+      "sex": "F",
+      "club": "Universidad de Burgos",
+      "mark": "23:51"
+     },
+     {
+      "pos": "3",
+      "name": "Greta Guerrero Sahm",
+      "sex": "F",
+      "club": "Alcampo Scorpio 71",
+      "mark": "23:53"
      }
     ]
    }
