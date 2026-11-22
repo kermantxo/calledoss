@@ -1523,6 +1523,60 @@
       "mark": "23:53"
      }
     ]
+   },
+   {
+    "name": "General (Sub-23 masculina)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Wegene Adisu Chala",
+      "sex": "M",
+      "club": "C.A. Unión Guadalajara",
+      "mark": "19:13"
+     },
+     {
+      "pos": "2",
+      "name": "Manex Cívico Urretabizkaia",
+      "sex": "M",
+      "club": "Tolosa C.F.",
+      "mark": "19:15"
+     },
+     {
+      "pos": "3",
+      "name": "Óscar Gaitán Mordillo",
+      "sex": "M",
+      "club": "Independiente",
+      "mark": "19:16"
+     }
+    ]
+   },
+   {
+    "name": "Campeonato de España (sub-23 masculina)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Wegene Adisu Chala",
+      "sex": "M",
+      "club": "C.A. Unión Guadalajara",
+      "mark": "19:13"
+     },
+     {
+      "pos": "2",
+      "name": "Mesfin Escamilla Saiz",
+      "sex": "M",
+      "club": "C.A. Unión Guadalajara",
+      "mark": "19:19"
+     },
+     {
+      "pos": "3",
+      "name": "José Daniel Jiménez del Fresno",
+      "sex": "M",
+      "club": "Valdepeñas AC - Sistemas Valcom",
+      "mark": "19:24"
+     }
+    ]
    }
   ]
  },
