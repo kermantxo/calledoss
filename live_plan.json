@@ -1,23 +1,26 @@
 {
  "date": "2026-11-22",
- "generated": "2026-11-22T00:56:09+01:00",
- "active_day": false,
+ "generated": "2026-11-22T14:13:21+01:00",
+ "active_day": true,
  "windows": [
   {
-   "id": "rfea-2026-11-22-campeonato-de-gipuzkoa-de-maraton-47o-zurich-maraton-de-san-",
-   "name": "Campeonato de Gipuzkoa de Maraton 47º Zurich Maratón de San Sebastián",
-   "place": "San Sebastian",
+   "id": "rfea-2026-11-21-xxii-cross-internacional-de-atapuerca",
+   "name": "XXII Cross Internacional de Atapuerca",
+   "place": "Burgos",
    "source": "RFEA",
-   "start": "2026-11-22T07:00:00+01:00",
-   "end": "2026-11-22T23:00:00+01:00",
-   "first": null,
-   "last": null,
-   "schedule_known": false,
-   "poll": false,
+   "start": "2026-11-22T08:00:00+01:00",
+   "end": "2026-11-22T16:00:00+01:00",
+   "first": "09:00",
+   "last": "14:00",
+   "schedule_known": true,
+   "poll": true,
    "intl": false,
    "links": {
-    "info": "https://atletismorfea.es/calendario/campeonato/campeonato-de-gipuzkoa-de-maraton-47o-zurich-maraton-de-san-sebastian",
-    "web": "https://zurichmaratonsansebastian.com"
+    "info": "https://atletismorfea.es/calendario/campeonato/xxii-cross-internacional-de-atapuerca",
+    "web": "https://www.crossatapuerca.com",
+    "horario": "https://atletismorfea.es/sites/default/files/2026-11/204-2026%20Campeonato%20de%20Espa%C3%B1a%20de%20Campo%20a%20Trav%C3%A9s%20por%20clubes%20-%20Informaci%C3%B3n%20t%C3%A9cnica%20y%20equipos%20clasificados_0.pdf",
+    "resultados": "https://www.crossatapuerca.com/nw/historial-e-imagenes/xxii-cross-2026/",
+    "directo": "https://smarttrackrfea.es/sch/2026CYL65597"
    }
   },
   {
@@ -34,25 +37,26 @@
    "intl": false,
    "links": {
     "info": "https://atletismorfea.es/calendario/campeonato/zara-athleticz-speed-run-1",
-    "web": "https://speedrun.es"
+    "web": "https://speedrun.es",
+    "resultados": "https://www.speedrun.es/clasificaciones.php?edicion=2026"
    }
   },
   {
-   "id": "rfea-2026-11-21-xxii-cross-internacional-de-atapuerca",
-   "name": "XXII Cross Internacional de Atapuerca",
-   "place": "Burgos",
+   "id": "rfea-2026-11-22-campeonato-de-gipuzkoa-de-maraton-47o-zurich-maraton-de-san-",
+   "name": "Campeonato de Gipuzkoa de Maraton 47º Zurich Maratón de San Sebastián",
+   "place": "San Sebastian",
    "source": "RFEA",
-   "start": "2026-11-22T08:00:00+01:00",
-   "end": "2026-11-22T16:00:00+01:00",
-   "first": "09:00",
-   "last": "14:00",
+   "start": "2026-11-22T07:15:00+01:00",
+   "end": "2026-11-22T13:30:00+01:00",
+   "first": "08:15",
+   "last": "11:30",
    "schedule_known": true,
    "poll": false,
    "intl": false,
    "links": {
-    "info": "https://atletismorfea.es/calendario/campeonato/xxii-cross-internacional-de-atapuerca",
-    "web": "https://www.crossatapuerca.com",
-    "horario": "https://atletismorfea.es/sites/default/files/2026-11/204-2026%20Campeonato%20de%20Espa%C3%B1a%20de%20Campo%20a%20Trav%C3%A9s%20por%20clubes%20-%20Informaci%C3%B3n%20t%C3%A9cnica%20y%20equipos%20clasificados_0.pdf"
+    "info": "https://atletismorfea.es/calendario/campeonato/campeonato-de-gipuzkoa-de-maraton-47o-zurich-maraton-de-san-sebastian",
+    "web": "https://zurichmaratonsansebastian.com",
+    "resultados": "https://sportmaniacs.com/es/races/zurich-maraton-de-san-sebastian-2026"
    }
   },
   {
@@ -68,8 +72,8 @@
    "poll": false,
    "intl": false,
    "links": {
-    "inscritos": "https://inscripciones.runvasport.es/inscripcion/4a-carrera-popular-ciudad-de-parquesol/",
-    "resultados": "https://www.avaibooksports.com/inscripcion/4a-carrera-popular-ciudad-de-parquesol/clasificaciones/"
+    "resultados": "https://www.avaibooksports.com/inscripcion/4a-carrera-popular-ciudad-de-parquesol/clasificaciones/",
+    "inscritos": "https://www.avaibooksports.com/inscripcion/4a-carrera-popular-ciudad-de-parquesol/participantes/"
    }
   },
   {
@@ -85,25 +89,8 @@
    "poll": false,
    "intl": false,
    "links": {
-    "inscritos": "https://inscripciones.runvasport.es/inscripcion/iv-carrera-popular-bahabonela-y-marcha-solidaria-a-favor-del-ela/",
-    "resultados": "https://www.avaibooksports.com/inscripcion/iv-carrera-popular-bahabonela-y-marcha-solidaria-a-favor-del-ela/clasificaciones/"
-   }
-  },
-  {
-   "id": "avaibook-xi-trail-tres-cerros-palentinos-1",
-   "name": "XI Trail Tres Cerros Palentinos",
-   "place": "",
-   "source": "AvaiBook (Runvasport)",
-   "start": "2026-11-22T10:00:00+01:00",
-   "end": "2026-11-22T20:00:00+01:00",
-   "first": "11:00",
-   "last": null,
-   "schedule_known": true,
-   "poll": false,
-   "intl": false,
-   "links": {
-    "inscritos": "https://inscripciones.runvasport.es/inscripcion/xi-trail-tres-cerros-palentinos-1/",
-    "resultados": "https://www.avaibooksports.com/inscripcion/xi-trail-tres-cerros-palentinos-1/clasificaciones/"
+    "resultados": "https://www.avaibooksports.com/inscripcion/iv-carrera-popular-bahabonela-y-marcha-solidaria-a-favor-del-ela/clasificaciones/",
+    "inscritos": "https://www.avaibooksports.com/inscripcion/iv-carrera-popular-bahabonela-y-marcha-solidaria-a-favor-del-ela/participantes/"
    }
   }
  ]
