@@ -1270,6 +1270,129 @@
     "e": "Maratón",
     "r": "Ruta"
    }
+  ],
+  "_fuente_a_mano": "Clasificación oficial de Sportmaniacs según Ruta Running (rutarunning.com/noticias/resultados-maraton-san-sebastian-2026, 22/11/2026); la API de Sportmaniacs aún no la daba. Pedido por Kerman.",
+  "a_mano": [
+   {
+    "name": "Maratón Mujeres",
+    "round": "Provisional",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Amelie Saussez",
+      "sex": "F",
+      "club": "",
+      "mark": "2:35:29",
+      "nat": "BEL"
+     },
+     {
+      "pos": "2",
+      "name": "Tracy Barlow",
+      "sex": "F",
+      "club": "",
+      "mark": "2:36:36",
+      "nat": "GBR"
+     },
+     {
+      "pos": "3",
+      "name": "Maitane Melero Lacasia",
+      "sex": "F",
+      "club": "",
+      "mark": "2:39:11",
+      "nat": "ESP"
+     }
+    ]
+   },
+   {
+    "name": "Primeras españolas (maratón)",
+    "round": "Provisional",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Maitane Melero Lacasia",
+      "sex": "F",
+      "club": "",
+      "mark": "2:39:11",
+      "nat": "ESP"
+     },
+     {
+      "pos": "2",
+      "name": "Nerea Egia Larrañaga",
+      "sex": "F",
+      "club": "",
+      "mark": "2:49:02",
+      "nat": "ESP"
+     },
+     {
+      "pos": "3",
+      "name": "Ainhoa Álvarez Ajuria",
+      "sex": "F",
+      "club": "",
+      "mark": "2:53:30",
+      "nat": "ESP"
+     }
+    ]
+   },
+   {
+    "name": "Maratón Hombres",
+    "round": "Provisional",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Yazami Mohamed Fouad",
+      "sex": "M",
+      "club": "",
+      "mark": "2:19:39",
+      "nat": "MAR"
+     },
+     {
+      "pos": "2",
+      "name": "Youness Assehli",
+      "sex": "M",
+      "club": "",
+      "mark": "2:20:17",
+      "nat": "ESP"
+     },
+     {
+      "pos": "3",
+      "name": "Unai Arroyo Caebeza",
+      "sex": "M",
+      "club": "",
+      "mark": "2:20:24",
+      "nat": "ESP"
+     }
+    ]
+   },
+   {
+    "name": "Primeros españoles (maratón)",
+    "round": "Provisional",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Youness Assehli",
+      "sex": "M",
+      "club": "",
+      "mark": "2:20:17",
+      "nat": "ESP"
+     },
+     {
+      "pos": "2",
+      "name": "Unai Arroyo Caebeza",
+      "sex": "M",
+      "club": "",
+      "mark": "2:20:24",
+      "nat": "ESP"
+     },
+     {
+      "pos": "3",
+      "name": "Ignacio González Pont",
+      "sex": "M",
+      "club": "",
+      "mark": "2:21:00",
+      "nat": "ESP"
+     }
+    ]
+   }
   ]
  }
 }
