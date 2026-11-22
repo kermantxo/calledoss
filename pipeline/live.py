@@ -254,7 +254,9 @@ def _with_schedule(it, at, data):
         return bool(pe) and pe <= px and (not sx or not se or se <= sx)
     usados, timeline = set(), []
     for x in sch:
-        mios = [i for i, ev in enumerate(data.get("events") or []) if i not in usados and encaja(ev["name"], x.get("e", ""))]
+        # «slot»: grupo puesto a mano en una salida concreta (p. ej. la clasificación por equipos, al final)
+        mios = [i for i, ev in enumerate(data.get("events") or []) if i not in usados and
+                (ev.get("slot") == x.get("e") if ev.get("slot") else encaja(ev["name"], x.get("e", "")))]
         usados |= set(mios)
         rows_x = [dict(r) for i in mios for r in data["events"][i]["rows"]]
         sub = [{"name": data["events"][i]["name"], "rows": data["events"][i]["rows"]} for i in mios]

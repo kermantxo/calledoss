@@ -1249,6 +1249,12 @@
     "t": "14:00",
     "e": "Relevo mixto",
     "r": "Cross"
+   },
+   {
+    "d": "2026-11-22",
+    "t": "14:35",
+    "e": "Clasificación por equipos",
+    "r": "Equipos"
    }
   ],
   "resultados": "https://www.crossatapuerca.com/nw/historial-e-imagenes/xxii-cross-2026/",
@@ -1791,6 +1797,313 @@
       "club": "PCteam",
       "mark": "23:15",
       "nat": "ESP"
+     }
+    ]
+   },
+   {
+    "name": "Relevo mixto",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Facsa - Playas de Castellón",
+      "sex": "X",
+      "club": "Alejandro Ortuño, Andrea Rodriguez, Mohamed Sebie, Mireya Arnedillo",
+      "mark": "17:52"
+     },
+     {
+      "pos": "2",
+      "name": "Real Sociedad",
+      "sex": "X",
+      "club": "Samuel Martin, Miren Martin, Jorge Torre, Irati Zurutuza",
+      "mark": "18:04"
+     },
+     {
+      "pos": "3",
+      "name": "FC Barcelona",
+      "sex": "X",
+      "club": "Enrique Herreros, Raquel Echeverria, Roberto Gomez, Julia Maroto",
+      "mark": "18:13"
+     }
+    ]
+   },
+   {
+    "name": "Equipos · Sub-16 masculina",
+    "slot": "Clasificación por equipos",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Vicky Foods Athletics",
+      "sex": "M",
+      "club": "",
+      "mark": "73 puntos"
+     },
+     {
+      "pos": "2",
+      "name": "Club Atletismo Naron",
+      "sex": "M",
+      "club": "",
+      "mark": "91 puntos"
+     },
+     {
+      "pos": "3",
+      "name": "C.A. Unión Guadalajara",
+      "sex": "M",
+      "club": "",
+      "mark": "99 puntos"
+     }
+    ]
+   },
+   {
+    "name": "Equipos · Sub-16 femenina",
+    "slot": "Clasificación por equipos",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Ardillas-Escorial",
+      "sex": "F",
+      "club": "",
+      "mark": "77 puntos"
+     },
+     {
+      "pos": "2",
+      "name": "CA El Prado",
+      "sex": "F",
+      "club": "",
+      "mark": "148 puntos"
+     },
+     {
+      "pos": "3",
+      "name": "Metaesport Riba-Roja Turia",
+      "sex": "F",
+      "club": "",
+      "mark": "152 puntos"
+     }
+    ]
+   },
+   {
+    "name": "Equipos · Sub-18 masculina",
+    "slot": "Clasificación por equipos",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "A.D. Marathon",
+      "sex": "M",
+      "club": "",
+      "mark": "55 puntos"
+     },
+     {
+      "pos": "2",
+      "name": "Vicky Foods Athletics",
+      "sex": "M",
+      "club": "",
+      "mark": "72 puntos"
+     },
+     {
+      "pos": "3",
+      "name": "Atletismo Albacete",
+      "sex": "M",
+      "club": "",
+      "mark": "94 puntos"
+     }
+    ]
+   },
+   {
+    "name": "Equipos · Sub-18 femenina",
+    "slot": "Clasificación por equipos",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Facsa - Playas de Castellón",
+      "sex": "F",
+      "club": "",
+      "mark": "24 puntos"
+     },
+     {
+      "pos": "2",
+      "name": "CA Safor-Teika",
+      "sex": "F",
+      "club": "",
+      "mark": "71 puntos"
+     },
+     {
+      "pos": "3",
+      "name": "A.D. Marathon",
+      "sex": "F",
+      "club": "",
+      "mark": "112 puntos"
+     }
+    ]
+   },
+   {
+    "name": "Equipos · Sub-20 masculina",
+    "slot": "Clasificación por equipos",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Facsa - Playas de Castellón",
+      "sex": "M",
+      "club": "",
+      "mark": "82 puntos"
+     },
+     {
+      "pos": "2",
+      "name": "CA Granollers",
+      "sex": "M",
+      "club": "",
+      "mark": "115 puntos"
+     },
+     {
+      "pos": "3",
+      "name": "Club Atletismo Naron",
+      "sex": "M",
+      "club": "",
+      "mark": "120 puntos"
+     }
+    ]
+   },
+   {
+    "name": "Equipos · Sub-20 femenina",
+    "slot": "Clasificación por equipos",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Ardillas-Escorial",
+      "sex": "F",
+      "club": "",
+      "mark": "23 puntos"
+     },
+     {
+      "pos": "2",
+      "name": "Trops-Cueva de Nerja",
+      "sex": "F",
+      "club": "",
+      "mark": "58 puntos"
+     },
+     {
+      "pos": "3",
+      "name": "VelSalamanca",
+      "sex": "F",
+      "club": "",
+      "mark": "113 puntos"
+     }
+    ]
+   },
+   {
+    "name": "Equipos · Sub-23 masculina",
+    "slot": "Clasificación por equipos",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "C.A. Unión Guadalajara",
+      "sex": "M",
+      "club": "",
+      "mark": "33 puntos"
+     },
+     {
+      "pos": "2",
+      "name": "Universidad Oviedo",
+      "sex": "M",
+      "club": "",
+      "mark": "74 puntos"
+     },
+     {
+      "pos": "3",
+      "name": "Trops-Cueva de Nerja",
+      "sex": "M",
+      "club": "",
+      "mark": "85 puntos"
+     }
+    ]
+   },
+   {
+    "name": "Equipos · Sub-23 femenina",
+    "slot": "Clasificación por equipos",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Metaesport Riba-Roja Turia",
+      "sex": "F",
+      "club": "",
+      "mark": "26 puntos"
+     },
+     {
+      "pos": "2",
+      "name": "Universidad de Burgos",
+      "sex": "F",
+      "club": "",
+      "mark": "81 puntos"
+     },
+     {
+      "pos": "3",
+      "name": "Universidad Oviedo",
+      "sex": "F",
+      "club": "",
+      "mark": "92 puntos"
+     }
+    ]
+   },
+   {
+    "name": "Equipos · Absoluta masculina",
+    "slot": "Clasificación por equipos",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "ADA Calvià - Vistasol",
+      "sex": "M",
+      "club": "",
+      "mark": "28 puntos"
+     },
+     {
+      "pos": "2",
+      "name": "Facsa - Playas de Castellón",
+      "sex": "M",
+      "club": "",
+      "mark": "41 puntos"
+     },
+     {
+      "pos": "3",
+      "name": "Vicky Foods Athletics",
+      "sex": "M",
+      "club": "",
+      "mark": "59 puntos"
+     }
+    ]
+   },
+   {
+    "name": "Equipos · Absoluta femenina",
+    "slot": "Clasificación por equipos",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Bilbao Atletismo",
+      "sex": "F",
+      "club": "",
+      "mark": "19 puntos"
+     },
+     {
+      "pos": "2",
+      "name": "Vicky Foods Athletics",
+      "sex": "F",
+      "club": "",
+      "mark": "36 puntos"
+     },
+     {
+      "pos": "3",
+      "name": "C.A. Carnicas Serrano",
+      "sex": "F",
+      "club": "",
+      "mark": "38 puntos"
      }
     ]
    }
