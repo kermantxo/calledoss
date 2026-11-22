@@ -1252,7 +1252,7 @@
    }
   ],
   "resultados": "https://www.crossatapuerca.com/nw/historial-e-imagenes/xxii-cross-2026/",
-  "_fuente_a_mano": "Clasificaciones oficiales (PDF) de la organización: crossatapuerca.com/nw/historial-e-imagenes/xxii-cross-2026/ (22/11/2026)",
+  "_fuente_a_mano": "RFEA SmartTrack (oficial): https://smarttrackrfea.es/sch/2026CYL65597 — nacionalidad y orden del Campeonato de España de la propia clasificación",
   "a_mano": [
    {
     "name": "General (Sub-16 femenina)",
@@ -1263,21 +1263,24 @@
       "name": "Ella Martín Ruiz",
       "sex": "F",
       "club": "Soliss UDAT Talavera",
-      "mark": "10:21"
+      "mark": "10:22",
+      "nat": "ESP"
      },
      {
       "pos": "2",
       "name": "Carlota Gasión Lázaro",
       "sex": "F",
       "club": "Alcampo Scorpio 71",
-      "mark": "10:32"
+      "mark": "10:33",
+      "nat": "ESP"
      },
      {
       "pos": "3",
       "name": "Valeria Quiroga Fernández",
       "sex": "F",
       "club": "Oviedo At.",
-      "mark": "10:37"
+      "mark": "10:38",
+      "nat": "ESP"
      }
     ]
    },
@@ -1290,7 +1293,7 @@
       "name": "Ella Martín Ruiz",
       "sex": "F",
       "club": "Soliss UDAT Talavera",
-      "mark": "10:21",
+      "mark": "10:22",
       "nat": "ESP"
      },
      {
@@ -1298,7 +1301,7 @@
       "name": "Carlota Gasión Lázaro",
       "sex": "F",
       "club": "Alcampo Scorpio 71",
-      "mark": "10:32",
+      "mark": "10:33",
       "nat": "ESP"
      },
      {
@@ -1306,7 +1309,7 @@
       "name": "Valeria Quiroga Fernández",
       "sex": "F",
       "club": "Oviedo At.",
-      "mark": "10:37",
+      "mark": "10:38",
       "nat": "ESP"
      }
     ]
@@ -1320,21 +1323,24 @@
       "name": "José Manuel García Navarro",
       "sex": "M",
       "club": "DELSUR Coop La Palma",
-      "mark": "9:18"
+      "mark": "9:19",
+      "nat": "ESP"
      },
      {
       "pos": "2",
       "name": "Marcel Samsó Ruiz",
       "sex": "M",
       "club": "CA Granollers",
-      "mark": "9:18"
+      "mark": "9:19",
+      "nat": "ESP"
      },
      {
       "pos": "3",
       "name": "Mario Alcalde Abío",
       "sex": "M",
       "club": "C.A. Unión Guadalajara",
-      "mark": "9:20"
+      "mark": "9:21",
+      "nat": "ESP"
      }
     ]
    },
@@ -1347,21 +1353,54 @@
       "name": "Sara Masanet Miró",
       "sex": "F",
       "club": "Atletismo Alcoy",
-      "mark": "14:28"
+      "mark": "14:29",
+      "nat": "ESP"
      },
      {
       "pos": "2",
       "name": "Sandra Velasco Antón",
       "sex": "F",
       "club": "A.D. Sprint",
-      "mark": "14:28"
+      "mark": "14:29",
+      "nat": "ESP"
      },
      {
       "pos": "3",
       "name": "Rebeca Perea Corral",
       "sex": "F",
       "club": "Soliss UDAT Talavera",
-      "mark": "14:29"
+      "mark": "14:30",
+      "nat": "ESP"
+     }
+    ]
+   },
+   {
+    "name": "Campeonato de España (Sub-18 femenina)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Sandra Velasco Antón",
+      "sex": "F",
+      "club": "A.D. Sprint",
+      "mark": "14:29",
+      "nat": "ESP"
+     },
+     {
+      "pos": "2",
+      "name": "Rebeca Perea Corral",
+      "sex": "F",
+      "club": "Soliss UDAT Talavera",
+      "mark": "14:30",
+      "nat": "ESP"
+     },
+     {
+      "pos": "3",
+      "name": "Naia Portoles Rodriguez",
+      "sex": "F",
+      "club": "Facsa - Playas de Castellón",
+      "mark": "14:32",
+      "nat": "ESP"
      }
     ]
    },
@@ -1374,7 +1413,7 @@
       "name": "Sara Masanet Miró",
       "sex": "F",
       "club": "Atletismo Alcoy",
-      "mark": "14:28",
+      "mark": "14:29",
       "nat": "ESP"
      },
      {
@@ -1382,7 +1421,7 @@
       "name": "Sandra Velasco Antón",
       "sex": "F",
       "club": "A.D. Sprint",
-      "mark": "14:28",
+      "mark": "14:29",
       "nat": "ESP"
      },
      {
@@ -1390,7 +1429,7 @@
       "name": "Rebeca Perea Corral",
       "sex": "F",
       "club": "Soliss UDAT Talavera",
-      "mark": "14:29",
+      "mark": "14:30",
       "nat": "ESP"
      }
     ]
@@ -1404,21 +1443,24 @@
       "name": "Guillem Cuartero Sans",
       "sex": "M",
       "club": "Facsa - Playas de Castellón",
-      "mark": "12:13"
+      "mark": "12:14",
+      "nat": "ESP"
      },
      {
       "pos": "2",
       "name": "Sergio Gangoso Herráez",
       "sex": "M",
       "club": "Vicky Foods Athletics",
-      "mark": "12:20"
+      "mark": "12:21",
+      "nat": "ESP"
      },
      {
       "pos": "3",
       "name": "Daniel Llorente Rodríguez",
       "sex": "M",
       "club": "A.D. Marathon",
-      "mark": "12:24"
+      "mark": "12:25",
+      "nat": "ESP"
      }
     ]
    },
@@ -1431,26 +1473,29 @@
       "name": "Claudia Gutiérrez Alonso",
       "sex": "F",
       "club": "Nike Running Club",
-      "mark": "17:31"
+      "mark": "17:31",
+      "nat": "ESP"
      },
      {
       "pos": "2",
       "name": "Rocío García Ventura",
       "sex": "F",
       "club": "Ardillas-Escorial",
-      "mark": "17:37"
+      "mark": "17:37",
+      "nat": "ESP"
      },
      {
       "pos": "3",
       "name": "Demeku Paniagua Rodríguez",
       "sex": "F",
       "club": "CA Pino",
-      "mark": "17:44"
+      "mark": "17:44",
+      "nat": "ESP"
      }
     ]
    },
    {
-    "name": "Campeonato de España (sub-20 femenina)",
+    "name": "Campeonato de España (Sub-20 femenina)",
     "round": "Oficial",
     "rows": [
      {
@@ -1458,21 +1503,24 @@
       "name": "Rocío García Ventura",
       "sex": "F",
       "club": "Ardillas-Escorial",
-      "mark": "17:37"
+      "mark": "17:37",
+      "nat": "ESP"
      },
      {
       "pos": "2",
       "name": "Laia Cariñanos Estalella",
       "sex": "F",
       "club": "Bidezabal Durango AT",
-      "mark": "17:55"
+      "mark": "17:55",
+      "nat": "ESP"
      },
      {
       "pos": "3",
       "name": "Patricia Delgado González",
       "sex": "F",
       "club": "Ardillas-Escorial",
-      "mark": "17:58"
+      "mark": "17:58",
+      "nat": "ESP"
      }
     ]
    },
@@ -1514,49 +1562,25 @@
       "pos": "1",
       "name": "Alejandro Ibáñez Jaramillo",
       "sex": "M",
-      "club": "A.A. Moratalaz",
-      "mark": "14:54"
+      "club": "A. A. Moratalaz",
+      "mark": "14:54",
+      "nat": "ESP"
      },
      {
       "pos": "2",
       "name": "Álvaro González Fernández",
       "sex": "M",
-      "club": "Atlético Salamanca",
-      "mark": "14:57"
+      "club": "Atletico Salamanca",
+      "mark": "14:57",
+      "nat": "ESP"
      },
      {
       "pos": "3",
       "name": "Adrià Boyano Requena",
       "sex": "M",
       "club": "CA Granollers",
-      "mark": "15:01"
-     }
-    ]
-   },
-   {
-    "name": "Campeonato de España (sub-20 masculina)",
-    "round": "Oficial",
-    "rows": [
-     {
-      "pos": "1",
-      "name": "Alejandro Ibáñez Jaramillo",
-      "sex": "M",
-      "club": "A.A. Moratalaz",
-      "mark": "14:54"
-     },
-     {
-      "pos": "2",
-      "name": "Álvaro González Fernández",
-      "sex": "M",
-      "club": "Atlético Salamanca",
-      "mark": "14:57"
-     },
-     {
-      "pos": "3",
-      "name": "Adrià Boyano Requena",
-      "sex": "M",
-      "club": "CA Granollers",
-      "mark": "15:01"
+      "mark": "15:01",
+      "nat": "ESP"
      }
     ]
    },
@@ -1569,26 +1593,29 @@
       "name": "María Viciosa Villa",
       "sex": "F",
       "club": "Nike Running Club",
-      "mark": "22:09"
+      "mark": "22:09",
+      "nat": "ESP"
      },
      {
       "pos": "2",
       "name": "Silvia Rey Veiga",
       "sex": "F",
       "club": "TrainingRey",
-      "mark": "22:16"
+      "mark": "22:16",
+      "nat": "ESP"
      },
      {
       "pos": "3",
       "name": "Candela Blázquez Lorenzo",
       "sex": "F",
       "club": "CAPEX",
-      "mark": "22:43"
+      "mark": "22:43",
+      "nat": "ESP"
      }
     ]
    },
    {
-    "name": "Campeonato de España (sub-23 femenina)",
+    "name": "Campeonato de España (Sub-23 femenina)",
     "round": "Oficial",
     "rows": [
      {
@@ -1596,21 +1623,24 @@
       "name": "Mariam Benkert Elalaoui",
       "sex": "F",
       "club": "Universidad Oviedo",
-      "mark": "23:39"
+      "mark": "23:39",
+      "nat": "ESP"
      },
      {
       "pos": "2",
       "name": "Leyre Campo de Quevedo",
       "sex": "F",
       "club": "Universidad de Burgos",
-      "mark": "23:51"
+      "mark": "23:51",
+      "nat": "ESP"
      },
      {
       "pos": "3",
       "name": "Greta Guerrero Sahm",
       "sex": "F",
       "club": "Alcampo Scorpio 71",
-      "mark": "23:53"
+      "mark": "23:53",
+      "nat": "ESP"
      }
     ]
    },
@@ -1653,26 +1683,29 @@
       "name": "Wegene Adisu Chala",
       "sex": "M",
       "club": "C.A. Unión Guadalajara",
-      "mark": "19:13"
+      "mark": "19:13",
+      "nat": "ETH"
      },
      {
       "pos": "2",
       "name": "Manex Cívico Urretabizkaia",
       "sex": "M",
       "club": "Tolosa C.F.",
-      "mark": "19:15"
+      "mark": "19:15",
+      "nat": "ESP"
      },
      {
       "pos": "3",
       "name": "Óscar Gaitán Mordillo",
       "sex": "M",
-      "club": "Independiente",
-      "mark": "19:16"
+      "club": "INDEPENDIENTE",
+      "mark": "19:16",
+      "nat": "ESP"
      }
     ]
    },
    {
-    "name": "Campeonato de España (sub-23 masculina)",
+    "name": "Campeonato de España (Sub-23 masculina)",
     "round": "Oficial",
     "rows": [
      {
@@ -1680,21 +1713,24 @@
       "name": "Wegene Adisu Chala",
       "sex": "M",
       "club": "C.A. Unión Guadalajara",
-      "mark": "19:13"
+      "mark": "19:13",
+      "nat": "ETH"
      },
      {
       "pos": "2",
       "name": "Mesfin Escamilla Saiz",
       "sex": "M",
       "club": "C.A. Unión Guadalajara",
-      "mark": "19:19"
+      "mark": "19:19",
+      "nat": "ESP"
      },
      {
       "pos": "3",
       "name": "José Daniel Jiménez del Fresno",
       "sex": "M",
       "club": "Valdepeñas AC - Sistemas Valcom",
-      "mark": "19:24"
+      "mark": "19:24",
+      "nat": "ESP"
      }
     ]
    },
@@ -1712,7 +1748,7 @@
      },
      {
       "pos": "2",
-      "name": "Wosane Asefa",
+      "name": "Wosane Asefa Mangistu",
       "sex": "F",
       "club": "",
       "mark": "25:56",
@@ -1727,8 +1763,69 @@
       "nat": "ETH"
      }
     ]
+   },
+   {
+    "name": "Campeonato de España (Absoluta femenina)",
+    "round": "Provisional",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Idaira Prieto Suárez",
+      "sex": "F",
+      "club": "Bilbao Atletismo",
+      "mark": "26:39",
+      "nat": "ESP"
+     },
+     {
+      "pos": "2",
+      "name": "Carolina Robles Campos",
+      "sex": "F",
+      "club": "Bilbao Atletismo",
+      "mark": "26:48",
+      "nat": "ESP"
+     },
+     {
+      "pos": "3",
+      "name": "Carla Lorrany Arce Pereira",
+      "sex": "F",
+      "club": "Bilbao Atletismo",
+      "mark": "26:48",
+      "nat": "ESP"
+     }
+    ]
+   },
+   {
+    "name": "Primeras españolas (Absoluta femenina)",
+    "round": "Provisional",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Carla Gallardo Puertas",
+      "sex": "F",
+      "club": "INDEPENDIENTE",
+      "mark": "26:38",
+      "nat": "ESP"
+     },
+     {
+      "pos": "2",
+      "name": "Idaira Prieto Suárez",
+      "sex": "F",
+      "club": "Bilbao Atletismo",
+      "mark": "26:39",
+      "nat": "ESP"
+     },
+     {
+      "pos": "3",
+      "name": "Carolina Robles Campos",
+      "sex": "F",
+      "club": "Bilbao Atletismo",
+      "mark": "26:48",
+      "nat": "ESP"
+     }
+    ]
    }
-  ]
+  ],
+  "directo": "https://smarttrackrfea.es/sch/2026CYL65597"
  },
  "rfea-2026-11-22-campeonato-de-gipuzkoa-de-maraton-47o-zurich-maraton-de-san-": {
   "resultados": "https://sportmaniacs.com/es/races/zurich-maraton-de-san-sebastian-2026",
