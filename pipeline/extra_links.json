@@ -1577,6 +1577,36 @@
       "mark": "19:24"
      }
     ]
+   },
+   {
+    "name": "General (Absoluta femenina)",
+    "round": "Provisional",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Mirriam Cherop",
+      "sex": "F",
+      "club": "",
+      "mark": "25:56",
+      "nat": "KEN"
+     },
+     {
+      "pos": "2",
+      "name": "Wosane Asefa",
+      "sex": "F",
+      "club": "",
+      "mark": "25:56",
+      "nat": "ETH"
+     },
+     {
+      "pos": "3",
+      "name": "Asefu Abreha",
+      "sex": "F",
+      "club": "",
+      "mark": "25:56",
+      "nat": "ETH"
+     }
+    ]
    }
   ]
  },
