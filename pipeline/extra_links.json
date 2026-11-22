@@ -1616,7 +1616,7 @@
    },
    {
     "name": "General (Absoluta femenina)",
-    "round": "Provisional",
+    "round": "Oficial",
     "rows": [
      {
       "pos": "1",
@@ -1646,7 +1646,7 @@
    },
    {
     "name": "Campeonato de España (Absoluta femenina)",
-    "round": "Provisional",
+    "round": "Oficial",
     "rows": [
      {
       "pos": "1",
@@ -1676,7 +1676,7 @@
    },
    {
     "name": "Primeras españolas (Absoluta femenina)",
-    "round": "Provisional",
+    "round": "Oficial",
     "rows": [
      {
       "pos": "1",
@@ -1700,6 +1700,96 @@
       "sex": "F",
       "club": "Bilbao Atletismo",
       "mark": "26:48",
+      "nat": "ESP"
+     }
+    ]
+   },
+   {
+    "name": "General (Absoluta masculina)",
+    "round": "Provisional",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Rodrigue Kwizera",
+      "sex": "M",
+      "club": "Facsa - Playas de Castellón",
+      "mark": "22:38",
+      "nat": "BDI"
+     },
+     {
+      "pos": "2",
+      "name": "Berihu Aregawi Teklehaimanot",
+      "sex": "M",
+      "club": "",
+      "mark": "22:41",
+      "nat": "ETH"
+     },
+     {
+      "pos": "3",
+      "name": "Fasika Ayele Anose",
+      "sex": "M",
+      "club": "",
+      "mark": "22:45",
+      "nat": "ETH"
+     }
+    ]
+   },
+   {
+    "name": "Campeonato de España (Absoluta masculina)",
+    "round": "Provisional",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Rodrigue Kwizera",
+      "sex": "M",
+      "club": "Facsa - Playas de Castellón",
+      "mark": "22:38",
+      "nat": "BDI"
+     },
+     {
+      "pos": "2",
+      "name": "Mathew Kipchumba Kipsang",
+      "sex": "M",
+      "club": "ADA Calvià - Vistasol",
+      "mark": "22:54",
+      "nat": "KEN"
+     },
+     {
+      "pos": "3",
+      "name": "Miguel Ángel Chazarra Martínez",
+      "sex": "M",
+      "club": "Facsa - Playas de Castellón",
+      "mark": "23:04",
+      "nat": "ESP"
+     }
+    ]
+   },
+   {
+    "name": "Primeros españoles (Absoluta masculina)",
+    "round": "Provisional",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Miguel Ángel Chazarra Martínez",
+      "sex": "M",
+      "club": "Facsa - Playas de Castellón",
+      "mark": "23:04",
+      "nat": "ESP"
+     },
+     {
+      "pos": "2",
+      "name": "Abdessamad Oukhelfen Ben Haddou",
+      "sex": "M",
+      "club": "Vicky Foods Athletics",
+      "mark": "23:12",
+      "nat": "ESP"
+     },
+     {
+      "pos": "3",
+      "name": "Ilias Fifa Temsamani",
+      "sex": "M",
+      "club": "PCteam",
+      "mark": "23:15",
       "nat": "ESP"
      }
     ]
