@@ -1282,6 +1282,36 @@
     ]
    },
    {
+    "name": "Primeras españolas (Sub-16 femenina)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Ella Martín Ruiz",
+      "sex": "F",
+      "club": "Soliss UDAT Talavera",
+      "mark": "10:21",
+      "nat": "ESP"
+     },
+     {
+      "pos": "2",
+      "name": "Carlota Gasión Lázaro",
+      "sex": "F",
+      "club": "Alcampo Scorpio 71",
+      "mark": "10:32",
+      "nat": "ESP"
+     },
+     {
+      "pos": "3",
+      "name": "Valeria Quiroga Fernández",
+      "sex": "F",
+      "club": "Oviedo At.",
+      "mark": "10:37",
+      "nat": "ESP"
+     }
+    ]
+   },
+   {
     "name": "General (Sub-16 masculina)",
     "round": "Oficial",
     "rows": [
@@ -1332,6 +1362,36 @@
       "sex": "F",
       "club": "Soliss UDAT Talavera",
       "mark": "14:29"
+     }
+    ]
+   },
+   {
+    "name": "Primeras españolas (Sub-18 femenina)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Sara Masanet Miró",
+      "sex": "F",
+      "club": "Atletismo Alcoy",
+      "mark": "14:28",
+      "nat": "ESP"
+     },
+     {
+      "pos": "2",
+      "name": "Sandra Velasco Antón",
+      "sex": "F",
+      "club": "A.D. Sprint",
+      "mark": "14:28",
+      "nat": "ESP"
+     },
+     {
+      "pos": "3",
+      "name": "Rebeca Perea Corral",
+      "sex": "F",
+      "club": "Soliss UDAT Talavera",
+      "mark": "14:29",
+      "nat": "ESP"
      }
     ]
    },
@@ -1413,6 +1473,36 @@
       "sex": "F",
       "club": "Ardillas-Escorial",
       "mark": "17:58"
+     }
+    ]
+   },
+   {
+    "name": "Primeras españolas (Sub-20 femenina)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Claudia Gutiérrez Alonso",
+      "sex": "F",
+      "club": "Nike Running Club",
+      "mark": "17:31",
+      "nat": "ESP"
+     },
+     {
+      "pos": "2",
+      "name": "Rocío García Ventura",
+      "sex": "F",
+      "club": "Ardillas-Escorial",
+      "mark": "17:37",
+      "nat": "ESP"
+     },
+     {
+      "pos": "3",
+      "name": "Demeku Paniagua Rodríguez",
+      "sex": "F",
+      "club": "CA Pino",
+      "mark": "17:44",
+      "nat": "ESP"
      }
     ]
    },
@@ -1521,6 +1611,36 @@
       "sex": "F",
       "club": "Alcampo Scorpio 71",
       "mark": "23:53"
+     }
+    ]
+   },
+   {
+    "name": "Primeras españolas (Sub-23 femenina)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "María Viciosa Villa",
+      "sex": "F",
+      "club": "Nike Running Club",
+      "mark": "22:09",
+      "nat": "ESP"
+     },
+     {
+      "pos": "2",
+      "name": "Silvia Rey Veiga",
+      "sex": "F",
+      "club": "TrainingRey",
+      "mark": "22:16",
+      "nat": "ESP"
+     },
+     {
+      "pos": "3",
+      "name": "Candela Blázquez Lorenzo",
+      "sex": "F",
+      "club": "CAPEX",
+      "mark": "22:43",
+      "nat": "ESP"
      }
     ]
    },
