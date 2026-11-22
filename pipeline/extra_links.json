@@ -1251,5 +1251,25 @@
     "r": "Cross"
    }
   ]
+ },
+ "rfea-2026-11-22-campeonato-de-gipuzkoa-de-maraton-47o-zurich-maraton-de-san-": {
+  "resultados": "https://sportmaniacs.com/es/races/zurich-maraton-de-san-sebastian-2026",
+  "time": "08:15",
+  "time_end": "11:30",
+  "_fuente_horario": "Sportmaniacs (cronometraje oficial): 10K a las 8:15, Maratón a las 9:00, 22/11/2026",
+  "schedule": [
+   {
+    "d": "2026-11-22",
+    "t": "08:15",
+    "e": "10K",
+    "r": "Ruta"
+   },
+   {
+    "d": "2026-11-22",
+    "t": "09:00",
+    "e": "Maratón",
+    "r": "Ruta"
+   }
+  ]
  }
 }
