@@ -66,12 +66,12 @@
  },
  "rfea-2026-11-21-benidorm-half-2": {
   "since": "2026-11-21",
-  "tries": 5,
+  "tries": 6,
   "last": "2026-11-22"
  },
  "rfea-2026-11-21-xviii-edicion-media-maraton-gran-canaria-memorial-alcalde-ca": {
   "since": "2026-11-21",
-  "tries": 5,
+  "tries": 6,
   "last": "2026-11-22"
  },
  "avaibook-xi-trail-tres-cerros-palentinos-1": {
@@ -81,17 +81,12 @@
  },
  "rfea-2026-11-22-zara-athleticz-speed-run-1": {
   "since": "2026-11-22",
-  "tries": 2,
+  "tries": 3,
   "last": "2026-11-22"
  },
  "rfea-2026-11-22-campeonato-de-gipuzkoa-de-maraton-47o-zurich-maraton-de-san-": {
   "since": "2026-11-22",
-  "tries": 1,
-  "last": "2026-11-22"
- },
- "rfea-2026-11-21-xxii-cross-internacional-de-atapuerca": {
-  "since": "2026-11-22",
-  "tries": 1,
+  "tries": 2,
   "last": "2026-11-22"
  }
 }
