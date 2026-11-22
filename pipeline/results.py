@@ -39,7 +39,8 @@ def summarize(res, is_intl):
         for rnd in rounds:
             name = rnd.get("round") or ""
             is_final = rnd.get("final", bool(re.search(r"^final\b|^final$", name, re.I)) or name == "")
-            if is_final and rnd.get("rows") and not es_esp(rnd):
+            # las categorías (sub-18, M35...) están en la ficha completa, pero no son el podio de la carrera
+            if is_final and rnd.get("rows") and not es_esp(rnd) and not re.match(r"categor", name, re.I):
                 podios.append({"event": ev["name"], "round": name, "rows": rnd["rows"][:3]})
         # españoles: primero «Primeros españoles», donde manda su orden y no el puesto en la general
         for rnd in sorted(rounds, key=lambda rd: not es_esp(rd)):
@@ -53,8 +54,6 @@ def summarize(res, is_intl):
                     espanoles.append({"event": ev["name"], "round": name, **r})
                 elif _match(r.get("name", ""), wl, international=is_intl):
                     destacados.append({"event": ev["name"], "round": name, **r})
-    # primero la general de cada prueba; las categorías (sub-18, M35...) después: el índice solo guarda 6
-    podios.sort(key=lambda q: bool(re.match(r"categor", q.get("round") or "", re.I)))
     return podios, espanoles[:80], destacados[:40]
 
 

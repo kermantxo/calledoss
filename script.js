@@ -4125,7 +4125,7 @@ function yaTerminada(c){
 
 // En directo: podio femenino y masculino de cada prueba ya terminada (lo primero que se ve en la tarjeta)
 function livePodios(r){
-  const pods = (r.podios || []).filter(p => p.rows && p.rows.length);
+  const pods = (r.podios || []).filter(p => p.rows && p.rows.length && !/^categor/i.test(p.round || ''));
   if(!pods.length) return '';
   const col = (sx) => {
     const list = pods.filter(p => eventSex({name: p.event}) === sx);
