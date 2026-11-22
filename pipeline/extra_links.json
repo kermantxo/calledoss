@@ -1668,5 +1668,759 @@
     ]
    }
   ]
+ },
+ "rfea-2026-11-22-zara-athleticz-speed-run-1": {
+  "resultados": "https://www.speedrun.es/clasificaciones.php?edicion=2026",
+  "_fuente_a_mano": "Clasificación oficial de la organización (speedrun.es, edición 2026). Españoles: licencia RFEA (Menacho, Blanco, Campo, Ouboukir) o conocidos (Fedra Luna); Rodrigo Mendoza sin nacionalidad confirmada.",
+  "a_mano": [
+   {
+    "name": "10K Mujeres",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Katherine Tisalema Puruncja",
+      "club": "",
+      "mark": "31:51",
+      "sex": "F",
+      "nat": "ECU"
+     },
+     {
+      "pos": "2",
+      "name": "Lidia Campo Sastre",
+      "club": "",
+      "mark": "32:01",
+      "sex": "F",
+      "nat": "ESP"
+     },
+     {
+      "pos": "3",
+      "name": "Douae Ouboukir El-Oihab",
+      "club": "",
+      "mark": "32:46",
+      "sex": "F",
+      "nat": "ESP"
+     }
+    ]
+   },
+   {
+    "name": "Primeras españolas (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Lidia Campo Sastre",
+      "club": "",
+      "mark": "32:01",
+      "nat": "ESP",
+      "sex": "F"
+     },
+     {
+      "pos": "2",
+      "name": "Douae Ouboukir El-Oihab",
+      "club": "",
+      "mark": "32:46",
+      "nat": "ESP",
+      "sex": "F"
+     },
+     {
+      "pos": "3",
+      "name": "Fedra Luna Sambrán",
+      "club": "",
+      "mark": "33:06",
+      "nat": "ESP",
+      "sex": "F"
+     }
+    ]
+   },
+   {
+    "name": "Categoría Sub-18 mujeres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Martina Saenz Ugena",
+      "club": "",
+      "mark": "45:36",
+      "sex": "F"
+     },
+     {
+      "pos": "2",
+      "name": "Laura Gómez Sánchez",
+      "club": "",
+      "mark": "48:27",
+      "sex": "F"
+     },
+     {
+      "pos": "3",
+      "name": "Carmen Sánchez Catalán",
+      "club": "",
+      "mark": "51:36",
+      "sex": "F"
+     }
+    ]
+   },
+   {
+    "name": "Categoría Sub-20 mujeres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Sofia Pérez Conesa",
+      "club": "",
+      "mark": "37:18",
+      "sex": "F"
+     },
+     {
+      "pos": "2",
+      "name": "Ines Remirez",
+      "club": "",
+      "mark": "41:05",
+      "sex": "F"
+     },
+     {
+      "pos": "3",
+      "name": "Sara Rodríguez Gomez",
+      "club": "",
+      "mark": "43:07",
+      "sex": "F"
+     }
+    ]
+   },
+   {
+    "name": "Categoría Sub-23 mujeres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Carla Martínez González",
+      "club": "",
+      "mark": "33:28",
+      "sex": "F"
+     },
+     {
+      "pos": "2",
+      "name": "Beth Caceres Perez",
+      "club": "",
+      "mark": "34:46",
+      "sex": "F"
+     },
+     {
+      "pos": "3",
+      "name": "Jasmine Domínguez Roy",
+      "club": "",
+      "mark": "36:39",
+      "sex": "F"
+     }
+    ]
+   },
+   {
+    "name": "Categoría Sénior mujeres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Katherine Tisalema Puruncja",
+      "club": "",
+      "mark": "31:51",
+      "sex": "F",
+      "nat": "ECU"
+     },
+     {
+      "pos": "2",
+      "name": "Douae Ouboukir El-Oihab",
+      "club": "",
+      "mark": "32:46",
+      "sex": "F",
+      "nat": "ESP"
+     },
+     {
+      "pos": "3",
+      "name": "Fedra Luna Sambrán",
+      "club": "",
+      "mark": "33:06",
+      "sex": "F",
+      "nat": "ESP"
+     }
+    ]
+   },
+   {
+    "name": "Categoría M35 mujeres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Lidia Campo Sastre",
+      "club": "",
+      "mark": "32:01",
+      "sex": "F",
+      "nat": "ESP"
+     },
+     {
+      "pos": "2",
+      "name": "María África Albalá Soria",
+      "club": "",
+      "mark": "35:30",
+      "sex": "F"
+     },
+     {
+      "pos": "3",
+      "name": "Natalia Galisteo Romero",
+      "club": "",
+      "mark": "35:38",
+      "sex": "F"
+     }
+    ]
+   },
+   {
+    "name": "Categoría M40 mujeres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Azucena Díaz",
+      "club": "",
+      "mark": "33:13",
+      "sex": "F"
+     },
+     {
+      "pos": "2",
+      "name": "Ana Gomez Gonzalez",
+      "club": "",
+      "mark": "36:53",
+      "sex": "F"
+     },
+     {
+      "pos": "3",
+      "name": "Esther Candanedo González",
+      "club": "",
+      "mark": "37:44",
+      "sex": "F"
+     }
+    ]
+   },
+   {
+    "name": "Categoría M45 mujeres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Marta Romero Ecija",
+      "club": "",
+      "mark": "34:28",
+      "sex": "F"
+     },
+     {
+      "pos": "2",
+      "name": "Vilma Giménez Cabrera",
+      "club": "",
+      "mark": "38:33",
+      "sex": "F"
+     },
+     {
+      "pos": "3",
+      "name": "Tamara Sanfabio Rodriguez",
+      "club": "",
+      "mark": "38:58",
+      "sex": "F"
+     }
+    ]
+   },
+   {
+    "name": "Categoría M50 mujeres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Maria Isabel Vazquez Garcia",
+      "club": "",
+      "mark": "37:40",
+      "sex": "F"
+     },
+     {
+      "pos": "2",
+      "name": "Águeda Ramirez Diez",
+      "club": "",
+      "mark": "39:16",
+      "sex": "F"
+     },
+     {
+      "pos": "3",
+      "name": "Begoña Polo Moya",
+      "club": "",
+      "mark": "39:18",
+      "sex": "F"
+     }
+    ]
+   },
+   {
+    "name": "Categoría M55 mujeres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Estela Álvarez Gallardo",
+      "club": "",
+      "mark": "37:40",
+      "sex": "F"
+     },
+     {
+      "pos": "2",
+      "name": "Elena Menéndez Fernández",
+      "club": "",
+      "mark": "39:38",
+      "sex": "F"
+     },
+     {
+      "pos": "3",
+      "name": "Maria del Mar Roman Andres",
+      "club": "",
+      "mark": "40:21",
+      "sex": "F"
+     }
+    ]
+   },
+   {
+    "name": "Categoría M60 mujeres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Mª Isabel Garcia Moro",
+      "club": "",
+      "mark": "44:00",
+      "sex": "F"
+     },
+     {
+      "pos": "2",
+      "name": "Eloisa Torrijos Albarracin",
+      "club": "",
+      "mark": "44:08",
+      "sex": "F"
+     },
+     {
+      "pos": "3",
+      "name": "Maria del Pino Rojas González",
+      "club": "",
+      "mark": "46:56",
+      "sex": "F"
+     }
+    ]
+   },
+   {
+    "name": "Categoría M65 mujeres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Rosa Lara Trujillo",
+      "club": "",
+      "mark": "45:34",
+      "sex": "F"
+     },
+     {
+      "pos": "2",
+      "name": "M Carmen Mollá Sanz",
+      "club": "",
+      "mark": "53:45",
+      "sex": "F"
+     },
+     {
+      "pos": "3",
+      "name": "Lori Gerson",
+      "club": "",
+      "mark": "55:19",
+      "sex": "F"
+     }
+    ]
+   },
+   {
+    "name": "10K Hombres",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Eduardo Menacho Miralles",
+      "club": "",
+      "mark": "27:37",
+      "sex": "M",
+      "nat": "ESP"
+     },
+     {
+      "pos": "2",
+      "name": "Jorge Blanco Álvarez",
+      "club": "",
+      "mark": "28:04",
+      "sex": "M",
+      "nat": "ESP"
+     },
+     {
+      "pos": "3",
+      "name": "Rodrigo Mendoza Jiménez",
+      "club": "",
+      "mark": "28:09",
+      "sex": "M",
+      "nat": "ESP"
+     }
+    ]
+   },
+   {
+    "name": "Primeros españoles (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Eduardo Menacho Miralles",
+      "club": "",
+      "mark": "27:37",
+      "nat": "ESP",
+      "sex": "M"
+     },
+     {
+      "pos": "2",
+      "name": "Jorge Blanco Álvarez",
+      "club": "",
+      "mark": "28:04",
+      "nat": "ESP",
+      "sex": "M"
+     },
+     {
+      "pos": "3",
+      "name": "Rodrigo Mendoza Jiménez",
+      "club": "",
+      "mark": "28:09",
+      "nat": "ESP",
+      "sex": "M"
+     }
+    ]
+   },
+   {
+    "name": "Categoría Sub-18 hombres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Jose Antonio Martín Muñoz",
+      "club": "",
+      "mark": "32:56",
+      "sex": "M"
+     },
+     {
+      "pos": "2",
+      "name": "Iker Santos García",
+      "club": "",
+      "mark": "33:51",
+      "sex": "M"
+     },
+     {
+      "pos": "3",
+      "name": "Alvaro Fandiño Arranz",
+      "club": "",
+      "mark": "35:05",
+      "sex": "M"
+     }
+    ]
+   },
+   {
+    "name": "Categoría Sub-20 hombres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Rubén Serrano Cobo",
+      "club": "",
+      "mark": "33:25",
+      "sex": "M"
+     },
+     {
+      "pos": "2",
+      "name": "David Soto Mena",
+      "club": "",
+      "mark": "34:11",
+      "sex": "M"
+     },
+     {
+      "pos": "3",
+      "name": "Daniel Collantes Loa",
+      "club": "",
+      "mark": "34:53",
+      "sex": "M"
+     }
+    ]
+   },
+   {
+    "name": "Categoría Sub-23 hombres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Brian Kiprop",
+      "club": "",
+      "mark": "31:11",
+      "sex": "M"
+     },
+     {
+      "pos": "2",
+      "name": "Luis García Martín",
+      "club": "",
+      "mark": "32:00",
+      "sex": "M"
+     },
+     {
+      "pos": "3",
+      "name": "Álvaro Martín Hidalgo",
+      "club": "",
+      "mark": "32:06",
+      "sex": "M"
+     }
+    ]
+   },
+   {
+    "name": "Categoría Sénior hombres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Eduardo Menacho Miralles",
+      "club": "",
+      "mark": "27:37",
+      "sex": "M",
+      "nat": "ESP"
+     },
+     {
+      "pos": "2",
+      "name": "Jorge Blanco Álvarez",
+      "club": "",
+      "mark": "28:04",
+      "sex": "M",
+      "nat": "ESP"
+     },
+     {
+      "pos": "3",
+      "name": "Rodrigo Mendoza Jiménez",
+      "club": "",
+      "mark": "28:09",
+      "sex": "M",
+      "nat": "ESP"
+     }
+    ]
+   },
+   {
+    "name": "Categoría M35 hombres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "David Garcia Catalina",
+      "club": "",
+      "mark": "30:21",
+      "sex": "M"
+     },
+     {
+      "pos": "2",
+      "name": "Alvaro Alonso Ferreira",
+      "club": "",
+      "mark": "31:09",
+      "sex": "M"
+     },
+     {
+      "pos": "3",
+      "name": "Avelino De Dios Costa",
+      "club": "",
+      "mark": "31:15",
+      "sex": "M"
+     }
+    ]
+   },
+   {
+    "name": "Categoría M40 hombres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Alejandro Jiménez Vicente",
+      "club": "",
+      "mark": "29:25",
+      "sex": "M"
+     },
+     {
+      "pos": "2",
+      "name": "Jose Maria Torvisco Najarro",
+      "club": "",
+      "mark": "31:28",
+      "sex": "M"
+     },
+     {
+      "pos": "3",
+      "name": "Jose Carlos Merinero Velez",
+      "club": "",
+      "mark": "31:31",
+      "sex": "M"
+     }
+    ]
+   },
+   {
+    "name": "Categoría M45 hombres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Sergio Salinero Miguel",
+      "club": "",
+      "mark": "29:44",
+      "sex": "M"
+     },
+     {
+      "pos": "2",
+      "name": "Enrique De Diego Yagüe",
+      "club": "",
+      "mark": "31:29",
+      "sex": "M"
+     },
+     {
+      "pos": "3",
+      "name": "Miguel Angel Martin Granados",
+      "club": "",
+      "mark": "31:35",
+      "sex": "M"
+     }
+    ]
+   },
+   {
+    "name": "Categoría M50 hombres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Sergio Sanchez Muñoz",
+      "club": "",
+      "mark": "31:16",
+      "sex": "M"
+     },
+     {
+      "pos": "2",
+      "name": "Óscar Sánchez Gómez",
+      "club": "",
+      "mark": "32:09",
+      "sex": "M"
+     },
+     {
+      "pos": "3",
+      "name": "Juan Jose García Pulido",
+      "club": "",
+      "mark": "32:56",
+      "sex": "M"
+     }
+    ]
+   },
+   {
+    "name": "Categoría M55 hombres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Julio Bardavio Atienza",
+      "club": "",
+      "mark": "32:57",
+      "sex": "M"
+     },
+     {
+      "pos": "2",
+      "name": "Francisco Acuña Guesta",
+      "club": "",
+      "mark": "33:16",
+      "sex": "M"
+     },
+     {
+      "pos": "3",
+      "name": "Jose Francisco Hernández Herrero",
+      "club": "",
+      "mark": "33:51",
+      "sex": "M"
+     }
+    ]
+   },
+   {
+    "name": "Categoría M60 hombres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Jose Luis Martin Martinez",
+      "club": "",
+      "mark": "35:58",
+      "sex": "M"
+     },
+     {
+      "pos": "2",
+      "name": "Angel Lebrero Suárez",
+      "club": "",
+      "mark": "36:00",
+      "sex": "M"
+     },
+     {
+      "pos": "3",
+      "name": "Benjamin Merino",
+      "club": "",
+      "mark": "36:08",
+      "sex": "M"
+     }
+    ]
+   },
+   {
+    "name": "Categoría M65 hombres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Cesar Brunete Caldevilla",
+      "club": "",
+      "mark": "39:55",
+      "sex": "M"
+     },
+     {
+      "pos": "2",
+      "name": "Pedro Urieta Guijarro",
+      "club": "",
+      "mark": "41:02",
+      "sex": "M"
+     },
+     {
+      "pos": "3",
+      "name": "Francisco Trujillo Serrano",
+      "club": "",
+      "mark": "41:23",
+      "sex": "M"
+     }
+    ]
+   },
+   {
+    "name": "Categoría M70 hombres (10K)",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Enrique Flores Jimenez",
+      "club": "",
+      "mark": "41:55",
+      "sex": "M"
+     },
+     {
+      "pos": "2",
+      "name": "Javier Medrano Sánchez",
+      "club": "",
+      "mark": "43:02",
+      "sex": "M"
+     },
+     {
+      "pos": "3",
+      "name": "Cesar Francisco Vicente Alonso",
+      "club": "",
+      "mark": "44:30",
+      "sex": "M"
+     }
+    ]
+   }
+  ]
  }
 }
