@@ -1251,7 +1251,199 @@
     "r": "Cross"
    }
   ],
-  "resultados": "https://www.crossatapuerca.com/nw/historial-e-imagenes/xxii-cross-2026/"
+  "resultados": "https://www.crossatapuerca.com/nw/historial-e-imagenes/xxii-cross-2026/",
+  "_fuente_a_mano": "Clasificaciones oficiales (PDF) de la organización: crossatapuerca.com/nw/historial-e-imagenes/xxii-cross-2026/ (22/11/2026)",
+  "a_mano": [
+   {
+    "name": "Sub-16 femenina",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Ella Martín Ruiz",
+      "sex": "F",
+      "club": "Soliss UDAT Talavera",
+      "mark": "10:21"
+     },
+     {
+      "pos": "2",
+      "name": "Carlota Gasión Lázaro",
+      "sex": "F",
+      "club": "Alcampo Scorpio 71",
+      "mark": "10:32"
+     },
+     {
+      "pos": "3",
+      "name": "Valeria Quiroga Fernández",
+      "sex": "F",
+      "club": "Oviedo At.",
+      "mark": "10:37"
+     }
+    ]
+   },
+   {
+    "name": "Sub-16 masculina",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "José Manuel García Navarro",
+      "sex": "M",
+      "club": "DELSUR Coop La Palma",
+      "mark": "9:18"
+     },
+     {
+      "pos": "2",
+      "name": "Marcel Samsó Ruiz",
+      "sex": "M",
+      "club": "CA Granollers",
+      "mark": "9:18"
+     },
+     {
+      "pos": "3",
+      "name": "Mario Alcalde Abío",
+      "sex": "M",
+      "club": "C.A. Unión Guadalajara",
+      "mark": "9:20"
+     }
+    ]
+   },
+   {
+    "name": "Sub-18 femenina",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Sara Masanet Miró",
+      "sex": "F",
+      "club": "Atletismo Alcoy",
+      "mark": "14:28"
+     },
+     {
+      "pos": "2",
+      "name": "Sandra Velasco Antón",
+      "sex": "F",
+      "club": "A.D. Sprint",
+      "mark": "14:28"
+     },
+     {
+      "pos": "3",
+      "name": "Rebeca Perea Corral",
+      "sex": "F",
+      "club": "Soliss UDAT Talavera",
+      "mark": "14:29"
+     }
+    ]
+   },
+   {
+    "name": "Sub-18 masculina",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Guillem Cuartero Sans",
+      "sex": "M",
+      "club": "Facsa - Playas de Castellón",
+      "mark": "12:13"
+     },
+     {
+      "pos": "2",
+      "name": "Sergio Gangoso Herráez",
+      "sex": "M",
+      "club": "Vicky Foods Athletics",
+      "mark": "12:20"
+     },
+     {
+      "pos": "3",
+      "name": "Daniel Llorente Rodríguez",
+      "sex": "M",
+      "club": "A.D. Marathon",
+      "mark": "12:24"
+     }
+    ]
+   },
+   {
+    "name": "Sub-20 femenina",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Claudia Gutiérrez Alonso",
+      "sex": "F",
+      "club": "Nike Running Club",
+      "mark": "17:31"
+     },
+     {
+      "pos": "2",
+      "name": "Rocío García Ventura",
+      "sex": "F",
+      "club": "Ardillas-Escorial",
+      "mark": "17:37"
+     },
+     {
+      "pos": "3",
+      "name": "Demeku Paniagua Rodríguez",
+      "sex": "F",
+      "club": "CA Pino",
+      "mark": "17:44"
+     }
+    ]
+   },
+   {
+    "name": "Sub-20 masculina",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "Alejandro Ibáñez Jaramillo",
+      "sex": "M",
+      "club": "A.A. Moratalaz",
+      "mark": "14:54"
+     },
+     {
+      "pos": "2",
+      "name": "Álvaro González Fernández",
+      "sex": "M",
+      "club": "Atlético Salamanca",
+      "mark": "14:57"
+     },
+     {
+      "pos": "3",
+      "name": "Adrià Boyano Requena",
+      "sex": "M",
+      "club": "CA Granollers",
+      "mark": "15:01"
+     }
+    ]
+   },
+   {
+    "name": "Sub-23 femenina",
+    "round": "Oficial",
+    "rows": [
+     {
+      "pos": "1",
+      "name": "María Viciosa Villa",
+      "sex": "F",
+      "club": "Nike Running Club",
+      "mark": "22:09"
+     },
+     {
+      "pos": "2",
+      "name": "Silvia Rey Veiga",
+      "sex": "F",
+      "club": "TrainingRey",
+      "mark": "22:16"
+     },
+     {
+      "pos": "3",
+      "name": "Candela Blázquez Lorenzo",
+      "sex": "F",
+      "club": "CAPEX",
+      "mark": "22:43"
+     }
+    ]
+   }
+  ]
  },
  "rfea-2026-11-22-campeonato-de-gipuzkoa-de-maraton-47o-zurich-maraton-de-san-": {
   "resultados": "https://sportmaniacs.com/es/races/zurich-maraton-de-san-sebastian-2026",
