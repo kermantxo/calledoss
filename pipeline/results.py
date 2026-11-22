@@ -34,14 +34,17 @@ def summarize(res, is_intl):
     vistos = set()  # el mismo atleta en la general y en «primeros españoles» de esa prueba: una sola vez
     for ev in res.get("events", []):
         rounds = ev.get("rounds") or [ev]
-        # primero «Primeros españoles»: en el bloque de españoles manda su orden, no el puesto en la general
-        rounds = sorted(rounds, key=lambda rd: not re.search(r"espa[ñn]ol", rd.get("round") or "", re.I))
+        es_esp = lambda rd: bool(re.search(r"espa[ñn]ol", rd.get("round") or "", re.I))
+        # podios: en su orden (la general primero); «Primeros españoles» no es un podio
         for rnd in rounds:
             name = rnd.get("round") or ""
             is_final = rnd.get("final", bool(re.search(r"^final\b|^final$", name, re.I)) or name == "")
+            if is_final and rnd.get("rows") and not es_esp(rnd):
+                podios.append({"event": ev["name"], "round": name, "rows": rnd["rows"][:3]})
+        # españoles: primero «Primeros españoles», donde manda su orden y no el puesto en la general
+        for rnd in sorted(rounds, key=lambda rd: not es_esp(rd)):
+            name = rnd.get("round") or ""
             rows = rnd.get("rows", [])
-            if is_final and rows:
-                podios.append({"event": ev["name"], "round": name, "rows": rows[:3]})
             for r in rows:
                 if r.get("nat") == "ESP":
                     if (ev["name"], norm(r.get("name", ""))) in vistos:
@@ -50,6 +53,8 @@ def summarize(res, is_intl):
                     espanoles.append({"event": ev["name"], "round": name, **r})
                 elif _match(r.get("name", ""), wl, international=is_intl):
                     destacados.append({"event": ev["name"], "round": name, **r})
+    # primero la general de cada prueba; las categorías (sub-18, M35...) después: el índice solo guarda 6
+    podios.sort(key=lambda q: bool(re.match(r"categor", q.get("round") or "", re.I)))
     return podios, espanoles[:80], destacados[:40]
 
 
