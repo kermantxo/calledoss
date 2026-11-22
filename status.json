@@ -52,11 +52,11 @@
   },
   "rfealive": {
    "label": "RFEA Live · horarios",
-   "last_run": "2026-11-21T18:45:55+01:00",
+   "last_run": "2026-11-22T00:55:11+01:00",
    "ok": true,
-   "last_ok": "2026-11-21T18:46:58+01:00",
+   "last_ok": "2026-11-22T00:56:09+01:00",
    "fails_in_a_row": 0,
-   "last_count": 81
+   "last_count": 82
   },
   "destacados": {
    "label": "Atletas destacados (listas de salida)",
@@ -104,11 +104,11 @@
   },
   "previas": {
    "label": "Previas (listas de inscritos)",
-   "last_run": "2026-11-21T18:46:58+01:00",
+   "last_run": "2026-11-22T00:56:09+01:00",
    "ok": true,
-   "last_ok": "2026-11-21T19:11:35+01:00",
+   "last_ok": "2026-11-22T01:18:35+01:00",
    "fails_in_a_row": 0,
-   "last_count": 18
+   "last_count": 17
   },
   "ranking": {
    "label": "Ranking RFEA (aire libre y pista cubierta)",
@@ -647,5 +647,5 @@
    "msg": "Búsqueda de podios de '61ª Behobia-San Sebastián': expected string or bytes-like object, got 'list'"
   }
  ],
- "updated": "2026-11-21T23:06:29+01:00"
+ "updated": "2026-11-22T01:18:35+01:00"
 }

@@ -1,57 +1,109 @@
 {
- "date": "2026-11-21",
- "generated": "2026-11-21T18:46:58+01:00",
- "active_day": true,
+ "date": "2026-11-22",
+ "generated": "2026-11-22T00:56:09+01:00",
+ "active_day": false,
  "windows": [
   {
-   "id": "rfea-2026-11-21-vi-reunion-nacional-de-marcha-atletica-villa-de-valverde-isl",
-   "name": "VI Reunión Nacional de Marcha atletica Villa de Valverde - isla de El Hierro",
-   "place": "El Hierro",
+   "id": "rfea-2026-11-22-campeonato-de-gipuzkoa-de-maraton-47o-zurich-maraton-de-san-",
+   "name": "Campeonato de Gipuzkoa de Maraton 47º Zurich Maratón de San Sebastián",
+   "place": "San Sebastian",
    "source": "RFEA",
-   "start": "2026-11-21T10:00:00+01:00",
-   "end": "2026-11-21T14:00:00+01:00",
-   "first": "11:00",
-   "last": "12:00",
+   "start": "2026-11-22T07:00:00+01:00",
+   "end": "2026-11-22T23:00:00+01:00",
+   "first": null,
+   "last": null,
+   "schedule_known": false,
+   "poll": false,
+   "intl": false,
+   "links": {
+    "info": "https://atletismorfea.es/calendario/campeonato/campeonato-de-gipuzkoa-de-maraton-47o-zurich-maraton-de-san-sebastian",
+    "web": "https://zurichmaratonsansebastian.com"
+   }
+  },
+  {
+   "id": "rfea-2026-11-22-zara-athleticz-speed-run-1",
+   "name": "Zara Athleticz Speed Run",
+   "place": "Madrid",
+   "source": "RFEA",
+   "start": "2026-11-22T07:00:00+01:00",
+   "end": "2026-11-22T23:00:00+01:00",
+   "first": null,
+   "last": null,
+   "schedule_known": false,
+   "poll": false,
+   "intl": false,
+   "links": {
+    "info": "https://atletismorfea.es/calendario/campeonato/zara-athleticz-speed-run-1",
+    "web": "https://speedrun.es"
+   }
+  },
+  {
+   "id": "rfea-2026-11-21-xxii-cross-internacional-de-atapuerca",
+   "name": "XXII Cross Internacional de Atapuerca",
+   "place": "Burgos",
+   "source": "RFEA",
+   "start": "2026-11-22T08:00:00+01:00",
+   "end": "2026-11-22T16:00:00+01:00",
+   "first": "09:00",
+   "last": "14:00",
    "schedule_known": true,
-   "poll": true,
-   "intl": false,
-   "links": {
-    "info": "https://atletismorfea.es/calendario/campeonato/vi-reunion-nacional-de-marcha-atletica-villa-de-valverde-isla-de-el-hierro",
-    "directo": "https://rfealive.me/Results/Schedule?chid=2026CNR70709"
-   }
-  },
-  {
-   "id": "rfea-2026-11-21-benidorm-half-2",
-   "name": "Benidorm Half",
-   "place": "Benidorm",
-   "source": "RFEA",
-   "start": "2026-11-21T07:00:00+01:00",
-   "end": "2026-11-21T23:00:00+01:00",
-   "first": null,
-   "last": null,
-   "schedule_known": false,
    "poll": false,
    "intl": false,
    "links": {
-    "info": "https://atletismorfea.es/calendario/campeonato/benidorm-half-2",
-    "web": "https://www.benidormhalf.com"
+    "info": "https://atletismorfea.es/calendario/campeonato/xxii-cross-internacional-de-atapuerca",
+    "web": "https://www.crossatapuerca.com",
+    "horario": "https://atletismorfea.es/sites/default/files/2026-11/204-2026%20Campeonato%20de%20Espa%C3%B1a%20de%20Campo%20a%20Trav%C3%A9s%20por%20clubes%20-%20Informaci%C3%B3n%20t%C3%A9cnica%20y%20equipos%20clasificados_0.pdf"
    }
   },
   {
-   "id": "rfea-2026-11-21-xviii-edicion-media-maraton-gran-canaria-memorial-alcalde-ca",
-   "name": "XVIII Edicion Media Maratón Gran Canaria \"Memorial Alcalde Camilo Sanchez\" 2026",
-   "place": "Vecindario",
-   "source": "RFEA",
-   "start": "2026-11-21T07:00:00+01:00",
-   "end": "2026-11-21T23:00:00+01:00",
-   "first": null,
+   "id": "avaibook-4a-carrera-popular-ciudad-de-parquesol",
+   "name": "4ª Carrera Popular Ciudad de Parquesol",
+   "place": "",
+   "source": "AvaiBook (Runvasport)",
+   "start": "2026-11-22T09:00:00+01:00",
+   "end": "2026-11-22T16:00:00+01:00",
+   "first": "10:00",
    "last": null,
-   "schedule_known": false,
+   "schedule_known": true,
    "poll": false,
    "intl": false,
    "links": {
-    "info": "https://atletismorfea.es/calendario/campeonato/xviii-edicion-media-maraton-gran-canaria-memorial-alcalde-camilo-sanchez-2026",
-    "web": "https://mediamaratonalcaldecamilosanchez.es/"
+    "inscritos": "https://inscripciones.runvasport.es/inscripcion/4a-carrera-popular-ciudad-de-parquesol/",
+    "resultados": "https://www.avaibooksports.com/inscripcion/4a-carrera-popular-ciudad-de-parquesol/clasificaciones/"
+   }
+  },
+  {
+   "id": "avaibook-iv-carrera-popular-bahabonela-y-marcha-solidaria-a-favor-del-ela",
+   "name": "IV Carrera Popular Bahabónela y Marcha Solidaria a Favor del Ela",
+   "place": "",
+   "source": "AvaiBook (Runvasport)",
+   "start": "2026-11-22T09:30:00+01:00",
+   "end": "2026-11-22T16:30:00+01:00",
+   "first": "10:30",
+   "last": null,
+   "schedule_known": true,
+   "poll": false,
+   "intl": false,
+   "links": {
+    "inscritos": "https://inscripciones.runvasport.es/inscripcion/iv-carrera-popular-bahabonela-y-marcha-solidaria-a-favor-del-ela/",
+    "resultados": "https://www.avaibooksports.com/inscripcion/iv-carrera-popular-bahabonela-y-marcha-solidaria-a-favor-del-ela/clasificaciones/"
+   }
+  },
+  {
+   "id": "avaibook-xi-trail-tres-cerros-palentinos-1",
+   "name": "XI Trail Tres Cerros Palentinos",
+   "place": "",
+   "source": "AvaiBook (Runvasport)",
+   "start": "2026-11-22T10:00:00+01:00",
+   "end": "2026-11-22T20:00:00+01:00",
+   "first": "11:00",
+   "last": null,
+   "schedule_known": true,
+   "poll": false,
+   "intl": false,
+   "links": {
+    "inscritos": "https://inscripciones.runvasport.es/inscripcion/xi-trail-tres-cerros-palentinos-1/",
+    "resultados": "https://www.avaibooksports.com/inscripcion/xi-trail-tres-cerros-palentinos-1/clasificaciones/"
    }
   }
  ]
