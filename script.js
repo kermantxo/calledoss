@@ -4133,7 +4133,7 @@ function livePodios(r){
     return `<div class="event-block"><div class="event-block-head"><h3>🏆 ${sx === 'F' ? t('Podio femenino') : t('Podio masculino')}</h3></div>
       ${list.map(p => (list.length > 1 ? `<div class="sb-event"><span>${esc(td(eventTitle(p.event)))}</span></div>` : '') + resultTable(p.rows.slice(0, 3), false)).join('')}</div>`;
   };
-  const html = col('F') + col('M');
+  const html = col('M') + col('F');  // primero masculino, luego femenino (Kerman)
   return html ? `<div class="roster-grid live-podios">${html}</div>` : '';
 }
 
@@ -4548,7 +4548,7 @@ const RANK_SEASON_LABEL = {AL: t('Aire libre'), PC: t('Pista cubierta'), RU: t('
 function rankHistorico(){ return document.getElementById('rankScope').value === 'H'; }
 function rankList(){
   const st = document.getElementById('rankSeason').value || 'AL';
-  const sx = document.getElementById('rankSex').value || 'F';
+  const sx = document.getElementById('rankSex').value || 'M';
   const src = RANKING_DATA && (rankHistorico() ? RANKING_DATA.historico : RANKING_DATA.seasons);
   return (src && src[st] && src[st][sx]) || [];
 }
@@ -4764,7 +4764,7 @@ function eventSex(ev){
 }
 function expectedSexes(name){
   const f = ONLY_F_RE.test(name||''), m = ONLY_M_RE.test(name||'');
-  return f && !m ? ['F'] : m && !f ? ['M'] : ['F','M'];
+  return f && !m ? ['F'] : m && !f ? ['M'] : ['M','F'];  // primero masculino, luego femenino
 }
 function eventTitle(name){
   return (name||'').replace(/\s*[·-]?\s*(mujeres|hombres|femenin[oa]s?|masculin[oa]s?|damas|varones)\s*$/i, '').trim() || t('Clasificación general');
