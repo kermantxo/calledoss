@@ -52,11 +52,11 @@
   },
   "rfealive": {
    "label": "RFEA Live · horarios",
-   "last_run": "2026-11-23T15:53:28+01:00",
+   "last_run": "2026-11-23T23:12:32+01:00",
    "ok": true,
-   "last_ok": "2026-11-23T15:54:23+01:00",
+   "last_ok": "2026-11-23T23:13:47+01:00",
    "fails_in_a_row": 0,
-   "last_count": 0
+   "last_count": 79
   },
   "destacados": {
    "label": "Atletas destacados (listas de salida)",
@@ -104,9 +104,9 @@
   },
   "previas": {
    "label": "Previas (listas de inscritos)",
-   "last_run": "2026-11-23T15:58:21+01:00",
+   "last_run": "2026-11-23T23:13:47+01:00",
    "ok": true,
-   "last_ok": "2026-11-23T16:19:01+01:00",
+   "last_ok": "2026-11-23T23:36:46+01:00",
    "fails_in_a_row": 0,
    "last_count": 12
   },
@@ -638,5 +638,5 @@
    "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-de-short-track-sub-20-por-clubes-trofeo-antonio-ferrer-1: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-de-short-track-sub-20-por-clubes-trofeo-antonio-ferrer-1"
   }
  ],
- "updated": "2026-11-23T21:59:07+01:00"
+ "updated": "2026-11-23T23:36:46+01:00"
 }
