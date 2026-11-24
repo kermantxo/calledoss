@@ -68,21 +68,21 @@
   },
   "results": {
    "label": "Resultados (todas las fuentes)",
-   "last_run": "2026-11-24T16:04:54+01:00",
+   "last_run": "2026-11-24T21:00:14+01:00",
    "ok": true,
-   "last_ok": "2026-11-24T16:08:09+01:00",
+   "last_ok": "2026-11-24T21:00:23+01:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
   "rfea_results": {
    "label": "RFEA · índice de resultados (PDF)",
-   "last_run": "2026-11-24T16:04:54+01:00",
+   "last_run": "2026-11-24T21:00:14+01:00",
    "ok": false,
    "last_ok": "2026-11-17T14:33:48+01:00",
-   "fails_in_a_row": 22,
+   "fails_in_a_row": 23,
    "last_count": 0,
    "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/atletismo-plus/categoria/resultados",
-   "last_error_at": "2026-11-24T16:05:03+01:00"
+   "last_error_at": "2026-11-24T21:00:23+01:00"
   },
   "backfill": {
    "label": "Carga histórica de resultados 2026",
@@ -138,9 +138,9 @@
   },
   "podcast": {
    "label": "Pódcast (último programa en Spotify)",
-   "last_run": "2026-11-24T16:29:56+01:00",
+   "last_run": "2026-11-24T21:00:23+01:00",
    "ok": true,
-   "last_ok": "2026-11-24T16:29:56+01:00",
+   "last_ok": "2026-11-24T21:00:24+01:00",
    "fails_in_a_row": 0,
    "last_count": 1,
    "last_error": "KeyError: 'state'",
@@ -148,6 +148,13 @@
   }
  },
  "log": [
+  {
+   "at": "2026-11-24T21:00:23+01:00",
+   "level": "error",
+   "source": "rfea_results",
+   "msg": "HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/atletismo-plus/categoria/resultados",
+   "detail": "Traceback (most recent call last):\n  File \"/home/runner/work/calledoss/calledoss/pipeline/common.py\", line 212, in run\n    result = fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/results.py\", line 229, in rfea_pdf_index\n    for link in rfea.results_index(http):\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/sources/rfea.py\", line 239, in results_index\n    soup = BeautifulSoup(http.get(url).text, \"lxml\")\n                         ^^^^^^^^^^^^^\nrequests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/atletismo-plus/categoria/resultados\n"
+  },
   {
    "at": "2026-11-24T16:29:56+01:00",
    "level": "error",
@@ -628,13 +635,7 @@
    "level": "warning",
    "source": "rfea_detail",
    "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-de-short-track-sub-20-por-clubes-trofeo-antonio-ferrer-1: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-de-short-track-sub-20-por-clubes-trofeo-antonio-ferrer-1"
-  },
-  {
-   "at": "2026-11-23T15:51:03+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/x-gran-premio-de-marcha-ciudad-de-castro-urdiales: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/x-gran-premio-de-marcha-ciudad-de-castro-urdiales"
   }
  ],
- "updated": "2026-11-24T16:29:56+01:00"
+ "updated": "2026-11-24T21:00:24+01:00"
 }
