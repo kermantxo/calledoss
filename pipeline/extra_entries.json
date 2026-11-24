@@ -4160,5 +4160,145 @@
     "note": "Anunciado: plusmarquista ecuatoriana de 10K y reciente ganadora de la Behobia-San Sebastián"
    }
   ]
+ },
+ "rfea-2026-11-29-carrera-internacional-desde-santurce-bilbao": {
+  "_fuente": "ADOC, «Santurce tiene ya candidatos a las victorias» (24/11/2026); la pasó Kerman el 24/11/2026.",
+  "fuente": "https://www.adocasociacion.es/Noticia/725/Santurce-tiene-ya-candidatos-a-las-victorias",
+  "solo_anunciados": true,
+  "atletas": [
+   {
+    "name": "Nicholas Munke",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Élite (15 km)",
+    "note": "Anunciado por la organización (ADOC): ganador de las últimas ediciones de la Media Maratón de Benidorm y de Alicante"
+   },
+   {
+    "name": "Kelvine Kiptoo",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Élite (15 km)",
+    "note": "Anunciado por la organización (ADOC): con experiencia en la ruta española"
+   },
+   {
+    "name": "Mark Kipkoech",
+    "sex": "M",
+    "nat": "KEN",
+    "event": "Élite (15 km)",
+    "note": "Anunciado por la organización (ADOC): debuta en España"
+   },
+   {
+    "name": "Chiqui Pérez",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Élite (15 km)",
+    "note": "Anunciado por la organización (ADOC): campeón de España de 10.000 m y de media maratón"
+   },
+   {
+    "name": "Fernando Carro",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Élite (15 km)",
+    "note": "Anunciado por la organización (ADOC): subcampeón de Europa y plusmarquista español de 3000 m obstáculos"
+   },
+   {
+    "name": "Javi Guerra",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Élite (15 km)",
+    "note": "Anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Raúl Celada",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Élite (15 km)",
+    "note": "Anunciado por la organización (ADOC): 7.º en el último Campeonato de España de 10.000 m"
+   },
+   {
+    "name": "Urko Herrán",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Élite (15 km)",
+    "note": "Anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Joanes Goitisolo",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Élite (15 km)",
+    "note": "Anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Mikel Aramendi",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Élite (15 km)",
+    "note": "Anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Ander Aramendi",
+    "sex": "M",
+    "nat": "ESP",
+    "event": "Élite (15 km)",
+    "note": "Anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Brenda Jepchumba",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Élite (15 km)",
+    "note": "Anunciado por la organización (ADOC): gran favorita; 4.ª en el Cross de Atapuerca y 37.ª en el Mundial de cross de este año"
+   },
+   {
+    "name": "Scovia Ngeywo",
+    "sex": "F",
+    "nat": "KEN",
+    "event": "Élite (15 km)",
+    "note": "Anunciado por la organización (ADOC): debuta en España"
+   },
+   {
+    "name": "Irene Pelayo",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Élite (15 km)",
+    "note": "Anunciado por la organización (ADOC): ya ha ganado en Santurce"
+   },
+   {
+    "name": "Andrea Romero",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Élite (15 km)",
+    "note": "Anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Elena Loyo",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Élite (15 km)",
+    "note": "Anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Lidia Campo",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Élite (15 km)",
+    "note": "Anunciado por la organización (ADOC)"
+   },
+   {
+    "name": "Azucena Díaz",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Élite (15 km)",
+    "note": "Anunciado por la organización (ADOC): se despide esta temporada del atletismo y debuta en Santurce"
+   },
+   {
+    "name": "Sara Alonso",
+    "sex": "F",
+    "nat": "ESP",
+    "event": "Élite (15 km)",
+    "note": "Anunciado por la organización (ADOC): subcampeona del mundo de trail y ganadora del maratón alpino Zegama-Aizkorri"
+   }
+  ]
  }
 }

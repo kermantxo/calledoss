@@ -97,6 +97,10 @@ def build(extra_watch=None):
                 label = "%s %s" % (ev.get("name", ""), rnd.get("round", ""))
                 if re.search(r"relevo|4x|equipo|clubes|puntuaci", label, re.I):
                     continue
+                # bloques añadidos a la general (podio de una categoría, primeros españoles, Campeonato por clubes
+                # dentro de un cross internacional): ganar ahí no es ganar la carrera
+                if re.search(r"categor|espa[ñn]ol|campeonato de espa", rnd.get("round") or "", re.I):
+                    continue
                 # parciales de una prueba combinada ("100 m Decatlón"): no son títulos por sí mismos
                 if re.search(r"\b(decatl|heptatl|pentatl|hexatl|octatl)", ev.get("name", ""), re.I) and \
                         re.match(r"^\s*\d|^(longitud|altura|peso|disco|jabalina|p[eé]rtiga|martillo|triple)", ev.get("name", ""), re.I):
