@@ -2,87 +2,87 @@
  "sources": {
   "rfea_calendar": {
    "label": "RFEA · calendario",
-   "last_run": "2026-11-24T15:55:39+01:00",
+   "last_run": "2026-11-26T14:57:10+01:00",
    "ok": false,
    "last_ok": "2026-11-17T14:31:39+01:00",
-   "fails_in_a_row": 7,
+   "fails_in_a_row": 8,
    "last_count": 676,
    "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario",
-   "last_error_at": "2026-11-24T15:55:48+01:00"
+   "last_error_at": "2026-11-26T14:57:19+01:00"
   },
   "wa_calendar": {
    "label": "World Athletics · calendario",
-   "last_run": "2026-11-24T15:55:48+01:00",
+   "last_run": "2026-11-26T14:57:19+01:00",
    "ok": true,
-   "last_ok": "2026-11-24T15:56:16+01:00",
+   "last_ok": "2026-11-26T14:57:47+01:00",
    "fails_in_a_row": 0,
-   "last_count": 205
+   "last_count": 204
   },
   "cronomancha_upcoming": {
    "label": "Cronomancha · próximas",
-   "last_run": "2026-11-24T15:56:16+01:00",
+   "last_run": "2026-11-26T14:57:47+01:00",
    "ok": true,
-   "last_ok": "2026-11-24T15:56:17+01:00",
+   "last_ok": "2026-11-26T14:57:48+01:00",
    "fails_in_a_row": 0,
    "last_count": 6
   },
   "cronomancha_events": {
    "label": "Cronomancha · resultados",
-   "last_run": "2026-11-24T15:56:17+01:00",
+   "last_run": "2026-11-26T14:57:48+01:00",
    "ok": true,
-   "last_ok": "2026-11-24T15:56:18+01:00",
+   "last_ok": "2026-11-26T14:57:49+01:00",
    "fails_in_a_row": 0,
    "last_count": 43
   },
   "avaibook": {
    "label": "AvaiBook (Runvasport)",
-   "last_run": "2026-11-24T15:56:18+01:00",
+   "last_run": "2026-11-26T14:57:49+01:00",
    "ok": true,
-   "last_ok": "2026-11-24T15:56:20+01:00",
+   "last_ok": "2026-11-26T14:57:51+01:00",
    "fails_in_a_row": 0,
    "last_count": 47
   },
   "rfea_detail": {
    "label": "RFEA · fichas de competición",
-   "last_run": "2026-11-24T15:56:21+01:00",
+   "last_run": "2026-11-26T14:57:52+01:00",
    "ok": true,
-   "last_ok": "2026-11-24T16:03:46+01:00",
+   "last_ok": "2026-11-26T15:05:52+01:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
   "rfealive": {
    "label": "RFEA Live · horarios",
-   "last_run": "2026-11-25T21:08:39+01:00",
+   "last_run": "2026-11-26T15:05:52+01:00",
    "ok": true,
-   "last_ok": "2026-11-25T21:11:05+01:00",
+   "last_ok": "2026-11-26T15:07:04+01:00",
    "fails_in_a_row": 0,
-   "last_count": 80
+   "last_count": 0
   },
   "destacados": {
    "label": "Atletas destacados (listas de salida)",
-   "last_run": "2026-11-24T16:04:54+01:00",
+   "last_run": "2026-11-26T15:07:14+01:00",
    "ok": true,
-   "last_ok": "2026-11-24T16:04:54+01:00",
+   "last_ok": "2026-11-26T15:07:14+01:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
   "results": {
    "label": "Resultados (todas las fuentes)",
-   "last_run": "2026-11-26T03:05:15+01:00",
+   "last_run": "2026-11-26T15:07:14+01:00",
    "ok": true,
-   "last_ok": "2026-11-26T03:08:23+01:00",
+   "last_ok": "2026-11-26T15:09:07+01:00",
    "fails_in_a_row": 0,
    "last_count": 0
   },
   "rfea_results": {
    "label": "RFEA · índice de resultados (PDF)",
-   "last_run": "2026-11-26T03:05:15+01:00",
+   "last_run": "2026-11-26T15:07:14+01:00",
    "ok": false,
    "last_ok": "2026-11-17T14:33:48+01:00",
-   "fails_in_a_row": 26,
+   "fails_in_a_row": 27,
    "last_count": 0,
    "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/atletismo-plus/categoria/resultados",
-   "last_error_at": "2026-11-26T03:05:24+01:00"
+   "last_error_at": "2026-11-26T15:07:23+01:00"
   },
   "backfill": {
    "label": "Carga histórica de resultados 2026",
@@ -96,51 +96,51 @@
   },
   "avaibook_upcoming": {
    "label": "Runvasport · próximas",
-   "last_run": "2026-11-24T15:56:20+01:00",
+   "last_run": "2026-11-26T14:57:51+01:00",
    "ok": true,
-   "last_ok": "2026-11-24T15:56:21+01:00",
+   "last_ok": "2026-11-26T14:57:52+01:00",
    "fails_in_a_row": 0,
-   "last_count": 22
+   "last_count": 25
   },
   "previas": {
    "label": "Previas (listas de inscritos)",
-   "last_run": "2026-11-25T21:11:05+01:00",
+   "last_run": "2026-11-26T15:09:07+01:00",
    "ok": true,
-   "last_ok": "2026-11-25T21:32:26+01:00",
+   "last_ok": "2026-11-26T15:34:05+01:00",
    "fails_in_a_row": 0,
    "last_count": 13
   },
   "ranking": {
    "label": "Ranking RFEA (aire libre y pista cubierta)",
-   "last_run": "2026-11-24T16:29:47+01:00",
+   "last_run": "2026-11-26T15:34:05+01:00",
    "ok": false,
    "last_ok": "2026-11-17T14:55:42+01:00",
-   "fails_in_a_row": 7,
+   "fails_in_a_row": 8,
    "last_count": 123,
    "last_error": "HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/options/ranking/2026/AL/145/0/2/",
-   "last_error_at": "2026-11-24T16:29:56+01:00"
+   "last_error_at": "2026-11-26T15:34:14+01:00"
   },
   "adoc": {
    "label": "ADOC · pruebas asociadas",
-   "last_run": "2026-11-24T16:04:44+01:00",
+   "last_run": "2026-11-26T15:07:04+01:00",
    "ok": true,
-   "last_ok": "2026-11-24T16:04:53+01:00",
+   "last_ok": "2026-11-26T15:07:13+01:00",
    "fails_in_a_row": 0,
    "last_count": 22
   },
   "adoc_calendar": {
    "label": "ADOC · calendario del circuito",
-   "last_run": "2026-11-24T16:04:53+01:00",
+   "last_run": "2026-11-26T15:07:13+01:00",
    "ok": true,
-   "last_ok": "2026-11-24T16:04:54+01:00",
+   "last_ok": "2026-11-26T15:07:14+01:00",
    "fails_in_a_row": 0,
    "last_count": 14
   },
   "podcast": {
    "label": "Pódcast (último programa en Spotify)",
-   "last_run": "2026-11-26T03:08:23+01:00",
+   "last_run": "2026-11-26T15:34:14+01:00",
    "ok": true,
-   "last_ok": "2026-11-26T03:08:24+01:00",
+   "last_ok": "2026-11-26T15:34:14+01:00",
    "fails_in_a_row": 0,
    "last_count": 1,
    "last_error": "KeyError: 'state'",
@@ -148,6 +148,351 @@
   }
  },
  "log": [
+  {
+   "at": "2026-11-26T15:34:14+01:00",
+   "level": "error",
+   "source": "ranking",
+   "msg": "HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/options/ranking/2026/AL/145/0/2/",
+   "detail": "Traceback (most recent call last):\n  File \"/home/runner/work/calledoss/calledoss/pipeline/common.py\", line 212, in run\n    result = fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/ranking.py\", line 167, in run\n    for key, label in event_options(http, season, sex):\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/ranking.py\", line 33, in event_options\n    r = http.get(\"%s/options/ranking/%s/%s/%d/0/%d/\" % (BASE, season, kind, CAT[sex], GENDER[sex]))\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nrequests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/options/ranking/2026/AL/145/0/2/\n"
+  },
+  {
+   "at": "2026-11-26T15:09:07+01:00",
+   "level": "warning",
+   "source": "results",
+   "msg": "Búsqueda de podios de 'Zara Athleticz Speed Run': expected string or bytes-like object, got 'list'"
+  },
+  {
+   "at": "2026-11-26T15:07:23+01:00",
+   "level": "error",
+   "source": "rfea_results",
+   "msg": "HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/atletismo-plus/categoria/resultados",
+   "detail": "Traceback (most recent call last):\n  File \"/home/runner/work/calledoss/calledoss/pipeline/common.py\", line 212, in run\n    result = fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/results.py\", line 229, in rfea_pdf_index\n    for link in rfea.results_index(http):\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/sources/rfea.py\", line 239, in results_index\n    soup = BeautifulSoup(http.get(url).text, \"lxml\")\n                         ^^^^^^^^^^^^^\nrequests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/atletismo-plus/categoria/resultados\n"
+  },
+  {
+   "at": "2026-11-26T15:05:52+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xxxix-cross-nacional-ciudad-de-valladolid: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xxxix-cross-nacional-ciudad-de-valladolid"
+  },
+  {
+   "at": "2026-11-26T15:05:43+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/lvi-gran-premio-caceres-de-campo-traves: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/lvi-gran-premio-caceres-de-campo-traves"
+  },
+  {
+   "at": "2026-11-26T15:05:34+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/10k-valencia-ibercaja-kiprun-1: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/10k-valencia-ibercaja-kiprun-1"
+  },
+  {
+   "at": "2026-11-26T15:05:25+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/campeonato-madrid-de-pruebas-combinadas-absoluto-sub23-y-sub-20-short-track: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/campeonato-madrid-de-pruebas-combinadas-absoluto-sub23-y-sub-20-short-track"
+  },
+  {
+   "at": "2026-11-26T15:05:16+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/campeonato-autonomico-absoluto-y-sub23-de-pcombinadas-st-comunidad-valenciana: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/campeonato-autonomico-absoluto-y-sub23-de-pcombinadas-st-comunidad-valenciana"
+  },
+  {
+   "at": "2026-11-26T15:05:07+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xl-san-silvestre-internacional-crevillentina-2026: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xl-san-silvestre-internacional-crevillentina-2026"
+  },
+  {
+   "at": "2026-11-26T15:04:58+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/san-silvestre-de-las-palmas-de-gran-canaria-2026: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/san-silvestre-de-las-palmas-de-gran-canaria-2026"
+  },
+  {
+   "at": "2026-11-26T15:04:49+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/san-silvestre-eldense: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/san-silvestre-eldense"
+  },
+  {
+   "at": "2026-11-26T15:04:40+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/san-silbestre-beasain-2026: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/san-silbestre-beasain-2026"
+  },
+  {
+   "at": "2026-11-26T15:04:31+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/lxii-nationale-nederlanden-san-silvestre-vallecana: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/lxii-nationale-nederlanden-san-silvestre-vallecana"
+  },
+  {
+   "at": "2026-11-26T15:04:22+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/lvi-circuito-noche-vieja-memorial-ramon-gil: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/lvi-circuito-noche-vieja-memorial-ramon-gil"
+  },
+  {
+   "at": "2026-11-26T15:04:13+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/b100-cursa-dels-nassos: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/b100-cursa-dels-nassos"
+  },
+  {
+   "at": "2026-11-26T15:04:04+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/5k-san-silvestre-ciudad-de-albacete-2026: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/5k-san-silvestre-ciudad-de-albacete-2026"
+  },
+  {
+   "at": "2026-11-26T15:03:55+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xxix-san-silvestre-popular-ciudad-de-leon-2026: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xxix-san-silvestre-popular-ciudad-de-leon-2026"
+  },
+  {
+   "at": "2026-11-26T15:03:45+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/amurrioko-viii-nazioarteko-krosa-viii-cross-internacional-de-amurrio: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/amurrioko-viii-nazioarteko-krosa-viii-cross-internacional-de-amurrio"
+  },
+  {
+   "at": "2026-11-26T15:03:36+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/tresmiles-de-anoeta: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/tresmiles-de-anoeta"
+  },
+  {
+   "at": "2026-11-26T15:03:27+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xlvi-cross-internacional-de-venta-de-banos: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xlvi-cross-internacional-de-venta-de-banos"
+  },
+  {
+   "at": "2026-11-26T15:03:18+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/lxii-urbana-internacional-iurreta-10k: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/lxii-urbana-internacional-iurreta-10k"
+  },
+  {
+   "at": "2026-11-26T15:03:09+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/47-edicion-media-maraton-sevilla-los-palacios: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/47-edicion-media-maraton-sevilla-los-palacios"
+  },
+  {
+   "at": "2026-11-26T15:03:00+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/v-trofeu-nadal: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/v-trofeu-nadal"
+  },
+  {
+   "at": "2026-11-26T15:02:51+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-de-short-track-sub-20-por-clubes-trofeo-antonio-ferrer-1: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-de-short-track-sub-20-por-clubes-trofeo-antonio-ferrer-1"
+  },
+  {
+   "at": "2026-11-26T15:02:42+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/x-gran-premio-de-marcha-ciudad-de-castro-urdiales: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/x-gran-premio-de-marcha-ciudad-de-castro-urdiales"
+  },
+  {
+   "at": "2026-11-26T15:02:33+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/viii-cross-nacional-aniversario-alcala-patrimonio-mundial: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/viii-cross-nacional-aniversario-alcala-patrimonio-mundial"
+  },
+  {
+   "at": "2026-11-26T15:02:24+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/medio-maraton-de-sevilla-2: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/medio-maraton-de-sevilla-2"
+  },
+  {
+   "at": "2026-11-26T15:02:15+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/campeonato-de-europa-de-campo-traves-1: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/campeonato-de-europa-de-campo-traves-1"
+  },
+  {
+   "at": "2026-11-26T15:02:06+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-de-marcha-de-invierno-de-promocion-y-10-km-master-0: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-de-marcha-de-invierno-de-promocion-y-10-km-master-0"
+  },
+  {
+   "at": "2026-11-26T15:01:57+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/40-media-maraton-de-cordoba: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/40-media-maraton-de-cordoba"
+  },
+  {
+   "at": "2026-11-26T15:01:48+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/2a-maraton-internacional-elche-alicante-42k: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/2a-maraton-internacional-elche-alicante-42k"
+  },
+  {
+   "at": "2026-11-26T15:01:39+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/24-hores-dultrafons-en-pista-de-barcelona-1: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/24-hores-dultrafons-en-pista-de-barcelona-1"
+  },
+  {
+   "at": "2026-11-26T15:01:30+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/liv-cross-nacional-ayuntamiento-de-cantimpalos: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/liv-cross-nacional-ayuntamiento-de-cantimpalos"
+  },
+  {
+   "at": "2026-11-26T15:01:21+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xlvii-memorial-belarmino-alonso-de-campo-traves: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xlvii-memorial-belarmino-alonso-de-campo-traves"
+  },
+  {
+   "at": "2026-11-26T15:01:12+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/maraton-valencia-trinidad-alfonso-zurich: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/maraton-valencia-trinidad-alfonso-zurich"
+  },
+  {
+   "at": "2026-11-26T15:01:03+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-de-short-track-master-por-clubes: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-de-short-track-master-por-clubes"
+  },
+  {
+   "at": "2026-11-26T15:00:54+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xxviii-trofeo-de-marcha-asoc-deportiva-cerro-buenavista: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xxviii-trofeo-de-marcha-asoc-deportiva-cerro-buenavista"
+  },
+  {
+   "at": "2026-11-26T15:00:45+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/carrera-internacional-desde-santurce-bilbao: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/carrera-internacional-desde-santurce-bilbao"
+  },
+  {
+   "at": "2026-11-26T15:00:35+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/103-allianz-jean-bouin: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/103-allianz-jean-bouin"
+  },
+  {
+   "at": "2026-11-26T15:00:26+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-de-short-track-sub-16-por-clubes: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-de-short-track-sub-16-por-clubes"
+  },
+  {
+   "at": "2026-11-26T15:00:17+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-master-por-clubes-mixto: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-master-por-clubes-mixto"
+  },
+  {
+   "at": "2026-11-26T15:00:08+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/3-dias-trail-ibiza-ultra-ibiza-2: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/3-dias-trail-ibiza-ultra-ibiza-2"
+  },
+  {
+   "at": "2026-11-26T14:59:59+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/zara-athleticz-speed-run-1: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/zara-athleticz-speed-run-1"
+  },
+  {
+   "at": "2026-11-26T14:59:50+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xxii-cross-internacional-de-atapuerca: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xxii-cross-internacional-de-atapuerca"
+  },
+  {
+   "at": "2026-11-26T14:59:41+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/campeonato-de-gipuzkoa-de-maraton-47o-zurich-maraton-de-san-sebastian: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/campeonato-de-gipuzkoa-de-maraton-47o-zurich-maraton-de-san-sebastian"
+  },
+  {
+   "at": "2026-11-26T14:59:32+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xviii-edicion-media-maraton-gran-canaria-memorial-alcalde-camilo-sanchez-2026: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xviii-edicion-media-maraton-gran-canaria-memorial-alcalde-camilo-sanchez-2026"
+  },
+  {
+   "at": "2026-11-26T14:59:23+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/vi-reunion-nacional-de-marcha-atletica-villa-de-valverde-isla-de-el-hierro: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/vi-reunion-nacional-de-marcha-atletica-villa-de-valverde-isla-de-el-hierro"
+  },
+  {
+   "at": "2026-11-26T14:59:14+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/benidorm-half-2: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/benidorm-half-2"
+  },
+  {
+   "at": "2026-11-26T14:59:05+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xxxii-cross-internacional-de-soria: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xxxii-cross-internacional-de-soria"
+  },
+  {
+   "at": "2026-11-26T14:58:56+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xxvii-medio-maraton-nacional-orihuela-monumental: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xxvii-medio-maraton-nacional-orihuela-monumental"
+  },
+  {
+   "at": "2026-11-26T14:58:47+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xlv-carreira-internacional-clasica-negreira: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xlv-carreira-internacional-clasica-negreira"
+  },
+  {
+   "at": "2026-11-26T14:58:38+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xli-edicion-cross-nacional-llodio: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xli-edicion-cross-nacional-llodio"
+  },
+  {
+   "at": "2026-11-26T14:58:29+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xiv-media-maraton-y-10k-melilla-ciudad-del-deporte: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xiv-media-maraton-y-10k-melilla-ciudad-del-deporte"
+  },
+  {
+   "at": "2026-11-26T14:58:20+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xii-media-maraton-de-tenerife: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xii-media-maraton-de-tenerife"
+  },
+  {
+   "at": "2026-11-26T14:58:11+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/media-maraton-ciudad-de-jaen-y-10k-en-memoria-de-paco-manzaneda: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/media-maraton-ciudad-de-jaen-y-10k-en-memoria-de-paco-manzaneda"
+  },
+  {
+   "at": "2026-11-26T14:58:02+01:00",
+   "level": "warning",
+   "source": "rfea_detail",
+   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-5-km-master: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-5-km-master"
+  },
+  {
+   "at": "2026-11-26T14:57:19+01:00",
+   "level": "error",
+   "source": "rfea_calendar",
+   "msg": "HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario",
+   "detail": "Traceback (most recent call last):\n  File \"/home/runner/work/calledoss/calledoss/pipeline/common.py\", line 212, in run\n    result = fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/sources/rfea.py\", line 131, in calendar\n    ids = season_ids(http)\n          ^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/sources/rfea.py\", line 38, in season_ids\n    r = http.get(BASE + \"/calendario\")\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nrequests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario\n"
+  },
   {
    "at": "2026-11-26T03:08:23+01:00",
    "level": "warning",
@@ -291,354 +636,7 @@
    "level": "warning",
    "source": "rfea_detail",
    "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/amurrioko-viii-nazioarteko-krosa-viii-cross-internacional-de-amurrio: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/amurrioko-viii-nazioarteko-krosa-viii-cross-internacional-de-amurrio"
-  },
-  {
-   "at": "2026-11-24T16:02:06+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/tresmiles-de-anoeta: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/tresmiles-de-anoeta"
-  },
-  {
-   "at": "2026-11-24T16:01:57+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xlvi-cross-internacional-de-venta-de-banos: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xlvi-cross-internacional-de-venta-de-banos"
-  },
-  {
-   "at": "2026-11-24T16:01:48+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/lxii-urbana-internacional-iurreta-10k: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/lxii-urbana-internacional-iurreta-10k"
-  },
-  {
-   "at": "2026-11-24T16:01:39+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/47-edicion-media-maraton-sevilla-los-palacios: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/47-edicion-media-maraton-sevilla-los-palacios"
-  },
-  {
-   "at": "2026-11-24T16:01:30+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/v-trofeu-nadal: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/v-trofeu-nadal"
-  },
-  {
-   "at": "2026-11-24T16:01:21+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-de-short-track-sub-20-por-clubes-trofeo-antonio-ferrer-1: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-de-short-track-sub-20-por-clubes-trofeo-antonio-ferrer-1"
-  },
-  {
-   "at": "2026-11-24T16:01:12+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/x-gran-premio-de-marcha-ciudad-de-castro-urdiales: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/x-gran-premio-de-marcha-ciudad-de-castro-urdiales"
-  },
-  {
-   "at": "2026-11-24T16:01:03+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/viii-cross-nacional-aniversario-alcala-patrimonio-mundial: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/viii-cross-nacional-aniversario-alcala-patrimonio-mundial"
-  },
-  {
-   "at": "2026-11-24T16:00:54+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/medio-maraton-de-sevilla-2: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/medio-maraton-de-sevilla-2"
-  },
-  {
-   "at": "2026-11-24T16:00:45+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/campeonato-de-europa-de-campo-traves-1: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/campeonato-de-europa-de-campo-traves-1"
-  },
-  {
-   "at": "2026-11-24T16:00:36+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-de-marcha-de-invierno-de-promocion-y-10-km-master-0: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-de-marcha-de-invierno-de-promocion-y-10-km-master-0"
-  },
-  {
-   "at": "2026-11-24T16:00:27+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/40-media-maraton-de-cordoba: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/40-media-maraton-de-cordoba"
-  },
-  {
-   "at": "2026-11-24T16:00:17+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/2a-maraton-internacional-elche-alicante-42k: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/2a-maraton-internacional-elche-alicante-42k"
-  },
-  {
-   "at": "2026-11-24T16:00:08+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/24-hores-dultrafons-en-pista-de-barcelona-1: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/24-hores-dultrafons-en-pista-de-barcelona-1"
-  },
-  {
-   "at": "2026-11-24T15:59:59+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/liv-cross-nacional-ayuntamiento-de-cantimpalos: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/liv-cross-nacional-ayuntamiento-de-cantimpalos"
-  },
-  {
-   "at": "2026-11-24T15:59:50+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xlvii-memorial-belarmino-alonso-de-campo-traves: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xlvii-memorial-belarmino-alonso-de-campo-traves"
-  },
-  {
-   "at": "2026-11-24T15:59:41+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/maraton-valencia-trinidad-alfonso-zurich: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/maraton-valencia-trinidad-alfonso-zurich"
-  },
-  {
-   "at": "2026-11-24T15:59:32+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-de-short-track-master-por-clubes: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-de-short-track-master-por-clubes"
-  },
-  {
-   "at": "2026-11-24T15:59:23+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xxviii-trofeo-de-marcha-asoc-deportiva-cerro-buenavista: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xxviii-trofeo-de-marcha-asoc-deportiva-cerro-buenavista"
-  },
-  {
-   "at": "2026-11-24T15:59:14+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/carrera-internacional-desde-santurce-bilbao: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/carrera-internacional-desde-santurce-bilbao"
-  },
-  {
-   "at": "2026-11-24T15:59:05+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/103-allianz-jean-bouin: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/103-allianz-jean-bouin"
-  },
-  {
-   "at": "2026-11-24T15:58:56+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-de-short-track-sub-16-por-clubes: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-de-short-track-sub-16-por-clubes"
-  },
-  {
-   "at": "2026-11-24T15:58:47+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-master-por-clubes-mixto: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-master-por-clubes-mixto"
-  },
-  {
-   "at": "2026-11-24T15:58:38+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/3-dias-trail-ibiza-ultra-ibiza-2: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/3-dias-trail-ibiza-ultra-ibiza-2"
-  },
-  {
-   "at": "2026-11-24T15:58:29+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/zara-athleticz-speed-run-1: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/zara-athleticz-speed-run-1"
-  },
-  {
-   "at": "2026-11-24T15:58:19+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xxii-cross-internacional-de-atapuerca: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xxii-cross-internacional-de-atapuerca"
-  },
-  {
-   "at": "2026-11-24T15:58:10+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/campeonato-de-gipuzkoa-de-maraton-47o-zurich-maraton-de-san-sebastian: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/campeonato-de-gipuzkoa-de-maraton-47o-zurich-maraton-de-san-sebastian"
-  },
-  {
-   "at": "2026-11-24T15:58:01+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xviii-edicion-media-maraton-gran-canaria-memorial-alcalde-camilo-sanchez-2026: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xviii-edicion-media-maraton-gran-canaria-memorial-alcalde-camilo-sanchez-2026"
-  },
-  {
-   "at": "2026-11-24T15:57:52+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/vi-reunion-nacional-de-marcha-atletica-villa-de-valverde-isla-de-el-hierro: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/vi-reunion-nacional-de-marcha-atletica-villa-de-valverde-isla-de-el-hierro"
-  },
-  {
-   "at": "2026-11-24T15:57:43+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/benidorm-half-2: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/benidorm-half-2"
-  },
-  {
-   "at": "2026-11-24T15:57:34+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xxxii-cross-internacional-de-soria: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xxxii-cross-internacional-de-soria"
-  },
-  {
-   "at": "2026-11-24T15:57:25+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xxvii-medio-maraton-nacional-orihuela-monumental: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xxvii-medio-maraton-nacional-orihuela-monumental"
-  },
-  {
-   "at": "2026-11-24T15:57:16+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xlv-carreira-internacional-clasica-negreira: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xlv-carreira-internacional-clasica-negreira"
-  },
-  {
-   "at": "2026-11-24T15:57:07+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xli-edicion-cross-nacional-llodio: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xli-edicion-cross-nacional-llodio"
-  },
-  {
-   "at": "2026-11-24T15:56:58+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xiv-media-maraton-y-10k-melilla-ciudad-del-deporte: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xiv-media-maraton-y-10k-melilla-ciudad-del-deporte"
-  },
-  {
-   "at": "2026-11-24T15:56:49+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xii-media-maraton-de-tenerife: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xii-media-maraton-de-tenerife"
-  },
-  {
-   "at": "2026-11-24T15:56:40+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/media-maraton-ciudad-de-jaen-y-10k-en-memoria-de-paco-manzaneda: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/media-maraton-ciudad-de-jaen-y-10k-en-memoria-de-paco-manzaneda"
-  },
-  {
-   "at": "2026-11-24T15:56:31+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-5-km-master: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/campeonato-de-espana-5-km-master"
-  },
-  {
-   "at": "2026-11-24T15:55:48+01:00",
-   "level": "error",
-   "source": "rfea_calendar",
-   "msg": "HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario",
-   "detail": "Traceback (most recent call last):\n  File \"/home/runner/work/calledoss/calledoss/pipeline/common.py\", line 212, in run\n    result = fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/sources/rfea.py\", line 131, in calendar\n    ids = season_ids(http)\n          ^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/sources/rfea.py\", line 38, in season_ids\n    r = http.get(BASE + \"/calendario\")\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nrequests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario\n"
-  },
-  {
-   "at": "2026-11-24T06:18:13+01:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de 'Zara Athleticz Speed Run': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-11-24T06:17:16+01:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de 'XXXII Cross Internacional de Soria': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-11-24T06:15:10+01:00",
-   "level": "error",
-   "source": "rfea_results",
-   "msg": "HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/atletismo-plus/categoria/resultados",
-   "detail": "Traceback (most recent call last):\n  File \"/home/runner/work/calledoss/calledoss/pipeline/common.py\", line 212, in run\n    result = fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/results.py\", line 229, in rfea_pdf_index\n    for link in rfea.results_index(http):\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/sources/rfea.py\", line 239, in results_index\n    soup = BeautifulSoup(http.get(url).text, \"lxml\")\n                         ^^^^^^^^^^^^^\nrequests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/atletismo-plus/categoria/resultados\n"
-  },
-  {
-   "at": "2026-11-23T21:59:07+01:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de 'Zara Athleticz Speed Run': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-11-23T21:57:00+01:00",
-   "level": "error",
-   "source": "rfea_results",
-   "msg": "HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/atletismo-plus/categoria/resultados",
-   "detail": "Traceback (most recent call last):\n  File \"/home/runner/work/calledoss/calledoss/pipeline/common.py\", line 212, in run\n    result = fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/results.py\", line 229, in rfea_pdf_index\n    for link in rfea.results_index(http):\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/sources/rfea.py\", line 239, in results_index\n    soup = BeautifulSoup(http.get(url).text, \"lxml\")\n                         ^^^^^^^^^^^^^\nrequests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/atletismo-plus/categoria/resultados\n"
-  },
-  {
-   "at": "2026-11-23T16:19:10+01:00",
-   "level": "error",
-   "source": "ranking",
-   "msg": "HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/options/ranking/2026/AL/145/0/2/",
-   "detail": "Traceback (most recent call last):\n  File \"/home/runner/work/calledoss/calledoss/pipeline/common.py\", line 212, in run\n    result = fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/ranking.py\", line 167, in run\n    for key, label in event_options(http, season, sex):\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/ranking.py\", line 33, in event_options\n    r = http.get(\"%s/options/ranking/%s/%s/%d/0/%d/\" % (BASE, season, kind, CAT[sex], GENDER[sex]))\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nrequests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/options/ranking/2026/AL/145/0/2/\n"
-  },
-  {
-   "at": "2026-11-23T15:58:21+01:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de 'Zara Athleticz Speed Run': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-11-23T15:56:39+01:00",
-   "level": "warning",
-   "source": "results",
-   "msg": "Búsqueda de podios de 'XXXII Cross Internacional de Soria': expected string or bytes-like object, got 'list'"
-  },
-  {
-   "at": "2026-11-23T15:54:42+01:00",
-   "level": "error",
-   "source": "rfea_results",
-   "msg": "HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/atletismo-plus/categoria/resultados",
-   "detail": "Traceback (most recent call last):\n  File \"/home/runner/work/calledoss/calledoss/pipeline/common.py\", line 212, in run\n    result = fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/results.py\", line 229, in rfea_pdf_index\n    for link in rfea.results_index(http):\n                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/calledoss/calledoss/pipeline/sources/rfea.py\", line 239, in results_index\n    soup = BeautifulSoup(http.get(url).text, \"lxml\")\n                         ^^^^^^^^^^^^^\nrequests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://atletismorfea.es/atletismo-plus/categoria/resultados\n"
-  },
-  {
-   "at": "2026-11-23T15:53:28+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xl-san-silvestre-internacional-crevillentina-2026: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xl-san-silvestre-internacional-crevillentina-2026"
-  },
-  {
-   "at": "2026-11-23T15:53:19+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/san-silvestre-de-las-palmas-de-gran-canaria-2026: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/san-silvestre-de-las-palmas-de-gran-canaria-2026"
-  },
-  {
-   "at": "2026-11-23T15:53:10+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/san-silvestre-eldense: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/san-silvestre-eldense"
-  },
-  {
-   "at": "2026-11-23T15:53:01+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/san-silbestre-beasain-2026: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/san-silbestre-beasain-2026"
-  },
-  {
-   "at": "2026-11-23T15:52:52+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/lxii-nationale-nederlanden-san-silvestre-vallecana: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/lxii-nationale-nederlanden-san-silvestre-vallecana"
-  },
-  {
-   "at": "2026-11-23T15:52:43+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/lvi-circuito-noche-vieja-memorial-ramon-gil: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/lvi-circuito-noche-vieja-memorial-ramon-gil"
-  },
-  {
-   "at": "2026-11-23T15:52:34+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/b100-cursa-dels-nassos: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/b100-cursa-dels-nassos"
-  },
-  {
-   "at": "2026-11-23T15:52:24+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/5k-san-silvestre-ciudad-de-albacete-2026: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/5k-san-silvestre-ciudad-de-albacete-2026"
-  },
-  {
-   "at": "2026-11-23T15:52:15+01:00",
-   "level": "warning",
-   "source": "rfea_detail",
-   "msg": "No pude leer la ficha https://atletismorfea.es/calendario/campeonato/xxix-san-silvestre-popular-ciudad-de-leon-2026: 403 Client Error: Forbidden for url: https://atletismorfea.es/calendario/campeonato/xxix-san-silvestre-popular-ciudad-de-leon-2026"
   }
  ],
- "updated": "2026-11-26T03:08:24+01:00"
+ "updated": "2026-11-26T15:34:14+01:00"
 }
