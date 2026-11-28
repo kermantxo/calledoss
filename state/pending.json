@@ -41,22 +41,42 @@
  },
  "rfea-2026-11-21-benidorm-half-2": {
   "since": "2026-11-21",
-  "tries": 16,
-  "last": "2026-11-27"
+  "tries": 17,
+  "last": "2026-11-28"
  },
  "rfea-2026-11-21-xviii-edicion-media-maraton-gran-canaria-memorial-alcalde-ca": {
   "since": "2026-11-21",
-  "tries": 16,
-  "last": "2026-11-27"
+  "tries": 17,
+  "last": "2026-11-28"
  },
  "rfea-2026-11-22-zara-athleticz-speed-run-1": {
   "since": "2026-11-22",
-  "tries": 14,
-  "last": "2026-11-27"
+  "tries": 15,
+  "last": "2026-11-28"
  },
  "rfea-2026-11-22-campeonato-de-gipuzkoa-de-maraton-47o-zurich-maraton-de-san-": {
   "since": "2026-11-22",
-  "tries": 13,
-  "last": "2026-11-27"
+  "tries": 14,
+  "last": "2026-11-28"
+ },
+ "rfea-2026-11-28-3-dias-trail-ibiza-ultra-ibiza-2": {
+  "since": "2026-11-28",
+  "tries": 1,
+  "last": "2026-11-28"
+ },
+ "rfea-2026-11-28-campeonato-de-espana-master-por-clubes-mixto": {
+  "since": "2026-11-28",
+  "tries": 1,
+  "last": "2026-11-28"
+ },
+ "rfea-2026-11-28-campeonato-de-espana-de-short-track-sub-16-por-clubes": {
+  "since": "2026-11-28",
+  "tries": 1,
+  "last": "2026-11-28"
+ },
+ "avaibook-xxxiv-cross-ciudad-de-duenas": {
+  "since": "2026-11-28",
+  "tries": 1,
+  "last": "2026-11-28"
  }
 }
