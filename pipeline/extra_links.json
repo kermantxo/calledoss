@@ -3010,5 +3010,11 @@
  "rfea-2026-11-29-carrera-internacional-desde-santurce-bilbao": {
   "time": "11:00",
   "_fuente_horario": "ADOC (24/11/2026): salida a las 11:00"
+ },
+ "rfea-2026-11-28-campeonato-de-espana-master-por-clubes-mixto": {
+  "directo": "https://smarttrackrfea.es/sch/202665596"
+ },
+ "rfea-2026-11-28-campeonato-de-espana-de-short-track-sub-16-por-clubes": {
+  "directo": "https://smarttrackrfea.es/sch/2026AND65598"
  }
 }
