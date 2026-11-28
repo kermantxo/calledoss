@@ -147,7 +147,8 @@ def tick(http, health, force=False):
         if data and (data.get("events") or data.get("schedule")):
             # aunque aún no haya pruebas terminadas, se enseña el horario de las próximas y el contador
             st["data"] = data
-            st["status"] = "en directo" if (data.get("events") or started) else st["status"]
+            en_marcha = any(t.get("state") == "en marcha" for t in data.get("timeline") or [])
+            st["status"] = "en directo" if (data.get("events") or started or en_marcha) else st["status"]
             st["updated"] = iso_now()
         elif started:
             st["status"] = "en directo"  # en marcha, aunque el cronometrador aún no haya publicado nada
@@ -350,10 +351,21 @@ def _poll_one(http, it, at, lv):
             # con la hora en la clave: en combinadas hay pruebas con el mismo nombre a distinta hora
             # (p. ej. «Peso F45» del pentatlón a las 10:55 y del heptatlón a las 18:10)
             por_prueba = {(x["name"], x["round"], x["time"]): x["rows"] for x in events}
+            # en marcha (concursos ronda a ronda, carreras según llegan): la clasificación del momento
+            en_curso = {}
+            for e in today_evs:
+                if not e["done"] and e.get("started") and e.get("key"):
+                    try:
+                        rows = smarttrack.live_rows(http, e["key"])
+                    except Exception:
+                        rows = []
+                    if rows:
+                        en_curso[(e["event"], e["round"], e["time"])] = rows
             timeline = [{"time": e["time"], "event": e["event"], "round": e["round"],
                          "state": "oficial" if (e["event"], e["round"], e["time"]) in por_prueba else
-                         ("en marcha" if e["time"] and e["time"].zfill(5) <= at.strftime("%H:%M") else "pendiente"),
-                         "rows": por_prueba.get((e["event"], e["round"], e["time"]), [])} for e in today_evs]
+                         ("en marcha" if (e.get("started") or (e["time"] and e["time"].zfill(5) <= at.strftime("%H:%M"))) else "pendiente"),
+                         "rows": por_prueba.get((e["event"], e["round"], e["time"])) or en_curso.get((e["event"], e["round"], e["time"]), [])}
+                        for e in today_evs]
             return {"events": events, "timeline": timeline, "schedule": [{"time": e["time"], "event": e["event"], "round": e["round"],
                                                     "status": e["status"] or "Por disputar"} for e in nxt],
                     "done": len(done), "total": len(today_evs),
